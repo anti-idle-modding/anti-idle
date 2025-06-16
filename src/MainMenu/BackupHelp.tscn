@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://drp2bbdfbpisl"]
+[gd_scene load_steps=6 format=3 uid="uid://drp2bbdfbpisl"]
 
 [ext_resource type="Script" uid="uid://ew6jb13bjx84" path="res://src/MainMenu/BackupHelp.cs" id="1_kd7jv"]
+[ext_resource type="Script" uid="uid://c082paxpv5pfu" path="res://src/MainMenu/GenerateSaveLocation.cs" id="4_0tqg1"]
 [ext_resource type="FontFile" uid="uid://dlp7fy0ywsxnl" path="res://common_assets/fonts/McLaren-Regular.ttf" id="6_i3ad3"]
 [ext_resource type="PackedScene" uid="uid://ck2ne06bfn6sn" path="res://src/MainMenu/FlatButton2.tscn" id="13_xo1nb"]
 
@@ -18,7 +19,7 @@ grow_vertical = 2
 mouse_default_cursor_shape = 2
 script = ExtResource("1_kd7jv")
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="Bg" type="ColorRect" parent="."]
 layout_mode = 0
 offset_left = -1.0
 offset_right = 649.0
@@ -167,13 +168,26 @@ offset_top = 342.0
 offset_right = -61.3
 offset_bottom = 322.05
 
-[node name="Button" parent="Container" index="0"]
+[node name="Button" parent="Container" index="0" node_paths=PackedStringArray("helpText")]
 modulate = Color(0.5, 1.297, 1.5, 1)
+script = ExtResource("4_0tqg1")
+helpText = NodePath("../../HelpText")
 
 [node name="Label" parent="Container" index="1"]
 theme_override_colors/font_color = Color(0.8, 1, 1, 1)
 theme_override_fonts/font = ExtResource("6_i3ad3")
 theme_override_font_sizes/font_size = 12
 text = "Click here"
+
+[node name="HelpText" type="RichTextLabel" parent="."]
+layout_mode = 2
+offset_left = 117.0
+offset_top = 343.0
+offset_right = 748.0
+offset_bottom = 367.0
+theme_override_colors/default_color = Color(0.784314, 0.882353, 0.980392, 1)
+theme_override_fonts/normal_font = ExtResource("6_i3ad3")
+theme_override_font_sizes/normal_font_size = 12
+scroll_active = false
 
 [editable path="Container"]
