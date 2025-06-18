@@ -16,9 +16,9 @@
 [ext_resource type="Script" uid="uid://pd6lauisd21m" path="res://src/MainMenu/File3Select.cs" id="10_6scwk"]
 [ext_resource type="PackedScene" uid="uid://bv1pxfu7iy7jw" path="res://src/MainMenu/challenge_button.tscn" id="11_6scwk"]
 [ext_resource type="PackedScene" uid="uid://ck2ne06bfn6sn" path="res://src/MainMenu/FlatButton2.tscn" id="13_k4wgw"]
-[ext_resource type="Script" uid="uid://c5nqbp6i5llxo" path="res://src/MainMenu/BackupHelpButton.cs" id="14_k4wgw"]
+[ext_resource type="Script" uid="uid://c5nqbp6i5llxo" path="res://src/MainMenu/Popup/BackupHelpButton.cs" id="14_k4wgw"]
 [ext_resource type="Script" uid="uid://bgcbpyi2deq3i" path="res://src/MainMenu/AwesomeButton.cs" id="14_ypdof"]
-[ext_resource type="PackedScene" uid="uid://drp2bbdfbpisl" path="res://src/MainMenu/BackupHelp.tscn" id="19_0vb0y"]
+[ext_resource type="Script" uid="uid://c5ahmxs2w5th2" path="res://src/Common/Nodes/SceneManager.cs" id="19_4j8vg"]
 
 [sub_resource type="FontVariation" id="FontVariation_70h2t"]
 base_font = ExtResource("4_70h2t")
@@ -263,10 +263,10 @@ theme_override_constants/separation = 30
 custom_minimum_size = Vector2(120, 0)
 layout_mode = 2
 
-[node name="Button" parent="Button/SmallButtonContainer/BackupHelpButton" index="0" node_paths=PackedStringArray("mainMenu")]
+[node name="Button" parent="Button/SmallButtonContainer/BackupHelpButton" index="0" node_paths=PackedStringArray("popup")]
 modulate = Color(0.5, 0.5, 0.5, 1)
 script = ExtResource("14_k4wgw")
-mainMenu = NodePath("../../../..")
+popup = NodePath("../../../../Popup")
 
 [node name="Label" parent="Button/SmallButtonContainer/BackupHelpButton" index="1"]
 offset_top = -1.0
@@ -486,10 +486,13 @@ color = Color(1, 1, 1, 0.501961)
 script = ExtResource("8_uy7kt")
 metadata/_custom_type_script = "uid://b51w8aatefpfa"
 
-[node name="BackupHelp" parent="." instance=ExtResource("19_0vb0y")]
-visible = false
-z_index = 1
-layout_mode = 1
+[node name="Popup" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("19_4j8vg")
+scenesFolder = "res://src/MainMenu/Popup"
+metadata/_custom_type_script = "uid://c5ahmxs2w5th2"
 
 [editable path="Button/SaveFileContainer/SaveButton1"]
 [editable path="Button/SaveFileContainer/SaveButton2"]
