@@ -6,9 +6,6 @@ namespace AntiIdle.Common.Nodes;
 [GlobalClass]
 public partial class SceneData : Node
 {
-    [Export]
-    public string sceneName;
-
     public SceneManager m;
 
     public void Show(string sceneName)

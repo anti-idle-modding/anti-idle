@@ -1,3 +1,4 @@
+using AntiIdle.Common.Nodes;
 using Godot;
 using System;
 
@@ -31,6 +32,9 @@ public partial class MainMenu : Control
     [Export]
     public Label challengesDone;
 
+    [Export]
+    public SceneManager challengeMode;
+
     // MATCH: frame_11/DoAction.as:loadKongpanion()
     public void loadKongpanion()
     {
@@ -39,6 +43,8 @@ public partial class MainMenu : Control
 
     public override void _EnterTree()
     {
+        _root.challengeMode = challengeMode;
+
         _root.actualKpaCount = 0;
         _root.actualShinyKpaCount = 0;
         var testVersion = false;

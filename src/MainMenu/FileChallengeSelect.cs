@@ -38,11 +38,12 @@ public partial class FileChallengeSelect : FlashButton
     // MATCH: frame_11/PlaceObject2_2379_64/CLIPACTIONRECORD on(release).as
     public override void _Input(InputEvent @event)
     {
-        if (Input.IsMouseButtonPressed(MouseButton.Left) && _xmouse >= 0 && _xmouse < 120 && _ymouse >= 0 && _ymouse < 80)
+        if (Input.IsMouseButtonPressed(MouseButton.Left))
         {
-            if(_root.saveGlobal.challengeUnlocked == true)
+            // TODO: code in challenge unlock check
+            if (/* _root.saveGlobal.challengeUnlocked == true */ true)
             {
-                if(_root.saveGlobal.selectedSave != 5)
+                if (_root.saveGlobal.selectedSave != 5)
                 {
                     _root.saveGlobal.selectedSave = 5;
                 }

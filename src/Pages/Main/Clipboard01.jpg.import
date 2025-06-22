@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://fhultgp2i54s"
-path="res://.godot/imported/backup-wireframe.jpg-1777710cfb7341ab8cb6f9b56c4c97d0.ctex"
+uid="uid://b4muti1ynopm5"
+path="res://.godot/imported/Clipboard01.jpg-26329174cd5ab8c71fac7587e9fae4a5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://common_assets/backup-wireframe.jpg"
-dest_files=["res://.godot/imported/backup-wireframe.jpg-1777710cfb7341ab8cb6f9b56c4c97d0.ctex"]
+source_file="res://src/Pages/Main/Clipboard01.jpg"
+dest_files=["res://.godot/imported/Clipboard01.jpg-26329174cd5ab8c71fac7587e9fae4a5.ctex"]
 
 [params]
 

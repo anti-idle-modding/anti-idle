@@ -13,8 +13,8 @@ config_version=5
 config/name="aitg"
 run/main_scene="uid://cin6024e2i0aa"
 config/features=PackedStringArray("4.4", "C#", "Forward Plus")
-run/max_fps=40
 config/icon="res://icon.svg"
+run/vsync/vsync_mode=1
 
 [display]
 
@@ -23,7 +23,6 @@ window/size/viewport_height=650
 window/energy_saving/keep_screen_on=false
 window/stretch/mode="canvas_items"
 display_server/driver.linuxbsd="wayland"
-window/vsync/vsync_mode=0
 
 [dotnet]
 

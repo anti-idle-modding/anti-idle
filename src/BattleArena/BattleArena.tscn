@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://7g0rfg10i0f"]
+
+[ext_resource type="Script" uid="uid://bl3rpgkqknbk7" path="res://src/Common/Nodes/SceneData.cs" id="1_3mr7j"]
+[ext_resource type="Texture2D" uid="uid://j650gjmdjgq2" path="res://src/BattleArena/3324.png" id="2_ex54e"]
+
+[node name="BattleArena" type="Node"]
+script = ExtResource("1_3mr7j")
+metadata/_custom_type_script = "uid://bl3rpgkqknbk7"
+
+[node name="ReferenceRect" type="ReferenceRect" parent="."]
+offset_right = 500.0
+offset_bottom = 350.0
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 500.0
+offset_bottom = 350.0
+
+[node name="Pub" type="Sprite2D" parent="."]
+position = Vector2(250, 100)
+scale = Vector2(5, 5)
+texture = ExtResource("2_ex54e")

@@ -1,9 +1,7 @@
-[gd_scene load_steps=32 format=3 uid="uid://cre5l5kp4b0lu"]
+[gd_scene load_steps=34 format=3 uid="uid://cre5l5kp4b0lu"]
 
-[ext_resource type="Texture2D" uid="uid://dkclrfo3ark4s" path="res://src/MainMenu/Screenshot_20250529_143824.png" id="1_ah704"]
 [ext_resource type="Texture2D" uid="uid://b21mnu2f4lbk8" path="res://src/MainMenu/MenuBg.png" id="1_cttlv"]
 [ext_resource type="Script" uid="uid://2k0roc3i7bmg" path="res://src/MainMenu/MainMenu.cs" id="1_e1bcd"]
-[ext_resource type="Texture2D" uid="uid://desp1jwp37qpj" path="res://common_assets/backup.jpg" id="2_e1bcd"]
 [ext_resource type="Texture2D" uid="uid://dafk348bgy32y" path="res://src/MainMenu/Logo.png" id="2_ipfen"]
 [ext_resource type="FontFile" uid="uid://dlp7fy0ywsxnl" path="res://common_assets/fonts/McLaren-Regular.ttf" id="4_70h2t"]
 [ext_resource type="Script" uid="uid://bfc5o6txmvqe8" path="res://src/MainMenu/File0Select.cs" id="5_22hij"]
@@ -16,9 +14,13 @@
 [ext_resource type="Script" uid="uid://pd6lauisd21m" path="res://src/MainMenu/File3Select.cs" id="10_6scwk"]
 [ext_resource type="PackedScene" uid="uid://bv1pxfu7iy7jw" path="res://src/MainMenu/challenge_button.tscn" id="11_6scwk"]
 [ext_resource type="PackedScene" uid="uid://ck2ne06bfn6sn" path="res://src/MainMenu/FlatButton2.tscn" id="13_k4wgw"]
-[ext_resource type="Script" uid="uid://c5nqbp6i5llxo" path="res://src/MainMenu/Popup/BackupHelpButton.cs" id="14_k4wgw"]
+[ext_resource type="Script" uid="uid://c5nqbp6i5llxo" path="res://src/MainMenu/BackupHelpButton.cs" id="14_k4wgw"]
 [ext_resource type="Script" uid="uid://bgcbpyi2deq3i" path="res://src/MainMenu/AwesomeButton.cs" id="14_ypdof"]
+[ext_resource type="Script" uid="uid://bwlxd6quecq4k" path="res://src/MainMenu/CreditsButton.cs" id="15_4j8vg"]
 [ext_resource type="Script" uid="uid://c5ahmxs2w5th2" path="res://src/Common/Nodes/SceneManager.cs" id="19_4j8vg"]
+[ext_resource type="PackedScene" uid="uid://drp2bbdfbpisl" path="res://src/MainMenu/Popup/BackupHelp.tscn" id="19_hgdfc"]
+[ext_resource type="PackedScene" uid="uid://bmp2m6xwbgqy5" path="res://src/MainMenu/Popup/Credits.tscn" id="20_nxksq"]
+[ext_resource type="PackedScene" uid="uid://dtb71bw3opbn0" path="res://src/MainMenu/Challenges/Challenges.tscn" id="21_hgdfc"]
 
 [sub_resource type="FontVariation" id="FontVariation_70h2t"]
 base_font = ExtResource("4_70h2t")
@@ -131,7 +133,7 @@ _data = {
 &"hover": SubResource("Animation_e1bcd")
 }
 
-[node name="MainMenu" type="Control" node_paths=PackedStringArray("file0PlayTime", "file0Level", "file0Ascs", "file1PlayTime", "file1Level", "file1Ascs", "file2PlayTime", "file2Level", "file2Ascs", "file3PlayTime", "file3Level", "file3Ascs", "challengesDone")]
+[node name="MainMenu" type="Control" node_paths=PackedStringArray("file0PlayTime", "file0Level", "file0Ascs", "file1PlayTime", "file1Level", "file1Ascs", "file2PlayTime", "file2Level", "file2Ascs", "file3PlayTime", "file3Level", "file3Ascs", "challengesDone", "challengeMode")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -139,34 +141,22 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_e1bcd")
-file0PlayTime = NodePath("Button/SaveFileContainer/SaveButton1/MarginContainer/VBoxContainer/GridContainer/TimeValue")
-file0Level = NodePath("Button/SaveFileContainer/SaveButton1/MarginContainer/VBoxContainer/GridContainer/LevelValue")
-file0Ascs = NodePath("Button/SaveFileContainer/SaveButton1/MarginContainer/VBoxContainer/GridContainer/AscensionsValue")
-file1PlayTime = NodePath("Button/SaveFileContainer/SaveButton2/MarginContainer/VBoxContainer/GridContainer/TimeValue")
-file1Level = NodePath("Button/SaveFileContainer/SaveButton2/MarginContainer/VBoxContainer/GridContainer/LevelValue")
-file1Ascs = NodePath("Button/SaveFileContainer/SaveButton2/MarginContainer/VBoxContainer/GridContainer/AscensionsValue")
-file2PlayTime = NodePath("Button/SaveFileContainer/SaveButton3/MarginContainer/VBoxContainer/GridContainer/TimeValue")
-file2Level = NodePath("Button/SaveFileContainer/SaveButton3/MarginContainer/VBoxContainer/GridContainer/LevelValue")
-file2Ascs = NodePath("Button/SaveFileContainer/SaveButton3/MarginContainer/VBoxContainer/GridContainer/AscensionsValue")
-file3PlayTime = NodePath("Button/SaveFileContainer/SaveButton4/MarginContainer/VBoxContainer/GridContainer/TimeValue")
-file3Level = NodePath("Button/SaveFileContainer/SaveButton4/MarginContainer/VBoxContainer/GridContainer/LevelValue")
-file3Ascs = NodePath("Button/SaveFileContainer/SaveButton4/MarginContainer/VBoxContainer/GridContainer/AscensionsValue")
-challengesDone = NodePath("Button/SaveFileContainer/ChallengeButton/Normal/ChallengeValue")
-
-[node name="Backup" type="Sprite2D" parent="."]
-visible = false
-position = Vector2(3, 1)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("2_e1bcd")
-centered = false
-
-[node name="Screenshot20250529143824" type="Sprite2D" parent="."]
-visible = false
-position = Vector2(325, 313)
-texture = ExtResource("1_ah704")
+file0PlayTime = NodePath("Buttons/SaveFileContainer/SaveButton1/MarginContainer/VBoxContainer/GridContainer/TimeValue")
+file0Level = NodePath("Buttons/SaveFileContainer/SaveButton1/MarginContainer/VBoxContainer/GridContainer/LevelValue")
+file0Ascs = NodePath("Buttons/SaveFileContainer/SaveButton1/MarginContainer/VBoxContainer/GridContainer/AscensionsValue")
+file1PlayTime = NodePath("Buttons/SaveFileContainer/SaveButton2/MarginContainer/VBoxContainer/GridContainer/TimeValue")
+file1Level = NodePath("Buttons/SaveFileContainer/SaveButton2/MarginContainer/VBoxContainer/GridContainer/LevelValue")
+file1Ascs = NodePath("Buttons/SaveFileContainer/SaveButton2/MarginContainer/VBoxContainer/GridContainer/AscensionsValue")
+file2PlayTime = NodePath("Buttons/SaveFileContainer/SaveButton3/MarginContainer/VBoxContainer/GridContainer/TimeValue")
+file2Level = NodePath("Buttons/SaveFileContainer/SaveButton3/MarginContainer/VBoxContainer/GridContainer/LevelValue")
+file2Ascs = NodePath("Buttons/SaveFileContainer/SaveButton3/MarginContainer/VBoxContainer/GridContainer/AscensionsValue")
+file3PlayTime = NodePath("Buttons/SaveFileContainer/SaveButton4/MarginContainer/VBoxContainer/GridContainer/TimeValue")
+file3Level = NodePath("Buttons/SaveFileContainer/SaveButton4/MarginContainer/VBoxContainer/GridContainer/LevelValue")
+file3Ascs = NodePath("Buttons/SaveFileContainer/SaveButton4/MarginContainer/VBoxContainer/GridContainer/AscensionsValue")
+challengesDone = NodePath("Buttons/SaveFileContainer/ChallengeButton/Normal/ChallengeValue")
+challengeMode = NodePath("ChallengePopup")
 
 [node name="Bg" type="Sprite2D" parent="."]
-scale = Vector2(1.002, 1.002)
 texture = ExtResource("1_cttlv")
 centered = false
 
@@ -203,55 +193,85 @@ bbcode_enabled = true
 text = "[font_size=12][color=#999999]Your progress is automatically saved and is stored in your computer. Backup your savefile often!"
 horizontal_alignment = 1
 
-[node name="Button" type="Control" parent="."]
+[node name="Buttons" type="Control" parent="."]
 anchors_preset = 0
 offset_left = 15.0
 offset_top = 380.0
 offset_right = 55.0
 offset_bottom = 420.0
 
-[node name="AwesomeRect" type="ColorRect" parent="Button"]
+[node name="AwesomeRect" type="ColorRect" parent="Buttons"]
 layout_mode = 0
 offset_right = 620.0
 offset_bottom = 60.0
 color = Color(0.588235, 0.588235, 0.196078, 1)
 
-[node name="SaveFileContainer" type="HBoxContainer" parent="Button"]
+[node name="SaveFileContainer" type="HBoxContainer" parent="Buttons"]
 layout_mode = 0
 offset_top = 66.0
 offset_right = 620.0
 offset_bottom = 146.0
 theme_override_constants/separation = 5
 
-[node name="SaveButton1" parent="Button/SaveFileContainer" instance=ExtResource("5_uy7kt")]
+[node name="SaveButton1" parent="Buttons/SaveFileContainer" instance=ExtResource("5_uy7kt")]
 layout_mode = 2
 script = ExtResource("5_22hij")
 
-[node name="SaveButton2" parent="Button/SaveFileContainer" instance=ExtResource("5_uy7kt")]
+[node name="SaveButton2" parent="Buttons/SaveFileContainer" instance=ExtResource("5_uy7kt")]
 layout_mode = 2
 script = ExtResource("6_22hij")
 
-[node name="FileText" parent="Button/SaveFileContainer/SaveButton2/MarginContainer/VBoxContainer" index="0"]
+[node name="FileText" parent="Buttons/SaveFileContainer/SaveButton2/MarginContainer/VBoxContainer" index="0"]
 text = "< File 1 >"
 
-[node name="SaveButton3" parent="Button/SaveFileContainer" instance=ExtResource("5_uy7kt")]
+[node name="SaveButton3" parent="Buttons/SaveFileContainer" instance=ExtResource("5_uy7kt")]
 layout_mode = 2
 script = ExtResource("7_aeosc")
 
-[node name="FileText" parent="Button/SaveFileContainer/SaveButton3/MarginContainer/VBoxContainer" index="0"]
+[node name="FileText" parent="Buttons/SaveFileContainer/SaveButton3/MarginContainer/VBoxContainer" index="0"]
 text = "< File 2 >"
 
-[node name="SaveButton4" parent="Button/SaveFileContainer" instance=ExtResource("5_uy7kt")]
+[node name="SaveButton4" parent="Buttons/SaveFileContainer" instance=ExtResource("5_uy7kt")]
 layout_mode = 2
 script = ExtResource("10_6scwk")
 
-[node name="FileText" parent="Button/SaveFileContainer/SaveButton4/MarginContainer/VBoxContainer" index="0"]
+[node name="FileText" parent="Buttons/SaveFileContainer/SaveButton4/MarginContainer/VBoxContainer" index="0"]
 text = "< File 3 >"
 
-[node name="ChallengeButton" parent="Button/SaveFileContainer" instance=ExtResource("11_6scwk")]
+[node name="ChallengeButton" parent="Buttons/SaveFileContainer" instance=ExtResource("11_6scwk")]
 layout_mode = 2
 
-[node name="SmallButtonContainer" type="HBoxContainer" parent="Button"]
+[node name="Normal" parent="Buttons/SaveFileContainer/ChallengeButton" index="0"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -4.292
+anchor_top = -5.575
+anchor_right = -4.292
+anchor_bottom = -5.575
+offset_left = 515.04
+offset_top = 446.0
+offset_right = 635.04
+offset_bottom = 526.0
+
+[node name="FileText1" parent="Buttons/SaveFileContainer/ChallengeButton/Normal" index="0"]
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 91.0
+offset_bottom = 27.0
+
+[node name="FileText2" parent="Buttons/SaveFileContainer/ChallengeButton/Normal" index="1"]
+offset_left = 0.0
+offset_top = 19.0
+offset_right = 91.0
+offset_bottom = 46.0
+
+[node name="ChallengeValue" parent="Buttons/SaveFileContainer/ChallengeButton/Normal" index="2"]
+offset_left = 0.0
+offset_top = 45.0
+offset_right = 95.0
+offset_bottom = 72.0
+
+[node name="SmallButtonContainer" type="HBoxContainer" parent="Buttons"]
 layout_mode = 0
 offset_left = 176.0
 offset_top = 173.0
@@ -259,16 +279,16 @@ offset_right = 446.0
 offset_bottom = 191.0
 theme_override_constants/separation = 30
 
-[node name="BackupHelpButton" parent="Button/SmallButtonContainer" instance=ExtResource("13_k4wgw")]
+[node name="BackupHelpButton" parent="Buttons/SmallButtonContainer" instance=ExtResource("13_k4wgw")]
 custom_minimum_size = Vector2(120, 0)
 layout_mode = 2
 
-[node name="Button" parent="Button/SmallButtonContainer/BackupHelpButton" index="0" node_paths=PackedStringArray("popup")]
+[node name="Button" parent="Buttons/SmallButtonContainer/BackupHelpButton" index="0" node_paths=PackedStringArray("popup")]
 modulate = Color(0.5, 0.5, 0.5, 1)
 script = ExtResource("14_k4wgw")
 popup = NodePath("../../../../Popup")
 
-[node name="Label" parent="Button/SmallButtonContainer/BackupHelpButton" index="1"]
+[node name="Label" parent="Buttons/SmallButtonContainer/BackupHelpButton" index="1"]
 offset_top = -1.0
 offset_bottom = 1.0
 theme_override_colors/font_color = Color(0.8, 0.8, 0.8, 1)
@@ -277,14 +297,16 @@ theme_override_font_sizes/font_size = 12
 text = "Backup Help"
 vertical_alignment = 1
 
-[node name="Button3" parent="Button/SmallButtonContainer" instance=ExtResource("13_k4wgw")]
+[node name="CreditsButton" parent="Buttons/SmallButtonContainer" instance=ExtResource("13_k4wgw")]
 custom_minimum_size = Vector2(120, 0)
 layout_mode = 2
 
-[node name="Button" parent="Button/SmallButtonContainer/Button3" index="0"]
+[node name="Button" parent="Buttons/SmallButtonContainer/CreditsButton" index="0" node_paths=PackedStringArray("popup")]
 modulate = Color(0.5, 0.5, 0.5, 1)
+script = ExtResource("15_4j8vg")
+popup = NodePath("../../../../Popup")
 
-[node name="Label" parent="Button/SmallButtonContainer/Button3" index="1"]
+[node name="Label" parent="Buttons/SmallButtonContainer/CreditsButton" index="1"]
 offset_top = -1.0
 offset_bottom = 1.0
 theme_override_colors/font_color = Color(0.8, 0.8, 0.8, 1)
@@ -293,7 +315,7 @@ theme_override_font_sizes/font_size = 12
 text = "Credits"
 vertical_alignment = 1
 
-[node name="Text" type="Label" parent="Button"]
+[node name="Text" type="Label" parent="Buttons"]
 layout_mode = 0
 offset_left = 212.0
 offset_top = 1.0
@@ -306,8 +328,10 @@ text = "Awesome!"
 
 [node name="BottomStats" type="Control" parent="."]
 anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = 417.0
+offset_top = 384.0
+offset_right = 457.0
+offset_bottom = 424.0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="BottomStats"]
 custom_minimum_size = Vector2(0, 30)
@@ -486,18 +510,27 @@ color = Color(1, 1, 1, 0.501961)
 script = ExtResource("8_uy7kt")
 metadata/_custom_type_script = "uid://b51w8aatefpfa"
 
-[node name="Popup" type="Control" parent="."]
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="Popup" type="Node" parent="."]
+physics_interpolation_mode = 2
 script = ExtResource("19_4j8vg")
-scenesFolder = "res://src/MainMenu/Popup"
+scenes = Dictionary[String, PackedScene]({
+"BackupHelp": ExtResource("19_hgdfc"),
+"Credits": ExtResource("20_nxksq")
+})
 metadata/_custom_type_script = "uid://c5ahmxs2w5th2"
 
-[editable path="Button/SaveFileContainer/SaveButton1"]
-[editable path="Button/SaveFileContainer/SaveButton2"]
-[editable path="Button/SaveFileContainer/SaveButton3"]
-[editable path="Button/SaveFileContainer/SaveButton4"]
-[editable path="Button/SaveFileContainer/ChallengeButton"]
-[editable path="Button/SmallButtonContainer/BackupHelpButton"]
-[editable path="Button/SmallButtonContainer/Button3"]
+[node name="ChallengePopup" type="Node" parent="."]
+physics_interpolation_mode = 2
+script = ExtResource("19_4j8vg")
+scenes = Dictionary[String, PackedScene]({
+"ChallengeMode": ExtResource("21_hgdfc")
+})
+metadata/_custom_type_script = "uid://c5ahmxs2w5th2"
+
+[editable path="Buttons/SaveFileContainer/SaveButton1"]
+[editable path="Buttons/SaveFileContainer/SaveButton2"]
+[editable path="Buttons/SaveFileContainer/SaveButton3"]
+[editable path="Buttons/SaveFileContainer/SaveButton4"]
+[editable path="Buttons/SaveFileContainer/ChallengeButton"]
+[editable path="Buttons/SmallButtonContainer/BackupHelpButton"]
+[editable path="Buttons/SmallButtonContainer/CreditsButton"]

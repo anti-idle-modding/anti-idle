@@ -8,11 +8,16 @@ public partial class BackupHelp : Control
     public SceneData popup;
 
     // MATCH: DefineSprite_2407/frame_2/PlaceObject2_2382_1/CLIPACTIONRECORD on(release).as
-    public override void _Process(double delta)
+    public override void _UnhandledInput(InputEvent @event)
     {
         if (Input.IsActionPressed("leftclick"))
         {
             popup.Unload();
         }
     }
+
+    public override void _Process(double delta)
+    {
+    }
+
 }

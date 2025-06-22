@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Globalization;
 using AntiIdle.BattleArena.Crafting;
 using AntiIdle.BattleArena.Enemy;
+using AntiIdle.Common.Nodes;
 using AntiIdle.FCG;
 using AntiIdle.FeatureOverlay;
 using AntiIdle.Pages.Main;
@@ -20,6 +21,7 @@ public class Root
 {
     public Save save = new();
     public GlobalSetting saveGlobal = new();
+    public SceneManager challengeMode = new();
 
     public AccomplishPop accomplishPop = new();
     public OfflineProg offlineProg = new();
@@ -13341,14 +13343,14 @@ public class Root
     // MATCH: frame_11/DoAction.as:selectSavefile()
     public void selectSavefile(double sid)
     {
+        GD.Print(sid);
         if (sid <= 4)
         {
             _root.saveid = sid;
         }
         else if (sid == 5)
         {
-            // TODO: challenge mode save
-            //_root.challengeMode.gotoAndStop(2);
+            _root.challengeMode.Show("ChallengeMode");
         }
     }
 

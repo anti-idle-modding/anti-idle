@@ -1,54 +1,25 @@
+using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using Godot;
 
 namespace AntiIdle.Common.Nodes;
 
 [GlobalClass]
-public partial class SceneManager : Control
+public partial class SceneManager : Node
 {
     /// <summary>
-    /// A list of all scenes managed.
-    /// Can only load one scene at a time.
-    /// </summary>
-    Dictionary<string, SceneData> scenes = [];
-    /// <summary>
     /// The currently loaded scene.
+    /// Only one scene can be active at a time.
     /// </summary>
     SceneData current;
 
-    void DirContents(string path)
-    {
-        using var dir = DirAccess.Open(path);
-        if (dir == null)
-        {
-            GD.PrintErr($"DirAccess.Open('{path}') returned null");
-            return;
-        }
-        dir.ListDirBegin();
-        var filename = dir.GetNext();
-        while (filename != "")
-        {
-            // Try loading all the scenes in the given path.
-            if (filename.EndsWith(".tscn"))
-            {
-                GD.Print(filename);
-                var packedScene = GD.Load<PackedScene>(path + "/" + filename);
-                // If a scene is loadable (contains some SceneData)
-                // we can manage it.
-                // A SceneData is a simple data wrapper describing the scene,
-                // and giving it a name, for use with SceneManager methods.
-                if (packedScene.Instantiate() is SceneData sceneData)
-                {
-                    scenes[sceneData.sceneName] = sceneData;
-                }
-            }
-            filename = dir.GetNext();
-        }
-    }
-
+    /// <summary>
+    /// A list of all scenes managed.
+    /// </summary>
     [Export]
-    public string scenesFolder;
+    public Godot.Collections.Dictionary<string, PackedScene> scenes;
 
     /// <summary>
     /// Shows one of this SceneManager's scenes.
@@ -56,31 +27,36 @@ public partial class SceneManager : Control
     /// </summary>
     public void Show(string sceneName)
     {
-        if (!scenes.TryGetValue(sceneName, out var sceneData))
+        if (!scenes.TryGetValue(sceneName, out var packedScene))
         {
-            GD.PrintErr($"Tried to load scene {sceneName}, but no such scene was found. Currently managed scenes: {string.Join(", ", scenes.Keys.ToList())}");
+            GD.PrintErr($"Tried to load scene {sceneName}, but no such scene was found. Currently managed scenes: {string.Join(", ", scenes)}");
         }
-        current = sceneData;
-        sceneData.m = this;
-        AddChild(current);
+        // If a scene is loadable (contains some SceneData)
+        // we can manage it.
+        // A SceneData is a simple data wrapper describing the scene,
+        // and giving it a name, for use with SceneManager methods.
+        if (packedScene.Instantiate() is SceneData sceneData)
+        {
+            current = sceneData;
+            sceneData.m = this;
+            AddChild(current);
+        }
+        else
+        {
+            GD.PrintErr($"Failed to instanciate {sceneName}. Make sure it's a SceneData node.");
+        }
     }
 
     /// <summary>
-    /// Unloads and hides the current scene.
+    /// QueueFrees the currently active scene.
     /// </summary>
     public void Unload()
     {
         if (current == null)
         {
-            GD.PrintErr($"Tried to Unload(), but no currently loaded scene.");
             return;
         }
-        RemoveChild(current);
+        current.QueueFree();
         current = null;
-    }
-
-    public override void _EnterTree()
-    {
-        DirContents(scenesFolder);
     }
 }

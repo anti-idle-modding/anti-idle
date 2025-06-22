@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://d1vhda2oxa4k7"]
+[gd_scene load_steps=23 format=3 uid="uid://d1vhda2oxa4k7"]
 
 [ext_resource type="Script" uid="uid://cjp2pjpu1jl4x" path="res://src/Pages/Main/Main.cs" id="1_c6bj8"]
 [ext_resource type="Texture2D" uid="uid://bmlqbakhjy61h" path="res://src/Pages/Main/13.png" id="1_wl3yd"]
@@ -8,6 +8,8 @@
 [ext_resource type="Texture2D" uid="uid://c5nkw08sfeeek" path="res://common_assets/logo.png" id="3_lors8"]
 [ext_resource type="PackedScene" uid="uid://ryuxuc6renuk" path="res://src/Pages/Main/components/ProgressBar.tscn" id="4_h61xd"]
 [ext_resource type="PackedScene" uid="uid://56cva6i45crf" path="res://src/Pages/Main/components/RestModule.tscn" id="5_5x7vr"]
+[ext_resource type="Script" uid="uid://l0uirrs42156" path="res://src/Pages/Main/House.cs" id="5_u31dg"]
+[ext_resource type="PackedScene" uid="uid://7g0rfg10i0f" path="res://src/BattleArena/BattleArena.tscn" id="6_emsix"]
 [ext_resource type="PackedScene" uid="uid://dspdq5vd1c18v" path="res://src/Pages/Main/components/BreakingNews.tscn" id="6_khid0"]
 [ext_resource type="PackedScene" uid="uid://bkroys1ok7dvr" path="res://src/Pages/Main/components/Boost/BoostModule.tscn" id="7_fpxsb"]
 [ext_resource type="PackedScene" uid="uid://c3g1eg2duoduq" path="res://src/Pages/Main/components/Achievements/AchievementsButton.tscn" id="10_dr27a"]
@@ -59,7 +61,6 @@ layout_mode = 0
 offset_right = 650.0
 offset_bottom = 619.0
 theme_override_constants/separation = 0
-metadata/_edit_lock_ = true
 
 [node name="TopBar" parent="VBoxContainer" instance=ExtResource("2_17737")]
 layout_mode = 2
@@ -67,7 +68,6 @@ layout_mode = 2
 [node name="Control" type="Control" parent="VBoxContainer"]
 custom_minimum_size = Vector2(0, 548)
 layout_mode = 2
-metadata/_edit_lock_ = true
 
 [node name="FeatureContainer" type="Control" parent="VBoxContainer/Control"]
 custom_minimum_size = Vector2(500, 350)
@@ -80,9 +80,31 @@ anchor_bottom = 0.659
 offset_left = -1.05
 offset_top = -7.95
 offset_right = -0.899994
-offset_bottom = -4.44998
+offset_bottom = -3.19
 size_flags_horizontal = 0
 size_flags_vertical = 0
+
+[node name="ColorRect" type="ColorRect" parent="VBoxContainer/Control/FeatureContainer"]
+layout_mode = 0
+offset_right = 500.0
+offset_bottom = 350.0
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="VBoxContainer/Control/FeatureContainer"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="SubViewport" type="SubViewport" parent="VBoxContainer/Control/FeatureContainer/SubViewportContainer"]
+handle_input_locally = false
+size = Vector2i(500, 350)
+render_target_update_mode = 4
+
+[node name="House" type="Node" parent="VBoxContainer/Control/FeatureContainer/SubViewportContainer/SubViewport"]
+script = ExtResource("5_u31dg")
+scenes = Dictionary[String, PackedScene]({
+"BattleArena": ExtResource("6_emsix")
+})
+metadata/_custom_type_script = "uid://c5ahmxs2w5th2"
 
 [node name="ReferenceRect" type="ReferenceRect" parent="VBoxContainer/Control/FeatureContainer"]
 layout_mode = 1
@@ -91,18 +113,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-
-[node name="Label" type="Label" parent="VBoxContainer/Control/FeatureContainer"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_font_sizes/font_size = 64
-text = "batel arehnaa"
-horizontal_alignment = 1
-vertical_alignment = 1
+border_color = Color(0, 0, 0, 1)
+editor_only = false
 
 [node name="Logo" type="TextureRect" parent="VBoxContainer/Control"]
 custom_minimum_size = Vector2(60, 60)

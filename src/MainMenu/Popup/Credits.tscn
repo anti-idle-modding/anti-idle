@@ -1,0 +1,177 @@
+[gd_scene load_steps=5 format=3 uid="uid://bmp2m6xwbgqy5"]
+
+[ext_resource type="Script" uid="uid://bl3rpgkqknbk7" path="res://src/Common/Nodes/SceneData.cs" id="1_5kock"]
+[ext_resource type="Script" uid="uid://ew6jb13bjx84" path="res://src/MainMenu/Popup/BackupHelp/BackupHelp.cs" id="2_kdni5"]
+[ext_resource type="FontFile" uid="uid://dlp7fy0ywsxnl" path="res://common_assets/fonts/McLaren-Regular.ttf" id="3_840ic"]
+
+[sub_resource type="FontVariation" id="FontVariation_kd7jv"]
+base_font = ExtResource("3_840ic")
+spacing_top = 1
+
+[node name="SceneData" type="Node"]
+script = ExtResource("1_5kock")
+sceneName = "Credits"
+metadata/_custom_type_script = "uid://bl3rpgkqknbk7"
+
+[node name="Credits" type="Control" parent="." node_paths=PackedStringArray("popup")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+mouse_default_cursor_shape = 2
+script = ExtResource("2_kdni5")
+popup = NodePath("..")
+
+[node name="Bg" type="ColorRect" parent="Credits"]
+layout_mode = 0
+offset_right = 650.0
+offset_bottom = 620.0
+mouse_filter = 1
+color = Color(0, 0, 0, 0.901961)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Credits"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Credits/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 11
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Credits/VBoxContainer/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 1
+theme_override_colors/default_color = Color(0.784314, 0.882353, 0.980392, 1)
+theme_override_fonts/normal_font = ExtResource("3_840ic")
+theme_override_font_sizes/normal_font_size = 28
+text = "Credits"
+fit_content = true
+autowrap_mode = 0
+horizontal_alignment = 1
+
+[node name="MarginContainer3" type="MarginContainer" parent="Credits/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = -5
+theme_override_constants/margin_right = 5
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Credits/VBoxContainer/MarginContainer3"]
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 1
+theme_override_colors/default_color = Color(0.588235, 0.784314, 0.980392, 1)
+theme_override_fonts/normal_font = SubResource("FontVariation_kd7jv")
+theme_override_font_sizes/normal_font_size = 12
+text = "Anti-Idle: The Game is for the most part created by Tukkun (with the help of the Kongregate community)."
+fit_content = true
+
+[node name="MarginContainer4" type="MarginContainer" parent="Credits/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 68
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Credits/VBoxContainer/MarginContainer4"]
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 1
+theme_override_colors/default_color = Color(0.588235, 0.784314, 0.980392, 1)
+theme_override_fonts/normal_font = ExtResource("3_840ic")
+theme_override_font_sizes/normal_font_size = 21
+text = "Special Thanks"
+fit_content = true
+autowrap_mode = 0
+horizontal_alignment = 1
+
+[node name="MarginContainer5" type="MarginContainer" parent="Credits/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = -5
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Credits/VBoxContainer/MarginContainer5"]
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 1
+theme_override_colors/default_color = Color(0.392157, 0.588235, 0.784314, 1)
+theme_override_fonts/normal_font = SubResource("FontVariation_kd7jv")
+theme_override_font_sizes/normal_font_size = 12
+bbcode_enabled = true
+text = "[color=96C8FA]Kongregate[/color] - for such an amazing website and easy-to-use API!
+[color=96C8FA]truefire, MyDreamName, Sellyme, Sasms, Oathness, and over 40 other users[/color] - for beta testing!
+[color=96C8FA]truefire[/color] - for giving me the motivation to upload Anti-Idle to Kongregate!
+[color=96C8FA]dragonewyn[/color] - for the Battle Arena improvement, new world map and other graphics!
+[color=96C8FA]ChaosII7 and shinki12345[/color] - for designing the super popular Secret Dungeon raid in Battle Arena!
+[color=96C8FA]toadvine[/color] - for designing the Fairytale Fight-off areas in Battle Arena!
+[color=96C8FA]LucidCrux[/color] - for the awesome redesigns of Battle Arena areas!
+[color=96C8FA]Darkranboria, ChioreanTudor, ABlindOrphan, Randomthought31, lobstershow, CoCollect, and many others[/color] - for the awesome graphics!
+[color=96C8FA]Many generous supporters[/color] - for the donations that help keep this game free forever!
+[color=96C8FA]Many other game developers[/color] - for the inspiration!
+[color=96C8FA]Many players of the Anti-Idle community[/color] - for the amazing suggestions and feedback!"
+fit_content = true
+horizontal_alignment = 1
+
+[node name="MarginContainer6" type="MarginContainer" parent="Credits/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 47
+theme_override_constants/margin_right = 0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Credits/VBoxContainer/MarginContainer6"]
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 1
+theme_override_colors/default_color = Color(0.588235, 0.784314, 0.980392, 1)
+theme_override_fonts/normal_font = SubResource("FontVariation_kd7jv")
+theme_override_font_sizes/normal_font_size = 12
+text = "and finally...
+"
+fit_content = true
+horizontal_alignment = 1
+
+[node name="MarginContainer7" type="MarginContainer" parent="Credits/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = -3
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Credits/VBoxContainer/MarginContainer7"]
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 1
+theme_override_colors/default_color = Color(0.588235, 0.784314, 0.980392, 1)
+theme_override_colors/font_shadow_color = Color(0.34902, 0.466667, 0.588235, 1)
+theme_override_fonts/normal_font = ExtResource("3_840ic")
+theme_override_font_sizes/normal_font_size = 28
+text = "You"
+fit_content = true
+autowrap_mode = 0
+horizontal_alignment = 1
+
+[node name="MarginContainer8" type="MarginContainer" parent="Credits/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = -5
+theme_override_constants/margin_right = 0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Credits/VBoxContainer/MarginContainer8"]
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 1
+theme_override_colors/default_color = Color(0.588235, 0.784314, 0.980392, 1)
+theme_override_fonts/normal_font = SubResource("FontVariation_kd7jv")
+theme_override_font_sizes/normal_font_size = 12
+text = "Thank you for playing! Without your support, this game wouldn't have ever become a successful game!"
+fit_content = true
+horizontal_alignment = 1
+
+[node name="HelpText" type="RichTextLabel" parent="Credits"]
+layout_mode = 2
+offset_left = 117.0
+offset_top = 343.0
+offset_right = 748.0
+offset_bottom = 367.0
+mouse_filter = 1
+theme_override_colors/default_color = Color(0.784314, 0.882353, 0.980392, 1)
+theme_override_fonts/normal_font = ExtResource("3_840ic")
+theme_override_font_sizes/normal_font_size = 12
+scroll_active = false

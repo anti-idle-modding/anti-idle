@@ -13,7 +13,7 @@ load_path = "res://.godot/imported/1601.png-4a4d559720badfb73e7ded96e68b8bda.cte
 diffuse_texture = SubResource("CompressedTexture2D_leeg0")
 texture_filter = 1
 
-[node name="Container" type="Control"]
+[node name="FlatButton" type="Control"]
 layout_mode = 3
 anchor_right = 0.262
 anchor_bottom = 0.063
@@ -21,6 +21,7 @@ offset_right = -0.300018
 offset_bottom = 0.0499992
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 1
 
 [node name="Button" type="TextureButton" parent="."]
 layout_mode = 1
