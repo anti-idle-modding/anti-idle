@@ -1,0 +1,57 @@
+[gd_scene load_steps=4 format=3 uid="uid://cxrubei8uw5is"]
+
+[ext_resource type="Script" uid="uid://l0uirrs42156" path="res://src/Pages/Main/House.cs" id="1_3rxla"]
+[ext_resource type="PackedScene" uid="uid://7g0rfg10i0f" path="res://src/BattleArena/BattleArena.tscn" id="2_qbml2"]
+[ext_resource type="PackedScene" uid="uid://c2noe6pd4tw2" path="res://src/Feature/FeatureMenu.tscn" id="3_qbml2"]
+
+[node name="FeatureContainer" type="Control"]
+custom_minimum_size = Vector2(500, 350)
+layout_mode = 3
+anchor_left = 0.017
+anchor_top = 0.029
+anchor_right = 0.786
+anchor_bottom = 0.659
+offset_left = -1.05
+offset_top = -7.95
+offset_right = -0.899994
+offset_bottom = -3.19
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 500.0
+offset_bottom = 350.0
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
+handle_input_locally = false
+size = Vector2i(500, 350)
+render_target_update_mode = 4
+
+[node name="House" type="Node" parent="SubViewportContainer/SubViewport"]
+script = ExtResource("1_3rxla")
+scenes = Dictionary[String, PackedScene]({
+"BattleArena": ExtResource("2_qbml2")
+})
+metadata/_custom_type_script = "uid://c5ahmxs2w5th2"
+
+[node name="ReferenceRect" type="ReferenceRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+border_color = Color(0, 0, 0, 1)
+editor_only = false
+
+[node name="FeatureMenu" parent="." instance=ExtResource("3_qbml2")]
+offset_left = 401.0
+offset_top = -0.899994
+offset_right = 401.0
+offset_bottom = -0.899994

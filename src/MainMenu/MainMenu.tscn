@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://cre5l5kp4b0lu"]
+[gd_scene load_steps=35 format=3 uid="uid://cre5l5kp4b0lu"]
 
 [ext_resource type="Texture2D" uid="uid://b21mnu2f4lbk8" path="res://src/MainMenu/MenuBg.png" id="1_cttlv"]
 [ext_resource type="Script" uid="uid://2k0roc3i7bmg" path="res://src/MainMenu/MainMenu.cs" id="1_e1bcd"]
@@ -13,6 +13,7 @@
 [ext_resource type="Script" uid="uid://b51w8aatefpfa" path="res://src/Common/Nodes/FlashColorRect.cs" id="8_uy7kt"]
 [ext_resource type="Script" uid="uid://pd6lauisd21m" path="res://src/MainMenu/File3Select.cs" id="10_6scwk"]
 [ext_resource type="PackedScene" uid="uid://bv1pxfu7iy7jw" path="res://src/MainMenu/challenge_button.tscn" id="11_6scwk"]
+[ext_resource type="Script" uid="uid://cdoybrdveot3b" path="res://src/Common/Nodes/FlashButton.cs" id="11_nxksq"]
 [ext_resource type="PackedScene" uid="uid://ck2ne06bfn6sn" path="res://src/MainMenu/FlatButton2.tscn" id="13_k4wgw"]
 [ext_resource type="Script" uid="uid://c5nqbp6i5llxo" path="res://src/MainMenu/BackupHelpButton.cs" id="14_k4wgw"]
 [ext_resource type="Script" uid="uid://bgcbpyi2deq3i" path="res://src/MainMenu/AwesomeButton.cs" id="14_ypdof"]
@@ -240,6 +241,7 @@ text = "< File 3 >"
 
 [node name="ChallengeButton" parent="Buttons/SaveFileContainer" instance=ExtResource("11_6scwk")]
 layout_mode = 2
+script = ExtResource("11_nxksq")
 
 [node name="Normal" parent="Buttons/SaveFileContainer/ChallengeButton" index="0"]
 layout_mode = 1
