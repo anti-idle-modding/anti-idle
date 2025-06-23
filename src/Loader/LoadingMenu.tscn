@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://c5nkw08sfeeek" path="res://common_assets/logo.png" id="2_ml26j"]
 [ext_resource type="FontFile" uid="uid://dlp7fy0ywsxnl" path="res://common_assets/fonts/McLaren-Regular.ttf" id="3_76s6h"]
 [ext_resource type="PackedScene" uid="uid://sl2yxvssb88u" path="res://src/Loader/SaveFileButton.tscn" id="4_ml26j"]
-[ext_resource type="PackedScene" uid="uid://bto1ogoaaut31" path="res://src/MainMenu/FlatButton.tscn" id="5_76s6h"]
+[ext_resource type="PackedScene" uid="uid://dneff7r4vd823" path="res://src/MainMenu/FlatButton.tscn" id="5_76s6h"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_76s6h"]
 

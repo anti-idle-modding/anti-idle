@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://c2noe6pd4tw2"]
+
+[ext_resource type="Script" uid="uid://c5ahmxs2w5th2" path="res://src/Common/Nodes/SceneManager.cs" id="1_oqwa8"]
+[ext_resource type="PackedScene" uid="uid://bks75d5b2lhou" path="res://src/Feature/FeatureMenu/Closed.tscn" id="2_gehog"]
+
+[node name="SceneManager" type="Control"]
+physics_interpolation_mode = 0
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_oqwa8")
+scenes = Dictionary[String, PackedScene]({
+"Closed": ExtResource("2_gehog")
+})
+defaultScene = ExtResource("2_gehog")
+metadata/_custom_type_script = "uid://c5ahmxs2w5th2"
