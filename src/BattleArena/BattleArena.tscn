@@ -27,5 +27,6 @@ scale = Vector2(5, 5)
 texture = ExtResource("2_ex54e")
 
 [node name="ReferenceRect" type="ReferenceRect" parent="."]
+layout_mode = 0
 offset_right = 500.0
 offset_bottom = 350.0

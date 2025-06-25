@@ -15,6 +15,8 @@ public partial class SceneManager : Control
     /// </summary>
     SceneData current;
 
+    public string currentScene;
+
     /// <summary>
     /// A list of all scenes managed.
     /// </summary>
@@ -26,7 +28,8 @@ public partial class SceneManager : Control
     /// will load this scene when it's dropped into the tree.
     /// </summary>
     [Export]
-    public PackedScene defaultScene;
+    public string defaultScene;
+
 
     /// <summary>
     /// Shows one of this SceneManager's scenes.
@@ -71,16 +74,7 @@ public partial class SceneManager : Control
     {
         if (defaultScene != null)
         {
-            if (defaultScene.Instantiate() is SceneData sceneData)
-            {
-                current = sceneData;
-                sceneData.m = this;
-                AddChild(current);
-            }
-            else
-            {
-                GD.PrintErr($"Failed to instanciate default scene");
-            }
+            Show(defaultScene);
         }
     }
 }

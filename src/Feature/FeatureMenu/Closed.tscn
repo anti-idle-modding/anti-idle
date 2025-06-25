@@ -28,6 +28,7 @@ offset_bottom = 22.48
 [node name="Label" parent="FlatButton" index="1"]
 offset_top = 0.0
 offset_bottom = 0.0
+mouse_filter = 1
 theme_override_fonts/font = ExtResource("3_ycq5h")
 theme_override_font_sizes/font_size = 14
 text = "World"
