@@ -1,48 +1,45 @@
-[gd_scene load_steps=5 format=3 uid="uid://ck2ne06bfn6sn"]
+[gd_scene load_steps=8 format=3 uid="uid://ck2ne06bfn6sn"]
 
-[ext_resource type="Texture2D" uid="uid://bpg0nblah2xki" path="res://src/MainMenu/1600.png" id="1_leeg0"]
+[ext_resource type="FontFile" uid="uid://dlp7fy0ywsxnl" path="res://common_assets/fonts/McLaren-Regular.ttf" id="1_h7epk"]
 
-[sub_resource type="CanvasTexture" id="CanvasTexture_h7epk"]
-diffuse_texture = ExtResource("1_leeg0")
-texture_filter = 1
+[sub_resource type="Gradient" id="Gradient_leeg0"]
+interpolation_mode = 1
+offsets = PackedFloat32Array(0, 0.25)
+colors = PackedColorArray(0.321569, 0.321569, 0.321569, 1, 0.282353, 0.282353, 0.27451, 1)
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_leeg0"]
-load_path = "res://.godot/imported/1601.png-4a4d559720badfb73e7ded96e68b8bda.ctex"
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_we20k"]
+gradient = SubResource("Gradient_leeg0")
+fill_to = Vector2(0, 1)
 
-[sub_resource type="CanvasTexture" id="CanvasTexture_we20k"]
-diffuse_texture = SubResource("CompressedTexture2D_leeg0")
-texture_filter = 1
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_l2dqf"]
+texture = SubResource("GradientTexture2D_we20k")
 
-[node name="FlatButton" type="Control"]
-layout_mode = 3
-anchor_right = 0.262
-anchor_bottom = 0.063
-offset_right = -0.300018
-offset_bottom = 0.0499992
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 1
+[sub_resource type="Gradient" id="Gradient_h7epk"]
+interpolation_mode = 1
+offsets = PackedFloat32Array(0, 0.25)
+colors = PackedColorArray(0.223529, 0.223529, 0.223529, 1, 0.184314, 0.184314, 0.184314, 1)
 
-[node name="Button" type="TextureButton" parent="."]
-layout_mode = 1
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_leeg0"]
+gradient = SubResource("Gradient_h7epk")
+fill_to = Vector2(0, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_we20k"]
+texture = SubResource("GradientTexture2D_leeg0")
+
+[node name="Button2" type="Button"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_right = -550.0
+offset_bottom = -625.0
 grow_horizontal = 2
 grow_vertical = 2
+focus_mode = 0
 mouse_default_cursor_shape = 2
-texture_normal = SubResource("CanvasTexture_h7epk")
-texture_pressed = SubResource("CanvasTexture_h7epk")
-texture_hover = SubResource("CanvasTexture_we20k")
-stretch_mode = 0
-
-[node name="Label" type="Label" parent="."]
-layout_mode = 2
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = 8.0
-offset_bottom = -9.66667
-grow_horizontal = 2
-grow_vertical = 2
-text = "button text :)"
-horizontal_alignment = 1
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("1_h7epk")
+theme_override_font_sizes/font_size = 12
+theme_override_styles/hover = SubResource("StyleBoxTexture_l2dqf")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_we20k")
+theme_override_styles/normal = SubResource("StyleBoxTexture_we20k")
+text = "Button"

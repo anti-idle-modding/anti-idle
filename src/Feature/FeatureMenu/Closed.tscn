@@ -25,7 +25,7 @@ layout_mode = 1
 offset_right = 89.52
 offset_bottom = 22.48
 
-[node name="Label" parent="FlatButton" index="1"]
+[node name="Label" parent="FlatButton" index="2"]
 offset_top = 0.0
 offset_bottom = 0.0
 mouse_filter = 1

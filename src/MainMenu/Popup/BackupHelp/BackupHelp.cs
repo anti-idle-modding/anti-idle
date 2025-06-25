@@ -2,7 +2,7 @@ using AntiIdle.Common.Nodes;
 using Godot;
 using System;
 
-public partial class BackupHelp : Control
+public partial class BackupHelp : SceneData
 {
     [Export]
     public SceneData popup;

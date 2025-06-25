@@ -37,11 +37,11 @@ layout_mode = 0
 offset_bottom = 54.0
 theme_override_constants/separation = -1
 
-[node name="FlatButton" parent="VBoxContainer" instance=ExtResource("2_evny6")]
+[node name="World" parent="VBoxContainer" instance=ExtResource("2_evny6")]
 custom_minimum_size = Vector2(100, 25)
 layout_mode = 2
 
-[node name="Label" parent="VBoxContainer/FlatButton" index="1"]
+[node name="Label" parent="VBoxContainer/World" index="2"]
 offset_top = 0.0
 offset_bottom = 0.0
 theme_override_colors/font_color = Color(1, 1, 0, 1)
@@ -50,7 +50,7 @@ theme_override_font_sizes/font_size = 14
 text = "World"
 vertical_alignment = 1
 
-[node name="Outline" type="Panel" parent="VBoxContainer/FlatButton"]
+[node name="Outline" type="Panel" parent="VBoxContainer/World"]
 layout_mode = 0
 offset_right = 100.0
 offset_bottom = 25.0
@@ -58,11 +58,13 @@ mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_1hjlj")
 
 [node name="UpArrow" type="Control" parent="VBoxContainer"]
+visible = false
 custom_minimum_size = Vector2(100, 25)
 layout_mode = 2
 mouse_filter = 1
 
 [node name="Button" type="TextureButton" parent="VBoxContainer/UpArrow"]
+modulate = Color(1.506, 1.506, 1, 1)
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -96,4 +98,24 @@ points = PackedVector2Array(0, 12, 15, 12, 7.5, 0, 0, 12)
 width = 1.0
 default_color = Color(0, 0, 0, 1)
 
-[editable path="VBoxContainer/FlatButton"]
+[node name="World2" parent="VBoxContainer" instance=ExtResource("2_evny6")]
+custom_minimum_size = Vector2(100, 25)
+layout_mode = 2
+
+[node name="Label" parent="VBoxContainer/World2" index="2"]
+offset_top = 0.0
+offset_bottom = 0.0
+theme_override_fonts/font = ExtResource("3_0flts")
+theme_override_font_sizes/font_size = 14
+text = "House"
+vertical_alignment = 1
+
+[node name="Outline" type="Panel" parent="VBoxContainer/World2"]
+layout_mode = 0
+offset_right = 100.0
+offset_bottom = 25.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_1hjlj")
+
+[editable path="VBoxContainer/World"]
+[editable path="VBoxContainer/World2"]
