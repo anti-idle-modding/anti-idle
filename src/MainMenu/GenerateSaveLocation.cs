@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public partial class GenerateSaveLocation : TextureButton
+public partial class GenerateSaveLocation : Button
 {
     [Export]
     RichTextLabel helpText;

@@ -4,7 +4,7 @@ using Godot;
 namespace AntiIdle.Common.Nodes;
 
 [GlobalClass]
-public partial class SceneData : Node
+public partial class SceneData : Control
 {
     public SceneManager m;
 

@@ -19,4 +19,3 @@ centered = false
 [node name="Challenges" parent="." instance=ExtResource("2_6n51w")]
 layout_mode = 1
 offset_top = 150.0
-offset_bottom = 0.0

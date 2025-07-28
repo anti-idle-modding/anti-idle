@@ -70,7 +70,6 @@ layout_mode = 2
 
 [node name="FeatureContainer" parent="VBoxContainer/Control" instance=ExtResource("5_u31dg")]
 layout_mode = 1
-anchors_preset = -1
 
 [node name="Logo" type="TextureRect" parent="VBoxContainer/Control"]
 custom_minimum_size = Vector2(60, 60)

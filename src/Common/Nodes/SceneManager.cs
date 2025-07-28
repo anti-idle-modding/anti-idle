@@ -7,7 +7,7 @@ using Godot;
 namespace AntiIdle.Common.Nodes;
 
 [GlobalClass]
-public partial class SceneManager : Node
+public partial class SceneManager : Control
 {
     /// <summary>
     /// The currently loaded scene.
@@ -15,11 +15,21 @@ public partial class SceneManager : Node
     /// </summary>
     SceneData current;
 
+    public string currentScene;
+
     /// <summary>
     /// A list of all scenes managed.
     /// </summary>
     [Export]
     public Godot.Collections.Dictionary<string, PackedScene> scenes;
+
+    /// <summary>
+    /// An optional, default scene. If specified, the scene manager
+    /// will load this scene when it's dropped into the tree.
+    /// </summary>
+    [Export]
+    public string defaultScene;
+
 
     /// <summary>
     /// Shows one of this SceneManager's scenes.
@@ -58,5 +68,13 @@ public partial class SceneManager : Node
         }
         current.QueueFree();
         current = null;
+    }
+
+    public override void _EnterTree()
+    {
+        if (defaultScene != null)
+        {
+            Show(defaultScene);
+        }
     }
 }

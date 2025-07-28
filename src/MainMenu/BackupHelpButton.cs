@@ -4,7 +4,7 @@ using System;
 
 
 // MATCH: frame_11/PlaceObject2_1602_40/CLIPACTIONRECORD on(release).as
-public partial class BackupHelpButton : TextureButton
+public partial class BackupHelpButton : Button
 {
     [Export]
     public SceneManager popup;

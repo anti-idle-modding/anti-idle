@@ -30,6 +30,7 @@ offset_right = -475.0
 offset_bottom = -406.0
 
 [node name="FileText1" type="Label" parent="Normal"]
+layout_mode = 0
 offset_left = 530.0
 offset_top = 448.0
 offset_right = 621.0
@@ -42,6 +43,7 @@ horizontal_alignment = 1
 vertical_alignment = 3
 
 [node name="FileText2" type="Label" parent="Normal"]
+layout_mode = 0
 offset_left = 530.0
 offset_top = 468.0
 offset_right = 621.0
@@ -54,6 +56,7 @@ horizontal_alignment = 1
 vertical_alignment = 3
 
 [node name="FileText3" type="Label" parent="Normal"]
+layout_mode = 0
 offset_left = 528.0
 offset_top = 508.0
 offset_right = 623.0
@@ -67,6 +70,7 @@ vertical_alignment = 3
 
 [node name="HoverEffect" type="ColorRect" parent="."]
 z_index = 100
+layout_mode = 0
 offset_right = 120.0
 offset_bottom = 80.0
 color = Color(1, 0, 0, 0.25098)
