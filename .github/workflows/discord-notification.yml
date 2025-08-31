@@ -32,10 +32,8 @@ jobs:
 
         # Construct the multi-line message. We use a "heredoc" to make it clean.
         echo "DISCORD_MESSAGE<<EOF" >> $GITHUB_ENV
-        echo "Commit [\`${{ github.event.head_commit.message }}\`](<${{ github.server_url }}/${{ github.repository }}/commit/${{ github.sha }}>) ($SHORT_REV)" >> $GITHUB_ENV
-        echo "Total accuracy of port: **${ACCURACY}**" >> $GITHUB_ENV
-        echo "Matched ${MATCHED_FUNCTIONS} / ${TOTAL_FUNCTIONS} functions" >> $GITHUB_ENV
-        echo "Matched ${MATCHED_LINES} / ${TOTAL_LINES} lines of code" >> $GITHUB_ENV
+        echo -n "Change [\`${{ github.event.head_commit.message }}\`](<${{ github.server_url }}/${{ github.repository }}/commit/${{ github.sha }}>) " >> $GITHUB_ENV
+        echo -n "- **${ACCURACY}** ported - ${MATCHED_FUNCTIONS} / ${TOTAL_FUNCTIONS} functions -  ${MATCHED_LINES} / ${TOTAL_LINES} lines of code" >> $GITHUB_ENV
         echo "EOF" >> $GITHUB_ENV
 
     - name: Send Discord Notification
@@ -43,4 +41,4 @@ jobs:
       with:
         webhook-url: ${{ secrets.DISCORD_WEBHOOK }}
         content: ${{ env.DISCORD_MESSAGE }}
-        filename: ./results.txt
+        #filename: ./results.txt
