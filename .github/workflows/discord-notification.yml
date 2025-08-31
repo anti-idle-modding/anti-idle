@@ -1,4 +1,4 @@
-name: Pylint
+name: Discord Notification
 
 on: [push]
 

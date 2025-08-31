@@ -238,7 +238,7 @@ def match(args):
                     "line_count": match["line_count"],
                 }
             )
-        print(out)
+        print(json.dumps(out))
 
 
 def main(args):
