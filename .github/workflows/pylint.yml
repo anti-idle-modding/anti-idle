@@ -7,8 +7,37 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v4
-    - name: Discord Webhook Action
+
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.x'
+
+    - name: Run analysis script
+      id: analysis
+      run: |
+        python ./decmp/decmp.py match --json > results.json
+
+    - name: Prepare Discord message
+      id: message_prep
+      run: |
+        # Use jq (a command-line JSON processor) to parse the file and extract values.
+        ACCURACY=$(jq -r '.accuracy' results.json)
+        MATCHED_FUNCTIONS=$(jq -r '.matched_functions' results.json)
+        TOTAL_FUNCTIONS=$(jq -r '.total_functions' results.json)
+        MATCHED_LINES=$(jq -r '.matching_line_count' results.json)
+        TOTAL_LINES=$(jq -r '.total_line_count' results.json)
+
+        # Construct the multi-line message. We use a "heredoc" to make it clean.
+        echo "DISCORD_MESSAGE<<EOF" >> $GITHUB_ENV
+        echo "Total accuracy of port: **${ACCURACY}**" >> $GITHUB_ENV
+        echo "Matched \`${MATCHED_FUNCTIONS} / ${TOTAL_FUNCTIONS}\` functions" >> $GITHUB_ENV
+        echo "        \`${MATCHED_LINES} / ${TOTAL_LINES}\` lines of code" >> $GITHUB_ENV
+        echo "EOF" >> $GITHUB_ENV
+
+    - name: Send Discord Notification
       uses: tsickert/discord-webhook@v7.0.0
       with:
         webhook-url: ${{ secrets.DISCORD_WEBHOOK }}
-        content: "Test"
+        content: ${{ env.DISCORD_MESSAGE }}
+        attachment: ./results.json
