@@ -31,6 +31,20 @@ class C:
     BOLD = "\033[1m"
     RESET = "\033[0m"
 
+    @staticmethod
+    def disable():
+        C.BLACK = ""
+        C.RED = ""
+        C.GREEN = ""
+        C.YELLOW = ""
+        C.BLUE = ""
+        C.MAGENTA = ""
+        C.CYAN = ""
+        C.WHITE = ""
+        C.UNDERLINE = ""
+        C.BOLD = ""
+        C.RESET = ""
+
 
 def generate_db(args):
     export_path = args.export_path
@@ -164,6 +178,9 @@ def parse_file(export_path: str, path: str):
 
 
 def match(args):
+    if args.no_color:
+        C.disable()
+
     if not args.json:
         print(f"""{C.CYAN}info:{C.RESET} parsing decomp database at {args.db_path}""")
     with open(args.db_path, "r") as f:
@@ -291,6 +308,11 @@ sub_match.add_argument(
     "--json",
     help="Output as json file",
     action=argparse.BooleanOptionalAction,
+)
+sub_match.add_argument(
+    "--no-color",
+    action='store_true',
+    help="Enable or disable color",
 )
 sub_match.set_defaults(func=match)
 
