@@ -40,4 +40,4 @@ jobs:
       with:
         webhook-url: ${{ secrets.DISCORD_WEBHOOK }}
         content: ${{ env.DISCORD_MESSAGE }}
-        raw-data: ./results.json
+        filename: ./results.json

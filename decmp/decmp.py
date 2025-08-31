@@ -209,6 +209,10 @@ def match(args):
     matches = sorted(matches, key=lambda x: x["name"])
     total_line_count = db["total_line_count"]
     accuracy = f"{(matching_line_count / total_line_count * 100):.4g}%"
+    matching_line_count = f"{matching_line_count:,}"
+    total_line_count = f"{total_line_count:,}"
+    matching_functions = f"{len(matches):,}"
+    total_functions = f"{len(db['functions']):,}"
 
     # Output
     if not args.json:
@@ -219,15 +223,15 @@ def match(args):
 
         print()
         print(f"Total accuracy of port: {C.GREEN}{C.BOLD}{accuracy}{C.RESET}")
-        print(f"Matched {len(matches):,} / {len(db['functions']):,} functions")
-        print(f"        {matching_line_count:,} / {total_line_count:,} lines of code")
+        print(f"Matched {matching_functions} / {total_functions} functions")
+        print(f"        {matching_line_count} / {total_line_count} lines of code")
     else:
         out = {
             "matching_line_count": matching_line_count,
             "total_line_count": total_line_count,
             "accuracy": accuracy,
-            "matched_functions": len(matches),
-            "total_functions": len(db["functions"]),
+            "matched_functions": matching_functions,
+            "total_functions": total_functions,
             "matches": [],
         }
         for match in matches:
