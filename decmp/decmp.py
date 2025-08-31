@@ -8,6 +8,7 @@
 # ///
 import subprocess
 import os
+import sys
 import argparse
 import glob
 from pathlib import Path
@@ -168,6 +169,11 @@ def match(args):
     with open(args.db_path, "r") as f:
         db = json.load(f)
 
+    if len(db["functions"]) == 0:
+        print(f"""{C.RED}error:{C.RESET} database not found""")
+        sys.exit(1)
+
+
     name_indexed = {}
     for function in db["functions"]:
         name_indexed[function["name"]] = function
@@ -272,7 +278,7 @@ sub_match = subcommands.add_parser(
 sub_match.add_argument(
     "--db-path",
     help="Where to read the decompilation databse `decomp_db.json` from",
-    default="decomp_db.json",
+    default="decmp/decomp_db.json",
 )
 sub_match.add_argument(
     "--source-path", help="Path to the Godot source code", default="src"
