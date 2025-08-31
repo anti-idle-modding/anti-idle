@@ -1,0 +1,3 @@
+on(dragOver,rollOver){
+   checkDesc();
+}

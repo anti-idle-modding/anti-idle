@@ -1,0 +1,3 @@
+onClipEvent(load){
+   progFragText.htmlText = "";
+}

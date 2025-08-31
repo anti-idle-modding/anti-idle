@@ -1,0 +1,3 @@
+onClipEvent(load){
+   cost.text = _root.withComma(1000000);
+}

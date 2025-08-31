@@ -1,0 +1,10 @@
+onClipEvent(enterFrame){
+   if(_root.save.filterPref2c == true)
+   {
+      gotoAndStop(2);
+   }
+   else
+   {
+      gotoAndStop(1);
+   }
+}

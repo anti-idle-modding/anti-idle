@@ -1,0 +1,13 @@
+on(release){
+   if(_alpha > 50)
+   {
+      if(_root.saveid == 24)
+      {
+         _root.showPopup("NOOOOOOOOO!","You must resist your urges. You don\'t want to fail the challenge, do you?");
+      }
+      else
+      {
+         _root.house.gotoAndStop(14);
+      }
+   }
+}

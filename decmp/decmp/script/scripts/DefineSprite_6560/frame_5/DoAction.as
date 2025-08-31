@@ -1,0 +1,1 @@
+distanceText.text = distance;

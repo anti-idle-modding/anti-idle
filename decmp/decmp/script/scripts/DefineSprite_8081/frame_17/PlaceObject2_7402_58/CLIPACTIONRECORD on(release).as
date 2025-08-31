@@ -1,0 +1,3 @@
+on(release){
+   _parent.infoBox.gotoAndStop(9);
+}

@@ -1,0 +1,1 @@
+dateText.text = date;

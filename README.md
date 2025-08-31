@@ -52,24 +52,13 @@ working.
 ### Setting up the `decmp` tool
 
 In the `decmp/` directory, you'll find our tool used to help decompilation.
-We recommend installing [`uv`](https://docs.astral.sh/uv/) first, and adding the `decmp` folder
-to your PATH. Then you can run:
 
 ```sh
 decmp --help
 ```
 
-The `decmp` tool runs [JPEXS](https://github.com/jindrapetrik/jpexs-decompiler),
-the Free Flash Decompiler, to extract information from the base game.
-
-You'll also need to get a copy of the base game `v1861.swf` and place it in
-the `decmp` folder. Then run:
-
-```sh
-decmp generate_db
-```
-
-This will generate a `decomp_db.json` file in the folder. With this, now run:
+A `decomp_db.json` file, along with the decompiled code of the game, has been
+included in the `decmp` folder. All you need to do is to run:
 
 ```sh
 decmp match
@@ -135,8 +124,10 @@ so you don't have to go back to it later.
 ## Basics of code porting
 
 This section will walk you through a full example of porting, along with how
-to port assets. I recommend downloading Adobe Flash CS6 for the asset part,
-which you can find online.
+to port assets.
+
+This example uses Adobe Flash CS6, but you can do the same thing with
+JPEXS, it's just a bit more annoying.
 
 Let's do an example of porting with the first frame and its related assets.
 First, open the `decmp/binary/v1861.fla` project in Adobe Flash CS6.
