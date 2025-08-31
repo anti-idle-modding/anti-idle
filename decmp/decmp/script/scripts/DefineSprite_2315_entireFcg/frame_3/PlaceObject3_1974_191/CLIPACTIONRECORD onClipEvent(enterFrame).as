@@ -1,0 +1,12 @@
+onClipEvent(enterFrame){
+   val = _root.fcg_opponent_mfreeze;
+   if(val > 0)
+   {
+      gotoAndStop(4);
+      healDisp.text = val;
+   }
+   else
+   {
+      gotoAndStop(3);
+   }
+}

@@ -1,0 +1,10 @@
+on(release){
+   if(_root.save.arenaLevel >= 35)
+   {
+      _parent.gotoAndStop(14);
+   }
+   else
+   {
+      _root.showPopup("Access Denied","You have to reach Arena Rank 35 to access this feature.");
+   }
+}

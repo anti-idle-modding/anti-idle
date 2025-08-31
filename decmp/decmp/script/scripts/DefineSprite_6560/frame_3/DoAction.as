@@ -1,0 +1,1 @@
+nearbyText.text = nearby;

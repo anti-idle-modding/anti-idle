@@ -1,0 +1,18 @@
+on(release){
+   if(_root.save.arenaTotalSkill > 0 && Key.isDown(16))
+   {
+      _root.save.arenaSP = _root.save.arenaLevel * 20 + _root.save.arenaUltimateSP * 10;
+      _root.save.arenaTotalSkill = 0;
+      _root.save.arenaTotalSP = 0;
+      i = 1;
+      while(i <= 66)
+      {
+         if(_root.save.arenaSkill[i] > 0)
+         {
+            _root.save.arenaSkill[i] = 0;
+         }
+         i++;
+      }
+      _root.actiondescription = "Your skills have been reset.";
+   }
+}

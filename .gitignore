@@ -4,10 +4,6 @@
 
 aitg.exe
 aitg.pck
-decmp/scripts
-decomp_db.json
-decmp/v1861.swf
 decmp/export
 decmp/.venv
-decmp/script
 decmp/ffdec_23.0.1

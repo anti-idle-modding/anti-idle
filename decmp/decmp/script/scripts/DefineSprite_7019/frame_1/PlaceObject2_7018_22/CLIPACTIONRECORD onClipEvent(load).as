@@ -1,0 +1,5 @@
+onClipEvent(load){
+   t = 3;
+   nameText.text = _parent._parent.field["stadiumEnemy" + t].mehName;
+   del = 2;
+}
