@@ -7,3 +7,7 @@ aitg.pck
 decmp/export
 decmp/.venv
 decmp/ffdec_23.0.1
+
+results.json
+results.txt
+bin/

@@ -8,25 +8,42 @@
 # ///
 import subprocess
 import os
+import sys
 import argparse
 import glob
 from pathlib import Path
 import concurrent.futures
 import json
 
+
 class C:
     """Terminal colors"""
-    BLACK = '\033[30m'
-    RED = '\033[31m'
-    GREEN = '\033[32m'
-    YELLOW = '\033[33m'
-    BLUE = '\033[34m'
-    MAGENTA = '\033[35m'
-    CYAN = '\033[36m'
-    WHITE = '\033[37m'
-    UNDERLINE = '\033[4m'
-    BOLD = '\033[1m'
-    RESET = '\033[0m'
+
+    BLACK = "\033[30m"
+    RED = "\033[31m"
+    GREEN = "\033[32m"
+    YELLOW = "\033[33m"
+    BLUE = "\033[34m"
+    MAGENTA = "\033[35m"
+    CYAN = "\033[36m"
+    WHITE = "\033[37m"
+    UNDERLINE = "\033[4m"
+    BOLD = "\033[1m"
+    RESET = "\033[0m"
+
+    @staticmethod
+    def disable():
+        C.BLACK = ""
+        C.RED = ""
+        C.GREEN = ""
+        C.YELLOW = ""
+        C.BLUE = ""
+        C.MAGENTA = ""
+        C.CYAN = ""
+        C.WHITE = ""
+        C.UNDERLINE = ""
+        C.BOLD = ""
+        C.RESET = ""
 
 
 def generate_db(args):
@@ -40,10 +57,14 @@ def generate_db(args):
 
     if not args.skip_jpexs:
         try:
-            print(f"""{C.CYAN}info:{C.RESET} calling JPEXS to extract scripts from swf""")
+            print(
+                f"""{C.CYAN}info:{C.RESET} calling JPEXS to extract scripts from swf"""
+            )
             print(f"""{C.CYAN}info:{C.RESET} you can skip this step with the --skip-jpexs argument
 generate_db will then use the {export_path} folder as reference""")
-            subprocess.run([FFDEC_BIN, "-export", "script", export_path, swf_path], check=True)
+            subprocess.run(
+                [FFDEC_BIN, "-export", "script", export_path, swf_path], check=True
+            )
         except FileNotFoundError:
             print(f"""{C.RED}error:{C.RESET} The `ffdec` executable was not found.
 Please install JPEXS, the Flash decompiler,
@@ -52,10 +73,12 @@ at {C.CYAN}{C.UNDERLINE}https://github.com/jindrapetrik/jpexs-decompiler{C.RESET
                 print(f"""{C.CYAN}note:{C.RESET} On Windows, you might have to add the JPEXS installation
 folder to your PATH variable.""")
     else:
-        print(f"""{C.CYAN}info:{C.RESET} skipping JPEXS extracting, using the {export_path} folder as reference""")
+        print(
+            f"""{C.CYAN}info:{C.RESET} skipping JPEXS extracting, using the {export_path} folder as reference"""
+        )
 
     functions = []
-    file_paths = glob.glob(f"./**/*.as", root_dir=f"./{export_path}", recursive=True)
+    file_paths = glob.glob("./**/*.as", root_dir=f"./{export_path}", recursive=True)
 
     files_total = len(file_paths)
     files_count = 0
@@ -63,7 +86,10 @@ folder to your PATH variable.""")
     total_line_count = 0
     with concurrent.futures.ThreadPoolExecutor() as executor:
         # Submit all file processing tasks and collect future objects
-        future_to_file = {executor.submit(parse_file, export_path, file_path): file_path for file_path in file_paths}
+        future_to_file = {
+            executor.submit(parse_file, export_path, file_path): file_path
+            for file_path in file_paths
+        }
 
         # Process results as they complete
         for future in concurrent.futures.as_completed(future_to_file):
@@ -75,16 +101,18 @@ folder to your PATH variable.""")
                     files_count += 1
                     total_line_count += sum(x["line_count"] for x in result)
                     functions += result
-                    print(f"{C.CYAN}info:{C.RESET} {files_count}/{files_total} files processed, {functions_count} functions discovered, {total_line_count} lines processed")
+                    print(
+                        f"{C.CYAN}info:{C.RESET} {files_count}/{files_total} files processed, {functions_count} functions discovered, {total_line_count} lines processed"
+                    )
 
             except Exception as e:
                 print(f"{C.RED}error:{C.RESET} {file} failed to decode: {e}")
 
     db = {
-        'total_line_count': total_line_count,
-        'functions': sorted(functions, key=lambda x: x["name"]),
+        "total_line_count": total_line_count,
+        "functions": sorted(functions, key=lambda x: x["name"]),
     }
-    with open(args.db_path, 'w') as f:
+    with open(args.db_path, "w") as f:
         json.dump(db, f)
 
 
@@ -118,42 +146,61 @@ def parse_file(export_path: str, path: str):
     if captures:
         for node in captures["function"]:
             node_text = node.text.decode()
-            functions.append({
-                "name": f"{formatted_path}:{node.child_by_field_name('name').text.decode()}()",
-                "line_count": len(node_text.splitlines()),
-                "code": node_text
-            })
+            functions.append(
+                {
+                    "name": f"{formatted_path}:{node.child_by_field_name('name').text.decode()}()",
+                    "line_count": len(node_text.splitlines()),
+                    "code": node_text,
+                }
+            )
 
         # Handle non-function code
         start_pos = max(captures["function"], key=lambda x: x.end_byte).end_byte
         toplevel = code_bytes[start_pos:].decode()
-        functions.append({
-            "name": f"{formatted_path}",
-            "line_count": len(toplevel.splitlines()),
-            "code": toplevel,
-        })
+        functions.append(
+            {
+                "name": f"{formatted_path}",
+                "line_count": len(toplevel.splitlines()),
+                "code": toplevel,
+            }
+        )
     else:
         code = code_bytes.decode()
-        functions.append({
-            "name": f"{formatted_path}",
-            "line_count": len(code.splitlines()),
-            "code": code,
-        })
+        functions.append(
+            {
+                "name": f"{formatted_path}",
+                "line_count": len(code.splitlines()),
+                "code": code,
+            }
+        )
 
     return functions
 
+
 def match(args):
-    print(f"""{C.CYAN}info:{C.RESET} parsing decomp database at {args.db_path}""")
+    if args.no_color:
+        C.disable()
+
+    if not args.json:
+        print(f"""{C.CYAN}info:{C.RESET} parsing decomp database at {args.db_path}""")
     with open(args.db_path, "r") as f:
         db = json.load(f)
+
+    if len(db["functions"]) == 0:
+        print(f"""{C.RED}error:{C.RESET} database not found""")
+        sys.exit(1)
+
 
     name_indexed = {}
     for function in db["functions"]:
         name_indexed[function["name"]] = function
 
     matches = []
-    file_paths = glob.glob(f"./**/*.cs", root_dir=f"./{args.source_path}", recursive=True)
-    print(f"""{C.CYAN}info:{C.RESET} matching to {len(file_paths)} source files""")
+    file_paths = glob.glob(
+        "./**/*.cs", root_dir=f"./{args.source_path}", recursive=True
+    )
+    if not args.json:
+        print(f"""{C.CYAN}info:{C.RESET} matching to {len(file_paths)} source files""")
 
     matching_line_count = 0
     for file_path in file_paths:
@@ -167,26 +214,57 @@ def match(args):
                     matching_function = name_indexed[match_part]
                     line_count = matching_function["line_count"]
                     if matching_function:
-                        matches.append({
-                            "name": match_part,
-                            "source": Path(file_path).as_posix(),
-                            "line_count": line_count
-                        })
+                        matches.append(
+                            {
+                                "name": match_part,
+                                "source": Path(file_path).as_posix(),
+                                "line_count": line_count,
+                            }
+                        )
                         matching_line_count += line_count
 
     matches = sorted(matches, key=lambda x: x["name"])
     total_line_count = db["total_line_count"]
-    for match in matches:
-        print(f'{match["name"]} {C.GREEN}=>{C.RESET} {match["source"]}, {match["line_count"]} loc')
+    accuracy = f"{(matching_line_count / total_line_count * 100):.4g}%"
+    matching_line_count = f"{matching_line_count:,}"
+    total_line_count = f"{total_line_count:,}"
+    matching_functions = f"{len(matches):,}"
+    total_functions = f"{len(db['functions']):,}"
 
-    print()
-    print(f"Total accuracy of port: {C.GREEN}{C.BOLD}{(matching_line_count/total_line_count)*100:.4g}%{C.RESET}")
-    print(f"Matched {len(matches):,} / {len(db['functions']):,} functions")
-    print(f"        {matching_line_count:,} / {total_line_count:,} lines of code")
+    # Output
+    if not args.json:
+        for match in matches:
+            print(
+                f"{match['name']} {C.GREEN}=>{C.RESET} {match['source']}, {match['line_count']} loc"
+            )
+
+        print()
+        print(f"Total accuracy of port: {C.GREEN}{C.BOLD}{accuracy}{C.RESET}")
+        print(f"Matched {matching_functions} / {total_functions} functions")
+        print(f"        {matching_line_count} / {total_line_count} lines of code")
+    else:
+        out = {
+            "matching_line_count": matching_line_count,
+            "total_line_count": total_line_count,
+            "accuracy": accuracy,
+            "matched_functions": matching_functions,
+            "total_functions": total_functions,
+            "matches": [],
+        }
+        for match in matches:
+            out["matches"].append(
+                {
+                    "name": match["name"],
+                    "source": match["source"],
+                    "line_count": match["line_count"],
+                }
+            )
+        print(json.dumps(out))
 
 
 def main(args):
     parser.print_help()
+
 
 parser = argparse.ArgumentParser(
     prog="decmp",
@@ -204,16 +282,38 @@ sub_match.add_argument(
 sub_match.add_argument(
     "--export-path", help="Path to export the scripts to", default="decmp/script/"
 )
-sub_match.add_argument('--skip-jpexs', help='Skip the JPEXS processing step and use files from `export_path` directly', action=argparse.BooleanOptionalAction)
-sub_match.add_argument('--db-path', help='Where to write the database to', default="decomp_db.json")
+sub_match.add_argument(
+    "--skip-jpexs",
+    help="Skip the JPEXS processing step and use files from `export_path` directly",
+    action=argparse.BooleanOptionalAction,
+)
+sub_match.add_argument(
+    "--db-path", help="Where to write the database to", default="decomp_db.json"
+)
 sub_match.set_defaults(func=generate_db)
 
 sub_match = subcommands.add_parser(
     "match",
     help="Matches Godot and ActionScript functions, reporting on the total match between original and ported code.",
 )
-sub_match.add_argument('--db-path', help='Where to read the decompilation databse `decomp_db.json` from', default="decomp_db.json")
-sub_match.add_argument('--source-path', help='Path to the Godot source code', default="src")
+sub_match.add_argument(
+    "--db-path",
+    help="Where to read the decompilation databse `decomp_db.json` from",
+    default="decmp/decomp_db.json",
+)
+sub_match.add_argument(
+    "--source-path", help="Path to the Godot source code", default="src"
+)
+sub_match.add_argument(
+    "--json",
+    help="Output as json file",
+    action=argparse.BooleanOptionalAction,
+)
+sub_match.add_argument(
+    "--no-color",
+    action='store_true',
+    help="Enable or disable color",
+)
 sub_match.set_defaults(func=match)
 
 args = parser.parse_args()

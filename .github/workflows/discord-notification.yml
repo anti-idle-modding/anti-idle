@@ -1,0 +1,45 @@
+name: Discord Notification
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.x'
+
+    - name: Run analysis script
+      id: analysis
+      run: |
+        python ./decmp/decmp.py match --json > results.json
+        python ./decmp/decmp.py match --no-color > results.txt
+
+    - name: Prepare Discord message
+      id: message_prep
+      run: |
+        # Use jq (a command-line JSON processor) to parse the file and extract values.
+        ACCURACY=$(jq -r '.accuracy' results.json)
+        MATCHED_FUNCTIONS=$(jq -r '.matched_functions' results.json)
+        TOTAL_FUNCTIONS=$(jq -r '.total_functions' results.json)
+        MATCHED_LINES=$(jq -r '.matching_line_count' results.json)
+        TOTAL_LINES=$(jq -r '.total_line_count' results.json)
+        SHORT_REV=$(git rev-parse --short HEAD)
+
+        echo "DISCORD_MESSAGE<<EOF" >> $GITHUB_ENV
+        echo "New change [\`${{ github.event.head_commit.message }}\`](<${{ github.server_url }}/${{ github.repository }}/commit/${{ github.sha }}>) | **${ACCURACY}** ported | ${MATCHED_FUNCTIONS} / ${TOTAL_FUNCTIONS} functions | ${MATCHED_LINES} / ${TOTAL_LINES} lines of code" >> $GITHUB_ENV
+        echo "EOF" >> $GITHUB_ENV
+ 
+    - name: Send Discord Notification
+      uses: tsickert/discord-webhook@v7.0.0
+      with:
+        webhook-url: ${{ secrets.DISCORD_WEBHOOK }}
+        content: ${{ env.DISCORD_MESSAGE }}
+        #filename: ./results.txt
