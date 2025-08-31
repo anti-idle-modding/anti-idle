@@ -17,7 +17,6 @@ jobs:
       id: analysis
       run: |
         python ./decmp/decmp.py match --json > results.json
-        python ./decmp/decmp.py match --no-color > results.txt
 
     - name: Prepare Discord message
       id: message_prep
@@ -43,4 +42,3 @@ jobs:
       with:
         webhook-url: ${{ secrets.DISCORD_WEBHOOK }}
         content: ${{ env.DISCORD_MESSAGE }}
-        filename: ./results.txt
