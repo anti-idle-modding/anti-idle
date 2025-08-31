@@ -14,9 +14,6 @@ from pathlib import Path
 import concurrent.futures
 import json
 
-from tree_sitter import Language, Parser
-import tree_sitter_javascript as tsjavascript
-
 class C:
     """Terminal colors"""
     BLACK = '\033[30m'
@@ -92,6 +89,9 @@ folder to your PATH variable.""")
 
 
 def parse_file(export_path: str, path: str):
+    from tree_sitter import Language, Parser, QueryCursor
+    import tree_sitter_javascript as tsjavascript
+
     with open(Path(export_path) / path, encoding="utf-8") as f:
         code = f.read()
 
@@ -110,7 +110,7 @@ def parse_file(export_path: str, path: str):
     function_query = JS_LANGUAGE.query("""
         (function_declaration) @function
     """)
-    captures = function_query.captures(root_node)
+    captures = QueryCursor(function_query).captures(root_node)
 
     # Extract function information
     functions = []

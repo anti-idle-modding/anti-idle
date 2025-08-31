@@ -1,0 +1,15 @@
+onClipEvent(load){
+   function checkAlp()
+   {
+      if(_root.save.bgNum == id)
+      {
+         _alpha = 100;
+      }
+      else
+      {
+         _alpha = 30;
+      }
+   }
+   id = 2;
+   checkAlp();
+}

@@ -1,0 +1,2 @@
+Mouse.show();
+checkGlobal();

@@ -1,0 +1,33 @@
+onClipEvent(enterFrame){
+   _root.raidTimeLeft = timeLeft;
+   if(_root.house.arena.enemy.enemyID == 0)
+   {
+      timeLeft -= 1 / _root.fps;
+   }
+   else
+   {
+      timeLeft -= 0.025;
+   }
+   if(timeLeft > 0)
+   {
+      i = 0;
+      while(i <= pars.length - 1)
+      {
+         if(timeLeft > pars[i])
+         {
+            _root.raidBonus = i;
+            parLeft = timeLeft - pars[i];
+            parThis = pars[i + 1] - pars[i];
+         }
+         i++;
+      }
+   }
+   else
+   {
+      _root.raidBonus = 0;
+      parLeft = 0;
+      parThis = 9001;
+   }
+   scoreText.text = "Par Time: " + _root.convertSec(parLeft);
+   bonusText.text = "+" + _root.raidBonus + " Bonus";
+}

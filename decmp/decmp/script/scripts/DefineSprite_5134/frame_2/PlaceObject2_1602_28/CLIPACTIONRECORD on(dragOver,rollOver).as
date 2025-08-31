@@ -1,0 +1,10 @@
+on(dragOver,rollOver){
+   if(_root.save.arenaKommanderSkip > 0)
+   {
+      _root.actiondescription = "You can skip missions you dislike by holding Shift while clicking this button. You can skip 3 missions for free every day, and each subsequent skip costs 100 Unobtainium. Please note that you will not gain any rewards for the current mission, and there is a chance that your new mission may be the same as the previous one.\n\nFree skips remaining: <b>" + _root.save.arenaKommanderSkip + "</b>";
+   }
+   else
+   {
+      _root.actiondescription = "You can skip missions you dislike by holding Shift while clicking this button. You can skip 3 missions for free every day, and each subsequent skip costs 100 Unobtainium. Please note that you will not gain any rewards for the current mission, and there is a chance that your new mission may be the same as the previous one.\n\nUnobtainium: <b>" + _root.withComma(_root.save.arenaUnobtainium) + "</b> / 100";
+   }
+}
