@@ -1,7 +1,17 @@
-[gd_scene load_steps=3 format=3 uid="uid://7g0rfg10i0f"]
+[gd_scene load_steps=8 format=3 uid="uid://7g0rfg10i0f"]
 
 [ext_resource type="Script" uid="uid://bl3rpgkqknbk7" path="res://src/Common/Nodes/SceneData.cs" id="1_3mr7j"]
 [ext_resource type="Texture2D" uid="uid://dowgajpjwfjeh" path="res://src/BattleArena/3324.png" id="2_ex54e"]
+[ext_resource type="Script" uid="uid://ctr03sng5356q" path="res://src/BattleArena/Zones/YeOldePub/YeOldePub.cs" id="2_qen2x"]
+[ext_resource type="Script" uid="uid://g6001gsj78td" path="res://src/BattleArena/Zones/FightStat2.cs" id="5_e4bf7"]
+[ext_resource type="Shader" uid="uid://dmxd6xiole0jk" path="res://src/BattleArena/Glow.gdshader" id="5_lbj7w"]
+[ext_resource type="FontFile" uid="uid://dy7fs8hl0h7wx" path="res://common_assets/fonts/150_PF Tempesta Seven Extended.ttf" id="6_jretx"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_e4bf7"]
+render_priority = 0
+shader = ExtResource("5_lbj7w")
+shader_parameter/glow_power = 9.416
+shader_parameter/color = Color(1, 1, 1, 1)
 
 [node name="BattleArena" type="Control"]
 physics_interpolation_mode = 0
@@ -16,11 +26,13 @@ anchors_preset = 0
 offset_right = 500.0
 offset_bottom = 350.0
 
-[node name="Pub" type="Sprite2D" parent="."]
-position = Vector2(250, 100)
-scale = Vector2(5, 5)
+[node name="YeOldePub" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 500.0
+offset_bottom = 200.0
+script = ExtResource("2_qen2x")
 
-[node name="3324" type="Sprite2D" parent="."]
+[node name="Bg" type="Sprite2D" parent="YeOldePub"]
 texture_filter = 1
 position = Vector2(250, 100)
 scale = Vector2(5, 5)
@@ -30,3 +42,24 @@ texture = ExtResource("2_ex54e")
 layout_mode = 0
 offset_right = 500.0
 offset_bottom = 350.0
+
+[node name="FightStat" type="ColorRect" parent="." node_paths=PackedStringArray("fightText2")]
+material = SubResource("ShaderMaterial_e4bf7")
+layout_mode = 0
+offset_top = 90.0
+offset_right = 500.0
+offset_bottom = 110.0
+color = Color(0, 0, 0, 0.898039)
+script = ExtResource("5_e4bf7")
+fightText2 = NodePath("fightText2")
+metadata/_custom_type_script = "uid://b51w8aatefpfa"
+
+[node name="fightText2" type="Label" parent="FightStat"]
+layout_mode = 0
+offset_top = 2.0
+offset_right = 500.0
+offset_bottom = 22.0
+theme_override_fonts/font = ExtResource("6_jretx")
+theme_override_font_sizes/font_size = 10
+text = "fightText2"
+horizontal_alignment = 1
