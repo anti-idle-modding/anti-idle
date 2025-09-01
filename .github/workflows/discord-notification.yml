@@ -33,10 +33,10 @@ jobs:
         TOTAL_LINES=$(jq -r '.total_line_count' results.json)
         SHORT_REV=$(git rev-parse --short HEAD)
 
-        echo "DISCORD_MESSAGE<<EOF" >> $GITHUB_ENV
-        echo "New change [\`${{ github.event.head_commit.message }}\`](<${{ github.server_url }}/${{ github.repository }}/commit/${{ github.sha }}>) | **${ACCURACY}** ported | ${MATCHED_FUNCTIONS} / ${TOTAL_FUNCTIONS} functions | ${MATCHED_LINES} / ${TOTAL_LINES} lines of code" >> $GITHUB_ENV
-        echo "EOF" >> $GITHUB_ENV
- 
+        FIRST_LINE=$(git log --format=%B -n 1 HEAD | head -n 1)
+        DISCORD_MESSAGE="New change: [${FIRST_LINE}](<${{ github.server_url }}/${{ github.repository }}/commit/${{ github.sha }}>) | **${ACCURACY}** ported | ${MATCHED_FUNCTIONS} / ${TOTAL_FUNCTIONS} functions | ${MATCHED_LINES} / ${TOTAL_LINES} lines of code"
+        echo "DISCORD_MESSAGE=${DISCORD_MESSAGE}" >> $GITHUB_ENV
+         
     - name: Send Discord Notification
       uses: tsickert/discord-webhook@v7.0.0
       with:
