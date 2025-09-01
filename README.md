@@ -57,10 +57,18 @@ You will need a Python installation to run the tool.
 To see current porting progress, run
 
 ```sh
-decmp match
+python ./decmp/decmp.py match
+```
+
+On linux this can just be
+
+```sh
+./de match
 ```
 
 and this will output the currently ported code.
+
+You can add the topmost folder to your PATH so you can run `de` anywhere on Linux.
 
 ## Understanding the porting approach
 

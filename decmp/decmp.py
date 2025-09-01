@@ -197,7 +197,7 @@ def match(args):
 
     matches = []
     file_paths = glob.glob(
-        "./**/*.cs", root_dir=f"./{args.source_path}", recursive=True
+        "./**/*.cs", root_dir=args.source_path, recursive=True
     )
     if not args.json:
         print(f"""{C.CYAN}info:{C.RESET} matching to {len(file_paths)} source files""")
@@ -265,6 +265,7 @@ def match(args):
 def main(args):
     parser.print_help()
 
+abspath = os.path.dirname(os.path.realpath(__file__))
 
 parser = argparse.ArgumentParser(
     prog="decmp",
@@ -299,10 +300,10 @@ sub_match = subcommands.add_parser(
 sub_match.add_argument(
     "--db-path",
     help="Where to read the decompilation databse `decomp_db.json` from",
-    default="decmp/decomp_db.json",
+    default=str(Path(f"{abspath}") / "decomp_db.json"),
 )
 sub_match.add_argument(
-    "--source-path", help="Path to the Godot source code", default="src"
+    "--source-path", help="Path to the Godot source code", default=str(Path(abspath) / ".." / "src")
 )
 sub_match.add_argument(
     "--json",
@@ -315,6 +316,5 @@ sub_match.add_argument(
     help="Enable or disable color",
 )
 sub_match.set_defaults(func=match)
-
 args = parser.parse_args()
 args.func(args)
