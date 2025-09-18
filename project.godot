@@ -12,7 +12,7 @@ config_version=5
 
 config/name="aitg"
 run/main_scene="uid://cin6024e2i0aa"
-config/features=PackedStringArray("4.4", "C#", "Forward Plus")
+config/features=PackedStringArray("4.5", "C#", "Forward Plus")
 config/icon="res://icon.svg"
 run/vsync/vsync_mode=1
 
@@ -73,5 +73,7 @@ leftclick={
 [rendering]
 
 textures/canvas_textures/default_texture_filter=2
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"
 textures/decals/filter=1
 textures/light_projectors/filter=1
