@@ -21,7 +21,6 @@ script = ExtResource("1_3mr7j")
 metadata/_custom_type_script = "uid://bl3rpgkqknbk7"
 
 [node name="Control" type="Control" parent="."]
-layout_mode = 3
 anchors_preset = 0
 offset_right = 500.0
 offset_bottom = 350.0

@@ -3,12 +3,12 @@
 importer="font_data_dynamic"
 type="FontFile"
 uid="uid://ctv7i5w3nqvcj"
-path="res://.godot/imported/2421_I hate Comic Sans.ttf-82eb480e7d5baf25495d30376977c50f.fontdata"
+path="res://.godot/imported/I Hate Comic Sans Bold.ttf-6bfc390b1b40af4240f5241a604fdf0e.fontdata"
 
 [deps]
 
-source_file="res://common_assets/fonts/2421_I hate Comic Sans.ttf"
-dest_files=["res://.godot/imported/2421_I hate Comic Sans.ttf-82eb480e7d5baf25495d30376977c50f.fontdata"]
+source_file="res://common_assets/fonts/I Hate Comic Sans Bold.ttf"
+dest_files=["res://.godot/imported/I Hate Comic Sans Bold.ttf-6bfc390b1b40af4240f5241a604fdf0e.fontdata"]
 
 [params]
 
@@ -21,6 +21,7 @@ msdf_pixel_range=8
 msdf_size=48
 allow_system_fallback=true
 force_autohinter=false
+modulate_color_glyphs=false
 hinting=1
 subpixel_positioning=4
 keep_rounding_remainders=true

@@ -2,11 +2,12 @@
 
 [ext_resource type="Texture2D" uid="uid://db0nposf61ipl" path="res://src/MainMenu/Challenges/image.png" id="1_fkm65"]
 [ext_resource type="Script" uid="uid://bl3rpgkqknbk7" path="res://src/Common/Nodes/SceneData.cs" id="1_h5ksr"]
-[ext_resource type="FontFile" uid="uid://bkce6w7pnorvp" path="res://common_assets/fonts/1546_I hate Comic Sans.ttf" id="2_gs7kl"]
+[ext_resource type="FontFile" uid="uid://bkce6w7pnorvp" path="res://common_assets/fonts/I hate Comic Sans.ttf" id="2_gs7kl"]
 [ext_resource type="PackedScene" uid="uid://d3wlpyyvfopsj" path="res://src/MainMenu/Challenges/ChallengeList/Speedrun.tscn" id="2_u4puh"]
 [ext_resource type="Texture2D" uid="uid://0w3721fsxqje" path="res://src/MainMenu/Challenges/LeftArrow.png" id="4_6hiuy"]
 [ext_resource type="Texture2D" uid="uid://brydwak1idsvo" path="res://src/MainMenu/Challenges/RightArrow.png" id="5_h5ksr"]
 [ext_resource type="Texture2D" uid="uid://d3km80yg2q3o6" path="res://common_assets/buttons/DefineButton2_8362/1.png" id="6_6hiuy"]
+
 
 [sub_resource type="FontVariation" id="FontVariation_gs7kl"]
 base_font = ExtResource("2_gs7kl")

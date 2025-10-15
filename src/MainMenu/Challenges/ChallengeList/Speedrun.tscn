@@ -1,7 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://d3wlpyyvfopsj"]
 
-[ext_resource type="FontFile" uid="uid://c702oelamesfo" path="res://decmp/script/fonts/1546_I hate Comic Sans.ttf" id="1_262kd"]
-[ext_resource type="FontFile" uid="uid://bkce6w7pnorvp" path="res://common_assets/fonts/1546_I hate Comic Sans.ttf" id="2_mqd6h"]
+[ext_resource type="FontFile" uid="uid://bkce6w7pnorvp" path="res://common_assets/fonts/I hate Comic Sans.ttf" id="1_262kd"]
+[ext_resource type="FontFile" uid="uid://bkce6w7pnorvp" path="res://common_assets/fonts/I hate Comic Sans.ttf" id="2_mqd6h"]
+
 
 [sub_resource type="FontVariation" id="FontVariation_kmgqn"]
 base_font = ExtResource("1_262kd")

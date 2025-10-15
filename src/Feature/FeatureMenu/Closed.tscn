@@ -1,8 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://bks75d5b2lhou"]
+[gd_scene load_steps=4 format=3 uid="uid://bks75d5b2lhou"]
 
 [ext_resource type="Script" uid="uid://bl3rpgkqknbk7" path="res://src/Common/Nodes/SceneData.cs" id="1_6ai27"]
 [ext_resource type="PackedScene" uid="uid://ck2ne06bfn6sn" path="res://src/MainMenu/FlatButton2.tscn" id="2_e481u"]
-[ext_resource type="FontFile" uid="uid://dlp7fy0ywsxnl" path="res://common_assets/fonts/McLaren-Regular.ttf" id="3_ycq5h"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1hjlj"]
 draw_center = false
@@ -22,17 +21,8 @@ metadata/_custom_type_script = "uid://bl3rpgkqknbk7"
 
 [node name="FlatButton" parent="." instance=ExtResource("2_e481u")]
 layout_mode = 1
-offset_right = 89.52
-offset_bottom = 22.48
-
-[node name="Label" parent="FlatButton" index="2"]
-offset_top = 0.0
-offset_bottom = 0.0
-mouse_filter = 1
-theme_override_fonts/font = ExtResource("3_ycq5h")
-theme_override_font_sizes/font_size = 14
-text = "World"
-vertical_alignment = 1
+offset_right = 60.0
+offset_bottom = -15.0
 
 [node name="Outline" type="Panel" parent="."]
 layout_mode = 0

@@ -6,9 +6,10 @@
 [ext_resource type="FontFile" uid="uid://dnrub80i462m7" path="res://common_assets/fonts/3185_PF Ronda Seven.ttf" id="4_wp6ym"]
 [ext_resource type="FontFile" uid="uid://undd4htvlr06" path="res://common_assets/fonts/PF Tempesta Seven_893.ttf" id="5_pbq1i"]
 [ext_resource type="FontFile" uid="uid://qs8fgfyxuiho" path="res://common_assets/fonts/PF Tempesta Seven Bold_131.ttf" id="6_bdo60"]
-[ext_resource type="FontFile" uid="uid://ctv7i5w3nqvcj" path="res://common_assets/fonts/2421_I hate Comic Sans.ttf" id="7_r784w"]
+[ext_resource type="FontFile" uid="uid://ctv7i5w3nqvcj" path="res://common_assets/fonts/I Hate Comic Sans Bold.ttf" id="7_r784w"]
 [ext_resource type="Texture2D" uid="uid://dajmfkxqw3b2t" path="res://common_assets/shapes/2470.svg" id="8_x38vs"]
 [ext_resource type="FontFile" uid="uid://yvep1sldeuhr" path="res://common_assets/fonts/893_PF Tempesta Seven.ttf" id="9_0u7jx"]
+
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r784w"]
 bg_color = Color(0, 0, 0, 0.392157)
