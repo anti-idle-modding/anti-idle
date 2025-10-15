@@ -1,4 +1,4 @@
-﻿Microsoft Visual Studio Solution File, Format Version 12.00
+Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AntiIdle", "AntiIdle.csproj", "{71CF32F8-7170-4D15-A8BE-D904BE5571D7}"
 EndProject
