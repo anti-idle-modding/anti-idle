@@ -5,6 +5,7 @@ namespace AntiIdle.Common.Nodes;
 public partial class File3Select : FlashButton
 {
     AnimationPlayer anim;
+
     // MATCH: frame_11/PlaceObject2_2379_60/CLIPACTIONRECORD onClipEvent(load).as:checkFrame()
     public void checkFrame()
     {
@@ -22,11 +23,13 @@ public partial class File3Select : FlashButton
         }
         anim.Play();
     }
+
     // MATCH: frame_11/PlaceObject2_2379_60/CLIPACTIONRECORD onClipEvent(enterFrame).as
     public override void _Process(double delta)
     {
         checkFrame();
     }
+
     // MATCH: frame_11/PlaceObject2_2379_60/CLIPACTIONRECORD onClipEvent(load).as
     public override void _Ready()
     {
@@ -38,7 +41,13 @@ public partial class File3Select : FlashButton
     // MATCH: frame_11/PlaceObject2_2379_60/CLIPACTIONRECORD on(release).as
     public override void _Input(InputEvent @event)
     {
-        if (Input.IsMouseButtonPressed(MouseButton.Left) && _xmouse >= 0 && _xmouse < 120 && _ymouse >= 0 && _ymouse < 80)
+        if (
+            Input.IsMouseButtonPressed(MouseButton.Left)
+            && _xmouse >= 0
+            && _xmouse < 120
+            && _ymouse >= 0
+            && _ymouse < 80
+        )
         {
             if (_root.saveGlobal.selectedSave != 3)
             {

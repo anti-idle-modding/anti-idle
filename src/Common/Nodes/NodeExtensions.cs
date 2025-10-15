@@ -1,5 +1,3 @@
 namespace AntiIdle.Common.Nodes;
 
-public class NodeExtensions
-{
-}
+public class NodeExtensions { }

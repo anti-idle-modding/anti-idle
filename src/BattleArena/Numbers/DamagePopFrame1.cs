@@ -1,6 +1,7 @@
 using System;
 using AntiIdle.Common.Nodes;
 using Godot;
+
 namespace AntiIdle.BattleArena.Numbers;
 
 // MATCH: DefineSprite_133_damagePop/frame_1/DoAction.as
@@ -67,7 +68,10 @@ public partial class DamagePopFrame1 : FlashNode2D
             {
                 Xalpha -= 1600 / _root.fps;
             }
-            if (_root.save.damageDisplay != false && (_root._quality == "HIGH" || _root._quality == "BEST"))
+            if (
+                _root.save.damageDisplay != false
+                && (_root._quality == "HIGH" || _root._quality == "BEST")
+            )
             {
                 if (Xalpha > 150)
                 {

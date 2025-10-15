@@ -6,6 +6,7 @@ public partial class Popup : Control
 {
     public RichTextLabel popTitle;
     public RichTextLabel popDesc;
+
     // TODO figure the frame stuff out.
     public double Frame;
 

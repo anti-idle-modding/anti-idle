@@ -1,4 +1,5 @@
 using Godot;
+
 namespace AntiIdle.BattleArena.Numbers;
 
 // MATCH: DefineSprite_133_damagePop/frame_2/DoAction.as

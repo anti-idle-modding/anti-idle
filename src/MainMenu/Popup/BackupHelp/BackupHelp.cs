@@ -1,6 +1,6 @@
+using System;
 using AntiIdle.Common.Nodes;
 using Godot;
-using System;
 
 public partial class BackupHelp : SceneData
 {
@@ -16,8 +16,5 @@ public partial class BackupHelp : SceneData
         }
     }
 
-    public override void _Process(double delta)
-    {
-    }
-
+    public override void _Process(double delta) { }
 }

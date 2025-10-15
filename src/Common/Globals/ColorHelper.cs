@@ -8,5 +8,4 @@ public static class ColorHelper
     {
         return new Color(value);
     }
-
 }

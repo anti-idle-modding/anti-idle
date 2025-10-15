@@ -1,5 +1,6 @@
 using AntiIdle.Common.Nodes;
 using Godot;
+
 namespace AntiIdle.BattleArena.LootMechanics;
 
 //TO DO attach to asset
@@ -38,7 +39,10 @@ public partial class NewLoot6 : FlashNode2D
             yy = _root.clock_year % 10;
             mm = _root.clock_month;
             dd = _root.clock_date;
-            if (_root.eventList[yy][mm][dd][i] == "4x Crafting Material from loot drops in Battle Arena")
+            if (
+                _root.eventList[yy][mm][dd][i]
+                == "4x Crafting Material from loot drops in Battle Arena"
+            )
             {
                 lootValue *= 4;
             }
@@ -51,7 +55,12 @@ public partial class NewLoot6 : FlashNode2D
         }
         _root.gainCareerEXP(4, Math.ceil(0.5 * Math.pow(amntToGain, 0.12)), true);
         _root.save.arenaCraft += amntToGain;
-        _root.house.arena.showDamage("Crafting Material +" + _root.withComma(amntToGain), 10629939, _X, _Y - 20);
+        _root.house.arena.showDamage(
+            "Crafting Material +" + _root.withComma(amntToGain),
+            10629939,
+            _X,
+            _Y - 20
+        );
     }
 
     public override void _Ready()
@@ -76,7 +85,10 @@ public partial class NewLoot6 : FlashNode2D
             {
                 _X = 80;
             }
-            else if (_root.save.activityLoot == true && (_root.cursoridle < 5 || _root.arenaBot > 0 && _root.arenaBot < 2400))
+            else if (
+                _root.save.activityLoot == true
+                && (_root.cursoridle < 5 || _root.arenaBot > 0 && _root.arenaBot < 2400)
+            )
             {
                 _X = 80;
             }
@@ -102,7 +114,10 @@ public partial class NewLoot6 : FlashNode2D
         {
             del = 0;
             xVel *= 0.98;
-            if (_root.save.activityLoot == true && (_root.cursoridle < 5 || _root.arenaBot > 0 && _root.arenaBot < 2400))
+            if (
+                _root.save.activityLoot == true
+                && (_root.cursoridle < 5 || _root.arenaBot > 0 && _root.arenaBot < 2400)
+            )
             {
                 xVel -= 1;
                 if (_root.save.bouncyLoot == false)
@@ -131,7 +146,14 @@ public partial class NewLoot6 : FlashNode2D
             if (xalpha > 0)
             {
                 xalpha -= 100 / _root.fps;
-                if (_X < 85 || _xmouse >= -25 && _xmouse <= 25 && _ymouse >= -50 && _ymouse <= 5 && _root.cursoridle < 60)
+                if (
+                    _X < 85
+                    || _xmouse >= -25
+                        && _xmouse <= 25
+                        && _ymouse >= -50
+                        && _ymouse <= 5
+                        && _root.cursoridle < 60
+                )
                 {
                     _root.save.arenaLoot += 1;
                     getLoot();

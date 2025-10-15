@@ -2,11 +2,10 @@ using System.Collections.Generic;
 
 namespace AntiIdle.Common.Flash;
 
-public class FlashList<T> : Dictionary<int, T> where T : notnull
+public class FlashList<T> : Dictionary<int, T>
+    where T : notnull
 {
-    public FlashList()
-    {
-    }
+    public FlashList() { }
 
     public FlashList(List<T> values)
     {
@@ -27,7 +26,8 @@ public class FlashList<T> : Dictionary<int, T> where T : notnull
             i++;
         }
 
-        foreach (var kv in extra) this[kv.Key] = kv.Value;
+        foreach (var kv in extra)
+            this[kv.Key] = kv.Value;
     }
 
     public new T this[int key]

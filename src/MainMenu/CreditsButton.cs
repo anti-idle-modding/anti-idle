@@ -1,6 +1,6 @@
+using System;
 using AntiIdle.Common.Nodes;
 using Godot;
-using System;
 
 // MATCH: frame_11/PlaceObject2_1602_44/CLIPACTIONRECORD on(release).as
 public partial class CreditsButton : TextureButton
@@ -12,6 +12,4 @@ public partial class CreditsButton : TextureButton
     {
         popup.Show("Credits");
     }
-
 }
-

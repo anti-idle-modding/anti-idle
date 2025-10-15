@@ -3,6 +3,7 @@ namespace AntiIdle.BattleArena.Crafting;
 public abstract class CraftItem<TItem, THeader>
 {
     public class I(Item value) : CraftItem<TItem, THeader>;
+
     public class H(Header value) : CraftItem<TItem, THeader>;
 }
 
@@ -10,6 +11,7 @@ public class Header
 {
     // Title
     public string recipeType;
+
     // Description
     public string recipeReq;
 }

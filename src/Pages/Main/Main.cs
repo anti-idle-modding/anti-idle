@@ -1,6 +1,6 @@
+using System;
 using AntiIdle.Pages.Main;
 using Godot;
-using System;
 using Math = AntiIdle.Common.Flash.Math;
 
 // MATCH: frame_13/DoAction.as
@@ -10,14 +10,19 @@ public partial class Main : Control
 {
     [Export]
     private TopBar _topBar;
+
     [Export]
     private Mini1 mini1;
+
     [Export]
     private Mini2 mini2;
+
     [Export]
     private Mini3 mini3;
+
     [Export]
     private Mini4 mini4;
+
     [Export]
     private Mini5 mini5;
     bool dispAlt;
@@ -26,6 +31,7 @@ public partial class Main : Control
     double delay5min;
     double tipAlpha;
     bool tempStatHold;
+
     public override void _EnterTree()
     {
         _root.topBar = _topBar;
@@ -128,14 +134,256 @@ public partial class Main : Control
             _root.save.challengeInit = true;
             if (_root.saveid == 21)
             {
-                _root.getArenaWeapon(100, "Gun", 149, true, 280, 13, 0, 18, 8, 0, 1, 0, 1, 0, 0, 0, "Coin", "Critical Damage", "", 0, Infinity, false, false, false, false, false, 0, "Golden Gun", "", true);
-                _root.getArenaWeapon(125, "Sword", 133, false, 585, 6, 30, 20, 0, 0, 1, 0, 1, 0, 1, 0, "", "", "", 0, Infinity, false, false, false, false, false, 0, "Hero Sword", "", true);
-                _root.getArenaArmor(80, "Hat", 109, 8, 0, 63, 14, 0, 0, 1, 0, 1, 0, 0, 0, "", "", "", 0, Infinity, false, false, false, false, false, 0, "Dragonewyn Hat", "", true);
-                _root.getArenaArmor(80, "Shirt", 109, 8, 0, 82, 10, 0, 0, 1, 0, 1, 0, 0, 0, "", "", "", 0, Infinity, false, false, false, false, false, 0, "Dragonewyn Shirt", "", true);
-                _root.getArenaArmor(80, "Gloves", 109, 16, 0, 50, 14, 0, 0, 1, 0, 1, 0, 0, 0, "", "", "", 0, Infinity, false, false, false, false, false, 0, "Dragonewyn Gloves", "", true);
-                _root.getArenaArmor(80, "Pants", 109, 8, 0, 82, 10, 0, 0, 1, 0, 1, 0, 0, 0, "", "", "", 0, Infinity, false, false, false, false, false, 0, "Dragonewyn Pants", "", true);
-                _root.getArenaArmor(80, "Shoes", 109, 8, 2, 50, 10, 4, 0, 1, 0, 1, 0, 0, 0, "", "", "", 0, Infinity, false, false, false, false, false, 0, "Dragonewyn Shoes", "", true);
-                _root.getArenaAccessory(30, "Pendant", 20, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 10, 756, "", "", "", 0, Infinity, true, false, false, false, false, 0, "Collector\'s Pendant", "This special item is awarded to help you during Challenge #1. Use it well, and don\'t accidentally sell it! Oh wait, you can\'t even sell it...", true);
+                _root.getArenaWeapon(
+                    100,
+                    "Gun",
+                    149,
+                    true,
+                    280,
+                    13,
+                    0,
+                    18,
+                    8,
+                    0,
+                    1,
+                    0,
+                    1,
+                    0,
+                    0,
+                    0,
+                    "Coin",
+                    "Critical Damage",
+                    "",
+                    0,
+                    Infinity,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    0,
+                    "Golden Gun",
+                    "",
+                    true
+                );
+                _root.getArenaWeapon(
+                    125,
+                    "Sword",
+                    133,
+                    false,
+                    585,
+                    6,
+                    30,
+                    20,
+                    0,
+                    0,
+                    1,
+                    0,
+                    1,
+                    0,
+                    1,
+                    0,
+                    "",
+                    "",
+                    "",
+                    0,
+                    Infinity,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    0,
+                    "Hero Sword",
+                    "",
+                    true
+                );
+                _root.getArenaArmor(
+                    80,
+                    "Hat",
+                    109,
+                    8,
+                    0,
+                    63,
+                    14,
+                    0,
+                    0,
+                    1,
+                    0,
+                    1,
+                    0,
+                    0,
+                    0,
+                    "",
+                    "",
+                    "",
+                    0,
+                    Infinity,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    0,
+                    "Dragonewyn Hat",
+                    "",
+                    true
+                );
+                _root.getArenaArmor(
+                    80,
+                    "Shirt",
+                    109,
+                    8,
+                    0,
+                    82,
+                    10,
+                    0,
+                    0,
+                    1,
+                    0,
+                    1,
+                    0,
+                    0,
+                    0,
+                    "",
+                    "",
+                    "",
+                    0,
+                    Infinity,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    0,
+                    "Dragonewyn Shirt",
+                    "",
+                    true
+                );
+                _root.getArenaArmor(
+                    80,
+                    "Gloves",
+                    109,
+                    16,
+                    0,
+                    50,
+                    14,
+                    0,
+                    0,
+                    1,
+                    0,
+                    1,
+                    0,
+                    0,
+                    0,
+                    "",
+                    "",
+                    "",
+                    0,
+                    Infinity,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    0,
+                    "Dragonewyn Gloves",
+                    "",
+                    true
+                );
+                _root.getArenaArmor(
+                    80,
+                    "Pants",
+                    109,
+                    8,
+                    0,
+                    82,
+                    10,
+                    0,
+                    0,
+                    1,
+                    0,
+                    1,
+                    0,
+                    0,
+                    0,
+                    "",
+                    "",
+                    "",
+                    0,
+                    Infinity,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    0,
+                    "Dragonewyn Pants",
+                    "",
+                    true
+                );
+                _root.getArenaArmor(
+                    80,
+                    "Shoes",
+                    109,
+                    8,
+                    2,
+                    50,
+                    10,
+                    4,
+                    0,
+                    1,
+                    0,
+                    1,
+                    0,
+                    0,
+                    0,
+                    "",
+                    "",
+                    "",
+                    0,
+                    Infinity,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    0,
+                    "Dragonewyn Shoes",
+                    "",
+                    true
+                );
+                _root.getArenaAccessory(
+                    30,
+                    "Pendant",
+                    20,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    1,
+                    0,
+                    1,
+                    0,
+                    10,
+                    756,
+                    "",
+                    "",
+                    "",
+                    0,
+                    Infinity,
+                    true,
+                    false,
+                    false,
+                    false,
+                    false,
+                    0,
+                    "Collector\'s Pendant",
+                    "This special item is awarded to help you during Challenge #1. Use it well, and don\'t accidentally sell it! Oh wait, you can\'t even sell it...",
+                    true
+                );
             }
             if (_root.saveid == 25)
             {
@@ -149,7 +397,81 @@ public partial class Main : Control
                     _root.save.fcgOwned[i] += 6;
                     i++;
                 }
-                _root.save.fcgChallenge5 = new([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]);
+                _root.save.fcgChallenge5 = new(
+                    [
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                    ]
+                );
                 _root.save.fcgSeriousDeck = 13 + random(53);
             }
         }
@@ -265,13 +587,28 @@ public partial class Main : Control
                 if (_root.save.petFullness >= petFullnessDrop)
                 {
                     _root.save.petFullness -= petFullnessDrop;
-                    _root.dispNews(149, "Pet Fullness decreased! (-" + petFullnessDrop + ") / Remaining: " + _root.save.petFullness);
+                    _root.dispNews(
+                        149,
+                        "Pet Fullness decreased! (-"
+                            + petFullnessDrop
+                            + ") / Remaining: "
+                            + _root.save.petFullness
+                    );
                 }
                 else
                 {
                     _root.save.petHealth -= petFullnessDrop - _root.save.petFullness;
-                    _root.dispNews(149, "Pet Fullness decreased! (-" + _root.save.petFullness + ") / Remaining: 0");
-                    _root.dispNews(150, "Pet Health decreased! (-" + (petFullnessDrop - _root.save.petFullness) + ") / Remaining: " + _root.save.petHealth);
+                    _root.dispNews(
+                        149,
+                        "Pet Fullness decreased! (-" + _root.save.petFullness + ") / Remaining: 0"
+                    );
+                    _root.dispNews(
+                        150,
+                        "Pet Health decreased! (-"
+                            + (petFullnessDrop - _root.save.petFullness)
+                            + ") / Remaining: "
+                            + _root.save.petHealth
+                    );
                     _root.save.petFullness = 0;
                     if (_root.save.petHealth > 0)
                     {
@@ -293,7 +630,34 @@ public partial class Main : Control
         _root.printPercent = 0;
         _root.mainSummonCount = 0;
         _root.mainAntiLag = 0;
-        _root.souvenirLimit = [0, 500, 250, 250, 250, 100, 250, 1000, 4000, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+        _root.souvenirLimit =
+        [
+            0,
+            500,
+            250,
+            250,
+            250,
+            100,
+            250,
+            1000,
+            4000,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+        ];
         _root.souvenirRC = 0;
         i = 1;
         while (i <= 24)
@@ -342,7 +706,12 @@ public partial class Main : Control
         _root.toBuyInsta = 0;
         if (_root.saveid >= 20)
         {
-            _root.showPopup("Challenge Mode", "You\'re now attempting Challenge #" + (_root.saveid - 20) + "!\nAvoid playing another savefile at the same time to prevent possible losses.\nAll Challenges are RANKED, so do NOT cheat. Cheaters will be banned from the game!!");
+            _root.showPopup(
+                "Challenge Mode",
+                "You\'re now attempting Challenge #"
+                    + (_root.saveid - 20)
+                    + "!\nAvoid playing another savefile at the same time to prevent possible losses.\nAll Challenges are RANKED, so do NOT cheat. Cheaters will be banned from the game!!"
+            );
         }
         if (_root.saveid == 4)
         {
@@ -353,12 +722,24 @@ public partial class Main : Control
         {
             _root.kongregate.stats.submit("nope", 38);
         }
-        if (_root.kongregate_username == "TheLinkToThePast" || _root.kongregate_username == "Oregane" || _root.kongregate_username == "Tukkun")
+        if (
+            _root.kongregate_username == "TheLinkToThePast"
+            || _root.kongregate_username == "Oregane"
+            || _root.kongregate_username == "Tukkun"
+        )
         {
             if (_root.save.tlttpSkin != true && _root.emptyOutfitSlot >= 1)
             {
                 _root.save.tlttpSkin = true;
-                _root.getArenaOutfit(1, "Skin", 13, 706, 0, "Exclusive Skin!!!!1!", "Thank you for participating in TLTTP\'s Challenge!");
+                _root.getArenaOutfit(
+                    1,
+                    "Skin",
+                    13,
+                    706,
+                    0,
+                    "Exclusive Skin!!!!1!",
+                    "Thank you for participating in TLTTP\'s Challenge!"
+                );
             }
         }
         if (_root.save.bestLevel >= 1000 && _root.saveid <= 3)
@@ -376,7 +757,6 @@ public partial class Main : Control
         {
             _root.save.support = 1337;
         }
-
     }
 
     public override void _Process(double delta)
@@ -413,13 +793,19 @@ public partial class Main : Control
             {
                 _root.saveGlobal.challengeAttempted[_root.saveid - 20] = true;
             }
-            if (_root.save.challengeToken == Math.floor(_root.saveid * (_root.saveid + 1) * (_root.saveid - 7) * 156.4))
+            if (
+                _root.save.challengeToken
+                == Math.floor(_root.saveid * (_root.saveid + 1) * (_root.saveid - 7) * 156.4)
+            )
             {
                 if (isNaN(_root.save.challengeTime))
                 {
                     _root.save.challengeTime = _root.save.totalPlayTime;
                 }
-                if (isNaN(_root.saveGlobal.challengeTime[_root.saveid - 20]) || _root.saveGlobal.challengeTime[_root.saveid - 20] > _root.save.challengeTime)
+                if (
+                    isNaN(_root.saveGlobal.challengeTime[_root.saveid - 20])
+                    || _root.saveGlobal.challengeTime[_root.saveid - 20] > _root.save.challengeTime
+                )
                 {
                     _root.saveGlobal.challengeTime[_root.saveid - 20] = _root.save.challengeTime;
                 }
@@ -789,7 +1175,10 @@ public partial class Main : Control
             _root.checkCyborg();
             if (_root.save.whiteCoinRefund > 0)
             {
-                var tempWcEarn = Math.min(_root.save.whiteCoinRefund, 999999 - _root.save.whiteCoin);
+                var tempWcEarn = Math.min(
+                    _root.save.whiteCoinRefund,
+                    999999 - _root.save.whiteCoin
+                );
                 _root.save.whiteCoin += tempWcEarn;
                 _root.save.whiteCoinRefund -= tempWcEarn;
             }
@@ -871,7 +1260,8 @@ public partial class Main : Control
                 if (_root.house._currentframe != 8)
                 {
                     grandpaClickRate = grandpaClickRate * _root.save.buttonGrandpaDiscipline * 0.02;
-                    grandpaExcellentRate = grandpaExcellentRate * _root.save.buttonGrandpaDiscipline * 0.02;
+                    grandpaExcellentRate =
+                        grandpaExcellentRate * _root.save.buttonGrandpaDiscipline * 0.02;
                 }
                 i = 1;
                 while (i <= _root.save.buttonGrandpa)
@@ -929,9 +1319,26 @@ public partial class Main : Control
                         }
                         _root.save.buttonPress += 1;
                         _root.save.buttonGrandpaPress += 1;
-                        var grandpaReward = Math.floor(Math.pow(_root.save.level * grandpaPerf * grandpaRating, 0.6) * tmul / 100);
-                        grandpaExp += Math.floor(grandpaReward * _root.save.boost / 100 * 0.175 * (1 + _root.curCareerLevel[5] * 0.005) * (1 + _root.save.petStat[3] * 0.002));
-                        grandpaCoin += Math.floor(grandpaReward * _root.save.boost / 100 * 0.05 * (1 + _root.curCareerLevel[5] * 0.005));
+                        var grandpaReward = Math.floor(
+                            Math.pow(_root.save.level * grandpaPerf * grandpaRating, 0.6)
+                                * tmul
+                                / 100
+                        );
+                        grandpaExp += Math.floor(
+                            grandpaReward
+                                * _root.save.boost
+                                / 100
+                                * 0.175
+                                * (1 + _root.curCareerLevel[5] * 0.005)
+                                * (1 + _root.save.petStat[3] * 0.002)
+                        );
+                        grandpaCoin += Math.floor(
+                            grandpaReward
+                                * _root.save.boost
+                                / 100
+                                * 0.05
+                                * (1 + _root.curCareerLevel[5] * 0.005)
+                        );
                         if (grandpaRating == 4)
                         {
                             grandpaGreenCoin += 10;
@@ -1016,7 +1423,10 @@ public partial class Main : Control
                     _root.save.awesomeEnergyNext -= 1;
                 }
                 var rgn = 0;
-                while (_root.save.awesomeEnergyNext <= 0 && _root.save.awesomeEnergy < _root.save.awesomeMaxEnergy * 5 + 15)
+                while (
+                    _root.save.awesomeEnergyNext <= 0
+                    && _root.save.awesomeEnergy < _root.save.awesomeMaxEnergy * 5 + 15
+                )
                 {
                     var rdx = _root.save.awesomeEnergyNext;
                     _root.save.awesomeEnergyNext = 300 - _root.curCareerLevel[10];
@@ -1030,15 +1440,23 @@ public partial class Main : Control
                         int yy = _root.clock_year % 10;
                         int mm = _root.clock_month;
                         int dd = _root.clock_date;
-                        if (_root.eventList[yy][mm][dd][(int)i] == "Wait time for Adventure Energy is reduced by 25%")
+                        if (
+                            _root.eventList[yy][mm][dd][(int)i]
+                            == "Wait time for Adventure Energy is reduced by 25%"
+                        )
                         {
-                            _root.save.awesomeEnergyNext = Math.floor(_root.save.awesomeEnergyNext * 0.75);
+                            _root.save.awesomeEnergyNext = Math.floor(
+                                _root.save.awesomeEnergyNext * 0.75
+                            );
                         }
                         i++;
                     }
                     if (_root.save.restTime > 0)
                     {
-                        _root.save.awesomeEnergyNext = Math.floor(_root.save.awesomeEnergyNext * (0.9 - _root.save.restEfficiency[9] * 0.01));
+                        _root.save.awesomeEnergyNext = Math.floor(
+                            _root.save.awesomeEnergyNext
+                                * (0.9 - _root.save.restEfficiency[9] * 0.01)
+                        );
                     }
                     _root.save.awesomeEnergyNext += rdx;
                     rgn += 1;
@@ -1046,13 +1464,23 @@ public partial class Main : Control
                 }
                 if (rgn > 0)
                 {
-                    _root.dispNews(112, "Adventure Energy gained! (" + (_root.save.awesomeEnergy - rgn) + " --> " + _root.save.awesomeEnergy + ")");
+                    _root.dispNews(
+                        112,
+                        "Adventure Energy gained! ("
+                            + (_root.save.awesomeEnergy - rgn)
+                            + " --> "
+                            + _root.save.awesomeEnergy
+                            + ")"
+                    );
                 }
                 if (_root.save.awesomeEnergy >= _root.save.awesomeMaxEnergy * 5 + 15)
                 {
                     _root.save.awesomeEnergy -= 15;
                     _root.save.awesomeRefill += 1;
-                    _root.dispNews(112, "15 Adventure Energy has been converted to 1 Energy Refill!");
+                    _root.dispNews(
+                        112,
+                        "15 Adventure Energy has been converted to 1 Energy Refill!"
+                    );
                 }
             }
             if (_root.mainAntiLag > 160)
@@ -1126,7 +1554,13 @@ public partial class Main : Control
             }
             if (_root.save.awesomeReputation != recentReputation)
             {
-                _root.dispNews(113, "Adventure Reputation: " + _root.withComma(recentReputation) + " --> " + _root.withComma(_root.save.awesomeReputation));
+                _root.dispNews(
+                    113,
+                    "Adventure Reputation: "
+                        + _root.withComma(recentReputation)
+                        + " --> "
+                        + _root.withComma(_root.save.awesomeReputation)
+                );
                 var repChange = Math.abs(_root.save.awesomeReputation - recentReputation);
                 if (repChange > 100)
                 {
@@ -1180,7 +1614,10 @@ public partial class Main : Control
                     if (_root.save.careerBoost[i] <= 0)
                     {
                         _root.save.careerBoost[i] = 0;
-                        _root.dispNews(158, "[" + _root.careerName[i] + "] Career is no longer blessed!");
+                        _root.dispNews(
+                            158,
+                            "[" + _root.careerName[i] + "] Career is no longer blessed!"
+                        );
                     }
                 }
                 else if (_root.save.careerActive[i] > 0)
@@ -1199,13 +1636,21 @@ public partial class Main : Control
         }
         if (delay5min >= 300)
         {
-            if (_root.save.boost < _root.boostMax * 1.5 - 1 && _root.save.boostPotion >= 1 && _root.save.boostAuto == true)
+            if (
+                _root.save.boost < _root.boostMax * 1.5 - 1
+                && _root.save.boostPotion >= 1
+                && _root.save.boostAuto == true
+            )
             {
                 _root.save.boostPotion -= 1;
                 _root.gainBoost(9999, 3);
-                if (_root.save.boostFreeze < 45 + Math.min(Math.floor(_root.save.totalStupidity / 500), 250))
+                if (
+                    _root.save.boostFreeze
+                    < 45 + Math.min(Math.floor(_root.save.totalStupidity / 500), 250)
+                )
                 {
-                    _root.save.boostFreeze = 45 + Math.min(Math.floor(_root.save.totalStupidity / 500), 250);
+                    _root.save.boostFreeze =
+                        45 + Math.min(Math.floor(_root.save.totalStupidity / 500), 250);
                 }
             }
             if (_root.save.gDifficulty == 1 || _root.save.level >= 8999)
@@ -1235,14 +1680,27 @@ public partial class Main : Control
                 }
                 else if (_root.saveid >= 20)
                 {
-                    _root.dispNews(159, "[CHALLENGE] Next day will begin in " + _root.withComma(_root.save.speedRunNextDay) + " minutes.");
+                    _root.dispNews(
+                        159,
+                        "[CHALLENGE] Next day will begin in "
+                            + _root.withComma(_root.save.speedRunNextDay)
+                            + " minutes."
+                    );
                 }
                 else
                 {
-                    _root.dispNews(159, "[SPEEDRUN] Next day will begin in " + _root.withComma(_root.save.speedRunNextDay) + " minutes.");
+                    _root.dispNews(
+                        159,
+                        "[SPEEDRUN] Next day will begin in "
+                            + _root.withComma(_root.save.speedRunNextDay)
+                            + " minutes."
+                    );
                 }
             }
-            if (_root.save.hyperDay[1] != _root.todayCode && _root.save.hyperDay[2] != _root.todayCode)
+            if (
+                _root.save.hyperDay[1] != _root.todayCode
+                && _root.save.hyperDay[2] != _root.todayCode
+            )
             {
                 _root.gainEventToken(10);
             }
@@ -1267,7 +1725,8 @@ public partial class Main : Control
             {
                 if (Math.random() < 0.2)
                 {
-                    fatigueRestore = (int)Math.floor(fatigueRestore * (1.5 + _root.save.restEfficiency[10] * 0.05));
+                    fatigueRestore = (int)
+                        Math.floor(fatigueRestore * (1.5 + _root.save.restEfficiency[10] * 0.05));
                 }
             }
             _root.save.fishFatigue -= fatigueRestore;

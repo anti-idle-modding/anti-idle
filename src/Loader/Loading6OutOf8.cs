@@ -1,5 +1,5 @@
-using Godot;
 using System;
+using Godot;
 
 // MATCH: frame_7/DoAction.as
 public partial class Loading6OutOf8 : Control
@@ -116,11 +116,12 @@ public partial class Loading6OutOf8 : Control
                 var k = 1;
                 while (k <= 31)
                 {
-                    _root.eventList[i][j].Add(["",""]);
+                    _root.eventList[i][j].Add(["", ""]);
                     _root.eventRating[i][j].Add(new());
                     _root.eventRating[i][j][k] = 0;
                     _root.eventList[i][j][k][0] = "1";
-                    _root.eventList[i][j][k][1] = "Receive 10 Event Tokens every 5 minutes you play";
+                    _root.eventList[i][j][k][1] =
+                        "Receive 10 Event Tokens every 5 minutes you play";
                     k++;
                 }
                 j++;
@@ -130,36 +131,216 @@ public partial class Loading6OutOf8 : Control
         i = 0;
         while (i <= 9)
         {
-            _root.addEvent(3, i, 1, 1, "Gain 100% more Coins from all sources except the Progress Bar, .t.LolMarket and Fishing");
-            _root.addEvent(3, i, 1, 2, "Gain 100% more Coins from all sources except the Progress Bar, .t.LolMarket and Fishing");
-            _root.addEvent(2, i, 2, 14, "Gain 50% more EXP from all sources except the Progress Bar.d _root.Awesome Adventures");
-            _root.addEvent(2, i, 2, 14, "Gain 50% more Coins from all sources except the Progress Bar, .t.LolMarket and Fishing");
-            _root.addEvent(4, i, 5, 7, "Gain 200% more EXP from all sources except the Progress Bar.d _root.Awesome Adventures");
-            _root.addEvent(4, i, 5, 8, "Gain 200% more EXP from all sources except the Progress Bar.d _root.Awesome Adventures");
-            _root.addEvent(3, i, 12, 20, "Gain 100% more EXP from all sources except the Progress Bar.d _root.Awesome Adventures");
-            _root.addEvent(3, i, 12, 21, "Gain 100% more EXP from all sources except the Progress Bar.d _root.Awesome Adventures");
-            _root.addEvent(3, i, 12, 22, "Gain 100% more EXP from all sources except the Progress Bar.d _root.Awesome Adventures");
-            _root.addEvent(3, i, 12, 23, "Gain 100% more EXP from all sources except the Progress Bar.d _root.Awesome Adventures");
-            _root.addEvent(4, i, 12, 24, "Gain 200% more EXP from all sources except the Progress Bar.d _root.Awesome Adventures");
-            _root.addEvent(4, i, 12, 25, "Gain 200% more EXP from all sources except the Progress Bar.d _root.Awesome Adventures");
-            _root.addEvent(3, i, 12, 26, "Gain 100% more EXP from all sources except the Progress Bar.d _root.Awesome Adventures");
-            _root.addEvent(3, i, 12, 27, "Gain 100% more EXP from all sources except the Progress Bar.d _root.Awesome Adventures");
-            _root.addEvent(3, i, 12, 28, "Gain 100% more EXP from all sources except the Progress Bar.d _root.Awesome Adventures");
-            _root.addEvent(3, i, 12, 29, "Gain 100% more EXP from all sources except the Progress Bar.d _root.Awesome Adventures");
-            _root.addEvent(3, i, 12, 30, "Gain 100% more EXP from all sources except the Progress Bar.d _root.Awesome Adventures");
-            _root.addEvent(3, i, 12, 31, "Gain 100% more EXP from all sources except the Progress Bar.d _root.Awesome Adventures");
-            _root.addEvent(2, i, 12, 20, "Gain 50% more Coins from all sources except the Progress Bar, .t.LolMarket and Fishing");
-            _root.addEvent(2, i, 12, 21, "Gain 50% more Coins from all sources except the Progress Bar, .t.LolMarket and Fishing");
-            _root.addEvent(2, i, 12, 22, "Gain 50% more Coins from all sources except the Progress Bar, .t.LolMarket and Fishing");
-            _root.addEvent(2, i, 12, 23, "Gain 50% more Coins from all sources except the Progress Bar, .t.LolMarket and Fishing");
-            _root.addEvent(2, i, 12, 24, "Gain 50% more Coins from all sources except the Progress Bar, .t.LolMarket and Fishing");
-            _root.addEvent(2, i, 12, 25, "Gain 50% more Coins from all sources except the Progress Bar, .t.LolMarket and Fishing");
-            _root.addEvent(2, i, 12, 26, "Gain 50% more Coins from all sources except the Progress Bar, .t.LolMarket and Fishing");
-            _root.addEvent(2, i, 12, 27, "Gain 50% more Coins from all sources except the Progress Bar, .t.LolMarket and Fishing");
-            _root.addEvent(2, i, 12, 28, "Gain 50% more Coins from all sources except the Progress Bar, .t.LolMarket and Fishing");
-            _root.addEvent(2, i, 12, 29, "Gain 50% more Coins from all sources except the Progress Bar, .t.LolMarket and Fishing");
-            _root.addEvent(2, i, 12, 30, "Gain 50% more Coins from all sources except the Progress Bar, .t.LolMarket and Fishing");
-            _root.addEvent(2, i, 12, 31, "Gain 50% more Coins from all sources except the Progress Bar, .t.LolMarket and Fishing");
+            _root.addEvent(
+                3,
+                i,
+                1,
+                1,
+                "Gain 100% more Coins from all sources except the Progress Bar, .t.LolMarket and Fishing"
+            );
+            _root.addEvent(
+                3,
+                i,
+                1,
+                2,
+                "Gain 100% more Coins from all sources except the Progress Bar, .t.LolMarket and Fishing"
+            );
+            _root.addEvent(
+                2,
+                i,
+                2,
+                14,
+                "Gain 50% more EXP from all sources except the Progress Bar.d _root.Awesome Adventures"
+            );
+            _root.addEvent(
+                2,
+                i,
+                2,
+                14,
+                "Gain 50% more Coins from all sources except the Progress Bar, .t.LolMarket and Fishing"
+            );
+            _root.addEvent(
+                4,
+                i,
+                5,
+                7,
+                "Gain 200% more EXP from all sources except the Progress Bar.d _root.Awesome Adventures"
+            );
+            _root.addEvent(
+                4,
+                i,
+                5,
+                8,
+                "Gain 200% more EXP from all sources except the Progress Bar.d _root.Awesome Adventures"
+            );
+            _root.addEvent(
+                3,
+                i,
+                12,
+                20,
+                "Gain 100% more EXP from all sources except the Progress Bar.d _root.Awesome Adventures"
+            );
+            _root.addEvent(
+                3,
+                i,
+                12,
+                21,
+                "Gain 100% more EXP from all sources except the Progress Bar.d _root.Awesome Adventures"
+            );
+            _root.addEvent(
+                3,
+                i,
+                12,
+                22,
+                "Gain 100% more EXP from all sources except the Progress Bar.d _root.Awesome Adventures"
+            );
+            _root.addEvent(
+                3,
+                i,
+                12,
+                23,
+                "Gain 100% more EXP from all sources except the Progress Bar.d _root.Awesome Adventures"
+            );
+            _root.addEvent(
+                4,
+                i,
+                12,
+                24,
+                "Gain 200% more EXP from all sources except the Progress Bar.d _root.Awesome Adventures"
+            );
+            _root.addEvent(
+                4,
+                i,
+                12,
+                25,
+                "Gain 200% more EXP from all sources except the Progress Bar.d _root.Awesome Adventures"
+            );
+            _root.addEvent(
+                3,
+                i,
+                12,
+                26,
+                "Gain 100% more EXP from all sources except the Progress Bar.d _root.Awesome Adventures"
+            );
+            _root.addEvent(
+                3,
+                i,
+                12,
+                27,
+                "Gain 100% more EXP from all sources except the Progress Bar.d _root.Awesome Adventures"
+            );
+            _root.addEvent(
+                3,
+                i,
+                12,
+                28,
+                "Gain 100% more EXP from all sources except the Progress Bar.d _root.Awesome Adventures"
+            );
+            _root.addEvent(
+                3,
+                i,
+                12,
+                29,
+                "Gain 100% more EXP from all sources except the Progress Bar.d _root.Awesome Adventures"
+            );
+            _root.addEvent(
+                3,
+                i,
+                12,
+                30,
+                "Gain 100% more EXP from all sources except the Progress Bar.d _root.Awesome Adventures"
+            );
+            _root.addEvent(
+                3,
+                i,
+                12,
+                31,
+                "Gain 100% more EXP from all sources except the Progress Bar.d _root.Awesome Adventures"
+            );
+            _root.addEvent(
+                2,
+                i,
+                12,
+                20,
+                "Gain 50% more Coins from all sources except the Progress Bar, .t.LolMarket and Fishing"
+            );
+            _root.addEvent(
+                2,
+                i,
+                12,
+                21,
+                "Gain 50% more Coins from all sources except the Progress Bar, .t.LolMarket and Fishing"
+            );
+            _root.addEvent(
+                2,
+                i,
+                12,
+                22,
+                "Gain 50% more Coins from all sources except the Progress Bar, .t.LolMarket and Fishing"
+            );
+            _root.addEvent(
+                2,
+                i,
+                12,
+                23,
+                "Gain 50% more Coins from all sources except the Progress Bar, .t.LolMarket and Fishing"
+            );
+            _root.addEvent(
+                2,
+                i,
+                12,
+                24,
+                "Gain 50% more Coins from all sources except the Progress Bar, .t.LolMarket and Fishing"
+            );
+            _root.addEvent(
+                2,
+                i,
+                12,
+                25,
+                "Gain 50% more Coins from all sources except the Progress Bar, .t.LolMarket and Fishing"
+            );
+            _root.addEvent(
+                2,
+                i,
+                12,
+                26,
+                "Gain 50% more Coins from all sources except the Progress Bar, .t.LolMarket and Fishing"
+            );
+            _root.addEvent(
+                2,
+                i,
+                12,
+                27,
+                "Gain 50% more Coins from all sources except the Progress Bar, .t.LolMarket and Fishing"
+            );
+            _root.addEvent(
+                2,
+                i,
+                12,
+                28,
+                "Gain 50% more Coins from all sources except the Progress Bar, .t.LolMarket and Fishing"
+            );
+            _root.addEvent(
+                2,
+                i,
+                12,
+                29,
+                "Gain 50% more Coins from all sources except the Progress Bar, .t.LolMarket and Fishing"
+            );
+            _root.addEvent(
+                2,
+                i,
+                12,
+                30,
+                "Gain 50% more Coins from all sources except the Progress Bar, .t.LolMarket and Fishing"
+            );
+            _root.addEvent(
+                2,
+                i,
+                12,
+                31,
+                "Gain 50% more Coins from all sources except the Progress Bar, .t.LolMarket and Fishing"
+            );
             _root.addEvent(4, i, 1, 23, "2x Drop Rate in Battle Arena");
             _root.addEvent(2, i, 1, 31, "1.5x Drop Rate in Battle Arena");
             _root.addEvent(4, i, 2, 21, "2x Drop Rate in Battle Arena");
@@ -183,7 +364,13 @@ public partial class Loading6OutOf8 : Control
             _root.addEvent(4, i, 11, 21, "2x Drop Rate in Battle Arena");
             _root.addEvent(2, i, 12, 1, "1.5x Drop Rate in Battle Arena");
             _root.addEvent(4, i, 12, 24, "2x Drop Rate in Battle Arena");
-            _root.addEvent(4, i, 2, 1, "4x Superior Crafting Material from loot drops in Battle Arena");
+            _root.addEvent(
+                4,
+                i,
+                2,
+                1,
+                "4x Superior Crafting Material from loot drops in Battle Arena"
+            );
             _root.addEvent(4, i, 3, 1, "4x Unobtainium from loot drops in Battle Arena");
             _root.addEvent(4, i, 5, 1, "1.5x Career EXP gain");
             _root.addEvent(4, i, 6, 1, "2.5x Drop Rate in Battle Arena");
@@ -207,8 +394,20 @@ public partial class Loading6OutOf8 : Control
             var j = 1;
             while (j <= 12)
             {
-                _root.addEvent(1, i, j, 3, "Progress Bar fills at full speed, even when Idle Mode is on");
-                _root.addEvent(1, i, j, 6, "Wait time to harvest trees in Garden is reduced by 25%");
+                _root.addEvent(
+                    1,
+                    i,
+                    j,
+                    3,
+                    "Progress Bar fills at full speed, even when Idle Mode is on"
+                );
+                _root.addEvent(
+                    1,
+                    i,
+                    j,
+                    6,
+                    "Wait time to harvest trees in Garden is reduced by 25%"
+                );
                 _root.addEvent(1, i, j, 6, "Receive Event Tokens by harvesting trees");
                 _root.addEvent(1, i, j, 6, "Daily Event Token limit is increased by 300");
                 _root.addEvent(1, i, j, 8, "Gain 1.5x EXP from TukkunFCG");
@@ -227,36 +426,78 @@ public partial class Loading6OutOf8 : Control
                 _root.addEvent(1, i, j, 24, "Receive Event Tokens by pressing the Button Machine");
                 _root.addEvent(1, i, j, 24, "Daily Event Token limit is increased by 300");
                 _root.addEvent(1, i, j, 28, "Wait time for Adventure Energy is reduced by 25%");
-                _root.addEvent(1, i, j, 28, "Receive Event Tokens by adventuring in Awesome Adventures");
+                _root.addEvent(
+                    1,
+                    i,
+                    j,
+                    28,
+                    "Receive Event Tokens by adventuring in Awesome Adventures"
+                );
                 _root.addEvent(1, i, j, 28, "Daily Event Token limit is increased by 300");
                 var k = 1;
                 while (k <= 31)
                 {
                     if ((i + j + k) % 16 == 2)
                     {
-                        _root.addEvent(1, i, j, k, "Gain 1.5x EXP from Secret Dungeon area in Battle Arena");
+                        _root.addEvent(
+                            1,
+                            i,
+                            j,
+                            k,
+                            "Gain 1.5x EXP from Secret Dungeon area in Battle Arena"
+                        );
                     }
                     if ((i + j + k) % 16 == 6)
                     {
-                        _root.addEvent(1, i, j, k, "Gain 1.5x EXP from The Corruption area in Battle Arena");
+                        _root.addEvent(
+                            1,
+                            i,
+                            j,
+                            k,
+                            "Gain 1.5x EXP from The Corruption area in Battle Arena"
+                        );
                     }
                     if ((i + j + k) % 16 == 10)
                     {
-                        _root.addEvent(1, i, j, k, "Gain 1.5x EXP from Endless Dungeon area in Battle Arena");
+                        _root.addEvent(
+                            1,
+                            i,
+                            j,
+                            k,
+                            "Gain 1.5x EXP from Endless Dungeon area in Battle Arena"
+                        );
                     }
                     if ((i + j + k) % 16 == 14)
                     {
-                        _root.addEvent(1, i, j, k, "Gain 1.5x EXP from The Corruption area in Battle Arena");
+                        _root.addEvent(
+                            1,
+                            i,
+                            j,
+                            k,
+                            "Gain 1.5x EXP from The Corruption area in Battle Arena"
+                        );
                     }
                     if (_root.eventRating[i][j][k] == 0)
                     {
                         if ((i + j + k) % 8 <= 4)
                         {
-                            _root.addEvent(1, i, j, k, "Gain 25% more EXP from all sources except the Progress Bar, LolMarket and Awesome Adventures");
+                            _root.addEvent(
+                                1,
+                                i,
+                                j,
+                                k,
+                                "Gain 25% more EXP from all sources except the Progress Bar, LolMarket and Awesome Adventures"
+                            );
                         }
                         else
                         {
-                            _root.addEvent(1, i, j, k, "Gain 25% more Coins from all sources except the Progress Bar, Garden, LolMarket and Fishing");
+                            _root.addEvent(
+                                1,
+                                i,
+                                j,
+                                k,
+                                "Gain 25% more Coins from all sources except the Progress Bar, Garden, LolMarket and Fishing"
+                            );
                         }
                     }
                     k++;
@@ -266,16 +507,50 @@ public partial class Loading6OutOf8 : Control
             i++;
         }
         _root.addEvent(10, 7, 6, 5, "2.5x Drop Rate in Battle Arena");
-        _root.addEvent(10, 7, 6, 6, "Gain 50% more Coins from all sources except the Progress Bar, Garden, LolMarket and Fishing");
+        _root.addEvent(
+            10,
+            7,
+            6,
+            6,
+            "Gain 50% more Coins from all sources except the Progress Bar, Garden, LolMarket and Fishing"
+        );
         _root.addEvent(10, 7, 6, 7, "2.5x Drop Rate in Battle Arena");
-        _root.addEvent(10, 7, 6, 8, "Gain 50% more Coins from all sources except the Progress Bar, Garden, LolMarket and Fishing");
+        _root.addEvent(
+            10,
+            7,
+            6,
+            8,
+            "Gain 50% more Coins from all sources except the Progress Bar, Garden, LolMarket and Fishing"
+        );
         _root.addEvent(10, 7, 6, 9, "2.5x Drop Rate in Battle Arena");
-        _root.addEvent(10, 7, 6, 10, "Gain 50% more Coins from all sources except the Progress Bar, Garden, LolMarket and Fishing");
+        _root.addEvent(
+            10,
+            7,
+            6,
+            10,
+            "Gain 50% more Coins from all sources except the Progress Bar, Garden, LolMarket and Fishing"
+        );
         _root.addEvent(10, 7, 6, 11, "2.5x Drop Rate in Battle Arena");
-        _root.addEvent(10, 7, 6, 11, "Gain 50% more Coins from all sources except the Progress Bar, Garden, LolMarket and Fishing");
+        _root.addEvent(
+            10,
+            7,
+            6,
+            11,
+            "Gain 50% more Coins from all sources except the Progress Bar, Garden, LolMarket and Fishing"
+        );
         _root.todayEvent = 0;
         _root.autoUpdateTime = [0, 1354114800000, 1356034320000, Infinity];
-        _root.challengeTime = [0, 1374788220000, 1390685820000, 1393364220000, 1398461820000, 1427319420000, 1469482620000, Infinity];
+        _root.challengeTime =
+        [
+            0,
+            1374788220000,
+            1390685820000,
+            1393364220000,
+            1398461820000,
+            1427319420000,
+            1469482620000,
+            Infinity,
+        ];
         _root.eventStartTime = [0, 1450810800000, 1458154800000, 1477335600000, Infinity];
         _root.eventEndTime = [0, 1451628000000, 1459404000000, 1478930400000, Infinity];
         _root.eventArmorName = ["", "Festive", "Choco", "Lantern", ""];
@@ -284,9 +559,18 @@ public partial class Loading6OutOf8 : Control
         _root.rcEarnLog = _root.kongregate_username + "\'s Red Coin earning log:";
         _root.banReason = "";
         _root.canPlay = true;
-        _root.banhammer("liooi", "Using a bot to click the Button Machine way too much and destroying leaderboards _root.- nearly 70% perfect clicks out of 15 million clicks.");
-        _root.banhammer("1000deathz", "Ascending 19 times in 11 days and getting too much EXP and destroying _root.leaderboards.");
-        _root.banhammer("baba1029", "Having 225 million Garden EXP with less than 500 trees harvested and _root.destroying leaderboards.");
+        _root.banhammer(
+            "liooi",
+            "Using a bot to click the Button Machine way too much and destroying leaderboards _root.- nearly 70% perfect clicks out of 15 million clicks."
+        );
+        _root.banhammer(
+            "1000deathz",
+            "Ascending 19 times in 11 days and getting too much EXP and destroying _root.leaderboards."
+        );
+        _root.banhammer(
+            "baba1029",
+            "Having 225 million Garden EXP with less than 500 trees harvested and _root.destroying leaderboards."
+        );
         _root.banhammer("pingpong1", "Unreasonable EXP gain rate.");
         _root.banhammer("emmett050", "Unreasonable EXP gain rate.");
         _root.banhammer("hho1", "Totally legitimate scores... no.");
@@ -317,7 +601,10 @@ public partial class Loading6OutOf8 : Control
         _root.banhammer("celestior", "Leaderboard hacking.");
         _root.banhammer("draster", "Killing way too many monsters.");
         _root.banhammer("twiggy7711", "Killing way too many monsters.");
-        _root.banhammer("MagicChopstick", "Killing 41 million monsters, over 90% of which are bosses, while _root.looting only 1 million items. Seriously, it\'s not funny.");
+        _root.banhammer(
+            "MagicChopstick",
+            "Killing 41 million monsters, over 90% of which are bosses, while _root.looting only 1 million items. Seriously, it\'s not funny."
+        );
         _root.banhammer("mikedp1", "Impossible Arcade score.");
         _root.banhammer("chksec", "Impossible Arcade score.");
         _root.banhammer("ZeoNFrosT", "Impossible Arcade score.");
@@ -473,16 +760,56 @@ public partial class Loading6OutOf8 : Control
         _root.addRedCoin("CoCollect", 4500, "Useful suggestion");
         _root.addRedCoin("Bluji", 3000, "Bug Report: Undefined reward");
         _root.addRedCoin("coldkick", 3000, "Bug Report: Super Battery exploit");
-        _root.addRedCoin("liosfan", 700, "Completing Survey: v1300 - Battle Arena / Arcade balancing");
-        _root.addRedCoin("jew4life520", 700, "Completing Survey: v1300 - Battle Arena / Arcade balancing");
-        _root.addRedCoin("PokerHappy", 1000, "Completing Survey: v1300 - Battle Arena / Arcade balancing");
-        _root.addRedCoin("SpectralFlame", 1000, "Completing Survey: v1300 - Battle Arena / Arcade balancing");
-        _root.addRedCoin("Bench", 1000, "Completing Survey: v1300 - Battle Arena / Arcade balancing");
-        _root.addRedCoin("7smartone7", 700, "Completing Survey: v1300 - Battle Arena / Arcade balancing");
-        _root.addRedCoin("Meepoo", 700, "Completing Survey: v1300 - Battle Arena / Arcade balancing");
-        _root.addRedCoin("KittehLover", 1000, "Completing Survey: v1300 - Battle Arena / Arcade balancing");
-        _root.addRedCoin("RikuFrost", 1000, "Completing Survey: v1300 - Battle Arena / Arcade balancing");
-        _root.addRedCoin("aguspal", 1000, "Completing Survey: v1300 - Battle Arena / Arcade balancing");
+        _root.addRedCoin(
+            "liosfan",
+            700,
+            "Completing Survey: v1300 - Battle Arena / Arcade balancing"
+        );
+        _root.addRedCoin(
+            "jew4life520",
+            700,
+            "Completing Survey: v1300 - Battle Arena / Arcade balancing"
+        );
+        _root.addRedCoin(
+            "PokerHappy",
+            1000,
+            "Completing Survey: v1300 - Battle Arena / Arcade balancing"
+        );
+        _root.addRedCoin(
+            "SpectralFlame",
+            1000,
+            "Completing Survey: v1300 - Battle Arena / Arcade balancing"
+        );
+        _root.addRedCoin(
+            "Bench",
+            1000,
+            "Completing Survey: v1300 - Battle Arena / Arcade balancing"
+        );
+        _root.addRedCoin(
+            "7smartone7",
+            700,
+            "Completing Survey: v1300 - Battle Arena / Arcade balancing"
+        );
+        _root.addRedCoin(
+            "Meepoo",
+            700,
+            "Completing Survey: v1300 - Battle Arena / Arcade balancing"
+        );
+        _root.addRedCoin(
+            "KittehLover",
+            1000,
+            "Completing Survey: v1300 - Battle Arena / Arcade balancing"
+        );
+        _root.addRedCoin(
+            "RikuFrost",
+            1000,
+            "Completing Survey: v1300 - Battle Arena / Arcade balancing"
+        );
+        _root.addRedCoin(
+            "aguspal",
+            1000,
+            "Completing Survey: v1300 - Battle Arena / Arcade balancing"
+        );
         _root.addRedCoin("badgecrasher", 1000, "Never gonna give you up...");
         _root.addRedCoin("Balrogon", 1000, "Never gonna give you up...");
         _root.addRedCoin("XJoschYZ", 1000, "Never gonna give you up...");
@@ -558,33 +885,85 @@ public partial class Loading6OutOf8 : Control
         _root.addRedCoin("Stompy40", 600, "Event Reward: Naming Contest #3");
         _root.addRedCoin("phyroxx", 600, "Event Reward: Naming Contest #3");
         _root.addRedCoin("lennonluiz0907", 400, "Event Reward: Naming Contest #3");
-        _root.addRedCoin("fooods", 1000, "Bug report: Mega Rampage doesn\'t work with ranged weapons");
+        _root.addRedCoin(
+            "fooods",
+            1000,
+            "Bug report: Mega Rampage doesn\'t work with ranged weapons"
+        );
         _root.addRedCoin("loli_slayer", 1000, "Bug report: Negative healing");
         _root.addRedCoin("DuncmanG", 1000, "Bug report: Monsters drop weapons on Easy Mode.");
         _root.addRedCoin("lennonluiz0907", 500, "Bug report: Cannot have 0 Pixels remaining");
         _root.addRedCoin("Pimgd", 500, "Bug report: False Battle Arena color display");
-        _root.addRedCoin("loli_slayer", 1000, "Bug report: Idle Mode doesn\'t reward. [Bug fixed, was a rare bug _root.which was caused by the bar having exactly 224.00 pixels in width.]");
+        _root.addRedCoin(
+            "loli_slayer",
+            1000,
+            "Bug report: Idle Mode doesn\'t reward. [Bug fixed, was a rare bug _root.which was caused by the bar having exactly 224.00 pixels in width.]"
+        );
         _root.addRedCoin("Tukkun", 100000, "Testing purposes.");
         _root.addRedCoin("burningpee123", 1000, "[Test Version] Bug Report: Shop doesn\'t refresh");
         _root.addRedCoin("Yamiro", 1000, "[Test Version] Bug Report: False Megaboss killcount");
-        _root.addRedCoin("Makilio", 1000, "[Test Version] Bug Report: \'Earn X achievements\' achievements don\'t _root.work");
-        _root.addRedCoin("Richirdo", 500, "[Test Version] Bug Report: Cursor is invisible in pause screen.");
+        _root.addRedCoin(
+            "Makilio",
+            1000,
+            "[Test Version] Bug Report: \'Earn X achievements\' achievements don\'t _root.work"
+        );
+        _root.addRedCoin(
+            "Richirdo",
+            500,
+            "[Test Version] Bug Report: Cursor is invisible in pause screen."
+        );
         _root.addRedCoin("Bluji", 1000, "[Test Version] Bug Report: Broken pet hunger.");
         _root.addRedCoin("7smartone7", 500, "[Test Version] Bug Report: False TukkunFCG display");
-        _root.addRedCoin("loli_slayer", 500, "[Test Version] Bug Report: NaN level for untouched savefiles");
+        _root.addRedCoin(
+            "loli_slayer",
+            500,
+            "[Test Version] Bug Report: NaN level for untouched savefiles"
+        );
         _root.addRedCoin("Mebomb", 500, "[Test Version] Bug Report: Potion display");
-        _root.addRedCoin("loli_slayer", 500, "[Test Version] Bug Report: Cannot view certain shop items");
-        _root.addRedCoin("Makilio", 1000, "[Test Version] Bug Report: Shops in the Battle Arena cannot be seen.");
-        _root.addRedCoin("SpectralFlame", 2000, "[Test Version] Bug Report: Free access to Secret Lab");
-        _root.addRedCoin("Toa_of_Pi", 500, "[Test Version] Bug Report: Ability to access page 2 of Bonus Shop");
+        _root.addRedCoin(
+            "loli_slayer",
+            500,
+            "[Test Version] Bug Report: Cannot view certain shop items"
+        );
+        _root.addRedCoin(
+            "Makilio",
+            1000,
+            "[Test Version] Bug Report: Shops in the Battle Arena cannot be seen."
+        );
+        _root.addRedCoin(
+            "SpectralFlame",
+            2000,
+            "[Test Version] Bug Report: Free access to Secret Lab"
+        );
+        _root.addRedCoin(
+            "Toa_of_Pi",
+            500,
+            "[Test Version] Bug Report: Ability to access page 2 of Bonus Shop"
+        );
         _root.addRedCoin("ForceofLight", 2000, "[Test Version] Bug Report: Undefined FCG card");
-        _root.addRedCoin("wecl0me12", 500, "[Test Version] Bug Report: TukkunFCG is a blank screen");
-        _root.addRedCoin("loli_slayer", 500, "[Test Version] Bug Report: Cannot access Money Printer");
+        _root.addRedCoin(
+            "wecl0me12",
+            500,
+            "[Test Version] Bug Report: TukkunFCG is a blank screen"
+        );
+        _root.addRedCoin(
+            "loli_slayer",
+            500,
+            "[Test Version] Bug Report: Cannot access Money Printer"
+        );
         _root.addRedCoin("gem85", 1000, "[Test Version] Bug Report: (Minor display bugs)");
-        _root.addRedCoin("SpectralFlame", 2000, "[Test Version] Bug Report: Free access to Time Machine");
+        _root.addRedCoin(
+            "SpectralFlame",
+            2000,
+            "[Test Version] Bug Report: Free access to Time Machine"
+        );
         _root.addRedCoin("SpectralFlame", 500, "[Test Version] Bug Report: False adventure event");
         _root.addRedCoin("Bench", 1000, "[Test Version] Bug Report: Time Machine doesn\'t work");
-        _root.addRedCoin("XxCradx", 1000, "[Test Version] Bug Report: False popup in the TukkunFCG");
+        _root.addRedCoin(
+            "XxCradx",
+            1000,
+            "[Test Version] Bug Report: False popup in the TukkunFCG"
+        );
         _root.addRedCoin("Darkranboria", 2000, "Area Design: The Desert");
         _root.addRedCoin("Freak40808", 2000, "Area Design: Binary Battlefield");
         _root.addRedCoin("Freak40808", 2000, "Area Design: Safe Zone");
@@ -624,7 +1003,11 @@ public partial class Loading6OutOf8 : Control
         _root.addRedCoin("ABlindOrphan", 1500, "Art Contribution");
         _root.addRedCoin("ABlindOrphan", 1500, "Art Contribution");
         _root.addRedCoin("TwoPlusTwo", 1500, "Bug report: \'Attack Removal\' card works falsely");
-        _root.addRedCoin("felipe970421", 1500, "Exploit report: Tab + Enter abuse to charge battery");
+        _root.addRedCoin(
+            "felipe970421",
+            1500,
+            "Exploit report: Tab + Enter abuse to charge battery"
+        );
         _root.addRedCoin("EinAnderer", 700, "Bug report: Boost bars provide no info");
         _root.addRedCoin("Boligao", 1500, "Bug report: Invisible cursor in main menu");
         _root.addRedCoin("a20365354", 1500, "Bug report: TukkunFCG layer issue");
@@ -790,7 +1173,11 @@ public partial class Loading6OutOf8 : Control
         _root.addRedCoin("figter2000", 200, "Event Reward: Submit Your TukkunFCG Decks!");
         _root.addRedCoin("SW1134", 50, "LOL");
         _root.addRedCoin("Blackwaltz002", 3300, "TukkunFCG Card Design");
-        _root.addRedCoin("James1011R", 1100, "Bug Report: Negative damage causing weird ability (Note: Don\'t talk _root.on the forums about this)");
+        _root.addRedCoin(
+            "James1011R",
+            1100,
+            "Bug Report: Negative damage causing weird ability (Note: Don\'t talk _root.on the forums about this)"
+        );
         _root.addRedCoin("pika393", 1100, "Bug Report: TukkunFCG opponents giving wrong rewards");
         _root.addRedCoin("Yupei", 200, "Activity #1 Winner");
         _root.addRedCoin("glfootballmlb21", 200, "Activity #1 Winner");
@@ -799,7 +1186,11 @@ public partial class Loading6OutOf8 : Control
         _root.addRedCoin("Sallygwizz37", -60000, "Item \'Design\'");
         _root.addRedCoin("Sallygwizz37", -30000, "Spamming in the forum");
         _root.addRedCoin("OnlineHackers", -2000000, "Misspelling \'subscribe\'");
-        _root.addRedCoin("TukkunIsLame", -4000000, "Not remembering to hide the leaderboards in a certain Youtube _root.video.");
+        _root.addRedCoin(
+            "TukkunIsLame",
+            -4000000,
+            "Not remembering to hide the leaderboards in a certain Youtube _root.video."
+        );
         _root.addRedCoin("skagkiller56", -1000000, "Hacking promotion");
         _root.addRedCoin("zammy99", -1000000, "Hacking promotion");
         _root.addRedCoin("pick_pocket_689", -1000000, "Hacking promotion");
@@ -1018,88 +1409,252 @@ public partial class Loading6OutOf8 : Control
         _root.addRedCoin("PersonOfInterest", 200, "Completing Survey: Arena Enhancement System");
         _root.addRedCoin("frae2", 200, "Completing Survey: Arena Enhancement System");
         _root.addRedCoin("bobertlyer", 200, "Completing Survey: Arena Enhancement System");
-        _root.addRedCoin("wpolly", 500, "[Test Version] Bug Report: Pre-explosion Armors are all hats");
+        _root.addRedCoin(
+            "wpolly",
+            500,
+            "[Test Version] Bug Report: Pre-explosion Armors are all hats"
+        );
         _root.addRedCoin("wpolly", 500, "[Test Version] Bug Report: Gambler’s box display error");
         _root.addRedCoin("zieger", 500, "[Test Version] Bug Report: Can’t add cards to FCG");
-        _root.addRedCoin("wecl0me12", 500, "[Test Version] Bug Report: Healing a zombie duck after it dies still _root.damages it");
+        _root.addRedCoin(
+            "wecl0me12",
+            500,
+            "[Test Version] Bug Report: Healing a zombie duck after it dies still _root.damages it"
+        );
         _root.addRedCoin("peleg97", 500, "[Test Version] Bug Report: Bonus rocks always work");
-        _root.addRedCoin("peleg97", 500, "[Test Version] Bug Report: In death match enemies are released from stun _root.earlier than you");
+        _root.addRedCoin(
+            "peleg97",
+            500,
+            "[Test Version] Bug Report: In death match enemies are released from stun _root.earlier than you"
+        );
         _root.addRedCoin("wpolly", 500, "[Test Version] Bug Report: Title do not auto-upgrade");
         _root.addRedCoin("wpolly", 500, "[Test Version] Bug Report: Data transfer broken");
         _root.addRedCoin("peleg97", 500, "[Test Version] Bug Report: Epic skills show double cost");
         _root.addRedCoin("Psycroth", 500, "[Test Version] Bug Report: Rewards listed in Bestiary");
-        _root.addRedCoin("Arcanmster", 500, "[Test Version] Bug Report: Savefile transfer system freezes midway");
+        _root.addRedCoin(
+            "Arcanmster",
+            500,
+            "[Test Version] Bug Report: Savefile transfer system freezes midway"
+        );
         _root.addRedCoin("Zox457", 500, "[Test Version] Bug Report: Garden – Wrong expire time");
-        _root.addRedCoin("rcktzr", 500, "[Test Version] Bug Report: The quality settings all make it low quality.");
-        _root.addRedCoin("Aurian", 500, "[Test Version] Bug Report: Max Boosts not decreasing properly");
-        _root.addRedCoin("Aurian", 500, "[Test Version] Bug Report: No way to remove bestiary bonus msg in breaking _root.news");
+        _root.addRedCoin(
+            "rcktzr",
+            500,
+            "[Test Version] Bug Report: The quality settings all make it low quality."
+        );
+        _root.addRedCoin(
+            "Aurian",
+            500,
+            "[Test Version] Bug Report: Max Boosts not decreasing properly"
+        );
+        _root.addRedCoin(
+            "Aurian",
+            500,
+            "[Test Version] Bug Report: No way to remove bestiary bonus msg in breaking _root.news"
+        );
         _root.addRedCoin("wpolly", 500, "[Test Version] Bug Report: No Adventurer’s Trophy");
-        _root.addRedCoin("Arcanmster", 500, "[Test Version] Bug Report: Cannot attack with mouse in BA (Linux)");
+        _root.addRedCoin(
+            "Arcanmster",
+            500,
+            "[Test Version] Bug Report: Cannot attack with mouse in BA (Linux)"
+        );
         _root.addRedCoin("gregjo", 500, "[Test Version] Bug Report: Mystery Shop Scrolling");
-        _root.addRedCoin("UpsetFisherMAN", 500, "[Test Version] Bug Report: Cannot purchase ranged weapons");
-        _root.addRedCoin("Slain087", 500, "[Test Version] Bug Report: Auto-Harvest card does not work");
+        _root.addRedCoin(
+            "UpsetFisherMAN",
+            500,
+            "[Test Version] Bug Report: Cannot purchase ranged weapons"
+        );
+        _root.addRedCoin(
+            "Slain087",
+            500,
+            "[Test Version] Bug Report: Auto-Harvest card does not work"
+        );
         _root.addRedCoin("RyGuy5357", 500, "[Test Version] Bug Report: bug report bug");
-        _root.addRedCoin("wpolly", 500, "[Test Version] Bug Report: Monster doesn’t spawn after finishing the _root.Pyramid Battle");
-        _root.addRedCoin("Majildian", 500, "[Test Version] Bug Report: Quick Attack ignores weapon range");
-        _root.addRedCoin("mariomaster5", 500, "[Test Version] Bug Report: Teleporting stadium charecters?");
-        _root.addRedCoin("ShadyKnight", 500, "[Test Version] Bug Report: Cannnot exit Dark Pyramid");
+        _root.addRedCoin(
+            "wpolly",
+            500,
+            "[Test Version] Bug Report: Monster doesn’t spawn after finishing the _root.Pyramid Battle"
+        );
+        _root.addRedCoin(
+            "Majildian",
+            500,
+            "[Test Version] Bug Report: Quick Attack ignores weapon range"
+        );
+        _root.addRedCoin(
+            "mariomaster5",
+            500,
+            "[Test Version] Bug Report: Teleporting stadium charecters?"
+        );
+        _root.addRedCoin(
+            "ShadyKnight",
+            500,
+            "[Test Version] Bug Report: Cannnot exit Dark Pyramid"
+        );
         _root.addRedCoin("Aurian", 500, "[Test Version] Bug Report: Dark Portal kill achievement");
         _root.addRedCoin("peleg97", 500, "[Test Version] Bug Report: Minor breaking news bug");
-        _root.addRedCoin("destroyer57345", 500, "[Test Version] Bug Report: No warning for 9001 pathz.");
-        _root.addRedCoin("Worst_master", 500, "[Test Version] Bug Report: Spelling when getting a reward from _root.dragon");
+        _root.addRedCoin(
+            "destroyer57345",
+            500,
+            "[Test Version] Bug Report: No warning for 9001 pathz."
+        );
+        _root.addRedCoin(
+            "Worst_master",
+            500,
+            "[Test Version] Bug Report: Spelling when getting a reward from _root.dragon"
+        );
         _root.addRedCoin("RyGuy5357", 500, "[Test Version] Bug Report: Switching weapons");
         _root.addRedCoin("Worst_master", 500, "[Test Version] Bug Report: Blood Claw special");
-        _root.addRedCoin("firecat6666", 500, "[Test Version] Bug Report: “tukkun fcg champion” quest bugged, also _root.ant spray");
+        _root.addRedCoin(
+            "firecat6666",
+            500,
+            "[Test Version] Bug Report: “tukkun fcg champion” quest bugged, also _root.ant spray"
+        );
         _root.addRedCoin("Aurian", 500, "[Test Version] Bug Report: Rickroll’d does not transfer");
-        _root.addRedCoin("Aurian", 500, "[Test Version] Bug Report: Achievement tracking that doesn’t transfer");
-        _root.addRedCoin("missingno", 500, "[Test Version] Bug Report: Nonworking armor bonus adder");
+        _root.addRedCoin(
+            "Aurian",
+            500,
+            "[Test Version] Bug Report: Achievement tracking that doesn’t transfer"
+        );
+        _root.addRedCoin(
+            "missingno",
+            500,
+            "[Test Version] Bug Report: Nonworking armor bonus adder"
+        );
         _root.addRedCoin("jerenator", 500, "[Test Version] Bug Report: Min. boosts half price");
-        _root.addRedCoin("Oddity", 500, "[Test Version] Bug Report: Pong: Extreme Wind expiring at wrong time _root.causes slow ball");
+        _root.addRedCoin(
+            "Oddity",
+            500,
+            "[Test Version] Bug Report: Pong: Extreme Wind expiring at wrong time _root.causes slow ball"
+        );
         _root.addRedCoin("Worst_master", 500, "[Test Version] Bug Report: Enhancing like crazy");
-        _root.addRedCoin("wpolly", 500, "[Test Version] Bug Report: Dark portal kill achievement error");
+        _root.addRedCoin(
+            "wpolly",
+            500,
+            "[Test Version] Bug Report: Dark portal kill achievement error"
+        );
         _root.addRedCoin("gregjo", 500, "[Test Version] Bug Report: Cheater Achievement Reporting");
-        _root.addRedCoin("Worst_master", 500, "[Test Version] Bug Report: Breaking News, pixelated box");
+        _root.addRedCoin(
+            "Worst_master",
+            500,
+            "[Test Version] Bug Report: Breaking News, pixelated box"
+        );
         _root.addRedCoin("Worst_master", 500, "[Test Version] Bug Report: Two Lolmarket master?");
         _root.addRedCoin("dingetje50", 500, "[Test Version] Bug Report: Consecutive day bonus");
-        _root.addRedCoin("Arcanmster", 500, "[Test Version] Bug Report: FCG remaining cards counter goes negative");
-        _root.addRedCoin("gregjo", 500, "[Test Version] Bug Report: Boost Depletion Speed In Breaking News");
+        _root.addRedCoin(
+            "Arcanmster",
+            500,
+            "[Test Version] Bug Report: FCG remaining cards counter goes negative"
+        );
+        _root.addRedCoin(
+            "gregjo",
+            500,
+            "[Test Version] Bug Report: Boost Depletion Speed In Breaking News"
+        );
         _root.addRedCoin("duudez", 500, "[Test Version] Bug Report: Movement of bombs");
         _root.addRedCoin("duudez", 500, "[Test Version] Bug Report: Prehistoric mission");
-        _root.addRedCoin("peleg97", 500, "[Test Version] Bug Report: Stadium item fight wins on impossible _root.aceivement not reporting");
+        _root.addRedCoin(
+            "peleg97",
+            500,
+            "[Test Version] Bug Report: Stadium item fight wins on impossible _root.aceivement not reporting"
+        );
         _root.addRedCoin("peleg97", 500, "[Test Version] Bug Report: Tutorial Typing Error");
         _root.addRedCoin("tenco1", 500, "[Test Version] Bug Report: Minor detail bug");
         _root.addRedCoin("tenco1", 500, "[Test Version] Bug Report: (Another) minor detail bug");
         _root.addRedCoin("Glooble", 500, "[Test Version] Bug Report: Cannot equip/unequip items");
-        _root.addRedCoin("ThinkInvisible", 500, "[Test Version] Bug Report: Careers button not working");
-        _root.addRedCoin("Krazycarn", 500, "[Test Version] Bug Report: Unable to Switch Equipment During Combat… _root.without Combat!");
-        _root.addRedCoin("Arcanmster", 500, "[Test Version] Bug Report: Prehistoric time counter bug");
+        _root.addRedCoin(
+            "ThinkInvisible",
+            500,
+            "[Test Version] Bug Report: Careers button not working"
+        );
+        _root.addRedCoin(
+            "Krazycarn",
+            500,
+            "[Test Version] Bug Report: Unable to Switch Equipment During Combat… _root.without Combat!"
+        );
+        _root.addRedCoin(
+            "Arcanmster",
+            500,
+            "[Test Version] Bug Report: Prehistoric time counter bug"
+        );
         _root.addRedCoin("morfinista", 500, "[Test Version] Bug Report: BA: gear changing bug");
-        _root.addRedCoin("Uauf3000", 500, "[Test Version] Bug Report: TukkunFCG “???” Does not give cards");
-        _root.addRedCoin("gregjo", 500, "[Test Version] Bug Report: Can’t get out of Special Arena Mob Mission");
+        _root.addRedCoin(
+            "Uauf3000",
+            500,
+            "[Test Version] Bug Report: TukkunFCG “???” Does not give cards"
+        );
+        _root.addRedCoin(
+            "gregjo",
+            500,
+            "[Test Version] Bug Report: Can’t get out of Special Arena Mob Mission"
+        );
         _root.addRedCoin("gergjo", 500, "[Test Version] Bug Report: BA Skill Reset Pixel Penalty");
         _root.addRedCoin("wpolly", 500, "[Test Version] Bug Report: Souvenir transfer error");
-        _root.addRedCoin("Worst_master", 500, "[Test Version] Bug Report: Prehistoric Mision (I haven’t typed it _root.wrong, you typed it.)");
-        _root.addRedCoin("Worst_master", 500, "[Test Version] Bug Report: Negative time? In awesome adventure.");
-        _root.addRedCoin("Worst_master", 500, "[Test Version] Bug Report: Sudden Death in Secret Lab?");
-        _root.addRedCoin("Arcanmster", 500, "[Test Version] Bug Report: Defend the generator mission / Secret lab _root.DoT");
+        _root.addRedCoin(
+            "Worst_master",
+            500,
+            "[Test Version] Bug Report: Prehistoric Mision (I haven’t typed it _root.wrong, you typed it.)"
+        );
+        _root.addRedCoin(
+            "Worst_master",
+            500,
+            "[Test Version] Bug Report: Negative time? In awesome adventure."
+        );
+        _root.addRedCoin(
+            "Worst_master",
+            500,
+            "[Test Version] Bug Report: Sudden Death in Secret Lab?"
+        );
+        _root.addRedCoin(
+            "Arcanmster",
+            500,
+            "[Test Version] Bug Report: Defend the generator mission / Secret lab _root.DoT"
+        );
         _root.addRedCoin("Bluji", 500, "[Test Version] Bug Report: ‘Crafting’ quest doesn’t work");
         _root.addRedCoin("Sephirothfan", 500, "[Test Version] Bug Report: Tukkun FCG Deck Out?");
         _root.addRedCoin("duudez", 500, "[Test Version] Bug Report: Cannot enter defend mission");
         _root.addRedCoin("duudez", 500, "[Test Version] Bug Report: Pixle throw skill");
         _root.addRedCoin("gregjo", 500, "[Test Version] Bug Report: Combo Breaking out of Pyramid");
         _root.addRedCoin("duudez", 500, "[Test Version] Bug Report: RHK not working properly");
-        _root.addRedCoin("Aurian", 500, "[Test Version] Bug Report: Spraying ants by clicking on number doesn’t _root.count for achievement");
+        _root.addRedCoin(
+            "Aurian",
+            500,
+            "[Test Version] Bug Report: Spraying ants by clicking on number doesn’t _root.count for achievement"
+        );
         _root.addRedCoin("duudez", 500, "[Test Version] Bug Report: Careres and enhancing");
         _root.addRedCoin("Aurian", 500, "[Test Version] Bug Report: Adventure energy timer bug");
         _root.addRedCoin("Worst_master", 500, "[Test Version] Bug Report: Rofltrainer’s Secret?");
-        _root.addRedCoin("peleg97", 500, "[Test Version] Bug Report: Weaken, poison, blind and maybe stun skills _root.bug");
-        _root.addRedCoin("Arcanmster", 500, "[Test Version] Bug Report: [Arena] Att/Def/HP/MP upgrade with pixels _root.(minor)");
+        _root.addRedCoin(
+            "peleg97",
+            500,
+            "[Test Version] Bug Report: Weaken, poison, blind and maybe stun skills _root.bug"
+        );
+        _root.addRedCoin(
+            "Arcanmster",
+            500,
+            "[Test Version] Bug Report: [Arena] Att/Def/HP/MP upgrade with pixels _root.(minor)"
+        );
         _root.addRedCoin("scarymania", 500, "[Test Version] Bug Report: prehistoric mission bug");
-        _root.addRedCoin("wecl0me12", 500, "[Test Version] Bug Report: secret lab kills me instantly");
-        _root.addRedCoin("UnlimitedBlades", 500, "[Test Version] Bug Report: Awesome Adventures Typo");
+        _root.addRedCoin(
+            "wecl0me12",
+            500,
+            "[Test Version] Bug Report: secret lab kills me instantly"
+        );
+        _root.addRedCoin(
+            "UnlimitedBlades",
+            500,
+            "[Test Version] Bug Report: Awesome Adventures Typo"
+        );
         _root.addRedCoin("Aurian", 500, "[Test Version] Bug Report: Plot exp transfer incorrect");
-        _root.addRedCoin("Worst_master", 500, "[Test Version] Bug Report: Mutiple Premium Sprayer ");
-        _root.addRedCoin("Sturmfeder", 500, "[Test Version] Bug Report: Spelling Error in Options Menu");
+        _root.addRedCoin(
+            "Worst_master",
+            500,
+            "[Test Version] Bug Report: Mutiple Premium Sprayer "
+        );
+        _root.addRedCoin(
+            "Sturmfeder",
+            500,
+            "[Test Version] Bug Report: Spelling Error in Options Menu"
+        );
         _root.addRedCoin("Sturmfeder", 500, "[Test Version] Bug Report: Special Wand Attack Power");
         _root.addRedCoin("gentleben24", 500, "[Test Version] Bug Report: Careers types give coins");
         _root.addRedCoin("YukaTakeuchiFan", 500, "Bug Report: Om Nom Nom cost");
@@ -1111,17 +1666,41 @@ public partial class Loading6OutOf8 : Control
         _root.addRedCoin("wpolly", 500, "Bug Report: FCG result screen bug");
         _root.addRedCoin("joel_d", 1000, "Bug Report: Join Kongregate screen");
         _root.addRedCoin("Ryo_Sangnoir", 500, "Bug Report: Bug sprayer lacks Breaking News");
-        _root.addRedCoin("pinguin333", 500, "Bug Report: Typing smiley island password costs pixels");
+        _root.addRedCoin(
+            "pinguin333",
+            500,
+            "Bug Report: Typing smiley island password costs pixels"
+        );
         _root.addRedCoin("qlordz", 500, "Bug Report: Your item has been destroyed!undefined");
-        _root.addRedCoin("Arcanmster", 500, "Bug Report: Achievement progress tracker graphical bug");
+        _root.addRedCoin(
+            "Arcanmster",
+            500,
+            "Bug Report: Achievement progress tracker graphical bug"
+        );
         _root.addRedCoin("Sphoofle", 500, "Bug Report: Added 1k Event Tokens Not Added");
         _root.addRedCoin("silverknite1", 500, "Bug Report: Gambler’s Box Gives… Undefined?");
-        _root.addRedCoin("Silencing", 500, "Bug Report: Game Completion Time Displayed Incorrectly");
+        _root.addRedCoin(
+            "Silencing",
+            500,
+            "Bug Report: Game Completion Time Displayed Incorrectly"
+        );
         _root.addRedCoin("Silencing", 500, "Bug Report: Scores Not Being Sent");
-        _root.addRedCoin("James1011R", 500, "Bug Report: LOLMarket “both buy and sell values grayed out” Bug");
-        _root.addRedCoin("etmoonshade", 500, "Bug Report: Battle Arena Dark Mage Wand Incorrect Type");
+        _root.addRedCoin(
+            "James1011R",
+            500,
+            "Bug Report: LOLMarket “both buy and sell values grayed out” Bug"
+        );
+        _root.addRedCoin(
+            "etmoonshade",
+            500,
+            "Bug Report: Battle Arena Dark Mage Wand Incorrect Type"
+        );
         _root.addRedCoin("gregjo", 500, "Bug Report: Title Editing (Minor)");
-        _root.addRedCoin("SynthesisAlpha", 1000, "Bug Report: Switching files alters garden tree values.");
+        _root.addRedCoin(
+            "SynthesisAlpha",
+            1000,
+            "Bug Report: Switching files alters garden tree values."
+        );
         _root.addRedCoin("stingrayjayz", 500, "Bug Report: Boxes quantity undefined.");
         _root.addRedCoin("jetz0r", 500, "Bug Report: Not Getting Crafting EXP for every enchant.");
         _root.addRedCoin("Zakhep2", 1000, "Bug Report: Safe hacking won’t work");
@@ -1130,13 +1709,25 @@ public partial class Loading6OutOf8 : Control
         _root.addRedCoin("Sonic303", 500, "Bug Report: pyramid area glitch");
         _root.addRedCoin("DuncmanG", 500, "Bug Report: LOLMarket Max Numbers don’t all update");
         _root.addRedCoin("ManaMiyavi", 500, "Bug Report: Auto-Harvest card");
-        _root.addRedCoin("YYZ133", 500, "Bug Report: “MP Boost” Tier 4 skill incorrect description/effects");
+        _root.addRedCoin(
+            "YYZ133",
+            500,
+            "Bug Report: “MP Boost” Tier 4 skill incorrect description/effects"
+        );
         _root.addRedCoin("Isfan", 500, "Bug Report: Idlebot & Autohide backfire");
         _root.addRedCoin("math_master", 500, "Bug Report: Energy Charge is still white");
         _root.addRedCoin("UnlimitedBlades", 1000, "Bug Report: Money Printer Level 27?");
-        _root.addRedCoin("YYZ133", 1000, "Bug Report: BA Post-explosion Special Wand “Power Attack” Skill Bug");
+        _root.addRedCoin(
+            "YYZ133",
+            1000,
+            "Bug Report: BA Post-explosion Special Wand “Power Attack” Skill Bug"
+        );
         _root.addRedCoin("rockstip", 500, "Bug Report: Adventuring Energy Loss");
-        _root.addRedCoin("wecl0me12", 500, "Bug Report: Dying in prehistoric mission sometimes allows you to _root.continue");
+        _root.addRedCoin(
+            "wecl0me12",
+            500,
+            "Bug Report: Dying in prehistoric mission sometimes allows you to _root.continue"
+        );
         _root.addRedCoin("halemaster", 500, "Bug Report: Legendary Boxes at NaN");
         _root.addRedCoin("rockstip", 500, "Bug Report: Hide Level, Exp, and Coins graphical bug");
         _root.addRedCoin("dariofg", 500, "Bug Report: Bug in “Too much lag!” screen");
@@ -1146,68 +1737,144 @@ public partial class Loading6OutOf8 : Control
         _root.addRedCoin("Sturmfeder", 500, "Bug Report: Quick Insta-Progress Buying");
         _root.addRedCoin("naruto070797", 500, "Bug Report: Wrong gamblers box description");
         _root.addRedCoin("Mcflopidisss", 500, "Bug Report: Version 1386 Relic");
-        _root.addRedCoin("offsides", 500, "Bug Report: After Buying a new plot, incorrect garden points for next _root.plot shown");
+        _root.addRedCoin(
+            "offsides",
+            500,
+            "Bug Report: After Buying a new plot, incorrect garden points for next _root.plot shown"
+        );
         _root.addRedCoin("23skidoosh", 500, "Bug Report: Pre-explosion Armour");
         _root.addRedCoin("peleg97", 750, "Bug Report: Double exp gain for item maker career");
         _root.addRedCoin("ThinkInvisible", 500, "Bug Report: TukkunFCG Level Fail");
-        _root.addRedCoin("Oddity", 500, "Bug Report: v1388: Hit indicators no longer appear in Death Match");
+        _root.addRedCoin(
+            "Oddity",
+            500,
+            "Bug Report: v1388: Hit indicators no longer appear in Death Match"
+        );
         _root.addRedCoin("math_master", 500, "Bug Report: Safe Zone? That’s not the name anymore.");
         _root.addRedCoin("Pimgd", 500, "Bug Report: Combo remains when death by lab suffocation");
         _root.addRedCoin("gregjo", 500, "Bug Report: Double Exp For Item Making Career");
         _root.addRedCoin("eat911", 500, "Bug Report: Stadium text bug");
         _root.addRedCoin("BewareOfElephant", 500, "Bug Report: No hits in the BA");
         _root.addRedCoin("23skidoosh", 3500, "Exploit report: Infinate Red Coins");
-        _root.addRedCoin("Picklebreath", 250, "Bug Report: Getting career exp twice in the stadium?");
+        _root.addRedCoin(
+            "Picklebreath",
+            250,
+            "Bug Report: Getting career exp twice in the stadium?"
+        );
         _root.addRedCoin("DuncmanG", 250, "Bug Report: Graphical glitch in prehistoric mission");
-        _root.addRedCoin("123x1111", 2500, "Exploit report: Battle Arena and Tukkun FCG at the same time");
+        _root.addRedCoin(
+            "123x1111",
+            2500,
+            "Exploit report: Battle Arena and Tukkun FCG at the same time"
+        );
         _root.addRedCoin("Flamewarden", 250, "Bug Report: Lingering tooltip");
         _root.addRedCoin("Arch_Gremlin", 500, "Bug Report: EXP graph display");
-        _root.addRedCoin("DarkArmadaStudio", 250, "Bug Report: [Stadium] Fastest Race Leaderboards");
+        _root.addRedCoin(
+            "DarkArmadaStudio",
+            250,
+            "Bug Report: [Stadium] Fastest Race Leaderboards"
+        );
         _root.addRedCoin("qlordz", 500, "Bug Report: Legendary hunter not changing");
         _root.addRedCoin("etmoonshade", 500, "Bug Report: Windowshade Mode Graphical Bug");
         _root.addRedCoin("rockstip", 500, "Bug Report: Battle Arena Item Graphical Bug");
-        _root.addRedCoin("peleg97", 500, "Bug Report: Dying in the final rooms in the prehistoric mission leads to _root.the next");
+        _root.addRedCoin(
+            "peleg97",
+            500,
+            "Bug Report: Dying in the final rooms in the prehistoric mission leads to _root.the next"
+        );
         _root.addRedCoin("Motters", 500, "Bug Report: No daily bonuses");
         _root.addRedCoin("tijntje_7", 500, "Bug Report: Pyramid damage numbers");
         _root.addRedCoin("Qwertyuiopas", 500, "Bug Report: Daily rewards: clicking a box twice");
         _root.addRedCoin("Mindtruster", 500, "Bug Report: Daily Bonus Screen");
         _root.addRedCoin("DavidMadsen", 500, "Bug Report: No Daily Bonus Screen");
-        _root.addRedCoin("AleXinoS", 250, "Bug Report: Dragon made a grammar mistake! (Not at the part where it was _root.intended)");
+        _root.addRedCoin(
+            "AleXinoS",
+            250,
+            "Bug Report: Dragon made a grammar mistake! (Not at the part where it was _root.intended)"
+        );
         _root.addRedCoin("Slain087", 500, "Bug Report: Battle Arena Dark Pyramid parse error");
-        _root.addRedCoin("darkraiders", 500, "Bug Report: Heal give some extra damage and extra combo");
+        _root.addRedCoin(
+            "darkraiders",
+            500,
+            "Bug Report: Heal give some extra damage and extra combo"
+        );
         _root.addRedCoin("milleraus10", 750, "Bug Report: New Daily Bonus Box");
-        _root.addRedCoin("Ryo_Sangnoir", 250, "Bug Report: Arcade medal hovers stay when pressing space");
+        _root.addRedCoin(
+            "Ryo_Sangnoir",
+            250,
+            "Bug Report: Arcade medal hovers stay when pressing space"
+        );
         _root.addRedCoin("arcain", 500, "Bug Report: Too many skill points");
         _root.addRedCoin("Mindtruster", 750, "Bug Report: TukkunFCG – PROFIT!!!!!");
         _root.addRedCoin("Vitrebreaker", 500, "Bug Report: Not dead in the prehistoric mission");
-        _root.addRedCoin("Motters", 500, "Bug Report: New crafting UI shows wrong percentage for bonus adders");
+        _root.addRedCoin(
+            "Motters",
+            500,
+            "Bug Report: New crafting UI shows wrong percentage for bonus adders"
+        );
         _root.addRedCoin("Arcanmster", 250, "Bug Report: Standby mode message is cut");
-        _root.addRedCoin("Thomadin", 500, "Bug Report: Display Bug -> Enchanting with Armor Attackspeed Stone");
+        _root.addRedCoin(
+            "Thomadin",
+            500,
+            "Bug Report: Display Bug -> Enchanting with Armor Attackspeed Stone"
+        );
         _root.addRedCoin("pinguin333", 500, "Bug Report: crafting material used highscore");
         _root.addRedCoin("ohnonooh", 750, "Bug report: Career cost activation wrongly charged");
         _root.addRedCoin("BanditEX", 250, "Bug report: Arcade prize display error");
         _root.addRedCoin("DaMaster9000", 250, "Bug report: Spray Ants pop-up glitch");
-        _root.addRedCoin("notfromearth", 500, "Bug report: blue coin rewards don’t add up correctely");
-        _root.addRedCoin("math_master", 250, "Bug report: Holding left mouse button may move description");
+        _root.addRedCoin(
+            "notfromearth",
+            500,
+            "Bug report: blue coin rewards don’t add up correctely"
+        );
+        _root.addRedCoin(
+            "math_master",
+            250,
+            "Bug report: Holding left mouse button may move description"
+        );
         _root.addRedCoin("BIGTIPPER", 250, "Bug report: MegaBoss Lvls Vary");
         _root.addRedCoin("nickthemenace", 250, "Bug report: Red coin refund rate display too low");
         _root.addRedCoin("ChaosII7", 250, "Bug report: Status icons clinging");
         _root.addRedCoin("Tama_Yoshi", 500, "Bug report: Career time left glitch");
         _root.addRedCoin("hyperhippy92", 500, "Bug report: Career Time Depletion Bug");
-        _root.addRedCoin("Quizer", 500, "Bug report: Forcing draws in TukkunFCG when decked out also causes _root.poisoning");
+        _root.addRedCoin(
+            "Quizer",
+            500,
+            "Bug report: Forcing draws in TukkunFCG when decked out also causes _root.poisoning"
+        );
         _root.addRedCoin("DuncmanG", 250, "Bug report: Ascend mouse-over Text Unclear");
-        _root.addRedCoin("sabbut", 500, "Bug report: Doom Wizard heals himself over his maximum health");
+        _root.addRedCoin(
+            "sabbut",
+            500,
+            "Bug report: Doom Wizard heals himself over his maximum health"
+        );
         _root.addRedCoin("SpudY2K", 500, "Bug report: Flickering Battle Arena Mission Stats");
         _root.addRedCoin("sabbut", 250, "Bug report: Enhancing some weapons");
         _root.addRedCoin("notfromearth", 500, "Bug report: GC rewards from progress bar");
         _root.addRedCoin("Aurian", 1500, "Exploit report: Permanent Elite Temp. Max Boost");
-        _root.addRedCoin("ExSane", 750, "Exploit report: Sword of Ascendant abusable in Tower of DOOOOOOM");
+        _root.addRedCoin(
+            "ExSane",
+            750,
+            "Exploit report: Sword of Ascendant abusable in Tower of DOOOOOOM"
+        );
         _root.addRedCoin("Selgald", 750, "Exploit report: Lvl up wont stop");
-        _root.addRedCoin("RedSun383", 500, "Bug report: The same arcade daily reward awarded twice at midnight");
+        _root.addRedCoin(
+            "RedSun383",
+            500,
+            "Bug report: The same arcade daily reward awarded twice at midnight"
+        );
         _root.addRedCoin("madnesss", 500, "Bug report: Double poisoning in TukkunFCG");
-        _root.addRedCoin("XxCradx", 500, "Bug report: Stadium – Teleport Through Obstacles (Deathmatch)");
+        _root.addRedCoin(
+            "XxCradx",
+            500,
+            "Bug report: Stadium – Teleport Through Obstacles (Deathmatch)"
+        );
         _root.addRedCoin("redrocketwestie", 500, "Bug report: Lost/Glitched Achievements?");
-        _root.addRedCoin("ParaTheNoia", 500, "Bug report: Weaken does not lower your damage in Secret Lab");
+        _root.addRedCoin(
+            "ParaTheNoia",
+            500,
+            "Bug report: Weaken does not lower your damage in Secret Lab"
+        );
         _root.addRedCoin("ArcanMster", 500, "Bug report: Negative drowning damage");
         _root.addRedCoin("wpolly", 500, "Bug report: No “Spawn Rate” bonuses on weapons");
         _root.addRedCoin("notfromearth", 500, "Bug report: combo count in battle arena");
@@ -1221,7 +1888,11 @@ public partial class Loading6OutOf8 : Control
         _root.addRedCoin("helbrid", 250, "Bug report: instant achievements");
         _root.addRedCoin("notfromearth", 250, "Bug report: bestiary page 4 not available");
         _root.addRedCoin("eragonpotter", 500, "Bug report: LoLMarket Screen");
-        _root.addRedCoin("n0body123", 500, "Bug report: First Battle Arena travel arrow in tutorial");
+        _root.addRedCoin(
+            "n0body123",
+            500,
+            "Bug report: First Battle Arena travel arrow in tutorial"
+        );
         _root.addRedCoin("trisk22", 500, "Bug report: Pet lost its level");
         _root.addRedCoin("Ketchupyoshi", 500, "Bug report: TukkunFCG pet bug");
         _root.addRedCoin("ChaosII7", 6000, "Item Design");
@@ -1302,4 +1973,3 @@ public partial class Loading6OutOf8 : Control
         GetTree().ChangeSceneToFile("src/Loader/Loading7OutOf8.tscn");
     }
 }
-

@@ -418,8 +418,19 @@ public class Root
     {
         List<string> monthArr =
         [
-            "", "January", "February", "March", "April", "May", "June", "July", "August", "September", "October",
-            "November", "December"
+            "",
+            "January",
+            "February",
+            "March",
+            "April",
+            "May",
+            "June",
+            "July",
+            "August",
+            "September",
+            "October",
+            "November",
+            "December",
         ];
         return monthArr[(int)monthCount];
     }
@@ -428,7 +439,21 @@ public class Root
     public string getShortMonthName(double monthCount)
     {
         List<string> monthArr =
-            ["", "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+        [
+            "",
+            "Jan",
+            "Feb",
+            "Mar",
+            "Apr",
+            "May",
+            "Jun",
+            "Jul",
+            "Aug",
+            "Sep",
+            "Oct",
+            "Nov",
+            "Dec",
+        ];
         return monthArr[(int)monthCount];
     }
 
@@ -517,8 +542,16 @@ public class Root
             return 4;
         }
 
-        if (dayCount == 2 || dayCount == 3 || dayCount == 4 || dayCount == 12 || dayCount == 17 || dayCount == 18 ||
-            dayCount == 19 || dayCount == 20)
+        if (
+            dayCount == 2
+            || dayCount == 3
+            || dayCount == 4
+            || dayCount == 12
+            || dayCount == 17
+            || dayCount == 18
+            || dayCount == 19
+            || dayCount == 20
+        )
         {
             return 3;
         }
@@ -815,39 +848,64 @@ public class Root
                 refundTier = 11;
             }
 
-            if (_root.save.bestLevel >= 9000 && _root.save.banned >= 2 && _root.save.totalPlayTime >= 1728000)
+            if (
+                _root.save.bestLevel >= 9000
+                && _root.save.banned >= 2
+                && _root.save.totalPlayTime >= 1728000
+            )
             {
                 refundTier = 12;
             }
 
-            if (_root.save.bestLevel >= 9000 && _root.save.banned >= 5 && _root.save.totalPlayTime >= 2160000)
+            if (
+                _root.save.bestLevel >= 9000
+                && _root.save.banned >= 5
+                && _root.save.totalPlayTime >= 2160000
+            )
             {
                 refundTier = 13;
             }
 
-            if (_root.save.bestLevel >= 9000 && _root.save.banned >= 10 && _root.save.totalPlayTime >= 2592000)
+            if (
+                _root.save.bestLevel >= 9000
+                && _root.save.banned >= 10
+                && _root.save.totalPlayTime >= 2592000
+            )
             {
                 refundTier = 14;
             }
 
-            if (_root.save.bestLevel >= 9000 && _root.save.banned >= 20 && _root.save.totalPlayTime >= 3024000)
+            if (
+                _root.save.bestLevel >= 9000
+                && _root.save.banned >= 20
+                && _root.save.totalPlayTime >= 3024000
+            )
             {
                 refundTier = 15;
             }
 
-            if (_root.save.bestLevel >= 9000 && _root.save.banned >= 30 && _root.save.totalPlayTime >= 3456000)
+            if (
+                _root.save.bestLevel >= 9000
+                && _root.save.banned >= 30
+                && _root.save.totalPlayTime >= 3456000
+            )
             {
                 refundTier = 16;
             }
 
-            if (_root.save.bestLevel >= 9000 && _root.save.banned >= 50 && _root.save.totalPlayTime >= 3888000)
+            if (
+                _root.save.bestLevel >= 9000
+                && _root.save.banned >= 50
+                && _root.save.totalPlayTime >= 3888000
+            )
             {
                 refundTier = 17;
             }
         }
 
-        var refundCode = refundTier * (1013174 + refundTier * refundTier + Math.ceil(nameValue / 7)) +
-                         refundTier * (refundTier + 4) * Math.ceil(nameValue * refundTier / 1.7);
+        var refundCode =
+            refundTier * (1013174 + refundTier * refundTier + Math.ceil(nameValue / 7))
+            + refundTier * (refundTier + 4) * Math.ceil(nameValue * refundTier / 1.7);
         if (refundCode % 10 == 7)
         {
             refundCode += 1;
@@ -869,8 +927,9 @@ public class Root
             var i = 1;
             while (i <= 30)
             {
-                var correctCode = i * (1013174 + i * i + Math.ceil(nameValue / 7)) +
-                                  i * (i + 4) * Math.ceil(nameValue * i / 1.7);
+                var correctCode =
+                    i * (1013174 + i * i + Math.ceil(nameValue / 7))
+                    + i * (i + 4) * Math.ceil(nameValue * i / 1.7);
                 if (correctCode % 10 == 7)
                 {
                     correctCode += 1;
@@ -897,9 +956,20 @@ public class Root
         var decompilerNote4 = "PLEASE DO NOT ATTEMPT TO ABUSE THIS FEATURE.";
         var decompilerNote5 = "MISUSE OF THIS INFORMATION MAY LEAD TO BEING BANNED FROM THE GAME.";
         var res = "";
-        var donArr = donCode.Replace("a", "0").Replace("d", "2").Replace("e", "4").Replace("b", "3").Replace("f", "7")
-            .Replace("h", "5").Replace("m", "4").Replace("7", "1").Replace("i", "6").Replace("c", "7").Replace("j", "9")
-            .Replace("g", "8").Split("k");
+        var donArr = donCode
+            .Replace("a", "0")
+            .Replace("d", "2")
+            .Replace("e", "4")
+            .Replace("b", "3")
+            .Replace("f", "7")
+            .Replace("h", "5")
+            .Replace("m", "4")
+            .Replace("7", "1")
+            .Replace("i", "6")
+            .Replace("c", "7")
+            .Replace("j", "9")
+            .Replace("g", "8")
+            .Split("k");
         var decCode = 131 + _root.kongregate_username[2] % 69;
         var i = 1;
         while (i < donArr.Length)
@@ -912,13 +982,30 @@ public class Root
     }
 
     // MATCH: frame_3/DoAction.as:submitScore()
-    public void submitScore(string scoreName, double amount, double hardCap = 0, bool submitZero = false)
+    public void submitScore(
+        string scoreName,
+        double amount,
+        double hardCap = 0,
+        bool submitZero = false
+    )
     {
-        if (_root.save.bestLevel >= 30 && scoreBanned == false && _root.saveid <= 3 && _root.save.cheatEnabled == false)
+        if (
+            _root.save.bestLevel >= 30
+            && scoreBanned == false
+            && _root.saveid <= 3
+            && _root.save.cheatEnabled == false
+        )
         {
-            if (((_root.save.bestLevel < 9000 && _root.save.banned < 1) || _root.save.yoEpicFail == 25465) &&
-                _root.save.safeHacking == false && _root.save.submitScore && _root.save.noobMode != true &&
-                _root.save.houseVer <= 0)
+            if (
+                (
+                    (_root.save.bestLevel < 9000 && _root.save.banned < 1)
+                    || _root.save.yoEpicFail == 25465
+                )
+                && _root.save.safeHacking == false
+                && _root.save.submitScore
+                && _root.save.noobMode != true
+                && _root.save.houseVer <= 0
+            )
             {
                 if ((amount > 0 || submitZero) && (amount <= hardCap || isNaN(hardCap)))
                 {
@@ -929,9 +1016,12 @@ public class Root
     }
 
     // MATCH: frame_3/DoAction.as:submitKong()
-    public void submitKong(string scoreName, double amount, double hardCap = 0, bool submitZero = false)
-    {
-    }
+    public void submitKong(
+        string scoreName,
+        double amount,
+        double hardCap = 0,
+        bool submitZero = false
+    ) { }
 
     // MATCH: frame_3/DoAction.as:submitGeneral()
     public void submitGeneral()
@@ -943,9 +1033,18 @@ public class Root
         _root.submitScore("EXP", _root.save.bestExp);
         _root.submitScore("Speedrun: Lv. 9001 [Minutes]", _root.save.speedRun9001, 99999999, true);
         _root.submitScore("Speedrun: Ascend [Minutes]", _root.save.speedRunAscend, 99999999, true);
-        _root.submitScore("Speedrun: Ascend (Hard) [Minutes]", _root.save.speedRunAscendHard, 99999999, true);
-        _root.submitScore("Speedrun: Ascend (Impossible) [Minutes]", _root.save.speedRunAscendImpossible, 99999999,
-            true);
+        _root.submitScore(
+            "Speedrun: Ascend (Hard) [Minutes]",
+            _root.save.speedRunAscendHard,
+            99999999,
+            true
+        );
+        _root.submitScore(
+            "Speedrun: Ascend (Impossible) [Minutes]",
+            _root.save.speedRunAscendImpossible,
+            99999999,
+            true
+        );
         _root.submitScore("Unspent Coins", _root.save.coinMax, 999999999999999);
         _root.submitScore("Unspent Green Coins", _root.save.greenCoinMax, 999999999999);
         _root.submitScore("Unspent Blue Coins", _root.save.blueCoinMax, 999999999);
@@ -963,8 +1062,11 @@ public class Root
         _root.submitScore("Achievement Score", _root.achRedCoin, _root.maxredcoin);
         if (_root.save.level >= 1000 || _root.save.banned > 0)
         {
-            _root.submitScore("% Anti-Idle Rewards",
-                Math.floor(_root.save.rewardClaimManual / _root.save.rewardClaim * 100), _root.maxredcoin);
+            _root.submitScore(
+                "% Anti-Idle Rewards",
+                Math.floor(_root.save.rewardClaimManual / _root.save.rewardClaim * 100),
+                _root.maxredcoin
+            );
         }
 
         _root.submitScore("Rewards Claimed", _root.save.rewardClaim);
@@ -976,9 +1078,18 @@ public class Root
         _root.submitScore("[Battle Arena] Rebirth", _root.save.bannedB);
         _root.submitScore("[Battle Arena] Battle Points", _root.save.battlePoint);
         _root.submitScore("[Battle Arena] Excessive EXP (x100M)", _root.save.arenaExpExcess);
-        _root.submitScore("Pet EXP",
-            _root.save.petStat[1] + _root.save.petStat[2] + _root.save.petStat[3] + _root.save.petStat[4] +
-            _root.save.petStat[5] + _root.save.petStat[6] + _root.save.petStat[7] + _root.save.petStat[8], 1600);
+        _root.submitScore(
+            "Pet EXP",
+            _root.save.petStat[1]
+                + _root.save.petStat[2]
+                + _root.save.petStat[3]
+                + _root.save.petStat[4]
+                + _root.save.petStat[5]
+                + _root.save.petStat[6]
+                + _root.save.petStat[7]
+                + _root.save.petStat[8],
+            1600
+        );
         _root.submitScore("[Kong] Kongpanions", _root.actualKpaCount);
         _root.submitScore("[Kong] Shiny Kongpanions", _root.actualShinyKpaCount);
         _root.submitScore("Ascension Points", _root.save.totalStupidity);
@@ -986,7 +1097,10 @@ public class Root
         var z = 1;
         while (z <= 20)
         {
-            _root.submitScore("[Event] Technical Battleground #" + z, _root.save.arenaEventPoint[z]);
+            _root.submitScore(
+                "[Event] Technical Battleground #" + z,
+                _root.save.arenaEventPoint[z]
+            );
             z++;
         }
     }
@@ -999,7 +1113,11 @@ public class Root
         var z = 1;
         while (z <= 20)
         {
-            _root.submitScore("[Challenge] Challenge #" + z + " Time", _root.saveGlobal.challengeTime[z], 999999999);
+            _root.submitScore(
+                "[Challenge] Challenge #" + z + " Time",
+                _root.saveGlobal.challengeTime[z],
+                999999999
+            );
             z++;
         }
 
@@ -1013,7 +1131,10 @@ public class Root
         _root.submitScore("[Battle Arena] Missions", _root.save.arenaMission);
         _root.submitScore("[Battle Arena] Mission Kommander", _root.save.arenaKommanderComplete);
         _root.submitScore("[Battle Arena] Defend Mission", _root.save.arenaDefendComplete);
-        _root.submitScore("[Battle Arena] Prehistoric Mission", _root.save.arenaPrehistoricComplete);
+        _root.submitScore(
+            "[Battle Arena] Prehistoric Mission",
+            _root.save.arenaPrehistoricComplete
+        );
         _root.submitScore("[Battle Arena] Kills", _root.save.arenaKill);
         _root.submitScore("[Battle Arena] Kills (Non-Weak)", _root.save.arenaKillWhite);
         _root.submitScore("[Battle Arena] Kills (Strong)", _root.save.arenaKillRed);
@@ -1032,9 +1153,16 @@ public class Root
         _root.submitScore("[Battle Arena] Rune of Encounter", _root.save.arenaRuneLevel[4], 100);
         _root.submitScore("[Battle Arena] Rune of Experience", _root.save.arenaRuneLevel[5], 100);
         _root.submitScore("[Battle Arena] Rune of Greed", _root.save.arenaRuneLevel[6], 100);
-        _root.submitScore("[Battle Arena] Total Rune Level",
-            _root.save.arenaRuneLevel[1] + _root.save.arenaRuneLevel[2] + _root.save.arenaRuneLevel[3] +
-            _root.save.arenaRuneLevel[4] + _root.save.arenaRuneLevel[5] + _root.save.arenaRuneLevel[6], 600);
+        _root.submitScore(
+            "[Battle Arena] Total Rune Level",
+            _root.save.arenaRuneLevel[1]
+                + _root.save.arenaRuneLevel[2]
+                + _root.save.arenaRuneLevel[3]
+                + _root.save.arenaRuneLevel[4]
+                + _root.save.arenaRuneLevel[5]
+                + _root.save.arenaRuneLevel[6],
+            600
+        );
         _root.submitScore("[Button Machine] Button Presses", _root.save.buttonPress);
         _root.submitScore("[Button Machine] Perfect Clicks", _root.save.buttonPerfect);
         _root.submitScore("[Button Machine] Max Hit Combo", _root.save.buttonMaxCombo);
@@ -1095,7 +1223,11 @@ public class Root
         _root.submitScore("[Battle Arena] Unique ULTRA-1 Kills [New]", _root.uniqueUlt1);
         _root.submitScore("[Battle Arena] Unique ULTRA-2 Kills [New]", _root.uniqueUlt2);
         _root.submitScore("[Battle Arena] Unique ULTRA-3 Kills [New]", _root.uniqueUlt3);
-        _root.submitScore("[Button Machine] Additional Multiplier", _root.save.buttonMultiplier, 1200);
+        _root.submitScore(
+            "[Button Machine] Additional Multiplier",
+            _root.save.buttonMultiplier,
+            1200
+        );
         _root.submitScore("[Button Machine] Grandpas", _root.save.buttonGrandpa, 20);
         _root.submitScore("[Arcade] Unranked Upgrades", _root.totalUnrankedPower);
         _root.submitScore("[Stadium] Hats Unlocked", _root.stadiumHatUnlocked);
@@ -1122,9 +1254,14 @@ public class Root
         if (_root.save.breakNewsMode == 1)
         {
             var ignoreNews = true;
-            if (_root.saveGlobal.breakAll[type] || _root.saveGlobal.breakFeature[type] ||
-                _root.saveGlobal.breakTab1[type] || _root.saveGlobal.breakTab2[type] ||
-                _root.saveGlobal.breakTab3[type] || _root.saveGlobal.breakTab4[type])
+            if (
+                _root.saveGlobal.breakAll[type]
+                || _root.saveGlobal.breakFeature[type]
+                || _root.saveGlobal.breakTab1[type]
+                || _root.saveGlobal.breakTab2[type]
+                || _root.saveGlobal.breakTab3[type]
+                || _root.saveGlobal.breakTab4[type]
+            )
             {
                 ignoreNews = false;
             }
@@ -1140,9 +1277,15 @@ public class Root
                     {
                         if (((FlashList<bool>)_root.saveGlobal["breakTab" + imp])[type])
                         {
-                            _root.news["X" + imp + "breakNews" + b] = _root.news["X" + imp + "breakNews" + (b - 1)];
-                            _root.news["X" + imp + "breakStamp" + b] = _root.news["X" + imp + "breakStamp" + (b - 1)];
-                            _root.news["X" + imp + "breakColor" + b] = _root.news["X" + imp + "breakColor" + (b - 1)];
+                            _root.news["X" + imp + "breakNews" + b] = _root.news[
+                                "X" + imp + "breakNews" + (b - 1)
+                            ];
+                            _root.news["X" + imp + "breakStamp" + b] = _root.news[
+                                "X" + imp + "breakStamp" + (b - 1)
+                            ];
+                            _root.news["X" + imp + "breakColor" + b] = _root.news[
+                                "X" + imp + "breakColor" + (b - 1)
+                            ];
                         }
 
                         imp++;
@@ -1153,18 +1296,30 @@ public class Root
                         var c = 1;
                         while (c <= 30)
                         {
-                            _root.news["F" + c + "breakNews" + b] = _root.news["F" + c + "breakNews" + (b - 1)];
-                            _root.news["F" + c + "breakStamp" + b] = _root.news["F" + c + "breakStamp" + (b - 1)];
-                            _root.news["F" + c + "breakColor" + b] = _root.news["F" + c + "breakColor" + (b - 1)];
+                            _root.news["F" + c + "breakNews" + b] = _root.news[
+                                "F" + c + "breakNews" + (b - 1)
+                            ];
+                            _root.news["F" + c + "breakStamp" + b] = _root.news[
+                                "F" + c + "breakStamp" + (b - 1)
+                            ];
+                            _root.news["F" + c + "breakColor" + b] = _root.news[
+                                "F" + c + "breakColor" + (b - 1)
+                            ];
                             c++;
                         }
                     }
                     else if (_root.saveGlobal.breakFeature[type])
                     {
                         var ft = _root.newsFeature[type];
-                        _root.news["F" + ft + "breakNews" + b] = _root.news["F" + ft + "breakNews" + (b - 1)];
-                        _root.news["F" + ft + "breakStamp" + b] = _root.news["F" + ft + "breakStamp" + (b - 1)];
-                        _root.news["F" + ft + "breakColor" + b] = _root.news["F" + ft + "breakColor" + (b - 1)];
+                        _root.news["F" + ft + "breakNews" + b] = _root.news[
+                            "F" + ft + "breakNews" + (b - 1)
+                        ];
+                        _root.news["F" + ft + "breakStamp" + b] = _root.news[
+                            "F" + ft + "breakStamp" + (b - 1)
+                        ];
+                        _root.news["F" + ft + "breakColor" + b] = _root.news[
+                            "F" + ft + "breakColor" + (b - 1)
+                        ];
                     }
 
                     b -= 1;
@@ -1177,9 +1332,10 @@ public class Root
                     {
                         _root.news["X" + imp + "breakNews1"] = news;
                         _root.news["X" + imp + "breakStamp1"] = "[" + _root.clock_display + "]";
-                        _root.news["X" + imp + "breakColor1"] = _root.saveGlobal.breakR[type] * 65536 +
-                                                                _root.saveGlobal.breakG[type] * 256 +
-                                                                _root.saveGlobal.breakB[type];
+                        _root.news["X" + imp + "breakColor1"] =
+                            _root.saveGlobal.breakR[type] * 65536
+                            + _root.saveGlobal.breakG[type] * 256
+                            + _root.saveGlobal.breakB[type];
                     }
 
                     imp++;
@@ -1192,9 +1348,10 @@ public class Root
                     {
                         _root.news["F" + c + "breakNews1"] = news;
                         _root.news["F" + c + "breakStamp1"] = "[" + _root.clock_display + "]";
-                        _root.news["F" + c + "breakColor1"] = _root.saveGlobal.breakR[type] * 65536 +
-                                                              _root.saveGlobal.breakG[type] * 256 +
-                                                              _root.saveGlobal.breakB[type];
+                        _root.news["F" + c + "breakColor1"] =
+                            _root.saveGlobal.breakR[type] * 65536
+                            + _root.saveGlobal.breakG[type] * 256
+                            + _root.saveGlobal.breakB[type];
                         c++;
                     }
                 }
@@ -1203,9 +1360,10 @@ public class Root
                     var ft = _root.newsFeature[type];
                     _root.news["F" + ft + "breakNews1"] = news;
                     _root.news["F" + ft + "breakStamp1"] = "[" + _root.clock_display + "]";
-                    _root.news["F" + ft + "breakColor1"] = _root.saveGlobal.breakR[type] * 65536 +
-                                                           _root.saveGlobal.breakG[type] * 256 +
-                                                           _root.saveGlobal.breakB[type];
+                    _root.news["F" + ft + "breakColor1"] =
+                        _root.saveGlobal.breakR[type] * 65536
+                        + _root.saveGlobal.breakG[type] * 256
+                        + _root.saveGlobal.breakB[type];
                 }
 
                 _root.updateBreakNews = 1;
@@ -1215,8 +1373,13 @@ public class Root
         {
             if (_root.saveGlobal.defTab == 5)
             {
-                if (_root.saveGlobal.breakAll[type] || (_root.saveGlobal.breakFeature[type] &&
-                                                        _root.house._currentframe == _root.newsFeature[type]))
+                if (
+                    _root.saveGlobal.breakAll[type]
+                    || (
+                        _root.saveGlobal.breakFeature[type]
+                        && _root.house._currentframe == _root.newsFeature[type]
+                    )
+                )
                 {
                     var b = 30;
                     while (b >= 2)
@@ -1226,18 +1389,30 @@ public class Root
                             var c = 1;
                             while (c <= 30)
                             {
-                                _root.news["F" + c + "breakNews" + b] = _root.news["F" + c + "breakNews" + (b - 1)];
-                                _root.news["F" + c + "breakStamp" + b] = _root.news["F" + c + "breakStamp" + (b - 1)];
-                                _root.news["F" + c + "breakColor" + b] = _root.news["F" + c + "breakColor" + (b - 1)];
+                                _root.news["F" + c + "breakNews" + b] = _root.news[
+                                    "F" + c + "breakNews" + (b - 1)
+                                ];
+                                _root.news["F" + c + "breakStamp" + b] = _root.news[
+                                    "F" + c + "breakStamp" + (b - 1)
+                                ];
+                                _root.news["F" + c + "breakColor" + b] = _root.news[
+                                    "F" + c + "breakColor" + (b - 1)
+                                ];
                                 c++;
                             }
                         }
                         else if (_root.saveGlobal.breakFeature[type])
                         {
                             var ft = _root.newsFeature[type];
-                            _root.news["F" + ft + "breakNews" + b] = _root.news["F" + ft + "breakNews" + (b - 1)];
-                            _root.news["F" + ft + "breakStamp" + b] = _root.news["F" + ft + "breakStamp" + (b - 1)];
-                            _root.news["F" + ft + "breakColor" + b] = _root.news["F" + ft + "breakColor" + (b - 1)];
+                            _root.news["F" + ft + "breakNews" + b] = _root.news[
+                                "F" + ft + "breakNews" + (b - 1)
+                            ];
+                            _root.news["F" + ft + "breakStamp" + b] = _root.news[
+                                "F" + ft + "breakStamp" + (b - 1)
+                            ];
+                            _root.news["F" + ft + "breakColor" + b] = _root.news[
+                                "F" + ft + "breakColor" + (b - 1)
+                            ];
                         }
 
                         b -= 1;
@@ -1250,9 +1425,10 @@ public class Root
                         {
                             _root.news["F" + c + "breakNews1"] = news;
                             _root.news["F" + c + "breakStamp1"] = "[" + _root.clock_display + "]";
-                            _root.news["F" + c + "breakColor1"] = _root.saveGlobal.breakR[type] * 65536 +
-                                                                  _root.saveGlobal.breakG[type] * 256 +
-                                                                  _root.saveGlobal.breakB[type];
+                            _root.news["F" + c + "breakColor1"] =
+                                _root.saveGlobal.breakR[type] * 65536
+                                + _root.saveGlobal.breakG[type] * 256
+                                + _root.saveGlobal.breakB[type];
                             c++;
                         }
                     }
@@ -1261,32 +1437,42 @@ public class Root
                         var ft = _root.newsFeature[type];
                         _root.news["F" + ft + "breakNews1"] = news;
                         _root.news["F" + ft + "breakStamp1"] = "[" + _root.clock_display + "]";
-                        _root.news["F" + ft + "breakColor1"] = _root.saveGlobal.breakR[type] * 65536 +
-                                                               _root.saveGlobal.breakG[type] * 256 +
-                                                               _root.saveGlobal.breakB[type];
+                        _root.news["F" + ft + "breakColor1"] =
+                            _root.saveGlobal.breakR[type] * 65536
+                            + _root.saveGlobal.breakG[type] * 256
+                            + _root.saveGlobal.breakB[type];
                     }
 
                     _root.updateBreakNews = 1;
                 }
             }
-            else if (_root.saveGlobal.defTab == 0 ||
-                     ((FlashList<bool>)_root.saveGlobal["breakTab" + _root.saveGlobal.defTab])[type])
+            else if (
+                _root.saveGlobal.defTab == 0
+                || ((FlashList<bool>)_root.saveGlobal["breakTab" + _root.saveGlobal.defTab])[type]
+            )
             {
                 var imp = _root.saveGlobal.defTab;
                 var b = 30;
                 while (b >= 2)
                 {
-                    _root.news["X" + imp + "breakNews" + b] = _root.news["X" + imp + "breakNews" + (b - 1)];
-                    _root.news["X" + imp + "breakStamp" + b] = _root.news["X" + imp + "breakStamp" + (b - 1)];
-                    _root.news["X" + imp + "breakColor" + b] = _root.news["X" + imp + "breakColor" + (b - 1)];
+                    _root.news["X" + imp + "breakNews" + b] = _root.news[
+                        "X" + imp + "breakNews" + (b - 1)
+                    ];
+                    _root.news["X" + imp + "breakStamp" + b] = _root.news[
+                        "X" + imp + "breakStamp" + (b - 1)
+                    ];
+                    _root.news["X" + imp + "breakColor" + b] = _root.news[
+                        "X" + imp + "breakColor" + (b - 1)
+                    ];
                     b -= 1;
                 }
 
                 _root.news["X" + imp + "breakNews1"] = news;
                 _root.news["X" + imp + "breakStamp1"] = "[" + _root.clock_display + "]";
-                _root.news["X" + imp + "breakColor1"] = _root.saveGlobal.breakR[type] * 65536 +
-                                                        _root.saveGlobal.breakG[type] * 256 +
-                                                        _root.saveGlobal.breakB[type];
+                _root.news["X" + imp + "breakColor1"] =
+                    _root.saveGlobal.breakR[type] * 65536
+                    + _root.saveGlobal.breakG[type] * 256
+                    + _root.saveGlobal.breakB[type];
                 _root.updateBreakNews = 1;
             }
         }
@@ -1411,7 +1597,8 @@ public class Root
     }
 
     // MATCH: frame_3/DoAction.as:withComma()
-    public string withComma(double thatNumber) => thatNumber.ToString("N0", CultureInfo.InvariantCulture);
+    public string withComma(double thatNumber) =>
+        thatNumber.ToString("N0", CultureInfo.InvariantCulture);
 
     // MATCH: frame_3/DoAction.as:bCreate()
     public double bCreate(double regB, double regE)
@@ -1429,7 +1616,6 @@ public class Root
 
         return Math.floor(regE * 1000000000000 + regB);
     }
-
 
     // MATCH: frame_3/DoAction.as:toB()
     public double toB(double reg)
@@ -1450,7 +1636,6 @@ public class Root
         tmpB = Math.floor(tmpB);
         return _root.bCreate(tmpB, tmpE);
     }
-
 
     // MATCH: frame_3/DoAction.as:toR()
     public double toR(double bn)
@@ -1574,7 +1759,10 @@ public class Root
     // MATCH: frame_3/DoAction.as:bMul()
     public double bMul(double bnA, double bnB)
     {
-        return _root.bMul2(_root.bCreate(_root.bGetB(bnA), _root.bGetE(bnA) + _root.bGetE(bnB)), _root.bGetB(bnB));
+        return _root.bMul2(
+            _root.bCreate(_root.bGetB(bnA), _root.bGetE(bnA) + _root.bGetE(bnB)),
+            _root.bGetB(bnB)
+        );
     }
 
     // MATCH: frame_3/DoAction.as:bDiv2()
@@ -1591,7 +1779,10 @@ public class Root
             return 0;
         }
 
-        return _root.bDiv2(_root.bCreate(_root.bGetB(bnA), _root.bGetE(bnA) - _root.bGetE(bnB)), _root.bGetB(bnB));
+        return _root.bDiv2(
+            _root.bCreate(_root.bGetB(bnA), _root.bGetE(bnA) - _root.bGetE(bnB)),
+            _root.bGetB(bnB)
+        );
     }
 
     // MATCH: frame_3/DoAction.as:bPct()
@@ -1804,8 +1995,10 @@ public class Root
         var tMult = .0;
         if (_root.save.gDifficulty >= 3 && _root.save.level < 8999)
         {
-            tMult = 1.2 - _root.save.expSauceAsc[sa] / 1000000 / 20000000 -
-                    _root.save.expSauceAsc[sa] / (_root.save.expSauceAsc[40] + 1) * 0.2;
+            tMult =
+                1.2
+                - _root.save.expSauceAsc[sa] / 1000000 / 20000000
+                - _root.save.expSauceAsc[sa] / (_root.save.expSauceAsc[40] + 1) * 0.2;
             if (sa == 0 || sa == 7)
             {
                 tMult += 0.1;
@@ -1823,8 +2016,10 @@ public class Root
         }
         else if (_root.save.gDifficulty >= 2 && _root.save.level < 8999)
         {
-            tMult = 1.2 - _root.save.expSauceAsc[sa] / 1000000 / 10000000 -
-                    _root.save.expSauceAsc[sa] / (_root.save.expSauceAsc[40] + 1) * 0.2;
+            tMult =
+                1.2
+                - _root.save.expSauceAsc[sa] / 1000000 / 10000000
+                - _root.save.expSauceAsc[sa] / (_root.save.expSauceAsc[40] + 1) * 0.2;
             if (sa == 0 || sa == 7)
             {
                 tMult += 0.1;
@@ -1906,8 +2101,12 @@ public class Root
         {
             if (_root.save.level < 9001 && _root.save.featureBoostAuto)
             {
-                var boostToGain = 0.05 + amount / Math.min(_root.requiredExp, 810000000) /
-                    Math.pow(_root.save.boost, 1.11) * 35000;
+                var boostToGain =
+                    0.05
+                    + amount
+                        / Math.min(_root.requiredExp, 810000000)
+                        / Math.pow(_root.save.boost, 1.11)
+                        * 35000;
                 if (_root.save.level < 125)
                 {
                     boostToGain = boostToGain * _root.save.level / 125;
@@ -1994,35 +2193,54 @@ public class Root
                     multiplier += 0.5;
                 }
 
-                if (_root.eventList[yy][mm][dd][i] ==
-                    "Gain 25% more EXP from all sources except the Progress Bar, LolMarket and Awesome Adventures" &&
-                    sauce != 0 && sauce != 13 && sauce != 14)
+                if (
+                    _root.eventList[yy][mm][dd][i]
+                        == "Gain 25% more EXP from all sources except the Progress Bar, LolMarket and Awesome Adventures"
+                    && sauce != 0
+                    && sauce != 13
+                    && sauce != 14
+                )
                 {
                     multiplier += 0.25;
                 }
 
-                if (_root.eventList[yy][mm][dd][i] ==
-                    "Gain 50% more EXP from all sources except the Progress Bar, LolMarket and Awesome Adventures" &&
-                    sauce != 0 && sauce != 13 && sauce != 14)
+                if (
+                    _root.eventList[yy][mm][dd][i]
+                        == "Gain 50% more EXP from all sources except the Progress Bar, LolMarket and Awesome Adventures"
+                    && sauce != 0
+                    && sauce != 13
+                    && sauce != 14
+                )
                 {
                     multiplier += 0.5;
                 }
 
-                if (_root.eventList[yy][mm][dd][i] ==
-                    "Gain 100% more EXP from all sources except the Progress Bar, LolMarket and Awesome Adventures" &&
-                    sauce != 0 && sauce != 13 && sauce != 14)
+                if (
+                    _root.eventList[yy][mm][dd][i]
+                        == "Gain 100% more EXP from all sources except the Progress Bar, LolMarket and Awesome Adventures"
+                    && sauce != 0
+                    && sauce != 13
+                    && sauce != 14
+                )
                 {
                     multiplier += 1;
                 }
 
-                if (_root.eventList[yy][mm][dd][i] ==
-                    "Gain 200% more EXP from all sources except the Progress Bar, LolMarket and Awesome Adventures" &&
-                    sauce != 0 && sauce != 13 && sauce != 14)
+                if (
+                    _root.eventList[yy][mm][dd][i]
+                        == "Gain 200% more EXP from all sources except the Progress Bar, LolMarket and Awesome Adventures"
+                    && sauce != 0
+                    && sauce != 13
+                    && sauce != 14
+                )
                 {
                     multiplier += 2;
                 }
 
-                if (_root.eventList[yy][mm][dd][i] == "Gain 1.5x EXP from Button Machine" && sauce == 8)
+                if (
+                    _root.eventList[yy][mm][dd][i] == "Gain 1.5x EXP from Button Machine"
+                    && sauce == 8
+                )
                 {
                     multiplier2 *= 1.5;
                 }
@@ -2050,7 +2268,10 @@ public class Root
                 i++;
             }
 
-            if (_root.save.hyperDay[1] == _root.todayCode || _root.save.hyperDay[2] == _root.todayCode)
+            if (
+                _root.save.hyperDay[1] == _root.todayCode
+                || _root.save.hyperDay[2] == _root.todayCode
+            )
             {
                 if (sauce != 0 && sauce != 13 && sauce != 14)
                 {
@@ -2127,14 +2348,18 @@ public class Root
             {
                 _root.mainSummonCount += 1;
                 _root.mainAntiLag += 1;
-                _root.popContain.attachMovie("scorePopMain", "scorePopMain" + _root.mainSummonCount, _root.mainAntiLag,
+                _root.popContain.attachMovie(
+                    "scorePopMain",
+                    "scorePopMain" + _root.mainSummonCount,
+                    _root.mainAntiLag,
                     new
                     {
                         _x = 480,
                         _y = 60,
                         what = "+" + _root.withComma(Math.floor(amount * multiplier)),
-                        whatColor = 10092288
-                    });
+                        whatColor = 10092288,
+                    }
+                );
             }
         }
     }
@@ -2151,8 +2376,12 @@ public class Root
         {
             if (_root.save.level < 9001 && _root.save.featureBoostAuto)
             {
-                var boostToGain = 0.01 + amount / Math.min(_root.requiredExp, 810000000) /
-                    Math.pow(_root.save.boost, 1.11) * 7000;
+                var boostToGain =
+                    0.01
+                    + amount
+                        / Math.min(_root.requiredExp, 810000000)
+                        / Math.pow(_root.save.boost, 1.11)
+                        * 7000;
                 if (_root.save.level < 125)
                 {
                     boostToGain = boostToGain * _root.save.level / 125;
@@ -2208,7 +2437,9 @@ public class Root
                 }
                 else if (_root.save.totalStupidity >= 25000)
                 {
-                    multiplier += Math.min(Math.floor((_root.save.totalStupidity - 25000) / 250), 150) * 0.02 + 1;
+                    multiplier +=
+                        Math.min(Math.floor((_root.save.totalStupidity - 25000) / 250), 150) * 0.02
+                        + 1;
                 }
                 else
                 {
@@ -2242,30 +2473,50 @@ public class Root
                     multiplier += 0.5;
                 }
 
-                if (_root.eventList[yy][mm][dd][i] ==
-                    "Gain 25% more Coins from all sources except the Progress Bar, Garden, LolMarket and Fishing" &&
-                    sauce != 0 && sauce != 6 && sauce != 13 && sauce != 22)
+                if (
+                    _root.eventList[yy][mm][dd][i]
+                        == "Gain 25% more Coins from all sources except the Progress Bar, Garden, LolMarket and Fishing"
+                    && sauce != 0
+                    && sauce != 6
+                    && sauce != 13
+                    && sauce != 22
+                )
                 {
                     multiplier += 0.25;
                 }
 
-                if (_root.eventList[yy][mm][dd][i] ==
-                    "Gain 50% more Coins from all sources except the Progress Bar, Garden, LolMarket and Fishing" &&
-                    sauce != 0 && sauce != 6 && sauce != 13 && sauce != 22)
+                if (
+                    _root.eventList[yy][mm][dd][i]
+                        == "Gain 50% more Coins from all sources except the Progress Bar, Garden, LolMarket and Fishing"
+                    && sauce != 0
+                    && sauce != 6
+                    && sauce != 13
+                    && sauce != 22
+                )
                 {
                     multiplier += 0.5;
                 }
 
-                if (_root.eventList[yy][mm][dd][i] ==
-                    "Gain 100% more Coins from all sources except the Progress Bar, Garden, LolMarket and Fishing" &&
-                    sauce != 0 && sauce != 6 && sauce != 13 && sauce != 22)
+                if (
+                    _root.eventList[yy][mm][dd][i]
+                        == "Gain 100% more Coins from all sources except the Progress Bar, Garden, LolMarket and Fishing"
+                    && sauce != 0
+                    && sauce != 6
+                    && sauce != 13
+                    && sauce != 22
+                )
                 {
                     multiplier += 1;
                 }
 
-                if (_root.eventList[yy][mm][dd][i] ==
-                    "Gain 200% more Coins from all sources except the Progress Bar, Garden, LolMarket and Fishing" &&
-                    sauce != 0 && sauce != 6 && sauce != 13 && sauce != 22)
+                if (
+                    _root.eventList[yy][mm][dd][i]
+                        == "Gain 200% more Coins from all sources except the Progress Bar, Garden, LolMarket and Fishing"
+                    && sauce != 0
+                    && sauce != 6
+                    && sauce != 13
+                    && sauce != 22
+                )
                 {
                     multiplier += 2;
                 }
@@ -2329,23 +2580,38 @@ public class Root
                 }
             }
 
-            if (_root.cursoridle < 30 && _root.save.showGain && sauce != 22 && sauce != 0 && sauce != 39)
+            if (
+                _root.cursoridle < 30
+                && _root.save.showGain
+                && sauce != 22
+                && sauce != 0
+                && sauce != 39
+            )
             {
                 _root.mainSummonCount += 1;
                 _root.mainAntiLag += 1;
-                _root.popContain.attachMovie("scorePopMain", "scorePopMain" + _root.mainSummonCount, _root.mainAntiLag,
+                _root.popContain.attachMovie(
+                    "scorePopMain",
+                    "scorePopMain" + _root.mainSummonCount,
+                    _root.mainAntiLag,
                     new
                     {
                         _x = 80,
                         _y = 20,
                         what = "+" + _root.withComma(Math.floor(amount * multiplier)),
-                        whatColor = 16776960
-                    });
+                        whatColor = 16776960,
+                    }
+                );
             }
         }
 
-        if (!isNaN(amount) && amount > 0 && amount != Infinity && _root.save.coinOvercap >= 300 &&
-            _root.save.banned >= 5)
+        if (
+            !isNaN(amount)
+            && amount > 0
+            && amount != Infinity
+            && _root.save.coinOvercap >= 300
+            && _root.save.banned >= 5
+        )
         {
             var multiplier = 1.0;
             if (_root.saveid == 24)
@@ -2366,7 +2632,9 @@ public class Root
                 }
                 else if (_root.save.totalStupidity >= 25000)
                 {
-                    multiplier += Math.min(Math.floor((_root.save.totalStupidity - 25000) / 250), 150) * 0.02 + 1;
+                    multiplier +=
+                        Math.min(Math.floor((_root.save.totalStupidity - 25000) / 250), 150) * 0.02
+                        + 1;
                 }
                 else
                 {
@@ -2400,30 +2668,50 @@ public class Root
                     multiplier += 0.5;
                 }
 
-                if (_root.eventList[yy][mm][dd][i] ==
-                    "Gain 25% more Coins from all sources except the Progress Bar, Garden, LolMarket and Fishing" &&
-                    sauce != 0 && sauce != 6 && sauce != 13 && sauce != 22)
+                if (
+                    _root.eventList[yy][mm][dd][i]
+                        == "Gain 25% more Coins from all sources except the Progress Bar, Garden, LolMarket and Fishing"
+                    && sauce != 0
+                    && sauce != 6
+                    && sauce != 13
+                    && sauce != 22
+                )
                 {
                     multiplier += 0.25;
                 }
 
-                if (_root.eventList[yy][mm][dd][i] ==
-                    "Gain 50% more Coins from all sources except the Progress Bar, Garden, LolMarket and Fishing" &&
-                    sauce != 0 && sauce != 6 && sauce != 13 && sauce != 22)
+                if (
+                    _root.eventList[yy][mm][dd][i]
+                        == "Gain 50% more Coins from all sources except the Progress Bar, Garden, LolMarket and Fishing"
+                    && sauce != 0
+                    && sauce != 6
+                    && sauce != 13
+                    && sauce != 22
+                )
                 {
                     multiplier += 0.5;
                 }
 
-                if (_root.eventList[yy][mm][dd][i] ==
-                    "Gain 100% more Coins from all sources except the Progress Bar, Garden, LolMarket and Fishing" &&
-                    sauce != 0 && sauce != 6 && sauce != 13 && sauce != 22)
+                if (
+                    _root.eventList[yy][mm][dd][i]
+                        == "Gain 100% more Coins from all sources except the Progress Bar, Garden, LolMarket and Fishing"
+                    && sauce != 0
+                    && sauce != 6
+                    && sauce != 13
+                    && sauce != 22
+                )
                 {
                     multiplier += 1;
                 }
 
-                if (_root.eventList[yy][mm][dd][i] ==
-                    "Gain 200% more Coins from all sources except the Progress Bar, Garden, LolMarket and Fishing" &&
-                    sauce != 0 && sauce != 6 && sauce != 13 && sauce != 22)
+                if (
+                    _root.eventList[yy][mm][dd][i]
+                        == "Gain 200% more Coins from all sources except the Progress Bar, Garden, LolMarket and Fishing"
+                    && sauce != 0
+                    && sauce != 6
+                    && sauce != 13
+                    && sauce != 22
+                )
                 {
                     multiplier += 2;
                 }
@@ -2485,19 +2773,28 @@ public class Root
             {
                 _root.mainSummonCount += 1;
                 _root.mainAntiLag += 1;
-                _root.popContain.attachMovie("scorePopMain", "scorePopMain" + _root.mainSummonCount, _root.mainAntiLag,
+                _root.popContain.attachMovie(
+                    "scorePopMain",
+                    "scorePopMain" + _root.mainSummonCount,
+                    _root.mainAntiLag,
                     new
                     {
                         _x = 10,
                         _y = 60,
                         what = "+" + _root.withComma(Math.floor(amount * multiplier)),
-                        whatColor = 65280
-                    });
+                        whatColor = 65280,
+                    }
+                );
             }
         }
 
-        if (!isNaN(amount) && amount > 0 && amount != Infinity && _root.save.greenCoinOvercap >= 300 &&
-            _root.save.banned >= 5)
+        if (
+            !isNaN(amount)
+            && amount > 0
+            && amount != Infinity
+            && _root.save.greenCoinOvercap >= 300
+            && _root.save.banned >= 5
+        )
         {
             var multiplier = 1.0;
             if (_root.saveid == 4)
@@ -2525,8 +2822,13 @@ public class Root
             _root.save.greenCoin += Math.floor(amount * multiplier);
         }
 
-        if (!isNaN(amount) && amount > 0 && amount != Infinity && _root.save.greenCoinOvercap >= 300 &&
-            _root.save.banned >= 5)
+        if (
+            !isNaN(amount)
+            && amount > 0
+            && amount != Infinity
+            && _root.save.greenCoinOvercap >= 300
+            && _root.save.banned >= 5
+        )
         {
             var multiplier = 1.0;
             if (_root.saveid == 4)
@@ -2555,19 +2857,28 @@ public class Root
             {
                 _root.mainSummonCount += 1;
                 _root.mainAntiLag += 1;
-                _root.popContain.attachMovie("scorePopMain", "scorePopMain" + _root.mainSummonCount, _root.mainAntiLag,
+                _root.popContain.attachMovie(
+                    "scorePopMain",
+                    "scorePopMain" + _root.mainSummonCount,
+                    _root.mainAntiLag,
                     new
                     {
                         _x = 100,
                         _y = 60,
                         what = "+" + _root.withComma(Math.floor(amount * multiplier)),
-                        whatColor = 39423
-                    });
+                        whatColor = 39423,
+                    }
+                );
             }
         }
 
-        if (!isNaN(amount) && amount > 0 && amount != Infinity && _root.save.blueCoinOvercap >= 300 &&
-            _root.save.banned >= 5)
+        if (
+            !isNaN(amount)
+            && amount > 0
+            && amount != Infinity
+            && _root.save.blueCoinOvercap >= 300
+            && _root.save.banned >= 5
+        )
         {
             var multiplier = 1.0;
             if (_root.saveid == 4)
@@ -2596,9 +2907,11 @@ public class Root
                 var yy = _root.clock_year % 10;
                 var mm = _root.clock_month;
                 var dd = _root.clock_date;
-                if (_root.eventList[yy][mm][dd][i] ==
-                    "Gain 100% more White Coins from all sources except level 9001 reward" &&
-                    amount < 1000)
+                if (
+                    _root.eventList[yy][mm][dd][i]
+                        == "Gain 100% more White Coins from all sources except level 9001 reward"
+                    && amount < 1000
+                )
                 {
                     multiplier += 1;
                 }
@@ -2614,13 +2927,23 @@ public class Root
 
             if (Math.floor(amount * multiplier) >= 2)
             {
-                _root.dispNews(163,
-                    "Gained " + _root.withComma(amount * multiplier) + " White Coins! You now have " +
-                    _root.withComma(_root.save.whiteCoin) + ".");
+                _root.dispNews(
+                    163,
+                    "Gained "
+                        + _root.withComma(amount * multiplier)
+                        + " White Coins! You now have "
+                        + _root.withComma(_root.save.whiteCoin)
+                        + "."
+                );
             }
             else
             {
-                _root.dispNews(163, "Gained 1 White Coin! You now have " + _root.withComma(_root.save.whiteCoin) + ".");
+                _root.dispNews(
+                    163,
+                    "Gained 1 White Coin! You now have "
+                        + _root.withComma(_root.save.whiteCoin)
+                        + "."
+                );
             }
         }
     }
@@ -2637,9 +2960,11 @@ public class Root
                 var yy = _root.clock_year % 10;
                 var mm = _root.clock_month;
                 var dd = _root.clock_date;
-                if (_root.eventList[yy][mm][dd][i] ==
-                    "Gain 100% more White Coins from all sources except level 9001 reward" &&
-                    amount < 1000)
+                if (
+                    _root.eventList[yy][mm][dd][i]
+                        == "Gain 100% more White Coins from all sources except level 9001 reward"
+                    && amount < 1000
+                )
                 {
                     multiplier += 1;
                 }
@@ -2655,13 +2980,23 @@ public class Root
 
             if (Math.floor(amount * multiplier) >= 2)
             {
-                _root.dispNews(163,
-                    "Gained " + _root.withComma(amount * multiplier) + " White Coins! You now have " +
-                    _root.withComma(_root.save.whiteCoin) + ".");
+                _root.dispNews(
+                    163,
+                    "Gained "
+                        + _root.withComma(amount * multiplier)
+                        + " White Coins! You now have "
+                        + _root.withComma(_root.save.whiteCoin)
+                        + "."
+                );
             }
             else
             {
-                _root.dispNews(163, "Gained 1 White Coin! You now have " + _root.withComma(_root.save.whiteCoin) + ".");
+                _root.dispNews(
+                    163,
+                    "Gained 1 White Coin! You now have "
+                        + _root.withComma(_root.save.whiteCoin)
+                        + "."
+                );
             }
         }
     }
@@ -2714,7 +3049,10 @@ public class Root
             _root.save.eventTokenToday += actualAmount;
             if (actualAmount > 0)
             {
-                _root.dispNews(155, "Event Tokens gained! (+" + _root.withComma(actualAmount) + ")");
+                _root.dispNews(
+                    155,
+                    "Event Tokens gained! (+" + _root.withComma(actualAmount) + ")"
+                );
             }
         }
     }
@@ -2725,7 +3063,11 @@ public class Root
         amount = Math.floor(amount);
         if (!isNaN(amount) && amount > 0)
         {
-            if (_root.save.careerActive[careerID] > 0 || _root.save.careerBoost[careerID] > 0 || mustTurnOn == false)
+            if (
+                _root.save.careerActive[careerID] > 0
+                || _root.save.careerBoost[careerID] > 0
+                || mustTurnOn == false
+            )
             {
                 if (_root.save.careerBoost[careerID] > 0 && mustTurnOn)
                 {
@@ -2751,7 +3093,9 @@ public class Root
                     }
                 }
 
-                amount += Math.floor(amount * Math.min(Math.floor(_root.save.totalStupidity / 250), 20) * 0.03);
+                amount += Math.floor(
+                    amount * Math.min(Math.floor(_root.save.totalStupidity / 250), 20) * 0.03
+                );
                 if (_root.save.banPenalty[6] == 1)
                 {
                     amount = Math.floor(amount * 1.2);
@@ -2774,30 +3118,55 @@ public class Root
                 _root.save.careerEXP[careerID] += amount;
                 if (_root.save.questType == "Career EXP")
                 {
-                    if (_root.save.questSubtype == "Career " + careerID || _root.save.questSubtype == "Any")
+                    if (
+                        _root.save.questSubtype == "Career " + careerID
+                        || _root.save.questSubtype == "Any"
+                    )
                     {
                         _root.save.questCount += amount;
                     }
                 }
 
-                _root.dispNews(careerID + 130,
-                    "Career EXP gained! (" + careerName[careerID] + ", +" + _root.withComma(amount) + ")");
-                var careerReq = 100 + _root.save.careerLevel[careerID] * (_root.save.careerLevel[careerID] + 1) *
-                    Math.max(1, _root.save.careerLevel[careerID] - 99) * 5;
+                _root.dispNews(
+                    careerID + 130,
+                    "Career EXP gained! ("
+                        + careerName[careerID]
+                        + ", +"
+                        + _root.withComma(amount)
+                        + ")"
+                );
+                var careerReq =
+                    100
+                    + _root.save.careerLevel[careerID]
+                        * (_root.save.careerLevel[careerID] + 1)
+                        * Math.max(1, _root.save.careerLevel[careerID] - 99)
+                        * 5;
                 if (_root.save.careerEXP[careerID] > 4000000000)
                 {
                     _root.save.careerEXP[careerID] = 4000000000;
                 }
 
-                while (_root.save.careerEXP[careerID] >= careerReq && _root.save.careerLevel[careerID] < 200)
+                while (
+                    _root.save.careerEXP[careerID] >= careerReq
+                    && _root.save.careerLevel[careerID] < 200
+                )
                 {
                     _root.save.careerEXP[careerID] -= careerReq;
                     _root.save.careerLevel[careerID] += 1;
-                    careerReq = 100 + _root.save.careerLevel[careerID] * (_root.save.careerLevel[careerID] + 1) *
-                        Math.max(1, _root.save.careerLevel[careerID] - 99) * 5;
-                    _root.dispNews(144,
-                        "Career Level Up! (" + careerName[careerID] + ", Lv. " + _root.save.careerLevel[careerID] +
-                        ")");
+                    careerReq =
+                        100
+                        + _root.save.careerLevel[careerID]
+                            * (_root.save.careerLevel[careerID] + 1)
+                            * Math.max(1, _root.save.careerLevel[careerID] - 99)
+                            * 5;
+                    _root.dispNews(
+                        144,
+                        "Career Level Up! ("
+                            + careerName[careerID]
+                            + ", Lv. "
+                            + _root.save.careerLevel[careerID]
+                            + ")"
+                    );
                     if (_root.save.careerLevel[careerID] >= 100)
                     {
                         _root.save.mysteryBox[10] += 1;
@@ -2805,14 +3174,25 @@ public class Root
                     }
                 }
 
-                while (_root.save.careerEXP[careerID] >= 40000000 && _root.save.careerLevel[careerID] == 200)
+                while (
+                    _root.save.careerEXP[careerID] >= 40000000
+                    && _root.save.careerLevel[careerID] == 200
+                )
                 {
                     _root.save.careerEXP[careerID] -= 40000000;
                     _root.save.mysteryBox[10] += 1;
-                    careerReq = 100 + _root.save.careerLevel[careerID] * (_root.save.careerLevel[careerID] + 1) *
-                        Math.max(1, _root.save.careerLevel[careerID] - 99) * 5;
-                    _root.dispNews(144,
-                        "40,000,000 [" + careerName[careerID] + "] Career EXP has been exchanged for a Supply Crate!");
+                    careerReq =
+                        100
+                        + _root.save.careerLevel[careerID]
+                            * (_root.save.careerLevel[careerID] + 1)
+                            * Math.max(1, _root.save.careerLevel[careerID] - 99)
+                            * 5;
+                    _root.dispNews(
+                        144,
+                        "40,000,000 ["
+                            + careerName[careerID]
+                            + "] Career EXP has been exchanged for a Supply Crate!"
+                    );
                 }
             }
 
@@ -2861,16 +3241,41 @@ public class Root
             i++;
         }
 
-        var expToGet = Math.floor(1.4 * _root.save.boost * Math.pow(_root.save.level, 0.6) * (1 +
-            _root.achRedCoin / 10000 +
-            _root.save.petBestLevel / 100 +
-            (_root.save.mainQuestC * 1 + _root.save.mainQuestB * 3 + _root.save.mainQuestA * 6 +
-             _root.save.mainQuestS * 10) / 2500) * rewardToClaim);
-        var coinToGet = Math.floor(0.35 * _root.save.boost * Math.pow(_root.save.level, 0.6) *
-                                   (0.8 + Math.random() * 0.4) *
-                                   (1 + _root.achRedCoin / 10000 + _root.save.petBestLevel / 100 +
-                                    (_root.save.mainQuestC * 1 + _root.save.mainQuestB * 3 + _root.save.mainQuestA * 6 +
-                                     _root.save.mainQuestS * 10) / 2500) * rewardToClaim);
+        var expToGet = Math.floor(
+            1.4
+                * _root.save.boost
+                * Math.pow(_root.save.level, 0.6)
+                * (
+                    1
+                    + _root.achRedCoin / 10000
+                    + _root.save.petBestLevel / 100
+                    + (
+                        _root.save.mainQuestC * 1
+                        + _root.save.mainQuestB * 3
+                        + _root.save.mainQuestA * 6
+                        + _root.save.mainQuestS * 10
+                    ) / 2500
+                )
+                * rewardToClaim
+        );
+        var coinToGet = Math.floor(
+            0.35
+                * _root.save.boost
+                * Math.pow(_root.save.level, 0.6)
+                * (0.8 + Math.random() * 0.4)
+                * (
+                    1
+                    + _root.achRedCoin / 10000
+                    + _root.save.petBestLevel / 100
+                    + (
+                        _root.save.mainQuestC * 1
+                        + _root.save.mainQuestB * 3
+                        + _root.save.mainQuestA * 6
+                        + _root.save.mainQuestS * 10
+                    ) / 2500
+                )
+                * rewardToClaim
+        );
         if (_root.save.bestLevel < 35)
         {
             expToGet = Math.floor(expToGet * 0.5);
@@ -3014,23 +3419,46 @@ public class Root
                 var tempMod = _root.save.progModuleType[i];
                 if (tempMod == 1)
                 {
-                    expToGet += Math.floor(_root.save.progModuleEffect[i] * 0.014 * _root.save.boost *
-                                           Math.pow(_root.save.level, 0.6) * (1 + _root.achRedCoin / 10000 +
-                                                                              _root.save.petBestLevel / 100 +
-                                                                              (_root.save.mainQuestC * 1 +
-                                                                               _root.save.mainQuestB * 3 +
-                                                                               _root.save.mainQuestA * 6 +
-                                                                               _root.save.mainQuestS * 10) / 2500) *
-                                           rewardToClaim);
+                    expToGet += Math.floor(
+                        _root.save.progModuleEffect[i]
+                            * 0.014
+                            * _root.save.boost
+                            * Math.pow(_root.save.level, 0.6)
+                            * (
+                                1
+                                + _root.achRedCoin / 10000
+                                + _root.save.petBestLevel / 100
+                                + (
+                                    _root.save.mainQuestC * 1
+                                    + _root.save.mainQuestB * 3
+                                    + _root.save.mainQuestA * 6
+                                    + _root.save.mainQuestS * 10
+                                ) / 2500
+                            )
+                            * rewardToClaim
+                    );
                 }
                 else if (tempMod == 2)
                 {
-                    coinToGet += Math.floor(_root.save.progModuleEffect[i] * 0.0035 * _root.save.boost *
-                                            Math.pow(_root.save.level, 0.6) * (0.8 + Math.random() * 0.4) * (1 +
-                                                _root.achRedCoin / 10000 + _root.save.petBestLevel / 100 +
-                                                (_root.save.mainQuestC * 1 + _root.save.mainQuestB * 3 +
-                                                 _root.save.mainQuestA * 6 + _root.save.mainQuestS * 10) / 2500) *
-                                            rewardToClaim);
+                    coinToGet += Math.floor(
+                        _root.save.progModuleEffect[i]
+                            * 0.0035
+                            * _root.save.boost
+                            * Math.pow(_root.save.level, 0.6)
+                            * (0.8 + Math.random() * 0.4)
+                            * (
+                                1
+                                + _root.achRedCoin / 10000
+                                + _root.save.petBestLevel / 100
+                                + (
+                                    _root.save.mainQuestC * 1
+                                    + _root.save.mainQuestB * 3
+                                    + _root.save.mainQuestA * 6
+                                    + _root.save.mainQuestS * 10
+                                ) / 2500
+                            )
+                            * rewardToClaim
+                    );
                 }
                 else if (tempMod == 3)
                 {
@@ -3052,7 +3480,8 @@ public class Root
                 {
                     if (_root.save.boostFreeze <= 0 || Math.random() < 0.1 || rewardToClaim >= 10)
                     {
-                        _root.save.boostFreeze += _root.save.progModuleEffect[i] * Math.ceil(rewardToClaim * 0.1);
+                        _root.save.boostFreeze +=
+                            _root.save.progModuleEffect[i] * Math.ceil(rewardToClaim * 0.1);
                     }
                 }
                 else if (tempMod == 8)
@@ -3068,14 +3497,20 @@ public class Root
                     var tr = 1;
                     while (tr <= 50)
                     {
-                        if (_root.save.gardenTrees[tr] > 0 && _root.save.gardenTreeModuleProc[tr] < 10000000 &&
-                            _root.save.gardenTrees[tr] != 1)
+                        if (
+                            _root.save.gardenTrees[tr] > 0
+                            && _root.save.gardenTreeModuleProc[tr] < 10000000
+                            && _root.save.gardenTrees[tr] != 1
+                        )
                         {
-                            _root.save.gardenHarvestValue[tr] += _root.save.progModuleEffect[i] * rewardToClaim;
-                            _root.save.gardenTreeModuleProc[tr] += _root.save.progModuleEffect[i] * rewardToClaim;
+                            _root.save.gardenHarvestValue[tr] +=
+                                _root.save.progModuleEffect[i] * rewardToClaim;
+                            _root.save.gardenTreeModuleProc[tr] +=
+                                _root.save.progModuleEffect[i] * rewardToClaim;
                             if (_root.save.gardenTreeModuleProc[tr] > 10000000)
                             {
-                                _root.save.gardenHarvestValue[tr] -= _root.save.gardenTreeModuleProc[tr] - 10000000;
+                                _root.save.gardenHarvestValue[tr] -=
+                                    _root.save.gardenTreeModuleProc[tr] - 10000000;
                                 _root.save.gardenTreeModuleProc[tr] = 10000000;
                             }
                         }
@@ -3103,86 +3538,110 @@ public class Root
                         {
                             if (tempMod == 17)
                             {
-                                _root.save.arenaPixel += _root.save.progModuleEffect[i] * rewardToClaim *
-                                                         _root.save.arenaLevel;
+                                _root.save.arenaPixel +=
+                                    _root.save.progModuleEffect[i]
+                                    * rewardToClaim
+                                    * _root.save.arenaLevel;
                             }
                             else if (tempMod == 18)
                             {
-                                _root.save.arenaCraft += _root.save.progModuleEffect[i] * rewardToClaim *
-                                                         _root.save.arenaLevel;
+                                _root.save.arenaCraft +=
+                                    _root.save.progModuleEffect[i]
+                                    * rewardToClaim
+                                    * _root.save.arenaLevel;
                             }
                             else if (tempMod == 19)
                             {
-                                _root.save.arenaSuperiorCraft += _root.save.progModuleEffect[i] * rewardToClaim;
+                                _root.save.arenaSuperiorCraft +=
+                                    _root.save.progModuleEffect[i] * rewardToClaim;
                             }
                             else if (tempMod == 20)
                             {
-                                _root.save.arenaUnobtainium += _root.save.progModuleEffect[i] * rewardToClaim;
+                                _root.save.arenaUnobtainium +=
+                                    _root.save.progModuleEffect[i] * rewardToClaim;
                             }
                             else if (tempMod == 21)
                             {
-                                _root.save.arenaEnhancerFragment += _root.save.progModuleEffect[i] * rewardToClaim;
+                                _root.save.arenaEnhancerFragment +=
+                                    _root.save.progModuleEffect[i] * rewardToClaim;
                             }
                             else if (tempMod == 22)
                             {
-                                _root.save.arenaBacon += _root.save.progModuleEffect[i] * rewardToClaim;
+                                _root.save.arenaBacon +=
+                                    _root.save.progModuleEffect[i] * rewardToClaim;
                             }
                             else if (tempMod == 23)
                             {
-                                _root.save.arenaCrystal1 += _root.save.progModuleEffect[i] * rewardToClaim;
+                                _root.save.arenaCrystal1 +=
+                                    _root.save.progModuleEffect[i] * rewardToClaim;
                             }
                             else if (tempMod == 24)
                             {
-                                _root.save.arenaCrystal2 += _root.save.progModuleEffect[i] * rewardToClaim;
+                                _root.save.arenaCrystal2 +=
+                                    _root.save.progModuleEffect[i] * rewardToClaim;
                             }
                             else if (tempMod == 25)
                             {
-                                _root.save.buttonPurple += _root.save.progModuleEffect[i] * rewardToClaim;
+                                _root.save.buttonPurple +=
+                                    _root.save.progModuleEffect[i] * rewardToClaim;
                             }
                             else if (tempMod == 26)
                             {
                                 var modCareer = random(12) + 1;
                                 if (_root.save.careerLevel[modCareer] >= 100)
                                 {
-                                    _root.gainCareerEXP(modCareer, _root.save.progModuleEffect[i] * rewardToClaim * 2,
-                                        false);
+                                    _root.gainCareerEXP(
+                                        modCareer,
+                                        _root.save.progModuleEffect[i] * rewardToClaim * 2,
+                                        false
+                                    );
                                 }
                                 else
                                 {
-                                    _root.gainCareerEXP(modCareer, _root.save.progModuleEffect[i] * rewardToClaim,
-                                        false);
+                                    _root.gainCareerEXP(
+                                        modCareer,
+                                        _root.save.progModuleEffect[i] * rewardToClaim,
+                                        false
+                                    );
                                 }
                             }
                             else if (tempMod == 27)
                             {
-                                _root.save.arcade100kMedal += _root.save.progModuleEffect[i] * rewardToClaim;
+                                _root.save.arcade100kMedal +=
+                                    _root.save.progModuleEffect[i] * rewardToClaim;
                             }
                             else if (tempMod == 28)
                             {
-                                _root.save.stadiumToken += _root.save.progModuleEffect[i] * rewardToClaim;
+                                _root.save.stadiumToken +=
+                                    _root.save.progModuleEffect[i] * rewardToClaim;
                             }
                             else if (tempMod == 29)
                             {
-                                _root.save.fcgCash += _root.save.progModuleEffect[i] * rewardToClaim;
+                                _root.save.fcgCash +=
+                                    _root.save.progModuleEffect[i] * rewardToClaim;
                             }
                             else if (tempMod >= 30 && tempMod <= 39)
                             {
-                                _root.save.lolGems[tempMod - 29] += _root.save.progModuleEffect[i] * rewardToClaim;
+                                _root.save.lolGems[tempMod - 29] +=
+                                    _root.save.progModuleEffect[i] * rewardToClaim;
                             }
                             else if (tempMod == 40)
                             {
                                 if (_root.save.awesomeEnergy < _root.save.awesomeMaxEnergy * 5 + 15)
                                 {
-                                    _root.save.awesomeEnergyNext -= _root.save.progModuleEffect[i] * rewardToClaim;
+                                    _root.save.awesomeEnergyNext -=
+                                        _root.save.progModuleEffect[i] * rewardToClaim;
                                 }
                             }
                             else if (tempMod == 41)
                             {
-                                _root.save.specialPetFood += _root.save.progModuleEffect[i] * rewardToClaim;
+                                _root.save.specialPetFood +=
+                                    _root.save.progModuleEffect[i] * rewardToClaim;
                             }
                             else if (tempMod == 42)
                             {
-                                _root.save.fishFatigue -= _root.save.progModuleEffect[i] * rewardToClaim;
+                                _root.save.fishFatigue -=
+                                    _root.save.progModuleEffect[i] * rewardToClaim;
                             }
                             else if (tempMod == 43)
                             {
@@ -3284,14 +3743,26 @@ public class Root
         _root.gainBlueCoin(blueCoinToGet);
         if (rewardToClaim > 1)
         {
-            _root.dispNews(5,
-                _root.withComma(rewardToClaim) + " rewards claimed! (+" + _root.withComma(expToGet) + " EXP | +" +
-                _root.withComma(coinToGet) + " Coins)");
+            _root.dispNews(
+                5,
+                _root.withComma(rewardToClaim)
+                    + " rewards claimed! (+"
+                    + _root.withComma(expToGet)
+                    + " EXP | +"
+                    + _root.withComma(coinToGet)
+                    + " Coins)"
+            );
         }
         else
         {
-            _root.dispNews(4,
-                "Reward claimed! (+" + _root.withComma(expToGet) + " EXP | +" + _root.withComma(coinToGet) + " Coins)");
+            _root.dispNews(
+                4,
+                "Reward claimed! (+"
+                    + _root.withComma(expToGet)
+                    + " EXP | +"
+                    + _root.withComma(coinToGet)
+                    + " Coins)"
+            );
         }
 
         if (_root.save.level > 10)
@@ -3459,7 +3930,10 @@ public class Root
             if (Math.random() < 0.15 && _root.save.gardenSeed[_root.save.gardenTrees[slot]] < 99)
             {
                 _root.save.gardenSeed[_root.save.gardenTrees[slot]] += 1;
-                _root.dispNews(22, "Gained Seed #" + (_root.save.gardenTrees[slot] - 25) + " for Another Garden!");
+                _root.dispNews(
+                    22,
+                    "Gained Seed #" + (_root.save.gardenTrees[slot] - 25) + " for Another Garden!"
+                );
             }
 
             if (Math.random() < 0.01 * plotExpToEarn)
@@ -3481,9 +3955,13 @@ public class Root
                 _root.save.gardenFruit += fruitToEarn;
                 if (harvestAll != true)
                 {
-                    _root.dispNews(21,
-                        "Gained " + fruitToEarn + " Randomfruit! You now have: " +
-                        _root.withComma(_root.save.gardenFruit));
+                    _root.dispNews(
+                        21,
+                        "Gained "
+                            + fruitToEarn
+                            + " Randomfruit! You now have: "
+                            + _root.withComma(_root.save.gardenFruit)
+                    );
                 }
                 else
                 {
@@ -3527,7 +4005,9 @@ public class Root
 
         if (harvestAll != true)
         {
-            var careerToGain = Math.floor(5 + plotExpToEarn * (1 + _root.save.gardenSlotEXP[slot] / 50000));
+            var careerToGain = Math.floor(
+                5 + plotExpToEarn * (1 + _root.save.gardenSlotEXP[slot] / 50000)
+            );
             if (careerToGain > 5 + 3 * plotExpToEarn)
             {
                 careerToGain = 5 + 3 * plotExpToEarn;
@@ -3544,33 +4024,59 @@ public class Root
             }
 
             _root.gainCareerEXP(2, careerToGain, true);
-            _root.dispNews(19,
-                "Tree #" + slot + " harvested! (+" +
-                _root.withComma(_root.save.gardenHarvestValue[slot] * tmul * (1 + _root.curCareerLevel[2] * 0.005)) +
-                " Coins)");
+            _root.dispNews(
+                19,
+                "Tree #"
+                    + slot
+                    + " harvested! (+"
+                    + _root.withComma(
+                        _root.save.gardenHarvestValue[slot]
+                            * tmul
+                            * (1 + _root.curCareerLevel[2] * 0.005)
+                    )
+                    + " Coins)"
+            );
             if (slot <= 25)
             {
                 _root.gainEXP(
-                    _root.save.gardenHarvestValue[slot] * tmul * (0.3 + _root.curCareerLevel[2] * 0.0015) *
-                    (1 + _root.save.petStat[1] * 0.002), 6);
+                    _root.save.gardenHarvestValue[slot]
+                        * tmul
+                        * (0.3 + _root.curCareerLevel[2] * 0.0015)
+                        * (1 + _root.save.petStat[1] * 0.002),
+                    6
+                );
             }
             else if (slot <= 50)
             {
                 _root.gainEXP(
-                    _root.save.gardenHarvestValue[slot] * tmul * (0.45 + _root.curCareerLevel[2] * 0.00225) *
-                    (1 + _root.save.petStat[1] * 0.002), 6);
+                    _root.save.gardenHarvestValue[slot]
+                        * tmul
+                        * (0.45 + _root.curCareerLevel[2] * 0.00225)
+                        * (1 + _root.save.petStat[1] * 0.002),
+                    6
+                );
             }
             else
             {
                 _root.gainEXP(
-                    _root.save.gardenHarvestValue[slot] * tmul * (0.6 + _root.curCareerLevel[2] * 0.003) *
-                    (1 + _root.save.petStat[1] * 0.002), 6);
+                    _root.save.gardenHarvestValue[slot]
+                        * tmul
+                        * (0.6 + _root.curCareerLevel[2] * 0.003)
+                        * (1 + _root.save.petStat[1] * 0.002),
+                    6
+                );
             }
 
             _root.gainCoin(
-                Math.floor(_root.save.gardenHarvestValue[slot] * tmul * (1 + _root.curCareerLevel[2] * 0.005)));
-            _root.save.harvestCoin +=
-                Math.floor(_root.save.gardenHarvestValue[slot] * (1 + _root.curCareerLevel[2] * 0.005));
+                Math.floor(
+                    _root.save.gardenHarvestValue[slot]
+                        * tmul
+                        * (1 + _root.curCareerLevel[2] * 0.005)
+                )
+            );
+            _root.save.harvestCoin += Math.floor(
+                _root.save.gardenHarvestValue[slot] * (1 + _root.curCareerLevel[2] * 0.005)
+            );
             _root.save.gardenRecentTime[slot] = _root.systemtimenow;
             var greenCoinToEarn = Math.ceil(250 + plotExpToEarn * 50);
             _root.gainGreenCoin(greenCoinToEarn);
@@ -3584,7 +4090,9 @@ public class Root
         }
         else
         {
-            var careerToGain = Math.floor(5 + plotExpToEarn * (1 + _root.save.gardenSlotEXP[slot] / 50000));
+            var careerToGain = Math.floor(
+                5 + plotExpToEarn * (1 + _root.save.gardenSlotEXP[slot] / 50000)
+            );
             if (careerToGain > 5 + 3 * plotExpToEarn)
             {
                 careerToGain = 5 + 3 * plotExpToEarn;
@@ -3602,29 +4110,40 @@ public class Root
 
             harvestSummaryCareer += careerToGain;
             harvestSummaryCount += 1;
-            harvestSummaryCoin +=
-                Math.floor(_root.save.gardenHarvestValue[slot] * tmul * (1 + _root.curCareerLevel[2] * 0.005));
+            harvestSummaryCoin += Math.floor(
+                _root.save.gardenHarvestValue[slot] * tmul * (1 + _root.curCareerLevel[2] * 0.005)
+            );
             if (slot <= 25)
             {
-                harvestSummaryEXP += Math.floor(_root.save.gardenHarvestValue[slot] * tmul *
-                                                (0.3 + _root.curCareerLevel[2] * 0.0015) *
-                                                (1 + _root.save.petStat[1] * 0.002));
+                harvestSummaryEXP += Math.floor(
+                    _root.save.gardenHarvestValue[slot]
+                        * tmul
+                        * (0.3 + _root.curCareerLevel[2] * 0.0015)
+                        * (1 + _root.save.petStat[1] * 0.002)
+                );
             }
             else if (slot <= 50)
             {
-                harvestSummaryEXP += Math.floor(_root.save.gardenHarvestValue[slot] * tmul *
-                                                (0.45 + _root.curCareerLevel[2] * 0.00225) *
-                                                (1 + _root.save.petStat[1] * 0.002));
+                harvestSummaryEXP += Math.floor(
+                    _root.save.gardenHarvestValue[slot]
+                        * tmul
+                        * (0.45 + _root.curCareerLevel[2] * 0.00225)
+                        * (1 + _root.save.petStat[1] * 0.002)
+                );
             }
             else
             {
-                harvestSummaryEXP += Math.floor(_root.save.gardenHarvestValue[slot] * tmul *
-                                                (0.6 + _root.curCareerLevel[2] * 0.003) *
-                                                (1 + _root.save.petStat[1] * 0.002));
+                harvestSummaryEXP += Math.floor(
+                    _root.save.gardenHarvestValue[slot]
+                        * tmul
+                        * (0.6 + _root.curCareerLevel[2] * 0.003)
+                        * (1 + _root.save.petStat[1] * 0.002)
+                );
             }
 
-            _root.save.harvestCoin +=
-                Math.floor(_root.save.gardenHarvestValue[slot] * tmul * (1 + _root.curCareerLevel[2] * 0.005));
+            _root.save.harvestCoin += Math.floor(
+                _root.save.gardenHarvestValue[slot] * tmul * (1 + _root.curCareerLevel[2] * 0.005)
+            );
             _root.save.gardenRecentTime[slot] = _root.systemtimenow;
             var greenCoinToEarn = Math.ceil(250 + plotExpToEarn * 50);
             harvestSummaryGreenCoin += greenCoinToEarn;
@@ -3653,7 +4172,12 @@ public class Root
         {
             if (_root.save.gardenTrees[tr] > 0)
             {
-                if (_root.save.gardenRecentTime[tr] + _root.save.gardenHarvestTime[tr] - _root.systemtimenow <= 0)
+                if (
+                    _root.save.gardenRecentTime[tr]
+                        + _root.save.gardenHarvestTime[tr]
+                        - _root.systemtimenow
+                    <= 0
+                )
                 {
                     _root.harvestTree(tr, true);
                 }
@@ -3669,19 +4193,31 @@ public class Root
         _root.gainCareerEXP(2, harvestSummaryCareer, true);
         if (harvestSummaryCount >= 2)
         {
-            _root.dispNews(19,
-                harvestSummaryCount + " trees harvested! (+" + _root.withComma(harvestSummaryCoin) + " Coins)");
+            _root.dispNews(
+                19,
+                harvestSummaryCount
+                    + " trees harvested! (+"
+                    + _root.withComma(harvestSummaryCoin)
+                    + " Coins)"
+            );
         }
         else if (harvestSummaryCount == 1)
         {
-            _root.dispNews(19, "1 tree harvested! (+" + _root.withComma(harvestSummaryCoin) + " Coins)");
+            _root.dispNews(
+                19,
+                "1 tree harvested! (+" + _root.withComma(harvestSummaryCoin) + " Coins)"
+            );
         }
 
         if (harvestSummaryFruit >= 1)
         {
-            _root.dispNews(21,
-                "Gained " + harvestSummaryFruit + " Randomfruit! You now have: " +
-                _root.withComma(_root.save.gardenFruit));
+            _root.dispNews(
+                21,
+                "Gained "
+                    + harvestSummaryFruit
+                    + " Randomfruit! You now have: "
+                    + _root.withComma(_root.save.gardenFruit)
+            );
         }
     }
 
@@ -3732,9 +4268,17 @@ public class Root
 
             if (Math.random() < critPrintChance)
             {
-                var greenCoinToGain =
-                    Math.floor(((_root.save.printerLevel + 25) * Math.pow(Math.min(_root.save.level, 9001), 0.65) *
-                        0.63 * 10 + 4560) * (100 + _root.save.printerLevel) / 100);
+                var greenCoinToGain = Math.floor(
+                    (
+                        (_root.save.printerLevel + 25)
+                            * Math.pow(Math.min(_root.save.level, 9001), 0.65)
+                            * 0.63
+                            * 10
+                        + 4560
+                    )
+                        * (100 + _root.save.printerLevel)
+                        / 100
+                );
                 greenCoinToGain = Math.round(greenCoinToGain / 125) * 10;
                 if (_root.save.permaBanPenalty[4] == 3)
                 {
@@ -3750,7 +4294,10 @@ public class Root
                 }
 
                 _root.gainGreenCoin(greenCoinToGain);
-                _root.dispNews(76, "CRITICAL PRINT! (+" + _root.withComma(greenCoinToGain) + " Green Coins)");
+                _root.dispNews(
+                    76,
+                    "CRITICAL PRINT! (+" + _root.withComma(greenCoinToGain) + " Green Coins)"
+                );
                 if (_root.save.questType == "Print")
                 {
                     if (_root.save.questSubtype == "Critical")
@@ -3833,8 +4380,12 @@ public class Root
                 _loc3_ = 0;
             }
 
-            _loc6_ += "<font color=\'#" + _root.toHex(_loc2_ * 65536 + _loc3_ * 256) + "\'>" +
-                      str.Substr(_loc4_ + 1, 1) + "</font>";
+            _loc6_ +=
+                "<font color=\'#"
+                + _root.toHex(_loc2_ * 65536 + _loc3_ * 256)
+                + "\'>"
+                + str.Substr(_loc4_ + 1, 1)
+                + "</font>";
             _loc4_ = _loc4_ + 1;
         }
 
@@ -3888,8 +4439,12 @@ public class Root
                 _loc3_ = 0;
             }
 
-            _loc6_ += "<font color=\'#" + _root.toHex(_loc2_ * 65536 + _loc3_ * 256) + "\'>" +
-                      str.Substr(_loc4_ + 1, 1) + "</font>";
+            _loc6_ +=
+                "<font color=\'#"
+                + _root.toHex(_loc2_ * 65536 + _loc3_ * 256)
+                + "\'>"
+                + str.Substr(_loc4_ + 1, 1)
+                + "</font>";
             _loc4_ = _loc4_ + 1;
         }
 
@@ -3955,8 +4510,12 @@ public class Root
                 blue = 0;
             }
 
-            _loc6_ += "<font color=\'#" + _root.toHex(_loc2_ * 65536 + _loc3_ * 256 + blue) + "\'>" +
-                      str.Substr(_loc4_ + 1, 1) + "</font>";
+            _loc6_ +=
+                "<font color=\'#"
+                + _root.toHex(_loc2_ * 65536 + _loc3_ * 256 + blue)
+                + "\'>"
+                + str.Substr(_loc4_ + 1, 1)
+                + "</font>";
             _loc4_ = _loc4_ + 1;
         }
 
@@ -3968,7 +4527,9 @@ public class Root
     {
         if (_root.saveid >= 20)
         {
-            _root.save.challengeToken = Math.floor(_root.saveid * (_root.saveid + 1) * (_root.saveid - 7) * 156.4);
+            _root.save.challengeToken = Math.floor(
+                _root.saveid * (_root.saveid + 1) * (_root.saveid - 7) * 156.4
+            );
         }
     }
 
@@ -3994,112 +4555,207 @@ public class Root
         }
         else if (op == 1)
         {
-            tempCPerf = Math.floor(100 + _root.save.highPong * 0.0065 +
-                                   Math.pow(_root.save.totalPong / 100000, 0.4) * 10) * 100;
+            tempCPerf =
+                Math.floor(
+                    100
+                        + _root.save.highPong * 0.0065
+                        + Math.pow(_root.save.totalPong / 100000, 0.4) * 10
+                ) * 100;
         }
         else if (op == 2)
         {
-            tempCPerf = Math.floor(100 + _root.save.highAvoidance * 0.0065 +
-                                   Math.pow(_root.save.totalAvoidance / 100000, 0.4) * 10) * 100;
+            tempCPerf =
+                Math.floor(
+                    100
+                        + _root.save.highAvoidance * 0.0065
+                        + Math.pow(_root.save.totalAvoidance / 100000, 0.4) * 10
+                ) * 100;
         }
         else if (op == 3)
         {
-            tempCPerf = Math.floor(100 + _root.save.highMath * 0.0065 +
-                                   Math.pow(_root.save.totalMath / 100000, 0.4) * 10) * 100;
+            tempCPerf =
+                Math.floor(
+                    100
+                        + _root.save.highMath * 0.0065
+                        + Math.pow(_root.save.totalMath / 100000, 0.4) * 10
+                ) * 100;
         }
         else if (op == 4)
         {
-            tempCPerf = Math.floor(100 + _root.save.highWhack * 0.0065 +
-                                   Math.pow(_root.save.totalWhack / 100000, 0.4) * 10) * 100;
+            tempCPerf =
+                Math.floor(
+                    100
+                        + _root.save.highWhack * 0.0065
+                        + Math.pow(_root.save.totalWhack / 100000, 0.4) * 10
+                ) * 100;
         }
         else if (op == 5)
         {
-            tempCPerf = Math.floor(100 + _root.save.highCount * 0.0065 +
-                                   Math.pow(_root.save.totalCount / 100000, 0.4) * 10) * 100;
+            tempCPerf =
+                Math.floor(
+                    100
+                        + _root.save.highCount * 0.0065
+                        + Math.pow(_root.save.totalCount / 100000, 0.4) * 10
+                ) * 100;
         }
         else if (op == 6)
         {
-            tempCPerf = Math.floor(100 + _root.save.highMind * 0.0065 +
-                                   Math.pow(_root.save.totalMind / 100000, 0.4) * 10) * 100;
+            tempCPerf =
+                Math.floor(
+                    100
+                        + _root.save.highMind * 0.0065
+                        + Math.pow(_root.save.totalMind / 100000, 0.4) * 10
+                ) * 100;
         }
         else if (op == 7)
         {
-            tempCPerf = Math.floor(100 + _root.save.highBalance * 0.0065 +
-                                   Math.pow(_root.save.totalBalance / 100000, 0.4) * 10) * 100;
+            tempCPerf =
+                Math.floor(
+                    100
+                        + _root.save.highBalance * 0.0065
+                        + Math.pow(_root.save.totalBalance / 100000, 0.4) * 10
+                ) * 100;
         }
         else if (op == 8)
         {
-            tempCPerf = Math.floor(50 + _root.save.stadiumAbilityCost / 4 + Math.pow(_root.save.stadiumRace, 0.3) * 10 +
-                                   Math.pow(_root.save.stadiumImpossibleRace, 0.4) * 15) / 10;
+            tempCPerf =
+                Math.floor(
+                    50
+                        + _root.save.stadiumAbilityCost / 4
+                        + Math.pow(_root.save.stadiumRace, 0.3) * 10
+                        + Math.pow(_root.save.stadiumImpossibleRace, 0.4) * 15
+                ) / 10;
         }
         else if (op == 9)
         {
-            tempCPerf = Math.floor(50 + _root.save.stadiumAbilityCost / 4 + Math.pow(_root.save.stadiumItem, 0.3) * 10 +
-                                   Math.pow(_root.save.stadiumImpossibleItem, 0.4) * 15) / 10;
+            tempCPerf =
+                Math.floor(
+                    50
+                        + _root.save.stadiumAbilityCost / 4
+                        + Math.pow(_root.save.stadiumItem, 0.3) * 10
+                        + Math.pow(_root.save.stadiumImpossibleItem, 0.4) * 15
+                ) / 10;
         }
         else if (op == 10)
         {
-            tempCPerf = Math.floor(50 + _root.save.stadiumAbilityCost / 8 + _root.save.stadiumBestDeathMatch * 0.65 +
-                                   Math.pow(_root.save.stadiumDeathMatch, 0.5) * 2);
+            tempCPerf = Math.floor(
+                50
+                    + _root.save.stadiumAbilityCost / 8
+                    + _root.save.stadiumBestDeathMatch * 0.65
+                    + Math.pow(_root.save.stadiumDeathMatch, 0.5) * 2
+            );
         }
         else if (op == 11)
         {
-            tempCPerf = Math.floor(100 + _root.save.highMMRX * 0.0065 +
-                                   Math.pow(_root.save.totalMMRX / 100000, 0.4) * 10) * 100;
+            tempCPerf =
+                Math.floor(
+                    100
+                        + _root.save.highMMRX * 0.0065
+                        + Math.pow(_root.save.totalMMRX / 100000, 0.4) * 10
+                ) * 100;
         }
         else if (op == 12)
         {
-            tempCPerf = Math.floor(45 + 500 * _root.save.fcgMaxStreak1 / (_root.save.fcgMaxStreak1 + 25) +
-                                   Math.pow(_root.save.fcgLevel1, 0.4) * 14 + _root.save.fcgLevel * 9) / 10;
+            tempCPerf =
+                Math.floor(
+                    45
+                        + 500 * _root.save.fcgMaxStreak1 / (_root.save.fcgMaxStreak1 + 25)
+                        + Math.pow(_root.save.fcgLevel1, 0.4) * 14
+                        + _root.save.fcgLevel * 9
+                ) / 10;
         }
         else if (op == 13)
         {
-            tempCPerf = Math.floor(40 + 500 * _root.save.fcgMaxStreak2 / (_root.save.fcgMaxStreak2 + 25) +
-                                   Math.pow(_root.save.fcgLevel2, 0.4) * 13 + _root.save.fcgLevel * 8) / 10;
+            tempCPerf =
+                Math.floor(
+                    40
+                        + 500 * _root.save.fcgMaxStreak2 / (_root.save.fcgMaxStreak2 + 25)
+                        + Math.pow(_root.save.fcgLevel2, 0.4) * 13
+                        + _root.save.fcgLevel * 8
+                ) / 10;
         }
         else if (op == 14)
         {
-            tempCPerf = Math.floor(35 + 500 * _root.save.fcgMaxStreak3 / (_root.save.fcgMaxStreak3 + 25) +
-                                   Math.pow(_root.save.fcgLevel3, 0.4) * 12 + _root.save.fcgLevel * 7) / 10;
+            tempCPerf =
+                Math.floor(
+                    35
+                        + 500 * _root.save.fcgMaxStreak3 / (_root.save.fcgMaxStreak3 + 25)
+                        + Math.pow(_root.save.fcgLevel3, 0.4) * 12
+                        + _root.save.fcgLevel * 7
+                ) / 10;
         }
         else if (op == 15)
         {
-            tempCPerf = Math.floor(30 + 500 * _root.save.fcgMaxStreak4 / (_root.save.fcgMaxStreak4 + 25) +
-                                   Math.pow(_root.save.fcgLevel4, 0.4) * 11 + _root.save.fcgLevel * 6) / 10;
+            tempCPerf =
+                Math.floor(
+                    30
+                        + 500 * _root.save.fcgMaxStreak4 / (_root.save.fcgMaxStreak4 + 25)
+                        + Math.pow(_root.save.fcgLevel4, 0.4) * 11
+                        + _root.save.fcgLevel * 6
+                ) / 10;
         }
         else if (op == 16)
         {
-            tempCPerf = Math.floor(25 + 500 * _root.save.fcgMaxStreak6 / (_root.save.fcgMaxStreak6 + 25) +
-                                   Math.pow(_root.save.fcgLevel6, 0.3) * 9 + _root.save.fcgLevel * 4) / 10;
+            tempCPerf =
+                Math.floor(
+                    25
+                        + 500 * _root.save.fcgMaxStreak6 / (_root.save.fcgMaxStreak6 + 25)
+                        + Math.pow(_root.save.fcgLevel6, 0.3) * 9
+                        + _root.save.fcgLevel * 4
+                ) / 10;
         }
         else if (op == 17)
         {
-            tempCPerf = Math.floor(20 + 500 * _root.save.fcgMaxStreak7 / (_root.save.fcgMaxStreak7 + 25) +
-                                   Math.pow(_root.save.fcgLevel7, 0.3) * 8 + _root.save.fcgLevel * 3) / 10;
+            tempCPerf =
+                Math.floor(
+                    20
+                        + 500 * _root.save.fcgMaxStreak7 / (_root.save.fcgMaxStreak7 + 25)
+                        + Math.pow(_root.save.fcgLevel7, 0.3) * 8
+                        + _root.save.fcgLevel * 3
+                ) / 10;
         }
         else if (op == 18)
         {
-            tempCPerf = Math.floor(15 + 500 * _root.save.fcgMaxStreak8 / (_root.save.fcgMaxStreak8 + 25) +
-                                   Math.pow(_root.save.fcgLevel8, 0.3) * 7 + _root.save.fcgLevel * 2) / 10;
+            tempCPerf =
+                Math.floor(
+                    15
+                        + 500 * _root.save.fcgMaxStreak8 / (_root.save.fcgMaxStreak8 + 25)
+                        + Math.pow(_root.save.fcgLevel8, 0.3) * 7
+                        + _root.save.fcgLevel * 2
+                ) / 10;
         }
         else if (op == 19)
         {
-            tempCPerf = Math.floor(10 + 500 * _root.save.fcgMaxStreak10 / (_root.save.fcgMaxStreak10 + 25) +
-                                   Math.pow(_root.save.fcgLevel10, 0.3) * 5 + _root.save.fcgLevel * 1) / 10;
+            tempCPerf =
+                Math.floor(
+                    10
+                        + 500 * _root.save.fcgMaxStreak10 / (_root.save.fcgMaxStreak10 + 25)
+                        + Math.pow(_root.save.fcgLevel10, 0.3) * 5
+                        + _root.save.fcgLevel * 1
+                ) / 10;
         }
         else if (op == 20)
         {
-            tempCPerf = Math.floor(10 + 500 * _root.save.fishBestStreak / (_root.save.fishBestStreak + 25) +
-                                   Math.pow(_root.save.fishPerfect, 0.3) * 5 + _root.save.fishBestLevel * 5) / 10;
+            tempCPerf =
+                Math.floor(
+                    10
+                        + 500 * _root.save.fishBestStreak / (_root.save.fishBestStreak + 25)
+                        + Math.pow(_root.save.fishPerfect, 0.3) * 5
+                        + _root.save.fishBestLevel * 5
+                ) / 10;
         }
 
         if (op != 0 && tempCPerf < _root.cyborgActMaxPerf[op])
         {
-            tempCPerf += (_root.cyborgActMaxPerf[op] - tempCPerf) * (_root.save.botLevel * 0.0025 +
-                                                                     Math.pow(
-                                                                         _root.save.botOp[op] * Math.max(30,
-                                                                             _root.cyborgActTime[op]) / 30, 0.45) *
-                                                                     0.001);
+            tempCPerf +=
+                (_root.cyborgActMaxPerf[op] - tempCPerf)
+                * (
+                    _root.save.botLevel * 0.0025
+                    + Math.pow(
+                        _root.save.botOp[op] * Math.max(30, _root.cyborgActTime[op]) / 30,
+                        0.45
+                    ) * 0.001
+                );
         }
 
         if ((op >= 1 && op <= 7) || op == 11)
@@ -4169,8 +4825,16 @@ public class Root
         }
         else if ((op >= 1 && op <= 7) || op == 11)
         {
-            var tempCScore = Math.floor(_root.calcPerf(op) * (0.005 + Math.random() * 0.0025 + Math.random() * 0.001 +
-                                                              Math.random() * Math.random() * 0.0015)) * 100;
+            var tempCScore =
+                Math.floor(
+                    _root.calcPerf(op)
+                        * (
+                            0.005
+                            + Math.random() * 0.0025
+                            + Math.random() * 0.001
+                            + Math.random() * Math.random() * 0.0015
+                        )
+                ) * 100;
             var cybA = "";
             var medMult = 0;
             var div = 50;
@@ -4193,7 +4857,10 @@ public class Root
                 }
 
                 _root.save.totalPong += tempCScore;
-                _root.dispNews(175, "[Cyborg] Simulation Cyborg scored " + _root.withComma(tempCScore) + " in Pong.");
+                _root.dispNews(
+                    175,
+                    "[Cyborg] Simulation Cyborg scored " + _root.withComma(tempCScore) + " in Pong."
+                );
             }
             else if (op == 2)
             {
@@ -4212,8 +4879,12 @@ public class Root
                 }
 
                 _root.save.totalAvoidance += tempCScore;
-                _root.dispNews(175,
-                    "[Cyborg] Simulation Cyborg scored " + _root.withComma(tempCScore) + " in Ultimate Avoidance.");
+                _root.dispNews(
+                    175,
+                    "[Cyborg] Simulation Cyborg scored "
+                        + _root.withComma(tempCScore)
+                        + " in Ultimate Avoidance."
+                );
             }
             else if (op == 3)
             {
@@ -4232,8 +4903,12 @@ public class Root
                 }
 
                 _root.save.totalMath += tempCScore;
-                _root.dispNews(175,
-                    "[Cyborg] Simulation Cyborg scored " + _root.withComma(tempCScore) + " in Math Master.");
+                _root.dispNews(
+                    175,
+                    "[Cyborg] Simulation Cyborg scored "
+                        + _root.withComma(tempCScore)
+                        + " in Math Master."
+                );
             }
             else if (op == 4)
             {
@@ -4252,8 +4927,12 @@ public class Root
                 }
 
                 _root.save.totalWhack += tempCScore;
-                _root.dispNews(175,
-                    "[Cyborg] Simulation Cyborg scored " + _root.withComma(tempCScore) + " in Whack-a-greg.");
+                _root.dispNews(
+                    175,
+                    "[Cyborg] Simulation Cyborg scored "
+                        + _root.withComma(tempCScore)
+                        + " in Whack-a-greg."
+                );
             }
             else if (op == 5)
             {
@@ -4272,8 +4951,12 @@ public class Root
                 }
 
                 _root.save.totalCount += tempCScore;
-                _root.dispNews(175,
-                    "[Cyborg] Simulation Cyborg scored " + _root.withComma(tempCScore) + " in Triangle Count.");
+                _root.dispNews(
+                    175,
+                    "[Cyborg] Simulation Cyborg scored "
+                        + _root.withComma(tempCScore)
+                        + " in Triangle Count."
+                );
             }
             else if (op == 6)
             {
@@ -4292,8 +4975,12 @@ public class Root
                 }
 
                 _root.save.totalMind += tempCScore;
-                _root.dispNews(175,
-                    "[Cyborg] Simulation Cyborg scored " + _root.withComma(tempCScore) + " in MindSweeper.");
+                _root.dispNews(
+                    175,
+                    "[Cyborg] Simulation Cyborg scored "
+                        + _root.withComma(tempCScore)
+                        + " in MindSweeper."
+                );
             }
             else if (op == 7)
             {
@@ -4312,8 +4999,12 @@ public class Root
                 }
 
                 _root.save.totalBalance += tempCScore;
-                _root.dispNews(175,
-                    "[Cyborg] Simulation Cyborg scored " + _root.withComma(tempCScore) + " in Balance 3.");
+                _root.dispNews(
+                    175,
+                    "[Cyborg] Simulation Cyborg scored "
+                        + _root.withComma(tempCScore)
+                        + " in Balance 3."
+                );
             }
             else if (op == 11)
             {
@@ -4332,17 +5023,29 @@ public class Root
                 }
 
                 _root.save.totalMMRX += tempCScore;
-                _root.dispNews(175, "[Cyborg] Simulation Cyborg scored " + _root.withComma(tempCScore) + " in MMR X.");
+                _root.dispNews(
+                    175,
+                    "[Cyborg] Simulation Cyborg scored "
+                        + _root.withComma(tempCScore)
+                        + " in MMR X."
+                );
             }
 
-            _root.gainCyborgEXP(Math.ceil(
-                (tempCScore / _root.cyborgActMaxPerf[op] + 1) * (_root.cyborgActTime[op] / 20) +
-                _root.cyborgActCost[op] / 10));
+            _root.gainCyborgEXP(
+                Math.ceil(
+                    (tempCScore / _root.cyborgActMaxPerf[op] + 1) * (_root.cyborgActTime[op] / 20)
+                        + _root.cyborgActCost[op] / 10
+                )
+            );
             if (tempCScore >= 100000)
             {
-                var medalToGet =
-                    Math.floor(Math.floor(tempCScore / 100000) * medMult * (1 + _root.curCareerLevel[6] * 0.02));
-                _root.dispNews(175, "[Cyborg] You have gained " + medalToGet + " Arcade 100k Medals!");
+                var medalToGet = Math.floor(
+                    Math.floor(tempCScore / 100000) * medMult * (1 + _root.curCareerLevel[6] * 0.02)
+                );
+                _root.dispNews(
+                    175,
+                    "[Cyborg] You have gained " + medalToGet + " Arcade 100k Medals!"
+                );
                 _root.save.arcade100kMedal += medalToGet;
             }
 
@@ -4377,11 +5080,19 @@ public class Root
             baseExp = Math.floor(tempCScore / div / 1.8 * _root.arcadeRewardMult);
             baseGreenCoin = Math.floor(tempCScore / div * 2.5 * _root.arcadeRewardMult);
             baseBlueCoin = Math.floor(tempCScore / div / 200 * _root.arcadeRewardMult);
-            baseExp = Math.floor(baseExp * (1 + _root.curCareerLevel[6] * 0.005) * (1 + _root.save.petStat[4] * 0.002));
+            baseExp = Math.floor(
+                baseExp
+                    * (1 + _root.curCareerLevel[6] * 0.005)
+                    * (1 + _root.save.petStat[4] * 0.002)
+            );
             baseCoin = Math.floor(baseCoin * (1 + _root.curCareerLevel[6] * 0.01));
             baseGreenCoin = Math.floor(baseGreenCoin * (1 + _root.curCareerLevel[6] * 0.01));
-            var finalExp = Math.ceil(baseExp * Math.pow(_root.save.level, 0.6) * (_root.save.boost / 100));
-            var finalCoin = Math.ceil(baseCoin * Math.pow(_root.save.level, 0.6) * (_root.save.boost / 100));
+            var finalExp = Math.ceil(
+                baseExp * Math.pow(_root.save.level, 0.6) * (_root.save.boost / 100)
+            );
+            var finalCoin = Math.ceil(
+                baseCoin * Math.pow(_root.save.level, 0.6) * (_root.save.boost / 100)
+            );
             var finalGreenCoin = Math.ceil(baseGreenCoin);
             var finalBlueCoin = Math.ceil(baseBlueCoin);
             if (_root.save.permaBanPenalty[10] == 3)
@@ -4418,9 +5129,14 @@ public class Root
             _root.gainBlueCoin(finalBlueCoin);
             var tempProgToGet = cyborgActTime[op] * 25;
             _root.progPercent += tempProgToGet;
-            _root.dispNews(175,
-                "[Cyborg] You have gained: " + _root.withComma(finalExp) + " EXP + " + _root.withComma(finalCoin) +
-                " Coins");
+            _root.dispNews(
+                175,
+                "[Cyborg] You have gained: "
+                    + _root.withComma(finalExp)
+                    + " EXP + "
+                    + _root.withComma(finalCoin)
+                    + " Coins"
+            );
         }
         else if (op >= 8 && op <= 9)
         {
@@ -4461,17 +5177,32 @@ public class Root
             }
 
             var fReward = _root.save.stadiumReward;
-            _root.gainCareerEXP(7, Math.floor(300 + (300 + (5 - order) * 50) * (100 + fReward) / 100 / order), true);
-            var finalExp = Math.ceil((baseExp - 150) / order * Math.pow(_root.save.level, 0.6) *
-                                     (_root.save.boost / 100) *
-                                     (1 + fReward * 0.01));
-            var finalCoin = Math.ceil((baseCoin - 150) / order * Math.pow(_root.save.level, 0.6) *
-                                      (_root.save.boost / 100));
+            _root.gainCareerEXP(
+                7,
+                Math.floor(300 + (300 + (5 - order) * 50) * (100 + fReward) / 100 / order),
+                true
+            );
+            var finalExp = Math.ceil(
+                (baseExp - 150)
+                    / order
+                    * Math.pow(_root.save.level, 0.6)
+                    * (_root.save.boost / 100)
+                    * (1 + fReward * 0.01)
+            );
+            var finalCoin = Math.ceil(
+                (baseCoin - 150)
+                    / order
+                    * Math.pow(_root.save.level, 0.6)
+                    * (_root.save.boost / 100)
+            );
             var finalGreenCoin = Math.ceil(baseGreenCoin / order);
             var finalBlueCoin = Math.ceil(baseBlueCoin / order);
             var finalToken = Math.ceil(baseToken / order);
             finalExp = Math.floor(
-                finalExp * (1 + _root.curCareerLevel[7] * 0.005) * (1 + _root.save.petStat[5] * 0.002));
+                finalExp
+                    * (1 + _root.curCareerLevel[7] * 0.005)
+                    * (1 + _root.save.petStat[5] * 0.002)
+            );
             finalCoin = Math.floor(finalCoin * (1 + _root.curCareerLevel[7] * 0.005));
             finalToken = Math.floor(finalToken * (1 + _root.curCareerLevel[7] * 0.01));
             if (_root.save.careerLevel[7] >= 100)
@@ -4546,14 +5277,24 @@ public class Root
                 _root.dispNews(175, "[Cyborg] Item Fight COMPLETE! - Position: #" + order);
             }
 
-            _root.dispNews(175,
-                "[Cyborg] You have gained: " + _root.withComma(finalExp) + " EXP + " + _root.withComma(finalCoin) +
-                " Coins");
-            _root.dispNews(175, "[Cyborg] You have gained " + _root.withComma(finalToken) + " Stadium Tokens!");
+            _root.dispNews(
+                175,
+                "[Cyborg] You have gained: "
+                    + _root.withComma(finalExp)
+                    + " EXP + "
+                    + _root.withComma(finalCoin)
+                    + " Coins"
+            );
+            _root.dispNews(
+                175,
+                "[Cyborg] You have gained " + _root.withComma(finalToken) + " Stadium Tokens!"
+            );
             if (order == 1)
             {
-                if ((_root.save.questType == "Simple Race" && op == 8) ||
-                    (_root.save.questType == "Item Fight" && op == 9))
+                if (
+                    (_root.save.questType == "Simple Race" && op == 8)
+                    || (_root.save.questType == "Item Fight" && op == 9)
+                )
                 {
                     if (_root.save.questSubtype == "Easy")
                     {
@@ -4592,7 +5333,9 @@ public class Root
         }
         else if (op == 10)
         {
-            var tempCScore = Math.floor(_root.calcPerf(op) * (0.5 + Math.random() * 0.3 + Math.random() * 0.2));
+            var tempCScore = Math.floor(
+                _root.calcPerf(op) * (0.5 + Math.random() * 0.3 + Math.random() * 0.2)
+            );
             baseExp = 250000;
             baseCoin = 250000;
             baseGreenCoin = 500000;
@@ -4614,7 +5357,9 @@ public class Root
             if (Math.random() < 0.95 && Math.random() < (tempCScore - 200) / 500)
             {
                 order = 1;
-                _root.gainCyborgEXP(Math.ceil((tempCScore / 1100 + 1) * (_root.cyborgActTime[op] / 20) + 50));
+                _root.gainCyborgEXP(
+                    Math.ceil((tempCScore / 1100 + 1) * (_root.cyborgActTime[op] / 20) + 50)
+                );
             }
             else
             {
@@ -4624,23 +5369,43 @@ public class Root
                     order = 2;
                 }
 
-                _root.gainCyborgEXP(Math.ceil((tempCScore / 1100 + 1) * (_root.cyborgActTime[op] / 20) + 10));
+                _root.gainCyborgEXP(
+                    Math.ceil((tempCScore / 1100 + 1) * (_root.cyborgActTime[op] / 20) + 10)
+                );
             }
 
-            _root.gainCareerEXP(7,
-                Math.floor(10000 + (20000 + tempCScore * 50 + (5 - order) * 5000) * (100 + fReward) / 100 / order),
-                true);
-            var finalExp = Math.ceil((baseExp + Math.floor(tempCScore * 250)) / order *
-                                     Math.pow(_root.save.level, 0.6) *
-                                     (_root.save.boost / 100) * (1 + fReward * 0.01));
-            var finalCoin = Math.ceil((baseCoin + Math.floor(tempCScore * 250)) / order *
-                                      Math.pow(_root.save.level, 0.6) *
-                                      (_root.save.boost / 100));
+            _root.gainCareerEXP(
+                7,
+                Math.floor(
+                    10000
+                        + (20000 + tempCScore * 50 + (5 - order) * 5000)
+                            * (100 + fReward)
+                            / 100
+                            / order
+                ),
+                true
+            );
+            var finalExp = Math.ceil(
+                (baseExp + Math.floor(tempCScore * 250))
+                    / order
+                    * Math.pow(_root.save.level, 0.6)
+                    * (_root.save.boost / 100)
+                    * (1 + fReward * 0.01)
+            );
+            var finalCoin = Math.ceil(
+                (baseCoin + Math.floor(tempCScore * 250))
+                    / order
+                    * Math.pow(_root.save.level, 0.6)
+                    * (_root.save.boost / 100)
+            );
             var finalGreenCoin = Math.ceil((baseGreenCoin + tempCScore * 500) / order);
             var finalBlueCoin = Math.ceil((baseBlueCoin + tempCScore * 1) / order);
             var finalToken = Math.ceil((baseToken + tempCScore * 10) / order);
             finalExp = Math.floor(
-                finalExp * (1 + _root.curCareerLevel[7] * 0.005) * (1 + _root.save.petStat[5] * 0.002));
+                finalExp
+                    * (1 + _root.curCareerLevel[7] * 0.005)
+                    * (1 + _root.save.petStat[5] * 0.002)
+            );
             finalCoin = Math.floor(finalCoin * (1 + _root.curCareerLevel[7] * 0.005));
             finalToken = Math.floor(finalToken * (1 + _root.curCareerLevel[7] * 0.01));
             if (_root.save.careerLevel[7] >= 100)
@@ -4718,12 +5483,25 @@ public class Root
             _root.gainBlueCoin(finalBlueCoin);
             _root.gainWhiteCoin(Math.floor((10 + tempCScore / 25) / order));
             _root.save.stadiumToken += finalToken;
-            _root.dispNews(175,
-                "[Cyborg] Death Match COMPLETE! - Position: #" + order + " - PWNts: " + _root.withComma(tempCScore));
-            _root.dispNews(175,
-                "[Cyborg] You have gained: " + _root.withComma(finalExp) + " EXP + " + _root.withComma(finalCoin) +
-                " Coins");
-            _root.dispNews(175, "[Cyborg] You have gained " + _root.withComma(finalToken) + " Stadium Tokens!");
+            _root.dispNews(
+                175,
+                "[Cyborg] Death Match COMPLETE! - Position: #"
+                    + order
+                    + " - PWNts: "
+                    + _root.withComma(tempCScore)
+            );
+            _root.dispNews(
+                175,
+                "[Cyborg] You have gained: "
+                    + _root.withComma(finalExp)
+                    + " EXP + "
+                    + _root.withComma(finalCoin)
+                    + " Coins"
+            );
+            _root.dispNews(
+                175,
+                "[Cyborg] You have gained " + _root.withComma(finalToken) + " Stadium Tokens!"
+            );
             if (order == 1)
             {
                 if (_root.save.questType == "Death Match")
@@ -4890,22 +5668,36 @@ public class Root
                 }
 
                 _root.save["fcgStreak" + fDiff] = (double)_root.save["fcgStreak" + fDiff] + 1;
-                if ((double)_root.save["fcgMaxStreak" + fDiff] < (double)_root.save["fcgStreak" + fDiff])
+                if (
+                    (double)_root.save["fcgMaxStreak" + fDiff]
+                    < (double)_root.save["fcgStreak" + fDiff]
+                )
                 {
                     _root.save["fcgMaxStreak" + fDiff] = _root.save["fcgStreak" + fDiff];
                 }
 
                 _root.save["fcgLevel" + fDiff] = (double)_root.save["fcgLevel" + fDiff] + 1;
-                target += 2500 + Math.min((double)_root.save["fcgStreak" + fDiff], 50) * diffMult * 100 +
-                          diffMult * 1000;
-                finalFcgExp += 25 + Math.min((double)_root.save["fcgStreak" + fDiff], 50) * diffMult * 1 +
-                               diffMult * 25;
-                finalFcgCash += 100 + Math.min((double)_root.save["fcgStreak" + fDiff], 50) * diffMult * 2 +
-                                diffMult * 50;
-                target = Math.floor(target * (1 + _root.save.fcgLevel * 0.02) * (1 + Math.random() * 0.05));
-                finalFcgExp = Math.floor(finalFcgExp * (1 + _root.save.fcgLevel * 0.002) * (1 + Math.random() * 0.05));
-                finalFcgCash =
-                    Math.floor(finalFcgCash * (1 + _root.save.fcgLevel * 0.002) * (0.7 + Math.random() * 0.4));
+                target +=
+                    2500
+                    + Math.min((double)_root.save["fcgStreak" + fDiff], 50) * diffMult * 100
+                    + diffMult * 1000;
+                finalFcgExp +=
+                    25
+                    + Math.min((double)_root.save["fcgStreak" + fDiff], 50) * diffMult * 1
+                    + diffMult * 25;
+                finalFcgCash +=
+                    100
+                    + Math.min((double)_root.save["fcgStreak" + fDiff], 50) * diffMult * 2
+                    + diffMult * 50;
+                target = Math.floor(
+                    target * (1 + _root.save.fcgLevel * 0.02) * (1 + Math.random() * 0.05)
+                );
+                finalFcgExp = Math.floor(
+                    finalFcgExp * (1 + _root.save.fcgLevel * 0.002) * (1 + Math.random() * 0.05)
+                );
+                finalFcgCash = Math.floor(
+                    finalFcgCash * (1 + _root.save.fcgLevel * 0.002) * (0.7 + Math.random() * 0.4)
+                );
                 if (_root.save.powerUserTime > 0 && _root.save.banPenalty[9] == 1)
                 {
                     target = Math.floor(target * 1.95);
@@ -4923,8 +5715,11 @@ public class Root
 
                 target = Math.floor(target * (1 + _root.save.petStat[6] * 0.002));
                 var finalExp =
-                    Math.ceil(Math.pow(_root.save.level, 0.6) * Math.max(_root.boostMax, _root.save.boost) / 100) *
-                    target;
+                    Math.ceil(
+                        Math.pow(_root.save.level, 0.6)
+                            * Math.max(_root.boostMax, _root.save.boost)
+                            / 100
+                    ) * target;
                 finalExp = Math.floor(finalExp * (1 + _root.curCareerLevel[8] * 0.005));
                 if (_root.save.permaBanPenalty[20] == 3)
                 {
@@ -4947,13 +5742,22 @@ public class Root
                 _root.gainEXP(finalExp, 12);
                 _root.save.fcgExp += finalFcgExp;
                 _root.save.fcgCash += finalFcgCash;
-                _root.gainBlueCoin(Math.floor(finalFcgExp / 2 * (1 + _root.curCareerLevel[8] * 0.01)));
+                _root.gainBlueCoin(
+                    Math.floor(finalFcgExp / 2 * (1 + _root.curCareerLevel[8] * 0.01))
+                );
                 _root.gainCareerEXP(8, Math.floor(500 + finalFcgExp * 15), true);
-                _root.gainCyborgEXP(Math.ceil(2 * (_root.cyborgActTime[op] / 20) + _root.cyborgActCost[op] / 10));
+                _root.gainCyborgEXP(
+                    Math.ceil(2 * (_root.cyborgActTime[op] / 20) + _root.cyborgActCost[op] / 10)
+                );
                 _root.dispNews(175, "[Cyborg] Epic win! (+" + _root.withComma(finalExp) + " EXP)");
-                _root.dispNews(175,
-                    "[Cyborg] You have gained " + _root.withComma(finalFcgExp) + " FCG EXP + " +
-                    _root.withComma(finalFcgCash) + " FCG Cash!");
+                _root.dispNews(
+                    175,
+                    "[Cyborg] You have gained "
+                        + _root.withComma(finalFcgExp)
+                        + " FCG EXP + "
+                        + _root.withComma(finalFcgCash)
+                        + " FCG Cash!"
+                );
             }
             else
             {
@@ -4963,10 +5767,15 @@ public class Root
                 _root.save["fcgStreak" + fDiff] = 0;
                 _root.save.fcgStreak = 0;
                 _root.save.fcgLose += 1;
-                target = Math.floor(target * (1 + _root.save.fcgLevel * 0.02) * (1 + Math.random() * 0.05));
-                finalFcgExp = Math.floor(finalFcgExp * (1 + _root.save.fcgLevel * 0.005) * (1 + Math.random() * 0.05));
-                finalFcgCash =
-                    Math.floor(finalFcgCash * (1 + _root.save.fcgLevel * 0.005) * (0.7 + Math.random() * 0.4));
+                target = Math.floor(
+                    target * (1 + _root.save.fcgLevel * 0.02) * (1 + Math.random() * 0.05)
+                );
+                finalFcgExp = Math.floor(
+                    finalFcgExp * (1 + _root.save.fcgLevel * 0.005) * (1 + Math.random() * 0.05)
+                );
+                finalFcgCash = Math.floor(
+                    finalFcgCash * (1 + _root.save.fcgLevel * 0.005) * (0.7 + Math.random() * 0.4)
+                );
                 if (_root.save.powerUserTime > 0 && _root.save.banPenalty[9] == 1)
                 {
                     target = Math.floor(target * 1.95);
@@ -4984,17 +5793,27 @@ public class Root
 
                 target = Math.floor(target * (1 + _root.save.petStat[6] * 0.002));
                 var finalExp =
-                    Math.ceil(Math.pow(_root.save.level, 0.6) * Math.max(_root.boostMax, _root.save.boost) / 100) *
-                    target;
+                    Math.ceil(
+                        Math.pow(_root.save.level, 0.6)
+                            * Math.max(_root.boostMax, _root.save.boost)
+                            / 100
+                    ) * target;
                 _root.gainEXP(finalExp, 12);
                 _root.save.fcgExp += finalFcgExp;
                 _root.save.fcgCash += finalFcgCash;
-                _root.gainBlueCoin(Math.floor(finalFcgExp / 2 * (1 + _root.curCareerLevel[8] * 0.01)));
+                _root.gainBlueCoin(
+                    Math.floor(finalFcgExp / 2 * (1 + _root.curCareerLevel[8] * 0.01))
+                );
                 _root.gainCareerEXP(8, Math.floor(500 + finalFcgExp * 15), true);
                 _root.dispNews(175, "[Cyborg] Epic lose! (+" + _root.withComma(finalExp) + " EXP)");
-                _root.dispNews(175,
-                    "[Cyborg] You have gained " + _root.withComma(finalFcgExp) + " FCG EXP + " +
-                    _root.withComma(finalFcgCash) + " FCG Cash!");
+                _root.dispNews(
+                    175,
+                    "[Cyborg] You have gained "
+                        + _root.withComma(finalFcgExp)
+                        + " FCG EXP + "
+                        + _root.withComma(finalFcgCash)
+                        + " FCG Cash!"
+                );
             }
         }
         else if (op == 20)
@@ -5064,19 +5883,35 @@ public class Root
             }
             else if (chaos1 <= 17 && _root.save.fishStreak >= 6)
             {
-                if (_root.save.fishStreak >= 10 && _root.save.fishLevel >= 20 && Math.random() < 0.6)
+                if (
+                    _root.save.fishStreak >= 10
+                    && _root.save.fishLevel >= 20
+                    && Math.random() < 0.6
+                )
                 {
                     cybFishCurrent = 54;
                 }
-                else if (_root.save.fishStreak >= 9 && _root.save.fishLevel >= 15 && Math.random() < 0.7)
+                else if (
+                    _root.save.fishStreak >= 9
+                    && _root.save.fishLevel >= 15
+                    && Math.random() < 0.7
+                )
                 {
                     cybFishCurrent = 61;
                 }
-                else if (_root.save.fishStreak >= 8 && _root.save.fishLevel >= 10 && Math.random() < 0.8)
+                else if (
+                    _root.save.fishStreak >= 8
+                    && _root.save.fishLevel >= 10
+                    && Math.random() < 0.8
+                )
                 {
                     cybFishCurrent = 53;
                 }
-                else if (_root.save.fishStreak >= 7 && _root.save.fishLevel >= 5 && Math.random() < 0.9)
+                else if (
+                    _root.save.fishStreak >= 7
+                    && _root.save.fishLevel >= 5
+                    && Math.random() < 0.9
+                )
                 {
                     cybFishCurrent = 60;
                 }
@@ -5085,19 +5920,37 @@ public class Root
                     cybFishCurrent = 52;
                 }
             }
-            else if ((chaos1 <= 20 && _root.save.fishStreak >= 5) || (_root.save.eliteFisherTime > 0 &&
-                                                                      _root.save.fishStreak >= 2 &&
-                                                                      Math.random() < 0.02 && chaos1 > 20))
+            else if (
+                (chaos1 <= 20 && _root.save.fishStreak >= 5)
+                || (
+                    _root.save.eliteFisherTime > 0
+                    && _root.save.fishStreak >= 2
+                    && Math.random() < 0.02
+                    && chaos1 > 20
+                )
+            )
             {
-                if (_root.save.fishStreak >= 11 && _root.save.fishLevel >= 30 && Math.random() < 0.4)
+                if (
+                    _root.save.fishStreak >= 11
+                    && _root.save.fishLevel >= 30
+                    && Math.random() < 0.4
+                )
                 {
                     cybFishCurrent = 58;
                 }
-                else if (_root.save.fishStreak >= 9 && _root.save.fishLevel >= 20 && Math.random() < 0.6)
+                else if (
+                    _root.save.fishStreak >= 9
+                    && _root.save.fishLevel >= 20
+                    && Math.random() < 0.6
+                )
                 {
                     cybFishCurrent = 57;
                 }
-                else if (_root.save.fishStreak >= 7 && _root.save.fishLevel >= 10 && Math.random() < 0.8)
+                else if (
+                    _root.save.fishStreak >= 7
+                    && _root.save.fishLevel >= 10
+                    && Math.random() < 0.8
+                )
                 {
                     cybFishCurrent = 56;
                 }
@@ -5120,7 +5973,9 @@ public class Root
                 {
                     if (ftc < 30)
                     {
-                        var blah = _root.save.fishLevel - (double)_root.fishArray[ftc + 1].fishLevel.GetValue();
+                        var blah =
+                            _root.save.fishLevel
+                            - (double)_root.fishArray[ftc + 1].fishLevel.GetValue();
                         if (blah > 0)
                         {
                             chance = 45 + Math.pow(blah, 0.7) * 3;
@@ -5173,11 +6028,15 @@ public class Root
                     {
                         if (ftc >= 50)
                         {
-                            blah = _root.save.fishLevel - (double)_root.fishArray[ftc + 21].fishLevel.GetValue();
+                            blah =
+                                _root.save.fishLevel
+                                - (double)_root.fishArray[ftc + 21].fishLevel.GetValue();
                         }
                         else
                         {
-                            blah = _root.save.fishLevel - (double)_root.fishArray[ftc + 1].fishLevel.GetValue();
+                            blah =
+                                _root.save.fishLevel
+                                - (double)_root.fishArray[ftc + 1].fishLevel.GetValue();
                         }
 
                         if (blah > 0)
@@ -5244,13 +6103,15 @@ public class Root
                 cybFishCurrent = ftc;
             }
 
-            var cybFishCurrentExp =
-                Math.floor(_root.fishArray[cybFishCurrent].fishExp * (1 + _root.curCareerLevel[12] * 0.01));
+            var cybFishCurrentExp = Math.floor(
+                _root.fishArray[cybFishCurrent].fishExp * (1 + _root.curCareerLevel[12] * 0.01)
+            );
             var cybFishCate = _root.fishArray[cybFishCurrent].fishCate;
             var cybFishSpec = _root.fishArray[cybFishCurrent].fishSpec;
             var cybFishLev = _root.fishArray[cybFishCurrent].fishLevel;
-            var cybFishAExp =
-                Math.floor(_root.fishArray[cybFishCurrent].fishAExp * (1 + _root.curCareerLevel[12] * 0.005));
+            var cybFishAExp = Math.floor(
+                _root.fishArray[cybFishCurrent].fishAExp * (1 + _root.curCareerLevel[12] * 0.005)
+            );
             if (_root.save.eliteFisherTime > 0)
             {
                 cybFishAExp = Math.floor(cybFishAExp * 1.5);
@@ -5270,8 +6131,13 @@ public class Root
                 tempName = cybFishLev + " " + cybFishCate;
             }
 
-            if ((Math.random() < _root.calcPerf(op) / 100 && (_root.save.fishStreak < 250 || Math.random() < 0.7)) ||
-                cybFishSpec == "Manual+")
+            if (
+                (
+                    Math.random() < _root.calcPerf(op) / 100
+                    && (_root.save.fishStreak < 250 || Math.random() < 0.7)
+                )
+                || cybFishSpec == "Manual+"
+            )
             {
                 _root.save.fishStreak += 1;
                 if (_root.save.fishBestStreak < _root.save.fishStreak)
@@ -5298,7 +6164,11 @@ public class Root
                 _root.save.fishScore += cybFishCurrentExp * (200 + streakBonus * 50);
                 _root.save.fishScoreToday += cybFishCurrentExp * (200 + streakBonus * 50);
                 _root.save.fishExp += cybFishCurrentExp + streakBonus;
-                _root.gainCareerEXP(12, 100 + cybFishCurrentExp * 3 + streakBonus * 5 + _root.save.fishLevel, true);
+                _root.gainCareerEXP(
+                    12,
+                    100 + cybFishCurrentExp * 3 + streakBonus * 5 + _root.save.fishLevel,
+                    true
+                );
                 if (_root.save.permaBanPenalty[35] == 3)
                 {
                     _root.gainGreenCoin(30000 + streakBonus * 6000);
@@ -5317,10 +6187,19 @@ public class Root
                 }
 
                 _root.gainBlueCoin(10 + streakBonus * 2);
-                _root.dispNews(175,
-                    "[Cyborg] Fishing Mastery increased! (+" + _root.withComma(cybFishCurrentExp + streakBonus) + ")");
-                var expToGain = Math.floor(cybFishAExp * Math.pow(_root.save.level, 0.6) * _root.save.boost / 100 *
-                                           (1 + streakBonus / 20));
+                _root.dispNews(
+                    175,
+                    "[Cyborg] Fishing Mastery increased! (+"
+                        + _root.withComma(cybFishCurrentExp + streakBonus)
+                        + ")"
+                );
+                var expToGain = Math.floor(
+                    cybFishAExp
+                        * Math.pow(_root.save.level, 0.6)
+                        * _root.save.boost
+                        / 100
+                        * (1 + streakBonus / 20)
+                );
                 if (_root.save.permaBanPenalty[6] == 3)
                 {
                     expToGain = Math.floor(expToGain * 3);
@@ -5385,12 +6264,22 @@ public class Root
                 }
 
                 _root.gainEXP(expToGain, 22);
-                _root.dispNews(175,
-                    "[Cyborg] PERFECT CATCH (" + _root.save.fishStreak + "x)! " + tempName + " GET! (+" +
-                    _root.withComma(expToGain) + " EXP)");
+                _root.dispNews(
+                    175,
+                    "[Cyborg] PERFECT CATCH ("
+                        + _root.save.fishStreak
+                        + "x)! "
+                        + tempName
+                        + " GET! (+"
+                        + _root.withComma(expToGain)
+                        + " EXP)"
+                );
                 if (_root.save.questType == "Result")
                 {
-                    if (_root.save.questSubtype == "Perfect" || _root.save.questSubtype == "Success")
+                    if (
+                        _root.save.questSubtype == "Perfect"
+                        || _root.save.questSubtype == "Success"
+                    )
                     {
                         _root.save.questCount += 1;
                     }
@@ -5416,7 +6305,12 @@ public class Root
                     }
 
                     _root.gainEXP(expToGain, 22);
-                    _root.dispNews(175, "[Cyborg] Bonus LEGEND EXP gained! (+" + _root.withComma(expToGain) + " EXP)");
+                    _root.dispNews(
+                        175,
+                        "[Cyborg] Bonus LEGEND EXP gained! (+"
+                            + _root.withComma(expToGain)
+                            + " EXP)"
+                    );
                 }
 
                 if (_root.save.fishStreak >= 3)
@@ -5459,8 +6353,12 @@ public class Root
                 }
 
                 _root.gainBlueCoin(5);
-                _root.dispNews(175,
-                    "[Cyborg] Fishing Mastery increased! (+" + _root.withComma(cybFishCurrentExp) + ")");
+                _root.dispNews(
+                    175,
+                    "[Cyborg] Fishing Mastery increased! (+"
+                        + _root.withComma(cybFishCurrentExp)
+                        + ")"
+                );
                 if (cybFishCurrent == 52)
                 {
                     _root.save.awesomeRefill += 1;
@@ -5511,8 +6409,9 @@ public class Root
                     _root.save.megaBoostPotion += 1;
                 }
 
-                var expToGain =
-                    Math.floor(cybFishAExp * Math.pow(_root.save.level, 0.6) * _root.save.boost / 100 * 0.8);
+                var expToGain = Math.floor(
+                    cybFishAExp * Math.pow(_root.save.level, 0.6) * _root.save.boost / 100 * 0.8
+                );
                 if (_root.save.permaBanPenalty[6] == 3)
                 {
                     expToGain = Math.floor(expToGain * 2);
@@ -5527,7 +6426,10 @@ public class Root
                 }
 
                 _root.gainEXP(expToGain, 22);
-                _root.dispNews(175, "[Cyborg] " + tempName + " GET! (+" + _root.withComma(expToGain) + " EXP)");
+                _root.dispNews(
+                    175,
+                    "[Cyborg] " + tempName + " GET! (+" + _root.withComma(expToGain) + " EXP)"
+                );
                 if (_root.save.fishLevel > 30)
                 {
                     if (_root.save.fishLevel > 50)
@@ -5540,7 +6442,12 @@ public class Root
                     }
 
                     _root.gainEXP(expToGain, 22);
-                    _root.dispNews(175, "[Cyborg] Bonus LEGEND EXP gained! (+" + _root.withComma(expToGain) + " EXP)");
+                    _root.dispNews(
+                        175,
+                        "[Cyborg] Bonus LEGEND EXP gained! (+"
+                            + _root.withComma(expToGain)
+                            + " EXP)"
+                    );
                 }
 
                 if (_root.save.questType == "Result")
@@ -5585,8 +6492,10 @@ public class Root
                 }
             }
 
-            if (_root.save.questType == "Fish" &&
-                ((cybFishCurrent >= 31 && cybFishCurrent <= 50) || cybFishCurrent >= 71))
+            if (
+                _root.save.questType == "Fish"
+                && ((cybFishCurrent >= 31 && cybFishCurrent <= 50) || cybFishCurrent >= 71)
+            )
             {
                 if (_root.save.questSubtype == "Any")
                 {
@@ -5623,22 +6532,38 @@ public class Root
                         _root.save.questCount += 1;
                     }
 
-                    if (_root.save.questSubtype == "Treasure Box" && cybFishCurrent >= 1 && cybFishCurrent <= 3)
+                    if (
+                        _root.save.questSubtype == "Treasure Box"
+                        && cybFishCurrent >= 1
+                        && cybFishCurrent <= 3
+                    )
                     {
                         _root.save.questCount += 1;
                     }
 
-                    if (_root.save.questSubtype == "Key" && cybFishCurrent >= 4 && cybFishCurrent <= 6)
+                    if (
+                        _root.save.questSubtype == "Key"
+                        && cybFishCurrent >= 4
+                        && cybFishCurrent <= 6
+                    )
                     {
                         _root.save.questCount += 1;
                     }
 
-                    if (_root.save.questSubtype == "Energy Drink" && cybFishCurrent >= 7 && cybFishCurrent <= 8)
+                    if (
+                        _root.save.questSubtype == "Energy Drink"
+                        && cybFishCurrent >= 7
+                        && cybFishCurrent <= 8
+                    )
                     {
                         _root.save.questCount += 1;
                     }
 
-                    if (_root.save.questSubtype == "Pet Food" && cybFishCurrent >= 9 && cybFishCurrent <= 10)
+                    if (
+                        _root.save.questSubtype == "Pet Food"
+                        && cybFishCurrent >= 9
+                        && cybFishCurrent <= 10
+                    )
                     {
                         _root.save.questCount += 1;
                     }
@@ -5658,7 +6583,11 @@ public class Root
                         _root.save.questCount += 1;
                     }
 
-                    if (_root.save.questSubtype == "Mystery Box" && cybFishCurrent >= 55 && cybFishCurrent <= 58)
+                    if (
+                        _root.save.questSubtype == "Mystery Box"
+                        && cybFishCurrent >= 55
+                        && cybFishCurrent <= 58
+                    )
                     {
                         _root.save.questCount += 1;
                     }
@@ -5709,7 +6638,10 @@ public class Root
     {
         if (_root.save.bestLevel >= 1250)
         {
-            if ((_root.save.botCurrentOp >= 1 && _root.save.botCurrentOp <= 7) || _root.save.botCurrentOp == 11)
+            if (
+                (_root.save.botCurrentOp >= 1 && _root.save.botCurrentOp <= 7)
+                || _root.save.botCurrentOp == 11
+            )
             {
                 if (_root.save.featureArcade && _root.house._currentframe != 10)
                 {
@@ -5744,8 +6676,11 @@ public class Root
             }
             else if (_root.save.botCurrentOp == 20)
             {
-                if (_root.save.featureFishing && _root.house._currentframe != 22 &&
-                    _root.save.fishExamLeft <= 0)
+                if (
+                    _root.save.featureFishing
+                    && _root.house._currentframe != 22
+                    && _root.save.fishExamLeft <= 0
+                )
                 {
                     _root.save.botActive = true;
                 }
@@ -5830,14 +6765,23 @@ public class Root
 
             if (Math.floor(amount) >= 2)
             {
-                _root.dispNews(174,
-                    "[Cyborg] Gained " + _root.withComma(amount) + " Cyborg Points! You now have " +
-                    _root.withComma(_root.save.botPoint) + ".");
+                _root.dispNews(
+                    174,
+                    "[Cyborg] Gained "
+                        + _root.withComma(amount)
+                        + " Cyborg Points! You now have "
+                        + _root.withComma(_root.save.botPoint)
+                        + "."
+                );
             }
             else
             {
-                _root.dispNews(174,
-                    "[Cyborg] Gained 1 Cyborg Point! You now have " + _root.withComma(_root.save.botPoint) + ".");
+                _root.dispNews(
+                    174,
+                    "[Cyborg] Gained 1 Cyborg Point! You now have "
+                        + _root.withComma(_root.save.botPoint)
+                        + "."
+                );
             }
         }
     }
@@ -5864,14 +6808,20 @@ public class Root
             }
 
             _root.save.botExp += Math.floor(amount);
-            _root.dispNews(179, "[Cyborg] Simulation Cyborg gained " + _root.withComma(amount) + " EXP!");
+            _root.dispNews(
+                179,
+                "[Cyborg] Simulation Cyborg gained " + _root.withComma(amount) + " EXP!"
+            );
             if (_root.save.botExp >= expReq && expReq > 0)
             {
                 _root.save.botExp -= expReq;
                 _root.save.botLevel += 1;
-                _root.dispNews(180,
-                    "[Cyborg] Simulation Cyborg LEVEL UP! Simulation Cyborg is now Lv. " +
-                    _root.withComma(_root.save.botLevel) + ".");
+                _root.dispNews(
+                    180,
+                    "[Cyborg] Simulation Cyborg LEVEL UP! Simulation Cyborg is now Lv. "
+                        + _root.withComma(_root.save.botLevel)
+                        + "."
+                );
             }
         }
     }
@@ -5899,8 +6849,10 @@ public class Root
         }
         else
         {
-            _root.showPopup("Error",
-                "An unexpected error has occurred. The module you are trying to equip appears to be non-existent.");
+            _root.showPopup(
+                "Error",
+                "An unexpected error has occurred. The module you are trying to equip appears to be non-existent."
+            );
         }
 
         _root.organizeModule();
@@ -5929,8 +6881,10 @@ public class Root
         }
         else
         {
-            _root.showPopup("Error",
-                "An unexpected error has occurred. The module you are trying to unequip appears to be non-existent.");
+            _root.showPopup(
+                "Error",
+                "An unexpected error has occurred. The module you are trying to unequip appears to be non-existent."
+            );
         }
 
         _root.organizeModule();
@@ -6077,8 +7031,10 @@ public class Root
         {
             if (_root.save.shinyToken < shinyCost)
             {
-                _root.showPopup("Error",
-                    "You don\'t have enough Shiny Tokens to buy this module. Buy more in the Mystery Shop!");
+                _root.showPopup(
+                    "Error",
+                    "You don\'t have enough Shiny Tokens to buy this module. Buy more in the Mystery Shop!"
+                );
             }
             else if (_root.save.whiteCoin >= modCost && _root.moduleInvSlotLeft >= modSize)
             {
@@ -6100,21 +7056,34 @@ public class Root
             }
             else
             {
-                _root.showPopup("Error", "You don\'t have sufficient inventory slots to buy this module.");
+                _root.showPopup(
+                    "Error",
+                    "You don\'t have sufficient inventory slots to buy this module."
+                );
             }
         }
         else
         {
-            _root.showPopup("Error",
-                "An unexpected error has occurred. The module you are trying to buy appears to be non-existent.");
+            _root.showPopup(
+                "Error",
+                "An unexpected error has occurred. The module you are trying to buy appears to be non-existent."
+            );
         }
 
         _root.organizeModule();
     }
 
     // MATCH: frame_3/DoAction.as:getModule()
-    public void getModule(string modName, double modTier, double modSize, double modShiny,
-        double modType, double modChance, double modEffect, double modCost)
+    public void getModule(
+        string modName,
+        double modTier,
+        double modSize,
+        double modShiny,
+        double modType,
+        double modChance,
+        double modEffect,
+        double modCost
+    )
     {
         if (modTier > 0)
         {
@@ -6144,8 +7113,10 @@ public class Root
         }
         else
         {
-            _root.showPopup("Error",
-                "An unexpected error has occurred. The module you are trying to get appears to be non-existent.");
+            _root.showPopup(
+                "Error",
+                "An unexpected error has occurred. The module you are trying to get appears to be non-existent."
+            );
         }
 
         _root.organizeModule();
@@ -6172,8 +7143,10 @@ public class Root
         }
         else
         {
-            _root.showPopup("Error",
-                "An unexpected error has occurred. The module you are trying to sell appears to be non-existent.");
+            _root.showPopup(
+                "Error",
+                "An unexpected error has occurred. The module you are trying to sell appears to be non-existent."
+            );
         }
 
         _root.organizeModule();
@@ -6295,9 +7268,16 @@ public class Root
                 tempModuleType = random(4) + 1;
             }
 
-            if (tempModuleType == 5 || tempModuleType == 13 || tempModuleType == 22 || tempModuleType == 24 ||
-                tempModuleType == 25 || tempModuleType == 27 || (tempModuleType >= 33 && tempModuleType <= 39) ||
-                tempModuleType == 41)
+            if (
+                tempModuleType == 5
+                || tempModuleType == 13
+                || tempModuleType == 22
+                || tempModuleType == 24
+                || tempModuleType == 25
+                || tempModuleType == 27
+                || (tempModuleType >= 33 && tempModuleType <= 39)
+                || tempModuleType == 41
+            )
             {
                 tempModuleType = random(42) + 1;
             }
@@ -6679,7 +7659,9 @@ public class Root
             {
                 if (tempEffect == 1)
                 {
-                    tempChance = Math.round(tempChance * (1 + (tempTier - 1) / 10) * (1 + (tempTier - 1) / 10));
+                    tempChance = Math.round(
+                        tempChance * (1 + (tempTier - 1) / 10) * (1 + (tempTier - 1) / 10)
+                    );
                 }
                 else
                 {
@@ -6759,16 +7741,42 @@ public class Root
     }
 
     // MATCH: frame_4/DoAction.as:addArenaCraftWeapon()
-    public void addArenaCraftWeapon(double recipeType, double recipeReq, double recipeLimit = 0, double reqRank = 0,
-        string subtype = "", bool range = false, double frame = 0, double attack = 0, double speed = 0,
-        double defense = 0, double crit = 0,
-        double dexterity = 0, double health = 0, double maxLevel = 0, double expTNL = 0, double enhance = 0,
-        double bonusPow = 0, string bonus = "",
-        string ability = "", string moreBonus = "", double sell = 0, double expiry = 0, bool noBonus = false,
-        bool noLife = false, bool noFuse = false,
-        bool noUnique = false, bool spirit = false, double unob = 0, double costPixel = 0, double costCraft = 0,
-        double costSpec = 0, double careerExp = 0,
-        string name = "", string desc = "")
+    public void addArenaCraftWeapon(
+        double recipeType,
+        double recipeReq,
+        double recipeLimit = 0,
+        double reqRank = 0,
+        string subtype = "",
+        bool range = false,
+        double frame = 0,
+        double attack = 0,
+        double speed = 0,
+        double defense = 0,
+        double crit = 0,
+        double dexterity = 0,
+        double health = 0,
+        double maxLevel = 0,
+        double expTNL = 0,
+        double enhance = 0,
+        double bonusPow = 0,
+        string bonus = "",
+        string ability = "",
+        string moreBonus = "",
+        double sell = 0,
+        double expiry = 0,
+        bool noBonus = false,
+        bool noLife = false,
+        bool noFuse = false,
+        bool noUnique = false,
+        bool spirit = false,
+        double unob = 0,
+        double costPixel = 0,
+        double costCraft = 0,
+        double costSpec = 0,
+        double careerExp = 0,
+        string name = "",
+        string desc = ""
+    )
     {
         var item = new Item();
         item.recipeType = recipeType;
@@ -6822,12 +7830,41 @@ public class Root
     }
 
     // MATCH: frame_4/DoAction.as:addArenaCraftArmor()
-    public void addArenaCraftArmor(double recipeType, double recipeReq, double recipeLimit, double reqRank,
-        string subtype, double frame, double attack, double speed, double defense, double crit, double dexterity,
-        double health, double maxLevel, double expTNL, double enhance, double bonusPow, string bonus, string ability,
-        string moreBonus, double sell, double expiry, bool noBonus, bool noLife, bool noFuse, bool noUnique,
-        bool spirit, double unob, double costPixel, double costCraft, double costSpec, double careerExp, string name,
-        string desc)
+    public void addArenaCraftArmor(
+        double recipeType,
+        double recipeReq,
+        double recipeLimit,
+        double reqRank,
+        string subtype,
+        double frame,
+        double attack,
+        double speed,
+        double defense,
+        double crit,
+        double dexterity,
+        double health,
+        double maxLevel,
+        double expTNL,
+        double enhance,
+        double bonusPow,
+        string bonus,
+        string ability,
+        string moreBonus,
+        double sell,
+        double expiry,
+        bool noBonus,
+        bool noLife,
+        bool noFuse,
+        bool noUnique,
+        bool spirit,
+        double unob,
+        double costPixel,
+        double costCraft,
+        double costSpec,
+        double careerExp,
+        string name,
+        string desc
+    )
     {
         var item = new Item();
         item.recipeType = recipeType;
@@ -6880,12 +7917,40 @@ public class Root
     }
 
     // MATCH: frame_4/DoAction.as:addArenaCraftAccessory()
-    public void addArenaCraftAccessory(double recipeType, double recipeReq, double recipeLimit, double reqRank,
-        string subtype, double frame, double attack, double speed, double defense, double crit, double dexterity,
-        double health, double maxLevel, double expTNL, double enhance, double bonusPow, string bonus, string ability,
-        string moreBonus, double sell, double expiry, bool noBonus, bool noLife, bool noUnique,
-        bool spirit, double unob, double costPixel, double costCraft, double costSpec, double careerExp, string name,
-        string desc)
+    public void addArenaCraftAccessory(
+        double recipeType,
+        double recipeReq,
+        double recipeLimit,
+        double reqRank,
+        string subtype,
+        double frame,
+        double attack,
+        double speed,
+        double defense,
+        double crit,
+        double dexterity,
+        double health,
+        double maxLevel,
+        double expTNL,
+        double enhance,
+        double bonusPow,
+        string bonus,
+        string ability,
+        string moreBonus,
+        double sell,
+        double expiry,
+        bool noBonus,
+        bool noLife,
+        bool noUnique,
+        bool spirit,
+        double unob,
+        double costPixel,
+        double costCraft,
+        double costSpec,
+        double careerExp,
+        string name,
+        string desc
+    )
     {
         var item = new Item();
         item.recipeType = recipeType;
@@ -6938,12 +8003,40 @@ public class Root
     }
 
     // MATCH: frame_4/DoAction.as:addArenaCraftMedal()
-    public void addArenaCraftMedal(double recipeType, double recipeReq, double recipeLimit, double reqRank,
-        string subtype, double frame, double attack, double speed, double defense, double crit, double dexterity,
-        double health, double maxLevel, double expTNL, double enhance, double bonusPow, string bonus, string ability,
-        string moreBonus, double sell, double expiry, bool noBonus, bool noLife, bool noUnique,
-        bool spirit, double unob, double costPixel, double costCraft, double costSpec, double careerExp, string name,
-        string desc)
+    public void addArenaCraftMedal(
+        double recipeType,
+        double recipeReq,
+        double recipeLimit,
+        double reqRank,
+        string subtype,
+        double frame,
+        double attack,
+        double speed,
+        double defense,
+        double crit,
+        double dexterity,
+        double health,
+        double maxLevel,
+        double expTNL,
+        double enhance,
+        double bonusPow,
+        string bonus,
+        string ability,
+        string moreBonus,
+        double sell,
+        double expiry,
+        bool noBonus,
+        bool noLife,
+        bool noUnique,
+        bool spirit,
+        double unob,
+        double costPixel,
+        double costCraft,
+        double costSpec,
+        double careerExp,
+        string name,
+        string desc
+    )
     {
         var item = new Item();
         item.recipeType = recipeType;
@@ -6996,12 +8089,29 @@ public class Root
     }
 
     // MATCH: frame_4/DoAction.as:addArenaCraftEnhancer()
-    public void addArenaCraftEnhancer(double recipeType, double recipeReq, double recipeLimit,
-        string subtype, double frame, double power, double curse, double success,
-        double enhance, double bonusPow, string bonus, string ability,
-        string moreBonus, double sell, double expiry,
-        double costPixel, double costCraft, double costSpec, double careerExp, string name,
-        string desc)
+    public void addArenaCraftEnhancer(
+        double recipeType,
+        double recipeReq,
+        double recipeLimit,
+        string subtype,
+        double frame,
+        double power,
+        double curse,
+        double success,
+        double enhance,
+        double bonusPow,
+        string bonus,
+        string ability,
+        string moreBonus,
+        double sell,
+        double expiry,
+        double costPixel,
+        double costCraft,
+        double costSpec,
+        double careerExp,
+        string name,
+        string desc
+    )
     {
         var item = new Item();
         item.recipeType = recipeType;
@@ -7037,10 +8147,25 @@ public class Root
     }
 
     // MATCH: frame_4/DoAction.as:addArenaCraftPotion()
-    public void addArenaCraftPotion(double recipeType, double recipeReq, double recipeLimit,
-        string subtype, double frame, double attack, double defense,
-        double enhance, double bonusPow, double sell, double expiry,
-        double costPixel, double costCraft, double costSpec, double careerExp, string name, string desc)
+    public void addArenaCraftPotion(
+        double recipeType,
+        double recipeReq,
+        double recipeLimit,
+        string subtype,
+        double frame,
+        double attack,
+        double defense,
+        double enhance,
+        double bonusPow,
+        double sell,
+        double expiry,
+        double costPixel,
+        double costCraft,
+        double costSpec,
+        double careerExp,
+        string name,
+        string desc
+    )
     {
         var item = new Item();
         item.recipeType = recipeType;
@@ -7072,10 +8197,25 @@ public class Root
     }
 
     // MATCH: frame_4/DoAction.as:addArenaCraftChip()
-    public void addArenaCraftChip(double recipeType, double recipeReq, double recipeLimit,
-        string subtype, double frame, double attack, double defense,
-        double enhance, double bonusPow, double sell, double expiry,
-        double costPixel, double costCraft, double costSpec, double careerExp, string name, string desc)
+    public void addArenaCraftChip(
+        double recipeType,
+        double recipeReq,
+        double recipeLimit,
+        string subtype,
+        double frame,
+        double attack,
+        double defense,
+        double enhance,
+        double bonusPow,
+        double sell,
+        double expiry,
+        double costPixel,
+        double costCraft,
+        double costSpec,
+        double careerExp,
+        string name,
+        string desc
+    )
     {
         var item = new Item();
         item.recipeType = recipeType;
@@ -7099,8 +8239,13 @@ public class Root
     }
 
     // MATCH: frame_4/DoAction.as:addArenaSet()
-    public void addArenaSet(string setNameD, List<double> bonusReq, List<string> bonusStat, List<double> bonusAmnt,
-        List<string> setItems)
+    public void addArenaSet(
+        string setNameD,
+        List<double> bonusReq,
+        List<string> bonusStat,
+        List<double> bonusAmnt,
+        List<string> setItems
+    )
     {
         var _loc1_ = new SetBonus();
         _loc1_.setNameD = setNameD;
@@ -7258,11 +8403,13 @@ public class Root
                 equipped = true;
             }
 
-            if (_root.save.inventoryName[_root.save.arenaMedal] == tempName &&
-                _root.save.inventoryDesc[_root.save.arenaMedal] !=
-                "This medal\'s name depends on your Anti-Idle title when you craft it. Don\'t ask how that works." &&
-                _root.save.inventoryDesc[_root.save.arenaMedal] !=
-                "Thank you for your donation and your continued support!")
+            if (
+                _root.save.inventoryName[_root.save.arenaMedal] == tempName
+                && _root.save.inventoryDesc[_root.save.arenaMedal]
+                    != "This medal\'s name depends on your Anti-Idle title when you craft it. Don\'t ask how that works."
+                && _root.save.inventoryDesc[_root.save.arenaMedal]
+                    != "Thank you for your donation and your continued support!"
+            )
             {
                 equipped = true;
             }
@@ -7633,13 +8780,23 @@ public class Root
 
                 if (equipCount >= setArray[setID].bonusReq[i])
                 {
-                    tempDisp += "\n<font color=\'#FFFF00\'>[" + setArray[setID].bonusReq[i] + plu + "]" +
-                                "</font> <font color=\'#CCFF33\'>" + setArray[setID].bonusStat[i];
+                    tempDisp +=
+                        "\n<font color=\'#FFFF00\'>["
+                        + setArray[setID].bonusReq[i]
+                        + plu
+                        + "]"
+                        + "</font> <font color=\'#CCFF33\'>"
+                        + setArray[setID].bonusStat[i];
                 }
                 else
                 {
-                    tempDisp += "\n<font color=\'#CCCCCC\'>[" + setArray[setID].bonusReq[i] + plu + "]" +
-                                "</font> <font color=\'#BBBBBB\'>" + setArray[setID].bonusStat[i];
+                    tempDisp +=
+                        "\n<font color=\'#CCCCCC\'>["
+                        + setArray[setID].bonusReq[i]
+                        + plu
+                        + "]"
+                        + "</font> <font color=\'#BBBBBB\'>"
+                        + setArray[setID].bonusStat[i];
                 }
             }
             else
@@ -7655,15 +8812,29 @@ public class Root
 
                 if (equipCount >= setArray[setID].bonusReq[i])
                 {
-                    tempDisp += "\n<font color=\'#FFFF00\'>[" + setArray[setID].bonusReq[i] + plu + "]" +
-                                "</font> <font color=\'#CCFF33\'>" + setArray[setID].bonusStat[i] + " <b>+" +
-                                setArray[setID].bonusAmnt[i] + "%</b>";
+                    tempDisp +=
+                        "\n<font color=\'#FFFF00\'>["
+                        + setArray[setID].bonusReq[i]
+                        + plu
+                        + "]"
+                        + "</font> <font color=\'#CCFF33\'>"
+                        + setArray[setID].bonusStat[i]
+                        + " <b>+"
+                        + setArray[setID].bonusAmnt[i]
+                        + "%</b>";
                 }
                 else
                 {
-                    tempDisp += "\n<font color=\'#CCCCCC\'>[" + setArray[setID].bonusReq[i] + plu + "]" +
-                                "</font> <font color=\'#BBBBBB\'>" + setArray[setID].bonusStat[i] + " <b>+" +
-                                setArray[setID].bonusAmnt[i] + "%</b>";
+                    tempDisp +=
+                        "\n<font color=\'#CCCCCC\'>["
+                        + setArray[setID].bonusReq[i]
+                        + plu
+                        + "]"
+                        + "</font> <font color=\'#BBBBBB\'>"
+                        + setArray[setID].bonusStat[i]
+                        + " <b>+"
+                        + setArray[setID].bonusAmnt[i]
+                        + "%</b>";
                 }
             }
 
@@ -7912,11 +9083,38 @@ public class Root
     }
 
     // MATCH: frame_4/DoAction.as:previewFusedWeapon()
-    public void previewFusedWeapon(double reqRank, string subtype, double frame, bool range, double attack,
-        double speed, double defense, double crit, double dexterity, double health, double maxLevel, double expTNL,
-        double level, double exp, double enhance, double bonusPow, string bonus, string ability, string moreBonus,
-        double sell, double expiry, bool noBonus, bool noLife, bool noFuse, bool noUnique, bool spirit, double unob,
-        string name, string desc, bool guard)
+    public void previewFusedWeapon(
+        double reqRank,
+        string subtype,
+        double frame,
+        bool range,
+        double attack,
+        double speed,
+        double defense,
+        double crit,
+        double dexterity,
+        double health,
+        double maxLevel,
+        double expTNL,
+        double level,
+        double exp,
+        double enhance,
+        double bonusPow,
+        string bonus,
+        string ability,
+        string moreBonus,
+        double sell,
+        double expiry,
+        bool noBonus,
+        bool noLife,
+        bool noFuse,
+        bool noUnique,
+        bool spirit,
+        double unob,
+        string name,
+        string desc,
+        bool guard
+    )
     {
         var k = 1331;
         if (noBonus == null)
@@ -7952,7 +9150,12 @@ public class Root
         if (isNaN(level))
         {
             level = 1;
-            _root.breakNews("[Error]", "ERROR: " + name + " / [level] not defined.", 16711680, 9002);
+            _root.breakNews(
+                "[Error]",
+                "ERROR: " + name + " / [level] not defined.",
+                16711680,
+                9002
+            );
         }
 
         if (isNaN(exp))
@@ -7979,7 +9182,12 @@ public class Root
         if (moreBonus == null)
         {
             moreBonus = "";
-            _root.breakNews("[Error]", "ERROR: " + name + " / [moreBonus] not defined.", 16711680, 9002);
+            _root.breakNews(
+                "[Error]",
+                "ERROR: " + name + " / [moreBonus] not defined.",
+                16711680,
+                9002
+            );
         }
 
         if (desc == null)
@@ -8440,13 +9648,38 @@ public class Root
         }
     }
 
-
     // MATCH: frame_4/DoAction.as:previewFusedArmor()
-    public void previewFusedArmor(double reqRank, string subtype, double frame, double attack, double speed,
-        double defense, double crit, double dexterity, double health, double maxLevel, double expTNL, double level,
-        double exp, double enhance, double bonusPow, string bonus, string ability, string moreBonus, double sell,
-        double expiry, bool noBonus, bool noLife, bool noFuse, bool noUnique, bool spirit, double unob, string name,
-        string desc, bool guard)
+    public void previewFusedArmor(
+        double reqRank,
+        string subtype,
+        double frame,
+        double attack,
+        double speed,
+        double defense,
+        double crit,
+        double dexterity,
+        double health,
+        double maxLevel,
+        double expTNL,
+        double level,
+        double exp,
+        double enhance,
+        double bonusPow,
+        string bonus,
+        string ability,
+        string moreBonus,
+        double sell,
+        double expiry,
+        bool noBonus,
+        bool noLife,
+        bool noFuse,
+        bool noUnique,
+        bool spirit,
+        double unob,
+        string name,
+        string desc,
+        bool guard
+    )
     {
         var k = 1331;
         if (noBonus == null)
@@ -8482,7 +9715,12 @@ public class Root
         if (isNaN(level))
         {
             level = 1;
-            _root.breakNews("[Error]", "ERROR: " + name + " / [level] not defined.", 16711680, 9002);
+            _root.breakNews(
+                "[Error]",
+                "ERROR: " + name + " / [level] not defined.",
+                16711680,
+                9002
+            );
         }
 
         if (isNaN(exp))
@@ -8509,7 +9747,12 @@ public class Root
         if (moreBonus == null)
         {
             moreBonus = "";
-            _root.breakNews("[Error]", "ERROR: " + name + " / [moreBonus] not defined.", 16711680, 9002);
+            _root.breakNews(
+                "[Error]",
+                "ERROR: " + name + " / [moreBonus] not defined.",
+                16711680,
+                9002
+            );
         }
 
         if (desc == null)
@@ -8862,11 +10105,37 @@ public class Root
     }
 
     // MATCH: frame_4/DoAction.as:previewFusedAccessory()
-    public void previewFusedAccessory(double reqRank, string subtype, double frame, double attack, double speed,
-        double defense, double crit, double dexterity, double health, double maxLevel, double expTNL, double level,
-        double exp, double enhance, double bonusPow, string bonus, string ability, string moreBonus, double sell,
-        double expiry, bool noBonus, bool noLife, bool noFuse, bool noUnique, bool spirit, double unob, string name,
-        string desc, bool guard)
+    public void previewFusedAccessory(
+        double reqRank,
+        string subtype,
+        double frame,
+        double attack,
+        double speed,
+        double defense,
+        double crit,
+        double dexterity,
+        double health,
+        double maxLevel,
+        double expTNL,
+        double level,
+        double exp,
+        double enhance,
+        double bonusPow,
+        string bonus,
+        string ability,
+        string moreBonus,
+        double sell,
+        double expiry,
+        bool noBonus,
+        bool noLife,
+        bool noFuse,
+        bool noUnique,
+        bool spirit,
+        double unob,
+        string name,
+        string desc,
+        bool guard
+    )
     {
         var k = 1331;
         if (noBonus == null)
@@ -8902,7 +10171,12 @@ public class Root
         if (isNaN(level))
         {
             level = 1;
-            _root.breakNews("[Error]", "ERROR: " + name + " / [level] not defined.", 16711680, 9002);
+            _root.breakNews(
+                "[Error]",
+                "ERROR: " + name + " / [level] not defined.",
+                16711680,
+                9002
+            );
         }
 
         if (isNaN(exp))
@@ -8929,7 +10203,12 @@ public class Root
         if (moreBonus == null)
         {
             moreBonus = "";
-            _root.breakNews("[Error]", "ERROR: " + name + " / [moreBonus] not defined.", 16711680, 9002);
+            _root.breakNews(
+                "[Error]",
+                "ERROR: " + name + " / [moreBonus] not defined.",
+                16711680,
+                9002
+            );
         }
 
         if (desc == null)
@@ -9282,11 +10561,38 @@ public class Root
     }
 
     // MATCH: frame_4/DoAction.as:getArenaWeapon()
-    public void getArenaWeapon(double reqRank, string subtype, double frame, bool range, double attack, double speed,
-        double defense, double crit, double dexterity, double health, double maxLevel, double expTNL, double level,
-        double exp, double enhance, double bonusPow, string bonus, string ability, string moreBonus, double sell,
-        double expiry, bool noBonus, bool noLife, bool noFuse, bool noUnique, bool spirit, double unob, string name,
-        string desc, bool guard = false)
+    public void getArenaWeapon(
+        double reqRank,
+        string subtype,
+        double frame,
+        bool range,
+        double attack,
+        double speed,
+        double defense,
+        double crit,
+        double dexterity,
+        double health,
+        double maxLevel,
+        double expTNL,
+        double level,
+        double exp,
+        double enhance,
+        double bonusPow,
+        string bonus,
+        string ability,
+        string moreBonus,
+        double sell,
+        double expiry,
+        bool noBonus,
+        bool noLife,
+        bool noFuse,
+        bool noUnique,
+        bool spirit,
+        double unob,
+        string name,
+        string desc,
+        bool guard = false
+    )
     {
         var k = 9999;
         var i = 1;
@@ -9350,13 +10656,23 @@ public class Root
             if (isNaN(level))
             {
                 level = 1;
-                _root.breakNews("[Error]", "ERROR: " + name + " / [level] not defined.", 16711680, 9002);
+                _root.breakNews(
+                    "[Error]",
+                    "ERROR: " + name + " / [level] not defined.",
+                    16711680,
+                    9002
+                );
             }
 
             if (isNaN(exp))
             {
                 exp = 0;
-                _root.breakNews("[Error]", "ERROR: " + name + " / [exp] not defined.", 16711680, 9002);
+                _root.breakNews(
+                    "[Error]",
+                    "ERROR: " + name + " / [exp] not defined.",
+                    16711680,
+                    9002
+                );
             }
 
             if (isNaN(crit))
@@ -9364,26 +10680,46 @@ public class Root
                 crit = 10;
                 dexterity = 0;
                 health = 0;
-                _root.breakNews("[Error]", "ERROR: " + name + " / [crit] not defined.", 16711680, 9002);
+                _root.breakNews(
+                    "[Error]",
+                    "ERROR: " + name + " / [crit] not defined.",
+                    16711680,
+                    9002
+                );
             }
 
             if (isNaN(unob))
             {
                 unob = 0;
-                _root.breakNews("[Error]", "ERROR: " + name + " / [unob] not defined.", 16711680, 9002);
+                _root.breakNews(
+                    "[Error]",
+                    "ERROR: " + name + " / [unob] not defined.",
+                    16711680,
+                    9002
+                );
             }
 
             var itemSet = _root.checkArenaSet(name);
             if (moreBonus == null)
             {
                 moreBonus = "";
-                _root.breakNews("[Error]", "ERROR: " + name + " / [moreBonus] not defined.", 16711680, 9002);
+                _root.breakNews(
+                    "[Error]",
+                    "ERROR: " + name + " / [moreBonus] not defined.",
+                    16711680,
+                    9002
+                );
             }
 
             if (desc == null)
             {
                 desc = "";
-                _root.breakNews("[Error]", "ERROR: " + name + " / [desc] not defined.", 16711680, 9002);
+                _root.breakNews(
+                    "[Error]",
+                    "ERROR: " + name + " / [desc] not defined.",
+                    16711680,
+                    9002
+                );
             }
 
             _root.save.inventoryExist[k] = 1;
@@ -9843,7 +11179,10 @@ public class Root
             }
             else
             {
-                _root.dispNews(55, "Weapon inventory full! [" + name + "] moved to Recently Deleted tab.");
+                _root.dispNews(
+                    55,
+                    "Weapon inventory full! [" + name + "] moved to Recently Deleted tab."
+                );
             }
         }
         else
@@ -9855,11 +11194,37 @@ public class Root
     }
 
     // MATCH: frame_4/DoAction.as:getArenaArmor()
-    public void getArenaArmor(double reqRank, string subtype, double frame, double attack, double speed, double defense,
-        double crit, double dexterity, double health, double maxLevel, double expTNL, double level, double exp,
-        double enhance, double bonusPow, string bonus, string ability, string moreBonus, double sell, double expiry,
-        bool noBonus, bool noLife, bool noFuse, bool noUnique, bool spirit, double unob, string name, string desc,
-        bool guard = false)
+    public void getArenaArmor(
+        double reqRank,
+        string subtype,
+        double frame,
+        double attack,
+        double speed,
+        double defense,
+        double crit,
+        double dexterity,
+        double health,
+        double maxLevel,
+        double expTNL,
+        double level,
+        double exp,
+        double enhance,
+        double bonusPow,
+        string bonus,
+        string ability,
+        string moreBonus,
+        double sell,
+        double expiry,
+        bool noBonus,
+        bool noLife,
+        bool noFuse,
+        bool noUnique,
+        bool spirit,
+        double unob,
+        string name,
+        string desc,
+        bool guard = false
+    )
     {
         var k = 9999;
         var i = 101;
@@ -9923,13 +11288,23 @@ public class Root
             if (isNaN(level))
             {
                 level = 1;
-                _root.breakNews("[Error]", "ERROR: " + name + " / [level] not defined.", 16711680, 9002);
+                _root.breakNews(
+                    "[Error]",
+                    "ERROR: " + name + " / [level] not defined.",
+                    16711680,
+                    9002
+                );
             }
 
             if (isNaN(exp))
             {
                 exp = 0;
-                _root.breakNews("[Error]", "ERROR: " + name + " / [exp] not defined.", 16711680, 9002);
+                _root.breakNews(
+                    "[Error]",
+                    "ERROR: " + name + " / [exp] not defined.",
+                    16711680,
+                    9002
+                );
             }
 
             if (isNaN(crit))
@@ -9937,26 +11312,46 @@ public class Root
                 crit = 10;
                 dexterity = 0;
                 health = 0;
-                _root.breakNews("[Error]", "ERROR: " + name + " / [crit] not defined.", 16711680, 9002);
+                _root.breakNews(
+                    "[Error]",
+                    "ERROR: " + name + " / [crit] not defined.",
+                    16711680,
+                    9002
+                );
             }
 
             if (isNaN(unob))
             {
                 unob = 0;
-                _root.breakNews("[Error]", "ERROR: " + name + " / [unob] not defined.", 16711680, 9002);
+                _root.breakNews(
+                    "[Error]",
+                    "ERROR: " + name + " / [unob] not defined.",
+                    16711680,
+                    9002
+                );
             }
 
             var itemSet = _root.checkArenaSet(name);
             if (moreBonus == null)
             {
                 moreBonus = "";
-                _root.breakNews("[Error]", "ERROR: " + name + " / [moreBonus] not defined.", 16711680, 9002);
+                _root.breakNews(
+                    "[Error]",
+                    "ERROR: " + name + " / [moreBonus] not defined.",
+                    16711680,
+                    9002
+                );
             }
 
             if (desc == null)
             {
                 desc = "";
-                _root.breakNews("[Error]", "ERROR: " + name + " / [desc] not defined.", 16711680, 9002);
+                _root.breakNews(
+                    "[Error]",
+                    "ERROR: " + name + " / [desc] not defined.",
+                    16711680,
+                    9002
+                );
             }
 
             _root.save.inventoryExist[k] = 1;
@@ -10307,7 +11702,10 @@ public class Root
             }
             else
             {
-                _root.dispNews(56, "Armor inventory full! [" + name + "] moved to Recently Deleted tab.");
+                _root.dispNews(
+                    56,
+                    "Armor inventory full! [" + name + "] moved to Recently Deleted tab."
+                );
             }
         }
         else
@@ -10319,8 +11717,15 @@ public class Root
     }
 
     // MATCH: frame_4/DoAction.as:getArenaOutfit()
-    public void getArenaOutfit(double reqRank, string subtype, double frame, double bonusPow, double sell, string name,
-        string desc)
+    public void getArenaOutfit(
+        double reqRank,
+        string subtype,
+        double frame,
+        double bonusPow,
+        double sell,
+        string name,
+        string desc
+    )
     {
         var k = 9999;
         var i = 601;
@@ -10369,7 +11774,10 @@ public class Root
             }
             else
             {
-                _root.dispNews(60, "Outfit inventory full! [" + name + "] moved to Recently Deleted tab.");
+                _root.dispNews(
+                    60,
+                    "Outfit inventory full! [" + name + "] moved to Recently Deleted tab."
+                );
             }
         }
         else
@@ -10381,11 +11789,37 @@ public class Root
     }
 
     // MATCH: frame_4/DoAction.as:getArenaAccessory()
-    public void getArenaAccessory(double reqRank, string subtype, double frame, double attack, double speed,
-        double defense, double crit, double dexterity, double health, double maxLevel, double expTNL, double level,
-        double exp, double enhance, double bonusPow, string bonus, string ability, string moreBonus, double sell,
-        double expiry, bool noBonus, bool noLife, bool noFuse, bool noUnique, bool spirit, double unob, string name,
-        string desc, bool guard = false)
+    public void getArenaAccessory(
+        double reqRank,
+        string subtype,
+        double frame,
+        double attack,
+        double speed,
+        double defense,
+        double crit,
+        double dexterity,
+        double health,
+        double maxLevel,
+        double expTNL,
+        double level,
+        double exp,
+        double enhance,
+        double bonusPow,
+        string bonus,
+        string ability,
+        string moreBonus,
+        double sell,
+        double expiry,
+        bool noBonus,
+        bool noLife,
+        bool noFuse,
+        bool noUnique,
+        bool spirit,
+        double unob,
+        string name,
+        string desc,
+        bool guard = false
+    )
     {
         var k = 9999;
         var i = 501;
@@ -10449,13 +11883,23 @@ public class Root
             if (isNaN(level))
             {
                 level = 1;
-                _root.breakNews("[Error]", "ERROR: " + name + " / [level] not defined.", 16711680, 9002);
+                _root.breakNews(
+                    "[Error]",
+                    "ERROR: " + name + " / [level] not defined.",
+                    16711680,
+                    9002
+                );
             }
 
             if (isNaN(exp))
             {
                 exp = 0;
-                _root.breakNews("[Error]", "ERROR: " + name + " / [exp] not defined.", 16711680, 9002);
+                _root.breakNews(
+                    "[Error]",
+                    "ERROR: " + name + " / [exp] not defined.",
+                    16711680,
+                    9002
+                );
             }
 
             if (isNaN(crit))
@@ -10463,18 +11907,30 @@ public class Root
                 crit = 10;
                 dexterity = 0;
                 health = 0;
-                _root.breakNews("[Error]", "ERROR: " + name + " / [crit] not defined.", 16711680, 9002);
+                _root.breakNews(
+                    "[Error]",
+                    "ERROR: " + name + " / [crit] not defined.",
+                    16711680,
+                    9002
+                );
             }
 
             if (isNaN(unob))
             {
                 unob = 0;
-                _root.breakNews("[Error]", "ERROR: " + name + " / [unob] not defined.", 16711680, 9002);
+                _root.breakNews(
+                    "[Error]",
+                    "ERROR: " + name + " / [unob] not defined.",
+                    16711680,
+                    9002
+                );
             }
 
             var itemSet = _root.checkArenaSet(name);
-            if (desc ==
-                "This medal\'s name depends on your Anti-Idle title when you craft it. Don\'t ask how that works.")
+            if (
+                desc
+                == "This medal\'s name depends on your Anti-Idle title when you craft it. Don\'t ask how that works."
+            )
             {
                 itemSet = 0;
             }
@@ -10487,13 +11943,23 @@ public class Root
             if (moreBonus == null)
             {
                 moreBonus = "";
-                _root.breakNews("[Error]", "ERROR: " + name + " / [moreBonus] not defined.", 16711680, 9002);
+                _root.breakNews(
+                    "[Error]",
+                    "ERROR: " + name + " / [moreBonus] not defined.",
+                    16711680,
+                    9002
+                );
             }
 
             if (desc == null)
             {
                 desc = "";
-                _root.breakNews("[Error]", "ERROR: " + name + " / [desc] not defined.", 16711680, 9002);
+                _root.breakNews(
+                    "[Error]",
+                    "ERROR: " + name + " / [desc] not defined.",
+                    16711680,
+                    9002
+                );
             }
 
             _root.save.inventoryExist[k] = 1;
@@ -10854,7 +12320,10 @@ public class Root
             }
             else
             {
-                _root.dispNews(57, "Accessory inventory full! [" + name + "] moved to Recently Deleted tab.");
+                _root.dispNews(
+                    57,
+                    "Accessory inventory full! [" + name + "] moved to Recently Deleted tab."
+                );
             }
         }
         else
@@ -10866,9 +12335,23 @@ public class Root
     }
 
     // MATCH: frame_4/DoAction.as:getArenaEnhancer()
-    public void getArenaEnhancer(string subtype, double frame, double power, double curse, double success, string bonus,
-        string ability, string moreBonus, double enhance, double bonusPow, double sell, double expiry, string name,
-        string desc, bool guard = false)
+    public void getArenaEnhancer(
+        string subtype,
+        double frame,
+        double power,
+        double curse,
+        double success,
+        string bonus,
+        string ability,
+        string moreBonus,
+        double enhance,
+        double bonusPow,
+        double sell,
+        double expiry,
+        string name,
+        string desc,
+        bool guard = false
+    )
     {
         var k = 9999;
         var i = 201;
@@ -10907,13 +12390,23 @@ public class Root
             if (moreBonus == null)
             {
                 moreBonus = "";
-                _root.breakNews("[Error]", "ERROR: " + name + " / [moreBonus] not defined.", 16711680, 9002);
+                _root.breakNews(
+                    "[Error]",
+                    "ERROR: " + name + " / [moreBonus] not defined.",
+                    16711680,
+                    9002
+                );
             }
 
             if (desc == null)
             {
                 desc = "";
-                _root.breakNews("[Error]", "ERROR: " + name + " / [desc] not defined.", 16711680, 9002);
+                _root.breakNews(
+                    "[Error]",
+                    "ERROR: " + name + " / [desc] not defined.",
+                    16711680,
+                    9002
+                );
             }
 
             _root.save.inventoryExist[k] = 1;
@@ -11374,7 +12867,10 @@ public class Root
             }
             else
             {
-                _root.dispNews(58, "Enhancer inventory full! [" + name + "] moved to Recently Deleted tab.");
+                _root.dispNews(
+                    58,
+                    "Enhancer inventory full! [" + name + "] moved to Recently Deleted tab."
+                );
             }
         }
         else
@@ -11386,8 +12882,18 @@ public class Root
     }
 
     // MATCH: frame_4/DoAction.as:getArenaPotion()
-    public void getArenaPotion(string subtype, double frame, double attack, double defense, double enhance,
-        double bonusPow, double sell, double expiry, string name, string desc)
+    public void getArenaPotion(
+        string subtype,
+        double frame,
+        double attack,
+        double defense,
+        double enhance,
+        double bonusPow,
+        double sell,
+        double expiry,
+        string name,
+        string desc
+    )
     {
         var k = 9999;
         var i = 401;
@@ -11438,7 +12944,10 @@ public class Root
             }
             else
             {
-                _root.dispNews(59, "Potion inventory full! [" + name + "] moved to Recently Deleted tab.");
+                _root.dispNews(
+                    59,
+                    "Potion inventory full! [" + name + "] moved to Recently Deleted tab."
+                );
             }
         }
         else
@@ -11450,8 +12959,18 @@ public class Root
     }
 
     // MATCH: frame_4/DoAction.as:getArenaChip()
-    public void getArenaChip(string subtype, double frame, double attack, double defense, double enhance,
-        double bonusPow, double sell, double expiry, string name, string desc)
+    public void getArenaChip(
+        string subtype,
+        double frame,
+        double attack,
+        double defense,
+        double enhance,
+        double bonusPow,
+        double sell,
+        double expiry,
+        string name,
+        string desc
+    )
     {
         var k = 9999;
         var i = 701;
@@ -11502,7 +13021,10 @@ public class Root
             }
             else
             {
-                _root.dispNews(171, "Chip inventory full! [" + name + "] moved to Recently Deleted tab.");
+                _root.dispNews(
+                    171,
+                    "Chip inventory full! [" + name + "] moved to Recently Deleted tab."
+                );
             }
         }
         else
@@ -11514,59 +13036,264 @@ public class Root
     }
 
     // MATCH: frame_4/DoAction.as:addArenaWeapon()
-    public void addArenaWeapon(string name, double reqRank, string subtype, double frame, bool range, double attack,
-        double speed, double defense, string bonus, string ability, double maxLevel, double expTNL, double enhance,
-        double bonusPow, double sell, double expiry, bool noBonus, bool noLife, bool noRecycle, bool spirit,
-        double crit, double dexterity, double health, string desc, bool noFuse, double level, double exp, bool noUnique,
-        double unob, string moreBonus)
+    public void addArenaWeapon(
+        string name,
+        double reqRank,
+        string subtype,
+        double frame,
+        bool range,
+        double attack,
+        double speed,
+        double defense,
+        string bonus,
+        string ability,
+        double maxLevel,
+        double expTNL,
+        double enhance,
+        double bonusPow,
+        double sell,
+        double expiry,
+        bool noBonus,
+        bool noLife,
+        bool noRecycle,
+        bool spirit,
+        double crit,
+        double dexterity,
+        double health,
+        string desc,
+        bool noFuse,
+        double level,
+        double exp,
+        bool noUnique,
+        double unob,
+        string moreBonus
+    )
     {
-        getArenaWeapon(reqRank, subtype, frame, range, attack, speed, defense, crit, dexterity, health, maxLevel,
-            expTNL, level, exp, enhance, bonusPow, bonus, ability, moreBonus, sell, expiry, noBonus, noLife, noFuse,
-            noUnique, spirit, unob, name, desc);
+        getArenaWeapon(
+            reqRank,
+            subtype,
+            frame,
+            range,
+            attack,
+            speed,
+            defense,
+            crit,
+            dexterity,
+            health,
+            maxLevel,
+            expTNL,
+            level,
+            exp,
+            enhance,
+            bonusPow,
+            bonus,
+            ability,
+            moreBonus,
+            sell,
+            expiry,
+            noBonus,
+            noLife,
+            noFuse,
+            noUnique,
+            spirit,
+            unob,
+            name,
+            desc
+        );
     }
 
     // MATCH: frame_4/DoAction.as:addArenaArmor()
-    public void addArenaArmor(string name, double reqRank, string subtype, double frame, double attack, double speed,
-        double defense, string bonus, string ability, double maxLevel, double expTNL, double enhance, double bonusPow,
-        double sell, double expiry, bool noBonus, bool noLife, bool noRecycle, bool spirit, double crit,
-        double dexterity, double health, string desc, bool noFuse, double level, double exp, bool noUnique, double unob,
-        string moreBonus)
+    public void addArenaArmor(
+        string name,
+        double reqRank,
+        string subtype,
+        double frame,
+        double attack,
+        double speed,
+        double defense,
+        string bonus,
+        string ability,
+        double maxLevel,
+        double expTNL,
+        double enhance,
+        double bonusPow,
+        double sell,
+        double expiry,
+        bool noBonus,
+        bool noLife,
+        bool noRecycle,
+        bool spirit,
+        double crit,
+        double dexterity,
+        double health,
+        string desc,
+        bool noFuse,
+        double level,
+        double exp,
+        bool noUnique,
+        double unob,
+        string moreBonus
+    )
     {
-        getArenaArmor(reqRank, subtype, frame, attack, speed, defense, crit, dexterity, health, maxLevel, expTNL, level,
-            exp, enhance, bonusPow, bonus, ability, moreBonus, sell, expiry, noBonus, noLife, noFuse, noUnique, spirit,
-            unob, name, desc);
+        getArenaArmor(
+            reqRank,
+            subtype,
+            frame,
+            attack,
+            speed,
+            defense,
+            crit,
+            dexterity,
+            health,
+            maxLevel,
+            expTNL,
+            level,
+            exp,
+            enhance,
+            bonusPow,
+            bonus,
+            ability,
+            moreBonus,
+            sell,
+            expiry,
+            noBonus,
+            noLife,
+            noFuse,
+            noUnique,
+            spirit,
+            unob,
+            name,
+            desc
+        );
     }
 
-
     // MATCH: frame_4/DoAction.as:addArenaAccessory()
-    public void addArenaAccessory(string name, double reqRank, string subtype, double frame, double attack,
-        double speed, double defense, string bonus, string ability, double maxLevel, double expTNL, double enhance,
-        double bonusPow, double sell, double expiry, bool noBonus, bool noLife, bool noRecycle, bool spirit,
-        double crit, double dexterity, double health, string desc, bool noFuse, double level, double exp, bool noUnique,
-        double unob)
+    public void addArenaAccessory(
+        string name,
+        double reqRank,
+        string subtype,
+        double frame,
+        double attack,
+        double speed,
+        double defense,
+        string bonus,
+        string ability,
+        double maxLevel,
+        double expTNL,
+        double enhance,
+        double bonusPow,
+        double sell,
+        double expiry,
+        bool noBonus,
+        bool noLife,
+        bool noRecycle,
+        bool spirit,
+        double crit,
+        double dexterity,
+        double health,
+        string desc,
+        bool noFuse,
+        double level,
+        double exp,
+        bool noUnique,
+        double unob
+    )
     {
         string moreBonus = null;
         getArenaAccessory(
-            reqRank, subtype, frame, attack, speed, defense, crit, dexterity, health, maxLevel, expTNL, level, exp,
-            enhance, bonusPow, bonus, ability, moreBonus, sell, expiry, noBonus, noLife, noFuse, noUnique, spirit, unob,
-            name, desc
+            reqRank,
+            subtype,
+            frame,
+            attack,
+            speed,
+            defense,
+            crit,
+            dexterity,
+            health,
+            maxLevel,
+            expTNL,
+            level,
+            exp,
+            enhance,
+            bonusPow,
+            bonus,
+            ability,
+            moreBonus,
+            sell,
+            expiry,
+            noBonus,
+            noLife,
+            noFuse,
+            noUnique,
+            spirit,
+            unob,
+            name,
+            desc
         );
     }
 
     // MATCH: frame_4/DoAction.as:addArenaEnhancer()
-    public void addArenaEnhancer(string name, string subtype, double frame, double power, double curse, double success,
-        string bonus, string ability, double enhance, double bonusPow, double sell, double expiry, string desc,
-        string moreBonus)
+    public void addArenaEnhancer(
+        string name,
+        string subtype,
+        double frame,
+        double power,
+        double curse,
+        double success,
+        string bonus,
+        string ability,
+        double enhance,
+        double bonusPow,
+        double sell,
+        double expiry,
+        string desc,
+        string moreBonus
+    )
     {
-        getArenaEnhancer(subtype, frame, power, curse, success, bonus, ability, moreBonus, enhance, bonusPow, sell,
-            expiry, name, desc);
+        getArenaEnhancer(
+            subtype,
+            frame,
+            power,
+            curse,
+            success,
+            bonus,
+            ability,
+            moreBonus,
+            enhance,
+            bonusPow,
+            sell,
+            expiry,
+            name,
+            desc
+        );
     }
 
     // MATCH: frame_4/DoAction.as:addArenaPotion()
-    public void addArenaPotion(string name, string subtype, double frame, double attack, double defense, double enhance,
-        double bonusPow, double sell, double expiry, string desc)
+    public void addArenaPotion(
+        string name,
+        string subtype,
+        double frame,
+        double attack,
+        double defense,
+        double enhance,
+        double bonusPow,
+        double sell,
+        double expiry,
+        string desc
+    )
     {
-        getArenaPotion(subtype, frame, attack, defense, enhance, bonusPow, sell, expiry, name, desc);
+        getArenaPotion(
+            subtype,
+            frame,
+            attack,
+            defense,
+            enhance,
+            bonusPow,
+            sell,
+            expiry,
+            name,
+            desc
+        );
     }
 
     // MATCH: frame_4/DoAction.as:swapArenaItem()
@@ -11624,7 +13351,6 @@ public class Root
         checkFullInventory();
     }
 
-
     // MATCH: frame_4/DoAction.as:deleteArenaItem()
     public void deleteArenaItem(double k)
     {
@@ -11669,8 +13395,11 @@ public class Root
     public void sellArenaItem(double k)
     {
         _root.deleteArenaItem(_root.save.arenaDeletedSlot);
-        if (_root.save.inventorySell[k] > 0 && !isNaN(_root.save.inventorySell[k]) &&
-            _root.save.inventorySell[k] != Infinity)
+        if (
+            _root.save.inventorySell[k] > 0
+            && !isNaN(_root.save.inventorySell[k])
+            && _root.save.inventorySell[k] != Infinity
+        )
         {
             _root.save.arenaPixel += _root.save.inventorySell[k];
         }
@@ -11688,36 +13417,40 @@ public class Root
     public void enhanceArenaItem(double j, double k)
     {
         var canEnhance = false;
-        if (_root.save.inventoryEnhance[k] < 10 || _root.save.inventorySubtype[j] == "Weapon Bonus Adder" ||
-            _root.save.inventorySubtype[j] == "Armor Bonus Adder" ||
-            _root.save.inventorySubtype[j] == "Weapon Lifespan Extender" ||
-            _root.save.inventorySubtype[j] == "Armor Lifespan Extender" ||
-            _root.save.inventorySubtype[j] == "Weapon Recycler" || _root.save.inventorySubtype[j] == "Armor Recycler" ||
-            _root.save.inventorySubtype[j] == "Weapon Spirit Rock" ||
-            _root.save.inventorySubtype[j] == "Armor Spirit Rock" ||
-            _root.save.inventorySubtype[j] == "Accessory Spirit Rock" ||
-            _root.save.inventorySubtype[j] == "Weapon Unique Enhancer" ||
-            _root.save.inventorySubtype[j] == "Armor Unique Enhancer" ||
-            _root.save.inventorySubtype[j] == "Accessory Bonus Adder" ||
-            _root.save.inventorySubtype[j] == "Accessory Lifespan Extender" ||
-            _root.save.inventorySubtype[j] == "Accessory Growth Rock" ||
-            _root.save.inventorySubtype[j] == "Accessory Unique Enhancer" ||
-            _root.save.inventorySubtype[j] == "Mystery Enhancer Identifier" || _root
-                .save.inventorySubtype[j] == "Weapon Unobtainium Enhancer" ||
-            _root.save.inventorySubtype[j] == "Armor Unobtainium Enhancer" ||
-            _root.save.inventorySubtype[j] == "Accessory Unobtainium Enhancer" ||
-            _root.save.inventorySubtype[j] == "Weapon Protector" ||
-            _root.save.inventorySubtype[j] == "Armor Protector" ||
-            _root.save.inventorySubtype[j] == "Accessory Protector" ||
-            _root.save.inventorySubtype[j] == "Enhancer Protector" ||
-            _root.save.inventorySubtype[j] == "Weapon Finalizer" ||
-            _root.save.inventorySubtype[j] == "Armor Finalizer" ||
-            _root.save.inventorySubtype[j] == "Accessory Finalizer" ||
-            _root.save.inventorySubtype[j] == "Weapon Cleansing Rock" ||
-            _root.save.inventorySubtype[j] == "Armor Cleansing Rock" ||
-            _root.save.inventorySubtype[j] == "Weapon Tukkonium Enhancer" ||
-            _root.save.inventorySubtype[j] == "Armor Tukkonium Enhancer" ||
-            _root.save.inventorySubtype[j] == "Accessory Tukkonium Enhancer")
+        if (
+            _root.save.inventoryEnhance[k] < 10
+            || _root.save.inventorySubtype[j] == "Weapon Bonus Adder"
+            || _root.save.inventorySubtype[j] == "Armor Bonus Adder"
+            || _root.save.inventorySubtype[j] == "Weapon Lifespan Extender"
+            || _root.save.inventorySubtype[j] == "Armor Lifespan Extender"
+            || _root.save.inventorySubtype[j] == "Weapon Recycler"
+            || _root.save.inventorySubtype[j] == "Armor Recycler"
+            || _root.save.inventorySubtype[j] == "Weapon Spirit Rock"
+            || _root.save.inventorySubtype[j] == "Armor Spirit Rock"
+            || _root.save.inventorySubtype[j] == "Accessory Spirit Rock"
+            || _root.save.inventorySubtype[j] == "Weapon Unique Enhancer"
+            || _root.save.inventorySubtype[j] == "Armor Unique Enhancer"
+            || _root.save.inventorySubtype[j] == "Accessory Bonus Adder"
+            || _root.save.inventorySubtype[j] == "Accessory Lifespan Extender"
+            || _root.save.inventorySubtype[j] == "Accessory Growth Rock"
+            || _root.save.inventorySubtype[j] == "Accessory Unique Enhancer"
+            || _root.save.inventorySubtype[j] == "Mystery Enhancer Identifier"
+            || _root.save.inventorySubtype[j] == "Weapon Unobtainium Enhancer"
+            || _root.save.inventorySubtype[j] == "Armor Unobtainium Enhancer"
+            || _root.save.inventorySubtype[j] == "Accessory Unobtainium Enhancer"
+            || _root.save.inventorySubtype[j] == "Weapon Protector"
+            || _root.save.inventorySubtype[j] == "Armor Protector"
+            || _root.save.inventorySubtype[j] == "Accessory Protector"
+            || _root.save.inventorySubtype[j] == "Enhancer Protector"
+            || _root.save.inventorySubtype[j] == "Weapon Finalizer"
+            || _root.save.inventorySubtype[j] == "Armor Finalizer"
+            || _root.save.inventorySubtype[j] == "Accessory Finalizer"
+            || _root.save.inventorySubtype[j] == "Weapon Cleansing Rock"
+            || _root.save.inventorySubtype[j] == "Armor Cleansing Rock"
+            || _root.save.inventorySubtype[j] == "Weapon Tukkonium Enhancer"
+            || _root.save.inventorySubtype[j] == "Armor Tukkonium Enhancer"
+            || _root.save.inventorySubtype[j] == "Accessory Tukkonium Enhancer"
+        )
         {
             canEnhance = true;
             if (j == k)
@@ -11725,182 +13458,283 @@ public class Root
                 canEnhance = false;
             }
 
-            if (_root.save.inventorySubtype[j] == "Weapon Attack Enhancer" && _root.save.inventoryAttack[k] < 1)
+            if (
+                _root.save.inventorySubtype[j] == "Weapon Attack Enhancer"
+                && _root.save.inventoryAttack[k] < 1
+            )
             {
                 canEnhance = false;
             }
 
-            if (_root.save.inventorySubtype[j] == "Weapon Unique Enhancer" && _root.save.inventoryAttack[k] < 1)
+            if (
+                _root.save.inventorySubtype[j] == "Weapon Unique Enhancer"
+                && _root.save.inventoryAttack[k] < 1
+            )
             {
                 canEnhance = false;
             }
 
-            if (_root.save.inventorySubtype[j] == "Weapon Unique Enhancer" && _root.save.inventoryAttack[k] >= 3000)
+            if (
+                _root.save.inventorySubtype[j] == "Weapon Unique Enhancer"
+                && _root.save.inventoryAttack[k] >= 3000
+            )
             {
                 canEnhance = false;
             }
 
-            if (_root.save.inventorySubtype[j] == "Armor Unique Enhancer" && _root.save.inventoryDefense[k] >= 1800)
+            if (
+                _root.save.inventorySubtype[j] == "Armor Unique Enhancer"
+                && _root.save.inventoryDefense[k] >= 1800
+            )
             {
                 canEnhance = false;
             }
 
-            if (_root.save.inventorySubtype[j] == "Accessory Unique Enhancer" && _root.save.inventoryDefense[k] >= 1800)
+            if (
+                _root.save.inventorySubtype[j] == "Accessory Unique Enhancer"
+                && _root.save.inventoryDefense[k] >= 1800
+            )
             {
                 canEnhance = false;
             }
 
-            if ((_root.save.inventorySubtype[j] == "Weapon Unique Enhancer" ||
-                 _root.save.inventorySubtype[j] == "Armor Unique Enhancer" ||
-                 _root.save.inventorySubtype[j] == "Accessory Unique Enhancer") && _root.save.inventoryEnhance[k] < 10)
+            if (
+                (
+                    _root.save.inventorySubtype[j] == "Weapon Unique Enhancer"
+                    || _root.save.inventorySubtype[j] == "Armor Unique Enhancer"
+                    || _root.save.inventorySubtype[j] == "Accessory Unique Enhancer"
+                )
+                && _root.save.inventoryEnhance[k] < 10
+            )
             {
                 canEnhance = false;
             }
 
-            if ((_root.save.inventorySubtype[j] == "Weapon Unique Enhancer" ||
-                 _root.save.inventorySubtype[j] == "Armor Unique Enhancer" ||
-                 _root.save.inventorySubtype[j] == "Accessory Unique Enhancer") &&
-                _root.save.inventoryLevel[k] < _root.save.inventoryMaxLevel[k])
+            if (
+                (
+                    _root.save.inventorySubtype[j] == "Weapon Unique Enhancer"
+                    || _root.save.inventorySubtype[j] == "Armor Unique Enhancer"
+                    || _root.save.inventorySubtype[j] == "Accessory Unique Enhancer"
+                )
+                && _root.save.inventoryLevel[k] < _root.save.inventoryMaxLevel[k]
+            )
             {
                 canEnhance = false;
             }
 
-            if ((_root.save.inventorySubtype[j] == "Weapon Unique Enhancer" ||
-                 _root.save.inventorySubtype[j] == "Armor Unique Enhancer" ||
-                 _root.save.inventorySubtype[j] == "Accessory Unique Enhancer") &&
-                _root.save.inventoryNoUnique[k] == true)
+            if (
+                (
+                    _root.save.inventorySubtype[j] == "Weapon Unique Enhancer"
+                    || _root.save.inventorySubtype[j] == "Armor Unique Enhancer"
+                    || _root.save.inventorySubtype[j] == "Accessory Unique Enhancer"
+                )
+                && _root.save.inventoryNoUnique[k] == true
+            )
             {
                 canEnhance = false;
             }
 
-            if (_root.save.inventorySubtype[j] == "Weapon Speed Enhancer" && _root.save.inventorySpeed[k] < 3)
+            if (
+                _root.save.inventorySubtype[j] == "Weapon Speed Enhancer"
+                && _root.save.inventorySpeed[k] < 3
+            )
             {
                 canEnhance = false;
             }
 
-            if (_root.save.inventorySubtype[j] == "Weapon Growth Rock" && _root.save.inventoryAttack[k] < 1)
+            if (
+                _root.save.inventorySubtype[j] == "Weapon Growth Rock"
+                && _root.save.inventoryAttack[k] < 1
+            )
             {
                 canEnhance = false;
             }
 
-            if (_root.save.inventorySubtype[j] == "Mystery Enhancer Identifier" &&
-                _root.save.inventorySubtype[k] != "Weapon Mystery Enhancer" &&
-                _root.save.inventorySubtype[k] != "Armor Mystery Enhancer")
+            if (
+                _root.save.inventorySubtype[j] == "Mystery Enhancer Identifier"
+                && _root.save.inventorySubtype[k] != "Weapon Mystery Enhancer"
+                && _root.save.inventorySubtype[k] != "Armor Mystery Enhancer"
+            )
             {
                 canEnhance = false;
             }
 
-            if (_root.save.inventorySubtype[j] == "Weapon Lifespan Extender" ||
-                _root.save.inventorySubtype[j] == "Armor Lifespan Extender" ||
-                _root.save.inventorySubtype[j] == "Accessory Lifespan Extender")
+            if (
+                _root.save.inventorySubtype[j] == "Weapon Lifespan Extender"
+                || _root.save.inventorySubtype[j] == "Armor Lifespan Extender"
+                || _root.save.inventorySubtype[j] == "Accessory Lifespan Extender"
+            )
             {
                 canEnhance = false;
             }
 
-            if (_root.save.inventoryName[j] == "GIGA LIFE ROCK" &&
-                (_root.save.inventoryName[k] == "GIGA PENDANT" || _root.save.inventoryName[k] == "GIGA EARRINGS") &&
-                _root.save.inventorySubtype[k] != "Medal")
+            if (
+                _root.save.inventoryName[j] == "GIGA LIFE ROCK"
+                && (
+                    _root.save.inventoryName[k] == "GIGA PENDANT"
+                    || _root.save.inventoryName[k] == "GIGA EARRINGS"
+                )
+                && _root.save.inventorySubtype[k] != "Medal"
+            )
             {
                 canEnhance = true;
             }
 
-            if (_root.save.inventoryName[j] == "GIGA LIFE ROCK EX" &&
-                (_root.save.inventoryName[k] == "GIGA PENDANT" || _root.save.inventoryName[k] == "GIGA EARRINGS") &&
-                _root.save.inventorySubtype[k] != "Medal")
+            if (
+                _root.save.inventoryName[j] == "GIGA LIFE ROCK EX"
+                && (
+                    _root.save.inventoryName[k] == "GIGA PENDANT"
+                    || _root.save.inventoryName[k] == "GIGA EARRINGS"
+                )
+                && _root.save.inventorySubtype[k] != "Medal"
+            )
             {
                 canEnhance = true;
             }
 
-            if (_root.save.inventoryName[j] == "GIGA ENHANCER" && _root.save.inventoryName[k] != "GIGA PENDANT" &&
-                _root.save.inventoryName[k] != "GIGA EARRINGS")
+            if (
+                _root.save.inventoryName[j] == "GIGA ENHANCER"
+                && _root.save.inventoryName[k] != "GIGA PENDANT"
+                && _root.save.inventoryName[k] != "GIGA EARRINGS"
+            )
             {
                 canEnhance = false;
             }
 
-            if (_root.save.inventoryName[j] == "GIGA ENHANCER" && _root.save.inventorySubtype[k] != "Pendant" &&
-                _root.save.inventorySubtype[k] != "Earring")
+            if (
+                _root.save.inventoryName[j] == "GIGA ENHANCER"
+                && _root.save.inventorySubtype[k] != "Pendant"
+                && _root.save.inventorySubtype[k] != "Earring"
+            )
             {
                 canEnhance = false;
             }
 
-            if (_root.save.inventoryName[j] == "GIGA ENHANCER EX" && _root.save.inventoryName[k] != "GIGA PENDANT" &&
-                _root.save.inventoryName[k] != "GIGA EARRINGS")
+            if (
+                _root.save.inventoryName[j] == "GIGA ENHANCER EX"
+                && _root.save.inventoryName[k] != "GIGA PENDANT"
+                && _root.save.inventoryName[k] != "GIGA EARRINGS"
+            )
             {
                 canEnhance = false;
             }
 
-            if (_root.save.inventoryName[j] == "GIGA ENHANCER EX" && _root.save.inventorySubtype[k] != "Pendant" &&
-                _root.save.inventorySubtype[k] != "Earring")
+            if (
+                _root.save.inventoryName[j] == "GIGA ENHANCER EX"
+                && _root.save.inventorySubtype[k] != "Pendant"
+                && _root.save.inventorySubtype[k] != "Earring"
+            )
             {
                 canEnhance = false;
             }
 
-            if (_root.save.inventoryName[j] == "TERA LIFE ROCK" &&
-                (_root.save.inventoryName[k] == "TERA PENDANT" || _root.save.inventoryName[k] == "TERA EARRINGS") &&
-                _root.save.inventorySubtype[k] != "Medal")
+            if (
+                _root.save.inventoryName[j] == "TERA LIFE ROCK"
+                && (
+                    _root.save.inventoryName[k] == "TERA PENDANT"
+                    || _root.save.inventoryName[k] == "TERA EARRINGS"
+                )
+                && _root.save.inventorySubtype[k] != "Medal"
+            )
             {
                 canEnhance = true;
             }
 
-            if (_root.save.inventoryName[j] == "TERA LIFE ROCK EX" &&
-                (_root.save.inventoryName[k] == "TERA PENDANT" || _root.save.inventoryName[k] == "TERA EARRINGS") &&
-                _root.save.inventorySubtype[k] != "Medal")
+            if (
+                _root.save.inventoryName[j] == "TERA LIFE ROCK EX"
+                && (
+                    _root.save.inventoryName[k] == "TERA PENDANT"
+                    || _root.save.inventoryName[k] == "TERA EARRINGS"
+                )
+                && _root.save.inventorySubtype[k] != "Medal"
+            )
             {
                 canEnhance = true;
             }
 
-            if (_root.save.inventoryName[j] == "TERA ENHANCER" && _root.save.inventoryName[k] != "TERA PENDANT" &&
-                _root.save.inventoryName[k] != "TERA EARRINGS")
+            if (
+                _root.save.inventoryName[j] == "TERA ENHANCER"
+                && _root.save.inventoryName[k] != "TERA PENDANT"
+                && _root.save.inventoryName[k] != "TERA EARRINGS"
+            )
             {
                 canEnhance = false;
             }
 
-            if (_root.save.inventoryName[j] == "TERA ENHANCER" && _root.save.inventorySubtype[k] != "Pendant" &&
-                _root.save.inventorySubtype[k] != "Earring")
+            if (
+                _root.save.inventoryName[j] == "TERA ENHANCER"
+                && _root.save.inventorySubtype[k] != "Pendant"
+                && _root.save.inventorySubtype[k] != "Earring"
+            )
             {
                 canEnhance = false;
             }
 
-            if (_root.save.inventoryName[j] == "TERA ENHANCER EX" && _root.save.inventoryName[k] != "TERA PENDANT" &&
-                _root.save.inventoryName[k] != "TERA EARRINGS")
+            if (
+                _root.save.inventoryName[j] == "TERA ENHANCER EX"
+                && _root.save.inventoryName[k] != "TERA PENDANT"
+                && _root.save.inventoryName[k] != "TERA EARRINGS"
+            )
             {
                 canEnhance = false;
             }
 
-            if (_root.save.inventoryName[j] == "TERA ENHANCER EX" && _root.save.inventorySubtype[k] != "Pendant" &&
-                _root.save.inventorySubtype[k] != "Earring")
+            if (
+                _root.save.inventoryName[j] == "TERA ENHANCER EX"
+                && _root.save.inventorySubtype[k] != "Pendant"
+                && _root.save.inventorySubtype[k] != "Earring"
+            )
             {
                 canEnhance = false;
             }
 
-            if ((_root.save.inventorySubtype[j] == "Weapon Bonus Adder" ||
-                 _root.save.inventorySubtype[j] == "Armor Bonus Adder" ||
-                 _root.save.inventorySubtype[j] == "Accessory Bonus Adder") && _root.save.inventoryNoBonus[k] == true &&
-                _root.save.inventoryName[j].indexOf("[S]") == -1)
+            if (
+                (
+                    _root.save.inventorySubtype[j] == "Weapon Bonus Adder"
+                    || _root.save.inventorySubtype[j] == "Armor Bonus Adder"
+                    || _root.save.inventorySubtype[j] == "Accessory Bonus Adder"
+                )
+                && _root.save.inventoryNoBonus[k] == true
+                && _root.save.inventoryName[j].indexOf("[S]") == -1
+            )
             {
                 canEnhance = false;
             }
 
-            if ((_root.save.inventorySubtype[j] == "Weapon Bonus Adder" ||
-                 _root.save.inventorySubtype[j] == "Armor Bonus Adder" ||
-                 _root.save.inventorySubtype[j] == "Accessory Bonus Adder") && _root.save.inventoryNoBonus[k] == true &&
-                _root.save.inventorySubtype[k] == "Trinket")
+            if (
+                (
+                    _root.save.inventorySubtype[j] == "Weapon Bonus Adder"
+                    || _root.save.inventorySubtype[j] == "Armor Bonus Adder"
+                    || _root.save.inventorySubtype[j] == "Accessory Bonus Adder"
+                )
+                && _root.save.inventoryNoBonus[k] == true
+                && _root.save.inventorySubtype[k] == "Trinket"
+            )
             {
                 canEnhance = false;
             }
 
-            if ((_root.save.inventorySubtype[j] == "Weapon Bonus Adder" ||
-                 _root.save.inventorySubtype[j] == "Armor Bonus Adder" ||
-                 _root.save.inventorySubtype[j] == "Accessory Bonus Adder") && _root.save.inventoryNoBonus[k] == true &&
-                _root.save.inventorySubtype[k] == "Medal")
+            if (
+                (
+                    _root.save.inventorySubtype[j] == "Weapon Bonus Adder"
+                    || _root.save.inventorySubtype[j] == "Armor Bonus Adder"
+                    || _root.save.inventorySubtype[j] == "Accessory Bonus Adder"
+                )
+                && _root.save.inventoryNoBonus[k] == true
+                && _root.save.inventorySubtype[k] == "Medal"
+            )
             {
                 canEnhance = false;
             }
 
-            if ((_root.save.inventorySubtype[j] == "Weapon Spirit Rock" ||
-                 _root.save.inventorySubtype[j] == "Armor Spirit Rock" ||
-                 _root.save.inventorySubtype[j] == "Accessory Spirit Rock") &&
-                _root.save.inventoryName[j].indexOf("[S]") == -1)
+            if (
+                (
+                    _root.save.inventorySubtype[j] == "Weapon Spirit Rock"
+                    || _root.save.inventorySubtype[j] == "Armor Spirit Rock"
+                    || _root.save.inventorySubtype[j] == "Accessory Spirit Rock"
+                )
+                && _root.save.inventoryName[j].indexOf("[S]") == -1
+            )
             {
                 if (_root.save.inventoryEnhance[k] < 10 || _root.save.inventoryEnhance[k] > 1000)
                 {
@@ -11908,110 +13742,168 @@ public class Root
                 }
             }
 
-            if ((_root.save.inventorySubtype[j] == "Weapon Spirit Rock" ||
-                 _root.save.inventorySubtype[j] == "Armor Spirit Rock" ||
-                 _root.save.inventorySubtype[j] == "Accessory Spirit Rock") &&
-                _root.save.inventoryName[k] == "Dark Ruler")
+            if (
+                (
+                    _root.save.inventorySubtype[j] == "Weapon Spirit Rock"
+                    || _root.save.inventorySubtype[j] == "Armor Spirit Rock"
+                    || _root.save.inventorySubtype[j] == "Accessory Spirit Rock"
+                )
+                && _root.save.inventoryName[k] == "Dark Ruler"
+            )
             {
                 canEnhance = false;
             }
 
-            if (_root.save.inventoryName[j] == "Fairy Weapon Enhancer" &&
-                _root.save.inventoryName[k].indexOf("Fairy") == -1)
+            if (
+                _root.save.inventoryName[j] == "Fairy Weapon Enhancer"
+                && _root.save.inventoryName[k].indexOf("Fairy") == -1
+            )
             {
                 canEnhance = false;
             }
 
-            if (_root.save.inventoryName[j] == "Fairy Armor Enhancer" &&
-                _root.save.inventoryName[k].indexOf("Fairy") == -1)
+            if (
+                _root.save.inventoryName[j] == "Fairy Armor Enhancer"
+                && _root.save.inventoryName[k].indexOf("Fairy") == -1
+            )
             {
                 canEnhance = false;
             }
 
-            if (_root.save.inventoryName[j] == "Dominator Gem Enhancer" &&
-                (_root.save.inventoryName[k] != "Dominator Gem" || _root.save.inventorySubtype[k] != "Trinket"))
+            if (
+                _root.save.inventoryName[j] == "Dominator Gem Enhancer"
+                && (
+                    _root.save.inventoryName[k] != "Dominator Gem"
+                    || _root.save.inventorySubtype[k] != "Trinket"
+                )
+            )
             {
                 canEnhance = false;
             }
 
-            if (_root.save.inventoryName[j] == "Mega Triangle Gem Enhancer" &&
-                (_root.save.inventoryName[k] != "Mega Triangle Gem" || _root.save.inventorySubtype[k] != "Trinket"))
+            if (
+                _root.save.inventoryName[j] == "Mega Triangle Gem Enhancer"
+                && (
+                    _root.save.inventoryName[k] != "Mega Triangle Gem"
+                    || _root.save.inventorySubtype[k] != "Trinket"
+                )
+            )
             {
                 canEnhance = false;
             }
 
-            if (_root.save.inventoryName[j] == "Crystal Unique Enhancer MAX" &&
-                _root.save.inventoryName[k].indexOf("Crystal") == -1)
+            if (
+                _root.save.inventoryName[j] == "Crystal Unique Enhancer MAX"
+                && _root.save.inventoryName[k].indexOf("Crystal") == -1
+            )
             {
                 canEnhance = false;
             }
 
-            if (_root.save.inventoryName[j] == "Alien Core" && _root.save.inventoryName[k].indexOf("Alien") == -1)
+            if (
+                _root.save.inventoryName[j] == "Alien Core"
+                && _root.save.inventoryName[k].indexOf("Alien") == -1
+            )
             {
                 canEnhance = false;
             }
 
-            if (_root.save.inventoryName[j] == "Alien Core" && isNaN(_root.save.inventoryName[k].indexOf("Alien")))
+            if (
+                _root.save.inventoryName[j] == "Alien Core"
+                && isNaN(_root.save.inventoryName[k].indexOf("Alien"))
+            )
             {
                 canEnhance = false;
             }
 
-            if (_root.save.inventoryName[j] == "Weapon Cleansing Rock" &&
-                _root.save.inventoryName[k].indexOf("(Cursed)") == -1)
+            if (
+                _root.save.inventoryName[j] == "Weapon Cleansing Rock"
+                && _root.save.inventoryName[k].indexOf("(Cursed)") == -1
+            )
             {
                 canEnhance = false;
             }
 
-            if (_root.save.inventoryName[j] == "Weapon Cleansing Rock" &&
-                isNaN(_root.save.inventoryName[k].indexOf("(Cursed)")))
+            if (
+                _root.save.inventoryName[j] == "Weapon Cleansing Rock"
+                && isNaN(_root.save.inventoryName[k].indexOf("(Cursed)"))
+            )
             {
                 canEnhance = false;
             }
 
-            if (_root.save.inventoryName[j] == "Armor Cleansing Rock" &&
-                _root.save.inventoryName[k].indexOf("(Cursed)") == -1)
+            if (
+                _root.save.inventoryName[j] == "Armor Cleansing Rock"
+                && _root.save.inventoryName[k].indexOf("(Cursed)") == -1
+            )
             {
                 canEnhance = false;
             }
 
-            if (_root.save.inventoryName[j] == "Armor Cleansing Rock" &&
-                isNaN(_root.save.inventoryName[k].indexOf("(Cursed)")))
+            if (
+                _root.save.inventoryName[j] == "Armor Cleansing Rock"
+                && isNaN(_root.save.inventoryName[k].indexOf("(Cursed)"))
+            )
             {
                 canEnhance = false;
             }
 
-            if (_root.save.inventoryName[j] == "Anti-Nerfer" && _root.save.inventoryName[k] != "Nerf Accepted!")
+            if (
+                _root.save.inventoryName[j] == "Anti-Nerfer"
+                && _root.save.inventoryName[k] != "Nerf Accepted!"
+            )
             {
                 canEnhance = false;
             }
 
-            if (_root.save.inventoryName[j] == "Awesome Enhancer" &&
-                (_root.save.inventoryName[k] != "Awesome Earrings" || _root.save.inventorySubtype[k] != "Earring"))
+            if (
+                _root.save.inventoryName[j] == "Awesome Enhancer"
+                && (
+                    _root.save.inventoryName[k] != "Awesome Earrings"
+                    || _root.save.inventorySubtype[k] != "Earring"
+                )
+            )
             {
                 canEnhance = false;
             }
 
-            if (_root.save.inventoryName[j] != "Humblebee Armor Upgrade" && _root.save.inventoryEnhance[k] == 8 &&
-                _root.save.inventoryMaxLevel[k] < 184 && _root.save.inventoryName[k].indexOf("Humblebee") != -1)
+            if (
+                _root.save.inventoryName[j] != "Humblebee Armor Upgrade"
+                && _root.save.inventoryEnhance[k] == 8
+                && _root.save.inventoryMaxLevel[k] < 184
+                && _root.save.inventoryName[k].indexOf("Humblebee") != -1
+            )
             {
-                if (!(_root.save.inventorySubtype[j] == "Armor Bonus Adder" ||
-                      _root.save.inventorySubtype[j] == "Armor Spirit Rock" ||
-                      _root.save.inventorySubtype[j] == "Armor Unobtainium Enhancer" ||
-                      _root.save.inventorySubtype[j] == "Armor Protector" ||
-                      _root.save.inventorySubtype[j] == "Armor Finalizer"))
+                if (
+                    !(
+                        _root.save.inventorySubtype[j] == "Armor Bonus Adder"
+                        || _root.save.inventorySubtype[j] == "Armor Spirit Rock"
+                        || _root.save.inventorySubtype[j] == "Armor Unobtainium Enhancer"
+                        || _root.save.inventorySubtype[j] == "Armor Protector"
+                        || _root.save.inventorySubtype[j] == "Armor Finalizer"
+                    )
+                )
                 {
                     canEnhance = false;
                 }
             }
 
-            if (_root.save.inventoryName[j] != "Humblebee Armor Upgrade" && _root.save.inventoryEnhance[k] == 9 &&
-                _root.save.inventoryMaxLevel[k] < 284 && _root.save.inventoryName[k].indexOf("Humblebee") != -1)
+            if (
+                _root.save.inventoryName[j] != "Humblebee Armor Upgrade"
+                && _root.save.inventoryEnhance[k] == 9
+                && _root.save.inventoryMaxLevel[k] < 284
+                && _root.save.inventoryName[k].indexOf("Humblebee") != -1
+            )
             {
-                if (!(_root.save.inventorySubtype[j] == "Armor Bonus Adder" ||
-                      _root.save.inventorySubtype[j] == "Armor Spirit Rock" ||
-                      _root.save.inventorySubtype[j] == "Armor Unobtainium Enhancer" ||
-                      _root.save.inventorySubtype[j] == "Armor Protector" ||
-                      _root.save.inventorySubtype[j] == "Armor Finalizer"))
+                if (
+                    !(
+                        _root.save.inventorySubtype[j] == "Armor Bonus Adder"
+                        || _root.save.inventorySubtype[j] == "Armor Spirit Rock"
+                        || _root.save.inventorySubtype[j] == "Armor Unobtainium Enhancer"
+                        || _root.save.inventorySubtype[j] == "Armor Protector"
+                        || _root.save.inventorySubtype[j] == "Armor Finalizer"
+                    )
+                )
                 {
                     canEnhance = false;
                 }
@@ -12030,61 +13922,82 @@ public class Root
                 }
             }
 
-            if (_root.save.inventoryName[j] == "Corrupted Bonus Rock" &&
-                _root.save.inventoryName[k].indexOf("Elm") == -1)
+            if (
+                _root.save.inventoryName[j] == "Corrupted Bonus Rock"
+                && _root.save.inventoryName[k].indexOf("Elm") == -1
+            )
             {
                 canEnhance = false;
             }
 
-            if (_root.save.inventoryName[j] == "Corrupted Bonus Rock" &&
-                isNaN(_root.save.inventoryName[k].indexOf("Elm")))
+            if (
+                _root.save.inventoryName[j] == "Corrupted Bonus Rock"
+                && isNaN(_root.save.inventoryName[k].indexOf("Elm"))
+            )
             {
                 canEnhance = false;
             }
 
-            if (_root.save.inventorySubtype[j] == "Weapon Unobtainium Enhancer" &&
-                _root.save.inventoryUnob[k] >= _root.save.inventoryAttack[j])
+            if (
+                _root.save.inventorySubtype[j] == "Weapon Unobtainium Enhancer"
+                && _root.save.inventoryUnob[k] >= _root.save.inventoryAttack[j]
+            )
             {
                 canEnhance = false;
             }
 
-            if (_root.save.inventorySubtype[j] == "Armor Unobtainium Enhancer" &&
-                _root.save.inventoryUnob[k] >= _root.save.inventoryAttack[j])
+            if (
+                _root.save.inventorySubtype[j] == "Armor Unobtainium Enhancer"
+                && _root.save.inventoryUnob[k] >= _root.save.inventoryAttack[j]
+            )
             {
                 canEnhance = false;
             }
 
-            if (_root.save.inventorySubtype[j] == "Accessory Unobtainium Enhancer" &&
-                _root.save.inventoryUnob[k] >= _root.save.inventoryAttack[j])
+            if (
+                _root.save.inventorySubtype[j] == "Accessory Unobtainium Enhancer"
+                && _root.save.inventoryUnob[k] >= _root.save.inventoryAttack[j]
+            )
             {
                 canEnhance = false;
             }
 
-            if (_root.save.inventorySubtype[j] == "Weapon Finalizer" &&
-                _root.save.inventoryReqRank[k] > _root.save.inventoryAttack[j])
+            if (
+                _root.save.inventorySubtype[j] == "Weapon Finalizer"
+                && _root.save.inventoryReqRank[k] > _root.save.inventoryAttack[j]
+            )
             {
                 canEnhance = false;
             }
 
-            if (_root.save.inventorySubtype[j] == "Armor Finalizer" &&
-                _root.save.inventoryReqRank[k] > _root.save.inventoryAttack[j])
+            if (
+                _root.save.inventorySubtype[j] == "Armor Finalizer"
+                && _root.save.inventoryReqRank[k] > _root.save.inventoryAttack[j]
+            )
             {
                 canEnhance = false;
             }
 
-            if (_root.save.inventorySubtype[j] == "Accessory Finalizer" &&
-                _root.save.inventoryReqRank[k] > _root.save.inventoryAttack[j])
+            if (
+                _root.save.inventorySubtype[j] == "Accessory Finalizer"
+                && _root.save.inventoryReqRank[k] > _root.save.inventoryAttack[j]
+            )
             {
                 canEnhance = false;
             }
 
-            if (_root.save.inventorySubtype[j] == "Accessory Finalizer" && _root.save.inventorySubtype[k] == "Trinket")
+            if (
+                _root.save.inventorySubtype[j] == "Accessory Finalizer"
+                && _root.save.inventorySubtype[k] == "Trinket"
+            )
             {
                 canEnhance = false;
             }
 
-            if (_root.save.inventorySubtype[k] == "Secondary Weapon" &&
-                _root.save.inventorySubtype[j].indexOf("Protector") == -1)
+            if (
+                _root.save.inventorySubtype[k] == "Secondary Weapon"
+                && _root.save.inventorySubtype[j].indexOf("Protector") == -1
+            )
             {
                 canEnhance = false;
             }
@@ -12099,28 +14012,42 @@ public class Root
                 canEnhance = false;
             }
 
-            if (_root.save.inventoryLevel[k] == 9999 && _root.save.inventorySubtype[j].indexOf("Protector") == -1 &&
-                _root.save.inventoryName[j].indexOf("[S]") == -1 &&
-                _root.save.inventoryName[j].indexOf("Tukkonium") == -1)
+            if (
+                _root.save.inventoryLevel[k] == 9999
+                && _root.save.inventorySubtype[j].indexOf("Protector") == -1
+                && _root.save.inventoryName[j].indexOf("[S]") == -1
+                && _root.save.inventoryName[j].indexOf("Tukkonium") == -1
+            )
             {
                 canEnhance = false;
             }
 
-            if (_root.save.inventoryLevel[k] != 9999 && _root.save.inventoryName[j].indexOf("Tukkonium") != -1)
+            if (
+                _root.save.inventoryLevel[k] != 9999
+                && _root.save.inventoryName[j].indexOf("Tukkonium") != -1
+            )
             {
                 canEnhance = false;
             }
 
-            if (_root.save.inventoryName[j].indexOf("Auto Buff") != -1 &&
-                (_root.save.inventoryName[k] != "Auto Buff Gem" || _root.save.inventorySubtype[k] != "Trinket"))
+            if (
+                _root.save.inventoryName[j].indexOf("Auto Buff") != -1
+                && (
+                    _root.save.inventoryName[k] != "Auto Buff Gem"
+                    || _root.save.inventorySubtype[k] != "Trinket"
+                )
+            )
             {
                 canEnhance = false;
             }
         }
 
         canEnhance = false;
-        if (_root.save.inventoryName[j].indexOf("Auto Buff") != -1 && _root.save.inventoryName[k] == "Auto Buff Gem" &&
-            _root.save.inventorySubtype[k] == "Trinket")
+        if (
+            _root.save.inventoryName[j].indexOf("Auto Buff") != -1
+            && _root.save.inventoryName[k] == "Auto Buff Gem"
+            && _root.save.inventorySubtype[k] == "Trinket"
+        )
         {
             canEnhance = true;
         }
@@ -12538,7 +14465,10 @@ public class Root
                     tukkoniumPow = 5;
                 }
 
-                if (_root.save.inventoryDefense[k] > 29990 && _root.save.inventoryDefense[k] < 30000)
+                if (
+                    _root.save.inventoryDefense[k] > 29990
+                    && _root.save.inventoryDefense[k] < 30000
+                )
                 {
                     tukkoniumPow = 30000 - _root.save.inventoryDefense[k];
                 }
@@ -12589,9 +14519,11 @@ public class Root
 
                 _root.save.inventoryBonusPow[k] += 1;
             }
-            else if (_root.save.inventorySubtype[j] == "Weapon Spirit Rock" ||
-                     _root.save.inventorySubtype[j] == "Armor Spirit Rock" ||
-                     _root.save.inventorySubtype[j] == "Accessory Spirit Rock")
+            else if (
+                _root.save.inventorySubtype[j] == "Weapon Spirit Rock"
+                || _root.save.inventorySubtype[j] == "Armor Spirit Rock"
+                || _root.save.inventorySubtype[j] == "Accessory Spirit Rock"
+            )
             {
                 if (_root.save.inventorySpirit[k] != true)
                 {
@@ -12744,13 +14676,15 @@ public class Root
             }
             else if (_root.save.inventorySubtype[j] == "Weapon Cleansing Rock")
             {
-                _root.save.inventoryName[k] =
-                    _root.save.inventoryName[k].substr(0, _root.save.inventoryName[k].Length - 9);
+                _root.save.inventoryName[k] = _root
+                    .save.inventoryName[k]
+                    .substr(0, _root.save.inventoryName[k].Length - 9);
             }
             else if (_root.save.inventorySubtype[j] == "Armor Cleansing Rock")
             {
-                _root.save.inventoryName[k] =
-                    _root.save.inventoryName[k].substr(0, _root.save.inventoryName[k].Length - 9);
+                _root.save.inventoryName[k] = _root
+                    .save.inventoryName[k]
+                    .substr(0, _root.save.inventoryName[k].Length - 9);
             }
             else if (_root.save.inventorySubtype[j] == "Accessory Lifespan Extender")
             {
@@ -12938,7 +14872,9 @@ public class Root
                     _root.save.arenaMaxEnhance += 1;
                 }
 
-                _root.save.inventoryDefense[k] = Math.ceil(_root.save.inventoryDefense[k] * pow / 100);
+                _root.save.inventoryDefense[k] = Math.ceil(
+                    _root.save.inventoryDefense[k] * pow / 100
+                );
                 _root.save.inventoryBonusPow[k] += pow - 100;
             }
             else if (_root.save.inventorySubtype[j] == "Enhancer Destruction Enhancer")
@@ -13002,7 +14938,9 @@ public class Root
                 _root.save.inventorySpeed[k] = Math.ceil(_root.save.inventorySpeed[k] * 1.2);
                 _root.save.inventoryDefense[k] = Math.ceil(_root.save.inventoryDefense[k] * 1.2);
                 _root.save.inventoryCrit[k] = Math.ceil(_root.save.inventoryCrit[k] * 1.2);
-                _root.save.inventoryDexterity[k] = Math.ceil(_root.save.inventoryDexterity[k] * 1.2);
+                _root.save.inventoryDexterity[k] = Math.ceil(
+                    _root.save.inventoryDexterity[k] * 1.2
+                );
                 _root.save.inventoryHealth[k] = Math.ceil(_root.save.inventoryHealth[k] * 1.2);
                 _root.save.inventoryLevel[k] = 9999;
                 _root.save.inventoryMaxLevel[k] = 9999;
@@ -13018,7 +14956,9 @@ public class Root
                 _root.save.inventorySpeed[k] = Math.ceil(_root.save.inventorySpeed[k] * 1.2);
                 _root.save.inventoryDefense[k] = Math.ceil(_root.save.inventoryDefense[k] * 1.2);
                 _root.save.inventoryCrit[k] = Math.ceil(_root.save.inventoryCrit[k] * 1.2);
-                _root.save.inventoryDexterity[k] = Math.ceil(_root.save.inventoryDexterity[k] * 1.2);
+                _root.save.inventoryDexterity[k] = Math.ceil(
+                    _root.save.inventoryDexterity[k] * 1.2
+                );
                 _root.save.inventoryHealth[k] = Math.ceil(_root.save.inventoryHealth[k] * 1.2);
                 _root.save.inventoryLevel[k] = 9999;
                 _root.save.inventoryMaxLevel[k] = 9999;
@@ -13034,7 +14974,9 @@ public class Root
                 _root.save.inventorySpeed[k] = Math.ceil(_root.save.inventorySpeed[k] * 1.2);
                 _root.save.inventoryDefense[k] = Math.ceil(_root.save.inventoryDefense[k] * 1.2);
                 _root.save.inventoryCrit[k] = Math.ceil(_root.save.inventoryCrit[k] * 1.2);
-                _root.save.inventoryDexterity[k] = Math.ceil(_root.save.inventoryDexterity[k] * 1.2);
+                _root.save.inventoryDexterity[k] = Math.ceil(
+                    _root.save.inventoryDexterity[k] * 1.2
+                );
                 _root.save.inventoryHealth[k] = Math.ceil(_root.save.inventoryHealth[k] * 1.2);
                 _root.save.inventoryLevel[k] = 9999;
                 _root.save.inventoryMaxLevel[k] = 9999;
@@ -13045,10 +14987,18 @@ public class Root
                 _root.save.inventoryNoUnique[k] = false;
             }
 
-            _root.dispNews(61,
-                "[" + _root.save.inventoryName[k] + "] enhanced with [" + _root.save.inventoryName[j] + "]!");
-            if (_root.save.inventorySubtype[j].indexOf("Protector") == -1 &&
-                _root.save.inventoryName[j].indexOf("[I]") == -1)
+            _root.dispNews(
+                61,
+                "["
+                    + _root.save.inventoryName[k]
+                    + "] enhanced with ["
+                    + _root.save.inventoryName[j]
+                    + "]!"
+            );
+            if (
+                _root.save.inventorySubtype[j].indexOf("Protector") == -1
+                && _root.save.inventoryName[j].indexOf("[I]") == -1
+            )
             {
                 if (_root.save.questType == "Enhance")
                 {
@@ -13167,14 +15117,50 @@ public class Root
     }
 
     // MATCH: frame_4/DoAction.as:addArenaEnemy()
-    public void addArenaEnemy(double level, double speed, double attack, double defense, double accuracy,
-        double evasion, double hp, double exp, double coin, double pixel, string name, string element, bool boss,
-        double evolve, double heal, bool zombie, double rangeDamage, double explode, double explodeDamage,
-        double rampagePct, string skill, double skillLevel, string art, string loc, string allyPassive1,
-        double allyPassive1X, string allyPassive2, double allyPassive2X, string allyPassive3, double allyPassive3X,
-        string allyActive1, double allyActive1X, double allyActive1Y, double allyActive1Z, string allyActive2,
-        double allyActive2X, double allyActive2Y, double allyActive2Z, string allyActive3, double allyActive3X,
-        double allyActive3Y, double allyActive3Z)
+    public void addArenaEnemy(
+        double level,
+        double speed,
+        double attack,
+        double defense,
+        double accuracy,
+        double evasion,
+        double hp,
+        double exp,
+        double coin,
+        double pixel,
+        string name,
+        string element,
+        bool boss,
+        double evolve,
+        double heal,
+        bool zombie,
+        double rangeDamage,
+        double explode,
+        double explodeDamage,
+        double rampagePct,
+        string skill,
+        double skillLevel,
+        string art,
+        string loc,
+        string allyPassive1,
+        double allyPassive1X,
+        string allyPassive2,
+        double allyPassive2X,
+        string allyPassive3,
+        double allyPassive3X,
+        string allyActive1,
+        double allyActive1X,
+        double allyActive1Y,
+        double allyActive1Z,
+        string allyActive2,
+        double allyActive2X,
+        double allyActive2Y,
+        double allyActive2Z,
+        string allyActive3,
+        double allyActive3X,
+        double allyActive3Y,
+        double allyActive3Z
+    )
     {
         var enemy = new Enemy();
         enemy.level = level;
@@ -13306,10 +15292,10 @@ public class Root
     public void addEvent(double rating, int year, int month, int date, string eventName)
     {
         _root.eventRating[year][month][date] += rating;
-        _root.eventList[year][month][date][0] = "" + int.Parse(_root.eventList[year][month][date][0]) + 1;
+        _root.eventList[year][month][date][0] =
+            "" + int.Parse(_root.eventList[year][month][date][0]) + 1;
         _root.eventList[year][month][date].Add(eventName);
     }
-
 
     // MATCH: frame_7/DoAction.as:overrideEvent()
     public void overrideEvent(int year, int month, int date)
@@ -13419,24 +15405,45 @@ public class Root
             if (_root.save.petFullness > 0)
             {
                 _root.save.petFullness -= 1;
-                _root.dispNews(149, "Pet Fullness decreased! (-1) / Remaining: " + _root.save.petFullness);
+                _root.dispNews(
+                    149,
+                    "Pet Fullness decreased! (-1) / Remaining: " + _root.save.petFullness
+                );
                 _root.gainCareerEXP(11, _root.save.petFullness * 25, true);
                 if (_root.cursoridle < 300)
                 {
-                    var pl = Math.floor((_root.save.petStat[1] + _root.save.petStat[2] + _root.save.petStat[3] +
-                                         _root.save.petStat[4] + _root.save.petStat[5] + _root.save.petStat[6] +
-                                         _root.save.petStat[7] + _root.save.petStat[8]) / 8);
-                    petMaxMana = Math.floor((100 + Math.min(pl, 100) + Math.max(Math.floor(pl * (pl - 100) / 25), 0)) *
-                                            Math.max(1, pl / 10 - 10));
-                    petMaxHealth = 100 + Math.min(pl, 100) + Math.max(Math.floor(pl * (pl - 100) / 25), 0);
+                    var pl = Math.floor(
+                        (
+                            _root.save.petStat[1]
+                            + _root.save.petStat[2]
+                            + _root.save.petStat[3]
+                            + _root.save.petStat[4]
+                            + _root.save.petStat[5]
+                            + _root.save.petStat[6]
+                            + _root.save.petStat[7]
+                            + _root.save.petStat[8]
+                        ) / 8
+                    );
+                    petMaxMana = Math.floor(
+                        (100 + Math.min(pl, 100) + Math.max(Math.floor(pl * (pl - 100) / 25), 0))
+                            * Math.max(1, pl / 10 - 10)
+                    );
+                    petMaxHealth =
+                        100 + Math.min(pl, 100) + Math.max(Math.floor(pl * (pl - 100) / 25), 0);
                     if (_root.save.petMana < petMaxMana)
                     {
                         _root.save.petMana += 1;
-                        _root.dispNews(148, "Pet Mana increased! (+1) / Current: " + _root.save.petMana);
+                        _root.dispNews(
+                            148,
+                            "Pet Mana increased! (+1) / Current: " + _root.save.petMana
+                        );
                         if (Math.random() < _root.curCareerLevel[11] / 200)
                         {
                             _root.save.petMana += 5;
-                            _root.dispNews(148, "Pet Mana increased! (+5) / Current: " + _root.save.petMana);
+                            _root.dispNews(
+                                148,
+                                "Pet Mana increased! (+5) / Current: " + _root.save.petMana
+                            );
                         }
                     }
                 }
@@ -13444,7 +15451,10 @@ public class Root
                 if (_root.save.petFullness > 90 && _root.save.petHealth < petMaxHealth)
                 {
                     _root.save.petHealth += 1;
-                    _root.dispNews(147, "Pet Health increased! (+1) / Current: " + _root.save.petHealth);
+                    _root.dispNews(
+                        147,
+                        "Pet Health increased! (+1) / Current: " + _root.save.petHealth
+                    );
                 }
                 else if (_root.save.petFullness < 30)
                 {
@@ -13457,7 +15467,10 @@ public class Root
                 if (_root.save.careerLevel[11] < 100 || Math.random() < 0.5)
                 {
                     _root.save.petHealth -= 1;
-                    _root.dispNews(150, "Pet Health decreased! (-1) / Remaining: " + _root.save.petHealth);
+                    _root.dispNews(
+                        150,
+                        "Pet Health decreased! (-1) / Remaining: " + _root.save.petHealth
+                    );
                     _root.dispNews(152, "Your pet is very hungry. Feed it before it dies.");
                 }
             }
@@ -13608,6 +15621,7 @@ public class Root
         _root.summonCount += 1;
         _root.antiLag += 1;
     }
+
     // MATCH: frame_13/DoAction_2.as:incDt2()
     public void incDt2()
     {
@@ -13708,19 +15722,23 @@ public class Root
                     }
                     else if (_root.save.banned >= 800)
                     {
-                        _root.requiredExp += 10000000000 * (_root.save.banned - 800) + 23000000000000;
+                        _root.requiredExp +=
+                            10000000000 * (_root.save.banned - 800) + 23000000000000;
                     }
                     else if (_root.save.banned >= 600)
                     {
-                        _root.requiredExp += 20000000000 * (_root.save.banned - 600) + 19000000000000;
+                        _root.requiredExp +=
+                            20000000000 * (_root.save.banned - 600) + 19000000000000;
                     }
                     else if (_root.save.banned >= 400)
                     {
-                        _root.requiredExp += 30000000000 * (_root.save.banned - 400) + 13000000000000;
+                        _root.requiredExp +=
+                            30000000000 * (_root.save.banned - 400) + 13000000000000;
                     }
                     else if (_root.save.banned >= 200)
                     {
-                        _root.requiredExp += 40000000000 * (_root.save.banned - 200) + 5000000000000;
+                        _root.requiredExp +=
+                            40000000000 * (_root.save.banned - 200) + 5000000000000;
                     }
                     else if (_root.save.banned >= 100)
                     {
@@ -13739,19 +15757,23 @@ public class Root
                     }
                     else if (_root.save.banned >= 800)
                     {
-                        _root.requiredExp += 10000000000 * (_root.save.banned - 800) + 23000000000000;
+                        _root.requiredExp +=
+                            10000000000 * (_root.save.banned - 800) + 23000000000000;
                     }
                     else if (_root.save.banned >= 600)
                     {
-                        _root.requiredExp += 20000000000 * (_root.save.banned - 600) + 19000000000000;
+                        _root.requiredExp +=
+                            20000000000 * (_root.save.banned - 600) + 19000000000000;
                     }
                     else if (_root.save.banned >= 400)
                     {
-                        _root.requiredExp += 30000000000 * (_root.save.banned - 400) + 13000000000000;
+                        _root.requiredExp +=
+                            30000000000 * (_root.save.banned - 400) + 13000000000000;
                     }
                     else if (_root.save.banned >= 200)
                     {
-                        _root.requiredExp += 40000000000 * (_root.save.banned - 200) + 5000000000000;
+                        _root.requiredExp +=
+                            40000000000 * (_root.save.banned - 200) + 5000000000000;
                     }
                     else if (_root.save.banned >= 100)
                     {
@@ -13774,19 +15796,23 @@ public class Root
                     }
                     else if (_root.save.banned >= 800)
                     {
-                        _root.requiredExp += 10000000000 * (_root.save.banned - 800) + 23000000000000;
+                        _root.requiredExp +=
+                            10000000000 * (_root.save.banned - 800) + 23000000000000;
                     }
                     else if (_root.save.banned >= 600)
                     {
-                        _root.requiredExp += 20000000000 * (_root.save.banned - 600) + 19000000000000;
+                        _root.requiredExp +=
+                            20000000000 * (_root.save.banned - 600) + 19000000000000;
                     }
                     else if (_root.save.banned >= 400)
                     {
-                        _root.requiredExp += 30000000000 * (_root.save.banned - 400) + 13000000000000;
+                        _root.requiredExp +=
+                            30000000000 * (_root.save.banned - 400) + 13000000000000;
                     }
                     else if (_root.save.banned >= 200)
                     {
-                        _root.requiredExp += 40000000000 * (_root.save.banned - 200) + 5000000000000;
+                        _root.requiredExp +=
+                            40000000000 * (_root.save.banned - 200) + 5000000000000;
                     }
                     else if (_root.save.banned >= 100)
                     {
@@ -13805,19 +15831,23 @@ public class Root
                     }
                     else if (_root.save.banned >= 800)
                     {
-                        _root.requiredExp += 10000000000 * (_root.save.banned - 800) + 23000000000000;
+                        _root.requiredExp +=
+                            10000000000 * (_root.save.banned - 800) + 23000000000000;
                     }
                     else if (_root.save.banned >= 600)
                     {
-                        _root.requiredExp += 20000000000 * (_root.save.banned - 600) + 19000000000000;
+                        _root.requiredExp +=
+                            20000000000 * (_root.save.banned - 600) + 19000000000000;
                     }
                     else if (_root.save.banned >= 400)
                     {
-                        _root.requiredExp += 30000000000 * (_root.save.banned - 400) + 13000000000000;
+                        _root.requiredExp +=
+                            30000000000 * (_root.save.banned - 400) + 13000000000000;
                     }
                     else if (_root.save.banned >= 200)
                     {
-                        _root.requiredExp += 40000000000 * (_root.save.banned - 200) + 5000000000000;
+                        _root.requiredExp +=
+                            40000000000 * (_root.save.banned - 200) + 5000000000000;
                     }
                     else if (_root.save.banned >= 100)
                     {
@@ -13888,7 +15918,10 @@ public class Root
                 }
             }
         }
-        if (_root.save.level > 9002 || _root.save.level == 9002 && _root.save.totalExp < 999000000000000)
+        if (
+            _root.save.level > 9002
+            || _root.save.level == 9002 && _root.save.totalExp < 999000000000000
+        )
         {
             _root.save.level = 1;
             _root.save.currentExp = 0;
@@ -13915,22 +15948,31 @@ public class Root
             if (_root.save.reforgingCoin >= 10000000000000)
             {
                 _root.save.reforgingOrb1 += Math.floor(_root.save.reforgingCoin / 10000000000000);
-                _root.save.reforgingOrbTotal1 += Math.floor(_root.save.reforgingCoin / 10000000000000);
+                _root.save.reforgingOrbTotal1 += Math.floor(
+                    _root.save.reforgingCoin / 10000000000000
+                );
                 _root.save.reforgingCoin %= 10000000000000;
             }
             if (_root.save.reforgingGreenCoin >= 10000000000)
             {
                 _root.save.reforgingOrb2 += Math.floor(_root.save.reforgingGreenCoin / 10000000000);
-                _root.save.reforgingOrbTotal2 += Math.floor(_root.save.reforgingGreenCoin / 10000000000);
+                _root.save.reforgingOrbTotal2 += Math.floor(
+                    _root.save.reforgingGreenCoin / 10000000000
+                );
                 _root.save.reforgingGreenCoin %= 10000000000;
             }
             if (_root.save.reforgingBlueCoin >= 10000000)
             {
                 _root.save.reforgingOrb3 += Math.floor(_root.save.reforgingBlueCoin / 10000000);
-                _root.save.reforgingOrbTotal3 += Math.floor(_root.save.reforgingBlueCoin / 10000000);
+                _root.save.reforgingOrbTotal3 += Math.floor(
+                    _root.save.reforgingBlueCoin / 10000000
+                );
                 _root.save.reforgingBlueCoin %= 10000000;
             }
-            if ((bool)_root.save["autoAscendEnabled" + _root.save.gDifficulty] == true && _root.save.gOldAscension != true)
+            if (
+                (bool)_root.save["autoAscendEnabled" + _root.save.gDifficulty] == true
+                && _root.save.gOldAscension != true
+            )
             {
                 if (_root.save.level >= 9001)
                 {
@@ -13954,7 +15996,11 @@ public class Root
                     }
                     else if (_root.save.gDifficulty == 3)
                     {
-                        if (_root.save.reforgingOrb1 >= 4 && _root.save.reforgingOrb2 >= 2 && _root.save.reforgingOrb3 >= 1)
+                        if (
+                            _root.save.reforgingOrb1 >= 4
+                            && _root.save.reforgingOrb2 >= 2
+                            && _root.save.reforgingOrb3 >= 1
+                        )
                         {
                             _root.save.reforgingOrb1 -= 4;
                             _root.save.reforgingOrb2 -= 2;
@@ -13978,9 +16024,14 @@ public class Root
                             _root.save.bannedHard += 1;
                             _root.save.permaStupidityHard += 1;
                             _root.save.autoAscendCount2 += 1;
-                            if (_root.save.speedRunAscendHard > Math.floor(_root.save.ascendPlayTime / 60))
+                            if (
+                                _root.save.speedRunAscendHard
+                                > Math.floor(_root.save.ascendPlayTime / 60)
+                            )
                             {
-                                _root.save.speedRunAscendHard = Math.floor(_root.save.ascendPlayTime / 60);
+                                _root.save.speedRunAscendHard = Math.floor(
+                                    _root.save.ascendPlayTime / 60
+                                );
                             }
                         }
                         if (_root.save.gDifficulty >= 3)
@@ -13988,9 +16039,14 @@ public class Root
                             _root.save.bannedImpossible += 1;
                             _root.save.permaStupidityImpossible += 1;
                             _root.save.autoAscendCount3 += 1;
-                            if (_root.save.speedRunAscendImpossible > Math.floor(_root.save.ascendPlayTime / 60))
+                            if (
+                                _root.save.speedRunAscendImpossible
+                                > Math.floor(_root.save.ascendPlayTime / 60)
+                            )
                             {
-                                _root.save.speedRunAscendImpossible = Math.floor(_root.save.ascendPlayTime / 60);
+                                _root.save.speedRunAscendImpossible = Math.floor(
+                                    _root.save.ascendPlayTime / 60
+                                );
                             }
                         }
                         _root.save.level = 8999;
@@ -14057,7 +16113,12 @@ public class Root
         var lfr = 1d;
         while (lfr <= 1)
         {
-            if (_root.save.currentExp >= _root.requiredExp && !isNaN(_root.save.currentExp) && _root.save.currentExp != Infinity && _root.save.level < 9002)
+            if (
+                _root.save.currentExp >= _root.requiredExp
+                && !isNaN(_root.save.currentExp)
+                && _root.save.currentExp != Infinity
+                && _root.save.level < 9002
+            )
             {
                 _root.save.level += 1;
                 lfrt += 1;
@@ -14090,12 +16151,19 @@ public class Root
                 }
                 if (_root.save.showBanner != false)
                 {
-                    if (_root.save.level % 1000 == 0 || _root.save.level == 9001 || _root.save.level == 9002)
+                    if (
+                        _root.save.level % 1000 == 0
+                        || _root.save.level == 9001
+                        || _root.save.level == 9002
+                    )
                     {
                         _root.accomplishPop.targetX = 10;
                         _root.accomplishPop.count = 0;
                         _root.accomplishPop.gotoAndStop(3);
-                        _root.accomplishPop.lolMessage.Text = "You are now Lv. " + _root.withComma(_root.save.level) + "! Congratulations!";
+                        _root.accomplishPop.lolMessage.Text =
+                            "You are now Lv. "
+                            + _root.withComma(_root.save.level)
+                            + "! Congratulations!";
                     }
                 }
                 if (_root.save.questType == "Level Up")
@@ -14160,7 +16228,10 @@ public class Root
             {
                 if (_root.saveid >= 10 && _root.saveid <= 13)
                 {
-                    if (isNaN(_root.saveGlobal.challengeTime[0]) || _root.saveGlobal.challengeTime[0] > Math.floor(_root.save.ascendPlayTime))
+                    if (
+                        isNaN(_root.saveGlobal.challengeTime[0])
+                        || _root.saveGlobal.challengeTime[0] > Math.floor(_root.save.ascendPlayTime)
+                    )
                     {
                         _root.saveGlobal.challengeTime[0] = Math.floor(_root.save.ascendPlayTime);
                         _root.saveGlobal.challengeAttempted[0] = true;
@@ -14218,7 +16289,10 @@ public class Root
                 _root.gainBlueCoin(lfrBC);
             }
             _root.gainBoost(100 * lfrt, 1);
-            _root.dispNews(2, "LEVEL UP! You are now Lv. " + _root.withComma(_root.save.level) + ".");
+            _root.dispNews(
+                2,
+                "LEVEL UP! You are now Lv. " + _root.withComma(_root.save.level) + "."
+            );
             if (_root._quality != "LOW")
             {
                 _root.topBar.levelStar.levelAnim._alpha = 100;
@@ -14258,10 +16332,21 @@ public class Root
             var i = 1;
             while (i <= _root.save.gardenCapacity)
             {
-                if (_root.save.gardenTrees[i] > 0 && _root.save.gardenPurchaseTime[i] + _root.save.gardenExpiryTime[i] - _root.systemtimenow > 0)
+                if (
+                    _root.save.gardenTrees[i] > 0
+                    && _root.save.gardenPurchaseTime[i]
+                        + _root.save.gardenExpiryTime[i]
+                        - _root.systemtimenow
+                        > 0
+                )
                 {
                     plantedTrees += 1;
-                    if (_root.save.gardenRecentTime[i] + _root.save.gardenHarvestTime[i] - _root.systemtimenow <= 0)
+                    if (
+                        _root.save.gardenRecentTime[i]
+                            + _root.save.gardenHarvestTime[i]
+                            - _root.systemtimenow
+                        <= 0
+                    )
                     {
                         readyTrees += 1;
                     }
@@ -14379,7 +16464,9 @@ public class Root
         {
             _root.topBar.titleText.Text = _root.save.userTitle;
         }
-        var titleColor = c((uint)(_root.save.titlered * 65536 + _root.save.titlegreen * 256 + _root.save.titleblue));
+        var titleColor = c(
+            (uint)(_root.save.titlered * 65536 + _root.save.titlegreen * 256 + _root.save.titleblue)
+        );
         GD.Print(_root.topBar.titleText);
         if (_root.topBar.titleText.LabelSettings.FontColor != titleColor)
         {
@@ -14392,11 +16479,11 @@ public class Root
         }
     }
 
-
     // MATCH: frame_13/DoAction_2.as:dispAsc()
     public void dispAsc()
     {
-        var elapsed_days_int = Math.floor(_root.save.ascendPlayTime / 86400); ;
+        var elapsed_days_int = Math.floor(_root.save.ascendPlayTime / 86400);
+        ;
         elapsed_days = "" + elapsed_days_int;
         var remaining = _root.save.ascendPlayTime - elapsed_days_int * 86400;
         if (_root.saveid >= 20 && !isNaN(_root.save.challengeTime))
@@ -14425,7 +16512,8 @@ public class Root
         {
             elapsed_seconds = "0" + elapsed_seconds;
         }
-        _root.topBar.ascentText.Text = elapsed_days + "d + " + elapsed_hours + ":" + elapsed_minutes + ":" + elapsed_seconds;
+        _root.topBar.ascentText.Text =
+            elapsed_days + "d + " + elapsed_hours + ":" + elapsed_minutes + ":" + elapsed_seconds;
     }
 
     // MATCH: frame_13/DoAction_2.as:progressUp()
@@ -14434,7 +16522,11 @@ public class Root
         double progSpeed;
         if (_root.progPercent < _root.save.progStore)
         {
-            if (_root.save.idleMode == false || _root.idlerAppreciate == true || _root.saveid >= 10 && _root.saveid < 20)
+            if (
+                _root.save.idleMode == false
+                || _root.idlerAppreciate == true
+                || _root.saveid >= 10 && _root.saveid < 20
+            )
             {
                 if (_root.save.progSpeedManual > _root.save.progSpeedAuto)
                 {
@@ -14479,14 +16571,16 @@ public class Root
             {
                 progSpeed *= 0.9;
             }
-            _root.progPercent += 0.02 * (_root.save.boost / 100) * (40 / _root.fps) * (progSpeed / 100);
+            _root.progPercent +=
+                0.02 * (_root.save.boost / 100) * (40 / _root.fps) * (progSpeed / 100);
             if (_root.save.rewardClaim < 5)
             {
                 _root.progPercent += 20 / _root.fps;
             }
             else if (_root.save.bestLevel < 35)
             {
-                _root.progPercent += 0.125 * (_root.save.boost / 100) * (40 / _root.fps) * (progSpeed / 100);
+                _root.progPercent +=
+                    0.125 * (_root.save.boost / 100) * (40 / _root.fps) * (progSpeed / 100);
             }
         }
     }
@@ -14530,7 +16624,11 @@ public class Root
                 achCurrent = (double)_root[_root.achList[i].need];
             }
             var achRequired = _root.achList[i].amnt;
-            if (!isNaN(achCurrent) && achCurrent >= achRequired && _root.achList[i].type == "Max" || achCurrent <= achRequired && _root.achList[i].type == "Min" || !isNaN(_root.save.achEarnTime[_root.achList[i].ID]))
+            if (
+                !isNaN(achCurrent) && achCurrent >= achRequired && _root.achList[i].type == "Max"
+                || achCurrent <= achRequired && _root.achList[i].type == "Min"
+                || !isNaN(_root.save.achEarnTime[_root.achList[i].ID])
+            )
             {
                 if (isNaN(_root.save.achEarnTime[_root.achList[i].ID]))
                 {
@@ -14545,7 +16643,16 @@ public class Root
                         // _root.accomplishPop.rcText.text = "Progress Bar Reward: +" + _root.achList[i].redCoin / 100 + "%";
                         // _root.accomplishPop.countText.text = _root.save.maxAchievement + 1 + " / " + _root.totalachievements;
                     }
-                    _root.dispNews(3, "Achievement earned! [" + _root.achList[i].name + "] (" + (_root.save.maxAchievement + 1) + " / " + _root.totalachievements + ")");
+                    _root.dispNews(
+                        3,
+                        "Achievement earned! ["
+                            + _root.achList[i].name
+                            + "] ("
+                            + (_root.save.maxAchievement + 1)
+                            + " / "
+                            + _root.totalachievements
+                            + ")"
+                    );
                     _root.newAchName = _root.achList[i].name;
                     _root.newAchRedCoin = _root.achList[i].redCoin;
                 }
@@ -14563,8 +16670,6 @@ public class Root
             _root.save.maxAchievement = _root.awards;
         }
     }
-
-
 
     // MATCH: frame_13/DoAction_2.as:depleteBoost()
     public void depleteBoost()
@@ -14592,8 +16697,18 @@ public class Root
         }
         if (_root.save.boost > _root.boostMax * 1.5)
         {
-            antFreq *= 2 + (_root.save.boost - _root.boostMax) / 20 + (_root.save.boost - _root.boostMax * 1.5) / 5;
-            maxAnts = Math.floor(maxAnts * (2 + (_root.save.boost - _root.boostMax) / 20 + (_root.save.boost - _root.boostMax * 1.5) / 5));
+            antFreq *=
+                2
+                + (_root.save.boost - _root.boostMax) / 20
+                + (_root.save.boost - _root.boostMax * 1.5) / 5;
+            maxAnts = Math.floor(
+                maxAnts
+                    * (
+                        2
+                        + (_root.save.boost - _root.boostMax) / 20
+                        + (_root.save.boost - _root.boostMax * 1.5) / 5
+                    )
+            );
         }
         else if (_root.save.boost > _root.boostMax)
         {
@@ -14602,8 +16717,17 @@ public class Root
         }
         else
         {
-            antFreq *= 1 + (_root.save.boost - _root.boostMin) / (_root.boostMax - _root.boostMin) * 0.5;
-            maxAnts = Math.floor(maxAnts * (1 + (_root.save.boost - _root.boostMin) / (_root.boostMax - _root.boostMin) * 0.5));
+            antFreq *=
+                1 + (_root.save.boost - _root.boostMin) / (_root.boostMax - _root.boostMin) * 0.5;
+            maxAnts = Math.floor(
+                maxAnts
+                    * (
+                        1
+                        + (_root.save.boost - _root.boostMin)
+                            / (_root.boostMax - _root.boostMin)
+                            * 0.5
+                    )
+            );
         }
         if (_root.save.featureSpecialSprayer == true)
         {
@@ -14813,7 +16937,17 @@ public class Root
     // MATCH: frame_13/DoAction_2.as:checkPrinter()
     public void checkPrinter()
     {
-        var moneyToPrint = Math.floor(((_root.save.printerLevel + 25) * Math.pow(Math.min(_root.save.level, 9001), 0.65) * 0.63 * 10 + 4560) * (100 + _root.save.printerLevel) / 100);
+        var moneyToPrint = Math.floor(
+            (
+                (_root.save.printerLevel + 25)
+                    * Math.pow(Math.min(_root.save.level, 9001), 0.65)
+                    * 0.63
+                    * 10
+                + 4560
+            )
+                * (100 + _root.save.printerLevel)
+                / 100
+        );
         moneyToPrint = Math.round(moneyToPrint / 125) * 500;
         var printSpeed = _root.save.printerCharge * 0.04 / _root.fps;
         if (_root.save.permaBanPenalty[4] == 3)
@@ -14845,7 +16979,12 @@ public class Root
         {
             if (_root.save.gardenTrees[i] > 0)
             {
-                if (_root.save.gardenPurchaseTime[i] + _root.save.gardenExpiryTime[i] - _root.systemtimenow < 0)
+                if (
+                    _root.save.gardenPurchaseTime[i]
+                        + _root.save.gardenExpiryTime[i]
+                        - _root.systemtimenow
+                    < 0
+                )
                 {
                     _root.save.gardenTrees[i] = 0;
                     expireCount += 1;
@@ -14859,7 +16998,10 @@ public class Root
         }
         if (expireCount >= 3)
         {
-            _root.dispNews(20, "Tree #" + firstExpire + " and " + (expireCount - 1) + " others expired.");
+            _root.dispNews(
+                20,
+                "Tree #" + firstExpire + " and " + (expireCount - 1) + " others expired."
+            );
         }
         else if (expireCount == 2)
         {
@@ -14889,7 +17031,9 @@ public class Root
                     _root.save.lolDemand[i] = -100;
                 }
                 _root.save.lolPrice[i] += _root.save.lolDemand[i];
-                _root.save.lolDemand[i] += Math.round((Math.random() - Math.random()) * (2.5 + i / 4));
+                _root.save.lolDemand[i] += Math.round(
+                    (Math.random() - Math.random()) * (2.5 + i / 4)
+                );
                 if (_root.save.lolPrice[i] < 1000 * i)
                 {
                     _root.save.lolDemand[i] += i;
@@ -14916,22 +17060,34 @@ public class Root
                 }
                 if (_root.save.demandMasterTime > 0 && Math.random() < 0.35)
                 {
-                    if (_root.save.lolGems[i] >= Math.ceil(_root.save.lolCapacity / 2) && _root.save.lolDemand[i] < 15)
+                    if (
+                        _root.save.lolGems[i] >= Math.ceil(_root.save.lolCapacity / 2)
+                        && _root.save.lolDemand[i] < 15
+                    )
                     {
                         _root.save.lolDemand[i] += 1;
                     }
-                    else if (_root.save.lolGems[i] < Math.ceil(_root.save.lolCapacity / 2) && _root.save.lolDemand[i] > -15)
+                    else if (
+                        _root.save.lolGems[i] < Math.ceil(_root.save.lolCapacity / 2)
+                        && _root.save.lolDemand[i] > -15
+                    )
                     {
                         _root.save.lolDemand[i] -= 1;
                     }
                 }
                 if (_root.save.careerLevel[9] >= 100 && Math.random() < 0.1)
                 {
-                    if (_root.save.lolGems[i] >= Math.ceil(_root.save.lolCapacity / 2) && _root.save.lolDemand[i] < 20)
+                    if (
+                        _root.save.lolGems[i] >= Math.ceil(_root.save.lolCapacity / 2)
+                        && _root.save.lolDemand[i] < 20
+                    )
                     {
                         _root.save.lolDemand[i] += 2;
                     }
-                    else if (_root.save.lolGems[i] < Math.ceil(_root.save.lolCapacity / 2) && _root.save.lolDemand[i] > -20)
+                    else if (
+                        _root.save.lolGems[i] < Math.ceil(_root.save.lolCapacity / 2)
+                        && _root.save.lolDemand[i] > -20
+                    )
                     {
                         _root.save.lolDemand[i] -= 2;
                     }
@@ -14968,7 +17124,6 @@ public class Root
         }
     }
 
-
     public void gotoAndPlay(int index)
     {
         GD.Print($"WARNING: unconverted gotoAndPlay({index})");
@@ -14979,17 +17134,19 @@ public class Root
         return 0;
     }
 
-    public void breakNews(string a, string b, double c, double d)
-    {
-    }
-
+    public void breakNews(string a, string b, double c, double d) { }
 
     public object this[string key]
     {
-        get => GetType().GetField(key)?.GetValue(this) ?? throw new ArgumentException($"Property `{key}` not found");
+        get =>
+            GetType().GetField(key)?.GetValue(this) ?? throw new ArgumentException(
+                $"Property `{key}` not found"
+            );
         set
         {
-            var prop = GetType().GetField(key) ?? throw new ArgumentException($"Property `{key}` not found");
+            var prop =
+                GetType().GetField(key)
+                ?? throw new ArgumentException($"Property `{key}` not found");
             prop.SetValue(this, value);
         }
     }

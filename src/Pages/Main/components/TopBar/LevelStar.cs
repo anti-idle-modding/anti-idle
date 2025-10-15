@@ -1,4 +1,3 @@
-
 using AntiIdle.Common.Nodes;
 using Godot;
 

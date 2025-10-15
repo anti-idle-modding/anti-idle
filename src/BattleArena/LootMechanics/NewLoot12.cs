@@ -1,5 +1,6 @@
 using AntiIdle.Common.Nodes;
 using Godot;
+
 namespace AntiIdle.BattleArena.LootMechanics;
 
 //TO DO attach to asset
@@ -25,7 +26,10 @@ public partial class NewLoot12 : FlashNode2D
             if (_root.save.recipeLevel < 4)
             {
                 _root.save.recipeLevel += 1;
-                _root.dispNews(46, "Found recipe! [\'lrn2craft\' Recipe Lv. " + (_root.save.recipeLevel + 1) + "]");
+                _root.dispNews(
+                    46,
+                    "Found recipe! [\'lrn2craft\' Recipe Lv. " + (_root.save.recipeLevel + 1) + "]"
+                );
             }
             if (_root.save.questType == "Loot")
             {
@@ -40,7 +44,10 @@ public partial class NewLoot12 : FlashNode2D
             if (_root.save.secretRecipeLevel < 4)
             {
                 _root.save.secretRecipeLevel += 1;
-                _root.dispNews(46, "Found recipe! [Secret Recipe Lv. " + (_root.save.secretRecipeLevel + 1) + "]");
+                _root.dispNews(
+                    46,
+                    "Found recipe! [Secret Recipe Lv. " + (_root.save.secretRecipeLevel + 1) + "]"
+                );
             }
             if (_root.save.questType == "Loot")
             {
@@ -55,7 +62,10 @@ public partial class NewLoot12 : FlashNode2D
             if (_root.save.arenaSkill[101] < 30)
             {
                 _root.save.arenaSkill[101] += 1;
-                _root.dispNews(47, "You have learned [Limit Break] Lv. " + _root.save.arenaSkill[101] + "!");
+                _root.dispNews(
+                    47,
+                    "You have learned [Limit Break] Lv. " + _root.save.arenaSkill[101] + "!"
+                );
             }
             if (_root.save.questType == "Loot")
             {
@@ -70,7 +80,10 @@ public partial class NewLoot12 : FlashNode2D
             if (_root.save.arenaSkill[104] < 30)
             {
                 _root.save.arenaSkill[104] += 1;
-                _root.dispNews(47, "You have learned [Enrage] Lv. " + _root.save.arenaSkill[104] + "!");
+                _root.dispNews(
+                    47,
+                    "You have learned [Enrage] Lv. " + _root.save.arenaSkill[104] + "!"
+                );
             }
             if (_root.save.questType == "Loot")
             {
@@ -85,7 +98,10 @@ public partial class NewLoot12 : FlashNode2D
             if (_root.save.arenaSkill[105] < 30)
             {
                 _root.save.arenaSkill[105] += 1;
-                _root.dispNews(47, "You have learned [Elemental Boost] Lv. " + _root.save.arenaSkill[105] + "!");
+                _root.dispNews(
+                    47,
+                    "You have learned [Elemental Boost] Lv. " + _root.save.arenaSkill[105] + "!"
+                );
             }
             if (_root.save.questType == "Loot")
             {
@@ -100,7 +116,10 @@ public partial class NewLoot12 : FlashNode2D
             if (_root.save.arenaSkill[106] < 30)
             {
                 _root.save.arenaSkill[106] += 1;
-                _root.dispNews(47, "You have learned [Invincibility] Lv. " + _root.save.arenaSkill[106] + "!");
+                _root.dispNews(
+                    47,
+                    "You have learned [Invincibility] Lv. " + _root.save.arenaSkill[106] + "!"
+                );
             }
             if (_root.save.questType == "Loot")
             {
@@ -117,7 +136,12 @@ public partial class NewLoot12 : FlashNode2D
             {
                 _root.save.arenaUltimateSP += 1;
                 _root.save.arenaSP += 10;
-                _root.dispNews(47, "You have gained 10 SP! (" + _root.withComma(_root.save.arenaUltimateSP * 10) + " / 2,500)");
+                _root.dispNews(
+                    47,
+                    "You have gained 10 SP! ("
+                        + _root.withComma(_root.save.arenaUltimateSP * 10)
+                        + " / 2,500)"
+                );
             }
             if (_root.save.questType == "Loot")
             {
@@ -151,7 +175,10 @@ public partial class NewLoot12 : FlashNode2D
             {
                 _X = 80;
             }
-            else if (_root.save.activityLoot == true && (_root.cursoridle < 5 || _root.arenaBot > 0 && _root.arenaBot < 2400))
+            else if (
+                _root.save.activityLoot == true
+                && (_root.cursoridle < 5 || _root.arenaBot > 0 && _root.arenaBot < 2400)
+            )
             {
                 _X = 80;
             }
@@ -178,7 +205,10 @@ public partial class NewLoot12 : FlashNode2D
         {
             del = 0;
             xVel *= 0.98;
-            if (_root.save.activityLoot == true && (_root.cursoridle < 5 || _root.arenaBot > 0 && _root.arenaBot < 2400))
+            if (
+                _root.save.activityLoot == true
+                && (_root.cursoridle < 5 || _root.arenaBot > 0 && _root.arenaBot < 2400)
+            )
             {
                 xVel -= 1;
                 if (_root.save.bouncyLoot == false)
@@ -207,7 +237,14 @@ public partial class NewLoot12 : FlashNode2D
             if (xalpha > 0)
             {
                 xalpha -= 100 / _root.fps;
-                if (_X < 85 || _xmouse >= -25 && _xmouse <= 25 && _ymouse >= -50 && _ymouse <= 5 && _root.cursoridle < 60)
+                if (
+                    _X < 85
+                    || _xmouse >= -25
+                        && _xmouse <= 25
+                        && _ymouse >= -50
+                        && _ymouse <= 5
+                        && _root.cursoridle < 60
+                )
                 {
                     _root.save.arenaLoot += 1;
                     getLoot();

@@ -12,8 +12,5 @@ public class Stats
     /// </summary>
     /// <param name="category"></param>
     /// <param name="version"></param>
-    public void submit(string category, double version)
-    {
-        
-    }
+    public void submit(string category, double version) { }
 }

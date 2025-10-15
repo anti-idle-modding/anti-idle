@@ -1,10 +1,7 @@
-using Godot;
 using System;
+using Godot;
 
 public partial class FlatButton : TextureButton
 {
-    public override void _EnterTree()
-    {
-    }
-
+    public override void _EnterTree() { }
 }

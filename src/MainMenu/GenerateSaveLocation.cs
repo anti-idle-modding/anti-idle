@@ -1,5 +1,5 @@
-using Godot;
 using System;
+using Godot;
 
 public partial class GenerateSaveLocation : Button
 {
@@ -10,5 +10,4 @@ public partial class GenerateSaveLocation : Button
     {
         helpText.Text = $"Your saves are in {OS.GetDataDir()}.";
     }
-
 }

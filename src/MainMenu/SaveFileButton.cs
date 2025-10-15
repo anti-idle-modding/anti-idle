@@ -1,5 +1,5 @@
-using Godot;
 using System;
+using Godot;
 
 // MATCH: DefineSprite_2380/frame_1/DoAction.as
 public partial class SaveFileButton : ColorRect
@@ -29,9 +29,9 @@ public partial class SaveFileButton : ColorRect
 
     public override void _Input(InputEvent @event)
     {
-        if (Input.IsMouseButtonPressed(MouseButton.Left)) {
+        if (Input.IsMouseButtonPressed(MouseButton.Left))
+        {
             anim.AssignedAnimation = "clicked";
         }
     }
-
 }

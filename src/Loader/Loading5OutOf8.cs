@@ -5,7 +5,13 @@ using Math = AntiIdle.Common.Flash.Math;
 public partial class Loading5OutOf8 : Control
 {
     // MATCH: frame_6/DoAction.as:addNewsType()
-    public void addNewsType(double typeID, double feature, double defaultImportance, double defaultColor, string sauceName)
+    public void addNewsType(
+        double typeID,
+        double feature,
+        double defaultImportance,
+        double defaultColor,
+        string sauceName
+    )
     {
         _root.newsCount += 1;
         _root.newsID[_root.newsCount] = typeID;
@@ -63,8 +69,14 @@ public partial class Loading5OutOf8 : Control
                 _root.saveGlobal.breakFeature[typeID] = false;
             }
             _root.saveGlobal.breakR[typeID] = Math.floor(defaultColor / 65536);
-            _root.saveGlobal.breakG[typeID] = Math.floor((defaultColor - _root.saveGlobal.breakR[typeID] * 65536) / 256);
-            _root.saveGlobal.breakB[typeID] = Math.floor(defaultColor - _root.saveGlobal.breakR[typeID] * 65536 - _root.saveGlobal.breakG[typeID] * 256);
+            _root.saveGlobal.breakG[typeID] = Math.floor(
+                (defaultColor - _root.saveGlobal.breakR[typeID] * 65536) / 256
+            );
+            _root.saveGlobal.breakB[typeID] = Math.floor(
+                defaultColor
+                    - _root.saveGlobal.breakR[typeID] * 65536
+                    - _root.saveGlobal.breakG[typeID] * 256
+            );
         }
     }
 
@@ -271,12 +283,10 @@ public partial class Loading5OutOf8 : Control
         addNewsType(180, 0, 3, 16776960, "When Simulation Cyborg levels up");
         addNewsType(0, 0, 0, 0, "TECHNICAL LIGHTS");
         addNewsType(160, 0, 4, 13421823, "Variable Tracking");
-
     }
 
     public override void _Process(double delta)
     {
         GetTree().ChangeSceneToFile("src/Loader/Loading6OutOf8.tscn");
     }
-
 }

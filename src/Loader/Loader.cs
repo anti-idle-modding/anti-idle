@@ -17,19 +17,19 @@ public partial class Loader : Node
         _root.flashVer = getVersion();
         var kongregate = _global.kongregate;
         kongregate.services.connect();
-        _root.kongregate.stats.submit("Version Playing",_root.upnumber);
+        _root.kongregate.stats.submit("Version Playing", _root.upnumber);
         _root.offlineVersion = false;
-        if(_root.kongregate_username == undefined)
+        if (_root.kongregate_username == undefined)
         {
             _root.kongregate_username = "Guest";
             _root.offlineVersion = true;
         }
-        var globalSetting = SharedObject.getLocal("ATG_Global","/");
+        var globalSetting = SharedObject.getLocal("ATG_Global", "/");
         // TODO: load from save
         //_root.saveGlobal = _root.globalSetting;
         Stage.showMenu = false;
-        fscommand("trapallkeys",true);
-        if(_root.kongregate_username == undefined && _root.saveGlobal.aurianMode != true)
+        fscommand("trapallkeys", true);
+        if (_root.kongregate_username == undefined && _root.saveGlobal.aurianMode != true)
         {
             Stage.scaleMode = "noScale";
         }
@@ -42,7 +42,6 @@ public partial class Loader : Node
         _root.refresh_month = 0;
         _root.refresh_date = 0;
     }
-    public override void _Process(double delta)
-    {
-    }
+
+    public override void _Process(double delta) { }
 }

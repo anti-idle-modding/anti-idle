@@ -1,11 +1,12 @@
+using System;
 using AntiIdle.Common.Nodes;
 using Godot;
-using System;
 
 public partial class FightStat2 : FlashColorRect
 {
     double targetAlpha;
     string fightTextX;
+
     [Export]
     public Label fightText2;
 
@@ -20,8 +21,8 @@ public partial class FightStat2 : FlashColorRect
 
     // MATCH: DefineSprite_6014/frame_1/PlaceObject2_4945_2982/CLIPACTIONRECORD onClipEvent(enterFrame).as
     public override void _Process(double delta)
-    {  
-         if (fightTextX != _root.fightStat2 || _root.updateFightStatB == 1)
+    {
+        if (fightTextX != _root.fightStat2 || _root.updateFightStatB == 1)
         {
             _root.updateFightStatB = 0;
             fightTextX = _root.fightStat2;
@@ -33,15 +34,14 @@ public partial class FightStat2 : FlashColorRect
         }
         targetAlpha -= 40 * delta;
         _alpha = (float)targetAlpha;
-        if(_alpha > 100)
+        if (_alpha > 100)
         {
             _alpha = 100;
         }
-        if(_alpha < 0)
+        if (_alpha < 0)
         {
             _alpha = 0;
             fightText2.Text = "";
         }
     }
-
 }

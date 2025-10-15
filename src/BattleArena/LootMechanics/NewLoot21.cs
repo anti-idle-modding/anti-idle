@@ -1,5 +1,6 @@
 using AntiIdle.Common.Nodes;
 using Godot;
+
 namespace AntiIdle.BattleArena.LootMechanics;
 
 //TO DO attach to asset
@@ -36,7 +37,12 @@ public partial class NewLoot21 : FlashNode2D
         _root.gainCareerEXP(4, 5000 * amntToGain, true);
         _root.save.arenaTukkonium += amntToGain;
         _root.dispNews(185, "Found " + amntToGain + " [Tukkonium]!");
-        _root.house.arena.showDamage("Tukkonium +" + _root.withComma(amntToGain), 16777215, _X, _Y - 20);
+        _root.house.arena.showDamage(
+            "Tukkonium +" + _root.withComma(amntToGain),
+            16777215,
+            _X,
+            _Y - 20
+        );
     }
 
     public override void _Ready()
@@ -61,7 +67,10 @@ public partial class NewLoot21 : FlashNode2D
             {
                 _X = 80;
             }
-            else if (_root.save.activityLoot == true && (_root.cursoridle < 5 || _root.arenaBot > 0 && _root.arenaBot < 2400))
+            else if (
+                _root.save.activityLoot == true
+                && (_root.cursoridle < 5 || _root.arenaBot > 0 && _root.arenaBot < 2400)
+            )
             {
                 _X = 80;
             }
@@ -89,7 +98,10 @@ public partial class NewLoot21 : FlashNode2D
             if (_Y > 0)
             {
                 xVel *= 0.98;
-                if (_root.save.activityLoot == true && (_root.cursoridle < 5 || _root.arenaBot > 0 && _root.arenaBot < 2400))
+                if (
+                    _root.save.activityLoot == true
+                    && (_root.cursoridle < 5 || _root.arenaBot > 0 && _root.arenaBot < 2400)
+                )
                 {
                     xVel -= 1;
                     if (_root.save.bouncyLoot == false)
@@ -122,7 +134,14 @@ public partial class NewLoot21 : FlashNode2D
             if (xalpha > 0)
             {
                 xalpha -= 100 / _root.fps;
-                if (_X < 85 || _xmouse >= -25 && _xmouse <= 25 && _ymouse >= -50 && _ymouse <= 5 && _root.cursoridle < 60)
+                if (
+                    _X < 85
+                    || _xmouse >= -25
+                        && _xmouse <= 25
+                        && _ymouse >= -50
+                        && _ymouse <= 5
+                        && _root.cursoridle < 60
+                )
                 {
                     _root.save.arenaLoot += 1;
                     getLoot();

@@ -1,9 +1,11 @@
 using Godot;
+
 namespace AntiIdle.Common.Nodes;
 
 public partial class FileChallengeSelect : FlashButton
 {
     AnimationPlayer anim;
+
     // MATCH: frame_11/PlaceObject2_2379_64/CLIPACTIONRECORD onClipEvent(load).as:checkFrame()
     public void checkFrame()
     {
@@ -22,11 +24,13 @@ public partial class FileChallengeSelect : FlashButton
         }
         anim.Play();
     }
+
     // MATCH: frame_11/PlaceObject2_2379_64/CLIPACTIONRECORD onClipEvent(enterFrame).as
     public override void _Process(double delta)
     {
         checkFrame();
     }
+
     // MATCH: frame_11/PlaceObject2_2379_64/CLIPACTIONRECORD onClipEvent(load).as
     public override void _Ready()
     {
@@ -41,7 +45,9 @@ public partial class FileChallengeSelect : FlashButton
         if (Input.IsMouseButtonPressed(MouseButton.Left))
         {
             // TODO: code in challenge unlock check
-            if (/* _root.saveGlobal.challengeUnlocked == true */ true)
+            if ( /* _root.saveGlobal.challengeUnlocked == true */
+                true
+            )
             {
                 if (_root.saveGlobal.selectedSave != 5)
                 {

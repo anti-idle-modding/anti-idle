@@ -1,5 +1,6 @@
 using AntiIdle.Common.Nodes;
 using Godot;
+
 namespace AntiIdle.BattleArena.LootMechanics;
 
 //TO DO attach to asset
@@ -29,14 +30,23 @@ public partial class NewLoot8 : FlashNode2D
                 _root.save.questCount += 1;
             }
         }
-        if (_root.save.arenaZone == 44 && _root.save.questType == "Loot" && _root.save.questSubtype == "Roflhunter\'s Ring" && Math.random() < 0.5)
+        if (
+            _root.save.arenaZone == 44
+            && _root.save.questType == "Loot"
+            && _root.save.questSubtype == "Roflhunter\'s Ring"
+            && Math.random() < 0.5
+        )
         {
             _root.save.questCount += 1;
             _root.dispNews(44, "Found new Ring! [Roflhunter\'s Ring]");
         }
         else
         {
-            if (_root.save.arenaZone >= 50 && _root.save.arenaZone <= 54 || _root.save.arenaZone == 78 || _root.save.arenaZone >= 85 && _root.save.arenaZone <= 91)
+            if (
+                _root.save.arenaZone >= 50 && _root.save.arenaZone <= 54
+                || _root.save.arenaZone == 78
+                || _root.save.arenaZone >= 85 && _root.save.arenaZone <= 91
+            )
             {
                 ringType = random(22) + 1;
             }
@@ -64,32 +74,62 @@ public partial class NewLoot8 : FlashNode2D
                 if (powerType == 1)
                 {
                     _root.save.arenaAttack += amntToGain;
-                    _root.house.arena.showDamage("Attack +" + _root.withComma(amntToGain), 16711680, _X, _Y - 50);
+                    _root.house.arena.showDamage(
+                        "Attack +" + _root.withComma(amntToGain),
+                        16711680,
+                        _X,
+                        _Y - 50
+                    );
                 }
                 else if (powerType == 2)
                 {
                     _root.save.arenaDefense += amntToGain;
-                    _root.house.arena.showDamage("Defense +" + _root.withComma(amntToGain), 16711680, _X, _Y - 50);
+                    _root.house.arena.showDamage(
+                        "Defense +" + _root.withComma(amntToGain),
+                        16711680,
+                        _X,
+                        _Y - 50
+                    );
                 }
                 else if (powerType == 3)
                 {
                     _root.save.arenaMaxHealth += 10 * amntToGain;
-                    _root.house.arena.showDamage("MaxHP +" + _root.withComma(10 * amntToGain), 16711680, _X, _Y - 50);
+                    _root.house.arena.showDamage(
+                        "MaxHP +" + _root.withComma(10 * amntToGain),
+                        16711680,
+                        _X,
+                        _Y - 50
+                    );
                 }
                 else if (powerType == 4)
                 {
                     _root.save.arenaMaxMana += 4 * amntToGain;
-                    _root.house.arena.showDamage("MaxMP +" + _root.withComma(4 * amntToGain), 16711680, _X, _Y - 50);
+                    _root.house.arena.showDamage(
+                        "MaxMP +" + _root.withComma(4 * amntToGain),
+                        16711680,
+                        _X,
+                        _Y - 50
+                    );
                 }
                 else if (powerType == 5)
                 {
                     _root.save.arenaAccuracy += 2 * Math.ceil(amntToGain / 4.5);
-                    _root.house.arena.showDamage("Accuracy +" + _root.withComma(Math.ceil(amntToGain / 4.5)), 16711680, _X, _Y - 50);
+                    _root.house.arena.showDamage(
+                        "Accuracy +" + _root.withComma(Math.ceil(amntToGain / 4.5)),
+                        16711680,
+                        _X,
+                        _Y - 50
+                    );
                 }
                 else if (powerType == 6)
                 {
                     _root.save.arenaEvasion += 2 * Math.ceil(amntToGain / 4.5);
-                    _root.house.arena.showDamage("Evasion +" + _root.withComma(Math.ceil(amntToGain / 4.5)), 16711680, _X, _Y - 50);
+                    _root.house.arena.showDamage(
+                        "Evasion +" + _root.withComma(Math.ceil(amntToGain / 4.5)),
+                        16711680,
+                        _X,
+                        _Y - 50
+                    );
                 }
                 else if (powerType == 7)
                 {
@@ -110,7 +150,11 @@ public partial class NewLoot8 : FlashNode2D
                             _root.house.arena.showDamage("Reward Buff +10s", 16711680, _X, _Y - 50);
                         }
                     }
-                    else if (_root.save.arenaBuffDuration < 6000 && _root.save.arenaBuffType < 4 && Math.random() < 0.3)
+                    else if (
+                        _root.save.arenaBuffDuration < 6000
+                        && _root.save.arenaBuffType < 4
+                        && Math.random() < 0.3
+                    )
                     {
                         _root.save.arenaBuffDuration += 1;
                         _root.house.arena.showDamage("Buff Duration +1s", 16711680, _X, _Y - 50);
@@ -118,7 +162,12 @@ public partial class NewLoot8 : FlashNode2D
                     else
                     {
                         _root.save.arenaExp += 1000 * amntToGain;
-                        _root.house.arena.showDamage("A.EXP +" + _root.withComma(1000 * amntToGain), 10092288, _X, _Y - 50);
+                        _root.house.arena.showDamage(
+                            "A.EXP +" + _root.withComma(1000 * amntToGain),
+                            10092288,
+                            _X,
+                            _Y - 50
+                        );
                     }
                 }
             }
@@ -130,7 +179,33 @@ public partial class NewLoot8 : FlashNode2D
         var _ = Position;
         leftChance = 0.3;
         magneticChance = 1;
-        ringArray = new(["", "Health", "Mana", "Power", "Speed", "Mastery", "Critical", "Defense", "Reflection", "Accuracy", "Evasion", "Leech", "Chaos", "Encounter", "Experience", "Greed", "Protection", "Luck", "Combo", "Chronos", "Rage", "Resistance", "Cruelty"]);
+        ringArray = new(
+            [
+                "",
+                "Health",
+                "Mana",
+                "Power",
+                "Speed",
+                "Mastery",
+                "Critical",
+                "Defense",
+                "Reflection",
+                "Accuracy",
+                "Evasion",
+                "Leech",
+                "Chaos",
+                "Encounter",
+                "Experience",
+                "Greed",
+                "Protection",
+                "Luck",
+                "Combo",
+                "Chronos",
+                "Rage",
+                "Resistance",
+                "Cruelty",
+            ]
+        );
         _X = x;
         _Y = y - 50;
         xVel = Math.random() * 2;
@@ -149,7 +224,10 @@ public partial class NewLoot8 : FlashNode2D
             {
                 _X = 80;
             }
-            else if (_root.save.activityLoot == true && (_root.cursoridle < 5 || _root.arenaBot > 0 && _root.arenaBot < 2400))
+            else if (
+                _root.save.activityLoot == true
+                && (_root.cursoridle < 5 || _root.arenaBot > 0 && _root.arenaBot < 2400)
+            )
             {
                 _X = 80;
             }
@@ -175,7 +253,10 @@ public partial class NewLoot8 : FlashNode2D
         {
             del = 0;
             xVel *= 0.98;
-            if (_root.save.activityLoot == true && (_root.cursoridle < 5 || _root.arenaBot > 0 && _root.arenaBot < 2400))
+            if (
+                _root.save.activityLoot == true
+                && (_root.cursoridle < 5 || _root.arenaBot > 0 && _root.arenaBot < 2400)
+            )
             {
                 xVel -= 1;
                 if (_root.save.bouncyLoot == false)
@@ -204,7 +285,14 @@ public partial class NewLoot8 : FlashNode2D
             if (xalpha > 0)
             {
                 xalpha -= 100 / _root.fps;
-                if (_X < 85 || _xmouse >= -25 && _xmouse <= 25 && _ymouse >= -50 && _ymouse <= 5 && _root.cursoridle < 60)
+                if (
+                    _X < 85
+                    || _xmouse >= -25
+                        && _xmouse <= 25
+                        && _ymouse >= -50
+                        && _ymouse <= 5
+                        && _root.cursoridle < 60
+                )
                 {
                     _root.save.arenaLoot += 1;
                     getLoot();

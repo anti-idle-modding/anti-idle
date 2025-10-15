@@ -1,5 +1,5 @@
-using Godot;
 using System;
+using Godot;
 
 public partial class Camera2d : Camera2D
 {
@@ -7,5 +7,4 @@ public partial class Camera2d : Camera2D
     {
         Position = Position with { X = Position.X - 1 };
     }
-
 }

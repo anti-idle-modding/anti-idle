@@ -1,4 +1,3 @@
-
 namespace AntiIdle.Pages.Main;
 
 public class OfflineProg

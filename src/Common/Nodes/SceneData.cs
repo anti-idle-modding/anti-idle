@@ -1,4 +1,3 @@
-
 using Godot;
 
 namespace AntiIdle.Common.Nodes;
@@ -12,7 +11,6 @@ public partial class SceneData : Control
     {
         m.Show(sceneName);
     }
-
 
     public void Unload()
     {

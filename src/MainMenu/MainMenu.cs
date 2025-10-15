@@ -1,34 +1,46 @@
+using System;
 using AntiIdle.Common.Nodes;
 using Godot;
-using System;
 
 // MATCH: frame_11/DoAction.as
 public partial class MainMenu : Control
 {
     [Export]
     public Label file0PlayTime;
+
     [Export]
     public Label file0Level;
+
     [Export]
     public Label file0Ascs;
+
     [Export]
     public Label file1PlayTime;
+
     [Export]
     public Label file1Level;
+
     [Export]
     public Label file1Ascs;
+
     [Export]
     public Label file2PlayTime;
+
     [Export]
     public Label file2Level;
+
     [Export]
     public Label file2Ascs;
+
     [Export]
     public Label file3PlayTime;
+
     [Export]
     public Label file3Level;
+
     [Export]
     public Label file3Ascs;
+
     [Export]
     public Label challengesDone;
 

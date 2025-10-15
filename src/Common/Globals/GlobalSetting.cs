@@ -79,10 +79,15 @@ public class GlobalSetting
 
     public object this[string key]
     {
-        get => GetType().GetField(key)?.GetValue(this) ?? throw new ArgumentException($"Property `{key}` not found");
+        get =>
+            GetType().GetField(key)?.GetValue(this) ?? throw new ArgumentException(
+                $"Property `{key}` not found"
+            );
         set
         {
-            var prop = GetType().GetField(key) ?? throw new ArgumentException($"Property `{key}` not found");
+            var prop =
+                GetType().GetField(key)
+                ?? throw new ArgumentException($"Property `{key}` not found");
             prop.SetValue(this, value);
         }
     }

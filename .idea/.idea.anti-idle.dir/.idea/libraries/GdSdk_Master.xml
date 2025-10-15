@@ -1,6 +1,10 @@
 <component name="libraryTable">
   <library name="GdSdk Master" type="GdScript">
-    <properties path="C:\Users\xy\AppData\Local\JetBrains\Rider2024.3\projects\.idea.anti-idle.dir.b17696f5\sdk\GdSdk Master" version="Master" date="2024-06-01T15:14:16.000+02:00" />
+    <properties
+      path="C:\Users\xy\AppData\Local\JetBrains\Rider2024.3\projects\.idea.anti-idle.dir.b17696f5\sdk\GdSdk Master"
+      version="Master"
+      date="2024-06-01T15:14:16.000+02:00"
+    />
     <CLASSES />
     <JAVADOC />
     <SOURCES>

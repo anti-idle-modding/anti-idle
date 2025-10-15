@@ -1,6 +1,6 @@
-using Godot;
 using System;
 using System.Linq;
+using Godot;
 using Math = AntiIdle.Common.Flash.Math;
 
 // MATCH: frame_5/DoAction.as
@@ -166,7 +166,12 @@ public partial class Loading4OutOf8 : Control
         }
         if (_root.saveid <= 3)
         {
-            if (_root.save.dbExp > 100 || _root.save.dbCoin > 100 || _root.save.dbGreenCoin > 100 || _root.save.dbBlueCoin > 100)
+            if (
+                _root.save.dbExp > 100
+                || _root.save.dbCoin > 100
+                || _root.save.dbGreenCoin > 100
+                || _root.save.dbBlueCoin > 100
+            )
             {
                 if (_root.save.safeHacking == false && _root.save.submitScore == true)
                 {
@@ -220,7 +225,13 @@ public partial class Loading4OutOf8 : Control
             i = 101;
             while (i <= 124)
             {
-                if (_root.save.inventoryName[i] == "Pre-Explosion Hat" || _root.save.inventoryName[i] == "Pre-Explosion Shirt" || _root.save.inventoryName[i] == "Pre-Explosion Gloves" || _root.save.inventoryName[i] == "Pre-Explosion Pants" || _root.save.inventoryName[i] == "Pre-Explosion Shoes")
+                if (
+                    _root.save.inventoryName[i] == "Pre-Explosion Hat"
+                    || _root.save.inventoryName[i] == "Pre-Explosion Shirt"
+                    || _root.save.inventoryName[i] == "Pre-Explosion Gloves"
+                    || _root.save.inventoryName[i] == "Pre-Explosion Pants"
+                    || _root.save.inventoryName[i] == "Pre-Explosion Shoes"
+                )
                 {
                     _root.save.inventoryExpiry[i] = 7776000000 + _root.systemtimenow;
                 }
@@ -311,7 +322,10 @@ public partial class Loading4OutOf8 : Control
             i = 1;
             while (i <= 24)
             {
-                if (_root.save.inventoryName[i] == "Pre-Explosion Trophy" && _root.save.inventoryBonusPow[i] >= 175)
+                if (
+                    _root.save.inventoryName[i] == "Pre-Explosion Trophy"
+                    && _root.save.inventoryBonusPow[i] >= 175
+                )
                 {
                     _root.save.inventoryAttack[i] -= 175;
                     _root.save.inventoryBonusPow[i] -= 175;
@@ -327,7 +341,10 @@ public partial class Loading4OutOf8 : Control
             i = 1;
             while (i <= 24)
             {
-                if (_root.save.inventoryName[i] == "Pre-Explosion Trophy" && _root.save.inventoryBonusPow[i] >= 100)
+                if (
+                    _root.save.inventoryName[i] == "Pre-Explosion Trophy"
+                    && _root.save.inventoryBonusPow[i] >= 100
+                )
                 {
                     _root.save.inventoryAttack[i] -= _root.save.inventoryBonusPow[i];
                     _root.save.inventoryEnhance[i] = 10;
@@ -430,11 +447,21 @@ public partial class Loading4OutOf8 : Control
             i = 1;
             while (i <= 24)
             {
-                if (_root.save.inventoryName[i] == "Elite Grenades" || _root.save.inventoryName[i] == "Sword of Ascendant")
+                if (
+                    _root.save.inventoryName[i] == "Elite Grenades"
+                    || _root.save.inventoryName[i] == "Sword of Ascendant"
+                )
                 {
                     _root.save.inventoryNoLife[i] = true;
                 }
-                if (_root.save.inventoryName[i] == "Bronze Trophy" || _root.save.inventoryName[i] == "Silver Trophy" || _root.save.inventoryName[i] == "Gold Trophy" || _root.save.inventoryName[i] == "Bronze Endurance Trophy" || _root.save.inventoryName[i] == "Silver Endurance Trophy" || _root.save.inventoryName[i] == "Gold Endurance Trophy")
+                if (
+                    _root.save.inventoryName[i] == "Bronze Trophy"
+                    || _root.save.inventoryName[i] == "Silver Trophy"
+                    || _root.save.inventoryName[i] == "Gold Trophy"
+                    || _root.save.inventoryName[i] == "Bronze Endurance Trophy"
+                    || _root.save.inventoryName[i] == "Silver Endurance Trophy"
+                    || _root.save.inventoryName[i] == "Gold Endurance Trophy"
+                )
                 {
                     _root.save.inventoryNoLife[i] = true;
                 }
@@ -447,7 +474,22 @@ public partial class Loading4OutOf8 : Control
             i = 201;
             while (i <= 224)
             {
-                if (_root.save.inventoryName[i] == "Weapon Alien Rock Lv. 1" || _root.save.inventoryName[i] == "Weapon Alien Rock Lv. 2" || _root.save.inventoryName[i] == "Weapon Alien Rock Lv. 3" || _root.save.inventoryName[i] == "Weapon Alien Rock Lv. 4" || _root.save.inventoryName[i] == "Weapon Alien Rock Lv. 5" || _root.save.inventoryName[i] == "Weapon Alien Rock Lv. 6" || _root.save.inventoryName[i] == "Weapon Alien Rock Lv. 7" || _root.save.inventoryName[i] == "Armor Alien Rock Lv. 1" || _root.save.inventoryName[i] == "Armor Alien Rock Lv. 2" || _root.save.inventoryName[i] == "Armor Alien Rock Lv. 3" || _root.save.inventoryName[i] == "Armor Alien Rock Lv. 4" || _root.save.inventoryName[i] == "Armor Alien Rock Lv. 5" || _root.save.inventoryName[i] == "Armor Alien Rock Lv. 6" || _root.save.inventoryName[i] == "Armor Alien Rock Lv. 7")
+                if (
+                    _root.save.inventoryName[i] == "Weapon Alien Rock Lv. 1"
+                    || _root.save.inventoryName[i] == "Weapon Alien Rock Lv. 2"
+                    || _root.save.inventoryName[i] == "Weapon Alien Rock Lv. 3"
+                    || _root.save.inventoryName[i] == "Weapon Alien Rock Lv. 4"
+                    || _root.save.inventoryName[i] == "Weapon Alien Rock Lv. 5"
+                    || _root.save.inventoryName[i] == "Weapon Alien Rock Lv. 6"
+                    || _root.save.inventoryName[i] == "Weapon Alien Rock Lv. 7"
+                    || _root.save.inventoryName[i] == "Armor Alien Rock Lv. 1"
+                    || _root.save.inventoryName[i] == "Armor Alien Rock Lv. 2"
+                    || _root.save.inventoryName[i] == "Armor Alien Rock Lv. 3"
+                    || _root.save.inventoryName[i] == "Armor Alien Rock Lv. 4"
+                    || _root.save.inventoryName[i] == "Armor Alien Rock Lv. 5"
+                    || _root.save.inventoryName[i] == "Armor Alien Rock Lv. 6"
+                    || _root.save.inventoryName[i] == "Armor Alien Rock Lv. 7"
+                )
                 {
                     _root.save.inventoryAbility[i] = "";
                     _root.save.inventorySell[i] = 4000;
@@ -514,8 +556,21 @@ public partial class Loading4OutOf8 : Control
         if (_root.save.ver < 36)
         {
             _root.save.buttonPurple = _root.save.buttonPerfect;
-            _root.save.totalMMR = _root.save.highMMR[1] + _root.save.highMMR[2] + _root.save.highMMR[3] + _root.save.highMMR[4];
-            _root.save.arcade100kMedal = Math.floor((_root.save.totalPong + _root.save.totalAvoidance + _root.save.totalMath + _root.save.totalWhack + _root.save.totalMind + _root.save.totalMMR) / 133700);
+            _root.save.totalMMR =
+                _root.save.highMMR[1]
+                + _root.save.highMMR[2]
+                + _root.save.highMMR[3]
+                + _root.save.highMMR[4];
+            _root.save.arcade100kMedal = Math.floor(
+                (
+                    _root.save.totalPong
+                    + _root.save.totalAvoidance
+                    + _root.save.totalMath
+                    + _root.save.totalWhack
+                    + _root.save.totalMind
+                    + _root.save.totalMMR
+                ) / 133700
+            );
             _root.save.ver = 36;
         }
         if (_root.save.ver < 37)
@@ -541,7 +596,18 @@ public partial class Loading4OutOf8 : Control
         }
         if (_root.save.ver < 39)
         {
-            if (_root.save.petBestLevel > 0 && _root.save.petStat[1] + _root.save.petStat[2] + _root.save.petStat[3] + _root.save.petStat[4] + _root.save.petStat[5] + _root.save.petStat[6] + _root.save.petStat[7] + _root.save.petStat[8] < _root.save.petBestLevel * 8)
+            if (
+                _root.save.petBestLevel > 0
+                && _root.save.petStat[1]
+                    + _root.save.petStat[2]
+                    + _root.save.petStat[3]
+                    + _root.save.petStat[4]
+                    + _root.save.petStat[5]
+                    + _root.save.petStat[6]
+                    + _root.save.petStat[7]
+                    + _root.save.petStat[8]
+                    < _root.save.petBestLevel * 8
+            )
             {
                 _root.save.petExist = 1;
                 _root.save.petHealth = 100;
@@ -604,14 +670,26 @@ public partial class Loading4OutOf8 : Control
         }
         if (_root.save.ver < 42)
         {
-            _root.save.lolProfit += Math.floor(_root.save.petStat[7] * (0.5 + _root.save.petStat[7] / 2) * _root.save.lolPrice[10] * 0.92);
+            _root.save.lolProfit += Math.floor(
+                _root.save.petStat[7]
+                    * (0.5 + _root.save.petStat[7] / 2)
+                    * _root.save.lolPrice[10]
+                    * 0.92
+            );
             _root.save.ver = 42;
         }
         if (_root.save.ver < 43)
         {
-            if (_root.save.expGraph[5] >= 210000000000 || _root.save.expGraph[6] >= 210000000000 || _root.save.expGraph[7] >= 210000000000 || _root.save.lolProfit >= 2500000000 || isNaN(_root.save.lolProfit))
+            if (
+                _root.save.expGraph[5] >= 210000000000
+                || _root.save.expGraph[6] >= 210000000000
+                || _root.save.expGraph[7] >= 210000000000
+                || _root.save.lolProfit >= 2500000000
+                || isNaN(_root.save.lolProfit)
+            )
             {
-                _root.save.currentExp -= _root.save.expGraph[5] + _root.save.expGraph[6] + _root.save.expGraph[7];
+                _root.save.currentExp -=
+                    _root.save.expGraph[5] + _root.save.expGraph[6] + _root.save.expGraph[7];
                 if (_root.save.lolProfit > 200000000)
                 {
                     _root.save.lolProfit = 200000000;
@@ -645,7 +723,9 @@ public partial class Loading4OutOf8 : Control
                     var tempSS = _root.save.inventoryName[i].substr(1, 4);
                     if (tempSS == "[O] ")
                     {
-                        _root.save.inventoryName[i] = _root.save.inventoryName[i].substr(5, _root.save.inventoryName[i].Length);
+                        _root.save.inventoryName[i] = _root
+                            .save.inventoryName[i]
+                            .substr(5, _root.save.inventoryName[i].Length);
                         _root.save.inventoryDesc[i] = "Item obtained before The Explosion update.";
                     }
                 }
@@ -661,7 +741,9 @@ public partial class Loading4OutOf8 : Control
                     var tempSS = _root.save.inventoryName[i].substr(1, 4);
                     if (tempSS == "[O] ")
                     {
-                        _root.save.inventoryName[i] = _root.save.inventoryName[i].substr(5, _root.save.inventoryName[i].Length);
+                        _root.save.inventoryName[i] = _root
+                            .save.inventoryName[i]
+                            .substr(5, _root.save.inventoryName[i].Length);
                         _root.save.inventoryDesc[i] = "Item obtained before The Explosion update.";
                     }
                 }
@@ -956,7 +1038,10 @@ public partial class Loading4OutOf8 : Control
             i = 1;
             while (i <= 30)
             {
-                if (_root.save.inventoryDesc[i] == "Explosion Crate Reward" && _root.save.inventoryName[i] == "Elite Grenades")
+                if (
+                    _root.save.inventoryDesc[i] == "Explosion Crate Reward"
+                    && _root.save.inventoryName[i] == "Elite Grenades"
+                )
                 {
                     _root.save.inventoryAttack[i] -= 500;
                     _root.save.inventoryNoLife[i] = true;
@@ -985,7 +1070,11 @@ public partial class Loading4OutOf8 : Control
             {
                 if (_root.save.inventoryExist[i] == 1)
                 {
-                    if (_root.save.inventoryName[i] == "Burned Rope" || _root.save.inventoryName[i] == "Special Wand" || _root.save.inventoryName[i] == "Bronze Pickaxe")
+                    if (
+                        _root.save.inventoryName[i] == "Burned Rope"
+                        || _root.save.inventoryName[i] == "Special Wand"
+                        || _root.save.inventoryName[i] == "Bronze Pickaxe"
+                    )
                     {
                         _root.save.inventoryNoFuse[i] = true;
                     }
@@ -1109,11 +1198,19 @@ public partial class Loading4OutOf8 : Control
                 {
                     if (_root.save.inventoryAttack[i] > 0)
                     {
-                        _root.save.inventoryAttack[i] = Math.floor(_root.save.inventoryAttack[i] * 0.9);
-                        _root.save.inventorySpeed[i] = Math.floor(_root.save.inventorySpeed[i] * 0.9);
-                        _root.save.inventoryDefense[i] = Math.floor(_root.save.inventoryDefense[i] * 0.9);
+                        _root.save.inventoryAttack[i] = Math.floor(
+                            _root.save.inventoryAttack[i] * 0.9
+                        );
+                        _root.save.inventorySpeed[i] = Math.floor(
+                            _root.save.inventorySpeed[i] * 0.9
+                        );
+                        _root.save.inventoryDefense[i] = Math.floor(
+                            _root.save.inventoryDefense[i] * 0.9
+                        );
                         _root.save.inventoryCrit[i] = Math.floor(_root.save.inventoryCrit[i] * 0.9);
-                        _root.save.inventoryDexterity[i] = Math.floor(_root.save.inventoryDexterity[i] * 0.9);
+                        _root.save.inventoryDexterity[i] = Math.floor(
+                            _root.save.inventoryDexterity[i] * 0.9
+                        );
                     }
                     if (_root.save.inventoryName[i] == "Sword of Ascendant")
                     {
@@ -1214,7 +1311,10 @@ public partial class Loading4OutOf8 : Control
             i = 1;
             while (i <= 330)
             {
-                if (_root.save.inventoryName[i] == "Special Wand" && _root.save.inventoryNoLife[i] == true)
+                if (
+                    _root.save.inventoryName[i] == "Special Wand"
+                    && _root.save.inventoryNoLife[i] == true
+                )
                 {
                     _root.save.inventoryNoLife[i] = false;
                     _root.save.inventoryExpiry[i] = Infinity;
@@ -1228,7 +1328,10 @@ public partial class Loading4OutOf8 : Control
             i = 1;
             while (i <= 330)
             {
-                if (_root.save.inventoryDesc[i] == "Explosion Crate Reward" && _root.save.inventoryName[i] == "Elite Grenades")
+                if (
+                    _root.save.inventoryDesc[i] == "Explosion Crate Reward"
+                    && _root.save.inventoryName[i] == "Elite Grenades"
+                )
                 {
                     _root.save.inventoryAttack[i] += 500;
                 }
@@ -1269,7 +1372,10 @@ public partial class Loading4OutOf8 : Control
             {
                 if (_root.save.inventoryNoFuse[i] == true)
                 {
-                    if (_root.save.inventoryDesc[i].indexOf("Pickaxe") != -1 && _root.save.inventorySpeed[i] > 15)
+                    if (
+                        _root.save.inventoryDesc[i].indexOf("Pickaxe") != -1
+                        && _root.save.inventorySpeed[i] > 15
+                    )
                     {
                         _root.save.inventorySpeed[i] = 7;
                     }
@@ -1287,9 +1393,14 @@ public partial class Loading4OutOf8 : Control
             i = 1;
             while (i <= 330)
             {
-                if (_root.save.inventoryName[i] == "Special Wand" && _root.save.inventorySpeed[i] < 8 + Math.floor(_root.save.inventoryBonusPow[i] / 10))
+                if (
+                    _root.save.inventoryName[i] == "Special Wand"
+                    && _root.save.inventorySpeed[i]
+                        < 8 + Math.floor(_root.save.inventoryBonusPow[i] / 10)
+                )
                 {
-                    _root.save.inventorySpeed[i] = 8 + Math.floor(_root.save.inventoryBonusPow[i] / 10);
+                    _root.save.inventorySpeed[i] =
+                        8 + Math.floor(_root.save.inventoryBonusPow[i] / 10);
                 }
                 i++;
             }
@@ -1300,7 +1411,10 @@ public partial class Loading4OutOf8 : Control
             i = 1;
             while (i <= 330)
             {
-                if (_root.save.inventoryName[i] == "Burned Rope" && _root.save.inventoryNoLife[i] == true)
+                if (
+                    _root.save.inventoryName[i] == "Burned Rope"
+                    && _root.save.inventoryNoLife[i] == true
+                )
                 {
                     _root.save.inventoryNoLife[i] = false;
                     _root.save.inventoryExpiry[i] = Infinity;
@@ -1314,9 +1428,26 @@ public partial class Loading4OutOf8 : Control
             i = 1;
             while (i <= 330)
             {
-                if (_root.save.inventoryName[i] == "Special Wand" && _root.save.inventorySpeed[i] > 9 + Math.floor(_root.save.inventoryBonusPow[i] / 20 - _root.save.inventoryCrit[i] / 10 - _root.save.inventoryDexterity[i] / 10 - _root.save.inventoryHealth[i] / 10))
+                if (
+                    _root.save.inventoryName[i] == "Special Wand"
+                    && _root.save.inventorySpeed[i]
+                        > 9
+                            + Math.floor(
+                                _root.save.inventoryBonusPow[i] / 20
+                                    - _root.save.inventoryCrit[i] / 10
+                                    - _root.save.inventoryDexterity[i] / 10
+                                    - _root.save.inventoryHealth[i] / 10
+                            )
+                )
                 {
-                    _root.save.inventorySpeed[i] = 9 + Math.floor(_root.save.inventoryBonusPow[i] / 20 - _root.save.inventoryCrit[i] / 10 - _root.save.inventoryDexterity[i] / 10 - _root.save.inventoryHealth[i] / 10);
+                    _root.save.inventorySpeed[i] =
+                        9
+                        + Math.floor(
+                            _root.save.inventoryBonusPow[i] / 20
+                                - _root.save.inventoryCrit[i] / 10
+                                - _root.save.inventoryDexterity[i] / 10
+                                - _root.save.inventoryHealth[i] / 10
+                        );
                 }
                 i++;
             }
@@ -1370,20 +1501,29 @@ public partial class Loading4OutOf8 : Control
                 {
                     if (_root.save.inventoryType[i] == "Weapon")
                     {
-                        _root.save.inventoryDefense[i] += Math.floor(_root.save.inventoryLevel[i] / 2) * 2;
-                        _root.save.inventoryBonusPow[i] += Math.floor(_root.save.inventoryLevel[i] / 2) * 4;
+                        _root.save.inventoryDefense[i] +=
+                            Math.floor(_root.save.inventoryLevel[i] / 2) * 2;
+                        _root.save.inventoryBonusPow[i] +=
+                            Math.floor(_root.save.inventoryLevel[i] / 2) * 4;
                     }
                     if (_root.save.inventoryType[i] == "Armor")
                     {
-                        _root.save.inventoryAttack[i] += Math.floor(_root.save.inventoryLevel[i] / 2) * 1;
-                        _root.save.inventoryBonusPow[i] += Math.floor(_root.save.inventoryLevel[i] / 2) * 4;
+                        _root.save.inventoryAttack[i] +=
+                            Math.floor(_root.save.inventoryLevel[i] / 2) * 1;
+                        _root.save.inventoryBonusPow[i] +=
+                            Math.floor(_root.save.inventoryLevel[i] / 2) * 4;
                     }
-                    _root.save.inventoryDexterity[i] += Math.floor(_root.save.inventoryLevel[i] / 3) * 1;
-                    _root.save.inventoryBonusPow[i] += Math.floor(_root.save.inventoryLevel[i] / 3) * 10;
-                    _root.save.inventoryHealth[i] += Math.floor(_root.save.inventoryLevel[i] / 4) * 1;
-                    _root.save.inventoryBonusPow[i] += Math.floor(_root.save.inventoryLevel[i] / 4) * 10;
+                    _root.save.inventoryDexterity[i] +=
+                        Math.floor(_root.save.inventoryLevel[i] / 3) * 1;
+                    _root.save.inventoryBonusPow[i] +=
+                        Math.floor(_root.save.inventoryLevel[i] / 3) * 10;
+                    _root.save.inventoryHealth[i] +=
+                        Math.floor(_root.save.inventoryLevel[i] / 4) * 1;
+                    _root.save.inventoryBonusPow[i] +=
+                        Math.floor(_root.save.inventoryLevel[i] / 4) * 10;
                     _root.save.inventoryCrit[i] += Math.floor(_root.save.inventoryLevel[i] / 5) * 1;
-                    _root.save.inventoryBonusPow[i] += Math.floor(_root.save.inventoryLevel[i] / 5) * 10;
+                    _root.save.inventoryBonusPow[i] +=
+                        Math.floor(_root.save.inventoryLevel[i] / 5) * 10;
                 }
                 i++;
             }
@@ -1394,7 +1534,16 @@ public partial class Loading4OutOf8 : Control
             i = 1;
             while (i <= 330)
             {
-                if (_root.save.inventoryName[i] == "Epic Fire Staff" || _root.save.inventoryName[i] == "Epic Ice Staff" || _root.save.inventoryName[i] == "Epic Wind Staff" || _root.save.inventoryName[i] == "Epic Earth Staff" || _root.save.inventoryName[i] == "Epic Thunder Staff" || _root.save.inventoryName[i] == "Epic Water Staff" || _root.save.inventoryName[i] == "Light Glaive" || _root.save.inventoryName[i] == "Dark Glaive")
+                if (
+                    _root.save.inventoryName[i] == "Epic Fire Staff"
+                    || _root.save.inventoryName[i] == "Epic Ice Staff"
+                    || _root.save.inventoryName[i] == "Epic Wind Staff"
+                    || _root.save.inventoryName[i] == "Epic Earth Staff"
+                    || _root.save.inventoryName[i] == "Epic Thunder Staff"
+                    || _root.save.inventoryName[i] == "Epic Water Staff"
+                    || _root.save.inventoryName[i] == "Light Glaive"
+                    || _root.save.inventoryName[i] == "Dark Glaive"
+                )
                 {
                     if (_root.save.inventoryNoFuse[i] == true)
                     {
@@ -1414,7 +1563,10 @@ public partial class Loading4OutOf8 : Control
             i = 1;
             while (i <= 330)
             {
-                if (_root.save.inventoryName[i] == "Glaive of Smiting" || _root.save.inventoryName[i] == "Darkglaive of Smiting")
+                if (
+                    _root.save.inventoryName[i] == "Glaive of Smiting"
+                    || _root.save.inventoryName[i] == "Darkglaive of Smiting"
+                )
                 {
                     _root.save.inventoryRange[i] = true;
                 }
@@ -1427,7 +1579,16 @@ public partial class Loading4OutOf8 : Control
             i = 1;
             while (i <= 330)
             {
-                if (_root.save.inventoryName[i] == "Epic Fire Staff" || _root.save.inventoryName[i] == "Epic Ice Staff" || _root.save.inventoryName[i] == "Epic Wind Staff" || _root.save.inventoryName[i] == "Epic Earth Staff" || _root.save.inventoryName[i] == "Epic Thunder Staff" || _root.save.inventoryName[i] == "Epic Water Staff" || _root.save.inventoryName[i] == "Light Glaive" || _root.save.inventoryName[i] == "Dark Glaive")
+                if (
+                    _root.save.inventoryName[i] == "Epic Fire Staff"
+                    || _root.save.inventoryName[i] == "Epic Ice Staff"
+                    || _root.save.inventoryName[i] == "Epic Wind Staff"
+                    || _root.save.inventoryName[i] == "Epic Earth Staff"
+                    || _root.save.inventoryName[i] == "Epic Thunder Staff"
+                    || _root.save.inventoryName[i] == "Epic Water Staff"
+                    || _root.save.inventoryName[i] == "Light Glaive"
+                    || _root.save.inventoryName[i] == "Dark Glaive"
+                )
                 {
                     _root.save.inventoryAttack[i] = 750;
                     _root.save.inventorySpeed[i] = 6;
@@ -1442,15 +1603,18 @@ public partial class Loading4OutOf8 : Control
                 }
                 if (_root.save.inventoryName[i] == "Glaive of Smiting")
                 {
-                    _root.save.inventoryDesc[i] = "When equipped with Holy Glory Armor (5 pieces): Damage +350%, Spawn Rate +20%\nShoots invisible projectiles!\nCannot be enhanced with Attack enhancers.";
+                    _root.save.inventoryDesc[i] =
+                        "When equipped with Holy Glory Armor (5 pieces): Damage +350%, Spawn Rate +20%\nShoots invisible projectiles!\nCannot be enhanced with Attack enhancers.";
                 }
                 if (_root.save.inventoryName[i] == "Darkglaive of Smiting")
                 {
-                    _root.save.inventoryDesc[i] = "When equipped with Dark Angel Armor (5 pieces): Damage +350%, Spawn Rate +25%\nShoots invisible projectiles!\nCannot be enhanced with Attack enhancers.";
+                    _root.save.inventoryDesc[i] =
+                        "When equipped with Dark Angel Armor (5 pieces): Damage +350%, Spawn Rate +25%\nShoots invisible projectiles!\nCannot be enhanced with Attack enhancers.";
                 }
                 if (_root.save.inventoryName[i] == "Fiend Glaive")
                 {
-                    _root.save.inventoryDesc[i] = "When equipped with Chaos Armor (5 pieces): Damage +350%, Spawn Rate +35%\n\nCannot be enhanced with Attack enhancers.";
+                    _root.save.inventoryDesc[i] =
+                        "When equipped with Chaos Armor (5 pieces): Damage +350%, Spawn Rate +35%\n\nCannot be enhanced with Attack enhancers.";
                 }
                 i++;
             }
@@ -1640,7 +1804,10 @@ public partial class Loading4OutOf8 : Control
             i = 1;
             while (i <= 600)
             {
-                if (_root.save.inventoryName[i] == "First Medal" || _root.save.inventoryName[i] == "Arena Champion")
+                if (
+                    _root.save.inventoryName[i] == "First Medal"
+                    || _root.save.inventoryName[i] == "Arena Champion"
+                )
                 {
                     _root.save.inventoryNoUnique[i] = false;
                 }
@@ -1707,13 +1874,99 @@ public partial class Loading4OutOf8 : Control
                 i++;
             }
             _root.save.arenaTotalSkill = 0;
-            _root.save.arenaSkillMax = new([0, 30, 30, 30, 30, 10, 0, 0, 0, 10, 10, 20, 20, 30, 30, 30, 20, 0, 30, 10, 30, 10, 30, 30, 10, 30, 1, 10, 10, 20, 30, 10, 30, 30, 50, 50, 30, 10, 30, 10, 20, 10, 20, 10, 20, 30, 0, 0, 0, 1, 30, 10, 10, 30, 20, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]);
+            _root.save.arenaSkillMax = new(
+                [
+                    0,
+                    30,
+                    30,
+                    30,
+                    30,
+                    10,
+                    0,
+                    0,
+                    0,
+                    10,
+                    10,
+                    20,
+                    20,
+                    30,
+                    30,
+                    30,
+                    20,
+                    0,
+                    30,
+                    10,
+                    30,
+                    10,
+                    30,
+                    30,
+                    10,
+                    30,
+                    1,
+                    10,
+                    10,
+                    20,
+                    30,
+                    10,
+                    30,
+                    30,
+                    50,
+                    50,
+                    30,
+                    10,
+                    30,
+                    10,
+                    20,
+                    10,
+                    20,
+                    10,
+                    20,
+                    30,
+                    0,
+                    0,
+                    0,
+                    1,
+                    30,
+                    10,
+                    10,
+                    30,
+                    20,
+                    10,
+                    10,
+                    10,
+                    10,
+                    10,
+                    10,
+                    10,
+                    10,
+                    10,
+                    10,
+                    10,
+                    10,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                ]
+            );
             i = 26;
             while (i <= 100)
             {
                 if (i != 26 && i != 51 && i != 76)
                 {
-                    _root.save.gardenBreedTotal += Math.floor(_root.save.gardenSeed[i] * 1.2 + _root.save.gardenMastery[i]);
+                    _root.save.gardenBreedTotal += Math.floor(
+                        _root.save.gardenSeed[i] * 1.2 + _root.save.gardenMastery[i]
+                    );
                 }
                 i++;
             }
@@ -1727,7 +1980,10 @@ public partial class Loading4OutOf8 : Control
                 }
                 if (_root.save.inventoryName[i] == "Unobtainium Pickaxe")
                 {
-                    if (_root.save.inventoryExpiry[i] != Infinity || _root.save.inventoryCrit[i] == 21)
+                    if (
+                        _root.save.inventoryExpiry[i] != Infinity
+                        || _root.save.inventoryCrit[i] == 21
+                    )
                     {
                         _root.save.arenaKillEpic += 1500;
                     }
@@ -1929,15 +2185,18 @@ public partial class Loading4OutOf8 : Control
             {
                 if (_root.save.inventoryName[i] == "Glaive of Smiting")
                 {
-                    _root.save.inventoryDesc[i] = "When equipped with Holy Glory Armor (5 pieces): Damage +200%, Spawn Rate +20%\nShoots invisible projectiles!\nCannot be enhanced with Attack enhancers.";
+                    _root.save.inventoryDesc[i] =
+                        "When equipped with Holy Glory Armor (5 pieces): Damage +200%, Spawn Rate +20%\nShoots invisible projectiles!\nCannot be enhanced with Attack enhancers.";
                 }
                 if (_root.save.inventoryName[i] == "Darkglaive of Smiting")
                 {
-                    _root.save.inventoryDesc[i] = "When equipped with Dark Angel Armor (5 pieces): Damage +225%, Spawn Rate +25%\nShoots invisible projectiles!\nCannot be enhanced with Attack enhancers.";
+                    _root.save.inventoryDesc[i] =
+                        "When equipped with Dark Angel Armor (5 pieces): Damage +225%, Spawn Rate +25%\nShoots invisible projectiles!\nCannot be enhanced with Attack enhancers.";
                 }
                 if (_root.save.inventoryName[i] == "Fiend Glaive")
                 {
-                    _root.save.inventoryDesc[i] = "When equipped with Chaos Armor (5 pieces): Damage +250%, Spawn Rate +35%\n\nCannot be enhanced with Attack enhancers.";
+                    _root.save.inventoryDesc[i] =
+                        "When equipped with Chaos Armor (5 pieces): Damage +250%, Spawn Rate +35%\n\nCannot be enhanced with Attack enhancers.";
                 }
                 if (_root.save.inventoryName[i] == "Pendant of Selectivity")
                 {
@@ -1946,7 +2205,11 @@ public partial class Loading4OutOf8 : Control
                 i++;
             }
             _root.save.breakignore9002 = true;
-            if (_root.kongregate_username == "Tukkun" || _root.kongregate_username == undefined || _root.saveid == 4)
+            if (
+                _root.kongregate_username == "Tukkun"
+                || _root.kongregate_username == undefined
+                || _root.saveid == 4
+            )
             {
                 _root.save.breakignore9002 = false;
             }
@@ -2000,7 +2263,15 @@ public partial class Loading4OutOf8 : Control
         }
         if (_root.save.ver < 471)
         {
-            _root.save.stadiumAbilityCost = _root.save.stadiumEnergy + _root.save.stadiumAccel + _root.save.stadiumMaxSpeed + _root.save.stadiumStartSpeed + _root.save.stadiumDash + _root.save.stadiumJump + _root.save.stadiumBoost + _root.save.stadiumReward;
+            _root.save.stadiumAbilityCost =
+                _root.save.stadiumEnergy
+                + _root.save.stadiumAccel
+                + _root.save.stadiumMaxSpeed
+                + _root.save.stadiumStartSpeed
+                + _root.save.stadiumDash
+                + _root.save.stadiumJump
+                + _root.save.stadiumBoost
+                + _root.save.stadiumReward;
             _root.save.ver = 471;
         }
         if (_root.save.ver < 472)
@@ -2085,7 +2356,11 @@ public partial class Loading4OutOf8 : Control
             i = 1;
             while (i <= 600)
             {
-                if (_root.save.inventoryBonus[i] == "Enhancer Filter" || _root.save.inventoryBonus[i] == "Enhancer Level" || _root.save.inventoryBonus[i] == "Enhancer Rarity")
+                if (
+                    _root.save.inventoryBonus[i] == "Enhancer Filter"
+                    || _root.save.inventoryBonus[i] == "Enhancer Level"
+                    || _root.save.inventoryBonus[i] == "Enhancer Rarity"
+                )
                 {
                     _root.save.inventoryBonus[i] = "Epic Monster Rate";
                 }
@@ -2100,16 +2375,25 @@ public partial class Loading4OutOf8 : Control
             {
                 if (_root.save.inventoryExist[i] == 1)
                 {
-                    if (_root.save.inventoryNoFuse[i] == false && _root.save.inventoryDesc[i].indexOf("Fused Item") != -1)
+                    if (
+                        _root.save.inventoryNoFuse[i] == false
+                        && _root.save.inventoryDesc[i].indexOf("Fused Item") != -1
+                    )
                     {
                         _root.save.inventoryNoFuse[i] = true;
-                        var TFP = _root.save.inventoryAttack[i] + _root.save.inventoryDefense[i] * 1.6 - _root.save.inventoryEnhance[i] * 50;
+                        var TFP =
+                            _root.save.inventoryAttack[i]
+                            + _root.save.inventoryDefense[i] * 1.6
+                            - _root.save.inventoryEnhance[i] * 50;
                         if (TFP >= 600)
                         {
-                            _root.save.inventorySell[i] = Math.floor(_root.save.inventorySell[i] * 5);
+                            _root.save.inventorySell[i] = Math.floor(
+                                _root.save.inventorySell[i] * 5
+                            );
                             _root.save.inventoryNoLife[i] = true;
                             _root.save.inventoryExpiry[i] = 0;
-                            _root.save.inventoryDesc[i] += "\n\nThis item is blocked to be further investigated. If you believe your item is wrongfully blocked, please post in the forum thread.";
+                            _root.save.inventoryDesc[i] +=
+                                "\n\nThis item is blocked to be further investigated. If you believe your item is wrongfully blocked, please post in the forum thread.";
                         }
                     }
                 }
@@ -2161,117 +2445,195 @@ public partial class Loading4OutOf8 : Control
                     {
                         _root.save.inventoryAttack[i] += 25;
                         _root.save.inventoryUnob[i] = 10;
-                        _root.save.inventoryDesc[i] = "When equipped: Magic Resist +15%, Negate Effect Chance +15%\n\nWhen equipped with Fairy Godmother Armor (5 pieces): Potion Efficiency +500%, Spawn Rate +30%";
+                        _root.save.inventoryDesc[i] =
+                            "When equipped: Magic Resist +15%, Negate Effect Chance +15%\n\nWhen equipped with Fairy Godmother Armor (5 pieces): Potion Efficiency +500%, Spawn Rate +30%";
                     }
-                    if (_root.save.inventoryBonusPow[i] >= 7000 || _root.save.inventoryAttack[i] >= 3100 || _root.save.inventoryDefense[i] >= 1900 || _root.save.inventoryCrit[i] >= 250 || _root.save.inventoryDexterity[i] >= 250 || _root.save.inventoryHealth[i] >= 250)
+                    if (
+                        _root.save.inventoryBonusPow[i] >= 7000
+                        || _root.save.inventoryAttack[i] >= 3100
+                        || _root.save.inventoryDefense[i] >= 1900
+                        || _root.save.inventoryCrit[i] >= 250
+                        || _root.save.inventoryDexterity[i] >= 250
+                        || _root.save.inventoryHealth[i] >= 250
+                    )
                     {
                         _root.save.inventoryNoLife[i] = true;
                         _root.save.inventoryExpiry[i] = 0;
-                        _root.save.inventoryDesc[i] += "\n\nThis item is blocked to be further investigated. If you believe your item is wrongfully blocked, please post in the forum thread.";
+                        _root.save.inventoryDesc[i] +=
+                            "\n\nThis item is blocked to be further investigated. If you believe your item is wrongfully blocked, please post in the forum thread.";
                     }
                     if (_root.save.inventoryType[i] == "Enhancer")
                     {
-                        if (_root.save.inventorySubtype[i] == "Weapon Attack Enhancer" && _root.save.inventoryAttack[i] >= 56 && _root.save.inventoryName[i] != "Relic")
+                        if (
+                            _root.save.inventorySubtype[i] == "Weapon Attack Enhancer"
+                            && _root.save.inventoryAttack[i] >= 56
+                            && _root.save.inventoryName[i] != "Relic"
+                        )
                         {
                             _root.save.inventoryNoLife[i] = true;
                             _root.save.inventoryExpiry[i] = 0;
-                            _root.save.inventoryDesc[i] += "\n\nThis item is blocked to be further investigated. If you believe your item is wrongfully blocked, please post in the forum thread.";
+                            _root.save.inventoryDesc[i] +=
+                                "\n\nThis item is blocked to be further investigated. If you believe your item is wrongfully blocked, please post in the forum thread.";
                         }
-                        if (_root.save.inventorySubtype[i] == "Armor Attack Enhancer" && _root.save.inventoryAttack[i] >= 23)
+                        if (
+                            _root.save.inventorySubtype[i] == "Armor Attack Enhancer"
+                            && _root.save.inventoryAttack[i] >= 23
+                        )
                         {
                             _root.save.inventoryNoLife[i] = true;
                             _root.save.inventoryExpiry[i] = 0;
-                            _root.save.inventoryDesc[i] += "\n\nThis item is blocked to be further investigated. If you believe your item is wrongfully blocked, please post in the forum thread.";
+                            _root.save.inventoryDesc[i] +=
+                                "\n\nThis item is blocked to be further investigated. If you believe your item is wrongfully blocked, please post in the forum thread.";
                         }
-                        if (_root.save.inventorySubtype[i] == "Weapon Speed Enhancer" && _root.save.inventoryAttack[i] >= 4)
+                        if (
+                            _root.save.inventorySubtype[i] == "Weapon Speed Enhancer"
+                            && _root.save.inventoryAttack[i] >= 4
+                        )
                         {
                             _root.save.inventoryNoLife[i] = true;
                             _root.save.inventoryExpiry[i] = 0;
-                            _root.save.inventoryDesc[i] += "\n\nThis item is blocked to be further investigated. If you believe your item is wrongfully blocked, please post in the forum thread.";
+                            _root.save.inventoryDesc[i] +=
+                                "\n\nThis item is blocked to be further investigated. If you believe your item is wrongfully blocked, please post in the forum thread.";
                         }
-                        if (_root.save.inventorySubtype[i] == "Armor Speed Enhancer" && _root.save.inventoryAttack[i] >= 4)
+                        if (
+                            _root.save.inventorySubtype[i] == "Armor Speed Enhancer"
+                            && _root.save.inventoryAttack[i] >= 4
+                        )
                         {
                             _root.save.inventoryNoLife[i] = true;
                             _root.save.inventoryExpiry[i] = 0;
-                            _root.save.inventoryDesc[i] += "\n\nThis item is blocked to be further investigated. If you believe your item is wrongfully blocked, please post in the forum thread.";
+                            _root.save.inventoryDesc[i] +=
+                                "\n\nThis item is blocked to be further investigated. If you believe your item is wrongfully blocked, please post in the forum thread.";
                         }
-                        if (_root.save.inventorySubtype[i] == "Weapon Defense Enhancer" && _root.save.inventoryAttack[i] >= 100)
+                        if (
+                            _root.save.inventorySubtype[i] == "Weapon Defense Enhancer"
+                            && _root.save.inventoryAttack[i] >= 100
+                        )
                         {
                             _root.save.inventoryNoLife[i] = true;
                             _root.save.inventoryExpiry[i] = 0;
-                            _root.save.inventoryDesc[i] += "\n\nThis item is blocked to be further investigated. If you believe your item is wrongfully blocked, please post in the forum thread.";
+                            _root.save.inventoryDesc[i] +=
+                                "\n\nThis item is blocked to be further investigated. If you believe your item is wrongfully blocked, please post in the forum thread.";
                         }
-                        if (_root.save.inventorySubtype[i] == "Armor Defense Enhancer" && _root.save.inventoryAttack[i] >= 34)
+                        if (
+                            _root.save.inventorySubtype[i] == "Armor Defense Enhancer"
+                            && _root.save.inventoryAttack[i] >= 34
+                        )
                         {
                             _root.save.inventoryNoLife[i] = true;
                             _root.save.inventoryExpiry[i] = 0;
-                            _root.save.inventoryDesc[i] += "\n\nThis item is blocked to be further investigated. If you believe your item is wrongfully blocked, please post in the forum thread.";
+                            _root.save.inventoryDesc[i] +=
+                                "\n\nThis item is blocked to be further investigated. If you believe your item is wrongfully blocked, please post in the forum thread.";
                         }
-                        if (_root.save.inventorySubtype[i] == "Weapon Critical Enhancer" && _root.save.inventoryAttack[i] >= 12)
+                        if (
+                            _root.save.inventorySubtype[i] == "Weapon Critical Enhancer"
+                            && _root.save.inventoryAttack[i] >= 12
+                        )
                         {
                             _root.save.inventoryNoLife[i] = true;
                             _root.save.inventoryExpiry[i] = 0;
-                            _root.save.inventoryDesc[i] += "\n\nThis item is blocked to be further investigated. If you believe your item is wrongfully blocked, please post in the forum thread.";
+                            _root.save.inventoryDesc[i] +=
+                                "\n\nThis item is blocked to be further investigated. If you believe your item is wrongfully blocked, please post in the forum thread.";
                         }
-                        if (_root.save.inventorySubtype[i] == "Armor Critical Enhancer" && _root.save.inventoryAttack[i] >= 12)
+                        if (
+                            _root.save.inventorySubtype[i] == "Armor Critical Enhancer"
+                            && _root.save.inventoryAttack[i] >= 12
+                        )
                         {
                             _root.save.inventoryNoLife[i] = true;
                             _root.save.inventoryExpiry[i] = 0;
-                            _root.save.inventoryDesc[i] += "\n\nThis item is blocked to be further investigated. If you believe your item is wrongfully blocked, please post in the forum thread.";
+                            _root.save.inventoryDesc[i] +=
+                                "\n\nThis item is blocked to be further investigated. If you believe your item is wrongfully blocked, please post in the forum thread.";
                         }
-                        if (_root.save.inventorySubtype[i] == "Weapon Dexterity Enhancer" && _root.save.inventoryAttack[i] >= 12)
+                        if (
+                            _root.save.inventorySubtype[i] == "Weapon Dexterity Enhancer"
+                            && _root.save.inventoryAttack[i] >= 12
+                        )
                         {
                             _root.save.inventoryNoLife[i] = true;
                             _root.save.inventoryExpiry[i] = 0;
-                            _root.save.inventoryDesc[i] += "\n\nThis item is blocked to be further investigated. If you believe your item is wrongfully blocked, please post in the forum thread.";
+                            _root.save.inventoryDesc[i] +=
+                                "\n\nThis item is blocked to be further investigated. If you believe your item is wrongfully blocked, please post in the forum thread.";
                         }
-                        if (_root.save.inventorySubtype[i] == "Armor Dexterity Enhancer" && _root.save.inventoryAttack[i] >= 12)
+                        if (
+                            _root.save.inventorySubtype[i] == "Armor Dexterity Enhancer"
+                            && _root.save.inventoryAttack[i] >= 12
+                        )
                         {
                             _root.save.inventoryNoLife[i] = true;
                             _root.save.inventoryExpiry[i] = 0;
-                            _root.save.inventoryDesc[i] += "\n\nThis item is blocked to be further investigated. If you believe your item is wrongfully blocked, please post in the forum thread.";
+                            _root.save.inventoryDesc[i] +=
+                                "\n\nThis item is blocked to be further investigated. If you believe your item is wrongfully blocked, please post in the forum thread.";
                         }
-                        if (_root.save.inventorySubtype[i] == "Weapon Health Enhancer" && _root.save.inventoryAttack[i] >= 12)
+                        if (
+                            _root.save.inventorySubtype[i] == "Weapon Health Enhancer"
+                            && _root.save.inventoryAttack[i] >= 12
+                        )
                         {
                             _root.save.inventoryNoLife[i] = true;
                             _root.save.inventoryExpiry[i] = 0;
-                            _root.save.inventoryDesc[i] += "\n\nThis item is blocked to be further investigated. If you believe your item is wrongfully blocked, please post in the forum thread.";
+                            _root.save.inventoryDesc[i] +=
+                                "\n\nThis item is blocked to be further investigated. If you believe your item is wrongfully blocked, please post in the forum thread.";
                         }
-                        if (_root.save.inventorySubtype[i] == "Armor Health Enhancer" && _root.save.inventoryAttack[i] >= 12)
+                        if (
+                            _root.save.inventorySubtype[i] == "Armor Health Enhancer"
+                            && _root.save.inventoryAttack[i] >= 12
+                        )
                         {
                             _root.save.inventoryNoLife[i] = true;
                             _root.save.inventoryExpiry[i] = 0;
-                            _root.save.inventoryDesc[i] += "\n\nThis item is blocked to be further investigated. If you believe your item is wrongfully blocked, please post in the forum thread.";
+                            _root.save.inventoryDesc[i] +=
+                                "\n\nThis item is blocked to be further investigated. If you believe your item is wrongfully blocked, please post in the forum thread.";
                         }
-                        if (_root.save.inventorySubtype[i] == "Weapon Mystery Enhancer" && _root.save.inventoryAttack[i] >= 12)
+                        if (
+                            _root.save.inventorySubtype[i] == "Weapon Mystery Enhancer"
+                            && _root.save.inventoryAttack[i] >= 12
+                        )
                         {
                             _root.save.inventoryNoLife[i] = true;
                             _root.save.inventoryExpiry[i] = 0;
-                            _root.save.inventoryDesc[i] += "\n\nThis item is blocked to be further investigated. If you believe your item is wrongfully blocked, please post in the forum thread.";
+                            _root.save.inventoryDesc[i] +=
+                                "\n\nThis item is blocked to be further investigated. If you believe your item is wrongfully blocked, please post in the forum thread.";
                         }
-                        if (_root.save.inventorySubtype[i] == "Armor Mystery Enhancer" && _root.save.inventoryAttack[i] >= 12)
+                        if (
+                            _root.save.inventorySubtype[i] == "Armor Mystery Enhancer"
+                            && _root.save.inventoryAttack[i] >= 12
+                        )
                         {
                             _root.save.inventoryNoLife[i] = true;
                             _root.save.inventoryExpiry[i] = 0;
-                            _root.save.inventoryDesc[i] += "\n\nThis item is blocked to be further investigated. If you believe your item is wrongfully blocked, please post in the forum thread.";
+                            _root.save.inventoryDesc[i] +=
+                                "\n\nThis item is blocked to be further investigated. If you believe your item is wrongfully blocked, please post in the forum thread.";
                         }
-                        if (_root.save.inventorySubtype[i] == "Weapon Unique Enhancer" && _root.save.inventoryAttack[i] >= 101)
+                        if (
+                            _root.save.inventorySubtype[i] == "Weapon Unique Enhancer"
+                            && _root.save.inventoryAttack[i] >= 101
+                        )
                         {
                             _root.save.inventoryNoLife[i] = true;
                             _root.save.inventoryExpiry[i] = 0;
-                            _root.save.inventoryDesc[i] += "\n\nThis item is blocked to be further investigated. If you believe your item is wrongfully blocked, please post in the forum thread.";
+                            _root.save.inventoryDesc[i] +=
+                                "\n\nThis item is blocked to be further investigated. If you believe your item is wrongfully blocked, please post in the forum thread.";
                         }
-                        if (_root.save.inventorySubtype[i] == "Armor Unique Enhancer" && _root.save.inventoryAttack[i] >= 101)
+                        if (
+                            _root.save.inventorySubtype[i] == "Armor Unique Enhancer"
+                            && _root.save.inventoryAttack[i] >= 101
+                        )
                         {
                             _root.save.inventoryNoLife[i] = true;
                             _root.save.inventoryExpiry[i] = 0;
-                            _root.save.inventoryDesc[i] += "\n\nThis item is blocked to be further investigated. If you believe your item is wrongfully blocked, please post in the forum thread.";
+                            _root.save.inventoryDesc[i] +=
+                                "\n\nThis item is blocked to be further investigated. If you believe your item is wrongfully blocked, please post in the forum thread.";
                         }
-                        if (_root.save.inventorySubtype[i] == "Accessory Unique Enhancer" && _root.save.inventoryAttack[i] >= 101)
+                        if (
+                            _root.save.inventorySubtype[i] == "Accessory Unique Enhancer"
+                            && _root.save.inventoryAttack[i] >= 101
+                        )
                         {
                             _root.save.inventoryNoLife[i] = true;
                             _root.save.inventoryExpiry[i] = 0;
-                            _root.save.inventoryDesc[i] += "\n\nThis item is blocked to be further investigated. If you believe your item is wrongfully blocked, please post in the forum thread.";
+                            _root.save.inventoryDesc[i] +=
+                                "\n\nThis item is blocked to be further investigated. If you believe your item is wrongfully blocked, please post in the forum thread.";
                         }
                     }
                 }
@@ -2307,7 +2669,8 @@ public partial class Loading4OutOf8 : Control
                     if (_root.save.inventoryName[i] == "Fairy Godmother Wand")
                     {
                         _root.save.inventoryAttack[i] += 25;
-                        _root.save.inventoryDesc[i] = "When equipped: Magic Resist +15%, Negate Effect Chance +15%\n\nWhen equipped with Fairy Godmother Armor (5 pieces): Potion Efficiency +500%, Spawn Rate +40%";
+                        _root.save.inventoryDesc[i] =
+                            "When equipped: Magic Resist +15%, Negate Effect Chance +15%\n\nWhen equipped with Fairy Godmother Armor (5 pieces): Potion Efficiency +500%, Spawn Rate +40%";
                     }
                     if (_root.save.inventoryName[i].indexOf("Crimson") != -1)
                     {
@@ -2379,9 +2742,14 @@ public partial class Loading4OutOf8 : Control
                     {
                         _root.save.inventoryDefense[i] += 20;
                     }
-                    else if (_root.save.inventoryName[i].indexOf("Epic") != -1 && _root.save.inventoryName[i].indexOf("Staff") != -1 && _root.save.inventoryReqRank[i] < 500)
+                    else if (
+                        _root.save.inventoryName[i].indexOf("Epic") != -1
+                        && _root.save.inventoryName[i].indexOf("Staff") != -1
+                        && _root.save.inventoryReqRank[i] < 500
+                    )
                     {
-                        _root.save.inventoryReqRank[i] = (_root.save.inventoryReqRank[i] - 200) * 10 + 200;
+                        _root.save.inventoryReqRank[i] =
+                            (_root.save.inventoryReqRank[i] - 200) * 10 + 200;
                     }
                 }
                 i++;
@@ -2399,11 +2767,15 @@ public partial class Loading4OutOf8 : Control
                     {
                         _root.save.inventoryDefense[i] += 20;
                     }
-                    else if (_root.save.inventoryName[i] == "Light Glaive" || _root.save.inventoryName[i] == "Dark Glaive")
+                    else if (
+                        _root.save.inventoryName[i] == "Light Glaive"
+                        || _root.save.inventoryName[i] == "Dark Glaive"
+                    )
                     {
                         if (_root.save.inventoryReqRank[i] < 500)
                         {
-                            _root.save.inventoryReqRank[i] = (_root.save.inventoryReqRank[i] - 200) * 10 + 200;
+                            _root.save.inventoryReqRank[i] =
+                                (_root.save.inventoryReqRank[i] - 200) * 10 + 200;
                         }
                     }
                 }
@@ -2434,14 +2806,20 @@ public partial class Loading4OutOf8 : Control
             {
                 if (_root.save.inventoryExist[i] == 1)
                 {
-                    if (_root.save.inventoryName[i].indexOf("Epic") != -1 && _root.save.inventoryName[i].indexOf("Staff") != -1)
+                    if (
+                        _root.save.inventoryName[i].indexOf("Epic") != -1
+                        && _root.save.inventoryName[i].indexOf("Staff") != -1
+                    )
                     {
                         if (_root.save.inventoryReqRank[i] > _root.save.arenaLevel)
                         {
                             _root.save.inventoryReqRank[i] = _root.save.arenaLevel;
                         }
                     }
-                    else if (_root.save.inventoryName[i] == "Light Glaive" || _root.save.inventoryName[i] == "Dark Glaive")
+                    else if (
+                        _root.save.inventoryName[i] == "Light Glaive"
+                        || _root.save.inventoryName[i] == "Dark Glaive"
+                    )
                     {
                         if (_root.save.inventoryReqRank[i] > _root.save.arenaLevel)
                         {
@@ -2464,7 +2842,8 @@ public partial class Loading4OutOf8 : Control
                     {
                         _root.save.inventoryExpiry[i] = Infinity;
                         _root.save.inventoryNoLife[i] = false;
-                        _root.save.inventoryDesc[i] = "A one-of-a-kind Loot Magnet awarded for winning an auction. Now to place it in the Storage and never use it.";
+                        _root.save.inventoryDesc[i] =
+                            "A one-of-a-kind Loot Magnet awarded for winning an auction. Now to place it in the Storage and never use it.";
                     }
                 }
                 i++;
@@ -2526,11 +2905,17 @@ public partial class Loading4OutOf8 : Control
                 if (_root.save.inventoryExist[i] == 1)
                 {
                     _root.save.inventorySell[i] = Math.floor(_root.save.inventorySell[i] * 4);
-                    if (_root.save.inventoryReqRank[i] < 0 && !isNaN(_root.save.inventoryReqRank[i]))
+                    if (
+                        _root.save.inventoryReqRank[i] < 0
+                        && !isNaN(_root.save.inventoryReqRank[i])
+                    )
                     {
                         _root.save.inventoryReqRank[i] = 1;
                     }
-                    if (_root.save.inventoryMoreBonus[i] == "Pixel / Loot" || _root.save.inventoryMoreBonus[i] == "Material / Loot")
+                    if (
+                        _root.save.inventoryMoreBonus[i] == "Pixel / Loot"
+                        || _root.save.inventoryMoreBonus[i] == "Material / Loot"
+                    )
                     {
                         _root.save.inventoryMoreBonus[i] = "EXP / Rare Kill";
                     }
@@ -2545,7 +2930,10 @@ public partial class Loading4OutOf8 : Control
                             _root.save.arenaUnobtainium += 2000;
                         }
                     }
-                    if (_root.save.inventoryName[i] == "Dominator Gem" && _root.save.inventoryDefense[i] > 81)
+                    if (
+                        _root.save.inventoryName[i] == "Dominator Gem"
+                        && _root.save.inventoryDefense[i] > 81
+                    )
                     {
                         _root.save.dominatorBonus += _root.save.inventoryDefense[i] - 81;
                         _root.save.inventoryDefense[i] = 81;
@@ -2644,25 +3032,56 @@ public partial class Loading4OutOf8 : Control
                     {
                         _root.save.inventoryBonusPow[i] -= 150;
                     }
-                    if (_root.save.inventoryName[i] == "Premium Sword (1)" || _root.save.inventoryName[i] == "Premium Sword (2)" || _root.save.inventoryName[i] == "Premium Sword (3)" || _root.save.inventoryName[i] == "Cursed Sword (1)" || _root.save.inventoryName[i] == "Cursed Sword (2)" || _root.save.inventoryName[i] == "Cursed Sword (3)")
+                    if (
+                        _root.save.inventoryName[i] == "Premium Sword (1)"
+                        || _root.save.inventoryName[i] == "Premium Sword (2)"
+                        || _root.save.inventoryName[i] == "Premium Sword (3)"
+                        || _root.save.inventoryName[i] == "Cursed Sword (1)"
+                        || _root.save.inventoryName[i] == "Cursed Sword (2)"
+                        || _root.save.inventoryName[i] == "Cursed Sword (3)"
+                    )
                     {
                         _root.save.inventoryBonusPow[i] -= 66;
                     }
-                    if (_root.save.inventoryName[i] == "Elite Hat" || _root.save.inventoryName[i] == "Elite Shirt" || _root.save.inventoryName[i] == "Elite Gloves" || _root.save.inventoryName[i] == "Elite Pants" || _root.save.inventoryName[i] == "Elite Shoes")
+                    if (
+                        _root.save.inventoryName[i] == "Elite Hat"
+                        || _root.save.inventoryName[i] == "Elite Shirt"
+                        || _root.save.inventoryName[i] == "Elite Gloves"
+                        || _root.save.inventoryName[i] == "Elite Pants"
+                        || _root.save.inventoryName[i] == "Elite Shoes"
+                    )
                     {
                         _root.save.inventoryBonusPow[i] -= 60;
                     }
-                    if (_root.save.inventoryName[i] == "Defensive Hat" || _root.save.inventoryName[i] == "Defensive Shirt" || _root.save.inventoryName[i] == "Defensive Gloves" || _root.save.inventoryName[i] == "Defensive Pants" || _root.save.inventoryName[i] == "Defensive Shoes")
+                    if (
+                        _root.save.inventoryName[i] == "Defensive Hat"
+                        || _root.save.inventoryName[i] == "Defensive Shirt"
+                        || _root.save.inventoryName[i] == "Defensive Gloves"
+                        || _root.save.inventoryName[i] == "Defensive Pants"
+                        || _root.save.inventoryName[i] == "Defensive Shoes"
+                    )
                     {
                         _root.save.inventoryBonusPow[i] -= 30;
                         _root.save.inventoryDefense[i] += 10;
                     }
-                    if (_root.save.inventoryName[i] == "Pure Darkness Hat" || _root.save.inventoryName[i] == "Pure Darkness Shirt" || _root.save.inventoryName[i] == "Pure Darkness Gloves" || _root.save.inventoryName[i] == "Pure Darkness Pants" || _root.save.inventoryName[i] == "Pure Darkness Shoes")
+                    if (
+                        _root.save.inventoryName[i] == "Pure Darkness Hat"
+                        || _root.save.inventoryName[i] == "Pure Darkness Shirt"
+                        || _root.save.inventoryName[i] == "Pure Darkness Gloves"
+                        || _root.save.inventoryName[i] == "Pure Darkness Pants"
+                        || _root.save.inventoryName[i] == "Pure Darkness Shoes"
+                    )
                     {
                         _root.save.inventoryBonusPow[i] -= 60;
                         _root.save.inventoryDefense[i] += 20;
                     }
-                    if (_root.save.inventoryName[i] == "Crimson Hat" || _root.save.inventoryName[i] == "Crimson Shirt" || _root.save.inventoryName[i] == "Crimson Gloves" || _root.save.inventoryName[i] == "Crimson Pants" || _root.save.inventoryName[i] == "Crimson Shoes")
+                    if (
+                        _root.save.inventoryName[i] == "Crimson Hat"
+                        || _root.save.inventoryName[i] == "Crimson Shirt"
+                        || _root.save.inventoryName[i] == "Crimson Gloves"
+                        || _root.save.inventoryName[i] == "Crimson Pants"
+                        || _root.save.inventoryName[i] == "Crimson Shoes"
+                    )
                     {
                         _root.save.inventoryBonusPow[i] -= 120;
                         _root.save.inventoryDefense[i] += 40;
@@ -2671,10 +3090,14 @@ public partial class Loading4OutOf8 : Control
                     {
                         _root.save.inventoryEnhance[i] -= 1;
                     }
-                    if (_root.save.inventoryName[i].indexOf("Meteoric") != -1 && _root.save.inventoryType[i] == "Weapon")
+                    if (
+                        _root.save.inventoryName[i].indexOf("Meteoric") != -1
+                        && _root.save.inventoryType[i] == "Weapon"
+                    )
                     {
                         _root.save.inventoryUnob[i] = 20;
-                        _root.save.inventoryDesc[i] = "When equipped with Meteoric Armor (5 pieces): Spawn Rate +70%";
+                        _root.save.inventoryDesc[i] =
+                            "When equipped with Meteoric Armor (5 pieces): Spawn Rate +70%";
                     }
                 }
                 i++;
@@ -2692,10 +3115,14 @@ public partial class Loading4OutOf8 : Control
             {
                 if (_root.save.inventoryExist[i] == 1)
                 {
-                    if (_root.save.inventoryName[i].indexOf("Meteoric") != -1 && _root.save.inventoryType[i] == "Weapon")
+                    if (
+                        _root.save.inventoryName[i].indexOf("Meteoric") != -1
+                        && _root.save.inventoryType[i] == "Weapon"
+                    )
                     {
                         _root.save.inventoryUnob[i] = 20;
-                        _root.save.inventoryDesc[i] = "When equipped with Meteoric Armor (5 pieces): Spawn Rate +70%";
+                        _root.save.inventoryDesc[i] =
+                            "When equipped with Meteoric Armor (5 pieces): Spawn Rate +70%";
                     }
                 }
                 i++;
@@ -2820,26 +3247,34 @@ public partial class Loading4OutOf8 : Control
                     }
                     if (_root.save.inventoryName[i] == "Glaive of Smiting")
                     {
-                        _root.save.inventoryDesc[i] = "When equipped with Holy Glory Armor (5 pieces): Damage +200%, Spawn Rate +10%\nShoots invisible projectiles!\nCannot be enhanced with Attack enhancers.";
+                        _root.save.inventoryDesc[i] =
+                            "When equipped with Holy Glory Armor (5 pieces): Damage +200%, Spawn Rate +10%\nShoots invisible projectiles!\nCannot be enhanced with Attack enhancers.";
                     }
                     if (_root.save.inventoryName[i] == "Darkglaive of Smiting")
                     {
-                        _root.save.inventoryDesc[i] = "When equipped with Dark Angel Armor (5 pieces): Damage +225%, Spawn Rate +15%\nShoots invisible projectiles!\nCannot be enhanced with Attack enhancers.";
+                        _root.save.inventoryDesc[i] =
+                            "When equipped with Dark Angel Armor (5 pieces): Damage +225%, Spawn Rate +15%\nShoots invisible projectiles!\nCannot be enhanced with Attack enhancers.";
                     }
                     if (_root.save.inventoryName[i] == "Fiend Glaive")
                     {
-                        _root.save.inventoryDesc[i] = "When equipped with Chaos Armor (5 pieces): Damage +250%, Spawn Rate +25%\n\nCannot be enhanced with Attack enhancers.";
+                        _root.save.inventoryDesc[i] =
+                            "When equipped with Chaos Armor (5 pieces): Damage +250%, Spawn Rate +25%\n\nCannot be enhanced with Attack enhancers.";
                     }
                     if (_root.save.inventoryName[i] == "Pirate Sword")
                     {
-                        _root.save.inventoryDesc[i] = "A Pirate Sword. It allows you to get extra Coins and Pixels as you damage the monsters - the higher level the Pirate Sword gets, the more Coins and Pixels you get. The worst part is that before you attack, you must shout the skill name in pirate language. That\'s why you attack so slowly with this.";
+                        _root.save.inventoryDesc[i] =
+                            "A Pirate Sword. It allows you to get extra Coins and Pixels as you damage the monsters - the higher level the Pirate Sword gets, the more Coins and Pixels you get. The worst part is that before you attack, you must shout the skill name in pirate language. That\'s why you attack so slowly with this.";
                         if (_root.save.inventoryLevel[i] == 300)
                         {
                             _root.save.inventorySpeed[i] += 3;
-                            _root.save.inventoryDesc[i] = "Congratulations! You have mastered the pirate language (for this particular sword, at least), and as a result, you can attack twice as fast with this Pirate Sword equipped!";
+                            _root.save.inventoryDesc[i] =
+                                "Congratulations! You have mastered the pirate language (for this particular sword, at least), and as a result, you can attack twice as fast with this Pirate Sword equipped!";
                         }
                     }
-                    if (_root.save.inventorySubtype[i] == "Trinket" && _root.save.inventoryMaxLevel[i] == 500)
+                    if (
+                        _root.save.inventorySubtype[i] == "Trinket"
+                        && _root.save.inventoryMaxLevel[i] == 500
+                    )
                     {
                         _root.save.inventoryBonusPow[i] += _root.save.inventoryReqRank[i] - 1;
                         if (_root.save.inventoryReqRank[i] == 500)
@@ -2891,7 +3326,8 @@ public partial class Loading4OutOf8 : Control
                     }
                     if (_root.save.inventoryName[i] == "Gem of Constancy")
                     {
-                        _root.save.inventoryDesc[i] = "This gem gets more and more powerful as you fight with it equipped, but whenever you equip or unequip an item (including the Gem of Constancy itself), it will go back to its original state. Rumor says that something will happen when it reaches level 500...\n\nSpawn Rate +5% per piece of Finalized equipment equipped.";
+                        _root.save.inventoryDesc[i] =
+                            "This gem gets more and more powerful as you fight with it equipped, but whenever you equip or unequip an item (including the Gem of Constancy itself), it will go back to its original state. Rumor says that something will happen when it reaches level 500...\n\nSpawn Rate +5% per piece of Finalized equipment equipped.";
                     }
                 }
                 i++;
@@ -2937,7 +3373,10 @@ public partial class Loading4OutOf8 : Control
             {
                 if (_root.save.inventoryExist[i] == 1)
                 {
-                    if (_root.save.inventoryName[i] == "(MYSTERIOUS ITEM)" || _root.save.inventoryName[i] == "CHAOS GLOVES")
+                    if (
+                        _root.save.inventoryName[i] == "(MYSTERIOUS ITEM)"
+                        || _root.save.inventoryName[i] == "CHAOS GLOVES"
+                    )
                     {
                         _root.save.inventoryDexterity[i] += 50;
                     }
@@ -2967,7 +3406,10 @@ public partial class Loading4OutOf8 : Control
             {
                 if (_root.save.inventoryExist[i] == 1)
                 {
-                    if (_root.save.inventoryName[i] == "Ghost Shoes" && _root.save.inventoryEnhance[i] > 0)
+                    if (
+                        _root.save.inventoryName[i] == "Ghost Shoes"
+                        && _root.save.inventoryEnhance[i] > 0
+                    )
                     {
                         _root.save.inventoryAttack[i] = 27;
                         _root.save.inventorySpeed[i] = 7;
@@ -2995,13 +3437,17 @@ public partial class Loading4OutOf8 : Control
                     {
                         _root.save.inventoryExpTNL[i] = 90000000;
                     }
-                    if (_root.save.inventoryName[i].indexOf("Ghost") != -1 && _root.save.inventoryType[i] == "Armor")
+                    if (
+                        _root.save.inventoryName[i].indexOf("Ghost") != -1
+                        && _root.save.inventoryType[i] == "Armor"
+                    )
                     {
                         _root.save.inventoryDefense[i] += 200;
                     }
                     if (_root.save.inventoryName[i] == "Empowering Gem")
                     {
-                        _root.save.inventoryDesc[i] += "This gem allows you to deal extra damage to monsters. The more you use it, the better it becomes!\n\nWhen equipped with a Rank 200+ weapon: Damage +50%";
+                        _root.save.inventoryDesc[i] +=
+                            "This gem allows you to deal extra damage to monsters. The more you use it, the better it becomes!\n\nWhen equipped with a Rank 200+ weapon: Damage +50%";
                     }
                 }
                 i++;
@@ -3024,7 +3470,8 @@ public partial class Loading4OutOf8 : Control
                 {
                     if (_root.save.inventoryName[i] == "Empowering Gem")
                     {
-                        _root.save.inventoryDesc[i] = "This gem allows you to deal extra damage to monsters. The more you use it, the better it becomes!\n\nWhen equipped with a Rank 200+ weapon: Damage +50%";
+                        _root.save.inventoryDesc[i] =
+                            "This gem allows you to deal extra damage to monsters. The more you use it, the better it becomes!\n\nWhen equipped with a Rank 200+ weapon: Damage +50%";
                     }
                 }
                 i++;
@@ -3072,16 +3519,24 @@ public partial class Loading4OutOf8 : Control
             {
                 if (_root.save.inventoryExist[i] == 1)
                 {
-                    if (_root.save.inventoryType[i] == "Armor" && _root.save.inventoryReqRank[i] >= 450)
+                    if (
+                        _root.save.inventoryType[i] == "Armor"
+                        && _root.save.inventoryReqRank[i] >= 450
+                    )
                     {
-                        if (!_root.save.inventorySell.ContainsKey(i) || _root.save.inventoryName[i].Length <= 2)
+                        if (
+                            !_root.save.inventorySell.ContainsKey(i)
+                            || _root.save.inventoryName[i].Length <= 2
+                        )
                         {
                             _root.save.inventorySell[i] = _root.save.inventoryExpiry[i];
                             if (isNaN(_root.save.inventorySell[i]))
                             {
                                 _root.save.inventorySell[i] = 4000000;
                             }
-                            _root.save.inventoryExpiry[i] = Convert.ToDouble(_root.save.inventoryNoBonus[i]);
+                            _root.save.inventoryExpiry[i] = Convert.ToDouble(
+                                _root.save.inventoryNoBonus[i]
+                            );
                             if (isNaN(_root.save.inventoryExpiry[i]))
                             {
                                 _root.save.inventoryExpiry[i] = Infinity;
@@ -3091,7 +3546,9 @@ public partial class Loading4OutOf8 : Control
                             _root.save.inventoryNoFuse[i] = false;
                             _root.save.inventoryNoUnique[i] = false;
                             _root.save.inventorySpirit[i] = false;
-                            _root.save.inventoryUnob[i] = Convert.ToDouble(_root.save.inventoryName[i]);
+                            _root.save.inventoryUnob[i] = Convert.ToDouble(
+                                _root.save.inventoryName[i]
+                            );
                             if (isNaN(_root.save.inventoryUnob[i]))
                             {
                                 _root.save.inventoryUnob[i] = 0;
@@ -3105,7 +3562,8 @@ public partial class Loading4OutOf8 : Control
                             {
                                 tempName = "Samurai";
                             }
-                            _root.save.inventoryName[i] = tempName + " " + _root.save.inventorySubtype[i];
+                            _root.save.inventoryName[i] =
+                                tempName + " " + _root.save.inventorySubtype[i];
                             _root.save.inventoryDesc[i] = "";
                         }
                     }
@@ -3121,7 +3579,10 @@ public partial class Loading4OutOf8 : Control
             {
                 if (_root.save.inventoryExist[i] == 1)
                 {
-                    if (_root.save.inventoryName[i].indexOf("Samurai") != -1 || _root.save.inventoryName[i].indexOf("Dress") != -1)
+                    if (
+                        _root.save.inventoryName[i].indexOf("Samurai") != -1
+                        || _root.save.inventoryName[i].indexOf("Dress") != -1
+                    )
                     {
                         _root.save.inventorySell[i] = 5000000;
                     }
@@ -3137,9 +3598,16 @@ public partial class Loading4OutOf8 : Control
             {
                 if (_root.save.inventoryExist[i] == 1)
                 {
-                    if (_root.save.inventoryType[i] == "Armor" && _root.save.inventorySubtype[i] == "Shoes" && _root.save.inventoryFrame[i] == 150)
+                    if (
+                        _root.save.inventoryType[i] == "Armor"
+                        && _root.save.inventorySubtype[i] == "Shoes"
+                        && _root.save.inventoryFrame[i] == 150
+                    )
                     {
-                        if (!_root.save.inventorySell.ContainsKey(i) || _root.save.inventoryName[i].Length <= 2)
+                        if (
+                            !_root.save.inventorySell.ContainsKey(i)
+                            || _root.save.inventoryName[i].Length <= 2
+                        )
                         {
                             _root.save.inventorySell[i] = 0;
                             _root.save.inventoryExpiry[i] = Infinity;
@@ -3193,7 +3661,10 @@ public partial class Loading4OutOf8 : Control
             {
                 if (_root.save.inventoryExist[i] == 1)
                 {
-                    if (_root.save.inventoryName[i] == "Pirate Sword" && _root.save.inventoryLevel[i] == 9999)
+                    if (
+                        _root.save.inventoryName[i] == "Pirate Sword"
+                        && _root.save.inventoryLevel[i] == 9999
+                    )
                     {
                         _root.save.pirateSwordPenalty += _root.save.inventoryExp[i] * 10;
                     }
@@ -3216,7 +3687,8 @@ public partial class Loading4OutOf8 : Control
                     if (_root.save.inventoryName[i].indexOf("Crystal ") != -1)
                     {
                         _root.save.inventoryDefense[i] += _root.save.inventoryReqRank[i] - 400;
-                        _root.save.inventoryBonusPow[i] += _root.save.inventoryReqRank[i] * 2 - 1000;
+                        _root.save.inventoryBonusPow[i] +=
+                            _root.save.inventoryReqRank[i] * 2 - 1000;
                     }
                 }
                 i++;
@@ -3246,7 +3718,8 @@ public partial class Loading4OutOf8 : Control
                             _root.save.inventoryHealth[i] -= 20;
                             _root.save.inventoryDefense[i] -= 100;
                         }
-                        _root.save.inventoryDesc[i] = "When equipped with a Mining Tool: Drop Rate +50%, Spawn Rate +15%\n\nDropped by: Secret Crystal";
+                        _root.save.inventoryDesc[i] =
+                            "When equipped with a Mining Tool: Drop Rate +50%, Spawn Rate +15%\n\nDropped by: Secret Crystal";
                     }
                     if (_root.save.inventoryName[i] == "Nerf Accepted!")
                     {
@@ -3271,11 +3744,16 @@ public partial class Loading4OutOf8 : Control
                 {
                     if (_root.save.inventoryName[i] == "Yellow Madness Gem")
                     {
-                        _root.save.inventoryDesc[i] = "With this, you no longer suffer a 10% EXP penalty when fighting yellow-named monsters! It also increases your EXP gain rate and makes rare monsters more likely to appear! Isn\'t it awesome?";
+                        _root.save.inventoryDesc[i] =
+                            "With this, you no longer suffer a 10% EXP penalty when fighting yellow-named monsters! It also increases your EXP gain rate and makes rare monsters more likely to appear! Isn\'t it awesome?";
                     }
                     if (_root.save.inventoryType[i] == "Outfit")
                     {
-                        if (_root.save.inventoryName[i] == "Transparent Earrings" || _root.save.inventoryName[i] == "Yellow Skin" || _root.save.inventoryName[i] == "Invisible Skin")
+                        if (
+                            _root.save.inventoryName[i] == "Transparent Earrings"
+                            || _root.save.inventoryName[i] == "Yellow Skin"
+                            || _root.save.inventoryName[i] == "Invisible Skin"
+                        )
                         {
                             _root.save.inventoryBonusPow[i] = 16;
                         }
@@ -3296,7 +3774,13 @@ public partial class Loading4OutOf8 : Control
             {
                 if (_root.save.inventoryExist[i] == 1)
                 {
-                    if (_root.save.inventoryName[i] == "Ghost Hat" || _root.save.inventoryName[i] == "Ghost Shirt" || _root.save.inventoryName[i] == "Ghost Gloves" || _root.save.inventoryName[i] == "Ghost Pants" || _root.save.inventoryName[i] == "Ghost Shoes")
+                    if (
+                        _root.save.inventoryName[i] == "Ghost Hat"
+                        || _root.save.inventoryName[i] == "Ghost Shirt"
+                        || _root.save.inventoryName[i] == "Ghost Gloves"
+                        || _root.save.inventoryName[i] == "Ghost Pants"
+                        || _root.save.inventoryName[i] == "Ghost Shoes"
+                    )
                     {
                         _root.save.inventoryAttack[i] += 60;
                         _root.save.inventorySpeed[i] += 3;
@@ -3337,7 +3821,10 @@ public partial class Loading4OutOf8 : Control
             {
                 if (_root.save.inventoryExist[i] == 1)
                 {
-                    if (_root.save.inventorySubtype[i] == "Enhancer Success Enhancer" || _root.save.inventorySubtype[i] == "Enhancer Destruction Enhancer")
+                    if (
+                        _root.save.inventorySubtype[i] == "Enhancer Success Enhancer"
+                        || _root.save.inventorySubtype[i] == "Enhancer Destruction Enhancer"
+                    )
                     {
                         _root.save.eventToken += 100;
                     }
@@ -3381,7 +3868,10 @@ public partial class Loading4OutOf8 : Control
             {
                 if (_root.save.inventoryExist[i] == 1)
                 {
-                    if (_root.save.inventoryName[i] == "Worst Moon Gem" && _root.save.inventoryNoLife[i] == false)
+                    if (
+                        _root.save.inventoryName[i] == "Worst Moon Gem"
+                        && _root.save.inventoryNoLife[i] == false
+                    )
                     {
                         _root.save.inventoryExpiry[i] = Infinity;
                     }
@@ -3398,7 +3888,10 @@ public partial class Loading4OutOf8 : Control
             {
                 if (_root.save.inventoryExist[i] == 1)
                 {
-                    if (_root.save.inventoryLevel[i] < 9999 && _root.save.inventoryNoLife[i] == false)
+                    if (
+                        _root.save.inventoryLevel[i] < 9999
+                        && _root.save.inventoryNoLife[i] == false
+                    )
                     {
                         _root.save.inventoryExpiry[i] = Infinity;
                     }
@@ -3406,7 +3899,16 @@ public partial class Loading4OutOf8 : Control
                     {
                         _root.save.inventoryNoLife[i] = false;
                     }
-                    if (!_root.save.inventoryExist.ContainsKey(i) || !_root.save.inventoryExist.ContainsKey(i) || !_root.save.inventoryName.ContainsKey(i) || _root.save.inventorySubtype[i] == "Weapon Lifespan Extender" || _root.save.inventorySubtype[i] == "Armor Lifespan Extender" || _root.save.inventorySubtype[i] == "Accessory Lifespan Extender" || _root.save.inventorySubtype[i] == "Enhancer Success Enhancer" || _root.save.inventorySubtype[i] == "Enhancer Destruction Enhancer")
+                    if (
+                        !_root.save.inventoryExist.ContainsKey(i)
+                        || !_root.save.inventoryExist.ContainsKey(i)
+                        || !_root.save.inventoryName.ContainsKey(i)
+                        || _root.save.inventorySubtype[i] == "Weapon Lifespan Extender"
+                        || _root.save.inventorySubtype[i] == "Armor Lifespan Extender"
+                        || _root.save.inventorySubtype[i] == "Accessory Lifespan Extender"
+                        || _root.save.inventorySubtype[i] == "Enhancer Success Enhancer"
+                        || _root.save.inventorySubtype[i] == "Enhancer Destruction Enhancer"
+                    )
                     {
                         if (!_root.save.inventoryExist.ContainsKey(i))
                         {
@@ -3425,7 +3927,10 @@ public partial class Loading4OutOf8 : Control
             {
                 if (_root.save.inventoryExist[i] == 1)
                 {
-                    if (_root.save.inventoryName[i] == "Nerf Accepted!" && _root.save.inventoryEnhance[i] > 5)
+                    if (
+                        _root.save.inventoryName[i] == "Nerf Accepted!"
+                        && _root.save.inventoryEnhance[i] > 5
+                    )
                     {
                         _root.save.inventoryEnhance[i] = 5;
                         _root.save.inventoryLevel[i] = 5;
@@ -3498,7 +4003,10 @@ public partial class Loading4OutOf8 : Control
             {
                 if (_root.save.inventoryExist[i] == 1)
                 {
-                    if (_root.save.inventoryName[i] == "Neon Skin" && _root.save.inventoryUnob[i] == 6)
+                    if (
+                        _root.save.inventoryName[i] == "Neon Skin"
+                        && _root.save.inventoryUnob[i] == 6
+                    )
                     {
                         _root.save.inventoryUnob[i] = 7;
                     }
@@ -3830,7 +4338,10 @@ public partial class Loading4OutOf8 : Control
             {
                 if (_root.save.inventoryExist[i] == 1)
                 {
-                    if (_root.save.inventoryName[i].indexOf("Humblebee") != -1 && _root.save.inventoryExist[i] == 1)
+                    if (
+                        _root.save.inventoryName[i].indexOf("Humblebee") != -1
+                        && _root.save.inventoryExist[i] == 1
+                    )
                     {
                         hadHB = true;
                     }
@@ -3942,10 +4453,14 @@ public partial class Loading4OutOf8 : Control
             {
                 if (_root.save.inventoryExist[i] == 1)
                 {
-                    if (_root.save.inventorySubtype[i] == "Trinket" && _root.save.inventoryMaxLevel[i] == 500)
+                    if (
+                        _root.save.inventorySubtype[i] == "Trinket"
+                        && _root.save.inventoryMaxLevel[i] == 500
+                    )
                     {
                         _root.save.inventoryReqRank[i] = 1;
-                        _root.save.inventoryUnob[i] = Math.floor(_root.save.inventoryLevel[i] / 10) + 10;
+                        _root.save.inventoryUnob[i] =
+                            Math.floor(_root.save.inventoryLevel[i] / 10) + 10;
                         if (_root.save.inventoryUnob[i] < 0)
                         {
                             _root.save.inventoryUnob[i] = 0;
@@ -3963,7 +4478,8 @@ public partial class Loading4OutOf8 : Control
         }
         if (_root.save.ver < 575)
         {
-            _root.save.arenaExpExcess = _root.save.battlePoint - _root.save.arenaLevel - _root.save.bannedB * 1000;
+            _root.save.arenaExpExcess =
+                _root.save.battlePoint - _root.save.arenaLevel - _root.save.bannedB * 1000;
             _root.save.ver = 575;
         }
         if (_root.save.ver < 578)
@@ -3973,7 +4489,10 @@ public partial class Loading4OutOf8 : Control
             {
                 if (_root.save.inventoryExist[i] == 1)
                 {
-                    if (_root.save.inventoryName[i] == "Nerf Accepted!" && _root.save.inventoryEnhance[i] > 7)
+                    if (
+                        _root.save.inventoryName[i] == "Nerf Accepted!"
+                        && _root.save.inventoryEnhance[i] > 7
+                    )
                     {
                         _root.save.inventoryEnhance[i] = 7;
                         _root.save.inventoryLevel[i] = 7;
@@ -4006,10 +4525,14 @@ public partial class Loading4OutOf8 : Control
             {
                 if (_root.save.inventoryExist[i] == 1)
                 {
-                    if (_root.save.inventorySubtype[i] == "Trinket" && _root.save.inventoryMaxLevel[i] == 500)
+                    if (
+                        _root.save.inventorySubtype[i] == "Trinket"
+                        && _root.save.inventoryMaxLevel[i] == 500
+                    )
                     {
                         _root.save.inventoryReqRank[i] = 400;
-                        _root.save.inventoryUnob[i] = Math.floor(_root.save.inventoryLevel[i] / 10) + 10;
+                        _root.save.inventoryUnob[i] =
+                            Math.floor(_root.save.inventoryLevel[i] / 10) + 10;
                     }
                 }
                 i++;
@@ -4188,7 +4711,8 @@ public partial class Loading4OutOf8 : Control
                 {
                     if (_root.save.inventoryName[i] == "Fairy Godmother Wand")
                     {
-                        _root.save.inventoryDesc[i] = "When equipped: Magic Resist +15%, Negate Effect Chance +15%";
+                        _root.save.inventoryDesc[i] =
+                            "When equipped: Magic Resist +15%, Negate Effect Chance +15%";
                     }
                     if (_root.save.inventoryName[i] == "Pure Darkness Claw")
                     {
@@ -4204,11 +4728,13 @@ public partial class Loading4OutOf8 : Control
                     }
                     if (_root.save.inventoryName[i] == "Glaive of Smiting")
                     {
-                        _root.save.inventoryDesc[i] = "Shoots invisible projectiles!\nCannot be enhanced with Attack enhancers.";
+                        _root.save.inventoryDesc[i] =
+                            "Shoots invisible projectiles!\nCannot be enhanced with Attack enhancers.";
                     }
                     if (_root.save.inventoryName[i] == "Darkglaive of Smiting")
                     {
-                        _root.save.inventoryDesc[i] = "Shoots invisible projectiles!\nCannot be enhanced with Attack enhancers.";
+                        _root.save.inventoryDesc[i] =
+                            "Shoots invisible projectiles!\nCannot be enhanced with Attack enhancers.";
                     }
                     if (_root.save.inventoryName[i] == "Fiend Glaive")
                     {
@@ -4236,15 +4762,18 @@ public partial class Loading4OutOf8 : Control
                     }
                     if (_root.save.inventoryName[i] == "Ultimate Weapon")
                     {
-                        _root.save.inventoryDesc[i] = "Also shoots projectiles at monsters from a far distance!";
+                        _root.save.inventoryDesc[i] =
+                            "Also shoots projectiles at monsters from a far distance!";
                     }
                     if (_root.save.inventoryName[i] == "Gem of Constancy")
                     {
-                        _root.save.inventoryDesc[i] = "This gem gets more and more powerful as you fight with it equipped, but whenever you unequip it, it goes back to its original state. Also, you cannot change equipment when Gem of Constancy is equipped!";
+                        _root.save.inventoryDesc[i] =
+                            "This gem gets more and more powerful as you fight with it equipped, but whenever you unequip it, it goes back to its original state. Also, you cannot change equipment when Gem of Constancy is equipped!";
                     }
                     if (_root.save.inventoryName[i] == "Empowering Gem")
                     {
-                        _root.save.inventoryDesc[i] = "This gem allows you to deal extra damage to monsters. The more you use it, the better it becomes!";
+                        _root.save.inventoryDesc[i] =
+                            "This gem allows you to deal extra damage to monsters. The more you use it, the better it becomes!";
                     }
                 }
                 i++;
@@ -4274,7 +4803,10 @@ public partial class Loading4OutOf8 : Control
             {
                 if (_root.save.inventoryExist[i] == 1)
                 {
-                    if (_root.save.inventoryName[i].indexOf("Humblebee") != -1 && _root.save.inventoryName[i] != "Humblebee Armor Upgrade")
+                    if (
+                        _root.save.inventoryName[i].indexOf("Humblebee") != -1
+                        && _root.save.inventoryName[i] != "Humblebee Armor Upgrade"
+                    )
                     {
                         if (_root.save.inventoryLevel[i] == 9999)
                         {
@@ -4315,7 +4847,11 @@ public partial class Loading4OutOf8 : Control
             {
                 _root.save.stadiumToken += _root.save.bankStadiumToken;
             }
-            if (_root.save.bannedImpossible >= 1 && !isNaN(_root.save.stadiumTokenMax) && _root.save.stadiumToken < _root.save.stadiumTokenMax)
+            if (
+                _root.save.bannedImpossible >= 1
+                && !isNaN(_root.save.stadiumTokenMax)
+                && _root.save.stadiumToken < _root.save.stadiumTokenMax
+            )
             {
                 _root.save.stadiumToken = _root.save.stadiumTokenMax;
             }
@@ -4328,7 +4864,10 @@ public partial class Loading4OutOf8 : Control
             {
                 if (_root.save.inventoryExist[i] == 1)
                 {
-                    if (_root.save.inventoryName[i].indexOf("Humblebee") != -1 && _root.save.inventoryName[i] != "Humblebee Armor Upgrade")
+                    if (
+                        _root.save.inventoryName[i].indexOf("Humblebee") != -1
+                        && _root.save.inventoryName[i] != "Humblebee Armor Upgrade"
+                    )
                     {
                         if (_root.save.inventoryLevel[i] == 9999)
                         {
@@ -4342,7 +4881,10 @@ public partial class Loading4OutOf8 : Control
                             _root.save.inventoryDexterity[i] -= 10;
                             _root.save.inventoryHealth[i] -= 10;
                         }
-                        if (_root.save.inventoryMaxLevel[i] >= 84 && _root.save.inventoryMaxLevel[i] < 184)
+                        if (
+                            _root.save.inventoryMaxLevel[i] >= 84
+                            && _root.save.inventoryMaxLevel[i] < 184
+                        )
                         {
                             _root.save.inventoryEnhance[i] -= 1;
                         }
@@ -4383,7 +4925,8 @@ public partial class Loading4OutOf8 : Control
         if (_root.save.ver < 599)
         {
             _root.save.boostAuto = false;
-            _root.save.boostMax = Math.round((_root.save.boostMax + _root.save.boostMin * 0.2) / 50) * 50;
+            _root.save.boostMax =
+                Math.round((_root.save.boostMax + _root.save.boostMin * 0.2) / 50) * 50;
             if (_root.save.mainQuestRank[152] == 4)
             {
                 _root.save.mainQuestS -= 1;
@@ -4448,7 +4991,10 @@ public partial class Loading4OutOf8 : Control
                             _root.save.inventoryAbility[i] = "Stun Chance";
                             _root.save.inventoryMoreBonus[i] = "Equipment Attack";
                         }
-                        if (_root.save.inventoryName[i] == "Mega Bullets" || _root.save.inventoryName[i] == "[Event] Mega Bullets")
+                        if (
+                            _root.save.inventoryName[i] == "Mega Bullets"
+                            || _root.save.inventoryName[i] == "[Event] Mega Bullets"
+                        )
                         {
                             _root.save.inventoryAbility[i] = "Double Hit Chance";
                             _root.save.inventoryMoreBonus[i] = "Equipment Attack";
@@ -4533,7 +5079,47 @@ public partial class Loading4OutOf8 : Control
         }
         if (_root.save.ver < 609)
         {
-            _root.save.permaBanPenalty = new([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]);
+            _root.save.permaBanPenalty = new(
+                [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                ]
+            );
             _root.save.permaStupidity = _root.save.banned;
             _root.save.permaStupidityHard = _root.save.bannedHard;
             _root.save.permaStupidityImpossible = _root.save.bannedImpossible;
@@ -4569,7 +5155,8 @@ public partial class Loading4OutOf8 : Control
             {
                 if (_root.save.inventoryName[i] == "Gem of Eternal Rage")
                 {
-                    _root.save.inventoryDesc[i] = "With this, you will gain 0.5% Rage every second and ignore all forms of rage depletion!";
+                    _root.save.inventoryDesc[i] =
+                        "With this, you will gain 0.5% Rage every second and ignore all forms of rage depletion!";
                 }
                 i++;
             }
@@ -4602,13 +5189,36 @@ public partial class Loading4OutOf8 : Control
             i = 1;
             while (i <= 1337)
             {
-                if (_root.save.inventoryName[i] == "Chaos Hat" || _root.save.inventoryName[i] == "Chaos Shirt" || _root.save.inventoryName[i] == "Chaos Gloves" || _root.save.inventoryName[i] == "Chaos Pants" || _root.save.inventoryName[i] == "Chaos Shoes" || _root.save.inventoryName[i] == "CHAOS HAT" || _root.save.inventoryName[i] == "CHAOS SHIRT" || _root.save.inventoryName[i] == "CHAOS GLOVES" || _root.save.inventoryName[i] == "(MYSTERIOUS ITEM)" || _root.save.inventoryName[i] == "CHAOS PANTS" || _root.save.inventoryName[i] == "CHAOS SHOES" || _root.save.inventoryName[i] == "Dragon Slayer Hat" || _root.save.inventoryName[i] == "Dragon Slayer Shirt" || _root.save.inventoryName[i] == "Dragon Slayer Gloves" || _root.save.inventoryName[i] == "Dragon Slayer Pants" || _root.save.inventoryName[i] == "Dragon Slayer Shoes" || _root.save.inventoryName[i] == "Demon Slayer Hat" || _root.save.inventoryName[i] == "Demon Slayer Shirt" || _root.save.inventoryName[i] == "Demon Slayer Gloves" || _root.save.inventoryName[i] == "Demon Slayer Pants" || _root
-                .save.inventoryName[i] == "Demon Slayer Shoes")
+                if (
+                    _root.save.inventoryName[i] == "Chaos Hat"
+                    || _root.save.inventoryName[i] == "Chaos Shirt"
+                    || _root.save.inventoryName[i] == "Chaos Gloves"
+                    || _root.save.inventoryName[i] == "Chaos Pants"
+                    || _root.save.inventoryName[i] == "Chaos Shoes"
+                    || _root.save.inventoryName[i] == "CHAOS HAT"
+                    || _root.save.inventoryName[i] == "CHAOS SHIRT"
+                    || _root.save.inventoryName[i] == "CHAOS GLOVES"
+                    || _root.save.inventoryName[i] == "(MYSTERIOUS ITEM)"
+                    || _root.save.inventoryName[i] == "CHAOS PANTS"
+                    || _root.save.inventoryName[i] == "CHAOS SHOES"
+                    || _root.save.inventoryName[i] == "Dragon Slayer Hat"
+                    || _root.save.inventoryName[i] == "Dragon Slayer Shirt"
+                    || _root.save.inventoryName[i] == "Dragon Slayer Gloves"
+                    || _root.save.inventoryName[i] == "Dragon Slayer Pants"
+                    || _root.save.inventoryName[i] == "Dragon Slayer Shoes"
+                    || _root.save.inventoryName[i] == "Demon Slayer Hat"
+                    || _root.save.inventoryName[i] == "Demon Slayer Shirt"
+                    || _root.save.inventoryName[i] == "Demon Slayer Gloves"
+                    || _root.save.inventoryName[i] == "Demon Slayer Pants"
+                    || _root.save.inventoryName[i] == "Demon Slayer Shoes"
+                )
                 {
                     if (_root.save.inventoryObtainTime[i] > 1385823600000)
                     {
                         _root.save.inventoryExpiry[i] = 0;
-                        _root.save.inventoryDesc[i] = "This item has been blocked in an attempt to wipe out exploited items. If you believe your item was wrongfully blocked, please post a screenshot of the item in the forum.\n\nCODE: " + random(999999999);
+                        _root.save.inventoryDesc[i] =
+                            "This item has been blocked in an attempt to wipe out exploited items. If you believe your item was wrongfully blocked, please post a screenshot of the item in the forum.\n\nCODE: "
+                            + random(999999999);
                     }
                 }
                 i++;
@@ -4620,13 +5230,36 @@ public partial class Loading4OutOf8 : Control
             i = 1;
             while (i <= 1337)
             {
-                if (_root.save.inventoryName[i] == "Chaos Hat" || _root.save.inventoryName[i] == "Chaos Shirt" || _root.save.inventoryName[i] == "Chaos Gloves" || _root.save.inventoryName[i] == "Chaos Pants" || _root.save.inventoryName[i] == "Chaos Shoes" || _root.save.inventoryName[i] == "CHAOS HAT" || _root.save.inventoryName[i] == "CHAOS SHIRT" || _root.save.inventoryName[i] == "CHAOS GLOVES" || _root.save.inventoryName[i] == "(MYSTERIOUS ITEM)" || _root.save.inventoryName[i] == "CHAOS PANTS" || _root.save.inventoryName[i] == "CHAOS SHOES" || _root.save.inventoryName[i] == "Dragon Slayer Hat" || _root.save.inventoryName[i] == "Dragon Slayer Shirt" || _root.save.inventoryName[i] == "Dragon Slayer Gloves" || _root.save.inventoryName[i] == "Dragon Slayer Pants" || _root.save.inventoryName[i] == "Dragon Slayer Shoes" || _root.save.inventoryName[i] == "Demon Slayer Hat" || _root.save.inventoryName[i] == "Demon Slayer Shirt" || _root.save.inventoryName[i] == "Demon Slayer Gloves" || _root.save.inventoryName[i] == "Demon Slayer Pants" || _root
-                .save.inventoryName[i] == "Demon Slayer Shoes")
+                if (
+                    _root.save.inventoryName[i] == "Chaos Hat"
+                    || _root.save.inventoryName[i] == "Chaos Shirt"
+                    || _root.save.inventoryName[i] == "Chaos Gloves"
+                    || _root.save.inventoryName[i] == "Chaos Pants"
+                    || _root.save.inventoryName[i] == "Chaos Shoes"
+                    || _root.save.inventoryName[i] == "CHAOS HAT"
+                    || _root.save.inventoryName[i] == "CHAOS SHIRT"
+                    || _root.save.inventoryName[i] == "CHAOS GLOVES"
+                    || _root.save.inventoryName[i] == "(MYSTERIOUS ITEM)"
+                    || _root.save.inventoryName[i] == "CHAOS PANTS"
+                    || _root.save.inventoryName[i] == "CHAOS SHOES"
+                    || _root.save.inventoryName[i] == "Dragon Slayer Hat"
+                    || _root.save.inventoryName[i] == "Dragon Slayer Shirt"
+                    || _root.save.inventoryName[i] == "Dragon Slayer Gloves"
+                    || _root.save.inventoryName[i] == "Dragon Slayer Pants"
+                    || _root.save.inventoryName[i] == "Dragon Slayer Shoes"
+                    || _root.save.inventoryName[i] == "Demon Slayer Hat"
+                    || _root.save.inventoryName[i] == "Demon Slayer Shirt"
+                    || _root.save.inventoryName[i] == "Demon Slayer Gloves"
+                    || _root.save.inventoryName[i] == "Demon Slayer Pants"
+                    || _root.save.inventoryName[i] == "Demon Slayer Shoes"
+                )
                 {
                     if (_root.save.inventoryObtainTime[i] > 1385823600000)
                     {
                         _root.save.inventoryExpiry[i] = 0;
-                        _root.save.inventoryDesc[i] = "This item has been blocked in an attempt to wipe out exploited items. If you believe your item was wrongfully blocked, please post a screenshot of the item in the forum.\n\nCODE: " + random(999999999);
+                        _root.save.inventoryDesc[i] =
+                            "This item has been blocked in an attempt to wipe out exploited items. If you believe your item was wrongfully blocked, please post a screenshot of the item in the forum.\n\nCODE: "
+                            + random(999999999);
                     }
                 }
                 i++;
@@ -4638,9 +5271,25 @@ public partial class Loading4OutOf8 : Control
             i = 1;
             while (i <= 1337)
             {
-                if (_root.save.inventoryExpiry[i] == 0 && _root.save.inventoryObtainTime[i] > 1385823600000 && _root.save.inventoryDesc[i] != "" && _root.save.inventoryDesc[i].indexOf("exploited") != -1)
+                if (
+                    _root.save.inventoryExpiry[i] == 0
+                    && _root.save.inventoryObtainTime[i] > 1385823600000
+                    && _root.save.inventoryDesc[i] != ""
+                    && _root.save.inventoryDesc[i].indexOf("exploited") != -1
+                )
                 {
-                    if (_root.save.inventoryDesc[i].indexOf("617523110") != -1 || _root.save.inventoryDesc[i].indexOf("673811149") != -1 || _root.save.inventoryDesc[i].indexOf("253011004") != -1 || _root.save.inventoryDesc[i].indexOf("536365965") != -1 || _root.save.inventoryDesc[i].indexOf("479591647") != -1 || _root.save.inventoryDesc[i].indexOf("71140877") != -1 || _root.save.inventoryDesc[i].indexOf("59063432") != -1 || _root.save.inventoryDesc[i].indexOf("70380326") != -1 || _root.save.inventoryDesc[i].indexOf("761205567") != -1 || _root.save.inventoryDesc[i].indexOf("663902970") != -1)
+                    if (
+                        _root.save.inventoryDesc[i].indexOf("617523110") != -1
+                        || _root.save.inventoryDesc[i].indexOf("673811149") != -1
+                        || _root.save.inventoryDesc[i].indexOf("253011004") != -1
+                        || _root.save.inventoryDesc[i].indexOf("536365965") != -1
+                        || _root.save.inventoryDesc[i].indexOf("479591647") != -1
+                        || _root.save.inventoryDesc[i].indexOf("71140877") != -1
+                        || _root.save.inventoryDesc[i].indexOf("59063432") != -1
+                        || _root.save.inventoryDesc[i].indexOf("70380326") != -1
+                        || _root.save.inventoryDesc[i].indexOf("761205567") != -1
+                        || _root.save.inventoryDesc[i].indexOf("663902970") != -1
+                    )
                     {
                         if (_root.save.inventoryNoLife[i] == false)
                         {
@@ -4670,9 +5319,7 @@ public partial class Loading4OutOf8 : Control
                 _root.saveGlobal.challengeAttempted[0] = true;
                 _root.saveGlobal.challengePerfect[0] = true;
             }
-            else
-            {
-            }
+            else { }
             _root.save.ver = 621;
         }
         if (_root.save.ver < 622)
@@ -4682,14 +5329,26 @@ public partial class Loading4OutOf8 : Control
             {
                 if (_root.save.inventoryName[i] == "Gem of Eternal Rage")
                 {
-                    _root.save.inventoryDesc[i] = "With this, you will gain 0.5% Rage every second and ignore all forms of rage depletion! It also multiplies your Rage Attack by 1.2x.";
+                    _root.save.inventoryDesc[i] =
+                        "With this, you will gain 0.5% Rage every second and ignore all forms of rage depletion! It also multiplies your Rage Attack by 1.2x.";
                 }
-                if (_root.save.inventoryName[i] == "Immortal Pendant" || _root.save.inventoryName[i] == "Roflhunter\'s Pendant" || _root.save.inventoryName[i] == "Dominator\'s Gem" || _root.save.inventoryName[i] == "Mega Triangle Gem")
+                if (
+                    _root.save.inventoryName[i] == "Immortal Pendant"
+                    || _root.save.inventoryName[i] == "Roflhunter\'s Pendant"
+                    || _root.save.inventoryName[i] == "Dominator\'s Gem"
+                    || _root.save.inventoryName[i] == "Mega Triangle Gem"
+                )
                 {
-                    _root.save.inventoryBonusPow[i] += _root.save.inventoryAttack[i] + _root.save.inventoryCrit[i] * 5 + _root.save.inventoryDexterity[i] * 5 + _root.save.inventoryHealth[i] * 5;
+                    _root.save.inventoryBonusPow[i] +=
+                        _root.save.inventoryAttack[i]
+                        + _root.save.inventoryCrit[i] * 5
+                        + _root.save.inventoryDexterity[i] * 5
+                        + _root.save.inventoryHealth[i] * 5;
                     _root.save.inventoryAttack[i] = Math.floor(_root.save.inventoryAttack[i] * 2);
                     _root.save.inventoryCrit[i] = Math.floor(_root.save.inventoryCrit[i] * 2);
-                    _root.save.inventoryDexterity[i] = Math.floor(_root.save.inventoryDexterity[i] * 2);
+                    _root.save.inventoryDexterity[i] = Math.floor(
+                        _root.save.inventoryDexterity[i] * 2
+                    );
                     _root.save.inventoryHealth[i] = Math.floor(_root.save.inventoryHealth[i] * 2);
                 }
                 i++;
@@ -4699,7 +5358,8 @@ public partial class Loading4OutOf8 : Control
             {
                 if (_root.save.restEfficiency[i] > 0)
                 {
-                    _root.save.whiteCoin += 2000 * _root.save.restEfficiency[i] * _root.save.restEfficiency[i];
+                    _root.save.whiteCoin +=
+                        2000 * _root.save.restEfficiency[i] * _root.save.restEfficiency[i];
                 }
                 i++;
             }
@@ -4708,7 +5368,8 @@ public partial class Loading4OutOf8 : Control
             {
                 if (_root.save.restEfficiency[i] > 0)
                 {
-                    _root.save.whiteCoin += 2250 * _root.save.restEfficiency[i] * _root.save.restEfficiency[i];
+                    _root.save.whiteCoin +=
+                        2250 * _root.save.restEfficiency[i] * _root.save.restEfficiency[i];
                 }
                 i++;
             }
@@ -4717,7 +5378,8 @@ public partial class Loading4OutOf8 : Control
             {
                 if (_root.save.restEfficiency[i] > 0)
                 {
-                    _root.save.whiteCoin += 900 * _root.save.restEfficiency[i] * _root.save.restEfficiency[i];
+                    _root.save.whiteCoin +=
+                        900 * _root.save.restEfficiency[i] * _root.save.restEfficiency[i];
                 }
                 i++;
             }
@@ -4733,7 +5395,47 @@ public partial class Loading4OutOf8 : Control
             {
                 _root.save.whiteCoin += 10000;
                 _root.save.eventToken += 10000;
-                _root.save.permaBanPenalty = new([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]);
+                _root.save.permaBanPenalty = new(
+                    [
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                    ]
+                );
                 _root.save.permaStupidity = _root.save.banned;
                 _root.save.permaStupidityHard = _root.save.bannedHard;
                 _root.save.permaStupidityImpossible = _root.save.bannedImpossible;
@@ -4748,7 +5450,11 @@ public partial class Loading4OutOf8 : Control
                 i = 1;
                 while (i <= 200)
                 {
-                    if (_root.save.inventoryEnhance[i] > 0 && _root.save.inventorySubtype[i] != "Skin" && _root.save.inventoryReqRank[i] < 100)
+                    if (
+                        _root.save.inventoryEnhance[i] > 0
+                        && _root.save.inventorySubtype[i] != "Skin"
+                        && _root.save.inventoryReqRank[i] < 100
+                    )
                     {
                         c4Cheated = true;
                         _root.save.arenaPixel += _root.save.inventorySell[i] * 8;
@@ -4865,7 +5571,13 @@ public partial class Loading4OutOf8 : Control
             }
             if (_root.save.careerLevel[3] >= 100)
             {
-                _root.save.careerEXP[3] += Math.max(_root.save.arenaKillWhite / 2 + _root.save.arenaKillRed / 2 + _root.save.battlePoint * 500 - 1000000, 0);
+                _root.save.careerEXP[3] += Math.max(
+                    _root.save.arenaKillWhite / 2
+                        + _root.save.arenaKillRed / 2
+                        + _root.save.battlePoint * 500
+                        - 1000000,
+                    0
+                );
             }
             if (_root.save.careerLevel[4] >= 100)
             {
@@ -4873,15 +5585,36 @@ public partial class Loading4OutOf8 : Control
             }
             if (_root.save.careerLevel[5] >= 100)
             {
-                _root.save.careerEXP[5] += Math.max(_root.save.buttonPress * 2 + _root.save.buttonPerfect * 20 - 1000000, 0);
+                _root.save.careerEXP[5] += Math.max(
+                    _root.save.buttonPress * 2 + _root.save.buttonPerfect * 20 - 1000000,
+                    0
+                );
             }
             if (_root.save.careerLevel[6] >= 100)
             {
-                _root.save.careerEXP[6] += Math.max(_root.save.totalPong / 1000 + _root.save.totalAvoidance / 1000 + _root.save.totalMath / 2500 + _root.save.totalWhack / 2000 + _root.save.totalMind / 500 + _root.save.totalBalance / 2500 + _root.save.totalCount / 2000 - 1000000, 0);
+                _root.save.careerEXP[6] += Math.max(
+                    _root.save.totalPong / 1000
+                        + _root.save.totalAvoidance / 1000
+                        + _root.save.totalMath / 2500
+                        + _root.save.totalWhack / 2000
+                        + _root.save.totalMind / 500
+                        + _root.save.totalBalance / 2500
+                        + _root.save.totalCount / 2000
+                        - 1000000,
+                    0
+                );
             }
             if (_root.save.careerLevel[7] >= 100)
             {
-                _root.save.careerEXP[7] += Math.max(_root.save.stadiumRace * 250 + _root.save.stadiumImpossibleRace * 250 + _root.save.stadiumItem * 300 + _root.save.stadiumImpossibleItem * 300 + _root.save.stadiumDeathMatch * 5000 - 1000000, 0);
+                _root.save.careerEXP[7] += Math.max(
+                    _root.save.stadiumRace * 250
+                        + _root.save.stadiumImpossibleRace * 250
+                        + _root.save.stadiumItem * 300
+                        + _root.save.stadiumImpossibleItem * 300
+                        + _root.save.stadiumDeathMatch * 5000
+                        - 1000000,
+                    0
+                );
             }
             if (_root.save.careerLevel[8] >= 100)
             {
@@ -4897,7 +5630,10 @@ public partial class Loading4OutOf8 : Control
             }
             if (_root.save.careerLevel[12] >= 100)
             {
-                _root.save.careerEXP[12] += Math.max(_root.save.fishExp + _root.save.fishTotalExp - 1000000, 0);
+                _root.save.careerEXP[12] += Math.max(
+                    _root.save.fishExp + _root.save.fishTotalExp - 1000000,
+                    0
+                );
             }
             i = 1;
             while (i <= 500)
@@ -4968,11 +5704,29 @@ public partial class Loading4OutOf8 : Control
         {
             if (_root.save.careerLevel[6] >= 100)
             {
-                _root.save.careerEXP[6] += Math.max(_root.save.totalPong / 1000 + _root.save.totalAvoidance / 1000 + _root.save.totalMath / 2500 + _root.save.totalWhack / 2000 + _root.save.totalMind / 500 + _root.save.totalBalance / 2500 + _root.save.totalCount / 2000 - 500000, 0);
+                _root.save.careerEXP[6] += Math.max(
+                    _root.save.totalPong / 1000
+                        + _root.save.totalAvoidance / 1000
+                        + _root.save.totalMath / 2500
+                        + _root.save.totalWhack / 2000
+                        + _root.save.totalMind / 500
+                        + _root.save.totalBalance / 2500
+                        + _root.save.totalCount / 2000
+                        - 500000,
+                    0
+                );
             }
             if (_root.save.careerLevel[7] >= 100)
             {
-                _root.save.careerEXP[7] += Math.max(_root.save.stadiumRace * 250 + _root.save.stadiumImpossibleRace * 250 + _root.save.stadiumItem * 300 + _root.save.stadiumImpossibleItem * 300 + _root.save.stadiumDeathMatch * 5000 - 500000, 0);
+                _root.save.careerEXP[7] += Math.max(
+                    _root.save.stadiumRace * 250
+                        + _root.save.stadiumImpossibleRace * 250
+                        + _root.save.stadiumItem * 300
+                        + _root.save.stadiumImpossibleItem * 300
+                        + _root.save.stadiumDeathMatch * 5000
+                        - 500000,
+                    0
+                );
             }
             if (_root.save.careerLevel[8] >= 100)
             {
@@ -4980,13 +5734,19 @@ public partial class Loading4OutOf8 : Control
             }
             if (_root.save.careerLevel[12] >= 100)
             {
-                _root.save.careerEXP[12] += Math.max((_root.save.fishExp + _root.save.fishTotalExp) * 2 - 500000, 0);
+                _root.save.careerEXP[12] += Math.max(
+                    (_root.save.fishExp + _root.save.fishTotalExp) * 2 - 500000,
+                    0
+                );
             }
             _root.save.ver = 638;
         }
         if (_root.save.ver < 639)
         {
-            if (_root.save.arenaAccuracy < 100 || _root.save.arenaLevel > 1 && _root.save.arenaLevel < 40)
+            if (
+                _root.save.arenaAccuracy < 100
+                || _root.save.arenaLevel > 1 && _root.save.arenaLevel < 40
+            )
             {
                 _root.save.arenaAccuracy += 50;
                 _root.save.arenaEvasion += 50;
@@ -5000,21 +5760,43 @@ public partial class Loading4OutOf8 : Control
                 {
                     if (_root.save.inventoryName[i] == "Auto Buff Gem")
                     {
-                        if (_root.save.inventoryBonus[i] != "" && _root.save.inventoryBonus[i].indexOf("Auto Buff") == -1)
+                        if (
+                            _root.save.inventoryBonus[i] != ""
+                            && _root.save.inventoryBonus[i].indexOf("Auto Buff") == -1
+                        )
                         {
                             _root.save.inventoryBonus[i] = "";
                         }
                     }
-                    if (_root.save.inventoryName[i] != "" && _root.save.inventoryName[i].indexOf("Auto Buff") != -1)
+                    if (
+                        _root.save.inventoryName[i] != ""
+                        && _root.save.inventoryName[i].indexOf("Auto Buff") != -1
+                    )
                     {
-                        if (_root.save.inventoryBonus[i] != "" && _root.save.inventoryBonus[i].indexOf("Auto Buff") == -1)
+                        if (
+                            _root.save.inventoryBonus[i] != ""
+                            && _root.save.inventoryBonus[i].indexOf("Auto Buff") == -1
+                        )
                         {
                             _root.save.inventoryBonus[i] = "";
                         }
                     }
-                    if (_root.save.inventoryExpiry[i] == 0 && _root.save.inventoryObtainTime[i] > 1385823600000 && _root.save.inventoryDesc[i] != "" && _root.save.inventoryDesc[i].indexOf("exploited") != -1)
+                    if (
+                        _root.save.inventoryExpiry[i] == 0
+                        && _root.save.inventoryObtainTime[i] > 1385823600000
+                        && _root.save.inventoryDesc[i] != ""
+                        && _root.save.inventoryDesc[i].indexOf("exploited") != -1
+                    )
                     {
-                        if (_root.save.inventoryDesc[i].indexOf("84663214") != -1 && _root.save.inventoryDesc[i].indexOf("993776406") != -1 && _root.save.inventoryDesc[i].indexOf("336567214") != -1 && _root.save.inventoryDesc[i].indexOf("957022263") != -1 && _root.save.inventoryDesc[i].indexOf("366154706") != -1 && _root.save.inventoryDesc[i].indexOf("993776406") != -1 && _root.save.inventoryDesc[i].indexOf("545318181") != -1)
+                        if (
+                            _root.save.inventoryDesc[i].indexOf("84663214") != -1
+                            && _root.save.inventoryDesc[i].indexOf("993776406") != -1
+                            && _root.save.inventoryDesc[i].indexOf("336567214") != -1
+                            && _root.save.inventoryDesc[i].indexOf("957022263") != -1
+                            && _root.save.inventoryDesc[i].indexOf("366154706") != -1
+                            && _root.save.inventoryDesc[i].indexOf("993776406") != -1
+                            && _root.save.inventoryDesc[i].indexOf("545318181") != -1
+                        )
                         {
                             if (_root.save.inventoryNoLife[i] == false)
                             {
@@ -5083,7 +5865,10 @@ public partial class Loading4OutOf8 : Control
             }
             if (_root.saveid < 4)
             {
-                if (_root.save.firstPlayed >= 1385769600000 && _root.save.firstPlayed <= 1420070400000)
+                if (
+                    _root.save.firstPlayed >= 1385769600000
+                    && _root.save.firstPlayed <= 1420070400000
+                )
                 {
                     _root.save.mysteryBox[10] += 40;
                 }
@@ -5109,10 +5894,26 @@ public partial class Loading4OutOf8 : Control
             _root.save.arenaSpookyScore = 0;
             _root.save.arenaSpookyToday = 0;
             _root.save.fcgSeriousDeck = 34 + random(35);
-            _root.save.fcgExp += _root.save.fcgWin * Math.ceil(15 + _root.save.fcgLevel / 3) + _root.save.fcgLevel5 * 25 + _root.save.fcgLevel6 * 50 + _root.save.fcgLevel7 * 75 + _root.save.fcgLevel8 * 100 + _root.save.fcgLevel9 * 125 + _root.save.fcgLevel10 * 150;
+            _root.save.fcgExp +=
+                _root.save.fcgWin * Math.ceil(15 + _root.save.fcgLevel / 3)
+                + _root.save.fcgLevel5 * 25
+                + _root.save.fcgLevel6 * 50
+                + _root.save.fcgLevel7 * 75
+                + _root.save.fcgLevel8 * 100
+                + _root.save.fcgLevel9 * 125
+                + _root.save.fcgLevel10 * 150;
             if (_root.save.careerLevel[8] >= 50)
             {
-                _root.save.careerEXP[8] += (_root.save.fcgWin * Math.ceil(15 + _root.save.fcgLevel / 3) + _root.save.fcgLevel5 * 25 + _root.save.fcgLevel6 * 50 + _root.save.fcgLevel7 * 75 + _root.save.fcgLevel8 * 100 + _root.save.fcgLevel9 * 125 + _root.save.fcgLevel10 * 150) * 10;
+                _root.save.careerEXP[8] +=
+                    (
+                        _root.save.fcgWin * Math.ceil(15 + _root.save.fcgLevel / 3)
+                        + _root.save.fcgLevel5 * 25
+                        + _root.save.fcgLevel6 * 50
+                        + _root.save.fcgLevel7 * 75
+                        + _root.save.fcgLevel8 * 100
+                        + _root.save.fcgLevel9 * 125
+                        + _root.save.fcgLevel10 * 150
+                    ) * 10;
             }
             _root.save.ver = 642;
         }
@@ -5123,7 +5924,16 @@ public partial class Loading4OutOf8 : Control
             {
                 if (_root.save.arenaAllyUpgrade[i] == 15)
                 {
-                    if (i == 275 || i == 295 || i >= 332 && i <= 349 || i == 356 || i >= 367 && i <= 376 || i >= 377 && i <= 432 || i >= 438 && i <= 440 || i >= 448 && i <= 485)
+                    if (
+                        i == 275
+                        || i == 295
+                        || i >= 332 && i <= 349
+                        || i == 356
+                        || i >= 367 && i <= 376
+                        || i >= 377 && i <= 432
+                        || i >= 438 && i <= 440
+                        || i >= 448 && i <= 485
+                    )
                     {
                         _root.save.arenaAllyUpgrade[i] = 10;
                         _root.save.arenaUnobtainium += 500;
@@ -5251,9 +6061,20 @@ public partial class Loading4OutOf8 : Control
             {
                 if (_root.save.inventoryExist[i] == 1)
                 {
-                    if (_root.save.inventoryDesc[i] != "" && _root.save.inventoryDesc[i].indexOf("exploited") != -1)
+                    if (
+                        _root.save.inventoryDesc[i] != ""
+                        && _root.save.inventoryDesc[i].indexOf("exploited") != -1
+                    )
                     {
-                        if (_root.save.inventoryDesc[i].indexOf("84663214") != -1 || _root.save.inventoryDesc[i].indexOf("993776406") != -1 || _root.save.inventoryDesc[i].indexOf("336567214") != -1 || _root.save.inventoryDesc[i].indexOf("957022263") != -1 || _root.save.inventoryDesc[i].indexOf("366154706") != -1 || _root.save.inventoryDesc[i].indexOf("993776406") != -1 || _root.save.inventoryDesc[i].indexOf("545318181") != -1)
+                        if (
+                            _root.save.inventoryDesc[i].indexOf("84663214") != -1
+                            || _root.save.inventoryDesc[i].indexOf("993776406") != -1
+                            || _root.save.inventoryDesc[i].indexOf("336567214") != -1
+                            || _root.save.inventoryDesc[i].indexOf("957022263") != -1
+                            || _root.save.inventoryDesc[i].indexOf("366154706") != -1
+                            || _root.save.inventoryDesc[i].indexOf("993776406") != -1
+                            || _root.save.inventoryDesc[i].indexOf("545318181") != -1
+                        )
                         {
                             if (_root.save.inventoryNoLife[i] == false)
                             {
@@ -5299,11 +6120,17 @@ public partial class Loading4OutOf8 : Control
                     }
                     else
                     {
-                        _root.save.progModuleChance[i] = Math.round(10 * (1 + (_root.save.progModuleTier[i] - 1) / 10) * (1 + (_root.save.progModuleTier[i] - 1) / 10));
+                        _root.save.progModuleChance[i] = Math.round(
+                            10
+                                * (1 + (_root.save.progModuleTier[i] - 1) / 10)
+                                * (1 + (_root.save.progModuleTier[i] - 1) / 10)
+                        );
                     }
                     if (_root.save.progModuleShiny[i] == 1)
                     {
-                        _root.save.progModuleChance[i] = Math.ceil(_root.save.progModuleChance[i] * 5);
+                        _root.save.progModuleChance[i] = Math.ceil(
+                            _root.save.progModuleChance[i] * 5
+                        );
                     }
                 }
                 if (_root.save.progModuleType[i] == 7)
@@ -5314,11 +6141,15 @@ public partial class Loading4OutOf8 : Control
                     }
                     else
                     {
-                        _root.save.progModuleChance[i] = Math.round(50 * (1 + (_root.save.progModuleTier[i] - 1) / 10));
+                        _root.save.progModuleChance[i] = Math.round(
+                            50 * (1 + (_root.save.progModuleTier[i] - 1) / 10)
+                        );
                     }
                     if (_root.save.progModuleShiny[i] == 1)
                     {
-                        _root.save.progModuleChance[i] = Math.ceil(_root.save.progModuleChance[i] * 2.5);
+                        _root.save.progModuleChance[i] = Math.ceil(
+                            _root.save.progModuleChance[i] * 2.5
+                        );
                     }
                 }
                 if (_root.save.progModuleType[i] == 30)
@@ -5329,11 +6160,17 @@ public partial class Loading4OutOf8 : Control
                     }
                     else
                     {
-                        _root.save.progModuleChance[i] = Math.round(10 * (1 + (_root.save.progModuleTier[i] - 1) / 10) * (1 + (_root.save.progModuleTier[i] - 1) / 10));
+                        _root.save.progModuleChance[i] = Math.round(
+                            10
+                                * (1 + (_root.save.progModuleTier[i] - 1) / 10)
+                                * (1 + (_root.save.progModuleTier[i] - 1) / 10)
+                        );
                     }
                     if (_root.save.progModuleShiny[i] == 1)
                     {
-                        _root.save.progModuleChance[i] = Math.ceil(_root.save.progModuleChance[i] * 5);
+                        _root.save.progModuleChance[i] = Math.ceil(
+                            _root.save.progModuleChance[i] * 5
+                        );
                     }
                 }
                 if (_root.save.progModuleType[i] >= 31 && _root.save.progModuleType[i] <= 32)
@@ -5344,11 +6181,17 @@ public partial class Loading4OutOf8 : Control
                     }
                     else
                     {
-                        _root.save.progModuleChance[i] = Math.round(15 * (1 + (_root.save.progModuleTier[i] - 1) / 10) * (1 + (_root.save.progModuleTier[i] - 1) / 10));
+                        _root.save.progModuleChance[i] = Math.round(
+                            15
+                                * (1 + (_root.save.progModuleTier[i] - 1) / 10)
+                                * (1 + (_root.save.progModuleTier[i] - 1) / 10)
+                        );
                     }
                     if (_root.save.progModuleShiny[i] == 1)
                     {
-                        _root.save.progModuleChance[i] = Math.ceil(_root.save.progModuleChance[i] * 5);
+                        _root.save.progModuleChance[i] = Math.ceil(
+                            _root.save.progModuleChance[i] * 5
+                        );
                     }
                 }
                 if (_root.save.progModuleType[i] >= 33 && _root.save.progModuleType[i] <= 35)
@@ -5359,11 +6202,17 @@ public partial class Loading4OutOf8 : Control
                     }
                     else
                     {
-                        _root.save.progModuleChance[i] = Math.round(20 * (1 + (_root.save.progModuleTier[i] - 1) / 10) * (1 + (_root.save.progModuleTier[i] - 1) / 10));
+                        _root.save.progModuleChance[i] = Math.round(
+                            20
+                                * (1 + (_root.save.progModuleTier[i] - 1) / 10)
+                                * (1 + (_root.save.progModuleTier[i] - 1) / 10)
+                        );
                     }
                     if (_root.save.progModuleShiny[i] == 1)
                     {
-                        _root.save.progModuleChance[i] = Math.ceil(_root.save.progModuleChance[i] * 5);
+                        _root.save.progModuleChance[i] = Math.ceil(
+                            _root.save.progModuleChance[i] * 5
+                        );
                     }
                 }
                 if (_root.save.progModuleType[i] >= 36 && _root.save.progModuleType[i] <= 39)
@@ -5374,11 +6223,17 @@ public partial class Loading4OutOf8 : Control
                     }
                     else
                     {
-                        _root.save.progModuleChance[i] = Math.round(25 * (1 + (_root.save.progModuleTier[i] - 1) / 10) * (1 + (_root.save.progModuleTier[i] - 1) / 10));
+                        _root.save.progModuleChance[i] = Math.round(
+                            25
+                                * (1 + (_root.save.progModuleTier[i] - 1) / 10)
+                                * (1 + (_root.save.progModuleTier[i] - 1) / 10)
+                        );
                     }
                     if (_root.save.progModuleShiny[i] == 1)
                     {
-                        _root.save.progModuleChance[i] = Math.ceil(_root.save.progModuleChance[i] * 5);
+                        _root.save.progModuleChance[i] = Math.ceil(
+                            _root.save.progModuleChance[i] * 5
+                        );
                     }
                 }
                 if (_root.save.progModuleType[i] == 42)
@@ -5389,11 +6244,15 @@ public partial class Loading4OutOf8 : Control
                     }
                     else
                     {
-                        _root.save.progModuleChance[i] = Math.round(250 * (1 + (_root.save.progModuleTier[i] - 1) / 10));
+                        _root.save.progModuleChance[i] = Math.round(
+                            250 * (1 + (_root.save.progModuleTier[i] - 1) / 10)
+                        );
                     }
                     if (_root.save.progModuleShiny[i] == 1)
                     {
-                        _root.save.progModuleChance[i] = Math.ceil(_root.save.progModuleChance[i] * 2.5);
+                        _root.save.progModuleChance[i] = Math.ceil(
+                            _root.save.progModuleChance[i] * 2.5
+                        );
                     }
                 }
                 i++;
@@ -5418,11 +6277,15 @@ public partial class Loading4OutOf8 : Control
                     }
                     else
                     {
-                        _root.save.progModuleChance[i] = Math.round(50 * (1 + (_root.save.progModuleTier[i] - 1) / 10));
+                        _root.save.progModuleChance[i] = Math.round(
+                            50 * (1 + (_root.save.progModuleTier[i] - 1) / 10)
+                        );
                     }
                     if (_root.save.progModuleShiny[i] == 1)
                     {
-                        _root.save.progModuleChance[i] = Math.ceil(_root.save.progModuleChance[i] * 2.5);
+                        _root.save.progModuleChance[i] = Math.ceil(
+                            _root.save.progModuleChance[i] * 2.5
+                        );
                     }
                 }
                 i++;
@@ -5431,9 +6294,17 @@ public partial class Loading4OutOf8 : Control
         }
         if (_root.save.ver < 663)
         {
-            if (_root.save.fcgCash == -Infinity || isNaN(_root.save.fcgCash) || _root.save.fcgCash < 0)
+            if (
+                _root.save.fcgCash == -Infinity
+                || isNaN(_root.save.fcgCash)
+                || _root.save.fcgCash < 0
+            )
             {
-                if (isNaN(_root.save.fcgMaxCash) || _root.save.fcgMaxCash > 1000000000 || _root.save.fcgMaxCash < 0)
+                if (
+                    isNaN(_root.save.fcgMaxCash)
+                    || _root.save.fcgMaxCash > 1000000000
+                    || _root.save.fcgMaxCash < 0
+                )
                 {
                     _root.save.fcgMaxCash = 0;
                 }
@@ -5451,11 +6322,15 @@ public partial class Loading4OutOf8 : Control
                     }
                     else
                     {
-                        _root.save.progModuleChance[i] = Math.round(500 * (1 + (_root.save.progModuleTier[i] - 1) / 10));
+                        _root.save.progModuleChance[i] = Math.round(
+                            500 * (1 + (_root.save.progModuleTier[i] - 1) / 10)
+                        );
                     }
                     if (_root.save.progModuleShiny[i] == 1)
                     {
-                        _root.save.progModuleChance[i] = Math.ceil(_root.save.progModuleChance[i] * 2.5);
+                        _root.save.progModuleChance[i] = Math.ceil(
+                            _root.save.progModuleChance[i] * 2.5
+                        );
                     }
                 }
                 if (_root.save.progModuleType[i] == 40)
@@ -5467,13 +6342,21 @@ public partial class Loading4OutOf8 : Control
                     }
                     else
                     {
-                        _root.save.progModuleChance[i] = Math.round(500 * (1 + (_root.save.progModuleTier[i] - 1) / 10));
-                        _root.save.progModuleEffect[i] = Math.floor(3 * (1 + (_root.save.progModuleTier[i] - 1) / 10));
+                        _root.save.progModuleChance[i] = Math.round(
+                            500 * (1 + (_root.save.progModuleTier[i] - 1) / 10)
+                        );
+                        _root.save.progModuleEffect[i] = Math.floor(
+                            3 * (1 + (_root.save.progModuleTier[i] - 1) / 10)
+                        );
                     }
                     if (_root.save.progModuleShiny[i] == 1)
                     {
-                        _root.save.progModuleChance[i] = Math.ceil(_root.save.progModuleChance[i] * 2.5);
-                        _root.save.progModuleEffect[i] = Math.ceil(_root.save.progModuleEffect[i] * 2.5);
+                        _root.save.progModuleChance[i] = Math.ceil(
+                            _root.save.progModuleChance[i] * 2.5
+                        );
+                        _root.save.progModuleEffect[i] = Math.ceil(
+                            _root.save.progModuleEffect[i] * 2.5
+                        );
                     }
                 }
                 i++;
@@ -5492,7 +6375,16 @@ public partial class Loading4OutOf8 : Control
                 if (!isNaN(_root.save.arenaBestiaryUlt1V[i]))
                 {
                     _root.save.arenaAllyUpgrade[i] = 15;
-                    if (i == 275 || i == 295 || i >= 332 && i <= 349 || i == 356 || i >= 367 && i <= 376 || i >= 377 && i <= 432 || i >= 438 && i <= 440 || i >= 448 && i <= 485)
+                    if (
+                        i == 275
+                        || i == 295
+                        || i >= 332 && i <= 349
+                        || i == 356
+                        || i >= 367 && i <= 376
+                        || i >= 377 && i <= 432
+                        || i >= 438 && i <= 440
+                        || i >= 448 && i <= 485
+                    )
                     {
                         if (_root.save.arenaBestiaryUlt1V[i] < 1665)
                         {
@@ -5500,7 +6392,11 @@ public partial class Loading4OutOf8 : Control
                         }
                     }
                 }
-                if (!isNaN(_root.save.arenaBestiaryExtra[i]) && _root.save.arenaBestiaryExtra[i] > 0 && _root.save.arenaAllyUpgrade[i] < 10)
+                if (
+                    !isNaN(_root.save.arenaBestiaryExtra[i])
+                    && _root.save.arenaBestiaryExtra[i] > 0
+                    && _root.save.arenaAllyUpgrade[i] < 10
+                )
                 {
                     _root.save.arenaAllyUpgrade[i] = 10;
                     if (_root.enemyList[i].allyPassive3 == "")
@@ -5526,13 +6422,21 @@ public partial class Loading4OutOf8 : Control
                     }
                     else
                     {
-                        _root.save.progModuleChance[i] = Math.round(500 * (1 + (_root.save.progModuleTier[i] - 1) / 10));
-                        _root.save.progModuleEffect[i] = Math.floor(3 * (1 + (_root.save.progModuleTier[i] - 1) / 10));
+                        _root.save.progModuleChance[i] = Math.round(
+                            500 * (1 + (_root.save.progModuleTier[i] - 1) / 10)
+                        );
+                        _root.save.progModuleEffect[i] = Math.floor(
+                            3 * (1 + (_root.save.progModuleTier[i] - 1) / 10)
+                        );
                     }
                     if (_root.save.progModuleShiny[i] == 1)
                     {
-                        _root.save.progModuleChance[i] = Math.ceil(_root.save.progModuleChance[i] * 2.5);
-                        _root.save.progModuleEffect[i] = Math.ceil(_root.save.progModuleEffect[i] * 2);
+                        _root.save.progModuleChance[i] = Math.ceil(
+                            _root.save.progModuleChance[i] * 2.5
+                        );
+                        _root.save.progModuleEffect[i] = Math.ceil(
+                            _root.save.progModuleEffect[i] * 2
+                        );
                     }
                 }
                 if (_root.save.progModuleType[i] == 10)
@@ -5543,11 +6447,15 @@ public partial class Loading4OutOf8 : Control
                     }
                     else
                     {
-                        _root.save.progModuleEffect[i] = Math.floor(50 * (1 + (_root.save.progModuleTier[i] - 1) / 10));
+                        _root.save.progModuleEffect[i] = Math.floor(
+                            50 * (1 + (_root.save.progModuleTier[i] - 1) / 10)
+                        );
                     }
                     if (_root.save.progModuleShiny[i] == 1)
                     {
-                        _root.save.progModuleEffect[i] = Math.ceil(_root.save.progModuleEffect[i] * 2);
+                        _root.save.progModuleEffect[i] = Math.ceil(
+                            _root.save.progModuleEffect[i] * 2
+                        );
                     }
                 }
                 i++;
@@ -5566,7 +6474,9 @@ public partial class Loading4OutOf8 : Control
             {
                 if (!isNaN(_root.save.gardenHarvestValue[i]))
                 {
-                    _root.save.gardenHarvestValue[i] = Math.ceil(_root.save.gardenHarvestValue[i] / tmul);
+                    _root.save.gardenHarvestValue[i] = Math.ceil(
+                        _root.save.gardenHarvestValue[i] / tmul
+                    );
                 }
                 i++;
             }
@@ -5587,13 +6497,21 @@ public partial class Loading4OutOf8 : Control
                     }
                     else
                     {
-                        _root.save.progModuleChance[i] = Math.round(500 * (1 + (_root.save.progModuleTier[i] - 1) / 10));
-                        _root.save.progModuleEffect[i] = Math.floor(10 * (1 + (_root.save.progModuleTier[i] - 1) / 10));
+                        _root.save.progModuleChance[i] = Math.round(
+                            500 * (1 + (_root.save.progModuleTier[i] - 1) / 10)
+                        );
+                        _root.save.progModuleEffect[i] = Math.floor(
+                            10 * (1 + (_root.save.progModuleTier[i] - 1) / 10)
+                        );
                     }
                     if (_root.save.progModuleShiny[i] == 1)
                     {
-                        _root.save.progModuleChance[i] = Math.ceil(_root.save.progModuleChance[i] * 2.5);
-                        _root.save.progModuleEffect[i] = Math.ceil(_root.save.progModuleEffect[i] * 2);
+                        _root.save.progModuleChance[i] = Math.ceil(
+                            _root.save.progModuleChance[i] * 2.5
+                        );
+                        _root.save.progModuleEffect[i] = Math.ceil(
+                            _root.save.progModuleEffect[i] * 2
+                        );
                     }
                 }
                 i++;
@@ -5641,7 +6559,8 @@ public partial class Loading4OutOf8 : Control
         }
         if (_root.save.ver < 675)
         {
-            _root.save.totalStupidity = _root.save.banned + _root.save.bannedHard * 2 + _root.save.bannedImpossible * 6;
+            _root.save.totalStupidity =
+                _root.save.banned + _root.save.bannedHard * 2 + _root.save.bannedImpossible * 6;
             if (_root.save.gDifficulty == 3)
             {
                 _root.save.totalStupidity += 8;
@@ -5667,13 +6586,21 @@ public partial class Loading4OutOf8 : Control
                     }
                     else
                     {
-                        _root.save.progModuleChance[i] = Math.round(2000 * (1 + (_root.save.progModuleTier[i] - 1) / 10));
-                        _root.save.progModuleEffect[i] = Math.floor(40 * (1 + (_root.save.progModuleTier[i] - 1) / 10));
+                        _root.save.progModuleChance[i] = Math.round(
+                            2000 * (1 + (_root.save.progModuleTier[i] - 1) / 10)
+                        );
+                        _root.save.progModuleEffect[i] = Math.floor(
+                            40 * (1 + (_root.save.progModuleTier[i] - 1) / 10)
+                        );
                     }
                     if (_root.save.progModuleShiny[i] == 1)
                     {
-                        _root.save.progModuleChance[i] = Math.ceil(_root.save.progModuleChance[i] * 2.5);
-                        _root.save.progModuleEffect[i] = Math.ceil(_root.save.progModuleEffect[i] * 2);
+                        _root.save.progModuleChance[i] = Math.ceil(
+                            _root.save.progModuleChance[i] * 2.5
+                        );
+                        _root.save.progModuleEffect[i] = Math.ceil(
+                            _root.save.progModuleEffect[i] * 2
+                        );
                     }
                 }
                 if (_root.save.progModuleType[i] == 15)
@@ -5685,13 +6612,21 @@ public partial class Loading4OutOf8 : Control
                     }
                     else
                     {
-                        _root.save.progModuleChance[i] = Math.round(2000 * (1 + (_root.save.progModuleTier[i] - 1) / 10));
-                        _root.save.progModuleEffect[i] = Math.floor(40 * (1 + (_root.save.progModuleTier[i] - 1) / 10));
+                        _root.save.progModuleChance[i] = Math.round(
+                            2000 * (1 + (_root.save.progModuleTier[i] - 1) / 10)
+                        );
+                        _root.save.progModuleEffect[i] = Math.floor(
+                            40 * (1 + (_root.save.progModuleTier[i] - 1) / 10)
+                        );
                     }
                     if (_root.save.progModuleShiny[i] == 1)
                     {
-                        _root.save.progModuleChance[i] = Math.ceil(_root.save.progModuleChance[i] * 2.5);
-                        _root.save.progModuleEffect[i] = Math.ceil(_root.save.progModuleEffect[i] * 2);
+                        _root.save.progModuleChance[i] = Math.ceil(
+                            _root.save.progModuleChance[i] * 2.5
+                        );
+                        _root.save.progModuleEffect[i] = Math.ceil(
+                            _root.save.progModuleEffect[i] * 2
+                        );
                     }
                 }
                 if (_root.save.progModuleType[i] == 3)
@@ -5703,13 +6638,21 @@ public partial class Loading4OutOf8 : Control
                     }
                     else
                     {
-                        _root.save.progModuleChance[i] = Math.round(1000 * (1 + (_root.save.progModuleTier[i] - 1) / 10));
-                        _root.save.progModuleEffect[i] = Math.floor(250 * (1 + (_root.save.progModuleTier[i] - 1) / 10));
+                        _root.save.progModuleChance[i] = Math.round(
+                            1000 * (1 + (_root.save.progModuleTier[i] - 1) / 10)
+                        );
+                        _root.save.progModuleEffect[i] = Math.floor(
+                            250 * (1 + (_root.save.progModuleTier[i] - 1) / 10)
+                        );
                     }
                     if (_root.save.progModuleShiny[i] == 1)
                     {
-                        _root.save.progModuleChance[i] = Math.ceil(_root.save.progModuleChance[i] * 2.5);
-                        _root.save.progModuleEffect[i] = Math.ceil(_root.save.progModuleEffect[i] * 2);
+                        _root.save.progModuleChance[i] = Math.ceil(
+                            _root.save.progModuleChance[i] * 2.5
+                        );
+                        _root.save.progModuleEffect[i] = Math.ceil(
+                            _root.save.progModuleEffect[i] * 2
+                        );
                     }
                 }
                 if (_root.save.progModuleType[i] == 4)
@@ -5720,11 +6663,17 @@ public partial class Loading4OutOf8 : Control
                     }
                     else
                     {
-                        _root.save.progModuleChance[i] = Math.round(250 * (1 + (_root.save.progModuleTier[i] - 1) / 10) * (1 + (_root.save.progModuleTier[i] - 1) / 10));
+                        _root.save.progModuleChance[i] = Math.round(
+                            250
+                                * (1 + (_root.save.progModuleTier[i] - 1) / 10)
+                                * (1 + (_root.save.progModuleTier[i] - 1) / 10)
+                        );
                     }
                     if (_root.save.progModuleShiny[i] == 1)
                     {
-                        _root.save.progModuleChance[i] = Math.ceil(_root.save.progModuleChance[i] * 5);
+                        _root.save.progModuleChance[i] = Math.ceil(
+                            _root.save.progModuleChance[i] * 5
+                        );
                     }
                 }
                 if (_root.save.progModuleType[i] == 6)
@@ -5736,13 +6685,21 @@ public partial class Loading4OutOf8 : Control
                     }
                     else
                     {
-                        _root.save.progModuleChance[i] = Math.round(250 * (1 + (_root.save.progModuleTier[i] - 1) / 10));
-                        _root.save.progModuleEffect[i] = Math.floor(3 * (1 + (_root.save.progModuleTier[i] - 1) / 10));
+                        _root.save.progModuleChance[i] = Math.round(
+                            250 * (1 + (_root.save.progModuleTier[i] - 1) / 10)
+                        );
+                        _root.save.progModuleEffect[i] = Math.floor(
+                            3 * (1 + (_root.save.progModuleTier[i] - 1) / 10)
+                        );
                     }
                     if (_root.save.progModuleShiny[i] == 1)
                     {
-                        _root.save.progModuleChance[i] = Math.ceil(_root.save.progModuleChance[i] * 2.5);
-                        _root.save.progModuleEffect[i] = Math.ceil(_root.save.progModuleEffect[i] * 2);
+                        _root.save.progModuleChance[i] = Math.ceil(
+                            _root.save.progModuleChance[i] * 2.5
+                        );
+                        _root.save.progModuleEffect[i] = Math.ceil(
+                            _root.save.progModuleEffect[i] * 2
+                        );
                     }
                 }
                 if (_root.save.progModuleType[i] == 16)
@@ -5754,13 +6711,21 @@ public partial class Loading4OutOf8 : Control
                     }
                     else
                     {
-                        _root.save.progModuleChance[i] = Math.round(250 * (1 + (_root.save.progModuleTier[i] - 1) / 10));
-                        _root.save.progModuleEffect[i] = Math.floor(3 * (1 + (_root.save.progModuleTier[i] - 1) / 10));
+                        _root.save.progModuleChance[i] = Math.round(
+                            250 * (1 + (_root.save.progModuleTier[i] - 1) / 10)
+                        );
+                        _root.save.progModuleEffect[i] = Math.floor(
+                            3 * (1 + (_root.save.progModuleTier[i] - 1) / 10)
+                        );
                     }
                     if (_root.save.progModuleShiny[i] == 1)
                     {
-                        _root.save.progModuleChance[i] = Math.ceil(_root.save.progModuleChance[i] * 2.5);
-                        _root.save.progModuleEffect[i] = Math.ceil(_root.save.progModuleEffect[i] * 2);
+                        _root.save.progModuleChance[i] = Math.ceil(
+                            _root.save.progModuleChance[i] * 2.5
+                        );
+                        _root.save.progModuleEffect[i] = Math.ceil(
+                            _root.save.progModuleEffect[i] * 2
+                        );
                     }
                 }
                 if (_root.save.progModuleType[i] == 17)
@@ -5772,13 +6737,21 @@ public partial class Loading4OutOf8 : Control
                     }
                     else
                     {
-                        _root.save.progModuleChance[i] = Math.round(500 * (1 + (_root.save.progModuleTier[i] - 1) / 10));
-                        _root.save.progModuleEffect[i] = Math.floor(2000 * (1 + (_root.save.progModuleTier[i] - 1) / 10));
+                        _root.save.progModuleChance[i] = Math.round(
+                            500 * (1 + (_root.save.progModuleTier[i] - 1) / 10)
+                        );
+                        _root.save.progModuleEffect[i] = Math.floor(
+                            2000 * (1 + (_root.save.progModuleTier[i] - 1) / 10)
+                        );
                     }
                     if (_root.save.progModuleShiny[i] == 1)
                     {
-                        _root.save.progModuleChance[i] = Math.ceil(_root.save.progModuleChance[i] * 2.5);
-                        _root.save.progModuleEffect[i] = Math.ceil(_root.save.progModuleEffect[i] * 2);
+                        _root.save.progModuleChance[i] = Math.ceil(
+                            _root.save.progModuleChance[i] * 2.5
+                        );
+                        _root.save.progModuleEffect[i] = Math.ceil(
+                            _root.save.progModuleEffect[i] * 2
+                        );
                     }
                 }
                 if (_root.save.progModuleType[i] == 18)
@@ -5790,13 +6763,21 @@ public partial class Loading4OutOf8 : Control
                     }
                     else
                     {
-                        _root.save.progModuleChance[i] = Math.round(500 * (1 + (_root.save.progModuleTier[i] - 1) / 10));
-                        _root.save.progModuleEffect[i] = Math.floor(200 * (1 + (_root.save.progModuleTier[i] - 1) / 10));
+                        _root.save.progModuleChance[i] = Math.round(
+                            500 * (1 + (_root.save.progModuleTier[i] - 1) / 10)
+                        );
+                        _root.save.progModuleEffect[i] = Math.floor(
+                            200 * (1 + (_root.save.progModuleTier[i] - 1) / 10)
+                        );
                     }
                     if (_root.save.progModuleShiny[i] == 1)
                     {
-                        _root.save.progModuleChance[i] = Math.ceil(_root.save.progModuleChance[i] * 2.5);
-                        _root.save.progModuleEffect[i] = Math.ceil(_root.save.progModuleEffect[i] * 2);
+                        _root.save.progModuleChance[i] = Math.ceil(
+                            _root.save.progModuleChance[i] * 2.5
+                        );
+                        _root.save.progModuleEffect[i] = Math.ceil(
+                            _root.save.progModuleEffect[i] * 2
+                        );
                     }
                 }
                 if (_root.save.progModuleType[i] == 26)
@@ -5808,13 +6789,21 @@ public partial class Loading4OutOf8 : Control
                     }
                     else
                     {
-                        _root.save.progModuleChance[i] = Math.round(500 * (1 + (_root.save.progModuleTier[i] - 1) / 10));
-                        _root.save.progModuleEffect[i] = Math.floor(50 * (1 + (_root.save.progModuleTier[i] - 1) / 10));
+                        _root.save.progModuleChance[i] = Math.round(
+                            500 * (1 + (_root.save.progModuleTier[i] - 1) / 10)
+                        );
+                        _root.save.progModuleEffect[i] = Math.floor(
+                            50 * (1 + (_root.save.progModuleTier[i] - 1) / 10)
+                        );
                     }
                     if (_root.save.progModuleShiny[i] == 1)
                     {
-                        _root.save.progModuleChance[i] = Math.ceil(_root.save.progModuleChance[i] * 2.5);
-                        _root.save.progModuleEffect[i] = Math.ceil(_root.save.progModuleEffect[i] * 2);
+                        _root.save.progModuleChance[i] = Math.ceil(
+                            _root.save.progModuleChance[i] * 2.5
+                        );
+                        _root.save.progModuleEffect[i] = Math.ceil(
+                            _root.save.progModuleEffect[i] * 2
+                        );
                     }
                 }
                 if (_root.save.progModuleType[i] == 21)
@@ -5826,13 +6815,21 @@ public partial class Loading4OutOf8 : Control
                     }
                     else
                     {
-                        _root.save.progModuleChance[i] = Math.round(100 * (1 + (_root.save.progModuleTier[i] - 1) / 10));
-                        _root.save.progModuleEffect[i] = Math.floor(10 * (1 + (_root.save.progModuleTier[i] - 1) / 10));
+                        _root.save.progModuleChance[i] = Math.round(
+                            100 * (1 + (_root.save.progModuleTier[i] - 1) / 10)
+                        );
+                        _root.save.progModuleEffect[i] = Math.floor(
+                            10 * (1 + (_root.save.progModuleTier[i] - 1) / 10)
+                        );
                     }
                     if (_root.save.progModuleShiny[i] == 1)
                     {
-                        _root.save.progModuleChance[i] = Math.ceil(_root.save.progModuleChance[i] * 2.5);
-                        _root.save.progModuleEffect[i] = Math.ceil(_root.save.progModuleEffect[i] * 2);
+                        _root.save.progModuleChance[i] = Math.ceil(
+                            _root.save.progModuleChance[i] * 2.5
+                        );
+                        _root.save.progModuleEffect[i] = Math.ceil(
+                            _root.save.progModuleEffect[i] * 2
+                        );
                     }
                 }
                 if (_root.save.progModuleType[i] == 28 || _root.save.progModuleType[i] == 29)
@@ -5844,16 +6841,28 @@ public partial class Loading4OutOf8 : Control
                     }
                     else
                     {
-                        _root.save.progModuleChance[i] = Math.round(500 * (1 + (_root.save.progModuleTier[i] - 1) / 10));
-                        _root.save.progModuleEffect[i] = Math.floor(20 * (1 + (_root.save.progModuleTier[i] - 1) / 10));
+                        _root.save.progModuleChance[i] = Math.round(
+                            500 * (1 + (_root.save.progModuleTier[i] - 1) / 10)
+                        );
+                        _root.save.progModuleEffect[i] = Math.floor(
+                            20 * (1 + (_root.save.progModuleTier[i] - 1) / 10)
+                        );
                     }
                     if (_root.save.progModuleShiny[i] == 1)
                     {
-                        _root.save.progModuleChance[i] = Math.ceil(_root.save.progModuleChance[i] * 2.5);
-                        _root.save.progModuleEffect[i] = Math.ceil(_root.save.progModuleEffect[i] * 2);
+                        _root.save.progModuleChance[i] = Math.ceil(
+                            _root.save.progModuleChance[i] * 2.5
+                        );
+                        _root.save.progModuleEffect[i] = Math.ceil(
+                            _root.save.progModuleEffect[i] * 2
+                        );
                     }
                 }
-                if (_root.save.progModuleType[i] == 19 || _root.save.progModuleType[i] == 22 || _root.save.progModuleType[i] == 23)
+                if (
+                    _root.save.progModuleType[i] == 19
+                    || _root.save.progModuleType[i] == 22
+                    || _root.save.progModuleType[i] == 23
+                )
                 {
                     if (_root.save.progModuleTier[i] == 9)
                     {
@@ -5861,14 +6870,27 @@ public partial class Loading4OutOf8 : Control
                     }
                     else
                     {
-                        _root.save.progModuleChance[i] = Math.round(500 * (1 + (_root.save.progModuleTier[i] - 1) / 10) * (1 + (_root.save.progModuleTier[i] - 1) / 10));
+                        _root.save.progModuleChance[i] = Math.round(
+                            500
+                                * (1 + (_root.save.progModuleTier[i] - 1) / 10)
+                                * (1 + (_root.save.progModuleTier[i] - 1) / 10)
+                        );
                     }
                     if (_root.save.progModuleShiny[i] == 1)
                     {
-                        _root.save.progModuleChance[i] = Math.ceil(_root.save.progModuleChance[i] * 5);
+                        _root.save.progModuleChance[i] = Math.ceil(
+                            _root.save.progModuleChance[i] * 5
+                        );
                     }
                 }
-                if (_root.save.progModuleType[i] == 13 || _root.save.progModuleType[i] == 20 || _root.save.progModuleType[i] == 24 || _root.save.progModuleType[i] == 25 || _root.save.progModuleType[i] == 27 || _root.save.progModuleType[i] == 41)
+                if (
+                    _root.save.progModuleType[i] == 13
+                    || _root.save.progModuleType[i] == 20
+                    || _root.save.progModuleType[i] == 24
+                    || _root.save.progModuleType[i] == 25
+                    || _root.save.progModuleType[i] == 27
+                    || _root.save.progModuleType[i] == 41
+                )
                 {
                     if (_root.save.progModuleTier[i] == 9)
                     {
@@ -5876,11 +6898,17 @@ public partial class Loading4OutOf8 : Control
                     }
                     else
                     {
-                        _root.save.progModuleChance[i] = Math.round(200 * (1 + (_root.save.progModuleTier[i] - 1) / 10) * (1 + (_root.save.progModuleTier[i] - 1) / 10));
+                        _root.save.progModuleChance[i] = Math.round(
+                            200
+                                * (1 + (_root.save.progModuleTier[i] - 1) / 10)
+                                * (1 + (_root.save.progModuleTier[i] - 1) / 10)
+                        );
                     }
                     if (_root.save.progModuleShiny[i] == 1)
                     {
-                        _root.save.progModuleChance[i] = Math.ceil(_root.save.progModuleChance[i] * 5);
+                        _root.save.progModuleChance[i] = Math.ceil(
+                            _root.save.progModuleChance[i] * 5
+                        );
                     }
                 }
                 i++;
@@ -5895,7 +6923,9 @@ public partial class Loading4OutOf8 : Control
                 _root.save.fcgInitDeck = 6;
                 _root.save.fcgCash += 10000;
             }
-            _root.save.whiteCoinRefund = Math.floor(_root.save.banned * 500 * (1 + _root.save.banned / 200));
+            _root.save.whiteCoinRefund = Math.floor(
+                _root.save.banned * 500 * (1 + _root.save.banned / 200)
+            );
             if (_root.save.banned > 100)
             {
                 _root.save.whiteCoinRefund -= (_root.save.banned - 100) * 500;
@@ -5931,13 +6961,21 @@ public partial class Loading4OutOf8 : Control
                     }
                     else
                     {
-                        _root.save.progModuleChance[i] = Math.round(500 * (1 + (_root.save.progModuleTier[i] - 1) / 10));
-                        _root.save.progModuleEffect[i] = Math.floor(3 * (1 + (_root.save.progModuleTier[i] - 1) / 10));
+                        _root.save.progModuleChance[i] = Math.round(
+                            500 * (1 + (_root.save.progModuleTier[i] - 1) / 10)
+                        );
+                        _root.save.progModuleEffect[i] = Math.floor(
+                            3 * (1 + (_root.save.progModuleTier[i] - 1) / 10)
+                        );
                     }
                     if (_root.save.progModuleShiny[i] == 1)
                     {
-                        _root.save.progModuleChance[i] = Math.ceil(_root.save.progModuleChance[i] * 2.5);
-                        _root.save.progModuleEffect[i] = Math.ceil(_root.save.progModuleEffect[i] * 2);
+                        _root.save.progModuleChance[i] = Math.ceil(
+                            _root.save.progModuleChance[i] * 2.5
+                        );
+                        _root.save.progModuleEffect[i] = Math.ceil(
+                            _root.save.progModuleEffect[i] * 2
+                        );
                     }
                 }
                 if (_root.save.progModuleType[i] == 14)
@@ -5949,13 +6987,21 @@ public partial class Loading4OutOf8 : Control
                     }
                     else
                     {
-                        _root.save.progModuleChance[i] = Math.round(2000 * (1 + (_root.save.progModuleTier[i] - 1) / 10));
-                        _root.save.progModuleEffect[i] = Math.floor(40 * (1 + (_root.save.progModuleTier[i] - 1) / 10));
+                        _root.save.progModuleChance[i] = Math.round(
+                            2000 * (1 + (_root.save.progModuleTier[i] - 1) / 10)
+                        );
+                        _root.save.progModuleEffect[i] = Math.floor(
+                            40 * (1 + (_root.save.progModuleTier[i] - 1) / 10)
+                        );
                     }
                     if (_root.save.progModuleShiny[i] == 1)
                     {
-                        _root.save.progModuleChance[i] = Math.ceil(_root.save.progModuleChance[i] * 2.5);
-                        _root.save.progModuleEffect[i] = Math.ceil(_root.save.progModuleEffect[i] * 2);
+                        _root.save.progModuleChance[i] = Math.ceil(
+                            _root.save.progModuleChance[i] * 2.5
+                        );
+                        _root.save.progModuleEffect[i] = Math.ceil(
+                            _root.save.progModuleEffect[i] * 2
+                        );
                     }
                 }
                 if (_root.save.progModuleType[i] == 15)
@@ -5967,13 +7013,21 @@ public partial class Loading4OutOf8 : Control
                     }
                     else
                     {
-                        _root.save.progModuleChance[i] = Math.round(2000 * (1 + (_root.save.progModuleTier[i] - 1) / 10));
-                        _root.save.progModuleEffect[i] = Math.floor(40 * (1 + (_root.save.progModuleTier[i] - 1) / 10));
+                        _root.save.progModuleChance[i] = Math.round(
+                            2000 * (1 + (_root.save.progModuleTier[i] - 1) / 10)
+                        );
+                        _root.save.progModuleEffect[i] = Math.floor(
+                            40 * (1 + (_root.save.progModuleTier[i] - 1) / 10)
+                        );
                     }
                     if (_root.save.progModuleShiny[i] == 1)
                     {
-                        _root.save.progModuleChance[i] = Math.ceil(_root.save.progModuleChance[i] * 2.5);
-                        _root.save.progModuleEffect[i] = Math.ceil(_root.save.progModuleEffect[i] * 2);
+                        _root.save.progModuleChance[i] = Math.ceil(
+                            _root.save.progModuleChance[i] * 2.5
+                        );
+                        _root.save.progModuleEffect[i] = Math.ceil(
+                            _root.save.progModuleEffect[i] * 2
+                        );
                     }
                 }
                 if (_root.save.progModuleType[i] == 3)
@@ -5985,13 +7039,21 @@ public partial class Loading4OutOf8 : Control
                     }
                     else
                     {
-                        _root.save.progModuleChance[i] = Math.round(1000 * (1 + (_root.save.progModuleTier[i] - 1) / 10));
-                        _root.save.progModuleEffect[i] = Math.floor(250 * (1 + (_root.save.progModuleTier[i] - 1) / 10));
+                        _root.save.progModuleChance[i] = Math.round(
+                            1000 * (1 + (_root.save.progModuleTier[i] - 1) / 10)
+                        );
+                        _root.save.progModuleEffect[i] = Math.floor(
+                            250 * (1 + (_root.save.progModuleTier[i] - 1) / 10)
+                        );
                     }
                     if (_root.save.progModuleShiny[i] == 1)
                     {
-                        _root.save.progModuleChance[i] = Math.ceil(_root.save.progModuleChance[i] * 2.5);
-                        _root.save.progModuleEffect[i] = Math.ceil(_root.save.progModuleEffect[i] * 2);
+                        _root.save.progModuleChance[i] = Math.ceil(
+                            _root.save.progModuleChance[i] * 2.5
+                        );
+                        _root.save.progModuleEffect[i] = Math.ceil(
+                            _root.save.progModuleEffect[i] * 2
+                        );
                     }
                 }
                 if (_root.save.progModuleType[i] == 4)
@@ -6002,11 +7064,17 @@ public partial class Loading4OutOf8 : Control
                     }
                     else
                     {
-                        _root.save.progModuleChance[i] = Math.round(250 * (1 + (_root.save.progModuleTier[i] - 1) / 10) * (1 + (_root.save.progModuleTier[i] - 1) / 10));
+                        _root.save.progModuleChance[i] = Math.round(
+                            250
+                                * (1 + (_root.save.progModuleTier[i] - 1) / 10)
+                                * (1 + (_root.save.progModuleTier[i] - 1) / 10)
+                        );
                     }
                     if (_root.save.progModuleShiny[i] == 1)
                     {
-                        _root.save.progModuleChance[i] = Math.ceil(_root.save.progModuleChance[i] * 5);
+                        _root.save.progModuleChance[i] = Math.ceil(
+                            _root.save.progModuleChance[i] * 5
+                        );
                     }
                 }
                 if (_root.save.progModuleType[i] == 6)
@@ -6018,13 +7086,21 @@ public partial class Loading4OutOf8 : Control
                     }
                     else
                     {
-                        _root.save.progModuleChance[i] = Math.round(250 * (1 + (_root.save.progModuleTier[i] - 1) / 10));
-                        _root.save.progModuleEffect[i] = Math.floor(3 * (1 + (_root.save.progModuleTier[i] - 1) / 10));
+                        _root.save.progModuleChance[i] = Math.round(
+                            250 * (1 + (_root.save.progModuleTier[i] - 1) / 10)
+                        );
+                        _root.save.progModuleEffect[i] = Math.floor(
+                            3 * (1 + (_root.save.progModuleTier[i] - 1) / 10)
+                        );
                     }
                     if (_root.save.progModuleShiny[i] == 1)
                     {
-                        _root.save.progModuleChance[i] = Math.ceil(_root.save.progModuleChance[i] * 2.5);
-                        _root.save.progModuleEffect[i] = Math.ceil(_root.save.progModuleEffect[i] * 2);
+                        _root.save.progModuleChance[i] = Math.ceil(
+                            _root.save.progModuleChance[i] * 2.5
+                        );
+                        _root.save.progModuleEffect[i] = Math.ceil(
+                            _root.save.progModuleEffect[i] * 2
+                        );
                     }
                 }
                 if (_root.save.progModuleType[i] == 16)
@@ -6036,13 +7112,21 @@ public partial class Loading4OutOf8 : Control
                     }
                     else
                     {
-                        _root.save.progModuleChance[i] = Math.round(250 * (1 + (_root.save.progModuleTier[i] - 1) / 10));
-                        _root.save.progModuleEffect[i] = Math.floor(3 * (1 + (_root.save.progModuleTier[i] - 1) / 10));
+                        _root.save.progModuleChance[i] = Math.round(
+                            250 * (1 + (_root.save.progModuleTier[i] - 1) / 10)
+                        );
+                        _root.save.progModuleEffect[i] = Math.floor(
+                            3 * (1 + (_root.save.progModuleTier[i] - 1) / 10)
+                        );
                     }
                     if (_root.save.progModuleShiny[i] == 1)
                     {
-                        _root.save.progModuleChance[i] = Math.ceil(_root.save.progModuleChance[i] * 2.5);
-                        _root.save.progModuleEffect[i] = Math.ceil(_root.save.progModuleEffect[i] * 2);
+                        _root.save.progModuleChance[i] = Math.ceil(
+                            _root.save.progModuleChance[i] * 2.5
+                        );
+                        _root.save.progModuleEffect[i] = Math.ceil(
+                            _root.save.progModuleEffect[i] * 2
+                        );
                     }
                 }
                 if (_root.save.progModuleType[i] == 17)
@@ -6054,13 +7138,21 @@ public partial class Loading4OutOf8 : Control
                     }
                     else
                     {
-                        _root.save.progModuleChance[i] = Math.round(500 * (1 + (_root.save.progModuleTier[i] - 1) / 10));
-                        _root.save.progModuleEffect[i] = Math.floor(2000 * (1 + (_root.save.progModuleTier[i] - 1) / 10));
+                        _root.save.progModuleChance[i] = Math.round(
+                            500 * (1 + (_root.save.progModuleTier[i] - 1) / 10)
+                        );
+                        _root.save.progModuleEffect[i] = Math.floor(
+                            2000 * (1 + (_root.save.progModuleTier[i] - 1) / 10)
+                        );
                     }
                     if (_root.save.progModuleShiny[i] == 1)
                     {
-                        _root.save.progModuleChance[i] = Math.ceil(_root.save.progModuleChance[i] * 2.5);
-                        _root.save.progModuleEffect[i] = Math.ceil(_root.save.progModuleEffect[i] * 2);
+                        _root.save.progModuleChance[i] = Math.ceil(
+                            _root.save.progModuleChance[i] * 2.5
+                        );
+                        _root.save.progModuleEffect[i] = Math.ceil(
+                            _root.save.progModuleEffect[i] * 2
+                        );
                     }
                 }
                 if (_root.save.progModuleType[i] == 18)
@@ -6072,13 +7164,21 @@ public partial class Loading4OutOf8 : Control
                     }
                     else
                     {
-                        _root.save.progModuleChance[i] = Math.round(500 * (1 + (_root.save.progModuleTier[i] - 1) / 10));
-                        _root.save.progModuleEffect[i] = Math.floor(200 * (1 + (_root.save.progModuleTier[i] - 1) / 10));
+                        _root.save.progModuleChance[i] = Math.round(
+                            500 * (1 + (_root.save.progModuleTier[i] - 1) / 10)
+                        );
+                        _root.save.progModuleEffect[i] = Math.floor(
+                            200 * (1 + (_root.save.progModuleTier[i] - 1) / 10)
+                        );
                     }
                     if (_root.save.progModuleShiny[i] == 1)
                     {
-                        _root.save.progModuleChance[i] = Math.ceil(_root.save.progModuleChance[i] * 2.5);
-                        _root.save.progModuleEffect[i] = Math.ceil(_root.save.progModuleEffect[i] * 2);
+                        _root.save.progModuleChance[i] = Math.ceil(
+                            _root.save.progModuleChance[i] * 2.5
+                        );
+                        _root.save.progModuleEffect[i] = Math.ceil(
+                            _root.save.progModuleEffect[i] * 2
+                        );
                     }
                 }
                 if (_root.save.progModuleType[i] == 26)
@@ -6090,13 +7190,21 @@ public partial class Loading4OutOf8 : Control
                     }
                     else
                     {
-                        _root.save.progModuleChance[i] = Math.round(500 * (1 + (_root.save.progModuleTier[i] - 1) / 10));
-                        _root.save.progModuleEffect[i] = Math.floor(50 * (1 + (_root.save.progModuleTier[i] - 1) / 10));
+                        _root.save.progModuleChance[i] = Math.round(
+                            500 * (1 + (_root.save.progModuleTier[i] - 1) / 10)
+                        );
+                        _root.save.progModuleEffect[i] = Math.floor(
+                            50 * (1 + (_root.save.progModuleTier[i] - 1) / 10)
+                        );
                     }
                     if (_root.save.progModuleShiny[i] == 1)
                     {
-                        _root.save.progModuleChance[i] = Math.ceil(_root.save.progModuleChance[i] * 2.5);
-                        _root.save.progModuleEffect[i] = Math.ceil(_root.save.progModuleEffect[i] * 2);
+                        _root.save.progModuleChance[i] = Math.ceil(
+                            _root.save.progModuleChance[i] * 2.5
+                        );
+                        _root.save.progModuleEffect[i] = Math.ceil(
+                            _root.save.progModuleEffect[i] * 2
+                        );
                     }
                 }
                 if (_root.save.progModuleType[i] == 21)
@@ -6108,13 +7216,21 @@ public partial class Loading4OutOf8 : Control
                     }
                     else
                     {
-                        _root.save.progModuleChance[i] = Math.round(100 * (1 + (_root.save.progModuleTier[i] - 1) / 10));
-                        _root.save.progModuleEffect[i] = Math.floor(10 * (1 + (_root.save.progModuleTier[i] - 1) / 10));
+                        _root.save.progModuleChance[i] = Math.round(
+                            100 * (1 + (_root.save.progModuleTier[i] - 1) / 10)
+                        );
+                        _root.save.progModuleEffect[i] = Math.floor(
+                            10 * (1 + (_root.save.progModuleTier[i] - 1) / 10)
+                        );
                     }
                     if (_root.save.progModuleShiny[i] == 1)
                     {
-                        _root.save.progModuleChance[i] = Math.ceil(_root.save.progModuleChance[i] * 2.5);
-                        _root.save.progModuleEffect[i] = Math.ceil(_root.save.progModuleEffect[i] * 2);
+                        _root.save.progModuleChance[i] = Math.ceil(
+                            _root.save.progModuleChance[i] * 2.5
+                        );
+                        _root.save.progModuleEffect[i] = Math.ceil(
+                            _root.save.progModuleEffect[i] * 2
+                        );
                     }
                 }
                 if (_root.save.progModuleType[i] == 28 || _root.save.progModuleType[i] == 29)
@@ -6126,16 +7242,28 @@ public partial class Loading4OutOf8 : Control
                     }
                     else
                     {
-                        _root.save.progModuleChance[i] = Math.round(500 * (1 + (_root.save.progModuleTier[i] - 1) / 10));
-                        _root.save.progModuleEffect[i] = Math.floor(20 * (1 + (_root.save.progModuleTier[i] - 1) / 10));
+                        _root.save.progModuleChance[i] = Math.round(
+                            500 * (1 + (_root.save.progModuleTier[i] - 1) / 10)
+                        );
+                        _root.save.progModuleEffect[i] = Math.floor(
+                            20 * (1 + (_root.save.progModuleTier[i] - 1) / 10)
+                        );
                     }
                     if (_root.save.progModuleShiny[i] == 1)
                     {
-                        _root.save.progModuleChance[i] = Math.ceil(_root.save.progModuleChance[i] * 2.5);
-                        _root.save.progModuleEffect[i] = Math.ceil(_root.save.progModuleEffect[i] * 2);
+                        _root.save.progModuleChance[i] = Math.ceil(
+                            _root.save.progModuleChance[i] * 2.5
+                        );
+                        _root.save.progModuleEffect[i] = Math.ceil(
+                            _root.save.progModuleEffect[i] * 2
+                        );
                     }
                 }
-                if (_root.save.progModuleType[i] == 19 || _root.save.progModuleType[i] == 22 || _root.save.progModuleType[i] == 23)
+                if (
+                    _root.save.progModuleType[i] == 19
+                    || _root.save.progModuleType[i] == 22
+                    || _root.save.progModuleType[i] == 23
+                )
                 {
                     if (_root.save.progModuleTier[i] == 9)
                     {
@@ -6143,14 +7271,27 @@ public partial class Loading4OutOf8 : Control
                     }
                     else
                     {
-                        _root.save.progModuleChance[i] = Math.round(500 * (1 + (_root.save.progModuleTier[i] - 1) / 10) * (1 + (_root.save.progModuleTier[i] - 1) / 10));
+                        _root.save.progModuleChance[i] = Math.round(
+                            500
+                                * (1 + (_root.save.progModuleTier[i] - 1) / 10)
+                                * (1 + (_root.save.progModuleTier[i] - 1) / 10)
+                        );
                     }
                     if (_root.save.progModuleShiny[i] == 1)
                     {
-                        _root.save.progModuleChance[i] = Math.ceil(_root.save.progModuleChance[i] * 5);
+                        _root.save.progModuleChance[i] = Math.ceil(
+                            _root.save.progModuleChance[i] * 5
+                        );
                     }
                 }
-                if (_root.save.progModuleType[i] == 13 || _root.save.progModuleType[i] == 20 || _root.save.progModuleType[i] == 24 || _root.save.progModuleType[i] == 25 || _root.save.progModuleType[i] == 27 || _root.save.progModuleType[i] == 41)
+                if (
+                    _root.save.progModuleType[i] == 13
+                    || _root.save.progModuleType[i] == 20
+                    || _root.save.progModuleType[i] == 24
+                    || _root.save.progModuleType[i] == 25
+                    || _root.save.progModuleType[i] == 27
+                    || _root.save.progModuleType[i] == 41
+                )
                 {
                     if (_root.save.progModuleTier[i] == 9)
                     {
@@ -6158,11 +7299,17 @@ public partial class Loading4OutOf8 : Control
                     }
                     else
                     {
-                        _root.save.progModuleChance[i] = Math.round(200 * (1 + (_root.save.progModuleTier[i] - 1) / 10) * (1 + (_root.save.progModuleTier[i] - 1) / 10));
+                        _root.save.progModuleChance[i] = Math.round(
+                            200
+                                * (1 + (_root.save.progModuleTier[i] - 1) / 10)
+                                * (1 + (_root.save.progModuleTier[i] - 1) / 10)
+                        );
                     }
                     if (_root.save.progModuleShiny[i] == 1)
                     {
-                        _root.save.progModuleChance[i] = Math.ceil(_root.save.progModuleChance[i] * 5);
+                        _root.save.progModuleChance[i] = Math.ceil(
+                            _root.save.progModuleChance[i] * 5
+                        );
                     }
                 }
                 i++;
@@ -6176,13 +7323,22 @@ public partial class Loading4OutOf8 : Control
             {
                 if (_root.save.inventoryExist[i] == 1)
                 {
-                    if (_root.save.inventoryDesc[i] == "Thank you for your donation and your continuous support!")
+                    if (
+                        _root.save.inventoryDesc[i]
+                        == "Thank you for your donation and your continuous support!"
+                    )
                     {
-                        _root.save.inventoryDesc[i] = "Thank you for your donation and your continued support!";
+                        _root.save.inventoryDesc[i] =
+                            "Thank you for your donation and your continued support!";
                     }
-                    if (_root.save.inventoryName[i].indexOf("(Cursed)") != -1 && _root.save.inventoryExist[i] == 1)
+                    if (
+                        _root.save.inventoryName[i].indexOf("(Cursed)") != -1
+                        && _root.save.inventoryExist[i] == 1
+                    )
                     {
-                        _root.save.inventoryName[i] = _root.save.inventoryName[i].substr(0, _root.save.inventoryName[i].Length - 9);
+                        _root.save.inventoryName[i] = _root
+                            .save.inventoryName[i]
+                            .substr(0, _root.save.inventoryName[i].Length - 9);
                     }
                 }
                 i++;
@@ -6212,13 +7368,21 @@ public partial class Loading4OutOf8 : Control
                     }
                     else
                     {
-                        _root.save.progModuleChance[i] = Math.round(2000 * (1 + (_root.save.progModuleTier[i] - 1) / 10));
-                        _root.save.progModuleEffect[i] = Math.floor(25 * (1 + (_root.save.progModuleTier[i] - 1) / 10));
+                        _root.save.progModuleChance[i] = Math.round(
+                            2000 * (1 + (_root.save.progModuleTier[i] - 1) / 10)
+                        );
+                        _root.save.progModuleEffect[i] = Math.floor(
+                            25 * (1 + (_root.save.progModuleTier[i] - 1) / 10)
+                        );
                     }
                     if (_root.save.progModuleShiny[i] == 1)
                     {
-                        _root.save.progModuleChance[i] = Math.ceil(_root.save.progModuleChance[i] * 2.5);
-                        _root.save.progModuleEffect[i] = Math.ceil(_root.save.progModuleEffect[i] * 2);
+                        _root.save.progModuleChance[i] = Math.ceil(
+                            _root.save.progModuleChance[i] * 2.5
+                        );
+                        _root.save.progModuleEffect[i] = Math.ceil(
+                            _root.save.progModuleEffect[i] * 2
+                        );
                     }
                 }
                 if (_root.save.progModuleType[i] == 15)
@@ -6230,13 +7394,21 @@ public partial class Loading4OutOf8 : Control
                     }
                     else
                     {
-                        _root.save.progModuleChance[i] = Math.round(2000 * (1 + (_root.save.progModuleTier[i] - 1) / 10));
-                        _root.save.progModuleEffect[i] = Math.floor(25 * (1 + (_root.save.progModuleTier[i] - 1) / 10));
+                        _root.save.progModuleChance[i] = Math.round(
+                            2000 * (1 + (_root.save.progModuleTier[i] - 1) / 10)
+                        );
+                        _root.save.progModuleEffect[i] = Math.floor(
+                            25 * (1 + (_root.save.progModuleTier[i] - 1) / 10)
+                        );
                     }
                     if (_root.save.progModuleShiny[i] == 1)
                     {
-                        _root.save.progModuleChance[i] = Math.ceil(_root.save.progModuleChance[i] * 2.5);
-                        _root.save.progModuleEffect[i] = Math.ceil(_root.save.progModuleEffect[i] * 2);
+                        _root.save.progModuleChance[i] = Math.ceil(
+                            _root.save.progModuleChance[i] * 2.5
+                        );
+                        _root.save.progModuleEffect[i] = Math.ceil(
+                            _root.save.progModuleEffect[i] * 2
+                        );
                     }
                 }
                 if (_root.save.progModuleType[i] == 23)
@@ -6247,11 +7419,17 @@ public partial class Loading4OutOf8 : Control
                     }
                     else
                     {
-                        _root.save.progModuleChance[i] = Math.round(100 * (1 + (_root.save.progModuleTier[i] - 1) / 10) * (1 + (_root.save.progModuleTier[i] - 1) / 10));
+                        _root.save.progModuleChance[i] = Math.round(
+                            100
+                                * (1 + (_root.save.progModuleTier[i] - 1) / 10)
+                                * (1 + (_root.save.progModuleTier[i] - 1) / 10)
+                        );
                     }
                     if (_root.save.progModuleShiny[i] == 1)
                     {
-                        _root.save.progModuleChance[i] = Math.ceil(_root.save.progModuleChance[i] * 5);
+                        _root.save.progModuleChance[i] = Math.ceil(
+                            _root.save.progModuleChance[i] * 5
+                        );
                     }
                 }
                 if (_root.save.progModuleType[i] == 24)
@@ -6262,11 +7440,17 @@ public partial class Loading4OutOf8 : Control
                     }
                     else
                     {
-                        _root.save.progModuleChance[i] = Math.round(25 * (1 + (_root.save.progModuleTier[i] - 1) / 10) * (1 + (_root.save.progModuleTier[i] - 1) / 10));
+                        _root.save.progModuleChance[i] = Math.round(
+                            25
+                                * (1 + (_root.save.progModuleTier[i] - 1) / 10)
+                                * (1 + (_root.save.progModuleTier[i] - 1) / 10)
+                        );
                     }
                     if (_root.save.progModuleShiny[i] == 1)
                     {
-                        _root.save.progModuleChance[i] = Math.ceil(_root.save.progModuleChance[i] * 5);
+                        _root.save.progModuleChance[i] = Math.ceil(
+                            _root.save.progModuleChance[i] * 5
+                        );
                     }
                 }
                 if (_root.save.progModuleType[i] == 7)
@@ -6278,13 +7462,21 @@ public partial class Loading4OutOf8 : Control
                     }
                     else
                     {
-                        _root.save.progModuleChance[i] = Math.round(50 * (1 + (_root.save.progModuleTier[i] - 1) / 10));
-                        _root.save.progModuleEffect[i] = Math.floor(5 * (1 + (_root.save.progModuleTier[i] - 1) / 10));
+                        _root.save.progModuleChance[i] = Math.round(
+                            50 * (1 + (_root.save.progModuleTier[i] - 1) / 10)
+                        );
+                        _root.save.progModuleEffect[i] = Math.floor(
+                            5 * (1 + (_root.save.progModuleTier[i] - 1) / 10)
+                        );
                     }
                     if (_root.save.progModuleShiny[i] == 1)
                     {
-                        _root.save.progModuleChance[i] = Math.ceil(_root.save.progModuleChance[i] * 2.5);
-                        _root.save.progModuleEffect[i] = Math.ceil(_root.save.progModuleEffect[i] * 2);
+                        _root.save.progModuleChance[i] = Math.ceil(
+                            _root.save.progModuleChance[i] * 2.5
+                        );
+                        _root.save.progModuleEffect[i] = Math.ceil(
+                            _root.save.progModuleEffect[i] * 2
+                        );
                     }
                 }
                 if (_root.save.progModuleType[i] == 41)
@@ -6295,11 +7487,17 @@ public partial class Loading4OutOf8 : Control
                     }
                     else
                     {
-                        _root.save.progModuleChance[i] = Math.round(500 * (1 + (_root.save.progModuleTier[i] - 1) / 10) * (1 + (_root.save.progModuleTier[i] - 1) / 10));
+                        _root.save.progModuleChance[i] = Math.round(
+                            500
+                                * (1 + (_root.save.progModuleTier[i] - 1) / 10)
+                                * (1 + (_root.save.progModuleTier[i] - 1) / 10)
+                        );
                     }
                     if (_root.save.progModuleShiny[i] == 1)
                     {
-                        _root.save.progModuleChance[i] = Math.ceil(_root.save.progModuleChance[i] * 5);
+                        _root.save.progModuleChance[i] = Math.ceil(
+                            _root.save.progModuleChance[i] * 5
+                        );
                     }
                 }
                 if (_root.save.progModuleType[i] == 40)
@@ -6311,13 +7509,21 @@ public partial class Loading4OutOf8 : Control
                     }
                     else
                     {
-                        _root.save.progModuleChance[i] = Math.round(250 * (1 + (_root.save.progModuleTier[i] - 1) / 10));
-                        _root.save.progModuleEffect[i] = Math.floor(3 * (1 + (_root.save.progModuleTier[i] - 1) / 10));
+                        _root.save.progModuleChance[i] = Math.round(
+                            250 * (1 + (_root.save.progModuleTier[i] - 1) / 10)
+                        );
+                        _root.save.progModuleEffect[i] = Math.floor(
+                            3 * (1 + (_root.save.progModuleTier[i] - 1) / 10)
+                        );
                     }
                     if (_root.save.progModuleShiny[i] == 1)
                     {
-                        _root.save.progModuleChance[i] = Math.ceil(_root.save.progModuleChance[i] * 2.5);
-                        _root.save.progModuleEffect[i] = Math.ceil(_root.save.progModuleEffect[i] * 2);
+                        _root.save.progModuleChance[i] = Math.ceil(
+                            _root.save.progModuleChance[i] * 2.5
+                        );
+                        _root.save.progModuleEffect[i] = Math.ceil(
+                            _root.save.progModuleEffect[i] * 2
+                        );
                     }
                 }
                 i++;
@@ -6337,19 +7543,24 @@ public partial class Loading4OutOf8 : Control
             i = 1;
             while (i <= 500)
             {
-                if (_root.save.arenaBestiaryUlt1V[i] == 1736 || _root.save.arenaBestiaryUlt1V[i] == 1737)
+                if (
+                    _root.save.arenaBestiaryUlt1V[i] == 1736
+                    || _root.save.arenaBestiaryUlt1V[i] == 1737
+                )
                 {
                     if (_root.save.arenaAllyUpgrade[i] == 15)
                     {
                         _root.save.arenaAllyUpgrade[i] = 10;
                     }
                 }
-                if (_root.save.arenaBestiaryUlt2V[i] == 1736 || _root.save.arenaBestiaryUlt2V[i] == 1737)
-                {
-                }
-                if (_root.save.arenaBestiaryUlt3V[i] == 1736 || _root.save.arenaBestiaryUlt3V[i] == 1737)
-                {
-                }
+                if (
+                    _root.save.arenaBestiaryUlt2V[i] == 1736
+                    || _root.save.arenaBestiaryUlt2V[i] == 1737
+                ) { }
+                if (
+                    _root.save.arenaBestiaryUlt3V[i] == 1736
+                    || _root.save.arenaBestiaryUlt3V[i] == 1737
+                ) { }
                 i++;
             }
         }
@@ -6359,7 +7570,10 @@ public partial class Loading4OutOf8 : Control
             i = 1;
             while (i <= 500)
             {
-                if (_root.save.arenaBestiaryUlt1F[i] != undefined && _root.save.arenaAllyUpgrade[i] == 10)
+                if (
+                    _root.save.arenaBestiaryUlt1F[i] != undefined
+                    && _root.save.arenaAllyUpgrade[i] == 10
+                )
                 {
                     if (_root.save.arenaBestiaryUlt1F[i].indexOf("2015-10-1") == -1)
                     {
@@ -6377,7 +7591,10 @@ public partial class Loading4OutOf8 : Control
             i = 1;
             while (i <= 500)
             {
-                if (!_root.save.arenaBestiaryUlt2F.ContainsKey(i) && _root.save.arenaBestiaryUlt2.ContainsKey(i))
+                if (
+                    !_root.save.arenaBestiaryUlt2F.ContainsKey(i)
+                    && _root.save.arenaBestiaryUlt2.ContainsKey(i)
+                )
                 {
                     if (_root.save.arenaBestiaryUlt2F[i].indexOf("2015-10-1") == -1)
                     {
@@ -6399,7 +7616,11 @@ public partial class Loading4OutOf8 : Control
             i = 1;
             while (i <= 500)
             {
-                if (_root.save.arenaAllyUpgrade[i] == 15 && _root.enemyList[i].allyPassive3 == "" && !isNaN(_root.save.arenaBestiaryExtra[i]))
+                if (
+                    _root.save.arenaAllyUpgrade[i] == 15
+                    && _root.enemyList[i].allyPassive3 == ""
+                    && !isNaN(_root.save.arenaBestiaryExtra[i])
+                )
                 {
                     _root.save.arenaBestiary[i] += _root.save.arenaBestiaryExtra[i] * 4;
                     _root.save.arenaBestiaryExtra[i] += _root.save.arenaBestiaryExtra[i] * 4;
@@ -6429,9 +7650,23 @@ public partial class Loading4OutOf8 : Control
             {
                 _root.save.petFullness = 1000;
             }
-            if (!isNaN(_root.save.mysteryBoxCollect10[1]) && !isNaN(_root.save.mysteryBoxCollect10[2]) && !isNaN(_root.save.mysteryBoxCollect10[3]) && !isNaN(_root.save.mysteryBoxCollect10[4]) && !isNaN(_root.save.mysteryBoxCollect10[5]) && !isNaN(_root.save.mysteryBoxCollect10[6]))
+            if (
+                !isNaN(_root.save.mysteryBoxCollect10[1])
+                && !isNaN(_root.save.mysteryBoxCollect10[2])
+                && !isNaN(_root.save.mysteryBoxCollect10[3])
+                && !isNaN(_root.save.mysteryBoxCollect10[4])
+                && !isNaN(_root.save.mysteryBoxCollect10[5])
+                && !isNaN(_root.save.mysteryBoxCollect10[6])
+            )
             {
-                var tmp = _root.save.mysteryBox[10] + _root.save.mysteryBoxCollect10[1] + _root.save.mysteryBoxCollect10[2] + _root.save.mysteryBoxCollect10[3] + _root.save.mysteryBoxCollect10[4] + _root.save.mysteryBoxCollect10[5] + _root.save.mysteryBoxCollect10[6];
+                var tmp =
+                    _root.save.mysteryBox[10]
+                    + _root.save.mysteryBoxCollect10[1]
+                    + _root.save.mysteryBoxCollect10[2]
+                    + _root.save.mysteryBoxCollect10[3]
+                    + _root.save.mysteryBoxCollect10[4]
+                    + _root.save.mysteryBoxCollect10[5]
+                    + _root.save.mysteryBoxCollect10[6];
                 if (tmp > 19876)
                 {
                     _root.save.pam = true;
@@ -6485,7 +7720,8 @@ public partial class Loading4OutOf8 : Control
         {
             if (_root.save.arenaEventPoint[1] > 40000)
             {
-                _root.save.arenaEventPoint[1] = Math.floor((_root.save.arenaEventPoint[1] - 40000) * 0.5) + 40000;
+                _root.save.arenaEventPoint[1] =
+                    Math.floor((_root.save.arenaEventPoint[1] - 40000) * 0.5) + 40000;
             }
             _root.save.ver = 711;
         }
@@ -6513,13 +7749,21 @@ public partial class Loading4OutOf8 : Control
                     }
                     else
                     {
-                        _root.save.progModuleChance[i] = Math.round(500 * (1 + (_root.save.progModuleTier[i] - 1) / 10));
-                        _root.save.progModuleEffect[i] = Math.floor(1000 * (1 + (_root.save.progModuleTier[i] - 1) / 10));
+                        _root.save.progModuleChance[i] = Math.round(
+                            500 * (1 + (_root.save.progModuleTier[i] - 1) / 10)
+                        );
+                        _root.save.progModuleEffect[i] = Math.floor(
+                            1000 * (1 + (_root.save.progModuleTier[i] - 1) / 10)
+                        );
                     }
                     if (_root.save.progModuleShiny[i] == 1)
                     {
-                        _root.save.progModuleChance[i] = Math.ceil(_root.save.progModuleChance[i] * 2.5);
-                        _root.save.progModuleEffect[i] = Math.ceil(_root.save.progModuleEffect[i] * 2);
+                        _root.save.progModuleChance[i] = Math.ceil(
+                            _root.save.progModuleChance[i] * 2.5
+                        );
+                        _root.save.progModuleEffect[i] = Math.ceil(
+                            _root.save.progModuleEffect[i] * 2
+                        );
                     }
                 }
                 if (_root.save.progModuleType[i] == 18)
@@ -6531,13 +7775,21 @@ public partial class Loading4OutOf8 : Control
                     }
                     else
                     {
-                        _root.save.progModuleChance[i] = Math.round(500 * (1 + (_root.save.progModuleTier[i] - 1) / 10));
-                        _root.save.progModuleEffect[i] = Math.floor(100 * (1 + (_root.save.progModuleTier[i] - 1) / 10));
+                        _root.save.progModuleChance[i] = Math.round(
+                            500 * (1 + (_root.save.progModuleTier[i] - 1) / 10)
+                        );
+                        _root.save.progModuleEffect[i] = Math.floor(
+                            100 * (1 + (_root.save.progModuleTier[i] - 1) / 10)
+                        );
                     }
                     if (_root.save.progModuleShiny[i] == 1)
                     {
-                        _root.save.progModuleChance[i] = Math.ceil(_root.save.progModuleChance[i] * 2.5);
-                        _root.save.progModuleEffect[i] = Math.ceil(_root.save.progModuleEffect[i] * 2);
+                        _root.save.progModuleChance[i] = Math.ceil(
+                            _root.save.progModuleChance[i] * 2.5
+                        );
+                        _root.save.progModuleEffect[i] = Math.ceil(
+                            _root.save.progModuleEffect[i] * 2
+                        );
                     }
                 }
                 if (_root.save.progModuleType[i] == 10)
@@ -6549,13 +7801,21 @@ public partial class Loading4OutOf8 : Control
                     }
                     else
                     {
-                        _root.save.progModuleChance[i] = Math.round(500 * (1 + (_root.save.progModuleTier[i] - 1) / 10));
-                        _root.save.progModuleEffect[i] = Math.floor(100 * (1 + (_root.save.progModuleTier[i] - 1) / 10));
+                        _root.save.progModuleChance[i] = Math.round(
+                            500 * (1 + (_root.save.progModuleTier[i] - 1) / 10)
+                        );
+                        _root.save.progModuleEffect[i] = Math.floor(
+                            100 * (1 + (_root.save.progModuleTier[i] - 1) / 10)
+                        );
                     }
                     if (_root.save.progModuleShiny[i] == 1)
                     {
-                        _root.save.progModuleChance[i] = Math.ceil(_root.save.progModuleChance[i] * 2.5);
-                        _root.save.progModuleEffect[i] = Math.ceil(_root.save.progModuleEffect[i] * 2);
+                        _root.save.progModuleChance[i] = Math.ceil(
+                            _root.save.progModuleChance[i] * 2.5
+                        );
+                        _root.save.progModuleEffect[i] = Math.ceil(
+                            _root.save.progModuleEffect[i] * 2
+                        );
                     }
                 }
                 i++;
@@ -6592,13 +7852,21 @@ public partial class Loading4OutOf8 : Control
                     }
                     else
                     {
-                        _root.save.progModuleChance[i] = Math.round(250 * (1 + (_root.save.progModuleTier[i] - 1) / 10));
-                        _root.save.progModuleEffect[i] = Math.floor(2 * (1 + (_root.save.progModuleTier[i] - 1) / 10));
+                        _root.save.progModuleChance[i] = Math.round(
+                            250 * (1 + (_root.save.progModuleTier[i] - 1) / 10)
+                        );
+                        _root.save.progModuleEffect[i] = Math.floor(
+                            2 * (1 + (_root.save.progModuleTier[i] - 1) / 10)
+                        );
                     }
                     if (_root.save.progModuleShiny[i] == 1)
                     {
-                        _root.save.progModuleChance[i] = Math.ceil(_root.save.progModuleChance[i] * 2.5);
-                        _root.save.progModuleEffect[i] = Math.ceil(_root.save.progModuleEffect[i] * 2);
+                        _root.save.progModuleChance[i] = Math.ceil(
+                            _root.save.progModuleChance[i] * 2.5
+                        );
+                        _root.save.progModuleEffect[i] = Math.ceil(
+                            _root.save.progModuleEffect[i] * 2
+                        );
                     }
                 }
                 if (_root.save.progModuleType[i] == 41)
@@ -6610,13 +7878,21 @@ public partial class Loading4OutOf8 : Control
                     }
                     else
                     {
-                        _root.save.progModuleChance[i] = Math.round(200 * (1 + (_root.save.progModuleTier[i] - 1) / 10));
-                        _root.save.progModuleEffect[i] = Math.floor(5 * (1 + (_root.save.progModuleTier[i] - 1) / 10));
+                        _root.save.progModuleChance[i] = Math.round(
+                            200 * (1 + (_root.save.progModuleTier[i] - 1) / 10)
+                        );
+                        _root.save.progModuleEffect[i] = Math.floor(
+                            5 * (1 + (_root.save.progModuleTier[i] - 1) / 10)
+                        );
                     }
                     if (_root.save.progModuleShiny[i] == 1)
                     {
-                        _root.save.progModuleChance[i] = Math.ceil(_root.save.progModuleChance[i] * 2.5);
-                        _root.save.progModuleEffect[i] = Math.ceil(_root.save.progModuleEffect[i] * 2);
+                        _root.save.progModuleChance[i] = Math.ceil(
+                            _root.save.progModuleChance[i] * 2.5
+                        );
+                        _root.save.progModuleEffect[i] = Math.ceil(
+                            _root.save.progModuleEffect[i] * 2
+                        );
                     }
                 }
                 i++;
@@ -6683,13 +7959,21 @@ public partial class Loading4OutOf8 : Control
                     }
                     else
                     {
-                        _root.save.progModuleChance[i] = Math.round(1000 * (1 + (_root.save.progModuleTier[i] - 1) / 10));
-                        _root.save.progModuleEffect[i] = Math.floor(15 * (1 + (_root.save.progModuleTier[i] - 1) / 10));
+                        _root.save.progModuleChance[i] = Math.round(
+                            1000 * (1 + (_root.save.progModuleTier[i] - 1) / 10)
+                        );
+                        _root.save.progModuleEffect[i] = Math.floor(
+                            15 * (1 + (_root.save.progModuleTier[i] - 1) / 10)
+                        );
                     }
                     if (_root.save.progModuleShiny[i] == 1)
                     {
-                        _root.save.progModuleChance[i] = Math.ceil(_root.save.progModuleChance[i] * 2.5);
-                        _root.save.progModuleEffect[i] = Math.ceil(_root.save.progModuleEffect[i] * 2);
+                        _root.save.progModuleChance[i] = Math.ceil(
+                            _root.save.progModuleChance[i] * 2.5
+                        );
+                        _root.save.progModuleEffect[i] = Math.ceil(
+                            _root.save.progModuleEffect[i] * 2
+                        );
                     }
                 }
                 if (_root.save.progModuleType[i] == 2)
@@ -6701,13 +7985,21 @@ public partial class Loading4OutOf8 : Control
                     }
                     else
                     {
-                        _root.save.progModuleChance[i] = Math.round(1000 * (1 + (_root.save.progModuleTier[i] - 1) / 10));
-                        _root.save.progModuleEffect[i] = Math.floor(15 * (1 + (_root.save.progModuleTier[i] - 1) / 10));
+                        _root.save.progModuleChance[i] = Math.round(
+                            1000 * (1 + (_root.save.progModuleTier[i] - 1) / 10)
+                        );
+                        _root.save.progModuleEffect[i] = Math.floor(
+                            15 * (1 + (_root.save.progModuleTier[i] - 1) / 10)
+                        );
                     }
                     if (_root.save.progModuleShiny[i] == 1)
                     {
-                        _root.save.progModuleChance[i] = Math.ceil(_root.save.progModuleChance[i] * 2.5);
-                        _root.save.progModuleEffect[i] = Math.ceil(_root.save.progModuleEffect[i] * 2);
+                        _root.save.progModuleChance[i] = Math.ceil(
+                            _root.save.progModuleChance[i] * 2.5
+                        );
+                        _root.save.progModuleEffect[i] = Math.ceil(
+                            _root.save.progModuleEffect[i] * 2
+                        );
                     }
                 }
                 if (_root.save.progModuleType[i] == 11)
@@ -6719,11 +8011,17 @@ public partial class Loading4OutOf8 : Control
                     }
                     else
                     {
-                        _root.save.progModuleChance[i] = Math.round(25 * (1 + (_root.save.progModuleTier[i] - 1) / 10) * (1 + (_root.save.progModuleTier[i] - 1) / 10));
+                        _root.save.progModuleChance[i] = Math.round(
+                            25
+                                * (1 + (_root.save.progModuleTier[i] - 1) / 10)
+                                * (1 + (_root.save.progModuleTier[i] - 1) / 10)
+                        );
                     }
                     if (_root.save.progModuleShiny[i] == 1)
                     {
-                        _root.save.progModuleChance[i] = Math.ceil(_root.save.progModuleChance[i] * 5);
+                        _root.save.progModuleChance[i] = Math.ceil(
+                            _root.save.progModuleChance[i] * 5
+                        );
                     }
                 }
                 if (_root.save.progModuleType[i] == 13)
@@ -6734,11 +8032,17 @@ public partial class Loading4OutOf8 : Control
                     }
                     else
                     {
-                        _root.save.progModuleChance[i] = Math.round(100 * (1 + (_root.save.progModuleTier[i] - 1) / 10) * (1 + (_root.save.progModuleTier[i] - 1) / 10));
+                        _root.save.progModuleChance[i] = Math.round(
+                            100
+                                * (1 + (_root.save.progModuleTier[i] - 1) / 10)
+                                * (1 + (_root.save.progModuleTier[i] - 1) / 10)
+                        );
                     }
                     if (_root.save.progModuleShiny[i] == 1)
                     {
-                        _root.save.progModuleChance[i] = Math.ceil(_root.save.progModuleChance[i] * 5);
+                        _root.save.progModuleChance[i] = Math.ceil(
+                            _root.save.progModuleChance[i] * 5
+                        );
                     }
                 }
                 if (_root.save.progModuleType[i] == 40)
@@ -6750,13 +8054,21 @@ public partial class Loading4OutOf8 : Control
                     }
                     else
                     {
-                        _root.save.progModuleChance[i] = Math.round(200 * (1 + (_root.save.progModuleTier[i] - 1) / 10));
-                        _root.save.progModuleEffect[i] = Math.floor(2 * (1 + (_root.save.progModuleTier[i] - 1) / 10));
+                        _root.save.progModuleChance[i] = Math.round(
+                            200 * (1 + (_root.save.progModuleTier[i] - 1) / 10)
+                        );
+                        _root.save.progModuleEffect[i] = Math.floor(
+                            2 * (1 + (_root.save.progModuleTier[i] - 1) / 10)
+                        );
                     }
                     if (_root.save.progModuleShiny[i] == 1)
                     {
-                        _root.save.progModuleChance[i] = Math.ceil(_root.save.progModuleChance[i] * 2.5);
-                        _root.save.progModuleEffect[i] = Math.ceil(_root.save.progModuleEffect[i] * 2);
+                        _root.save.progModuleChance[i] = Math.ceil(
+                            _root.save.progModuleChance[i] * 2.5
+                        );
+                        _root.save.progModuleEffect[i] = Math.ceil(
+                            _root.save.progModuleEffect[i] * 2
+                        );
                     }
                 }
                 i++;
@@ -6777,13 +8089,21 @@ public partial class Loading4OutOf8 : Control
                     }
                     else
                     {
-                        _root.save.progModuleChance[i] = Math.round(1000 * (1 + (_root.save.progModuleTier[i] - 1) / 10));
-                        _root.save.progModuleEffect[i] = Math.floor(15 * (1 + (_root.save.progModuleTier[i] - 1) / 10));
+                        _root.save.progModuleChance[i] = Math.round(
+                            1000 * (1 + (_root.save.progModuleTier[i] - 1) / 10)
+                        );
+                        _root.save.progModuleEffect[i] = Math.floor(
+                            15 * (1 + (_root.save.progModuleTier[i] - 1) / 10)
+                        );
                     }
                     if (_root.save.progModuleShiny[i] == 1)
                     {
-                        _root.save.progModuleChance[i] = Math.ceil(_root.save.progModuleChance[i] * 2.5);
-                        _root.save.progModuleEffect[i] = Math.ceil(_root.save.progModuleEffect[i] * 2);
+                        _root.save.progModuleChance[i] = Math.ceil(
+                            _root.save.progModuleChance[i] * 2.5
+                        );
+                        _root.save.progModuleEffect[i] = Math.ceil(
+                            _root.save.progModuleEffect[i] * 2
+                        );
                     }
                 }
                 if (_root.save.progModuleType[i] == 2)
@@ -6795,13 +8115,21 @@ public partial class Loading4OutOf8 : Control
                     }
                     else
                     {
-                        _root.save.progModuleChance[i] = Math.round(1000 * (1 + (_root.save.progModuleTier[i] - 1) / 10));
-                        _root.save.progModuleEffect[i] = Math.floor(15 * (1 + (_root.save.progModuleTier[i] - 1) / 10));
+                        _root.save.progModuleChance[i] = Math.round(
+                            1000 * (1 + (_root.save.progModuleTier[i] - 1) / 10)
+                        );
+                        _root.save.progModuleEffect[i] = Math.floor(
+                            15 * (1 + (_root.save.progModuleTier[i] - 1) / 10)
+                        );
                     }
                     if (_root.save.progModuleShiny[i] == 1)
                     {
-                        _root.save.progModuleChance[i] = Math.ceil(_root.save.progModuleChance[i] * 2.5);
-                        _root.save.progModuleEffect[i] = Math.ceil(_root.save.progModuleEffect[i] * 2);
+                        _root.save.progModuleChance[i] = Math.ceil(
+                            _root.save.progModuleChance[i] * 2.5
+                        );
+                        _root.save.progModuleEffect[i] = Math.ceil(
+                            _root.save.progModuleEffect[i] * 2
+                        );
                     }
                 }
                 if (_root.save.progModuleType[i] == 11)
@@ -6814,11 +8142,17 @@ public partial class Loading4OutOf8 : Control
                     }
                     else
                     {
-                        _root.save.progModuleChance[i] = Math.round(50 * (1 + (_root.save.progModuleTier[i] - 1) / 10) * (1 + (_root.save.progModuleTier[i] - 1) / 10));
+                        _root.save.progModuleChance[i] = Math.round(
+                            50
+                                * (1 + (_root.save.progModuleTier[i] - 1) / 10)
+                                * (1 + (_root.save.progModuleTier[i] - 1) / 10)
+                        );
                     }
                     if (_root.save.progModuleShiny[i] == 1)
                     {
-                        _root.save.progModuleChance[i] = Math.ceil(_root.save.progModuleChance[i] * 5);
+                        _root.save.progModuleChance[i] = Math.ceil(
+                            _root.save.progModuleChance[i] * 5
+                        );
                     }
                 }
                 if (_root.save.progModuleType[i] == 13)
@@ -6830,11 +8164,17 @@ public partial class Loading4OutOf8 : Control
                     }
                     else
                     {
-                        _root.save.progModuleChance[i] = Math.round(100 * (1 + (_root.save.progModuleTier[i] - 1) / 10) * (1 + (_root.save.progModuleTier[i] - 1) / 10));
+                        _root.save.progModuleChance[i] = Math.round(
+                            100
+                                * (1 + (_root.save.progModuleTier[i] - 1) / 10)
+                                * (1 + (_root.save.progModuleTier[i] - 1) / 10)
+                        );
                     }
                     if (_root.save.progModuleShiny[i] == 1)
                     {
-                        _root.save.progModuleChance[i] = Math.ceil(_root.save.progModuleChance[i] * 5);
+                        _root.save.progModuleChance[i] = Math.ceil(
+                            _root.save.progModuleChance[i] * 5
+                        );
                     }
                 }
                 if (_root.save.progModuleType[i] == 40)
@@ -6846,13 +8186,21 @@ public partial class Loading4OutOf8 : Control
                     }
                     else
                     {
-                        _root.save.progModuleChance[i] = Math.round(200 * (1 + (_root.save.progModuleTier[i] - 1) / 10));
-                        _root.save.progModuleEffect[i] = Math.floor(2 * (1 + (_root.save.progModuleTier[i] - 1) / 10));
+                        _root.save.progModuleChance[i] = Math.round(
+                            200 * (1 + (_root.save.progModuleTier[i] - 1) / 10)
+                        );
+                        _root.save.progModuleEffect[i] = Math.floor(
+                            2 * (1 + (_root.save.progModuleTier[i] - 1) / 10)
+                        );
                     }
                     if (_root.save.progModuleShiny[i] == 1)
                     {
-                        _root.save.progModuleChance[i] = Math.ceil(_root.save.progModuleChance[i] * 2.5);
-                        _root.save.progModuleEffect[i] = Math.ceil(_root.save.progModuleEffect[i] * 2);
+                        _root.save.progModuleChance[i] = Math.ceil(
+                            _root.save.progModuleChance[i] * 2.5
+                        );
+                        _root.save.progModuleEffect[i] = Math.ceil(
+                            _root.save.progModuleEffect[i] * 2
+                        );
                     }
                 }
                 i++;
@@ -6872,11 +8220,17 @@ public partial class Loading4OutOf8 : Control
                     }
                     else
                     {
-                        _root.save.progModuleChance[i] = Math.round(200 * (1 + (_root.save.progModuleTier[i] - 1) / 10) * (1 + (_root.save.progModuleTier[i] - 1) / 10));
+                        _root.save.progModuleChance[i] = Math.round(
+                            200
+                                * (1 + (_root.save.progModuleTier[i] - 1) / 10)
+                                * (1 + (_root.save.progModuleTier[i] - 1) / 10)
+                        );
                     }
                     if (_root.save.progModuleShiny[i] == 1)
                     {
-                        _root.save.progModuleChance[i] = Math.ceil(_root.save.progModuleChance[i] * 5);
+                        _root.save.progModuleChance[i] = Math.ceil(
+                            _root.save.progModuleChance[i] * 5
+                        );
                     }
                 }
                 if (_root.save.progModuleType[i] == 30)
@@ -6888,11 +8242,17 @@ public partial class Loading4OutOf8 : Control
                     }
                     else
                     {
-                        _root.save.progModuleChance[i] = Math.round(10 * (1 + (_root.save.progModuleTier[i] - 1) / 10) * (1 + (_root.save.progModuleTier[i] - 1) / 10));
+                        _root.save.progModuleChance[i] = Math.round(
+                            10
+                                * (1 + (_root.save.progModuleTier[i] - 1) / 10)
+                                * (1 + (_root.save.progModuleTier[i] - 1) / 10)
+                        );
                     }
                     if (_root.save.progModuleShiny[i] == 1)
                     {
-                        _root.save.progModuleChance[i] = Math.ceil(_root.save.progModuleChance[i] * 5);
+                        _root.save.progModuleChance[i] = Math.ceil(
+                            _root.save.progModuleChance[i] * 5
+                        );
                     }
                 }
                 if (_root.save.progModuleType[i] == 31 || _root.save.progModuleType[i] == 32)
@@ -6904,11 +8264,17 @@ public partial class Loading4OutOf8 : Control
                     }
                     else
                     {
-                        _root.save.progModuleChance[i] = Math.round(15 * (1 + (_root.save.progModuleTier[i] - 1) / 10) * (1 + (_root.save.progModuleTier[i] - 1) / 10));
+                        _root.save.progModuleChance[i] = Math.round(
+                            15
+                                * (1 + (_root.save.progModuleTier[i] - 1) / 10)
+                                * (1 + (_root.save.progModuleTier[i] - 1) / 10)
+                        );
                     }
                     if (_root.save.progModuleShiny[i] == 1)
                     {
-                        _root.save.progModuleChance[i] = Math.ceil(_root.save.progModuleChance[i] * 5);
+                        _root.save.progModuleChance[i] = Math.ceil(
+                            _root.save.progModuleChance[i] * 5
+                        );
                     }
                 }
                 if (_root.save.progModuleType[i] >= 33 && _root.save.progModuleType[i] <= 35)
@@ -6920,11 +8286,17 @@ public partial class Loading4OutOf8 : Control
                     }
                     else
                     {
-                        _root.save.progModuleChance[i] = Math.round(20 * (1 + (_root.save.progModuleTier[i] - 1) / 10) * (1 + (_root.save.progModuleTier[i] - 1) / 10));
+                        _root.save.progModuleChance[i] = Math.round(
+                            20
+                                * (1 + (_root.save.progModuleTier[i] - 1) / 10)
+                                * (1 + (_root.save.progModuleTier[i] - 1) / 10)
+                        );
                     }
                     if (_root.save.progModuleShiny[i] == 1)
                     {
-                        _root.save.progModuleChance[i] = Math.ceil(_root.save.progModuleChance[i] * 5);
+                        _root.save.progModuleChance[i] = Math.ceil(
+                            _root.save.progModuleChance[i] * 5
+                        );
                     }
                 }
                 if (_root.save.progModuleType[i] >= 36 && _root.save.progModuleType[i] <= 39)
@@ -6936,11 +8308,17 @@ public partial class Loading4OutOf8 : Control
                     }
                     else
                     {
-                        _root.save.progModuleChance[i] = Math.round(25 * (1 + (_root.save.progModuleTier[i] - 1) / 10) * (1 + (_root.save.progModuleTier[i] - 1) / 10));
+                        _root.save.progModuleChance[i] = Math.round(
+                            25
+                                * (1 + (_root.save.progModuleTier[i] - 1) / 10)
+                                * (1 + (_root.save.progModuleTier[i] - 1) / 10)
+                        );
                     }
                     if (_root.save.progModuleShiny[i] == 1)
                     {
-                        _root.save.progModuleChance[i] = Math.ceil(_root.save.progModuleChance[i] * 5);
+                        _root.save.progModuleChance[i] = Math.ceil(
+                            _root.save.progModuleChance[i] * 5
+                        );
                     }
                 }
                 if (_root.save.progModuleType[i] == 41)
@@ -6952,11 +8330,17 @@ public partial class Loading4OutOf8 : Control
                     }
                     else
                     {
-                        _root.save.progModuleChance[i] = Math.round(400 * (1 + (_root.save.progModuleTier[i] - 1) / 10) * (1 + (_root.save.progModuleTier[i] - 1) / 10));
+                        _root.save.progModuleChance[i] = Math.round(
+                            400
+                                * (1 + (_root.save.progModuleTier[i] - 1) / 10)
+                                * (1 + (_root.save.progModuleTier[i] - 1) / 10)
+                        );
                     }
                     if (_root.save.progModuleShiny[i] == 1)
                     {
-                        _root.save.progModuleChance[i] = Math.ceil(_root.save.progModuleChance[i] * 5);
+                        _root.save.progModuleChance[i] = Math.ceil(
+                            _root.save.progModuleChance[i] * 5
+                        );
                     }
                 }
                 i++;
@@ -7066,12 +8450,18 @@ public partial class Loading4OutOf8 : Control
             {
                 if (_root.save.inventorySubtype[i] == "Medal" && _root.save.inventoryEnhance[i] > 0)
                 {
-                    if (_root.save.inventoryDesc[i] == "Thank you for your donation and your continued support!")
+                    if (
+                        _root.save.inventoryDesc[i]
+                        == "Thank you for your donation and your continued support!"
+                    )
                     {
                         _root.save.inventoryAttack[i] = 0;
                         _root.save.mh = true;
                     }
-                    if (_root.save.inventoryDesc[i] == "This medal\'s name depends on your Anti-Idle title when you craft it. More medal designs are available as special gifts for those who wish to support the game. Check the \'Donate!\' page in the main menu for details!")
+                    if (
+                        _root.save.inventoryDesc[i]
+                        == "This medal\'s name depends on your Anti-Idle title when you craft it. More medal designs are available as special gifts for those who wish to support the game. Check the \'Donate!\' page in the main menu for details!"
+                    )
                     {
                         _root.save.inventoryAttack[i] = 0;
                         _root.save.mh = true;
@@ -7086,11 +8476,17 @@ public partial class Loading4OutOf8 : Control
             i = 1;
             while (i <= 1337)
             {
-                if (_root.save.inventorySubtype[i] == "Pendant" && _root.save.inventoryName[i] == "GIGA PENDANT")
+                if (
+                    _root.save.inventorySubtype[i] == "Pendant"
+                    && _root.save.inventoryName[i] == "GIGA PENDANT"
+                )
                 {
                     _root.save.inventoryAttack[i] += _root.save.inventoryEnhance[i] * 75;
                 }
-                if (_root.save.inventorySubtype[i] == "Earring" && _root.save.inventoryName[i] == "GIGA EARRINGS")
+                if (
+                    _root.save.inventorySubtype[i] == "Earring"
+                    && _root.save.inventoryName[i] == "GIGA EARRINGS"
+                )
                 {
                     _root.save.inventoryAttack[i] += _root.save.inventoryEnhance[i] * 75;
                     var j = 5000;
@@ -7105,15 +8501,24 @@ public partial class Loading4OutOf8 : Control
                         j++;
                     }
                 }
-                if (_root.save.inventoryType[i] == "Enhancer" && _root.save.inventoryName[i] == "GIGA ENHANCER")
+                if (
+                    _root.save.inventoryType[i] == "Enhancer"
+                    && _root.save.inventoryName[i] == "GIGA ENHANCER"
+                )
                 {
                     _root.save.inventoryAttack[i] = 125;
                 }
-                if (_root.save.inventoryType[i] == "Enhancer" && _root.save.inventoryName[i] == "GIGA ENHANCER EX")
+                if (
+                    _root.save.inventoryType[i] == "Enhancer"
+                    && _root.save.inventoryName[i] == "GIGA ENHANCER EX"
+                )
                 {
                     _root.save.inventoryAttack[i] = 150;
                 }
-                if (_root.save.inventoryType[i] == "Enhancer" && _root.save.inventoryName[i] == "GIGA LIFE ROCK")
+                if (
+                    _root.save.inventoryType[i] == "Enhancer"
+                    && _root.save.inventoryName[i] == "GIGA LIFE ROCK"
+                )
                 {
                     _root.save.inventoryAttack[i] = 2;
                 }
@@ -7203,13 +8608,21 @@ public partial class Loading4OutOf8 : Control
                     }
                     else
                     {
-                        _root.save.progModuleChance[i] = Math.round(500 * (1 + (_root.save.progModuleTier[i] - 1) / 10));
-                        _root.save.progModuleEffect[i] = Math.floor(2 * (1 + (_root.save.progModuleTier[i] - 1) / 10));
+                        _root.save.progModuleChance[i] = Math.round(
+                            500 * (1 + (_root.save.progModuleTier[i] - 1) / 10)
+                        );
+                        _root.save.progModuleEffect[i] = Math.floor(
+                            2 * (1 + (_root.save.progModuleTier[i] - 1) / 10)
+                        );
                     }
                     if (_root.save.progModuleShiny[i] == 1)
                     {
-                        _root.save.progModuleChance[i] = Math.ceil(_root.save.progModuleChance[i] * 2.5);
-                        _root.save.progModuleEffect[i] = Math.ceil(_root.save.progModuleEffect[i] * 2);
+                        _root.save.progModuleChance[i] = Math.ceil(
+                            _root.save.progModuleChance[i] * 2.5
+                        );
+                        _root.save.progModuleEffect[i] = Math.ceil(
+                            _root.save.progModuleEffect[i] * 2
+                        );
                     }
                 }
                 i++;
@@ -7221,23 +8634,43 @@ public partial class Loading4OutOf8 : Control
             i = 1;
             while (i <= 2500)
             {
-                if (_root.save.inventoryType[i] == "Armor" && _root.save.inventoryName[i] == "Ultimate Hat" && _root.save.inventoryAbility[i] == "Damage")
+                if (
+                    _root.save.inventoryType[i] == "Armor"
+                    && _root.save.inventoryName[i] == "Ultimate Hat"
+                    && _root.save.inventoryAbility[i] == "Damage"
+                )
                 {
                     _root.save.inventoryAbility[i] = "Attack";
                 }
-                if (_root.save.inventoryType[i] == "Armor" && _root.save.inventoryName[i] == "Ultimate Shirt" && _root.save.inventoryAbility[i] == "Damage")
+                if (
+                    _root.save.inventoryType[i] == "Armor"
+                    && _root.save.inventoryName[i] == "Ultimate Shirt"
+                    && _root.save.inventoryAbility[i] == "Damage"
+                )
                 {
                     _root.save.inventoryAbility[i] = "Attack";
                 }
-                if (_root.save.inventoryType[i] == "Armor" && _root.save.inventoryName[i] == "Ultimate Gloves" && _root.save.inventoryAbility[i] == "Damage")
+                if (
+                    _root.save.inventoryType[i] == "Armor"
+                    && _root.save.inventoryName[i] == "Ultimate Gloves"
+                    && _root.save.inventoryAbility[i] == "Damage"
+                )
                 {
                     _root.save.inventoryAbility[i] = "Attack";
                 }
-                if (_root.save.inventoryType[i] == "Armor" && _root.save.inventoryName[i] == "Ultimate Pants" && _root.save.inventoryAbility[i] == "Damage")
+                if (
+                    _root.save.inventoryType[i] == "Armor"
+                    && _root.save.inventoryName[i] == "Ultimate Pants"
+                    && _root.save.inventoryAbility[i] == "Damage"
+                )
                 {
                     _root.save.inventoryAbility[i] = "Attack";
                 }
-                if (_root.save.inventoryType[i] == "Armor" && _root.save.inventoryName[i] == "Ultimate Shoes" && _root.save.inventoryAbility[i] == "Damage")
+                if (
+                    _root.save.inventoryType[i] == "Armor"
+                    && _root.save.inventoryName[i] == "Ultimate Shoes"
+                    && _root.save.inventoryAbility[i] == "Damage"
+                )
                 {
                     _root.save.inventoryAbility[i] = "Attack";
                 }
@@ -7287,7 +8720,11 @@ public partial class Loading4OutOf8 : Control
         }
         if (_root.save.ver < 748)
         {
-            if (_root.save.banned < 1 && _root.save.bannedB < 1 && _root.save.arenaKommanderMonID >= 448)
+            if (
+                _root.save.banned < 1
+                && _root.save.bannedB < 1
+                && _root.save.arenaKommanderMonID >= 448
+            )
             {
                 _root.save.arenaKommanderSkip += 1;
             }
@@ -7295,7 +8732,11 @@ public partial class Loading4OutOf8 : Control
         }
         if (_root.save.ver < 749)
         {
-            if (_root.save.arenaLevel < 500 && _root.save.arenaKommanderMonID >= 443 && _root.save.arenaKommanderMonID <= 447)
+            if (
+                _root.save.arenaLevel < 500
+                && _root.save.arenaKommanderMonID >= 443
+                && _root.save.arenaKommanderMonID <= 447
+            )
             {
                 _root.save.arenaKommanderSkip += 1;
             }
@@ -7324,11 +8765,17 @@ public partial class Loading4OutOf8 : Control
                     }
                     else
                     {
-                        _root.save.progModuleChance[i] = Math.round(10 * (1 + (_root.save.progModuleTier[i] - 1) / 10) * (1 + (_root.save.progModuleTier[i] - 1) / 10));
+                        _root.save.progModuleChance[i] = Math.round(
+                            10
+                                * (1 + (_root.save.progModuleTier[i] - 1) / 10)
+                                * (1 + (_root.save.progModuleTier[i] - 1) / 10)
+                        );
                     }
                     if (_root.save.progModuleShiny[i] == 1)
                     {
-                        _root.save.progModuleChance[i] = Math.ceil(_root.save.progModuleChance[i] * 5);
+                        _root.save.progModuleChance[i] = Math.ceil(
+                            _root.save.progModuleChance[i] * 5
+                        );
                     }
                 }
                 if (_root.save.progModuleType[i] >= 33 && _root.save.progModuleType[i] <= 35)
@@ -7339,11 +8786,17 @@ public partial class Loading4OutOf8 : Control
                     }
                     else
                     {
-                        _root.save.progModuleChance[i] = Math.round(15 * (1 + (_root.save.progModuleTier[i] - 1) / 10) * (1 + (_root.save.progModuleTier[i] - 1) / 10));
+                        _root.save.progModuleChance[i] = Math.round(
+                            15
+                                * (1 + (_root.save.progModuleTier[i] - 1) / 10)
+                                * (1 + (_root.save.progModuleTier[i] - 1) / 10)
+                        );
                     }
                     if (_root.save.progModuleShiny[i] == 1)
                     {
-                        _root.save.progModuleChance[i] = Math.ceil(_root.save.progModuleChance[i] * 5);
+                        _root.save.progModuleChance[i] = Math.ceil(
+                            _root.save.progModuleChance[i] * 5
+                        );
                     }
                 }
                 if (_root.save.progModuleType[i] >= 36 && _root.save.progModuleType[i] <= 39)
@@ -7354,11 +8807,17 @@ public partial class Loading4OutOf8 : Control
                     }
                     else
                     {
-                        _root.save.progModuleChance[i] = Math.round(20 * (1 + (_root.save.progModuleTier[i] - 1) / 10) * (1 + (_root.save.progModuleTier[i] - 1) / 10));
+                        _root.save.progModuleChance[i] = Math.round(
+                            20
+                                * (1 + (_root.save.progModuleTier[i] - 1) / 10)
+                                * (1 + (_root.save.progModuleTier[i] - 1) / 10)
+                        );
                     }
                     if (_root.save.progModuleShiny[i] == 1)
                     {
-                        _root.save.progModuleChance[i] = Math.ceil(_root.save.progModuleChance[i] * 5);
+                        _root.save.progModuleChance[i] = Math.ceil(
+                            _root.save.progModuleChance[i] * 5
+                        );
                     }
                 }
                 i++;
@@ -7408,11 +8867,13 @@ public partial class Loading4OutOf8 : Control
                 {
                     if (_root.save.inventoryName[i] == "Yellow Madness Gem")
                     {
-                        _root.save.inventoryDesc[i] = "With this, you will no longer suffer a 10% EXP penalty when fighting yellow-named monsters! It also increases your EXP gain rate and makes rare monsters more likely to appear! Also, Coins will fall from the sky! Isn\'t it awesome?";
+                        _root.save.inventoryDesc[i] =
+                            "With this, you will no longer suffer a 10% EXP penalty when fighting yellow-named monsters! It also increases your EXP gain rate and makes rare monsters more likely to appear! Also, Coins will fall from the sky! Isn\'t it awesome?";
                     }
                     if (_root.save.inventoryName[i] == "Auto Buff Gem")
                     {
-                        _root.save.inventoryDesc[i] = "When you equip this gem, you will receive random buffs if you don\'t already have one! You can also cancel your current buff to receive a new one.\n\nPossible buffs: Power, Master, Reward, Enrage, Elemental Boost\n\nAlso, you will get +0.5% Boost whenever you kill a monster and 1 Insta-Progress whenever you kill a boss.";
+                        _root.save.inventoryDesc[i] =
+                            "When you equip this gem, you will receive random buffs if you don\'t already have one! You can also cancel your current buff to receive a new one.\n\nPossible buffs: Power, Master, Reward, Enrage, Elemental Boost\n\nAlso, you will get +0.5% Boost whenever you kill a monster and 1 Insta-Progress whenever you kill a boss.";
                     }
                     if (_root.save.inventoryType[i] == "Armor")
                     {
@@ -7433,9 +8894,13 @@ public partial class Loading4OutOf8 : Control
             {
                 if (_root.save.inventoryExist[i] == 1)
                 {
-                    if (_root.save.inventoryDesc[i] == "This medal\'s name depends on your Anti-Idle title when you craft it. More medal designs are available as special gifts for those who wish to support the game. Check the \'Donate!\' page in the main menu for details!")
+                    if (
+                        _root.save.inventoryDesc[i]
+                        == "This medal\'s name depends on your Anti-Idle title when you craft it. More medal designs are available as special gifts for those who wish to support the game. Check the \'Donate!\' page in the main menu for details!"
+                    )
                     {
-                        _root.save.inventoryDesc[i] = "This medal\'s name depends on your Anti-Idle title when you craft it. Don\'t ask how that works.";
+                        _root.save.inventoryDesc[i] =
+                            "This medal\'s name depends on your Anti-Idle title when you craft it. Don\'t ask how that works.";
                     }
                 }
                 i++;
@@ -7477,13 +8942,21 @@ public partial class Loading4OutOf8 : Control
                     }
                     else
                     {
-                        _root.save.progModuleChance[i] = Math.round(500 * (1 + (_root.save.progModuleTier[i] - 1) / 10));
-                        _root.save.progModuleEffect[i] = Math.floor(10 * (1 + (_root.save.progModuleTier[i] - 1) / 10));
+                        _root.save.progModuleChance[i] = Math.round(
+                            500 * (1 + (_root.save.progModuleTier[i] - 1) / 10)
+                        );
+                        _root.save.progModuleEffect[i] = Math.floor(
+                            10 * (1 + (_root.save.progModuleTier[i] - 1) / 10)
+                        );
                     }
                     if (_root.save.progModuleShiny[i] == 1)
                     {
-                        _root.save.progModuleChance[i] = Math.ceil(_root.save.progModuleChance[i] * 2.5);
-                        _root.save.progModuleEffect[i] = Math.ceil(_root.save.progModuleEffect[i] * 2);
+                        _root.save.progModuleChance[i] = Math.ceil(
+                            _root.save.progModuleChance[i] * 2.5
+                        );
+                        _root.save.progModuleEffect[i] = Math.ceil(
+                            _root.save.progModuleEffect[i] * 2
+                        );
                     }
                 }
                 i++;
@@ -7514,7 +8987,10 @@ public partial class Loading4OutOf8 : Control
                 _root.save.arenaCorruptBestDifficulty = 100;
                 _root.save.arenaCorruptMaxDifficulty = 101;
             }
-            if (_root.save.arenaCorruptDifficulty > 50 && _root.save.arenaCorruptDifficulty > _root.save.arenaCorruptMaxDifficulty)
+            if (
+                _root.save.arenaCorruptDifficulty > 50
+                && _root.save.arenaCorruptDifficulty > _root.save.arenaCorruptMaxDifficulty
+            )
             {
                 _root.save.arenaCorruptDifficulty = _root.save.arenaCorruptMaxDifficulty;
             }
@@ -7573,7 +9049,17 @@ public partial class Loading4OutOf8 : Control
                 var itm = 1;
                 while (itm <= 2500)
                 {
-                    if (_root.save.inventoryName[itm] == "Ultimate Weapon" || _root.save.inventoryName[itm] == "Ultimate Hat" || _root.save.inventoryName[itm] == "Ultimate Shirt" || _root.save.inventoryName[itm] == "Ultimate Gloves" || _root.save.inventoryName[itm] == "Ultimate Pants" || _root.save.inventoryName[itm] == "Ultimate Shoes" || _root.save.inventoryName[itm] == "Ultimate Pendant" || _root.save.inventoryName[itm] == "Ultimate Trinket" || _root.save.inventoryName[itm] == "Ultimate Earrings")
+                    if (
+                        _root.save.inventoryName[itm] == "Ultimate Weapon"
+                        || _root.save.inventoryName[itm] == "Ultimate Hat"
+                        || _root.save.inventoryName[itm] == "Ultimate Shirt"
+                        || _root.save.inventoryName[itm] == "Ultimate Gloves"
+                        || _root.save.inventoryName[itm] == "Ultimate Pants"
+                        || _root.save.inventoryName[itm] == "Ultimate Shoes"
+                        || _root.save.inventoryName[itm] == "Ultimate Pendant"
+                        || _root.save.inventoryName[itm] == "Ultimate Trinket"
+                        || _root.save.inventoryName[itm] == "Ultimate Earrings"
+                    )
                     {
                         _root.deleteArenaItem(itm);
                     }
@@ -7623,7 +9109,11 @@ public partial class Loading4OutOf8 : Control
             var itm = 1;
             while (itm <= 2500)
             {
-                if (_root.save.inventoryName[itm] == "Monster Chip R-0" || _root.save.inventoryName[itm] == "Monster Chip E-0" || _root.save.inventoryName[itm] == "Monster Chip U-0")
+                if (
+                    _root.save.inventoryName[itm] == "Monster Chip R-0"
+                    || _root.save.inventoryName[itm] == "Monster Chip E-0"
+                    || _root.save.inventoryName[itm] == "Monster Chip U-0"
+                )
                 {
                     _root.deleteArenaItem(itm);
                 }
@@ -7695,11 +9185,15 @@ public partial class Loading4OutOf8 : Control
             {
                 if (_root.save.highRankedPong[i] > 6000000)
                 {
-                    _root.save.highRankedPong[i] = 6000000 + Math.floor((_root.save.highRankedPong[i] - 6000000) * 2 / 3 / 500) * 50;
+                    _root.save.highRankedPong[i] =
+                        6000000
+                        + Math.floor((_root.save.highRankedPong[i] - 6000000) * 2 / 3 / 500) * 50;
                 }
                 if (_root.save.highRankedMind[i] > 18000000)
                 {
-                    _root.save.highRankedMind[i] = 18000000 + Math.floor((_root.save.highRankedMind[i] - 18000000) * 1 / 4 / 500) * 50;
+                    _root.save.highRankedMind[i] =
+                        18000000
+                        + Math.floor((_root.save.highRankedMind[i] - 18000000) * 1 / 4 / 500) * 50;
                 }
                 i++;
             }
@@ -7738,7 +9232,6 @@ public partial class Loading4OutOf8 : Control
             _root.save.minVersion = 1860;
             _root.save.ver = 819;
         }
-
     }
 
     public override void _Process(double delta)
