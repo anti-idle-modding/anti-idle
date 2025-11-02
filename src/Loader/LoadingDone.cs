@@ -50,12 +50,12 @@ public class Fish
     public double material;
 }
 
-// MATCH: frame_10/DoAction.as
+// MATCH: frame_10-DoAction.as
 public partial class LoadingDone : Control
 {
     double fishIndex = 1;
 
-    // MATCH: frame_10/DoAction.as:addFish()
+    // MATCH: frame_10-DoAction.as:addFish()
     public void addFish(
         string fishCate,
         double fishLevel,

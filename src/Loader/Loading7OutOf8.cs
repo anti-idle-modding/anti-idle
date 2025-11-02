@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using AntiIdle.FCG;
 using Godot;
 
-// MATCH: frame_8/DoAction.as
+// MATCH: frame_8-DoAction.as
 public partial class Loading7OutOf8 : Control
 {
-    // MATCH: frame_8/DoAction.as:addNewCard()
+    // MATCH: frame_8-DoAction.as:addNewCard()
     public void addNewCard(
         double pil1,
         double pil2,
@@ -123,7 +123,7 @@ public partial class Loading7OutOf8 : Control
         _root.cardList.Add(cardInfo);
     }
 
-    // MATCH: frame_8/DoAction.as:addNewDeck()
+    // MATCH: frame_8-DoAction.as:addNewDeck()
     public void addNewDeck(string deckname, List<double> deckArray)
     {
         var deck = new Deck();

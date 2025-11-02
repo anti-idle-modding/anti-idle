@@ -4,7 +4,7 @@ using Godot;
 
 namespace AntiIdle.BattleArena.Numbers;
 
-// MATCH: DefineSprite_133_damagePop/frame_1/DoAction.as
+// MATCH: DefineSprite_133_damagePop-frame_1-DoAction.as
 public partial class DamagePopFrame1 : FlashNode2D
 {
     private Label disp;

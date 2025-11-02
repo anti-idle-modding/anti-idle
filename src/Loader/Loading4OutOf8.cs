@@ -3,10 +3,10 @@ using System.Linq;
 using Godot;
 using Math = AntiIdle.Common.Flash.Math;
 
-// MATCH: frame_5/DoAction.as
+// MATCH: frame_5-DoAction.as
 public partial class Loading4OutOf8 : Control
 {
-    // MATCH: frame_5/DoAction.as:addSaveVar()
+    // MATCH: frame_5-DoAction.as:addSaveVar()
     void addSaveVar(double varName, double varValue)
     {
         // NOTE: This function is stubbed out! Instead, see

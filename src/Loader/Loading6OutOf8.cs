@@ -1,7 +1,7 @@
 using System;
 using Godot;
 
-// MATCH: frame_7/DoAction.as
+// MATCH: frame_7-DoAction.as
 public partial class Loading6OutOf8 : Control
 {
     public override void _Ready()

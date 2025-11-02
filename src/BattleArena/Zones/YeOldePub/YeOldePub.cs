@@ -3,7 +3,7 @@ using Godot;
 
 public partial class YeOldePub : Node
 {
-    // MATCH: DefineSprite_3877/frame_1/DoAction.as
+    // MATCH: DefineSprite_3877-frame_1-DoAction.as
     public override void _EnterTree()
     {
         _root.fightStat = "Ye Olde Pub";

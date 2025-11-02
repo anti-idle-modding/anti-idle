@@ -5,7 +5,7 @@ using Godot;
 
 namespace AntiIdle.Loader;
 
-// MATCH: frame_4/DoAction.as
+// MATCH: frame_4-DoAction.as
 public partial class Loading3OutOf8 : Control
 {
     public override void _Ready()

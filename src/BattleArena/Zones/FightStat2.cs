@@ -10,7 +10,7 @@ public partial class FightStat2 : FlashColorRect
     [Export]
     public Label fightText2;
 
-    // MATCH: DefineSprite_6014/frame_1/PlaceObject2_4945_2982/CLIPACTIONRECORD onClipEvent(load).as
+    // MATCH: DefineSprite_6014-frame_1-PlaceObject2_4945_2982-CLIPACTIONRECORD onClipEvent(load).as
     public override void _EnterTree()
     {
         _alpha = 0;
@@ -19,7 +19,7 @@ public partial class FightStat2 : FlashColorRect
         _root.updateFightStatB = 0;
     }
 
-    // MATCH: DefineSprite_6014/frame_1/PlaceObject2_4945_2982/CLIPACTIONRECORD onClipEvent(enterFrame).as
+    // MATCH: DefineSprite_6014-frame_1-PlaceObject2_4945_2982-CLIPACTIONRECORD onClipEvent(enterFrame).as
     public override void _Process(double delta)
     {
         if (fightTextX != _root.fightStat2 || _root.updateFightStatB == 1)

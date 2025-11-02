@@ -1,12 +1,12 @@
 using Godot;
 
-// MATCH: DefineSprite_2322/frame_1/DoAction.as
+// MATCH: DefineSprite_2322-frame_1-DoAction.as
 public partial class LoadingBox : Control
 {
     private double preloadCount;
     private RichTextLabel randomMessage;
 
-    // MATCH: DefineSprite_2322/frame_1/DoAction.as:genRandom()
+    // MATCH: DefineSprite_2322-frame_1-DoAction.as:genRandom()
     public void genRandom()
     {
         var textToGet = random(11) + 1;

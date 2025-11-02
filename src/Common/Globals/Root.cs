@@ -413,7 +413,7 @@ public class Root
         return 1;
     }
 
-    // MATCH: frame_3/DoAction.as:getFullMonthName()
+    // MATCH: frame_3-DoAction.as:getFullMonthName()
     public string getFullMonthName(double monthCount)
     {
         List<string> monthArr =
@@ -435,7 +435,7 @@ public class Root
         return monthArr[(int)monthCount];
     }
 
-    // MATCH: frame_3/DoAction.as:getShortMonthName()
+    // MATCH: frame_3-DoAction.as:getShortMonthName()
     public string getShortMonthName(double monthCount)
     {
         List<string> monthArr =
@@ -457,7 +457,7 @@ public class Root
         return monthArr[(int)monthCount];
     }
 
-    // MATCH: frame_3/DoAction.as:setInitDeck()
+    // MATCH: frame_3-DoAction.as:setInitDeck()
     public void setInitDeck(string deckCode)
     {
         var tempDeckArray = deckCode.Split(".");
@@ -509,7 +509,7 @@ public class Root
         _root.save.fcgTotalCards = myDeckArray.Count;
     }
 
-    // MATCH: frame_3/DoAction.as:checkAttReward()
+    // MATCH: frame_3-DoAction.as:checkAttReward()
     public double checkAttReward(double dayCount)
     {
         if (dayCount == _root.refresh_max_date)
@@ -564,7 +564,7 @@ public class Root
         return 1;
     }
 
-    // MATCH: frame_3/DoAction.as:getKpaValue()
+    // MATCH: frame_3-DoAction.as:getKpaValue()
     public double getKpaValue(string kpaName)
     {
         if (kpaName == null || kpaName == "" || kpaName.Length < 1)
@@ -787,7 +787,7 @@ public class Root
         return kpaValue;
     }
 
-    // MATCH: frame_3/DoAction.as:getRefundCode()
+    // MATCH: frame_3-DoAction.as:getRefundCode()
     public void getRefundCode()
     {
         var refundTier = 0;
@@ -918,7 +918,7 @@ public class Root
         }
     }
 
-    // MATCH: frame_3/DoAction.as:checkRefundCode()
+    // MATCH: frame_3-DoAction.as:checkRefundCode()
     public void checkRefundCode(double code)
     {
         _root.correctTier = 0;
@@ -946,7 +946,7 @@ public class Root
         }
     }
 
-    // MATCH: frame_3/DoAction.as:ddec()
+    // MATCH: frame_3-DoAction.as:ddec()
     public string ddec(string donCode)
     {
         var decompilerNote1 = "THIS FUNCTION IS MEANT TO BE USED ONLY BY TUKKUN.";
@@ -981,7 +981,7 @@ public class Root
         return res;
     }
 
-    // MATCH: frame_3/DoAction.as:submitScore()
+    // MATCH: frame_3-DoAction.as:submitScore()
     public void submitScore(
         string scoreName,
         double amount,
@@ -1015,7 +1015,7 @@ public class Root
         }
     }
 
-    // MATCH: frame_3/DoAction.as:submitKong()
+    // MATCH: frame_3-DoAction.as:submitKong()
     public void submitKong(
         string scoreName,
         double amount,
@@ -1023,7 +1023,7 @@ public class Root
         bool submitZero = false
     ) { }
 
-    // MATCH: frame_3/DoAction.as:submitGeneral()
+    // MATCH: frame_3-DoAction.as:submitGeneral()
     public void submitGeneral()
     {
         _root.getRefundCode();
@@ -1105,7 +1105,7 @@ public class Root
         }
     }
 
-    // MATCH: frame_3/DoAction.as:submitAll()
+    // MATCH: frame_3-DoAction.as:submitAll()
     public void submitAll()
     {
         _root.submitGeneral();
@@ -1248,7 +1248,7 @@ public class Root
         _root.submitScore("[Typing] WPM", _root.save.bestWpm);
     }
 
-    // MATCH: frame_3/DoAction.as:dispNews()
+    // MATCH: frame_3-DoAction.as:dispNews()
     public void dispNews(double type, string news)
     {
         if (_root.save.breakNewsMode == 1)
@@ -1478,7 +1478,7 @@ public class Root
         }
     }
 
-    // MATCH: frame_3/DoAction.as:showPopup()
+    // MATCH: frame_3-DoAction.as:showPopup()
     public void showPopup(string popT, string popD)
     {
         _root.popUp.Frame = 2;
@@ -1486,7 +1486,7 @@ public class Root
         _root.popUp.popDesc.Text = popD;
     }
 
-    // MATCH: frame_3/DoAction.as:convertMin()
+    // MATCH: frame_3-DoAction.as:convertMin()
     public string convertMin(double thatNumber)
     {
         if (thatNumber < 0)
@@ -1505,7 +1505,7 @@ public class Root
         return hr + ":" + minString;
     }
 
-    // MATCH: frame_3/DoAction.as:convertSecFull()
+    // MATCH: frame_3-DoAction.as:convertSecFull()
     public string convertSecFull(double thatNumber)
     {
         if (thatNumber < 0)
@@ -1531,7 +1531,7 @@ public class Root
         return hr + ":" + minS + ":" + secS;
     }
 
-    // MATCH: frame_3/DoAction.as:convertSec()
+    // MATCH: frame_3-DoAction.as:convertSec()
     public string convertSec(double thatNumber)
     {
         if (thatNumber < 0)
@@ -1556,7 +1556,7 @@ public class Root
         return minS + ":" + secS;
     }
 
-    // MATCH: frame_3/DoAction.as:convertSecCD()
+    // MATCH: frame_3-DoAction.as:convertSecCD()
     public string convertSecCD(double thatNumber)
     {
         if (thatNumber < 0)
@@ -1575,7 +1575,7 @@ public class Root
         return min + ":" + secS;
     }
 
-    // MATCH: frame_3/DoAction.as:tukkunRandom()
+    // MATCH: frame_3-DoAction.as:tukkunRandom()
     public double tukkunRandom(double noZero, double maxChance, double maxVal)
     {
         maxVal = Math.ceil(maxVal);
@@ -1596,11 +1596,11 @@ public class Root
         return val;
     }
 
-    // MATCH: frame_3/DoAction.as:withComma()
+    // MATCH: frame_3-DoAction.as:withComma()
     public string withComma(double thatNumber) =>
         thatNumber.ToString("N0", CultureInfo.InvariantCulture);
 
-    // MATCH: frame_3/DoAction.as:bCreate()
+    // MATCH: frame_3-DoAction.as:bCreate()
     public double bCreate(double regB, double regE)
     {
         while (regE > 0 && regB < 100000000000)
@@ -1617,7 +1617,7 @@ public class Root
         return Math.floor(regE * 1000000000000 + regB);
     }
 
-    // MATCH: frame_3/DoAction.as:toB()
+    // MATCH: frame_3-DoAction.as:toB()
     public double toB(double reg)
     {
         if (reg == Infinity || isNaN(reg))
@@ -1637,7 +1637,7 @@ public class Root
         return _root.bCreate(tmpB, tmpE);
     }
 
-    // MATCH: frame_3/DoAction.as:toR()
+    // MATCH: frame_3-DoAction.as:toR()
     public double toR(double bn)
     {
         if (isNaN(bn) || bn == Infinity)
@@ -1648,7 +1648,7 @@ public class Root
         return Math.round(_root.bGetB(bn) * Math.pow(10, _root.bGetE(bn)));
     }
 
-    // MATCH: frame_3/DoAction.as:bReduc()
+    // MATCH: frame_3-DoAction.as:bReduc()
     public double bReduc(double bn)
     {
         while (_root.bGetE(bn) > 0 && _root.bGetB(bn) < 100000000000)
@@ -1661,19 +1661,19 @@ public class Root
         return bn;
     }
 
-    // MATCH: frame_3/DoAction.as:bGetB()
+    // MATCH: frame_3-DoAction.as:bGetB()
     public double bGetB(double bn)
     {
         return bn % 1000000000000;
     }
 
-    // MATCH: frame_3/DoAction.as:bGetE()
+    // MATCH: frame_3-DoAction.as:bGetE()
     public double bGetE(double bn)
     {
         return Math.floor(bn / 1000000000000);
     }
 
-    // MATCH: frame_3/DoAction.as:bAdd()
+    // MATCH: frame_3-DoAction.as:bAdd()
     public double bAdd(double bnA, double bnB)
     {
         if (bnB > bnA)
@@ -1702,7 +1702,7 @@ public class Root
         return _root.bCreate(tmpB, tmpE);
     }
 
-    // MATCH: frame_3/DoAction.as:bSub()
+    // MATCH: frame_3-DoAction.as:bSub()
     public double bSub(double bnA, double bnB)
     {
         if (bnB >= bnA)
@@ -1729,7 +1729,7 @@ public class Root
         return _root.bCreate(tmpB, tmpE);
     }
 
-    // MATCH: frame_3/DoAction.as:bMul2()
+    // MATCH: frame_3-DoAction.as:bMul2()
     public double bMul2(double bnA, double regB)
     {
         var tmpB = _root.bGetB(bnA);
@@ -1756,7 +1756,7 @@ public class Root
         return _root.bCreate(tmpB, tmpE);
     }
 
-    // MATCH: frame_3/DoAction.as:bMul()
+    // MATCH: frame_3-DoAction.as:bMul()
     public double bMul(double bnA, double bnB)
     {
         return _root.bMul2(
@@ -1765,13 +1765,13 @@ public class Root
         );
     }
 
-    // MATCH: frame_3/DoAction.as:bDiv2()
+    // MATCH: frame_3-DoAction.as:bDiv2()
     public double bDiv2(double nA, double regB)
     {
         return _root.bMul2(nA, 1 / regB);
     }
 
-    // MATCH: frame_3/DoAction.as:bDiv()
+    // MATCH: frame_3-DoAction.as:bDiv()
     public double bDiv(double bnA, double bnB)
     {
         if (bnA < bnB)
@@ -1785,7 +1785,7 @@ public class Root
         );
     }
 
-    // MATCH: frame_3/DoAction.as:bPct()
+    // MATCH: frame_3-DoAction.as:bPct()
     public double bPct(double bnA, double bnB)
     {
         if (bnA >= bnB)
@@ -1811,7 +1811,7 @@ public class Root
         return tmpBA * 100 / tmpBB;
     }
 
-    // MATCH: frame_3/DoAction.as:bPctD()
+    // MATCH: frame_3-DoAction.as:bPctD()
     public string bPctD(double bnA, double bnB)
     {
         var tmp = Math.floor(bPct(bnA, bnB) * 100);
@@ -1832,7 +1832,7 @@ public class Root
         return tmpPAs + "." + tmpPBs + "%";
     }
 
-    // MATCH: frame_3/DoAction.as:pctD()
+    // MATCH: frame_3-DoAction.as:pctD()
     public string pctD(double pct)
     {
         var tmp = Math.floor(pct * 100);
@@ -1847,7 +1847,7 @@ public class Root
         return tmpPA + "." + tmpPBs + "%";
     }
 
-    // MATCH: frame_3/DoAction.as:bPow()
+    // MATCH: frame_3-DoAction.as:bPow()
     public double bPow(double regA, double regB)
     {
         var maxB = Math.floor(Math.log(_root.maxNum) / Math.log(regA) - 1);
@@ -1860,7 +1860,7 @@ public class Root
         return _root.bMul(_root.toB(Math.pow(regA, maxB)), _root.bPow(regA, regB - maxB));
     }
 
-    // MATCH: frame_3/DoAction.as:bSqrt()
+    // MATCH: frame_3-DoAction.as:bSqrt()
     public double bSqrt(double bn)
     {
         var tmpB = _root.bGetB(bn);
@@ -1892,7 +1892,7 @@ public class Root
         return _root.bCreate(tmpB, tmpE);
     }
 
-    // MATCH: frame_3/DoAction.as:bDisp()
+    // MATCH: frame_3-DoAction.as:bDisp()
     public string bDisp(double bn)
     {
         var tmpB = _root.bGetB(bn);
@@ -1921,7 +1921,7 @@ public class Root
         return tmpB + "." + tmpB2s + " x 10^" + tmpE;
     }
 
-    // MATCH: frame_3/DoAction.as:toFW()
+    // MATCH: frame_3-DoAction.as:toFW()
     public string toFW(string str)
     {
         str += "";
@@ -1938,7 +1938,7 @@ public class Root
         return str;
     }
 
-    // MATCH: frame_3/DoAction.as:bDispX()
+    // MATCH: frame_3-DoAction.as:bDispX()
     public string bDispX(double bn)
     {
         var tmpB = _root.bGetB(bn);
@@ -1967,7 +1967,7 @@ public class Root
         return $"{tmpB}" + "." + tmpB2s + " x 10" + _root.toFW("" + tmpE);
     }
 
-    // MATCH: frame_3/DoAction.as:withCommaB()
+    // MATCH: frame_3-DoAction.as:withCommaB()
     public string withCommaB(double num)
     {
         if (num < 0)
@@ -1978,7 +1978,7 @@ public class Root
         return _root.bDisp(_root.toB(num));
     }
 
-    // MATCH: frame_3/DoAction.as:withCommaC()
+    // MATCH: frame_3-DoAction.as:withCommaC()
     public string withCommaC(double num)
     {
         if (num < 0)
@@ -1989,7 +1989,7 @@ public class Root
         return _root.bDispX(_root.toB(num));
     }
 
-    // MATCH: frame_3/DoAction.as:sauceMult()
+    // MATCH: frame_3-DoAction.as:sauceMult()
     public double sauceMult(double sa)
     {
         var tMult = .0;
@@ -2049,7 +2049,7 @@ public class Root
         return tMult;
     }
 
-    // MATCH: frame_3/DoAction.as:gainBoost()
+    // MATCH: frame_3-DoAction.as:gainBoost()
     public void gainBoost(double amount, double limit)
     {
         var realLimit = .0;
@@ -2089,7 +2089,7 @@ public class Root
         }
     }
 
-    // MATCH: frame_3/DoAction.as:gainEXP()
+    // MATCH: frame_3-DoAction.as:gainEXP()
     public void gainEXP(double amount, double sauce)
     {
         if (isNaN(sauce))
@@ -2364,7 +2364,7 @@ public class Root
         }
     }
 
-    // MATCH: frame_3/DoAction.as:gainCoin()
+    // MATCH: frame_3-DoAction.as:gainCoin()
     public void gainCoin(double amount, double sauce)
     {
         if (isNaN(sauce))
@@ -2756,7 +2756,7 @@ public class Root
         }
     }
 
-    // MATCH: frame_3/DoAction.as:gainGreenCoin()
+    // MATCH: frame_3-DoAction.as:gainGreenCoin()
     public void gainGreenCoin(double amount)
     {
         if (!isNaN(amount) && amount > 0 && amount != Infinity && _root.save.greenCoinOvercap < 300)
@@ -2807,7 +2807,7 @@ public class Root
         }
     }
 
-    // MATCH: frame_3/DoAction.as:gainGreenCoinND()
+    // MATCH: frame_3-DoAction.as:gainGreenCoinND()
     public void gainGreenCoinND(double amount)
     {
         if (!isNaN(amount) && amount > 0 && amount != Infinity && _root.save.greenCoinOvercap < 300)
@@ -2841,7 +2841,7 @@ public class Root
         }
     }
 
-    // MATCH: frame_3/DoAction.as:gainBlueCoin()
+    // MATCH: frame_3-DoAction.as:gainBlueCoin()
     public void gainBlueCoin(double amount)
     {
         if (!isNaN(amount) && amount > 0 && amount != Infinity && _root.save.blueCoinOvercap < 300)
@@ -2890,7 +2890,7 @@ public class Root
         }
     }
 
-    // MATCH: frame_3/DoAction.as:gainWhiteCoin()
+    // MATCH: frame_3-DoAction.as:gainWhiteCoin()
     public void gainWhiteCoin(double amount)
     {
         if (!isNaN(amount) && amount > 0 && amount != Infinity)
@@ -2948,7 +2948,7 @@ public class Root
         }
     }
 
-    // MATCH: frame_3/DoAction.as:gainWhiteCoinB()
+    // MATCH: frame_3-DoAction.as:gainWhiteCoinB()
     public void gainWhiteCoinB(double amount)
     {
         if (!isNaN(amount) && amount > 0 && amount != Infinity)
@@ -3001,7 +3001,7 @@ public class Root
         }
     }
 
-    // MATCH: frame_3/DoAction.as:dispOverGC()
+    // MATCH: frame_3-DoAction.as:dispOverGC()
     public string dispOverGC()
     {
         var left = Math.floor(_root.save.greenCoin / 1000000000);
@@ -3015,7 +3015,7 @@ public class Root
         return left + "." + rightS + "B";
     }
 
-    // MATCH: frame_3/DoAction.as:dispOverBC()
+    // MATCH: frame_3-DoAction.as:dispOverBC()
     public string dispOverBC()
     {
         var left = Math.floor(_root.save.greenCoin / 1000000);
@@ -3029,7 +3029,7 @@ public class Root
         return left + "." + rightS + "M";
     }
 
-    // MATCH: frame_3/DoAction.as:gainEventToken()
+    // MATCH: frame_3-DoAction.as:gainEventToken()
     public void gainEventToken(double amount)
     {
         if (!isNaN(amount) && amount > 0)
@@ -3057,7 +3057,7 @@ public class Root
         }
     }
 
-    // MATCH: frame_3/DoAction.as:gainCareerEXP()
+    // MATCH: frame_3-DoAction.as:gainCareerEXP()
     public void gainCareerEXP(double careerID, double amount, bool mustTurnOn)
     {
         amount = Math.floor(amount);
@@ -3210,7 +3210,7 @@ public class Root
         }
     }
 
-    // MATCH: frame_3/DoAction.as:claimReward()
+    // MATCH: frame_3-DoAction.as:claimReward()
     public void claimReward()
     {
         if (_root.save.seppukuPenalty > _root.save.seppukuAscension)
@@ -3775,7 +3775,7 @@ public class Root
         }
     }
 
-    // MATCH: frame_3/DoAction.as:harvestTree()
+    // MATCH: frame_3-DoAction.as:harvestTree()
     public void harvestTree(double slot, bool harvestAll)
     {
         var tmul = Math.floor(Math.pow(_root.save.level, 0.6)) / 10 + 6.5;
@@ -4157,7 +4157,7 @@ public class Root
         }
     }
 
-    // MATCH: frame_3/DoAction.as:harvestAllTree()
+    // MATCH: frame_3-DoAction.as:harvestAllTree()
     public void harvestAllTree()
     {
         harvestSummaryCount = 0;
@@ -4221,7 +4221,7 @@ public class Root
         }
     }
 
-    // MATCH: frame_3/DoAction.as:printMoney()
+    // MATCH: frame_3-DoAction.as:printMoney()
     public void printMoney(double moneyToPrintX)
     {
         _root.printPercent = 0;
@@ -4327,13 +4327,13 @@ public class Root
         }
     }
 
-    // MATCH: frame_3/DoAction.as:toHex()
+    // MATCH: frame_3-DoAction.as:toHex()
     public string toHex(double dec)
     {
         return dec.ToString("X");
     }
 
-    // MATCH: frame_3/DoAction.as:jewk()
+    // MATCH: frame_3-DoAction.as:jewk()
     public string jewk(string str)
     {
         if (str.Length == 1)
@@ -4392,7 +4392,7 @@ public class Root
         return _loc6_;
     }
 
-    // MATCH: frame_3/DoAction.as:jewkB()
+    // MATCH: frame_3-DoAction.as:jewkB()
     public string jewkB(string str)
     {
         if (str.Length == 1)
@@ -4451,7 +4451,7 @@ public class Root
         return _loc6_;
     }
 
-    // MATCH: frame_3/DoAction.as:jewkC()
+    // MATCH: frame_3-DoAction.as:jewkC()
     public string jewkC(string str)
     {
         if (str.Length == 1)
@@ -4522,7 +4522,7 @@ public class Root
         return _loc6_;
     }
 
-    // MATCH: frame_3/DoAction.as:clearChallenge()
+    // MATCH: frame_3-DoAction.as:clearChallenge()
     public void clearChallenge()
     {
         if (_root.saveid >= 20)
@@ -4533,19 +4533,19 @@ public class Root
         }
     }
 
-    // MATCH: frame_3/DoAction.as:scrollUp()
+    // MATCH: frame_3-DoAction.as:scrollUp()
     public void scrollUp()
     {
         _root.scrollingDir = -1;
     }
 
-    // MATCH: frame_3/DoAction.as:scrollDown()
+    // MATCH: frame_3-DoAction.as:scrollDown()
     public void scrollDown()
     {
         _root.scrollingDir = 1;
     }
 
-    // MATCH: frame_3/DoAction.as:calcPerf()
+    // MATCH: frame_3-DoAction.as:calcPerf()
     public double calcPerf(double op)
     {
         var tempCPerf = .0;
@@ -4789,7 +4789,7 @@ public class Root
         return tempCPerf;
     }
 
-    // MATCH: frame_3/DoAction.as:calcMaxPerfCount()
+    // MATCH: frame_3-DoAction.as:calcMaxPerfCount()
     public void calcMaxPerfCount()
     {
         var maxPerfCount = 0;
@@ -4807,7 +4807,7 @@ public class Root
         _root.save.botMaxTask = maxPerfCount;
     }
 
-    // MATCH: frame_3/DoAction.as:cyborgOp()
+    // MATCH: frame_3-DoAction.as:cyborgOp()
     public void cyborgOp(double op)
     {
         var baseExp = .0;
@@ -6633,7 +6633,7 @@ public class Root
         _root.save.botOp[op] += 1;
     }
 
-    // MATCH: frame_3/DoAction.as:checkCyborg()
+    // MATCH: frame_3-DoAction.as:checkCyborg()
     public void checkCyborg()
     {
         if (_root.save.bestLevel >= 1250)
@@ -6752,7 +6752,7 @@ public class Root
         }
     }
 
-    // MATCH: frame_3/DoAction.as:gainCyborgPoint()
+    // MATCH: frame_3-DoAction.as:gainCyborgPoint()
     public void gainCyborgPoint(double amount)
     {
         if (!isNaN(amount) && amount > 0 && amount != Infinity && _root.save.bestLevel >= 1250)
@@ -6786,7 +6786,7 @@ public class Root
         }
     }
 
-    // MATCH: frame_3/DoAction.as:gainCyborgEXP()
+    // MATCH: frame_3-DoAction.as:gainCyborgEXP()
     public void gainCyborgEXP(double amount)
     {
         if (!isNaN(amount) && amount > 0 && amount != Infinity)
@@ -6826,7 +6826,7 @@ public class Root
         }
     }
 
-    // MATCH: frame_3/DoAction.as:equipModule()
+    // MATCH: frame_3-DoAction.as:equipModule()
     public void equipModule(double modLoc)
     {
         if (_root.save.progModuleTier[modLoc] > 0)
@@ -6858,7 +6858,7 @@ public class Root
         _root.organizeModule();
     }
 
-    // MATCH: frame_3/DoAction.as:unequipModule()
+    // MATCH: frame_3-DoAction.as:unequipModule()
     public void unequipModule(double modLoc)
     {
         if (_root.save.progModuleTier[modLoc] > 0)
@@ -6890,7 +6890,7 @@ public class Root
         _root.organizeModule();
     }
 
-    // MATCH: frame_3/DoAction.as:organizeModule()
+    // MATCH: frame_3-DoAction.as:organizeModule()
     public void organizeModule()
     {
         var i = 1;
@@ -7005,7 +7005,7 @@ public class Root
         _root.moduleInvSlotLeft = _root.save.progModuleSlot - _root.moduleInvSlotOccupied;
     }
 
-    // MATCH: frame_3/DoAction.as:buyModule()
+    // MATCH: frame_3-DoAction.as:buyModule()
     public void buyModule(double modLoc)
     {
         _root.organizeModule();
@@ -7073,7 +7073,7 @@ public class Root
         _root.organizeModule();
     }
 
-    // MATCH: frame_3/DoAction.as:getModule()
+    // MATCH: frame_3-DoAction.as:getModule()
     public void getModule(
         string modName,
         double modTier,
@@ -7122,7 +7122,7 @@ public class Root
         _root.organizeModule();
     }
 
-    // MATCH: frame_3/DoAction.as:sellModule()
+    // MATCH: frame_3-DoAction.as:sellModule()
     public void sellModule(double modLoc)
     {
         if (_root.save.progModuleTier[modLoc] > 0)
@@ -7152,7 +7152,7 @@ public class Root
         _root.organizeModule();
     }
 
-    // MATCH: frame_3/DoAction.as:swapModulePiece()
+    // MATCH: frame_3-DoAction.as:swapModulePiece()
     public void swapModulePiece(double pieceA, double pieceB)
     {
         _root.copyModulePiece(pieceA, 141);
@@ -7161,7 +7161,7 @@ public class Root
         _root.deleteModulePiece(141);
     }
 
-    // MATCH: frame_3/DoAction.as:copyModulePiece()
+    // MATCH: frame_3-DoAction.as:copyModulePiece()
     public void copyModulePiece(double pieceOrig, double pieceDest)
     {
         _root.save.progModuleName[pieceDest] = _root.save.progModuleName[pieceOrig];
@@ -7174,7 +7174,7 @@ public class Root
         _root.save.progModuleCost[pieceDest] = _root.save.progModuleCost[pieceOrig];
     }
 
-    // MATCH: frame_3/DoAction.as:deleteModulePiece()
+    // MATCH: frame_3-DoAction.as:deleteModulePiece()
     public void deleteModulePiece(double pieceA)
     {
         _root.save.progModuleName[pieceA] = "";
@@ -7187,7 +7187,7 @@ public class Root
         _root.save.progModuleCost[pieceA] = 0;
     }
 
-    // MATCH: frame_3/DoAction.as:restockModule()
+    // MATCH: frame_3-DoAction.as:restockModule()
     public void restockModule(double typ)
     {
         var curPos = 111;
@@ -7740,7 +7740,7 @@ public class Root
         craftWeapon.Add(new CraftItem<Item, Header>.H(item));
     }
 
-    // MATCH: frame_4/DoAction.as:addArenaCraftWeapon()
+    // MATCH: frame_4-DoAction.as:addArenaCraftWeapon()
     public void addArenaCraftWeapon(
         double recipeType,
         double recipeReq,
@@ -7829,7 +7829,7 @@ public class Root
         craftArmor.Add(new CraftItem<Item, Header>.H(item));
     }
 
-    // MATCH: frame_4/DoAction.as:addArenaCraftArmor()
+    // MATCH: frame_4-DoAction.as:addArenaCraftArmor()
     public void addArenaCraftArmor(
         double recipeType,
         double recipeReq,
@@ -7916,7 +7916,7 @@ public class Root
         craftAccessory.Add(new CraftItem<Item, Header>.H(item));
     }
 
-    // MATCH: frame_4/DoAction.as:addArenaCraftAccessory()
+    // MATCH: frame_4-DoAction.as:addArenaCraftAccessory()
     public void addArenaCraftAccessory(
         double recipeType,
         double recipeReq,
@@ -8002,7 +8002,7 @@ public class Root
         craftMedal.Add(new CraftItem<Item, Header>.H(item));
     }
 
-    // MATCH: frame_4/DoAction.as:addArenaCraftMedal()
+    // MATCH: frame_4-DoAction.as:addArenaCraftMedal()
     public void addArenaCraftMedal(
         double recipeType,
         double recipeReq,
@@ -8088,7 +8088,7 @@ public class Root
         craftEnhancer.Add(new CraftItem<Item, Header>.H(item));
     }
 
-    // MATCH: frame_4/DoAction.as:addArenaCraftEnhancer()
+    // MATCH: frame_4-DoAction.as:addArenaCraftEnhancer()
     public void addArenaCraftEnhancer(
         double recipeType,
         double recipeReq,
@@ -8146,7 +8146,7 @@ public class Root
         craftPotion.Add(new CraftItem<Item, Header>.H(item));
     }
 
-    // MATCH: frame_4/DoAction.as:addArenaCraftPotion()
+    // MATCH: frame_4-DoAction.as:addArenaCraftPotion()
     public void addArenaCraftPotion(
         double recipeType,
         double recipeReq,
@@ -8196,7 +8196,7 @@ public class Root
         craftChip.Add(new CraftItem<Item, Header>.H(item));
     }
 
-    // MATCH: frame_4/DoAction.as:addArenaCraftChip()
+    // MATCH: frame_4-DoAction.as:addArenaCraftChip()
     public void addArenaCraftChip(
         double recipeType,
         double recipeReq,
@@ -8238,7 +8238,7 @@ public class Root
         craftChip.Add(new CraftItem<Item, Header>.I(item));
     }
 
-    // MATCH: frame_4/DoAction.as:addArenaSet()
+    // MATCH: frame_4-DoAction.as:addArenaSet()
     public void addArenaSet(
         string setNameD,
         List<double> bonusReq,
@@ -8256,7 +8256,7 @@ public class Root
         setArray.Add(_loc1_);
     }
 
-    // MATCH: frame_4/DoAction.as:checkArenaSet()
+    // MATCH: frame_4-DoAction.as:checkArenaSet()
     public int checkArenaSet(string itemName)
     {
         var tempSetID = 0;
@@ -8353,7 +8353,7 @@ public class Root
         return tempSetID;
     }
 
-    // MATCH: frame_4/DoAction.as:displaySetItems()
+    // MATCH: frame_4-DoAction.as:displaySetItems()
     public string displaySetItems(int setID)
     {
         var tempDisp = "";
@@ -8844,7 +8844,7 @@ public class Root
         return tempDisp;
     }
 
-    // MATCH: frame_4/DoAction.as:checkSetBonus()
+    // MATCH: frame_4-DoAction.as:checkSetBonus()
     public void checkSetBonus()
     {
         var i = 1;
@@ -9082,7 +9082,7 @@ public class Root
         }
     }
 
-    // MATCH: frame_4/DoAction.as:previewFusedWeapon()
+    // MATCH: frame_4-DoAction.as:previewFusedWeapon()
     public void previewFusedWeapon(
         double reqRank,
         string subtype,
@@ -9648,7 +9648,7 @@ public class Root
         }
     }
 
-    // MATCH: frame_4/DoAction.as:previewFusedArmor()
+    // MATCH: frame_4-DoAction.as:previewFusedArmor()
     public void previewFusedArmor(
         double reqRank,
         string subtype,
@@ -10104,7 +10104,7 @@ public class Root
         }
     }
 
-    // MATCH: frame_4/DoAction.as:previewFusedAccessory()
+    // MATCH: frame_4-DoAction.as:previewFusedAccessory()
     public void previewFusedAccessory(
         double reqRank,
         string subtype,
@@ -10560,7 +10560,7 @@ public class Root
         }
     }
 
-    // MATCH: frame_4/DoAction.as:getArenaWeapon()
+    // MATCH: frame_4-DoAction.as:getArenaWeapon()
     public void getArenaWeapon(
         double reqRank,
         string subtype,
@@ -11193,7 +11193,7 @@ public class Root
         checkFullInventory();
     }
 
-    // MATCH: frame_4/DoAction.as:getArenaArmor()
+    // MATCH: frame_4-DoAction.as:getArenaArmor()
     public void getArenaArmor(
         double reqRank,
         string subtype,
@@ -11716,7 +11716,7 @@ public class Root
         checkFullInventory();
     }
 
-    // MATCH: frame_4/DoAction.as:getArenaOutfit()
+    // MATCH: frame_4-DoAction.as:getArenaOutfit()
     public void getArenaOutfit(
         double reqRank,
         string subtype,
@@ -11788,7 +11788,7 @@ public class Root
         checkFullInventory();
     }
 
-    // MATCH: frame_4/DoAction.as:getArenaAccessory()
+    // MATCH: frame_4-DoAction.as:getArenaAccessory()
     public void getArenaAccessory(
         double reqRank,
         string subtype,
@@ -12334,7 +12334,7 @@ public class Root
         checkFullInventory();
     }
 
-    // MATCH: frame_4/DoAction.as:getArenaEnhancer()
+    // MATCH: frame_4-DoAction.as:getArenaEnhancer()
     public void getArenaEnhancer(
         string subtype,
         double frame,
@@ -12881,7 +12881,7 @@ public class Root
         checkFullInventory();
     }
 
-    // MATCH: frame_4/DoAction.as:getArenaPotion()
+    // MATCH: frame_4-DoAction.as:getArenaPotion()
     public void getArenaPotion(
         string subtype,
         double frame,
@@ -12958,7 +12958,7 @@ public class Root
         checkFullInventory();
     }
 
-    // MATCH: frame_4/DoAction.as:getArenaChip()
+    // MATCH: frame_4-DoAction.as:getArenaChip()
     public void getArenaChip(
         string subtype,
         double frame,
@@ -13035,7 +13035,7 @@ public class Root
         checkFullInventory();
     }
 
-    // MATCH: frame_4/DoAction.as:addArenaWeapon()
+    // MATCH: frame_4-DoAction.as:addArenaWeapon()
     public void addArenaWeapon(
         string name,
         double reqRank,
@@ -13102,7 +13102,7 @@ public class Root
         );
     }
 
-    // MATCH: frame_4/DoAction.as:addArenaArmor()
+    // MATCH: frame_4-DoAction.as:addArenaArmor()
     public void addArenaArmor(
         string name,
         double reqRank,
@@ -13167,7 +13167,7 @@ public class Root
         );
     }
 
-    // MATCH: frame_4/DoAction.as:addArenaAccessory()
+    // MATCH: frame_4-DoAction.as:addArenaAccessory()
     public void addArenaAccessory(
         string name,
         double reqRank,
@@ -13232,7 +13232,7 @@ public class Root
         );
     }
 
-    // MATCH: frame_4/DoAction.as:addArenaEnhancer()
+    // MATCH: frame_4-DoAction.as:addArenaEnhancer()
     public void addArenaEnhancer(
         string name,
         string subtype,
@@ -13268,7 +13268,7 @@ public class Root
         );
     }
 
-    // MATCH: frame_4/DoAction.as:addArenaPotion()
+    // MATCH: frame_4-DoAction.as:addArenaPotion()
     public void addArenaPotion(
         string name,
         string subtype,
@@ -13296,7 +13296,7 @@ public class Root
         );
     }
 
-    // MATCH: frame_4/DoAction.as:swapArenaItem()
+    // MATCH: frame_4-DoAction.as:swapArenaItem()
     public void swapArenaItem(double item1, double item2)
     {
         var j = item1;
@@ -13309,7 +13309,7 @@ public class Root
         checkFullInventory();
     }
 
-    // MATCH: frame_4/DoAction.as:xSwapArenaItem()
+    // MATCH: frame_4-DoAction.as:xSwapArenaItem()
     public void xSwapArenaItem(double xitem1, double xitem2)
     {
         var j = xitem2;
@@ -13351,7 +13351,7 @@ public class Root
         checkFullInventory();
     }
 
-    // MATCH: frame_4/DoAction.as:deleteArenaItem()
+    // MATCH: frame_4-DoAction.as:deleteArenaItem()
     public void deleteArenaItem(double k)
     {
         _root.save.inventoryExist[k] = 0;
@@ -13391,7 +13391,7 @@ public class Root
         checkFullInventory();
     }
 
-    // MATCH: frame_4/DoAction.as:sellArenaItem()
+    // MATCH: frame_4-DoAction.as:sellArenaItem()
     public void sellArenaItem(double k)
     {
         _root.deleteArenaItem(_root.save.arenaDeletedSlot);
@@ -13413,7 +13413,7 @@ public class Root
         }
     }
 
-    // MATCH: frame_4/DoAction.as:enhanceArenaItem()
+    // MATCH: frame_4-DoAction.as:enhanceArenaItem()
     public void enhanceArenaItem(double j, double k)
     {
         var canEnhance = false;
@@ -15028,7 +15028,7 @@ public class Root
         _root.enhancerToUse = 0;
     }
 
-    // MATCH: frame_4/DoAction.as:checkFullInventory()
+    // MATCH: frame_4-DoAction.as:checkFullInventory()
     public void checkFullInventory()
     {
         _root.emptyWeaponSlot = 0;
@@ -15116,7 +15116,7 @@ public class Root
         }
     }
 
-    // MATCH: frame_4/DoAction.as:addArenaEnemy()
+    // MATCH: frame_4-DoAction.as:addArenaEnemy()
     public void addArenaEnemy(
         double level,
         double speed,
@@ -15208,7 +15208,7 @@ public class Root
         enemyList.Add(enemy);
     }
 
-    // MATCH: frame_4/DoAction.as:obtainAlly()
+    // MATCH: frame_4-DoAction.as:obtainAlly()
     public void obtainAlly(double ID)
     {
         if (isNaN(_root.save.arenaAllyEXP[ID]))
@@ -15219,14 +15219,14 @@ public class Root
         }
     }
 
-    // MATCH: frame_4/DoAction.as:addKommanderMission()
+    // MATCH: frame_4-DoAction.as:addKommanderMission()
     public void addKommanderMission(double monID, double minDiff, double monCount)
     {
         _root.komDiff[monID] = minDiff;
         _root.komCount[monID] = monCount;
     }
 
-    // MATCH: frame_4/DoAction.as:addMuseumItem()
+    // MATCH: frame_4-DoAction.as:addMuseumItem()
     public void addMuseumItem(double mSlotID, double mValue, string mName)
     {
         _root.museumItem[mSlotID] = mName;
@@ -15235,7 +15235,7 @@ public class Root
         _root.museumMaxValue += mValue;
     }
 
-    // MATCH: frame_4/DoAction.as:addMuseumArmorSet()
+    // MATCH: frame_4-DoAction.as:addMuseumArmorSet()
     public void addMuseumArmorSet(double mSlotID, double mValue, string mName)
     {
         _root.museumItem[mSlotID] = mName + " Hat";
@@ -15252,7 +15252,7 @@ public class Root
         _root.museumMaxValue += mValue * 5;
     }
 
-    // MATCH: frame_4/DoAction.as:recalcMuseumScore()
+    // MATCH: frame_4-DoAction.as:recalcMuseumScore()
     public void recalcMuseumScore()
     {
         _root.save.collectionPoint = 0;
@@ -15278,7 +15278,7 @@ public class Root
         }
     }
 
-    // MATCH: frame_7/DoAction.as:verif()
+    // MATCH: frame_7-DoAction.as:verif()
     public void verif(string username, double saveID, double refCode)
     {
         if (_root.kongregate_username == username)
@@ -15288,7 +15288,7 @@ public class Root
         }
     }
 
-    // MATCH: frame_7/DoAction.as:addEvent()
+    // MATCH: frame_7-DoAction.as:addEvent()
     public void addEvent(double rating, int year, int month, int date, string eventName)
     {
         _root.eventRating[year][month][date] += rating;
@@ -15297,7 +15297,7 @@ public class Root
         _root.eventList[year][month][date].Add(eventName);
     }
 
-    // MATCH: frame_7/DoAction.as:overrideEvent()
+    // MATCH: frame_7-DoAction.as:overrideEvent()
     public void overrideEvent(int year, int month, int date)
     {
         _root.eventRating[year][month][date] = 0;
@@ -15305,7 +15305,7 @@ public class Root
         _root.eventList[year][month][date][0] = "0";
     }
 
-    // MATCH: frame_7/DoAction.as:displayEvent()
+    // MATCH: frame_7-DoAction.as:displayEvent()
     public string displayEvent(int year, int month, int date)
     {
         var temp = "";
@@ -15319,7 +15319,7 @@ public class Root
         return temp;
     }
 
-    // MATCH: frame_7/DoAction.as:addRedCoin()
+    // MATCH: frame_7-DoAction.as:addRedCoin()
     public void addRedCoin(string user, double amount, string reason)
     {
         if (_root.kongregate_username == user)
@@ -15329,7 +15329,7 @@ public class Root
         }
     }
 
-    // MATCH: frame_7/DoAction.as:banhammer()
+    // MATCH: frame_7-DoAction.as:banhammer()
     public void banhammer(string user, string reason)
     {
         if (_root.kongregate_username == user || user == "[everyone]")
@@ -15339,7 +15339,7 @@ public class Root
         }
     }
 
-    // MATCH: frame_11/DoAction.as:selectSavefile()
+    // MATCH: frame_11-DoAction.as:selectSavefile()
     public void selectSavefile(double sid)
     {
         GD.Print(sid);
@@ -15353,7 +15353,7 @@ public class Root
         }
     }
 
-    // MATCH: frame_13/DoAction_2.as:killPet()
+    // MATCH: frame_13-DoAction_2.as:killPet()
     public void killPet()
     {
         if (_root.save.petExist != 0)
@@ -15382,7 +15382,7 @@ public class Root
         }
     }
 
-    // MATCH: frame_13/DoAction_2.as:checkPet()
+    // MATCH: frame_13-DoAction_2.as:checkPet()
     public void checkPet()
     {
         if (_root.save.petExist == 1)
@@ -15486,7 +15486,7 @@ public class Root
         }
     }
 
-    // MATCH: frame_13/DoAction_2.as:checkCareer()
+    // MATCH: frame_13-DoAction_2.as:checkCareer()
     public void checkCareer()
     {
         _root.curCareerLevel = new([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]);
@@ -15512,7 +15512,7 @@ public class Root
         }
     }
 
-    // MATCH: frame_13/DoAction_2.as:checkBestiary()
+    // MATCH: frame_13-DoAction_2.as:checkBestiary()
     public void checkBestiary()
     {
         _root.totalRing = 0;
@@ -15615,21 +15615,21 @@ public class Root
         }
     }
 
-    // MATCH: frame_13/DoAction_2.as:incDt()
+    // MATCH: frame_13-DoAction_2.as:incDt()
     public void incDt()
     {
         _root.summonCount += 1;
         _root.antiLag += 1;
     }
 
-    // MATCH: frame_13/DoAction_2.as:incDt2()
+    // MATCH: frame_13-DoAction_2.as:incDt2()
     public void incDt2()
     {
         _root.summonCount += 1;
         _root.antiLag += 1;
     }
 
-    // MATCH: frame_13/DoAction_2.as:trackZoneKill()
+    // MATCH: frame_13-DoAction_2.as:trackZoneKill()
     public void trackZoneKill()
     {
         _root.treasureHunterKill = _root.save.arenaBestiary[240];
@@ -15666,7 +15666,7 @@ public class Root
         }
     }
 
-    // MATCH: frame_13/DoAction_2.as:trackRuneLevel()
+    // MATCH: frame_13-DoAction_2.as:trackRuneLevel()
     public void trackRuneLevel()
     {
         var i = 1;
@@ -15677,7 +15677,7 @@ public class Root
         }
     }
 
-    // MATCH: frame_13/DoAction_2.as:fixStuff()
+    // MATCH: frame_13-DoAction_2.as:fixStuff()
     public void fixStuff()
     {
         if (isNaN(_root.save.currentExp) || isNaN(_root.save.totalExp))
@@ -15704,7 +15704,7 @@ public class Root
         }
     }
 
-    // MATCH: frame_13/DoAction_2.as:calcReqExp()
+    // MATCH: frame_13-DoAction_2.as:calcReqExp()
     public void calcReqExp()
     {
         _root.requiredExp = _root.save.level * _root.save.level * 10 + 10;
@@ -15940,7 +15940,7 @@ public class Root
         }
     }
 
-    // MATCH: frame_13/DoAction_2.as:checkLevel()
+    // MATCH: frame_13-DoAction_2.as:checkLevel()
     public void checkLevel()
     {
         if (_root.save.banned >= 5)
@@ -16321,7 +16321,7 @@ public class Root
         }
     }
 
-    // MATCH: frame_13/DoAction_2.as:checkMini()
+    // MATCH: frame_13-DoAction_2.as:checkMini()
     public void checkMini()
     {
         if (_root.save.featureMiniGarden == true || _root.save.autoHarvestTime > 0)
@@ -16435,7 +16435,7 @@ public class Root
         }
     }
 
-    // MATCH: frame_13/DoAction_2.as:dispStuff()
+    // MATCH: frame_13-DoAction_2.as:dispStuff()
 
     public void dispStuff()
     {
@@ -16479,7 +16479,7 @@ public class Root
         }
     }
 
-    // MATCH: frame_13/DoAction_2.as:dispAsc()
+    // MATCH: frame_13-DoAction_2.as:dispAsc()
     public void dispAsc()
     {
         var elapsed_days_int = Math.floor(_root.save.ascendPlayTime / 86400);
@@ -16516,7 +16516,7 @@ public class Root
             elapsed_days + "d + " + elapsed_hours + ":" + elapsed_minutes + ":" + elapsed_seconds;
     }
 
-    // MATCH: frame_13/DoAction_2.as:progressUp()
+    // MATCH: frame_13-DoAction_2.as:progressUp()
     public void progressUp()
     {
         double progSpeed;
@@ -16585,7 +16585,7 @@ public class Root
         }
     }
 
-    // MATCH: frame_9/DoAction.as:checkAchievements()
+    // MATCH: frame_9-DoAction.as:checkAchievements()
     public void checkAchievements()
     {
         _root.awards = 0;
@@ -16671,7 +16671,7 @@ public class Root
         }
     }
 
-    // MATCH: frame_13/DoAction_2.as:depleteBoost()
+    // MATCH: frame_13-DoAction_2.as:depleteBoost()
     public void depleteBoost()
     {
         var ascendBonus = 100 * _root.save.banned;
@@ -16919,7 +16919,7 @@ public class Root
         }
     }
 
-    // MATCH: frame_13/DoAction_2.as:lagExp()
+    // MATCH: frame_13-DoAction_2.as:lagExp()
     public void lagExp()
     {
         if (_root.save.expLag > 0)
@@ -16934,7 +16934,7 @@ public class Root
         }
     }
 
-    // MATCH: frame_13/DoAction_2.as:checkPrinter()
+    // MATCH: frame_13-DoAction_2.as:checkPrinter()
     public void checkPrinter()
     {
         var moneyToPrint = Math.floor(
@@ -16969,7 +16969,7 @@ public class Root
         }
     }
 
-    // MATCH: frame_13/DoAction_2.as:checkExpiry()
+    // MATCH: frame_13-DoAction_2.as:checkExpiry()
     public void checkExpiry()
     {
         var expireCount = 0;
@@ -17013,7 +17013,7 @@ public class Root
         }
     }
 
-    // MATCH: frame_13/DoAction_2.as:updateMarket()
+    // MATCH: frame_13-DoAction_2.as:updateMarket()
     public void updateMarket()
     {
         if (_root.save.featureLolMarket == true)

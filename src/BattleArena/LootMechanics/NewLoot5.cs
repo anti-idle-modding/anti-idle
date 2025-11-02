@@ -4,7 +4,7 @@ using Godot;
 namespace AntiIdle.BattleArena.LootMechanics;
 
 //TO DO attach to asset
-// MATCH: DefineSprite_170_newLoot5/frame_1/DoAction.as
+// MATCH: DefineSprite_170_newLoot5-frame_1-DoAction.as
 public partial class NewLoot5 : FlashNode2D
 {
     private float x;
@@ -17,7 +17,7 @@ public partial class NewLoot5 : FlashNode2D
     private double xVel = Math.random() * 2;
     float xalpha;
 
-    // MATCH: DefineSprite_170_newLoot5/frame_1/DoAction.as:getLoot()
+    // MATCH: DefineSprite_170_newLoot5-frame_1-DoAction.as:getLoot()
     public void getLoot()
     {
         if (_root.save.questType == "Loot")

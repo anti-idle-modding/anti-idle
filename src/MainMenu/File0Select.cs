@@ -6,7 +6,7 @@ public partial class File0Select : FlashButton
 {
     AnimationPlayer anim;
 
-    // MATCH: frame_11/PlaceObject2_2379_48/CLIPACTIONRECORD onClipEvent(load).as:checkFrame()
+    // MATCH: frame_11-PlaceObject2_2379_48-CLIPACTIONRECORD onClipEvent(load).as:checkFrame()
     public void checkFrame()
     {
         if (_root.saveGlobal.selectedSave == 0)
@@ -24,13 +24,13 @@ public partial class File0Select : FlashButton
         anim.Play();
     }
 
-    // MATCH: frame_11/PlaceObject2_2379_48/CLIPACTIONRECORD onClipEvent(enterFrame).as
+    // MATCH: frame_11-PlaceObject2_2379_48-CLIPACTIONRECORD onClipEvent(enterFrame).as
     public override void _Process(double delta)
     {
         checkFrame();
     }
 
-    // MATCH: frame_11/PlaceObject2_2379_48/CLIPACTIONRECORD onClipEvent(load).as
+    // MATCH: frame_11-PlaceObject2_2379_48-CLIPACTIONRECORD onClipEvent(load).as
     public override void _Ready()
     {
         anim = GetNode<AnimationPlayer>("Alpha");
@@ -38,7 +38,7 @@ public partial class File0Select : FlashButton
         checkFrame();
     }
 
-    // MATCH: frame_11/PlaceObject2_2379_48/CLIPACTIONRECORD on(release).as
+    // MATCH: frame_11-PlaceObject2_2379_48-CLIPACTIONRECORD on(release).as
     public override void _Input(InputEvent @event)
     {
         if (

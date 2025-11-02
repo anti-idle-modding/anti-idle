@@ -142,7 +142,7 @@ def parse_file(export_path: str, path: str):
 
     # Extract function information
     functions = []
-    formatted_path = path.relative_to("scripts/").as_posix()
+    formatted_path = str(path.relative_to("scripts/").as_posix()).replace("/", "-")
     if captures:
         for node in captures["function"]:
             node_text = node.text.decode()
@@ -247,7 +247,7 @@ def match(args):
 
         for warn in warns:
             print(
-                f"{warn['source']} {C.RED}WARNING{C.RESET} {match['name']} {C.RED}not found!{C.RESET}"
+                f"{warn['source']} {C.RED}WARNING{C.RESET} {warn['name']} {C.RED}not found!{C.RESET}"
             )
 
         print()

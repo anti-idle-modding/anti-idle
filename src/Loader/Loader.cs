@@ -2,7 +2,7 @@ using Godot;
 
 namespace AntiIdle.Loader;
 
-// MATCH: frame_1/DoAction.as
+// MATCH: frame_1-DoAction.as
 public partial class Loader : Node
 {
     public override void _Ready()

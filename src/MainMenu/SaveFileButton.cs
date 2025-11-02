@@ -1,7 +1,7 @@
 using System;
 using Godot;
 
-// MATCH: DefineSprite_2380/frame_1/DoAction.as
+// MATCH: DefineSprite_2380-frame_1-DoAction.as
 public partial class SaveFileButton : ColorRect
 {
     AnimationPlayer anim;

@@ -2,7 +2,7 @@ using System;
 using AntiIdle.Common.Nodes;
 using Godot;
 
-// MATCH: frame_11/DoAction.as
+// MATCH: frame_11-DoAction.as
 public partial class MainMenu : Control
 {
     [Export]
@@ -47,7 +47,7 @@ public partial class MainMenu : Control
     [Export]
     public SceneManager challengeMode;
 
-    // MATCH: frame_11/DoAction.as:loadKongpanion()
+    // MATCH: frame_11-DoAction.as:loadKongpanion()
     public void loadKongpanion()
     {
         // Removed.

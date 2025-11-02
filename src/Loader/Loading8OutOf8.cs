@@ -68,10 +68,10 @@ public class AchR
     public List<double> amnt;
 }
 
-// MATCH: frame_9/DoAction.as
+// MATCH: frame_9-DoAction.as
 public partial class Loading8OutOf8 : Control
 {
-    // MATCH: frame_9/DoAction.as:addNewAchievement()
+    // MATCH: frame_9-DoAction.as:addNewAchievement()
     public void addNewAchievement(
         double ID,
         string name,
@@ -103,7 +103,7 @@ public partial class Loading8OutOf8 : Control
         _root.achList.Add(achievement);
     }
 
-    // MATCH: frame_9/DoAction.as:addNewQuest()
+    // MATCH: frame_9-DoAction.as:addNewQuest()
     public void addNewQuest(
         bool expired,
         bool eventQuest,
@@ -150,7 +150,7 @@ public partial class Loading8OutOf8 : Control
         _root.mainQuestList.Add(quest);
     }
 
-    // MATCH: frame_9/DoAction.as:addRandomQuest()
+    // MATCH: frame_9-DoAction.as:addRandomQuest()
     public void addRandomQuest(
         double chance,
         double difficulty,
@@ -187,7 +187,7 @@ public partial class Loading8OutOf8 : Control
         _root.totalquest += 1;
     }
 
-    // MATCH: frame_9/DoAction.as:addAchievementR()
+    // MATCH: frame_9-DoAction.as:addAchievementR()
     public void addAchievementR(
         double ID,
         bool secret,

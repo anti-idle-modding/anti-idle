@@ -3,9 +3,9 @@ using AntiIdle.Pages.Main;
 using Godot;
 using Math = AntiIdle.Common.Flash.Math;
 
-// MATCH: frame_13/DoAction.as
-// MATCH: frame_13/DoAction_2.as
-// MATCH: frame_13/DoAction_3.as
+// MATCH: frame_13-DoAction.as
+// MATCH: frame_13-DoAction_2.as
+// MATCH: frame_13-DoAction_3.as
 public partial class Main : Control
 {
     [Export]

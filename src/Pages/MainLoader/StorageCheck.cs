@@ -1,12 +1,12 @@
 using System;
 using Godot;
 
-// MATCH: frame_19/DoAction.as
+// MATCH: frame_19-DoAction.as
 public partial class StorageCheck : Control
 {
     public double storeDel;
 
-    // MATCH: frame_19/DoAction.as:checkStorage()
+    // MATCH: frame_19-DoAction.as:checkStorage()
     public void checkStorage()
     {
         GetTree().ChangeSceneToFile("src/Pages/MainLoader/MainLoader.tscn");

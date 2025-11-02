@@ -2,7 +2,7 @@ using System;
 using AntiIdle.Common.Nodes;
 using Godot;
 
-// MATCH: frame_11/PlaceObject2_1602_40/CLIPACTIONRECORD on(release).as
+// MATCH: frame_11-PlaceObject2_1602_40-CLIPACTIONRECORD on(release).as
 public partial class BackupHelpButton : Button
 {
     [Export]

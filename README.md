@@ -84,9 +84,9 @@ Top-level code, such as in a DoAction, is also counted as a function for
 convenience. Some example output of the `match` script:
 
 ```
- function frame_4/DoAction.as matches Loader/Loading3OutOf8.cs: 2192 loc
- function frame_4/DoAction.as:addArenaAccessory() matches Common/Globals/Root.cs: 4 loc
- function frame_4/DoAction.as:addArenaArmor() matches Common/Globals/Root.cs: 4 loc
+ function frame_4-DoAction.as matches Loader/Loading3OutOf8.cs: 2192 loc
+ function frame_4-DoAction.as:addArenaAccessory() matches Common/Globals/Root.cs: 4 loc
+ function frame_4-DoAction.as:addArenaArmor() matches Common/Globals/Root.cs: 4 loc
  // ...
 Total accuracy of port: 9.8% across 7826 functions
 Matched 173 out of 7826 functions
@@ -98,7 +98,7 @@ code to a specific C# file, we use a comment annotation in code.
 For example, for the `addArenaAccessory()` function:
 
 ```cs
-// MATCH: frame_4/DoAction.as:addArenaAccessory()
+// MATCH: frame_4-DoAction.as:addArenaAccessory()
 public void addArenaAccessory(string name, double reqRank, string subtype, double frame, double attack, double speed, double defense, string bonus, string ability, double maxLevel, double expTNL, double enhance, double bonusPow, double sell, double expiry, bool noBonus, bool noLife, bool noRecycle, bool spirit, double crit, double dexterity, double health, string desc, bool noFuse, double level, double exp, bool noUnique, double unob)
 { .. }
 ```
@@ -106,7 +106,7 @@ public void addArenaAccessory(string name, double reqRank, string subtype, doubl
 And for the top-level DoAction:
 
 ```cs
-// MATCH: frame_4/DoAction.as
+// MATCH: frame_4-DoAction.as
 public partial class Loading3OutOf8 : Control
 { .. }
 ```
@@ -196,7 +196,7 @@ namespace AntiIdle.Loader;
 // it inherit from a Godot class with the `:` syntax. Here,
 // `Loader : Node` means our class, Loader, inherits from Node.
 // Godot will generate this for you, if you create the class from Godot.
-// MATCH: frame_1/DoAction.as
+// MATCH: frame_1-DoAction.as
 public partial class Loader : Node
 {
 	// Many lifecycle functions are defined on Godot nodes, but only two
@@ -247,124 +247,6 @@ public partial class Loader : Node
 	// _Process is a function that runs on every frame, like onEnterFrame.
 	public override void _Process(double delta)
 	{
-	}
-}
-```
-
-You can find a slightly more complex example by looking at the LoadingBox node:
-
-```cs
-using Godot;
-
-// MATCH: DefineSprite_2322/frame_1/DoAction.as
-public partial class LoadingBox : Control
-{
-	// Many movie clips have variables. As a rule of thumb, if there's something
-	// like this in the code:
-	//  preloadCount = 0;
-	// then the variable should be declared as an instance variable.
-	private double preloadCount;
-	// Get a reference to a child Godot node.
-	// Same as in Flash, only that we need to declare the mapping explicitly.
-	// Also, you'll need to initialize it in the _Ready() function.
-	private RichTextLabel randomMessage;
-
-	// Each ported function will have a separate match annotation.
-	// MATCH: DefineSprite_2322/frame_1/DoAction.as:genRandom()
-	public void genRandom()
-	{
-		// Declare a local variable to a function with the var keyword.
-		var textToGet = random(11) + 1;
-		if (textToGet == 1)
-		{
-			// This will change the text on the randomMessage node.
-			randomMessage.Text = "Did you know? Anti-Idle: The Game is loading!";
-		}
-
-		if (textToGet == 2)
-		{
-			randomMessage.Text = "This is one of 11 messages you can get, LOL!";
-		}
-
-		if (textToGet == 3)
-		{
-			randomMessage.Text = "Don\'t forget to come back and check for updates!";
-		}
-
-		if (textToGet == 4)
-		{
-			randomMessage.Text = "If it takes too long to load or doesn\'t load at all, try refreshing.";
-		}
-
-		if (textToGet == 5)
-		{
-			randomMessage.Text = "Happy Birthday! What, it isn\'t your birthday? Oh well...";
-		}
-
-		if (textToGet == 6)
-		{
-			randomMessage.Text = "Loading epicness...";
-		}
-
-		if (textToGet == 7)
-		{
-			randomMessage.Text = "Finding a way to reduce lag...";
-		}
-
-		if (textToGet == 8)
-		{
-			randomMessage.Text = "Increasing player\'s Impatience Quotient...";
-		}
-
-		if (textToGet == 9)
-		{
-			randomMessage.Text = "The game is fully loaded when the green bar is full, by the way.";
-		}
-
-		if (textToGet == 10)
-		{
-			randomMessage.Text = "Oh, by the way, this isn\'t the game. This is just the preloader!";
-		}
-
-		if (textToGet == 11)
-		{
-			if (_root.kongregate_username != undefined && _root.kongregate_username != "Guest")
-			{
-				randomMessage.Text = "Someone named " + _root.kongregate_username +
-									 " is waiting to play Anti-Idle: The Game!";
-			}
-			else
-			{
-				randomMessage.Text = "Don\'t forget, playing with a Kongregate account grants you higher rewards!";
-			}
-		}
-	}
-
-	public override void _Ready()
-	{
-		// Initialize the node here! The string name will match the name
-		// you put for the node in Godot, and it needs to be a child of
-		// this node.
-		randomMessage = GetNode<RichTextLabel>("randomMessage");
-		randomMessage.Text = "";
-		preloadCount = 0;
-	}
-
-	public override void _Process(double delta)
-	{
-		preloadCount += 1;
-		if (preloadCount > 200)
-		{
-			preloadCount = 0;
-			genRandom();
-		}
-
-		if (_root.getBytesLoaded() == _root.getBytesTotal())
-		{
-			// Equivalent of gotoAndStop() for frames: load a new top level
-			// frame. Here, it's loading frame 2.
-			GetTree().ChangeSceneToFile("src/Loader/Loading1OutOf8.tscn");
-		}
 	}
 }
 ```

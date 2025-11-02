@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using Godot;
 
-// MATCH: frame_3/DoAction.as
+// MATCH: frame_3-DoAction.as
 public partial class Loading2OutOf8 : Control
 {
     public override void _Ready()

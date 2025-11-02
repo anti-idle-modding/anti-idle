@@ -2,18 +2,18 @@ using System;
 using Godot;
 using Math = AntiIdle.Common.Flash.Math;
 
-// MATCH: frame_12/DoAction.as
+// MATCH: frame_12-DoAction.as
 public partial class MainLoader : Control
 {
     double waitTime;
 
-    // MATCH: frame_12/DoAction.as:addSaveVar()
+    // MATCH: frame_12-DoAction.as:addSaveVar()
     public void addSaveVar(string varName, object varValue)
     {
         // Moved into Save class initialization.
     }
 
-    // MATCH: frame_12/DoAction.as:addNewsType()
+    // MATCH: frame_12-DoAction.as:addNewsType()
     public void addNewsType(
         double typeID,
         double feature,

@@ -1,10 +1,10 @@
 using Godot;
 using Math = AntiIdle.Common.Flash.Math;
 
-// MATCH: frame_6/DoAction.as
+// MATCH: frame_6-DoAction.as
 public partial class Loading5OutOf8 : Control
 {
-    // MATCH: frame_6/DoAction.as:addNewsType()
+    // MATCH: frame_6-DoAction.as:addNewsType()
     public void addNewsType(
         double typeID,
         double feature,

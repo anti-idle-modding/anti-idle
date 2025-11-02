@@ -2,7 +2,7 @@ using Godot;
 
 namespace AntiIdle.Common.Nodes;
 
-// MATCH: DefineSprite_2380/frame_1/DoAction.as
+// MATCH: DefineSprite_2380-frame_1-DoAction.as
 public partial class AwesomeButton : FlashButton
 {
     AnimationPlayer anim;
