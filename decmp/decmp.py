@@ -196,6 +196,7 @@ def match(args):
         name_indexed[function["name"]] = function
 
     matches = []
+    warns = []
     file_paths = glob.glob(
         "./**/*.cs", root_dir=args.source_path, recursive=True
     )
@@ -211,7 +212,13 @@ def match(args):
                     # Extract the content after "MATCH:"
                     match_part = line.split("MATCH:", 1)[1].strip()
 
-                    matching_function = name_indexed[match_part]
+                    matching_function = name_indexed.get(match_part, None)
+                    if matching_function is None:
+                        warns.append({
+                            "name": match_part,
+                            "source": Path(file_path).as_posix()                
+                        })
+                        continue
                     line_count = matching_function["line_count"]
                     if matching_function:
                         matches.append(
@@ -238,6 +245,11 @@ def match(args):
                 f"{match['name']} {C.GREEN}=>{C.RESET} {match['source']}, {match['line_count']} loc"
             )
 
+        for warn in warns:
+            print(
+                f"{warn['source']} {C.RED}WARNING{C.RESET} {match['name']} {C.RED}not found!{C.RESET}"
+            )
+
         print()
         print(f"Total accuracy of port: {C.GREEN}{C.BOLD}{accuracy}{C.RESET}")
         print(f"Matched {matching_functions} / {total_functions} functions")
@@ -260,6 +272,9 @@ def match(args):
                 }
             )
         print(json.dumps(out))
+
+    if len(warns) > 0:
+        sys.exit(1)
 
 
 def main(args):
