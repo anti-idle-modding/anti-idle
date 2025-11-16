@@ -1,45 +1,69 @@
 name: Discord Notification
-
 on:
   push:
     branches:
       - main
-
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v4
-
+      with:
+        fetch-depth: 0  # Fetch all history to access all commits
+    
     - name: Set up Python
       uses: actions/setup-python@v5
       with:
         python-version: '3.x'
-
-    - name: Run analysis script
-      id: analysis
+    
+    - name: Get commit list
+      id: commits
       run: |
-        python ./decmp/decmp.py match --json > results.json
-        python ./decmp/decmp.py match --no-color > results.txt
-
-    - name: Prepare Discord message
-      id: message_prep
+        # Get list of commits in this push
+        if [ "${{ github.event.before }}" = "0000000000000000000000000000000000000000" ]; then
+          # First push to branch, just use HEAD
+          echo "COMMITS=${{ github.sha }}" >> $GITHUB_ENV
+        else
+          # Get all commits between before and after
+          COMMITS=$(git rev-list ${{ github.event.before }}..${{ github.sha }})
+          echo "COMMITS<<EOF" >> $GITHUB_ENV
+          echo "$COMMITS" >> $GITHUB_ENV
+          echo "EOF" >> $GITHUB_ENV
+        fi
+    
+    - name: Process and notify for each commit
       run: |
-        # Use jq (a command-line JSON processor) to parse the file and extract values.
-        ACCURACY=$(jq -r '.accuracy' results.json)
-        MATCHED_FUNCTIONS=$(jq -r '.matched_functions' results.json)
-        TOTAL_FUNCTIONS=$(jq -r '.total_functions' results.json)
-        MATCHED_LINES=$(jq -r '.matching_line_count' results.json)
-        TOTAL_LINES=$(jq -r '.total_line_count' results.json)
-        SHORT_REV=$(git rev-parse --short HEAD)
-
-        FIRST_LINE=$(git log --format=%B -n 1 HEAD | head -n 1)
-        DISCORD_MESSAGE="New change: [${FIRST_LINE}](<${{ github.server_url }}/${{ github.repository }}/commit/${{ github.sha }}>) | **${ACCURACY}** ported | ${MATCHED_FUNCTIONS} / ${TOTAL_FUNCTIONS} functions | ${MATCHED_LINES} / ${TOTAL_LINES} lines of code"
-        echo "DISCORD_MESSAGE=${DISCORD_MESSAGE}" >> $GITHUB_ENV
-         
-    - name: Send Discord Notification
-      uses: tsickert/discord-webhook@v7.0.0
-      with:
-        webhook-url: ${{ secrets.DISCORD_WEBHOOK }}
-        content: ${{ env.DISCORD_MESSAGE }}
-        #filename: ./results.txt
+        echo "$COMMITS" | while read -r commit; do
+          if [ -z "$commit" ]; then
+            continue
+          fi
+          
+          # Checkout specific commit
+          git checkout $commit
+          
+          # Run analysis
+          python ./decmp/decmp.py match --json > results.json
+          python ./decmp/decmp.py match --no-color > results.txt
+          
+          # Extract values
+          ACCURACY=$(jq -r '.accuracy' results.json)
+          MATCHED_FUNCTIONS=$(jq -r '.matched_functions' results.json)
+          TOTAL_FUNCTIONS=$(jq -r '.total_functions' results.json)
+          MATCHED_LINES=$(jq -r '.matching_line_count' results.json)
+          TOTAL_LINES=$(jq -r '.total_line_count' results.json)
+          
+          # Get commit info
+          SHORT_REV=$(git rev-parse --short $commit)
+          FIRST_LINE=$(git log --format=%B -n 1 $commit | head -n 1)
+          
+          # Prepare Discord message
+          DISCORD_MESSAGE="New change: [${FIRST_LINE}](<${{ github.server_url }}/${{ github.repository }}/commit/${commit}>) | **${ACCURACY}** ported | ${MATCHED_FUNCTIONS} / ${TOTAL_FUNCTIONS} functions | ${MATCHED_LINES} / ${TOTAL_LINES} lines of code"
+          
+          # Send to Discord
+          curl -H "Content-Type: application/json" \
+               -d "{\"content\": \"${DISCORD_MESSAGE}\"}" \
+               "${{ secrets.DISCORD_WEBHOOK }}"
+          
+          # Small delay to avoid rate limiting
+          sleep 1
+        done
