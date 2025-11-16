@@ -19,13 +19,13 @@ jobs:
     - name: Get commit list
       id: commits
       run: |
-        # Get list of commits in this push
+        # Get list of commits in this push (in chronological order)
         if [ "${{ github.event.before }}" = "0000000000000000000000000000000000000000" ]; then
           # First push to branch, just use HEAD
           echo "COMMITS=${{ github.sha }}" >> $GITHUB_ENV
         else
-          # Get all commits between before and after
-          COMMITS=$(git rev-list ${{ github.event.before }}..${{ github.sha }})
+          # Get all commits between before and after, reversed to chronological order
+          COMMITS=$(git rev-list --reverse ${{ github.event.before }}..${{ github.sha }})
           echo "COMMITS<<EOF" >> $GITHUB_ENV
           echo "$COMMITS" >> $GITHUB_ENV
           echo "EOF" >> $GITHUB_ENV
