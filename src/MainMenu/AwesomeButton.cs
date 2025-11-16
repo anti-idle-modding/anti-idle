@@ -32,7 +32,7 @@ public partial class AwesomeButton : FlashButton
     {
         if (_xmouse >= 0 && _xmouse < 620 && _ymouse >= 0 && _ymouse < 60)
         {
-            if (Input.IsMouseButtonPressed(MouseButton.Left))
+            if (Input.IsActionJustReleased("leftclick"))
             {
                 anim.AssignedAnimation = "clicked";
                 _root.selectSavefile(_root.saveGlobal.selectedSave);
