@@ -116,10 +116,10 @@ and link them to the corresponding file.
 
 The syntax for a path follows the structure of the disassembly folder. In this
 example, the DoAction was in the `frame_4` folder in the disassembly, so its
-path is `frame_4:DoAction.as`.
+path is `frame_4-DoAction.as`.
 
 To scope to a specific function, add `:functionName()`
-after the file name: `frame_4:DoAction.as:addArenaAccessory()`.
+after the file name: `frame_4-DoAction.as:addArenaAccessory()`.
 
 Unfortunately, we don't have tracking for assets, so it's done on a case by case
 basis for now. I recommend porting assets at the same time you port the code,
