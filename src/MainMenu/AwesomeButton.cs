@@ -28,7 +28,7 @@ public partial class AwesomeButton : FlashButton
         anim.Seek(position);
     }
 
-    public override void _Input(InputEvent @event)
+    public override void _GuiInput(InputEvent @event)
     {
         if (_xmouse >= 0 && _xmouse < 620 && _ymouse >= 0 && _ymouse < 60)
         {

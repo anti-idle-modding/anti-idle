@@ -27,7 +27,7 @@ public partial class SaveFileButton : ColorRect
         anim.Seek(position);
     }
 
-    public override void _Input(InputEvent @event)
+    public override void _GuiInput(InputEvent @event)
     {
         if (Input.IsMouseButtonPressed(MouseButton.Left))
         {

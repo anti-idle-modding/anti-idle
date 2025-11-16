@@ -18,7 +18,7 @@ public partial class BackButton : FlashButton
     }
 
     // MATCH: frame_13-PlaceObject2_1602_3742-CLIPACTIONRECORD on(release).as
-    public override void _Input(InputEvent @event)
+    public override void _GuiInput(InputEvent @event)
     {
         if (
             Input.IsActionJustReleased("leftclick")
