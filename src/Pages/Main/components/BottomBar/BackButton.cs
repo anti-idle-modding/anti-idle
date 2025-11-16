@@ -21,7 +21,7 @@ public partial class BackButton : FlashButton
     public override void _Input(InputEvent @event)
     {
         if (
-            Input.IsMouseButtonPressed(MouseButton.Left)
+            Input.IsActionJustReleased("leftclick")
             && _xmouse >= 0
             && _xmouse <= 52
             && _ymouse >= 0

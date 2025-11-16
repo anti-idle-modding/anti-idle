@@ -9,12 +9,16 @@
 base_font = ExtResource("6_i3ad3")
 spacing_top = 1
 
-[node name="SceneData" type="Control"]
+[node name="SceneData" type="Control" node_paths=PackedStringArray("popup")]
+z_index = 1
 layout_mode = 3
 anchors_preset = 0
 offset_right = 650.0
 offset_bottom = 650.0
+mouse_behavior_recursive = 2
+mouse_force_pass_scroll_events = false
 script = ExtResource("1_kd7jv")
+popup = NodePath(".")
 metadata/_custom_type_script = "uid://bl3rpgkqknbk7"
 
 [node name="Bg" type="ColorRect" parent="."]
@@ -178,7 +182,7 @@ script = ExtResource("4_0tqg1")
 helpText = NodePath("../HelpText")
 
 [node name="HelpText" type="RichTextLabel" parent="."]
-layout_mode = 2
+layout_mode = 0
 offset_left = 134.0
 offset_top = 341.0
 offset_right = 765.0
