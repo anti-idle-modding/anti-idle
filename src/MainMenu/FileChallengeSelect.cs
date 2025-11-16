@@ -42,7 +42,7 @@ public partial class FileChallengeSelect : FlashButton
     // MATCH: frame_11-PlaceObject2_2379_64-CLIPACTIONRECORD on(release).as
     public override void _GuiInput(InputEvent @event)
     {
-        if (Input.IsMouseButtonPressed(MouseButton.Left))
+        if (Input.IsActionJustReleased("leftclick"))
         {
             // TODO: code in challenge unlock check
             if ( /* _root.saveGlobal.challengeUnlocked == true */

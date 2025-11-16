@@ -42,7 +42,7 @@ public partial class File0Select : FlashButton
     public override void _GuiInput(InputEvent @event)
     {
         if (
-            Input.IsMouseButtonPressed(MouseButton.Left)
+            Input.IsActionJustReleased("leftclick")
             && _xmouse >= 0
             && _xmouse < 120
             && _ymouse >= 0
