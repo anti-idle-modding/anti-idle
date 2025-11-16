@@ -2,13 +2,12 @@ using System;
 using AntiIdle.Common.Nodes;
 using Godot;
 
-public partial class BackupHelp : SceneData
+public partial class Credits : SceneData
 {
     [Export]
     public SceneData popup;
 
-    // MATCH: DefineSprite_2407-frame_2-PlaceObject2_2382_1-CLIPACTIONRECORD on(release).as
-    public override void _GuiInput(InputEvent @event)
+    public override void _Input(InputEvent @event)
     {
         this.GetViewport().SetInputAsHandled();
         if (Input.IsActionJustReleased("leftclick"))
@@ -17,5 +16,9 @@ public partial class BackupHelp : SceneData
         }
     }
 
+    // Called when the node enters the scene tree for the first time.
+    public override void _Ready() { }
+
+    // Called every frame. 'delta' is the elapsed time since the previous frame.
     public override void _Process(double delta) { }
 }

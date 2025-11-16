@@ -43,7 +43,7 @@ public partial class File2Select : FlashButton
     }
 
     // MATCH: frame_11-PlaceObject2_2379_56-CLIPACTIONRECORD on(release).as
-    public override void _Input(InputEvent @event)
+    public override void _GuiInput(InputEvent @event)
     {
         if (
             Input.IsMouseButtonPressed(MouseButton.Left)
