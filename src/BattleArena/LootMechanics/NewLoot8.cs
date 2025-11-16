@@ -179,33 +179,31 @@ public partial class NewLoot8 : FlashNode2D
         var _ = Position;
         leftChance = 0.3;
         magneticChance = 1;
-        ringArray = new(
-            [
-                "",
-                "Health",
-                "Mana",
-                "Power",
-                "Speed",
-                "Mastery",
-                "Critical",
-                "Defense",
-                "Reflection",
-                "Accuracy",
-                "Evasion",
-                "Leech",
-                "Chaos",
-                "Encounter",
-                "Experience",
-                "Greed",
-                "Protection",
-                "Luck",
-                "Combo",
-                "Chronos",
-                "Rage",
-                "Resistance",
-                "Cruelty",
-            ]
-        );
+        ringArray = new([
+            "",
+            "Health",
+            "Mana",
+            "Power",
+            "Speed",
+            "Mastery",
+            "Critical",
+            "Defense",
+            "Reflection",
+            "Accuracy",
+            "Evasion",
+            "Leech",
+            "Chaos",
+            "Encounter",
+            "Experience",
+            "Greed",
+            "Protection",
+            "Luck",
+            "Combo",
+            "Chronos",
+            "Rage",
+            "Resistance",
+            "Cruelty",
+        ]);
         _X = x;
         _Y = y - 50;
         xVel = Math.random() * 2;
