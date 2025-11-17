@@ -31,7 +31,8 @@ on your given platform.
 
 Set up a text editor so you can edit the code confortably. Any editor that supports
 LSP (or has an IDE) is good, like [Rider](https://www.jetbrains.com/rider/),
-[VSCode](https://code.visualstudio.com/) or [Kate](https://kate-editor.org/fr/).
+[VSCode](https://code.visualstudio.com/), [Visual Studio](https://visualstudio.microsoft.com/) 
+or [Kate](https://kate-editor.org/fr/).
 If you're not really sure, VSCode is a safe pick.
 
 If using VSCode, you'll need to set up the C# Dev Kit extension, which you
@@ -128,26 +129,29 @@ so you don't have to go back to it later.
 ## Basics of code porting
 
 This section will walk you through a full example of porting, along with how
-to port assets. I recommend downloading Adobe Flash CS6 for the asset part,
-which you can find online.
+to port assets. I recommend using JPEXS for this.
 
-Let's do an example of porting with the first frame and its related assets.
-First, open the `decmp/binary/v1861.fla` project in Adobe Flash CS6.
-After clicking OK, you should see something like this:
+Open the v1861.swf in JPEXS.
 
-![cs6](doc/cs6_initial.png)
+I highly recommend going to options, and setting 'Maximum number of cache items
+per single cache" to at least 50000. Otherwise, each search will refresh the cache,
+making searches much slower.
 
-Press F9 to bring up the "Actions" menu. This contains the same code we exported
-with JPEXS earlier. Click on "Script Layer: Frame 1" and you should find the code:
+There are a few ways to interact with JPEXS: the easiest is using the left pane,
+where you can see the various assets. By default, JPEXS opens on the full swf, but
+you can click on frame 1 to see just the first frame.
 
-![actions](doc/cs6_frame1action.png)
-
-Alternatively, you can also look for the code manually, in the exported scripts/
-directory in decmp.
-
-Looking around in CS6, you can see that the frame 1 is made up of various
+Looking around, you can see that the frame 1 is made up of various
 elements. In Flash language, these are known as "MovieClips". Think of a frame
 as just a tree of movieclips.
+
+In JPEXS, a MovieClip is instiantated using a PlaceObject2 inside a sprite.
+This will refer to a character, which itself might be made up of other characters.
+
+Code in jpexs is stored usually in DoAction tags, although there are some others,
+like the onEvent handlers. Code in `decmp/` should match the output in JPEXS
+exactly, so you can search in th left pane (Ctrl+F), paste a name and find the 
+corresponding asset for some code easily.
 
 ## Porting the initial Frame 1 code to Godot and C#
 
@@ -288,4 +292,3 @@ In Godot, all scales are [0, 1]. But in Flash, scales differ based on the object
 To solve this, **we use special node types in Godot!** These will import convenience variables `_X`, `_Y`, and others that behave the same way in Flash.
 
 - For Node2D: Use `FlashNode2D`.
-
