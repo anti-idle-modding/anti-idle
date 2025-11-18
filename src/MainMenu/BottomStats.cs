@@ -114,6 +114,10 @@ public partial class BottomStats : Control
         {
             _root.fps = 50;
         }
+        GD.Print("Is UpNumber null? " + (upNumber == null));
+        GD.Print("Is _root null?" + (_root == null));
+        GD.Print($"Is withComma null? {_root.withComma == null}");
+        GD.Print($"Is _root.upnumber null? {_root.upnumber == null}");
         upNumber.Text = _root.withComma(_root.upnumber);
         if (_root.saveGlobal.latestVersion != _root.upnumber)
         {
