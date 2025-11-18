@@ -25,6 +25,9 @@ public partial class Main : Control
 
     [Export]
     private Mini5 mini5;
+
+    [Export]
+    private DailyBonusButton dailyBonusButton { get; set; }
     bool dispAlt;
     double recentReputation;
     double delay1sec;
@@ -40,6 +43,7 @@ public partial class Main : Control
         _root.mini3 = mini3;
         _root.mini4 = mini4;
         _root.mini5 = mini5;
+        _root.dailyBonusButton = dailyBonusButton;
         var i = 0;
         if (_root.suc1 == true && _root.suc2 == true && _root.saveid < 10)
         {
@@ -759,7 +763,7 @@ public partial class Main : Control
 
     public override void _Process(double delta)
     {
-        var i = 0d;
+        var i = 0;
         if (_root.topBar.levelStar.levelAnim._alpha > 0)
         {
             _root.topBar.levelStar.levelAnim._alpha -= 2;
@@ -1439,7 +1443,7 @@ public partial class Main : Control
                         int mm = _root.clock_month;
                         int dd = _root.clock_date;
                         if (
-                            _root.eventList[yy][mm][dd][(int)i]
+                            _root.eventList[yy][mm][dd][i]
                             == "Wait time for Adventure Energy is reduced by 25%"
                         )
                         {

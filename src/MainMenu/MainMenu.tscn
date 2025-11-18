@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://cre5l5kp4b0lu"]
+[gd_scene load_steps=36 format=3 uid="uid://cre5l5kp4b0lu"]
 
 [ext_resource type="Texture2D" uid="uid://b21mnu2f4lbk8" path="res://src/MainMenu/MenuBg.png" id="1_cttlv"]
 [ext_resource type="Script" uid="uid://2k0roc3i7bmg" path="res://src/MainMenu/MainMenu.cs" id="1_e1bcd"]
@@ -18,6 +18,7 @@
 [ext_resource type="Script" uid="uid://c5nqbp6i5llxo" path="res://src/MainMenu/BackupHelpButton.cs" id="14_k4wgw"]
 [ext_resource type="Script" uid="uid://bwlxd6quecq4k" path="res://src/MainMenu/CreditsButton.cs" id="14_nxksq"]
 [ext_resource type="Script" uid="uid://bgcbpyi2deq3i" path="res://src/MainMenu/AwesomeButton.cs" id="14_ypdof"]
+[ext_resource type="Script" uid="uid://bcg70584pinhc" path="res://src/MainMenu/BottomStats.cs" id="15_r8bmf"]
 [ext_resource type="Script" uid="uid://c5ahmxs2w5th2" path="res://src/Common/Nodes/SceneManager.cs" id="19_4j8vg"]
 [ext_resource type="PackedScene" uid="uid://drp2bbdfbpisl" path="res://src/MainMenu/Popup/BackupHelp.tscn" id="19_hgdfc"]
 [ext_resource type="PackedScene" uid="uid://bmp2m6xwbgqy5" path="res://src/MainMenu/Popup/Credits.tscn" id="20_nxksq"]
@@ -155,6 +156,7 @@ file3PlayTime = NodePath("Buttons/SaveFileContainer/SaveButton4/MarginContainer/
 file3Level = NodePath("Buttons/SaveFileContainer/SaveButton4/MarginContainer/VBoxContainer/GridContainer/LevelValue")
 file3Ascs = NodePath("Buttons/SaveFileContainer/SaveButton4/MarginContainer/VBoxContainer/GridContainer/AscensionsValue")
 challengesDone = NodePath("Buttons/SaveFileContainer/ChallengeButton/Normal/ChallengeValue")
+metadata/frame = 11
 
 [node name="Bg" type="Sprite2D" parent="."]
 texture = ExtResource("1_cttlv")
@@ -305,12 +307,18 @@ theme_override_fonts/font = ExtResource("4_70h2t")
 theme_override_font_sizes/font_size = 40
 text = "Awesome!"
 
-[node name="BottomStats" type="Control" parent="."]
+[node name="BottomStats" type="Control" parent="." node_paths=PackedStringArray("upNumber", "flashNumber", "fpsDisplay", "timeDisplay")]
 anchors_preset = 0
 offset_left = 417.0
-offset_top = 384.0
+offset_top = 385.0
 offset_right = 457.0
-offset_bottom = 424.0
+offset_bottom = 425.0
+script = ExtResource("15_r8bmf")
+upNumber = NodePath("HBoxContainer/VBoxContainer4/MarginContainer2/upNumber")
+flashNumber = NodePath("HBoxContainer/VBoxContainer3/MarginContainer2/flashNumber")
+fpsDisplay = NodePath("HBoxContainer/VBoxContainer/MarginContainer2/fpsDisplay")
+timeDisplay = NodePath("HBoxContainer/VBoxContainer2/MarginContainer2/timeDisplay")
+metadata/DefineSprite_2416 = ""
 
 [node name="HBoxContainer" type="HBoxContainer" parent="BottomStats"]
 custom_minimum_size = Vector2(0, 30)
@@ -344,7 +352,7 @@ theme_override_constants/margin_top = -1
 theme_override_constants/margin_right = 1
 theme_override_constants/margin_bottom = 0
 
-[node name="Label2" type="Label" parent="BottomStats/HBoxContainer/VBoxContainer/MarginContainer2"]
+[node name="fpsDisplay" type="Label" parent="BottomStats/HBoxContainer/VBoxContainer/MarginContainer2"]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_colors/font_color = Color(1, 1, 1, 1)
@@ -375,7 +383,7 @@ layout_mode = 2
 theme_override_constants/margin_top = -5
 theme_override_constants/margin_right = -2
 
-[node name="Label2" type="Label" parent="BottomStats/HBoxContainer/VBoxContainer2/MarginContainer2"]
+[node name="timeDisplay" type="Label" parent="BottomStats/HBoxContainer/VBoxContainer2/MarginContainer2"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("6_tcb8k")
 theme_override_font_sizes/font_size = 10
@@ -410,7 +418,7 @@ theme_override_constants/margin_top = -3
 theme_override_constants/margin_right = 1
 theme_override_constants/margin_bottom = 0
 
-[node name="Label2" type="Label" parent="BottomStats/HBoxContainer/VBoxContainer3/MarginContainer2"]
+[node name="flashNumber" type="Label" parent="BottomStats/HBoxContainer/VBoxContainer3/MarginContainer2"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.6, 0.6, 0.6, 1)
 theme_override_fonts/font = SubResource("FontVariation_aeosc")
@@ -444,7 +452,7 @@ layout_mode = 2
 theme_override_constants/margin_top = -3
 theme_override_constants/margin_bottom = 0
 
-[node name="Label2" type="Label" parent="BottomStats/HBoxContainer/VBoxContainer4/MarginContainer2"]
+[node name="upNumber" type="Label" parent="BottomStats/HBoxContainer/VBoxContainer4/MarginContainer2"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.8, 0.8, 0.8, 1)
 theme_override_fonts/font = SubResource("FontVariation_aeosc")

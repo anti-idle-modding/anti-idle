@@ -14,6 +14,9 @@ public partial class SceneManager : Control
     /// Only one scene can be active at a time.
     /// </summary>
     SceneData current;
+#pragma warning disable IDE1006 // Naming Styles
+    public int? _currentFrame => (int?)current.GetMeta("Frame");
+#pragma warning restore IDE1006 // Naming Styles
 
     public string currentScene;
 

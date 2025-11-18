@@ -25,6 +25,7 @@ public class GlobalSetting
 
     public string graphicQuality;
     public string keyboardLayout;
+    public bool returning1 { get; set; } = false;
     public bool showTitle = true;
     public double latestVersion = 1380;
 
