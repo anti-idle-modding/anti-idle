@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using AntiIdle.Common.Globals;
+using Godot;
 
 namespace AntiIdle.Common;
 
@@ -15,6 +16,11 @@ public class Global
     public static double Infinity = double.PositiveInfinity;
 
     public static UnderscoreGlobal _global = new();
+
+    public static ulong getTimer()
+    {
+        return Time.GetTicksMsec();
+    }
 }
 
 public class Save
@@ -1979,6 +1985,8 @@ public class Save
     public double fcgLegendLife = 0;
     public FlashList<bool> inventoryNoLife = new();
     public FlashList<FlashList<double>> mysteryBoxCollect = new();
+    public double questid { get; set; } = 0;
+    public int quest_date { get; set; } = 0;
     public double totalQuests = 0;
     public double arenaWeakenAffected = 0;
     public double arenaSpookyPenalty = 0;
@@ -3623,6 +3631,8 @@ public class Save
     public FlashList<string> inventorySubtype = new(["Any"]);
     public FlashList<string> inventoryType = new(["Any"]);
     public FlashList<double> inventoryUnob = new([0]);
+    public bool kanaReceived1 { get; set; } = false;
+    public bool kanaReceived2 { get; set; } = false;
     public double knowledge = 0;
     public double lastPlayed = 0;
     public double legendaryBoxOpened = 0;
@@ -5551,6 +5561,7 @@ public class Save
     public double titlegreen = 255;
     public double titlered = 255;
     public double todayCode = 0;
+    public double todayCode2 { get; set; } = 0;
     public double todayHighAvoidance = 0;
     public double todayHighBalance = 0;
     public double todayHighCount = 0;
@@ -5775,6 +5786,7 @@ public class Save
 public class House
 {
     public Arena arena = new();
+    public Arcade mainArcade = new();
     public double _currentframe;
 }
 
@@ -5784,6 +5796,14 @@ public class Arena
     {
         return 0;
     }
+}
+
+public class Arcade
+{
+    /// <summary>
+    /// this is a placeholder until we get to the arcade implementation
+    /// </summary>
+    public double _currentframe { get; set; }
 }
 
 public class PopContain

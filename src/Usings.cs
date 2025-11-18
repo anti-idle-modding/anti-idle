@@ -6,3 +6,4 @@ global using static AntiIdle.Common.Flash.Numbers;
 global using static AntiIdle.Common.Flash.Version;
 global using static AntiIdle.Common.Global;
 global using static AntiIdle.Common.Globals.ColorHelper;
+global using AntiIdle.Extensions;

@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://d1vhda2oxa4k7"]
+[gd_scene load_steps=24 format=3 uid="uid://d1vhda2oxa4k7"]
 
 [ext_resource type="Script" uid="uid://cjp2pjpu1jl4x" path="res://src/Pages/Main/Main.cs" id="1_c6bj8"]
 [ext_resource type="Texture2D" uid="uid://bmlqbakhjy61h" path="res://src/Pages/Main/13.png" id="1_wl3yd"]
@@ -20,10 +20,12 @@
 [ext_resource type="PackedScene" uid="uid://cs6cawwwsofwj" path="res://src/Pages/Main/components/Minis/mini_3.tscn" id="17_u31dg"]
 [ext_resource type="PackedScene" uid="uid://1evc6jq4nand" path="res://src/Pages/Main/components/Minis/mini_4.tscn" id="18_ao74c"]
 [ext_resource type="PackedScene" uid="uid://bjasl780omou0" path="res://src/Pages/Main/components/Minis/mini_5.tscn" id="19_gkvr8"]
+[ext_resource type="Texture2D" uid="uid://bd8h3on5iqfph" path="res://common_assets/sprites/DefineSprite_8280/2.png" id="21_emsix"]
+[ext_resource type="Script" uid="uid://cl11uy65djgs2" path="res://src/Pages/Main/DailyBonusButton.cs" id="22_gkvr8"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_ygkns"]
 
-[node name="Main" type="Control" node_paths=PackedStringArray("_topBar", "mini1", "mini2", "mini3", "mini4", "mini5")]
+[node name="Main" type="Control" node_paths=PackedStringArray("_topBar", "mini1", "mini2", "mini3", "mini4", "mini5", "dailyBonusButton")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -41,6 +43,8 @@ mini2 = NodePath("Mini2")
 mini3 = NodePath("Mini3")
 mini4 = NodePath("Mini4")
 mini5 = NodePath("Mini5")
+dailyBonusButton = NodePath("dailyBonusButton")
+metadata/Frame = 13
 
 [node name="TextureRect" type="TextureRect" parent="."]
 visible = false
@@ -73,7 +77,7 @@ layout_mode = 1
 
 [node name="Logo" type="TextureRect" parent="VBoxContainer/Control"]
 custom_minimum_size = Vector2(60, 60)
-layout_mode = 2
+layout_mode = 0
 offset_left = 510.0
 offset_top = 18.0
 offset_right = 650.0
@@ -105,7 +109,7 @@ offset_bottom = 381.865
 
 [node name="BoostModule" parent="VBoxContainer/Control" instance=ExtResource("7_fpxsb")]
 visible = false
-layout_mode = 2
+layout_mode = 0
 anchors_preset = 0
 anchor_right = 0.0
 anchor_bottom = 0.0
@@ -141,7 +145,7 @@ layout_mode = 2
 layout_mode = 2
 
 [node name="Mini1" parent="." node_paths=PackedStringArray("miniGardenText") instance=ExtResource("15_k38fl")]
-layout_mode = 2
+layout_mode = 0
 offset_left = 14.0
 offset_top = 544.0
 offset_right = 64.0
@@ -174,9 +178,18 @@ offset_bottom = 588.0
 
 [node name="Mini5" parent="." instance=ExtResource("19_gkvr8")]
 layout_mode = 0
-offset_left = 239.0
+offset_left = 240.0
 offset_top = 543.0
-offset_right = 279.0
+offset_right = 280.0
 offset_bottom = 583.0
+
+[node name="dailyBonusButton" type="TextureButton" parent="."]
+layout_mode = 1
+offset_left = 589.0
+offset_top = 190.0
+offset_right = 727.0
+offset_bottom = 258.0
+texture_normal = ExtResource("21_emsix")
+script = ExtResource("22_gkvr8")
 
 [editable path="Mini1"]

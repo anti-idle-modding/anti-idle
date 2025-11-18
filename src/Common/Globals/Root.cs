@@ -7,6 +7,7 @@ using AntiIdle.Common.Nodes;
 using AntiIdle.FCG;
 using AntiIdle.FeatureOverlay;
 using AntiIdle.Pages.Main;
+using AntiIdle.src.Common.Flash;
 using Godot;
 using Math = AntiIdle.Common.Flash.Math;
 
@@ -17,6 +18,11 @@ namespace AntiIdle.Common.Globals;
 ///     In AS2, this stores the root MovieClip, and it also has functions
 ///     attached to it.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.SuppressMessage(
+    "Style",
+    "IDE1006:Naming Styles",
+    Justification = "original naming"
+)]
 public class Root
 {
     public Save save = new();
@@ -30,6 +36,8 @@ public class Root
     public Mini3 mini3;
     public Mini4 mini4;
     public Mini5 mini5;
+    public DailyBonusButton dailyBonusButton { get; set; }
+
     public double updateFightStatB;
     public string fightStat;
     public string fightStat2;
@@ -77,13 +85,15 @@ public class Root
     public string elapsed_hours;
     public string elapsed_minutes;
     public string elapsed_seconds;
-    public DateTimeOffset systemclock;
+    public DateTimeOffset systemclock { get; set; }
     public long systemtimenow;
+    public long recenttime { get; set; }
     public bool craftTool;
     public double newsCount;
     public FlashList<double> newsID;
     public FlashList<double> newsFeature;
     public FlashList<string> newsSauceName;
+    public double questid { get; set; }
     public List<Achievement> achList;
     public List<Quest> mainQuestList;
     public List<RandomQuest> questList;
@@ -121,10 +131,24 @@ public class Root
     public double boostMax;
     public FlashList<string> careerName;
     public double chance;
-    public int clock_date;
-    public double clock_display;
-    public int clock_month;
-    public int clock_year;
+    public int clock_date { get; set; }
+    public string clock_date_display => clock_date.ToString("00");
+    public int clock_hour { get; set; }
+    public string clock_hour_display => clock_hour.ToString("00");
+    public int clock_min { get; set; }
+    public string clock_min_display => clock_min.ToString("00");
+    public int clock_sec { get; set; }
+    public string clock_sec_display => clock_sec.ToString("00");
+    public int max_date { get; set; }
+    public string clock_display;
+    public string clock_display2 { get; set; } = "Never Assigned";
+    public int clock_month { get; set; }
+    public string clock_month_display => clock_month.ToString("00");
+    public int clock_monthID { get; set; }
+    public int clock_year { get; set; }
+    public string clock_year_display => clock_year.ToString("0000");
+    public int shinyWeekTmp { get; set; }
+    public int shinyWeek2Tmp { get; set; }
     public double correctTier;
     public List<NewCard> cardList;
     public double deckid;
@@ -142,6 +166,8 @@ public class Root
     public bool cyborgWorking;
     public double detectedX;
     public double dow;
+    public string daydisplay { get; set; }
+    public string eventName { get; set; }
     public List<List<List<List<string>>>> eventList;
     public List<List<List<double>>> eventRating;
     public double eventMaxToken;
@@ -154,6 +180,8 @@ public class Root
     public string flashVer;
 
     public int fps = 40;
+    public double fpsnoround { get; set; }
+    public bool isMouseDown { get; set; }
 
     // TODO: make this load from save (aka do the SharedObject functions)
     public GlobalSetting globalSetting = new();
@@ -216,7 +244,7 @@ public class Root
     public double systemTimeNow;
     public double thisSession;
     public double todayCode;
-    public double todayEvent;
+    public StringOrNumber todayEvent { get; set; }
     public double totalachievements;
     public double totalAllyMastered;
     public double totalAllyMaxed;
@@ -1476,6 +1504,12 @@ public class Root
                 _root.updateBreakNews = 1;
             }
         }
+    }
+
+    public void dispNews(double type, string news, int extra1, int extra2)
+    {
+        // no idea what the other 2 params are used for in 1 single place.
+        _root.dispNews(type, news);
     }
 
     // MATCH: frame_3-DoAction.as:showPopup()
