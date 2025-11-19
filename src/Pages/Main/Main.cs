@@ -2,32 +2,32 @@ using System;
 using AntiIdle.Pages.Main;
 using Godot;
 using Math = AntiIdle.Common.Flash.Math;
-
+#nullable enable
 // MATCH: frame_13-DoAction.as
 // MATCH: frame_13-DoAction_2.as
 // MATCH: frame_13-DoAction_3.as
 public partial class Main : Control
 {
     [Export]
-    private TopBar _topBar;
+    private TopBar _topBar = null!;
 
     [Export]
-    private Mini1 mini1;
+    private Mini1 mini1 = null!;
 
     [Export]
-    private Mini2 mini2;
+    private Mini2 mini2 = null!;
 
     [Export]
-    private Mini3 mini3;
+    private Mini3 mini3 = null!;
 
     [Export]
-    private Mini4 mini4;
+    private Mini4 mini4 = null!;
 
     [Export]
-    private Mini5 mini5;
+    private Mini5 mini5 = null!;
 
     [Export]
-    private DailyBonusButton dailyBonusButton { get; set; }
+    private DailyBonusButton dailyBonusButton { get; set; } = null!;
     bool dispAlt;
     double recentReputation;
     double delay1sec;

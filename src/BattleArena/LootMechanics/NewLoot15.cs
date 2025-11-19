@@ -3,6 +3,7 @@ using Godot;
 
 namespace AntiIdle.BattleArena.LootMechanics;
 
+#nullable enable
 //TO DO attach to asset
 // MATCH: DefineSprite_1328_newLoot15-frame_1-DoAction.as
 public partial class NewLoot15 : FlashNode2D
