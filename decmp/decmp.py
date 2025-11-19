@@ -112,8 +112,8 @@ folder to your PATH variable.""")
         "total_line_count": total_line_count,
         "functions": sorted(functions, key=lambda x: x["name"]),
     }
-    with open(args.db_path, "w") as f:
-        json.dump(db, f)
+    with open(args.db_path, "w", encoding="utf-8") as f:
+        json.dump(db, f, indent=4)
 
 
 def parse_file(export_path: str, path: str):
@@ -183,7 +183,7 @@ def match(args):
 
     if not args.json:
         print(f"""{C.CYAN}info:{C.RESET} parsing decomp database at {args.db_path}""")
-    with open(args.db_path, "r") as f:
+    with open(args.db_path, "r", encoding="utf-8") as f:
         db = json.load(f)
 
     if len(db["functions"]) == 0:
