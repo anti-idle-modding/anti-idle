@@ -4,20 +4,22 @@ using AntiIdle.Common;
 using AntiIdle.src.Common.Flash;
 using Godot;
 using Math = AntiIdle.Common.Flash.Math;
+#nullable enable
 
+// MATCH DefineSprite_2416-frame_1-DoAction.as
 public partial class BottomStats : Control
 {
     [Export]
-    public Label upNumber { get; set; }
+    public Label upNumber { get; set; } = null!;
 
     [Export]
-    public Label flashNumber { get; set; }
+    public Label flashNumber { get; set; } = null!;
 
     [Export]
-    public Label fpsDisplay { get; set; }
+    public Label fpsDisplay { get; set; } = null!;
 
     [Export]
-    public Label timeDisplay { get; set; }
+    public Label timeDisplay { get; set; } = null!;
 
     // Called when the node enters the scene tree for the first time.
 
@@ -201,11 +203,7 @@ public partial class BottomStats : Control
         }
         _root.eventName = "Attendance";
         _root.eventMaxToken = 200;
-        _root.todayEvent = _root.eventList[_root.clock_year % 10][_root.clock_month][
-            _root.clock_date
-        ][0];
-        // todo remove this
-        _root.todayEvent = 0;
+        _root.todayEvent = _root.eventList[_root.clock_year % 10][_root.clock_month][_root.clock_date][0];
 
         _root.idlerAppreciate = false;
         if (_root.saveid > 4)

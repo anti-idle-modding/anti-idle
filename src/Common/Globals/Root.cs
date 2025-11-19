@@ -10,6 +10,7 @@ using AntiIdle.Pages.Main;
 using AntiIdle.src.Common.Flash;
 using Godot;
 using Math = AntiIdle.Common.Flash.Math;
+#nullable enable
 
 namespace AntiIdle.Common.Globals;
 
@@ -31,16 +32,16 @@ public class Root
 
     public AccomplishPop accomplishPop = new();
     public OfflineProg offlineProg = new();
-    public Mini1 mini1;
-    public Mini2 mini2;
-    public Mini3 mini3;
-    public Mini4 mini4;
-    public Mini5 mini5;
-    public DailyBonusButton dailyBonusButton { get; set; }
+    public Mini1 mini1 = null!;
+    public Mini2 mini2 = null!;
+    public Mini3 mini3 = null!;
+    public Mini4 mini4 = null!;
+    public Mini5 mini5 = null!;
+    public DailyBonusButton dailyBonusButton { get; set; } = null!;
 
     public double updateFightStatB;
-    public string fightStat;
-    public string fightStat2;
+    public string fightStat = null!;
+    public string fightStat2 = null!;
     public bool areaSafe;
     public bool areaUnderwater;
     public double areaSpawn;
@@ -51,8 +52,8 @@ public class Root
     public double areaEpicChance;
     public double areaEpicChance2;
     public bool challengeCompatible;
-    public List<double> souvenirLimit;
-    public OptionsScreen optionsScreen;
+    public List<double> souvenirLimit = null!;
+    public OptionsScreen optionsScreen = null!;
     public double fishStatus = 0;
     public long recMys;
     public bool anotherDay = false;
@@ -81,45 +82,45 @@ public class Root
     public double failGrammar;
     public FlashList<bool> kpaOwned = new();
     public FlashList<bool> kpaShiny = new();
-    public string elapsed_days;
-    public string elapsed_hours;
-    public string elapsed_minutes;
-    public string elapsed_seconds;
+    public string elapsed_days = null!;
+    public string elapsed_hours = null!;
+    public string elapsed_minutes = null!;
+    public string elapsed_seconds = null!;
     public DateTimeOffset systemclock { get; set; }
     public long systemtimenow;
     public long recenttime { get; set; }
     public bool craftTool;
     public double newsCount;
-    public FlashList<double> newsID;
-    public FlashList<double> newsFeature;
-    public FlashList<string> newsSauceName;
+    public FlashList<double> newsID = null!;
+    public FlashList<double> newsFeature = null!;
+    public FlashList<string> newsSauceName = null!;
     public double questid { get; set; }
-    public List<Achievement> achList;
-    public List<Quest> mainQuestList;
-    public List<RandomQuest> questList;
-    public List<AchR> achListR;
-    public List<double> questListR;
+    public List<Achievement> achList = null!;
+    public List<Quest> mainQuestList = null!;
+    public List<RandomQuest> questList = null!;
+    public List<AchR> achListR = null!;
+    public List<double> questListR = null!;
     public double totalMainQuest;
     public double totalquest;
-    public string newAchName;
+    public string newAchName = null!;
     public double newAchRedCoin;
-    public List<double> newAchList;
-    public List<double> newMainQuestList;
-    public List<List<double>> questMap;
-    public List<List<double>> questHLink;
-    public List<List<double>> questVLink;
+    public List<double> newAchList = null!;
+    public List<double> newMainQuestList = null!;
+    public List<List<double>> questMap = null!;
+    public List<List<double>> questHLink = null!;
+    public List<List<double>> questVLink = null!;
     public double totalNewQuest;
     public bool apocalypse;
-    public string _quality;
+    public string _quality = null!;
     public double achRedCoin;
     public double actualKpaCount;
     public double actualShinyKpaCount;
     public double arcadeRewardMult;
     public double arenaBot;
-    public FlashList<double> arenaSkillMaxF;
-    public FlashList<double> arenaSkillRankF;
-    public FlashList<string> arenaSkillNameF;
-    public string stickName;
+    public FlashList<double> arenaSkillMaxF = null!;
+    public FlashList<double> arenaSkillRankF = null!;
+    public FlashList<string> arenaSkillNameF = null!;
+    public string stickName = null!;
     public double totalMonster;
     public bool autoStart;
     public double crystalKill;
@@ -129,7 +130,7 @@ public class Root
     public double summonCount;
     public double antiLag;
     public double boostMax;
-    public FlashList<string> careerName;
+    public FlashList<string> careerName = null!;
     public double chance;
     public int clock_date { get; set; }
     public string clock_date_display => clock_date.ToString("00");
@@ -140,7 +141,7 @@ public class Root
     public int clock_sec { get; set; }
     public string clock_sec_display => clock_sec.ToString("00");
     public int max_date { get; set; }
-    public string clock_display;
+    public string clock_display = null!;
     public string clock_display2 { get; set; } = "Never Assigned";
     public int clock_month { get; set; }
     public string clock_month_display => clock_month.ToString("00");
@@ -150,25 +151,27 @@ public class Root
     public int shinyWeekTmp { get; set; }
     public int shinyWeek2Tmp { get; set; }
     public double correctTier;
-    public List<NewCard> cardList;
+    public List<NewCard> cardList = null!;
     public double deckid;
-    public FlashList<double> curCareerLevel;
+    public FlashList<double> curCareerLevel = null!;
     public double cursoridle;
     public double cybFishCurrent;
-    public FlashList<double> cyborgActCost;
-    public FlashList<string> cyborgActLongName;
-    public FlashList<double> cyborgActMaxPerf;
-    public FlashList<double> cyborgActMinPerf;
-    public FlashList<string> cyborgActPerfSign;
-    public FlashList<string> cyborgActPerfText;
-    public FlashList<string> cyborgActShortName;
-    public FlashList<double> cyborgActTime;
+    public FlashList<double> cyborgActCost = null!;
+    public FlashList<string> cyborgActLongName = null!;
+    public FlashList<double> cyborgActMaxPerf = null!;
+    public FlashList<double> cyborgActMinPerf = null!;
+    public FlashList<string> cyborgActPerfSign = null!;
+    public FlashList<string> cyborgActPerfText = null!;
+    public FlashList<string> cyborgActShortName = null!;
+    public FlashList<double> cyborgActTime = null!;
     public bool cyborgWorking;
     public double detectedX;
     public double dow;
-    public string daydisplay { get; set; }
-    public string eventName { get; set; }
-    public List<List<List<List<string>>>> eventList;
+    public string daydisplay { get; set; } = null!;
+    public string eventName { get; set; } = null!;
+#nullable enable
+    public List<List<List<NonNullableList<string>>>> eventList = null!;
+#nullable disable
     public List<List<List<double>>> eventRating;
     public double eventMaxToken;
     public double contributorRC;
