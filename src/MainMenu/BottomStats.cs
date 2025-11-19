@@ -24,8 +24,6 @@ public partial class BottomStats : Control
     private int sessionDaily { get; set; }
     private double recentFPSoutput { get; set; }
 
-    public override void _Ready() { }
-
     // Called every frame. 'delta' is the elapsed time since the previous frame.
     public override void _Process(double delta)
     {
@@ -114,10 +112,6 @@ public partial class BottomStats : Control
         {
             _root.fps = 50;
         }
-        GD.Print("Is UpNumber null? " + (upNumber == null));
-        GD.Print("Is _root null?" + (_root == null));
-        GD.Print($"Is withComma null? {_root.withComma == null}");
-        GD.Print($"Is _root.upnumber null? {_root.upnumber == null}");
         upNumber.Text = _root.withComma(_root.upnumber);
         if (_root.saveGlobal.latestVersion != _root.upnumber)
         {
@@ -336,20 +330,9 @@ public partial class BottomStats : Control
             _root.save.fcgLegendDeck = tempLegend;
             _root.save.fcgLegendLife = 10;
         }
-        var scene = GetTree().CurrentScene;
-        //GD.Print($"Current Scene: {scene.Name}");
-        //var _currentframe = (int?)GetTree().CurrentScene.GetMeta("Frame");
-        var _currentframe = 0;
-        //if (_root._currentframe == 13)
         var currentScene = GetTree().CurrentScene;
         var sceneName = currentScene.Name;
-        var metas = currentScene.GetMetaList();
-        foreach (var meta in metas)
-        {
-            GD.Print($"Meta Key: {meta}, Value: {currentScene.GetMeta(meta)}");
-        }
-        if (sceneName == "Main")
-        //if (_currentframe == 13)
+        if (sceneName == "Main") //if (_root._currentframe == 13)
         {
             if (_root.todayCode != _root.save.todayCode2)
             {

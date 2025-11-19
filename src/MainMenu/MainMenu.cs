@@ -47,10 +47,25 @@ public partial class MainMenu : Control
     [Export]
     public SceneManager challengeMode;
 
+    [Export]
+    public PackedScene _bottomStatsNode;
+
     // MATCH: frame_11-DoAction.as:loadKongpanion()
     public void loadKongpanion()
     {
         // Removed.
+    }
+
+    public override void _Ready()
+    {
+        var bottomStats = _bottomStatsNode.Instantiate<BottomStats>();
+        var rootNode = GetTree().Root;
+
+        // only add once
+        if (rootNode.GetNodeOrNull<BottomStats>("/root/BottomStats") == null)
+        {
+            GetTree().Root.AddChild(bottomStats);
+        }
     }
 
     public override void _EnterTree()

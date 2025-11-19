@@ -24,6 +24,7 @@ layout_mode = 2
 theme_override_constants/separation = 0
 
 [node name="Label" type="Label" parent="HBoxContainer/VBoxContainer"]
+visible = false
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_gbr8a")
 theme_override_font_sizes/font_size = 8
@@ -31,6 +32,7 @@ text = "FPS"
 horizontal_alignment = 2
 
 [node name="Label2" type="Label" parent="HBoxContainer/VBoxContainer"]
+visible = false
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_fonts/font = ExtResource("1_gbr8a")
@@ -43,6 +45,7 @@ custom_minimum_size = Vector2(118, 0)
 layout_mode = 2
 
 [node name="Label" type="Label" parent="HBoxContainer/VBoxContainer2"]
+visible = false
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_gbr8a")
 theme_override_font_sizes/font_size = 8
@@ -50,6 +53,7 @@ text = "Date & Time"
 horizontal_alignment = 2
 
 [node name="Label2" type="Label" parent="HBoxContainer/VBoxContainer2"]
+visible = false
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_gbr8a")
 theme_override_font_sizes/font_size = 8
@@ -110,11 +114,13 @@ text = "< Back"
 script = ExtResource("2_k3nk4")
 
 [node name="VBoxContainer3" type="VBoxContainer" parent="HBoxContainer"]
+visible = false
 custom_minimum_size = Vector2(23, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 
 [node name="Label" type="Label" parent="HBoxContainer/VBoxContainer3"]
+visible = false
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_gbr8a")
 theme_override_font_sizes/font_size = 8
