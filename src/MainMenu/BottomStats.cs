@@ -6,7 +6,7 @@ using Godot;
 using Math = AntiIdle.Common.Flash.Math;
 #nullable enable
 
-// MATCH DefineSprite_2416-frame_1-DoAction.as
+// MATCH: DefineSprite_2416-frame_1-DoAction.as
 public partial class BottomStats : Control
 {
     [Export]
@@ -130,7 +130,8 @@ public partial class BottomStats : Control
         _root.isMouseDown = false;
     }
 
-    public void checkTime()
+    // MATCH: DefineSprite_2416-frame_1-DoAction.as:checkTime()
+    private void checkTime()
     {
         _root.systemclock = DateTimeOffset.Now;
         _root.systemtimenow = _root.systemclock.getTime();
