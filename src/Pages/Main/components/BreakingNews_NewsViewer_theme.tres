@@ -1,0 +1,6 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://bmvpiexmrq00g"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1iibt"]
+
+[resource]
+RichTextLabel/styles/background = SubResource("StyleBoxFlat_1iibt")

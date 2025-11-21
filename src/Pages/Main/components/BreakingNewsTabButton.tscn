@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://wuec3s7fc0x4"]
+
+[ext_resource type="Texture2D" uid="uid://bd1s1qwqv7to6" path="res://common_assets/sprites/DefineSprite_8069/2.png" id="1_8k5sm"]
+[ext_resource type="Texture2D" uid="uid://d2hv6kkbjnod2" path="res://common_assets/sprites/DefineSprite_8069/1.png" id="2_b0ofr"]
+[ext_resource type="Script" uid="uid://b7kp0x1yue5vk" path="res://src/Pages/Main/components/BreakingNewsTabButton.cs" id="3_frccv"]
+
+[sub_resource type="SystemFont" id="SystemFont_b0ofr"]
+subpixel_positioning = 0
+
+[node name="Button" type="TextureButton"]
+toggle_mode = true
+texture_normal = ExtResource("1_8k5sm")
+texture_pressed = ExtResource("2_b0ofr")
+script = ExtResource("3_frccv")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.627451, 0.50980395, 0.16078432, 1)
+theme_override_constants/line_spacing = -6
+theme_override_fonts/font = SubResource("SystemFont_b0ofr")
+theme_override_font_sizes/font_size = 11
+horizontal_alignment = 1
+vertical_alignment = 2

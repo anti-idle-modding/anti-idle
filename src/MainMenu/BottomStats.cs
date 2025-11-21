@@ -204,7 +204,9 @@ public partial class BottomStats : Control
         }
         _root.eventName = "Attendance";
         _root.eventMaxToken = 200;
-        _root.todayEvent = _root.eventList[_root.clock_year % 10][_root.clock_month][_root.clock_date][0];
+        _root.todayEvent = _root.eventList[_root.clock_year % 10][_root.clock_month][
+            _root.clock_date
+        ][0];
 
         _root.idlerAppreciate = false;
         if (_root.saveid > 4)

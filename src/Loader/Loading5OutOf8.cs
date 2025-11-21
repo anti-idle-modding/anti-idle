@@ -68,15 +68,19 @@ public partial class Loading5OutOf8 : Control
             {
                 _root.saveGlobal.breakFeature[typeID] = false;
             }
-            _root.saveGlobal.breakR[typeID] = Math.floor(defaultColor / 65536);
-            _root.saveGlobal.breakG[typeID] = Math.floor(
-                (defaultColor - _root.saveGlobal.breakR[typeID] * 65536) / 256
-            );
-            _root.saveGlobal.breakB[typeID] = Math.floor(
-                defaultColor
-                    - _root.saveGlobal.breakR[typeID] * 65536
-                    - _root.saveGlobal.breakG[typeID] * 256
-            );
+            _root.saveGlobal.breakR[typeID] = (int)Math.floor(defaultColor / 65536);
+            _root.saveGlobal.breakG[typeID] = (int)
+                Math.floor(
+                    (double)((defaultColor - _root.saveGlobal.breakR[typeID] * 65536) / 256)
+                );
+            _root.saveGlobal.breakB[typeID] = (int)
+                Math.floor(
+                    (double)(
+                        defaultColor
+                        - _root.saveGlobal.breakR[typeID] * 65536
+                        - _root.saveGlobal.breakG[typeID] * 256
+                    )
+                );
         }
     }
 

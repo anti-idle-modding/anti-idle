@@ -150,9 +150,9 @@ layout_mode = 2
 [node name="Mini1" parent="." node_paths=PackedStringArray("miniGardenText") instance=ExtResource("15_k38fl")]
 layout_mode = 0
 offset_left = 14.0
-offset_top = 544.0
+offset_top = 538.0
 offset_right = 64.0
-offset_bottom = 581.0
+offset_bottom = 575.0
 miniGardenText = NodePath("Label")
 
 [node name="Label" parent="Mini1" index="0"]

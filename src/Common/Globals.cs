@@ -5787,7 +5787,9 @@ public class House
 {
     public Arena arena = new();
     public Arcade mainArcade = new();
-    public double _currentframe;
+
+    // todo: How to translate _currentFrame into if a scene is loaded
+    public int _currentframe = 7; // 7 = BattleArena
 }
 
 public class Arena
