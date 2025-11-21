@@ -26,6 +26,12 @@ jobs:
         else
           # Get all commits between before and after, reversed to chronological order
           COMMITS=$(git rev-list --reverse ${{ github.event.before }}..${{ github.sha }})
+          
+          # If empty (single commit case), use just the current commit
+          if [ -z "$COMMITS" ]; then
+            COMMITS="${{ github.sha }}"
+          fi
+          
           echo "COMMITS<<EOF" >> $GITHUB_ENV
           echo "$COMMITS" >> $GITHUB_ENV
           echo "EOF" >> $GITHUB_ENV
