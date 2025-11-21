@@ -82,10 +82,10 @@ public partial class BreakingNewsTabButton : TextureButton
     }
 
     // MATCH: DefineSprite_8223-frame_1-PlaceObject2_8170_14-CLIPACTIONRECORD onClipEvent(enterFrame).as
-    // MATCH: DefineSprite_8223-frame_1-PlaceObject2_8170_17-CLIPACTIONRECORD onClipEvent(enterFrame)
-    // MATCH: DefineSprite_8223-frame_1-PlaceObject2_8170_20-CLIPACTIONRECORD onClipEvent(enterFrame)
-    // MATCH: DefineSprite_8223-frame_1-PlaceObject2_8170_23-CLIPACTIONRECORD onClipEvent(enterFrame)
-    // MATCH: DefineSprite_8223-frame_1-PlaceObject2_8170_26-CLIPACTIONRECORD onClipEvent(enterFrame)
+    // MATCH: DefineSprite_8223-frame_1-PlaceObject2_8170_17-CLIPACTIONRECORD onClipEvent(enterFrame).as
+    // MATCH: DefineSprite_8223-frame_1-PlaceObject2_8170_20-CLIPACTIONRECORD onClipEvent(enterFrame).as
+    // MATCH: DefineSprite_8223-frame_1-PlaceObject2_8170_23-CLIPACTIONRECORD onClipEvent(enterFrame).as
+    // MATCH: DefineSprite_8223-frame_1-PlaceObject2_8170_26-CLIPACTIONRECORD onClipEvent(enterFrame).as
     public override void _Process(double delta)
     {
         if (Engine.IsEditorHint())

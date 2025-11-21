@@ -3,11 +3,10 @@ using System.Diagnostics.Metrics;
 using System.Runtime.Intrinsics.Arm;
 using Godot;
 
+// MATCH: DefineSprite_8223-frame_1-PlaceObject2_8184_36-CLIPACTIONRECORD on(press).as
+// MATCH: DefineSprite_8223-frame_1-PlaceObject2_8184_36-CLIPACTIONRECORD on(releaseOutside,release).as
 // MATCH: DefineSprite_8223-frame_1-PlaceObject2_8184_36-CLIPACTIONRECORD onClipEvent(enterFrame).as
-// MATCH: DefineSprite_8223-frame_1-PlaceObject2_8170_17-CLIPACTIONRECORD on(release).as
-// MATCH: DefineSprite_8223-frame_1-PlaceObject2_8170_20-CLIPACTIONRECORD on(release).as
-// MATCH: DefineSprite_8223-frame_1-PlaceObject2_8170_23-CLIPACTIONRECORD on(release).as
-// MATCH: DefineSprite_8223-frame_1-PlaceObject2_8170_26-CLIPACTIONRECORD on(release).as
+// MATCH: DefineSprite_8223-frame_1-PlaceObject2_8184_36-CLIPACTIONRECORD onClipEvent(load).as
 public partial class BreakingNewsScrollThumb : VScrollBar
 {
     private RichTextLabel _newsViewer;
