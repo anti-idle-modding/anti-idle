@@ -11,10 +11,12 @@ public class GlobalSetting
 {
     public bool aurianMode = false;
     public FlashList<bool> breakAll;
-    public FlashList<double> breakB;
+    public FlashList<int> breakB;
     public FlashList<bool> breakFeature;
-    public FlashList<double> breakG;
-    public FlashList<double> breakR;
+    public FlashList<int> breakG;
+#nullable enable
+    public FlashListInt breakR { get; set; } = null!;
+#nullable disable
     public FlashList<bool> breakTab1;
     public FlashList<bool> breakTab2;
     public FlashList<bool> breakTab3;

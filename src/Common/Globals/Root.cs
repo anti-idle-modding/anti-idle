@@ -51,6 +51,8 @@ public class Root
     public double areaDamagePct;
     public double areaEpicChance;
     public double areaEpicChance2;
+    public int breakoffset { get; set; }
+
     public bool challengeCompatible;
     public List<double> souvenirLimit = null!;
     public OptionsScreen optionsScreen = null!;
@@ -222,7 +224,7 @@ public class Root
     public double moostMin;
     public double nameValue;
     public double damageNumCount;
-    public Dictionary<string, object> news = new();
+    public Dictionary<string, object> news { get; set; } = new();
     public bool offlineVersion;
     public PopContain popContain;
     public Popup.Popup popUp; // TODO: code which calls popUp needs to init this, or put it in all frames?
@@ -1282,6 +1284,7 @@ public class Root
     // MATCH: frame_3-DoAction.as:dispNews()
     public void dispNews(double type, string news)
     {
+        GD.Print($"breaking news: `{news}`");
         if (_root.save.breakNewsMode == 1)
         {
             var ignoreNews = true;
@@ -1296,11 +1299,12 @@ public class Root
             {
                 ignoreNews = false;
             }
-
+            // todo: the timecheck does not show, everything else does once Main is loaded
+            // ignoreNews = false;
             if (ignoreNews == false)
             {
                 var b = 30;
-                var imp = 0;
+                var imp = 1;
                 while (b >= 2)
                 {
                     imp = 1;
@@ -1396,7 +1400,6 @@ public class Root
                         + _root.saveGlobal.breakG[type] * 256
                         + _root.saveGlobal.breakB[type];
                 }
-
                 _root.updateBreakNews = 1;
             }
         }

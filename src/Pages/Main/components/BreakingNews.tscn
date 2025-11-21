@@ -1,14 +1,35 @@
-[gd_scene load_steps=7 format=3 uid="uid://dspdq5vd1c18v"]
+[gd_scene load_steps=14 format=3 uid="uid://dspdq5vd1c18v"]
 
 [ext_resource type="Texture2D" uid="uid://bmlqbakhjy61h" path="res://src/Pages/Main/13.png" id="1_12iaw"]
+[ext_resource type="Script" uid="uid://cb6iudcsb874p" path="res://src/Pages/Main/components/BreakingNews.cs" id="1_qp255"]
 [ext_resource type="Texture2D" uid="uid://cr07681wc5v0x" path="res://common_assets/shapes/8076.svg" id="2_s8i5n"]
-[ext_resource type="Texture2D" uid="uid://d2hv6kkbjnod2" path="res://common_assets/sprites/DefineSprite_8069/1.png" id="3_0q7wx"]
+[ext_resource type="PackedScene" uid="uid://wuec3s7fc0x4" path="res://src/Pages/Main/components/BreakingNewsTabButton.tscn" id="4_6f4xq"]
 [ext_resource type="Texture2D" uid="uid://1gkhhiv8jb8n" path="res://common_assets/shapes/8078.svg" id="4_j4oc6"]
 [ext_resource type="Texture2D" uid="uid://r8ppu0b67fut" path="res://common_assets/buttons/DefineButton2_8057/1.png" id="5_x6gk0"]
+[ext_resource type="Theme" uid="uid://bmvpiexmrq00g" path="res://src/Pages/Main/components/BreakingNews_NewsViewer_theme.tres" id="6_5qll7"]
+[ext_resource type="Script" uid="uid://duclb423omm3f" path="res://src/Pages/Main/components/UpScrollbar.cs" id="7_6f4xq"]
+[ext_resource type="Script" uid="uid://cvapu8kn6hcw3" path="res://src/Pages/Main/components/DownScrollbar.cs" id="8_g2eqj"]
+[ext_resource type="Script" uid="uid://baybjpxeo0pwb" path="res://src/Pages/Main/components/BreakingNewsScrollThumb.cs" id="8_sjlg5"]
 
 [sub_resource type="Theme" id="Theme_e7sra"]
 
-[node name="BreakingNews" type="Control"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qp255"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qp255"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"default",
+"speed": 40.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"new_animation",
+"speed": 5.0
+}]
+
+[node name="BreakingNews" type="Control" node_paths=PackedStringArray("NewsViewer")]
 layout_mode = 3
 anchor_right = 0.771
 anchor_bottom = 0.157
@@ -16,6 +37,8 @@ offset_right = -0.150024
 offset_bottom = -0.0500031
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_qp255")
+NewsViewer = NodePath("VBoxContainer/HBoxContainer2/NewsViewer")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 visible = false
@@ -40,25 +63,31 @@ theme_override_constants/separation = 0
 layout_mode = 2
 texture_normal = ExtResource("2_s8i5n")
 
-[node name="Button" type="TextureButton" parent="VBoxContainer/HBoxContainer"]
+[node name="Button" parent="VBoxContainer/HBoxContainer" instance=ExtResource("4_6f4xq")]
 layout_mode = 2
-texture_normal = ExtResource("3_0q7wx")
+ButtonText = "1"
+TabNumber = 1
 
-[node name="Button2" type="TextureButton" parent="VBoxContainer/HBoxContainer"]
+[node name="Button2" parent="VBoxContainer/HBoxContainer" instance=ExtResource("4_6f4xq")]
 layout_mode = 2
-texture_normal = ExtResource("3_0q7wx")
+ButtonText = "2"
+TabNumber = 2
 
-[node name="Button3" type="TextureButton" parent="VBoxContainer/HBoxContainer"]
+[node name="Button3" parent="VBoxContainer/HBoxContainer" instance=ExtResource("4_6f4xq")]
 layout_mode = 2
-texture_normal = ExtResource("3_0q7wx")
+ButtonText = "3"
+TabNumber = 3
 
-[node name="Button4" type="TextureButton" parent="VBoxContainer/HBoxContainer"]
+[node name="Button4" parent="VBoxContainer/HBoxContainer" instance=ExtResource("4_6f4xq")]
 layout_mode = 2
-texture_normal = ExtResource("3_0q7wx")
+ButtonText = "4"
+TabNumber = 4
 
-[node name="Button5" type="TextureButton" parent="VBoxContainer/HBoxContainer"]
+[node name="Button5" parent="VBoxContainer/HBoxContainer" instance=ExtResource("4_6f4xq")]
 layout_mode = 2
-texture_normal = ExtResource("3_0q7wx")
+ButtonText = "CURRENT
+FEATURE"
+TabNumber = 5
 
 [node name="TextureRect" type="TextureRect" parent="VBoxContainer/HBoxContainer"]
 layout_mode = 2
@@ -73,24 +102,53 @@ theme_override_constants/separation = 0
 layout_mode = 2
 theme_override_constants/separation = 0
 
-[node name="TextureButton" type="TextureButton" parent="VBoxContainer/HBoxContainer2/VBoxContainer"]
+[node name="UpBotton" type="TextureButton" parent="VBoxContainer/HBoxContainer2/VBoxContainer"]
 layout_mode = 2
 texture_normal = ExtResource("5_x6gk0")
+script = ExtResource("7_6f4xq")
 
 [node name="VScrollBar" type="VScrollBar" parent="VBoxContainer/HBoxContainer2/VBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 1
 size_flags_vertical = 3
+max_value = 26.0
+step = 1.0
+custom_step = 1.0
+script = ExtResource("8_sjlg5")
 
-[node name="TextureButton2" type="TextureButton" parent="VBoxContainer/HBoxContainer2/VBoxContainer"]
+[node name="DownButton" type="TextureButton" parent="VBoxContainer/HBoxContainer2/VBoxContainer"]
 layout_mode = 2
 texture_normal = ExtResource("5_x6gk0")
 flip_v = true
+script = ExtResource("8_g2eqj")
 
-[node name="TextEdit" type="TextEdit" parent="VBoxContainer/HBoxContainer2"]
+[node name="Panel" type="Panel" parent="VBoxContainer/HBoxContainer2"]
+visible = false
+custom_minimum_size = Vector2(480, 80)
+layout_mode = 2
+theme = ExtResource("6_5qll7")
+
+[node name="NewsViewer" type="RichTextLabel" parent="VBoxContainer/HBoxContainer2"]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 80)
 layout_mode = 2
 size_flags_horizontal = 3
+mouse_filter = 1
 theme = SubResource("Theme_e7sra")
-editable = false
-context_menu_enabled = false
-scroll_smooth = true
+theme_override_font_sizes/normal_font_size = 11
+theme_override_font_sizes/bold_font_size = 11
+theme_override_font_sizes/bold_italics_font_size = 11
+theme_override_font_sizes/italics_font_size = 11
+theme_override_font_sizes/mono_font_size = 11
+theme_override_styles/normal = SubResource("StyleBoxFlat_qp255")
+bbcode_enabled = true
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 201.18053
+offset_top = -65.91611
+offset_right = 241.18053
+offset_bottom = -25.916107
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_qp255")

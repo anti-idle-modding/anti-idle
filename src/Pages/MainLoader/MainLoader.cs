@@ -26,7 +26,7 @@ public partial class MainLoader : Control
         _root.newsID[_root.newsCount] = typeID;
         _root.newsFeature[typeID] = feature;
         _root.newsSauceName[_root.newsCount] = sauceName;
-        if (typeID != 0 && isNaN(_root.saveGlobal.breakR[typeID]))
+        if (typeID != 0 && _root.saveGlobal.breakR[typeID] is null)
         {
             if (defaultImportance == 4)
             {
@@ -77,15 +77,19 @@ public partial class MainLoader : Control
             {
                 _root.saveGlobal.breakFeature[typeID] = false;
             }
-            _root.saveGlobal.breakR[typeID] = Math.floor(defaultColor / 65536);
-            _root.saveGlobal.breakG[typeID] = Math.floor(
-                (defaultColor - _root.saveGlobal.breakR[typeID] * 65536) / 256
-            );
-            _root.saveGlobal.breakB[typeID] = Math.floor(
-                defaultColor
-                    - _root.saveGlobal.breakR[typeID] * 65536
-                    - _root.saveGlobal.breakG[typeID] * 256
-            );
+            _root.saveGlobal.breakR[typeID] = (int)Math.floor(defaultColor / 65536);
+            _root.saveGlobal.breakG[typeID] = (int)
+                Math.floor(
+                    (double)((defaultColor - _root.saveGlobal.breakR[typeID] * 65536) / 256)
+                );
+            _root.saveGlobal.breakB[typeID] = (int)
+                Math.floor(
+                    (double)(
+                        defaultColor
+                        - _root.saveGlobal.breakR[typeID] * 65536
+                        - _root.saveGlobal.breakG[typeID] * 256
+                    )
+                );
         }
     }
 
