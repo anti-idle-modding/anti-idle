@@ -5,6 +5,8 @@ namespace AntiIdle.Common.Nodes;
 [GlobalClass]
 public partial class FlashNode2D : Node2D
 {
+    public float _x => _X;
+    public float _y => _Y;
     public float _X
     {
         get => Position.X;
@@ -15,6 +17,7 @@ public partial class FlashNode2D : Node2D
         get => Position.Y;
         set { Position = Position with { Y = value }; }
     }
+
     public float _alpha
     {
         get => Modulate.A;

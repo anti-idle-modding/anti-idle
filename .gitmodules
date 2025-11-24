@@ -1,0 +1,7 @@
+[submodule "godot-cpp"]
+	path = godot-cpp
+	url = https://github.com/godotengine/godot-cpp
+	branch = 4.5.1
+[submodule "flash-module"]
+	path = flash-module
+	url = https://github.com/funexpected/godot-flash-module.git

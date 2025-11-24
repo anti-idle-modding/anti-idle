@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://sekyxqoqy5br"]
+
+[ext_resource type="Texture2D" uid="uid://b01lknieoqa2g" path="res://src/BattleArena/6014/textures/instance26.png" id="1_cruqt"]
+
+[node name="enemy" type="Node2D"]
+
+[node name="enemyIn" type="Node2D" parent="."]
+scale = Vector2(0.31, 0.31)
+
+[node name="instance2520" type="Sprite2D" parent="enemyIn"]
+position = Vector2(40, -79)
+scale = Vector2(1.7778015, 6.3999634)
+texture = ExtResource("1_cruqt")
