@@ -1,0 +1,771 @@
+[gd_scene load_steps=57 format=3 uid="uid://xp2ssc00cfow"]
+
+[ext_resource type="Script" uid="uid://dpfd8gl4pfswf" path="res://src/BattleArena/6014/DefineSprite_6014.cs" id="1_1nud2"]
+[ext_resource type="Texture2D" uid="uid://d0ekivc6u6plm" path="res://src/BattleArena/6014/textures/instance11.png" id="1_9mlq7"]
+[ext_resource type="Texture2D" uid="uid://bj854ptqxgoq4" path="res://src/BattleArena/6014/textures/instance13.png" id="2_f23zl"]
+[ext_resource type="Texture2D" uid="uid://34adbxpxcve1" path="res://src/BattleArena/6014/textures/instance17.png" id="3_d25jr"]
+[ext_resource type="Texture2D" uid="uid://b2bsk2ic6xllc" path="res://src/BattleArena/6014/textures/instance20.png" id="4_z9f1v"]
+[ext_resource type="Texture2D" uid="uid://c0mh2amemjdy1" path="res://src/BattleArena/6014/textures/instance21.png" id="5_kbr4s"]
+[ext_resource type="Texture2D" uid="uid://sg2vypt5s1rx" path="res://src/BattleArena/6014/textures/instance23.png" id="6_jjajw"]
+[ext_resource type="Texture2D" uid="uid://b01lknieoqa2g" path="res://src/BattleArena/6014/textures/instance26.png" id="7_xk98v"]
+[ext_resource type="PackedScene" uid="uid://siwisfbbjice" path="res://src/BattleArena/6014/hero.tscn" id="9_h1px7"]
+[ext_resource type="Texture2D" uid="uid://clrjeq5ayq5s" path="res://src/BattleArena/6014/textures/instance2448.png" id="15_be58u"]
+[ext_resource type="PackedScene" uid="uid://sekyxqoqy5br" path="res://src/BattleArena/6014/enemy.tscn" id="18_o0w44"]
+[ext_resource type="Texture2D" uid="uid://bgs8w45btslxt" path="res://src/BattleArena/6014/textures/instance2492.png" id="26_75o2s"]
+[ext_resource type="Texture2D" uid="uid://bph5wqiqcnl8g" path="res://src/BattleArena/6014/textures/instance2494.png" id="27_lz80u"]
+[ext_resource type="Texture2D" uid="uid://b4ybfuya8jowy" path="res://src/BattleArena/6014/textures/instance2496.png" id="28_mgsea"]
+[ext_resource type="Texture2D" uid="uid://d4efcbv7biq2c" path="res://src/BattleArena/6014/textures/instance2498.png" id="29_wgjvz"]
+[ext_resource type="Texture2D" uid="uid://c0hw3bel350ul" path="res://src/BattleArena/6014/textures/instance2502.png" id="31_4ljd6"]
+[ext_resource type="Texture2D" uid="uid://ckq10i5qv752x" path="res://src/BattleArena/6014/textures/instance2506.png" id="33_7s9b0"]
+[ext_resource type="Texture2D" uid="uid://df7u08hc73mra" path="res://src/BattleArena/6014/textures/instance2508.png" id="34_0t58p"]
+[ext_resource type="Texture2D" uid="uid://srg1qy0swhhl" path="res://src/BattleArena/6014/textures/instance2509.png" id="35_tihj4"]
+[ext_resource type="Texture2D" uid="uid://c5l55vipo5ccw" path="res://src/BattleArena/6014/textures/instance2522.png" id="36_ecugd"]
+[ext_resource type="Texture2D" uid="uid://bj3jsoqakylcr" path="res://src/BattleArena/6014/textures/instance2523.png" id="37_3m97z"]
+[ext_resource type="Texture2D" uid="uid://bvd6alu7qqein" path="res://src/BattleArena/6014/textures/instance2525.png" id="38_vb0wo"]
+[ext_resource type="Texture2D" uid="uid://cjrn7ki7asqe5" path="res://src/BattleArena/6014/textures/instance2526.png" id="39_k10s2"]
+[ext_resource type="Texture2D" uid="uid://bsv2qvdaq2xdy" path="res://src/BattleArena/6014/textures/instance2528.png" id="40_rpe5u"]
+[ext_resource type="Texture2D" uid="uid://crq2nvwu1w0pb" path="res://src/BattleArena/6014/textures/instance2531.png" id="41_mut8v"]
+[ext_resource type="Script" uid="uid://jnbwn5xn8y2s" path="res://src/BattleArena/6014/StuffHolder.cs" id="41_v5i5n"]
+[ext_resource type="Texture2D" uid="uid://c3a4tdm67874k" path="res://src/BattleArena/6014/textures/instance2534.png" id="42_ncgzw"]
+[ext_resource type="Texture2D" uid="uid://bw87u0nlmswp1" path="res://src/BattleArena/6014/textures/instance2540.png" id="43_l0k6v"]
+[ext_resource type="Texture2D" uid="uid://brc8m4tixp8u7" path="res://src/BattleArena/6014/textures/instance2541.png" id="44_l5fc8"]
+[ext_resource type="Texture2D" uid="uid://cu3skgl6py2pg" path="res://src/BattleArena/6014/textures/instance2547.png" id="45_qyhk7"]
+[ext_resource type="Texture2D" uid="uid://cf6vnlqa3ffkj" path="res://src/BattleArena/6014/textures/instance2550.png" id="46_qpz1x"]
+[ext_resource type="Texture2D" uid="uid://dnvmsbvrky1h0" path="res://src/BattleArena/6014/textures/instance2551.png" id="47_z5r1h"]
+[ext_resource type="Texture2D" uid="uid://b3wg64gxryt4l" path="res://src/BattleArena/6014/textures/instance2575.png" id="48_6ndpk"]
+[ext_resource type="Texture2D" uid="uid://bwfjxntrgo3c4" path="res://src/BattleArena/6014/textures/instance2584.png" id="49_clw6h"]
+[ext_resource type="Texture2D" uid="uid://ig74bev1sc0o" path="res://src/BattleArena/6014/textures/instance2585.png" id="50_t4vh8"]
+[ext_resource type="Texture2D" uid="uid://covypyrleqkgw" path="res://src/BattleArena/6014/textures/instance2587.png" id="51_8xw7j"]
+[ext_resource type="PackedScene" uid="uid://fvglhn2lxjhj" path="res://src/BattleArena/6014/cgt_hp.tscn" id="51_v5i5n"]
+[ext_resource type="Texture2D" uid="uid://db6uafkubtx8g" path="res://src/BattleArena/6014/textures/instance2589.png" id="52_4kpgp"]
+[ext_resource type="Texture2D" uid="uid://cf7iec0beiiep" path="res://src/BattleArena/6014/textures/instance2591.png" id="53_jwec6"]
+[ext_resource type="Texture2D" uid="uid://cpib613t8kj3u" path="res://src/BattleArena/6014/textures/instance2594.png" id="54_8gqr7"]
+[ext_resource type="Texture2D" uid="uid://ce7fbhk2fj7us" path="res://src/BattleArena/6014/textures/instance2619.png" id="55_zhd59"]
+[ext_resource type="Texture2D" uid="uid://brh4tnrs38xxm" path="res://src/BattleArena/6014/textures/instance2643.png" id="56_nprav"]
+[ext_resource type="Texture2D" uid="uid://0m5acdixx1rp" path="res://src/BattleArena/6014/textures/instance2652.png" id="57_4zo3s"]
+[ext_resource type="Texture2D" uid="uid://c5uwk1mlj2wl3" path="res://src/BattleArena/6014/textures/instance2654.png" id="58_2td58"]
+[ext_resource type="Texture2D" uid="uid://5h2nuvfordvk" path="res://src/BattleArena/6014/textures/instance2655.png" id="59_5r9et"]
+[ext_resource type="Texture2D" uid="uid://cgn0yxkujnsxk" path="res://src/BattleArena/6014/textures/instance2656.png" id="60_x31oz"]
+[ext_resource type="Texture2D" uid="uid://bnuwkr8pgi8fa" path="res://src/BattleArena/6014/textures/instance2658.png" id="61_iqrgn"]
+[ext_resource type="Texture2D" uid="uid://cgxoa405vjp6y" path="res://src/BattleArena/6014/textures/instance2659.png" id="62_311tk"]
+[ext_resource type="Texture2D" uid="uid://bua3f2kdk1ebw" path="res://src/BattleArena/6014/textures/instance2660.png" id="63_4nhfs"]
+[ext_resource type="Texture2D" uid="uid://cthbxdhto7ynu" path="res://src/BattleArena/6014/textures/instance2665.png" id="64_g1qw2"]
+[ext_resource type="Texture2D" uid="uid://t8uaw0pk8llj" path="res://src/BattleArena/6014/textures/instance2668.png" id="65_l6kei"]
+[ext_resource type="Texture2D" uid="uid://dg3yp3icyqair" path="res://src/BattleArena/6014/textures/instance2671.png" id="66_3o76t"]
+[ext_resource type="Texture2D" uid="uid://b560myovtxhor" path="res://src/BattleArena/6014/textures/instance2675.png" id="67_kpidv"]
+[ext_resource type="Texture2D" uid="uid://7c1qps5nl0ns" path="res://src/BattleArena/6014/textures/instance2680.png" id="68_iaz0i"]
+
+[sub_resource type="Animation" id="Animation_8pyie"]
+resource_name = "Séquence 3"
+length = 0.025
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("instance9:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("instance9:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = false
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("instance9:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = false
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("instance9:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = false
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_xp9ra"]
+_data = {
+&"Séquence 3": SubResource("Animation_8pyie")
+}
+
+[node name="DefineSprite_6014" type="Node2D"]
+script = ExtResource("1_1nud2")
+
+[node name="instance9" type="Node2D" parent="."]
+
+[node name="instance10" type="Node2D" parent="instance9"]
+
+[node name="instance11" type="Sprite2D" parent="instance9/instance10"]
+position = Vector2(250, 100)
+scale = Vector2(5.0023804, 5.0060883)
+texture = ExtResource("1_9mlq7")
+
+[node name="instance12" type="Node2D" parent="instance9/instance10"]
+position = Vector2(480, 180)
+rotation = -3.1415927
+scale = Vector2(0.5, 0.5)
+
+[node name="instance13" type="Sprite2D" parent="instance9/instance10/instance12"]
+texture = ExtResource("2_f23zl")
+
+[node name="instance14" type="Node2D" parent="instance9/instance10"]
+position = Vector2(480, 140)
+rotation = -3.1415927
+scale = Vector2(0.5, 0.5)
+
+[node name="instance15" type="Sprite2D" parent="instance9/instance10/instance14"]
+texture = ExtResource("2_f23zl")
+
+[node name="instance16" type="Node2D" parent="instance9/instance10"]
+position = Vector2(225, 65)
+
+[node name="instance17" type="Sprite2D" parent="instance9/instance10/instance16"]
+position = Vector2(27, 30)
+texture = ExtResource("3_d25jr")
+
+[node name="instance19" type="Node2D" parent="instance9/instance10"]
+position = Vector2(150, 20)
+scale = Vector2(0.9, 2.5)
+
+[node name="instance20" type="Sprite2D" parent="instance9/instance10/instance19"]
+position = Vector2(25, 10)
+texture = ExtResource("4_z9f1v")
+
+[node name="instance21" type="Sprite2D" parent="instance9/instance10/instance19"]
+position = Vector2(25, 10)
+scale = Vector2(1.25, 0.5)
+texture = ExtResource("5_kbr4s")
+
+[node name="instance22" type="Node2D" parent="instance9/instance10"]
+position = Vector2(385, 65)
+
+[node name="instance23" type="Sprite2D" parent="instance9/instance10/instance22"]
+position = Vector2(27, 30)
+texture = ExtResource("6_jjajw")
+
+[node name="instance25" type="Node2D" parent="instance9"]
+position = Vector2(490, 90)
+
+[node name="instance26" type="Sprite2D" parent="instance9/instance25"]
+position = Vector2(-50, -20)
+scale = Vector2(2.222229, 1.5999756)
+texture = ExtResource("7_xk98v")
+
+[node name="hero" parent="instance9" instance=ExtResource("9_h1px7")]
+position = Vector2(35, 150)
+
+[node name="instance2505" type="Node2D" parent="instance9"]
+position = Vector2(270, 155)
+
+[node name="nameTag" type="Node2D" parent="instance9/instance2505"]
+position = Vector2(15, -2)
+
+[node name="tag" type="Node2D" parent="instance9/instance2505/nameTag"]
+position = Vector2(1, 3)
+
+[node name="instance2506" type="Sprite2D" parent="instance9/instance2505/nameTag/tag"]
+position = Vector2(50, 13)
+texture = ExtResource("33_7s9b0")
+
+[node name="instance2507" type="Node2D" parent="instance9/instance2505"]
+position = Vector2(5, 15)
+
+[node name="insideBar" type="Node2D" parent="instance9/instance2505/instance2507"]
+
+[node name="instance2508" type="Sprite2D" parent="instance9/instance2505/instance2507/insideBar"]
+position = Vector2(60, 5)
+scale = Vector2(24, 2)
+texture = ExtResource("34_0t58p")
+
+[node name="instance2509" type="Sprite2D" parent="instance9/instance2505/instance2507"]
+position = Vector2(60, 5)
+texture = ExtResource("35_tihj4")
+
+[node name="instance2510" type="Node2D" parent="instance9/instance2505"]
+position = Vector2(30, 25)
+scale = Vector2(0.5, 0.5)
+
+[node name="instance2511" type="Sprite2D" parent="instance9/instance2505/instance2510"]
+position = Vector2(12, 20)
+texture = ExtResource("26_75o2s")
+
+[node name="instance2512" type="Node2D" parent="instance9/instance2505"]
+position = Vector2(45, 25)
+scale = Vector2(0.5, 0.5)
+
+[node name="instance2513" type="Sprite2D" parent="instance9/instance2505/instance2512"]
+position = Vector2(12, 20)
+texture = ExtResource("27_lz80u")
+
+[node name="instance2514" type="Node2D" parent="instance9/instance2505"]
+position = Vector2(60, 25)
+scale = Vector2(0.5, 0.5)
+
+[node name="instance2515" type="Sprite2D" parent="instance9/instance2505/instance2514"]
+position = Vector2(12, 20)
+texture = ExtResource("28_mgsea")
+
+[node name="instance2516" type="Node2D" parent="instance9/instance2505"]
+position = Vector2(76, 28)
+scale = Vector2(0.5, 0.5)
+
+[node name="instance2517" type="Sprite2D" parent="instance9/instance2505/instance2516"]
+position = Vector2(14, 15)
+texture = ExtResource("29_wgjvz")
+
+[node name="instance2518" type="Node2D" parent="instance9/instance2505"]
+position = Vector2(90, 25)
+scale = Vector2(0.5, 0.5)
+
+[node name="instance2519" type="Sprite2D" parent="instance9/instance2505/instance2518"]
+position = Vector2(12, 20)
+texture = ExtResource("31_4ljd6")
+
+[node name="enemy" parent="instance9" instance=ExtResource("18_o0w44")]
+position = Vector2(320, 150)
+
+[node name="instance2521" type="Node2D" parent="instance9"]
+position = Vector2(0, 200)
+
+[node name="instance2522" type="Sprite2D" parent="instance9/instance2521"]
+position = Vector2(250, 20)
+scale = Vector2(10.019913, 1.9999237)
+texture = ExtResource("36_ecugd")
+
+[node name="instance2523" type="Sprite2D" parent="instance9/instance2521"]
+position = Vector2(250, 19)
+texture = ExtResource("37_3m97z")
+
+[node name="instance2524" type="Node2D" parent="instance9/instance2521"]
+position = Vector2(10, 10)
+
+[node name="instance2525" type="Sprite2D" parent="instance9/instance2521/instance2524"]
+position = Vector2(75, 10)
+texture = ExtResource("38_vb0wo")
+
+[node name="instance2526" type="Sprite2D" parent="instance9/instance2521"]
+position = Vector2(85, 20)
+texture = ExtResource("39_k10s2")
+
+[node name="instance2527" type="Node2D" parent="instance9/instance2521"]
+position = Vector2(175, 10)
+
+[node name="instance2528" type="Sprite2D" parent="instance9/instance2521/instance2527"]
+position = Vector2(75, 10)
+texture = ExtResource("40_rpe5u")
+
+[node name="instance2529" type="Sprite2D" parent="instance9/instance2521"]
+position = Vector2(250, 20)
+texture = ExtResource("39_k10s2")
+
+[node name="instance2530" type="Node2D" parent="instance9/instance2521"]
+position = Vector2(340, 10)
+
+[node name="instance2531" type="Sprite2D" parent="instance9/instance2521/instance2530"]
+position = Vector2(75, 10)
+texture = ExtResource("41_mut8v")
+
+[node name="instance2532" type="Sprite2D" parent="instance9/instance2521"]
+position = Vector2(415, 19)
+texture = ExtResource("39_k10s2")
+
+[node name="instance2533" type="Node2D" parent="instance9/instance2521"]
+position = Vector2(10, 10)
+scale = Vector2(3, 1)
+
+[node name="instance2534" type="Sprite2D" parent="instance9/instance2521/instance2533"]
+position = Vector2(25, 10)
+scale = Vector2(0.33332825, 1)
+texture = ExtResource("42_ncgzw")
+
+[node name="instance2535" type="Node2D" parent="instance9/instance2521"]
+position = Vector2(175, 10)
+scale = Vector2(3, 1)
+
+[node name="instance2536" type="Sprite2D" parent="instance9/instance2521/instance2535"]
+position = Vector2(25, 10)
+scale = Vector2(0.33332825, 1)
+texture = ExtResource("42_ncgzw")
+
+[node name="instance2537" type="Node2D" parent="instance9/instance2521"]
+position = Vector2(175, 10)
+
+[node name="instance2539" type="Node2D" parent="instance9/instance2521"]
+position = Vector2(10, 10)
+
+[node name="barInside" type="Node2D" parent="instance9/instance2521/instance2539"]
+
+[node name="instance2540" type="Sprite2D" parent="instance9/instance2521/instance2539/barInside"]
+position = Vector2(75, 10)
+texture = ExtResource("43_l0k6v")
+
+[node name="instance2541" type="Sprite2D" parent="instance9/instance2521/instance2539"]
+position = Vector2(75, 10)
+texture = ExtResource("44_l5fc8")
+
+[node name="instance2545" type="Sprite2D" parent="instance9"]
+position = Vector2(400, 295)
+scale = Vector2(4.000061, 5.507263)
+texture = ExtResource("36_ecugd")
+
+[node name="instance2546" type="Node2D" parent="instance9"]
+position = Vector2(460, 261)
+
+[node name="instance2547" type="Sprite2D" parent="instance9/instance2546"]
+position = Vector2(-75, -10)
+scale = Vector2(0.23077393, 0.03074646)
+texture = ExtResource("45_qyhk7")
+
+[node name="instance2549" type="Node2D" parent="instance9"]
+position = Vector2(460, 286)
+
+[node name="instance2550" type="Sprite2D" parent="instance9/instance2549"]
+position = Vector2(-70, -10)
+scale = Vector2(32, 4)
+texture = ExtResource("46_qpz1x")
+
+[node name="instance2551" type="Sprite2D" parent="instance9/instance2549"]
+position = Vector2(7, -10)
+texture = ExtResource("47_z5r1h")
+
+[node name="instance2552" type="Node2D" parent="instance9"]
+position = Vector2(325, 326)
+scale = Vector2(0.6, 1.01)
+
+[node name="instance2553" type="Sprite2D" parent="instance9/instance2552"]
+position = Vector2(25, 10)
+texture = ExtResource("4_z9f1v")
+
+[node name="instance2554" type="Sprite2D" parent="instance9/instance2552"]
+position = Vector2(25, 10)
+scale = Vector2(1.25, 0.5)
+texture = ExtResource("5_kbr4s")
+
+[node name="instance2556" type="Node2D" parent="instance9"]
+position = Vector2(360, 326)
+scale = Vector2(0.6, 1.01)
+
+[node name="instance2557" type="Sprite2D" parent="instance9/instance2556"]
+position = Vector2(25, 10)
+texture = ExtResource("4_z9f1v")
+
+[node name="instance2558" type="Sprite2D" parent="instance9/instance2556"]
+position = Vector2(25, 10)
+scale = Vector2(1.25, 0.5)
+texture = ExtResource("5_kbr4s")
+
+[node name="instance2560" type="Node2D" parent="instance9"]
+position = Vector2(395, 326)
+scale = Vector2(0.6, 1.01)
+
+[node name="instance2561" type="Sprite2D" parent="instance9/instance2560"]
+position = Vector2(25, 10)
+texture = ExtResource("4_z9f1v")
+
+[node name="instance2562" type="Sprite2D" parent="instance9/instance2560"]
+position = Vector2(25, 10)
+scale = Vector2(1.25, 0.5)
+texture = ExtResource("5_kbr4s")
+
+[node name="instance2564" type="Node2D" parent="instance9"]
+position = Vector2(430, 326)
+scale = Vector2(0.6, 1.01)
+
+[node name="instance2565" type="Sprite2D" parent="instance9/instance2564"]
+position = Vector2(25, 10)
+texture = ExtResource("4_z9f1v")
+
+[node name="instance2566" type="Sprite2D" parent="instance9/instance2564"]
+position = Vector2(25, 10)
+scale = Vector2(1.25, 0.5)
+texture = ExtResource("5_kbr4s")
+
+[node name="instance2568" type="Node2D" parent="instance9"]
+position = Vector2(465, 326)
+scale = Vector2(0.6, 1.01)
+
+[node name="instance2569" type="Sprite2D" parent="instance9/instance2568"]
+position = Vector2(25, 10)
+texture = ExtResource("4_z9f1v")
+
+[node name="instance2570" type="Sprite2D" parent="instance9/instance2568"]
+position = Vector2(25, 10)
+scale = Vector2(1.25, 0.5)
+texture = ExtResource("5_kbr4s")
+
+[node name="instance2572" type="Node2D" parent="instance9"]
+position = Vector2(430, 326)
+scale = Vector2(0.6, 1)
+
+[node name="instance2573" type="Sprite2D" parent="instance9/instance2572"]
+position = Vector2(25, 10)
+scale = Vector2(0.33332825, 1)
+texture = ExtResource("42_ncgzw")
+
+[node name="instance2574" type="Node2D" parent="instance9"]
+position = Vector2(460, 311)
+
+[node name="instance2575" type="Sprite2D" parent="instance9/instance2574"]
+position = Vector2(-75, -10)
+texture = ExtResource("48_6ndpk")
+
+[node name="instance2576" type="Node2D" parent="instance9/instance2574"]
+position = Vector2(-147, -17)
+
+[node name="instance2578" type="Node2D" parent="instance9"]
+position = Vector2(465, 291)
+scale = Vector2(0.6, 1.01)
+
+[node name="instance2579" type="Sprite2D" parent="instance9/instance2578"]
+position = Vector2(25, 9)
+texture = ExtResource("4_z9f1v")
+
+[node name="instance2580" type="Sprite2D" parent="instance9/instance2578"]
+position = Vector2(25, 9)
+scale = Vector2(1.25, 0.5)
+texture = ExtResource("5_kbr4s")
+
+[node name="instance2582" type="Node2D" parent="instance9"]
+position = Vector2(306, 326)
+
+[node name="skillBar" type="Node2D" parent="instance9"]
+position = Vector2(0, 240)
+
+[node name="instance2584" type="Sprite2D" parent="instance9/skillBar"]
+position = Vector2(150, 52)
+texture = ExtResource("49_clw6h")
+
+[node name="rankBar" type="Node2D" parent="instance9/skillBar"]
+position = Vector2(10, 10)
+
+[node name="instance2585" type="Sprite2D" parent="instance9/skillBar/rankBar"]
+position = Vector2(140, 10)
+scale = Vector2(0.93333435, 2.0099945)
+texture = ExtResource("50_t4vh8")
+
+[node name="instance2586" type="Node2D" parent="instance9/skillBar/rankBar"]
+scale = Vector2(1.87, 1)
+
+[node name="instance2587" type="Sprite2D" parent="instance9/skillBar/rankBar/instance2586"]
+position = Vector2(75, 10)
+texture = ExtResource("51_8xw7j")
+
+[node name="instance2589" type="Sprite2D" parent="instance9/skillBar/rankBar"]
+position = Vector2(140, 10)
+texture = ExtResource("52_4kpgp")
+
+[node name="instance2590" type="Node2D" parent="instance9/skillBar"]
+position = Vector2(240, -8)
+
+[node name="instance2591" type="Sprite2D" parent="instance9/skillBar/instance2590"]
+position = Vector2(26, 10)
+texture = ExtResource("53_jwec6")
+
+[node name="instance2592" type="Node2D" parent="instance9/skillBar"]
+position = Vector2(10, -5)
+
+[node name="instance2594" type="Sprite2D" parent="instance9/skillBar"]
+position = Vector2(150, 72)
+texture = ExtResource("54_8gqr7")
+
+[node name="instance2618" type="Node2D" parent="instance9/skillBar"]
+position = Vector2(250, 40)
+
+[node name="instance2619" type="Sprite2D" parent="instance9/skillBar/instance2618"]
+position = Vector2(20, 15)
+texture = ExtResource("55_zhd59")
+
+[node name="instance2620" type="Node2D" parent="instance9/skillBar"]
+position = Vector2(115, 75)
+
+[node name="instance2621" type="Sprite2D" parent="instance9/skillBar/instance2620"]
+position = Vector2(20, 15)
+texture = ExtResource("55_zhd59")
+
+[node name="instance2622" type="Node2D" parent="instance9/skillBar"]
+position = Vector2(70, 41)
+
+[node name="instance2623" type="Sprite2D" parent="instance9/skillBar/instance2622"]
+position = Vector2(20, 15)
+texture = ExtResource("55_zhd59")
+
+[node name="instance2624" type="Node2D" parent="instance9/skillBar"]
+position = Vector2(160, 76)
+
+[node name="instance2625" type="Sprite2D" parent="instance9/skillBar/instance2624"]
+position = Vector2(20, 15)
+texture = ExtResource("55_zhd59")
+
+[node name="instance2626" type="Node2D" parent="instance9/skillBar"]
+position = Vector2(205, 75)
+
+[node name="instance2627" type="Sprite2D" parent="instance9/skillBar/instance2626"]
+position = Vector2(20, 15)
+texture = ExtResource("55_zhd59")
+
+[node name="instance2628" type="Node2D" parent="instance9/skillBar"]
+position = Vector2(250, 75)
+
+[node name="instance2629" type="Sprite2D" parent="instance9/skillBar/instance2628"]
+position = Vector2(20, 15)
+texture = ExtResource("55_zhd59")
+
+[node name="instance2630" type="Node2D" parent="instance9/skillBar"]
+position = Vector2(115, 41)
+
+[node name="instance2631" type="Sprite2D" parent="instance9/skillBar/instance2630"]
+position = Vector2(20, 15)
+texture = ExtResource("55_zhd59")
+
+[node name="instance2632" type="Node2D" parent="instance9/skillBar"]
+position = Vector2(70, 76)
+
+[node name="instance2633" type="Sprite2D" parent="instance9/skillBar/instance2632"]
+position = Vector2(20, 15)
+texture = ExtResource("55_zhd59")
+
+[node name="instance2634" type="Node2D" parent="instance9/skillBar"]
+position = Vector2(160, 41)
+
+[node name="instance2635" type="Sprite2D" parent="instance9/skillBar/instance2634"]
+position = Vector2(20, 15)
+texture = ExtResource("55_zhd59")
+
+[node name="instance2636" type="Node2D" parent="instance9/skillBar"]
+position = Vector2(205, 41)
+
+[node name="instance2637" type="Sprite2D" parent="instance9/skillBar/instance2636"]
+position = Vector2(20, 15)
+texture = ExtResource("55_zhd59")
+
+[node name="instance2638" type="Node2D" parent="instance9/skillBar"]
+position = Vector2(10, 75)
+
+[node name="instance2639" type="Sprite2D" parent="instance9/skillBar/instance2638"]
+position = Vector2(20, 15)
+texture = ExtResource("55_zhd59")
+
+[node name="instance2640" type="Node2D" parent="instance9/skillBar"]
+position = Vector2(10, 40)
+
+[node name="instance2641" type="Sprite2D" parent="instance9/skillBar/instance2640"]
+position = Vector2(20, 15)
+texture = ExtResource("55_zhd59")
+
+[node name="instance2642" type="Node2D" parent="instance9/skillBar"]
+position = Vector2(115, 75)
+
+[node name="instance2643" type="Sprite2D" parent="instance9/skillBar/instance2642"]
+position = Vector2(20, 15)
+texture = ExtResource("56_nprav")
+
+[node name="instance2644" type="Node2D" parent="instance9/skillBar"]
+position = Vector2(160, 75)
+
+[node name="instance2645" type="Sprite2D" parent="instance9/skillBar/instance2644"]
+position = Vector2(20, 15)
+texture = ExtResource("56_nprav")
+
+[node name="instance2646" type="Node2D" parent="instance9/skillBar"]
+position = Vector2(205, 75)
+
+[node name="instance2647" type="Sprite2D" parent="instance9/skillBar/instance2646"]
+position = Vector2(20, 15)
+texture = ExtResource("56_nprav")
+
+[node name="instance2648" type="Node2D" parent="instance9/skillBar"]
+position = Vector2(250, 75)
+
+[node name="instance2649" type="Sprite2D" parent="instance9/skillBar/instance2648"]
+position = Vector2(20, 15)
+texture = ExtResource("56_nprav")
+
+[node name="instance2650" type="Node2D" parent="instance9"]
+position = Vector2(495, 118)
+
+[node name="specDisp" type="Node2D" parent="instance9"]
+position = Vector2(0, 120)
+
+[node name="instance2652" type="Sprite2D" parent="instance9/specDisp"]
+position = Vector2(-75, 140)
+texture = ExtResource("57_4zo3s")
+
+[node name="stuffHolder" type="Node2D" parent="instance9"]
+script = ExtResource("41_v5i5n")
+
+[node name="instance2653" type="Sprite2D" parent="instance9/stuffHolder"]
+position = Vector2(-50, 40)
+scale = Vector2(0.22221375, 0.3999939)
+texture = ExtResource("7_xk98v")
+
+[node name="wmDisp" type="Node2D" parent="instance9"]
+position = Vector2(1, 0)
+
+[node name="instance2654" type="Sprite2D" parent="instance9/wmDisp"]
+position = Vector2(250, 100)
+texture = ExtResource("58_2td58")
+
+[node name="rangedAttack" type="Node2D" parent="instance9"]
+
+[node name="instance2655" type="Sprite2D" parent="instance9/rangedAttack"]
+position = Vector2(250, 100)
+scale = Vector2(2.6315765, 40)
+texture = ExtResource("59_5r9et")
+
+[node name="instance2656" type="Sprite2D" parent="instance9"]
+position = Vector2(175, 17)
+texture = ExtResource("60_x31oz")
+
+[node name="instance2657" type="Node2D" parent="instance9"]
+position = Vector2(200, 10)
+
+[node name="instance2658" type="Sprite2D" parent="instance9/instance2657"]
+position = Vector2(50, 7)
+texture = ExtResource("61_iqrgn")
+
+[node name="approachBar" type="Node2D" parent="instance9/instance2657"]
+position = Vector2(5, 0)
+
+[node name="instance2659" type="Sprite2D" parent="instance9/instance2657/approachBar"]
+position = Vector2(45, 7)
+texture = ExtResource("62_311tk")
+
+[node name="compensateBar" type="Node2D" parent="instance9/instance2657"]
+position = Vector2(5, 0)
+
+[node name="instance2660" type="Sprite2D" parent="instance9/instance2657/compensateBar"]
+position = Vector2(45, 7)
+texture = ExtResource("63_4nhfs")
+
+[node name="instance2661" type="Node2D" parent="instance9"]
+
+[node name="instance2662" type="Sprite2D" parent="instance9/instance2661"]
+position = Vector2(-85, 168)
+scale = Vector2(0.3888855, 0.6999817)
+texture = ExtResource("7_xk98v")
+
+[node name="instance2663" type="Node2D" parent="instance9"]
+position = Vector2(490, 240)
+
+[node name="instance2664" type="Node2D" parent="instance9/instance2663"]
+
+[node name="instance2665" type="Sprite2D" parent="instance9/instance2663/instance2664"]
+position = Vector2(135, 35)
+texture = ExtResource("64_g1qw2")
+
+[node name="instance2666" type="Node2D" parent="instance9"]
+position = Vector2(5, 5)
+
+[node name="instance2667" type="Node2D" parent="instance9/instance2666"]
+
+[node name="instance2668" type="Sprite2D" parent="instance9/instance2666/instance2667"]
+position = Vector2(11, 12)
+texture = ExtResource("65_l6kei")
+
+[node name="instance2669" type="Node2D" parent="instance9"]
+position = Vector2(35, 5)
+
+[node name="instance2670" type="Node2D" parent="instance9/instance2669"]
+
+[node name="instance2671" type="Sprite2D" parent="instance9/instance2669/instance2670"]
+position = Vector2(16, 11)
+texture = ExtResource("66_3o76t")
+
+[node name="cgtHP" parent="instance9" instance=ExtResource("51_v5i5n")]
+
+[node name="instance2673" type="Node2D" parent="instance9"]
+position = Vector2(370, 120)
+
+[node name="enemyImmune" type="Node2D" parent="instance9"]
+position = Vector2(340, 25)
+
+[node name="instance2674" type="Node2D" parent="instance9"]
+position = Vector2(0, 50)
+
+[node name="instance2675" type="Sprite2D" parent="instance9/instance2674"]
+position = Vector2(250, 14)
+scale = Vector2(1, 1.5)
+texture = ExtResource("67_kpidv")
+
+[node name="instance2676" type="Node2D" parent="instance9"]
+position = Vector2(0, 91)
+
+[node name="instance2677" type="Sprite2D" parent="instance9/instance2676"]
+position = Vector2(250, 10)
+texture = ExtResource("67_kpidv")
+
+[node name="kommanderDialog" type="Node2D" parent="instance9"]
+
+[node name="instance2678" type="Sprite2D" parent="instance9/kommanderDialog"]
+position = Vector2(-20, 10)
+scale = Vector2(0.444458, 0.7999878)
+texture = ExtResource("7_xk98v")
+
+[node name="popScreen" type="Node2D" parent="instance9"]
+position = Vector2(100, 0)
+
+[node name="instance2679" type="Node2D" parent="instance9"]
+position = Vector2(-100, 600)
+
+[node name="instance2680" type="Sprite2D" parent="instance9/instance2679"]
+position = Vector2(-72, -98)
+texture = ExtResource("68_iaz0i")
+
+[node name="instance2681" type="Node2D" parent="instance9/instance2679"]
+position = Vector2(60, 0)
+scale = Vector2(0.3, 0.3)
+
+[node name="instance2682" type="Sprite2D" parent="instance9/instance2679/instance2681"]
+position = Vector2(0, -10)
+texture = ExtResource("15_be58u")
+
+[node name="scanLine" type="Node2D" parent="instance9/instance2679"]
+
+[node name="instance2683" type="Sprite2D" parent="instance9/instance2679/scanLine"]
+position = Vector2(60, -2)
+scale = Vector2(2.666687, 0.07998657)
+texture = ExtResource("7_xk98v")
+
+[node name="mapPopup" type="Node2D" parent="instance9"]
+
+[node name="instance2684" type="Sprite2D" parent="instance9/mapPopup"]
+position = Vector2(-31, 97)
+scale = Vector2(0.722229, 0.3999939)
+texture = ExtResource("7_xk98v")
+
+[node name="instance2685" type="Node2D" parent="instance9"]
+position = Vector2(465, 325)
+
+[node name="instance2686" type="Sprite2D" parent="instance9/instance2685"]
+position = Vector2(15, 10)
+scale = Vector2(0.66667175, 0.7999878)
+texture = ExtResource("7_xk98v")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_xp9ra")
+}

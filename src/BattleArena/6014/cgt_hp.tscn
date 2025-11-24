@@ -1,0 +1,29 @@
+[gd_scene load_steps=6 format=3 uid="uid://fvglhn2lxjhj"]
+
+[ext_resource type="Script" uid="uid://bs4aq6226gcxr" path="res://src/BattleArena/6014/CgtHp.cs" id="1_4xc8t"]
+[ext_resource type="Texture2D" uid="uid://b4tupo0aqowaj" path="res://common_assets/sprites/DefineSprite_4919/1.png" id="1_hq6nd"]
+[ext_resource type="Texture2D" uid="uid://b01lknieoqa2g" path="res://src/BattleArena/6014/textures/instance26.png" id="1_rg75l"]
+[ext_resource type="Texture2D" uid="uid://lgcohsui7fab" path="res://common_assets/sprites/DefineSprite_4919/2.png" id="2_s72hm"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4xc8t"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_hq6nd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_s72hm")
+}],
+"loop": true,
+"name": &"default",
+"speed": 40.0
+}]
+
+[node name="cgtHP" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_4xc8t")
+script = ExtResource("1_4xc8t")
+
+[node name="instance2672" type="Sprite2D" parent="."]
+position = Vector2(-50, 55)
+scale = Vector2(0.22221375, 0.3999939)
+texture = ExtResource("1_rg75l")

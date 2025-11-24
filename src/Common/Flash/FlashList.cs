@@ -45,6 +45,11 @@ public class FlashList<T> : Dictionary<int, T>
         get => this[(int)key];
         set => base[(int)key] = value;
     }
+
+    //public void Add(T value)
+    //{
+    //    this.TryAdd()
+    //}
 }
 
 public class FlashListBool : Dictionary<int, bool>

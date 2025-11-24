@@ -42,6 +42,7 @@ public class Root
     public double updateFightStatB;
     public string fightStat = null!;
     public string fightStat2 = null!;
+    public double arenaCombo { get; set; }
     public bool areaSafe;
     public bool areaUnderwater;
     public double areaSpawn;
@@ -51,6 +52,107 @@ public class Root
     public double areaDamagePct;
     public double areaEpicChance;
     public double areaEpicChance2;
+    // sprite 6014
+    public bool worstMoon { get; set; }
+    public bool turnBased { get; set; }
+    public double autoExp { get; set; }
+    public double manaLeech { get; set; }
+    public bool monsterMagnet { get; set; }
+    public bool robaconActive { get; set; }
+    public bool toCheck { get; set; }
+    public bool gCheck { get; set; }
+    public double specSphere { get; set; }
+    public double arenaReqExp { get; set; }
+    public double robaconReqExp { get; set; }
+    public double rageDepletion { get; set; }
+    public double maxHealth { get; set; }
+    public double maxMana { get; set; }
+    public bool manaPower { get; set; }
+    public double maxSpirit { get; set; }
+    public double specInfinity { get; set; }
+    public double hpRecover { get; set; }
+    public double mpRecover { get; set; }
+    public double attackPower { get; set; }
+    public double defensePower { get; set; }
+    public double ragePowerMult { get; set; }
+    public double rageSpeedMult { get; set; }
+    public double ragePower { get; set; }
+    public double rageSpeed { get; set; }
+    public double ignoreDefense { get; set; }
+    public double arenaSoap { get; set; }
+    public double weaponDefense { get; set; }
+    public double weaponAttack { get; set; }
+    public double attackSpeed { get; set; }
+    public double doubleHit { get; set; }
+    public double spiritBreak { get; set; }
+    public double arenaSlow { get; set; }
+    public double minMult { get; set; }
+    public double maxDamage { get; set; }
+    public double areaSpookyKill { get; set; }
+    public double endlessFloor { get; set; }
+    public double minDamage { get; set; }
+    public double accuracy { get; set; }
+    public double accuracyPct { get; set; }
+    public double evasion { get; set; }
+    public double evasionPct { get; set; }
+    public double spiritInvincibility { get; set; }
+    public double arenaBlind { get; set; }
+    public double criticalChance { get; set; }
+    public double criticalDamage { get; set; }
+    public double damageResist { get; set; }
+    public double damageResistPct { get; set; }
+    public double arenaWeaken { get; set; }
+    public double damageReflect { get; set; }
+    public double magicReflect { get; set; }
+    public double negateEffect { get; set; }
+    public double bossDamage { get; set; }
+    public double nonBossDamage { get; set; }
+    public double instantKill { get; set; }
+    public double magicResist { get; set; }
+    public double potionEfficiency { get; set; }
+    public double specDispel { get; set; }
+    public double silenceChance { get; set; }
+    public double poisonChance { get; set; }
+    public double weakenChance { get; set; }
+    public double blindChance { get; set; }
+    public double stunChance { get; set; }
+    public double poisonDuration { get; set; }
+    public double poisonDamage { get; set; }
+    public double weakenDuration { get; set; }
+    public double weakenPower { get; set; }
+    public double blindDuration { get; set; }
+    public double blindPower { get; set; }
+    public double stunDuration { get; set; }
+    public double lifeDrain { get; set; }
+    public double manaEater { get; set; }
+    public double autoSteal { get; set; }
+    public double arenaRareRate { get; set; }
+    public double arenaEpicRate { get; set; }
+    public double arenaExpMult { get; set; }
+    public double arenaCoinMult { get; set; }
+    public double arenaPixelMult { get; set; }
+    public double arenaDropRate { get; set; }
+    public double spawnSpeed { get; set; }
+    public double challengeZone { get; set; }
+    public double challengeKill { get; set; }
+    public double challengeDuration { get; set; }
+    public double challengeMaxDuration { get; set; }
+    public double spiritInsta { get; set; }
+
+    // regen
+    public double labCooldown { get; set; }
+    public double autoStealCoin { get; set; }
+    public double arenaZombify { get; set; }
+    public double arenaPoison { get; set; }
+    public double chargeX { get; set; }
+    public double chargeC { get; set; }
+    public double chargeV { get; set; }
+    public double chargeB { get; set; }
+    public double spiritDouble { get; set; }
+    public double spiritCrit { get; set; }
+    public bool noSpec { get; set; }
+
+    // end sprite 6014
     public int breakoffset { get; set; }
 
     public bool challengeCompatible;
@@ -131,6 +233,7 @@ public class Root
     public double bestiaryLevel;
     public double summonCount;
     public double antiLag;
+    public double antiLag2 { get; set; }
     public double boostMax;
     public FlashList<string> careerName = null!;
     public double chance;
@@ -422,7 +525,7 @@ public class Root
     public double emptyPotionSlot = 0;
     public double emptyOutfitSlot = 0;
     public double emptyChipSlot = 0;
-    public List<Enemy> enemyList;
+    public ListWithDoubleIndexing<EnemyData> enemyList { get; set; }
     public double selectT = 1;
     public double specialShopPage = 1;
     public double invTab = 0;
@@ -435,6 +538,164 @@ public class Root
     public double achViewPage = 1;
     public string achMode = "All";
     public string actiondescription = "";
+
+    // battle arena 6014
+    public double abilIncEquipAttack { get; set; }
+    public double abilIncEquipDefense { get; set; }
+    public double abilIncAttack { get; set; }
+    public double abilIncDefense { get; set; }
+    public double abilIncHP { get; set; }
+    public double abilIncMP { get; set; }
+    public double abilIncAccuracy { get; set; }
+    public double abilIncEvasion { get; set; }
+    public double abilIncExpBoss { get; set; }
+    public double abilIncExpRare { get; set; }
+    public double abilIncExpEpic { get; set; }
+    public double abilIncPixelLoot { get; set; }
+    public double abilIncCraftLoot { get; set; }
+
+    public double abilResistFire { get; set; }
+    public double abilResistIce { get; set; }
+    public double abilResistWind { get; set; }
+    public double abilResistEarth { get; set; }
+    public double abilResistThunder { get; set; }
+    public double abilResistWater { get; set; }
+    public double abilResistLight { get; set; }
+    public double abilResistDark { get; set; }
+    public double abilResistAll { get; set; }
+
+    public double abilPwnFire { get; set; }
+    public double abilPwnIce { get; set; }
+    public double abilPwnWind { get; set; }
+    public double abilPwnEarth { get; set; }
+    public double abilPwnThunder { get; set; }
+    public double abilPwnWater { get; set; }
+    public double abilPwnLight { get; set; }
+    public double abilPwnDark { get; set; }
+    public double abilPwnAll { get; set; }
+    public double abilExp { get; set; }
+    public double abilCoin { get; set; }
+    public double abilPixel { get; set; }
+    public double abilDropRate { get; set; }
+    public double abilSpawnRate { get; set; }
+    public double abilRareRate { get; set; }
+    public double abilEpicRate { get; set; }
+    public double abilAttack { get; set; }
+    public double abilAttackSpeed { get; set; }
+    public double abilIgnoreDefense { get; set; }
+    public double abilMastery { get; set; }
+    public double abilCriticalChance { get; set; }
+    public double abilCriticalDamage { get; set; }
+    public double abilDefense { get; set; }
+    public double abilDamageTaken { get; set; }
+    public double abilReflect { get; set; }
+    public double abilAccuracy { get; set; }
+    public double abilHitChance { get; set; }
+    public double abilEvasion { get; set; }
+    public double abilDodgeChance { get; set; }
+    public double abilPoisonChance { get; set; }
+    public double abilWeakenChance { get; set; }
+    public double abilBlindChance { get; set; }
+    public double abilStunChance { get; set; }
+    public double abilSilenceChance { get; set; }
+    public double abilHP { get; set; }
+    public double abilMP { get; set; }
+    public double abilHPRegen { get; set; }
+    public double abilMPRegen { get; set; }
+    public double abilRageDepletion { get; set; }
+    public double abilLifeDrain { get; set; }
+    public double abilManaEater { get; set; }
+    public double abilAutoSteal { get; set; }
+    public double abilDoubleHit { get; set; }
+    public double abilRageAttack { get; set; }
+    public double abilRageSpeed { get; set; }
+    public double abilPoisonDamage { get; set; }
+    public double abilPoisonDuration { get; set; }
+    public double abilWeakenEffect { get; set; }
+    public double abilWeakenDuration { get; set; }
+    public double abilBlindEffect { get; set; }
+    public double abilBlindDuration { get; set; }
+    public double abilPotionEfficiency { get; set; }
+    public double abilBossDamage { get; set; }
+    public double abilNonBossDamage { get; set; }
+    public double abilMagicResist { get; set; }
+    public double abilInstantKill { get; set; }
+    public double abilNegateEffect { get; set; }
+    public double abilExtraCombo { get; set; }
+    public double abilMagicReflect { get; set; }
+    public double abilNullifyPenalty { get; set; }
+    public double abilBuffEffect { get; set; }
+    public double abilMaxSpirit { get; set; }
+    public double abilIgnoreEpicWeapon { get; set; }
+    public double abilIgnoreBonusRock { get; set; }
+    public double abilIgnorePendant { get; set; }
+    public double abilIgnoreFinalizer { get; set; }
+    public double abilIgnoreOutfit { get; set; }
+
+    public double spiritUnleash { get; set; }
+    public double specPierce { get; set; }
+    public double specPolearm { get; set; }
+    public double specTrueshot { get; set; }
+    public double spiritHeal { get; set; }
+    public double arenaPotionBlock { get; set; }
+    public double buffMultiplier { get; set; }
+    public double spiritEnrage { get; set; }
+    public double spiritBoost { get; set; }
+
+    // Ally
+    public double allyExp { get; set; }
+    public double allyCoin { get; set; }
+    public double allyPixel { get; set; }
+    public double allyDropRate { get; set; }
+    public double allySpawnRate { get; set; }
+    public double allyAttack { get; set; }
+    public double allyDefense { get; set; }
+    public double allyHP { get; set; }
+    public double allyMP { get; set; }
+    public double allyAccuracy { get; set; }
+    public double allyEvasion { get; set; }
+    public double allyEquipAttack { get; set; }
+    public double allyEquipDefense { get; set; }
+    public double allyAttackSpeed { get; set; }
+    public double allyAttackSpeedRaw { get; set; }
+    public double allyMastery { get; set; }
+    public double allyDamageTaken { get; set; }
+    public double allyHitChance { get; set; }
+    public double allyDodgeChance { get; set; }
+    public double allyCriticalChance { get; set; }
+    public double allyCriticalDamage { get; set; }
+    public double allyReflect { get; set; }
+    public double allyMagicResist { get; set; }
+    public double allyDoubleHit { get; set; }
+    public double allyInstantKill { get; set; }
+    public double allyBossDamage { get; set; }
+    public double allyNonBossDamage { get; set; }
+    public double allyIgnoreDefense { get; set; }
+    public double allyNegateEffect { get; set; }
+    public double allyPotionEfficiency { get; set; }
+
+    public string allyPassive1 { get; set; }
+    public double allyPassive1X { get; set; }
+    public string allyPassive2 { get; set; }
+    public double allyPassive2X { get; set; }
+    public string allyPassive3 { get; set; }
+    public double allyPassive3X { get; set; }
+
+    public string allyActive1 { get; set; }
+    public double allyActive1X { get; set; }
+    public double allyActive1Y { get; set; }
+    public double allyActive1Z { get; set; }
+
+    public string allyActive2 { get; set; }
+    public double allyActive2X { get; set; }
+    public double allyActive2Y { get; set; }
+    public double allyActive2Z { get; set; }
+
+    public string allyActive3 { get; set; }
+    public double allyActive3X { get; set; }
+    public double allyActive3Y { get; set; }
+    public double allyActive3Z { get; set; }
+    public double spiritCount { get; set; }
 
     public double getBytesLoaded()
     {
@@ -15202,7 +15463,7 @@ public class Root
         double allyActive3Z
     )
     {
-        var enemy = new Enemy();
+        var enemy = new EnemyData();
         enemy.level = level;
         enemy.speed = speed;
         enemy.attack = attack;

@@ -73,7 +73,5 @@ leftclick={
 [rendering]
 
 textures/canvas_textures/default_texture_filter=2
-renderer/rendering_method="gl_compatibility"
-renderer/rendering_method.mobile="gl_compatibility"
 textures/decals/filter=1
 textures/light_projectors/filter=1
