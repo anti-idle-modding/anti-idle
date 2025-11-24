@@ -21,6 +21,15 @@ public class Global
     {
         return Time.GetTicksMsec();
     }
+
+    /// <summary>
+    /// Flash Compatibility debug print function https://archives.oinam.com/as2/global_functions.html#trace()
+    /// </summary>
+    /// <param name="obj"></param>
+    public static void trace(object obj)
+    {
+        GD.Print(obj);
+    }
 }
 
 public class Save
@@ -902,6 +911,8 @@ public class Save
     public double autoAscendEnabled3 = 0;
     public bool autoFight = false;
     public double autoHarvestTime = 0;
+    public bool autoSet6 { get; set; } = false;
+    public bool autoSwap1 { get; set; } = false;
 
     public FlashList<double> awesomeAuto = new([
         0,
@@ -5797,6 +5808,12 @@ public class Arena
     public double showDamage(string index, double x, double y, double z)
     {
         return 0;
+    }
+
+    // TODO: not implemented from DefineSprite_6014-frame_1-DoAction_2.as:dealDamage()
+    public void dealDamage(double skillPower, double knockBack, string special)
+    {
+
     }
 }
 

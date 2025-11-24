@@ -1,0 +1,52 @@
+[gd_scene load_steps=12 format=3 uid="uid://bovrs1xp856gw"]
+
+[ext_resource type="Texture2D" uid="uid://owtg0i2pqnn6" path="res://common_assets/sprites/DefineSprite_4850/1.png" id="1_7kygg"]
+[ext_resource type="Texture2D" uid="uid://48w1e2a180kf" path="res://common_assets/sprites/DefineSprite_4850/2.png" id="2_vrip4"]
+[ext_resource type="Texture2D" uid="uid://biegt85j6eh5e" path="res://common_assets/sprites/DefineSprite_4850/3.png" id="3_xajfq"]
+[ext_resource type="Texture2D" uid="uid://c3hcr3lyi0iwa" path="res://common_assets/sprites/DefineSprite_4850/4.png" id="4_36pho"]
+[ext_resource type="Texture2D" uid="uid://cxl2o7ptl32x5" path="res://common_assets/sprites/DefineSprite_4850/5.png" id="5_djv6k"]
+[ext_resource type="Texture2D" uid="uid://dgtf684ithwnu" path="res://common_assets/sprites/DefineSprite_4850/6.png" id="6_vsdf5"]
+[ext_resource type="Texture2D" uid="uid://e20gutc7egl1" path="res://common_assets/sprites/DefineSprite_4850/7.png" id="7_j1a8y"]
+[ext_resource type="Texture2D" uid="uid://br52cuwhie6yi" path="res://common_assets/sprites/DefineSprite_4850/8.png" id="8_wrnks"]
+[ext_resource type="Texture2D" uid="uid://0m5acdixx1rp" path="res://src/BattleArena/6014/textures/instance2652.png" id="9_dm087"]
+[ext_resource type="Script" uid="uid://mr24tf4o6evw" path="res://src/BattleArena/6014/SpecDisp.cs" id="9_vrip4"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_v5i5n"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_7kygg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_vrip4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_xajfq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_36pho")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_djv6k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_vsdf5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_j1a8y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_wrnks")
+}],
+"loop": true,
+"name": &"default",
+"speed": 40.0
+}]
+
+[node name="specDisp" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_v5i5n")
+script = ExtResource("9_vrip4")
+
+[node name="instance2652" type="Sprite2D" parent="."]
+position = Vector2(-75, 140)
+texture = ExtResource("9_dm087")

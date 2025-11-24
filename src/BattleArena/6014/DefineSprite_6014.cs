@@ -1,32 +1,866 @@
+using AntiIdle.Common;
 using AntiIdle.src.Common.Flash;
 using Godot;
 using Godot.Collections;
 using System;
 using System.Collections.Generic;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 using Math = AntiIdle.Common.Flash.Math;
 
-public partial class DefineSprite_6014 : AnimatedSprite2DFlash
+// MATCH: DefineSprite_6014-frame_1-DoAction_2.as
+public partial class DefineSprite_6014 : AnimatedSprite2D
 {
     [Export]
     public Enemy enemy { get; set; }
-    private double _width()
-    {
-        var texture = this.SpriteFrames.GetFrameTexture("default", Frame);
-        return texture.GetWidth() * Scale.X;
-    }
     
     [Export]
     public CgtHp cgtHP { get; set; }
-    private double runeMult { get; set; }
 
-    // Called when the node enters the scene tree for the first time.
-    public override void _Ready() { }
+    [Export]
+    public SpecDisp specDisp { get; set; }
 
-    // Called every frame. 'delta' is the elapsed time since the previous frame.
-    public override void _Process(double delta) { }
+    [Export]
+    public RangedAttack rangedAttack { get; set; }
+    [Export]
+    public EnemyImmune enemyImmune { get; set; }
+
+    public int fr { get; set; }
+
+    public double runeMult { get; set; }
+    public double spiritToConsume { get; set; }
+    public double nextAttack { get; set; }
+    public double checkDelay { get; set; }
+    public double regenDelay { get; set; }
+    public double regenDelay2 { get; set; }
+    public bool boss { get; set; }
+    public double damageSoftCap { get; set; }
+    public double damagePow { get; set; }
+    public double dodgeCombo { get; set; }
+    public double v1 { get; set; }
+    public double v2 { get; set; }
+
 
     [Export]
     public StuffHolder stuffHolder { get; set; }
+
+    [Export]
+    public Hero hero { get; set; }
+    public double? tmpHealth { get; private set; }
+
+
+    // MATCH: DefineSprite_6014-frame_1-DoAction.as
+    private void initPart1()
+    {
+        var z = 0;
+        if (_root.save.autoSet6 != true)
+        {
+            z = 1;
+            while (z <= 1337)
+            {
+                if (_root.save.inventoryExist[z] == 1)
+                {
+                    if (_root.save.inventoryType[z] == "Weapon" || _root.save.inventoryType[z] == "Armor" || _root.save.inventoryType[z] == "Accessory")
+                    {
+                        _root.save.inventorySet[z] = _root.checkArenaSet(_root.save.inventoryName[z]);
+                    }
+                }
+                z++;
+            }
+            _root.save.autoSet6 = true;
+        }
+        _root.recalcMuseumScore();
+        if (_root.save.autoSwap1 != true)
+        {
+            _root.save.autoSwap1 = true;
+            _root.save.arenaMedal = 0;
+            _root.save.arenaPendant = 0;
+            var nextAccSlot = 501;
+             z = 101;
+            while (z <= 130)
+            {
+                if (_root.save.inventorySubtype[z] == "Pendant" || _root.save.inventorySubtype[z] == "Medal")
+                {
+                    _root.save.inventoryType[z] = "Accessory";
+                    _root.swapArenaItem(z, nextAccSlot);
+                    nextAccSlot += 1;
+                }
+                z++;
+            }
+            z = 301;
+            while (z <= 330)
+            {
+                if (_root.save.inventorySubtype[z] == "Pendant" || _root.save.inventorySubtype[z] == "Medal")
+                {
+                    _root.save.inventoryType[z] = "Accessory";
+                }
+                z++;
+            }
+        }
+        z = 1;
+        while (z <= 600)
+        {
+            //if (isNaN(_root.save.inventoryUnob[z]) || _root.save.inventoryUnob[z] > 100)
+            if (_root.save.inventoryUnob.ContainsKey(z) == false || _root.save.inventoryUnob[z] > 100)
+            {
+                _root.save.inventoryUnob[z] = 0;
+            }
+            z++;
+        }
+        if (_root.save.curAttMedPend != 0 && _root.emptyAccessorySlot >= 1)
+        {
+            var tempAttMonth = _root.save.curAttMedPend % 100;
+            var tempAttYear = Math.floor(_root.save.curAttMedPend / 100);
+            _root.save.curAttMedPend = 0;
+            _root.getArenaAccessory(40, "Medal", 64, 40, 8, 40, 40, 40, 40, 1, 0, 1, 0, 10, 706, "Pixel", "Damage", "Attack Power", 0, 6480000000,
+                true,
+                true,
+                false,
+                false,
+                // Note: this false needed to be added. Is this the only one that is missing params?
+                false,
+                16,
+                "Perfect Attendance", "Thank you for playing Anti-Idle every day in " + _root.getFullMonthName(tempAttMonth) + " " + tempAttYear + "!\n\nWhen this item is in your inventory, you will receive +10% Pixel, +10% MaxHP and +10% MaxMP! Stacks up to 2 times. Does not apply if the item is expired.", 
+                true);
+        }
+    }
+
+    // Called when the node enters the scene tree for the first time.
+    public override void _Ready()
+    {
+        initPart1();
+        stop();
+        runeMult = 1;
+        if (_root.save.permaBanPenalty[27] == 3)
+        {
+            runeMult = 1.5;
+        }
+        else if (_root.save.permaBanPenalty[27] == 2)
+        {
+            runeMult = 1.3;
+        }
+        else if (_root.save.permaBanPenalty[27] == 1)
+        {
+            runeMult = 1.2;
+        }
+        _root.meleeHit = true;
+        _root.damageNumCount = 0;
+        _root.checkSetBonus();
+        _root.arenaSwap1 = 0;
+        _root.save.arenaZoneFound[0] = 1;
+        _root.turnBased = false;
+        _root.autoStealCoin = 0;
+        _root.reviveCooldown = 240 - _root.save.arenaSkill[64] * 4;
+        _root.robaconActive = false;
+        _root.worstMoon = false;
+        _root.apocalypse = false;
+        _root.killedChaos = false;
+        _root.manaPower = false;
+        _root.chargeX = 4;
+        _root.chargeC = 4;
+        _root.chargeV = 4;
+        _root.chargeB = 4;
+        _root.arenaStrike = 0;
+        _root.spiritDouble = 0;
+        _root.spiritCrit = 0;
+        _root.spiritInsta = 0;
+        _root.spiritEnrage = 0;
+        _root.spiritBoost = 0;
+        _root.spiritInvincibility = 0;
+        _root.spiritBreak = 0;
+        _root.spiritUnleash = 0;
+        _root.spiritHeal = 0;
+        _root.specPolearmCD = 0;
+        _root.specMine = 0;
+        _root.specInfinity = 0;
+        _root.specPierce = 0;
+        _root.specPolearm = 0;
+        _root.specTrueshot = 0;
+        _root.specSphere = 0;
+        _root.specDispel = 0;
+        _root.specGlory = 0;
+        _root.allyCooldown1 = _root.enemyList[_root.save.arenaAlly].allyActive1Z;
+        _root.allyCooldown2 = _root.enemyList[_root.save.arenaAlly].allyActive2Z;
+        _root.allyCooldown3 = _root.enemyList[_root.save.arenaAlly].allyActive3Z;
+        nextAttack = 0;
+        dodgeCombo = 0;
+        _root.challengeKill = 0;
+        _root.challengeDuration = -60;
+        _root.challengeMaxDuration = 180;
+        _root.challengeZone = -1;
+        if (_root.save.arenaZone == 20)
+        {
+            _root.save.arenaZone = 7;
+        }
+        else if (_root.save.arenaZone == 24)
+        {
+            _root.save.arenaZone = 23;
+        }
+        else if (_root.save.arenaZone == 29)
+        {
+            _root.save.arenaZone = 46;
+        }
+        else if (_root.save.arenaZone >= 53 && _root.save.arenaZone <= 55)
+        {
+            _root.save.arenaZone = 51;
+        }
+        else if (_root.save.arenaZone >= 31 && _root.save.arenaZone <= 43)
+        {
+            _root.save.arenaZone = 30;
+        }
+        else if (_root.save.arenaZone == 47)
+        {
+            _root.save.arenaZone = 44;
+        }
+        else if (_root.save.arenaZone == 50)
+        {
+            _root.save.arenaZone = _root.save.arenaZoneOrig;
+        }
+        else if (_root.save.arenaZone == 56)
+        {
+            _root.save.arenaZone = _root.save.arenaZoneOrig;
+        }
+        else if (_root.save.arenaZone == 58)
+        {
+            _root.save.arenaZone = 9;
+        }
+        else if (_root.save.arenaZone == 59)
+        {
+            _root.save.arenaZone = _root.save.arenaZoneOrig;
+        }
+        else if (_root.save.arenaZone == 69)
+        {
+            _root.save.arenaZone = 8;
+        }
+        else if (_root.save.arenaZone == 78)
+        {
+            _root.save.arenaZone = 0;
+        }
+        else if (_root.save.arenaZone == 80 || _root.save.arenaZone == 81)
+        {
+            _root.save.arenaZone = 1;
+        }
+        if (_root.save.arenaZone == 83 || _root.save.arenaZone == 84 || _root.save.arenaZone == 93 || _root.save.arenaZone == 94)
+        {
+            _root.save.arenaZone = _root.save.arenaZoneOrig;
+        }
+        enemy.element = "All";
+        checkDelay = 0;
+        regenDelay = 0;
+        regenDelay2 = 0;
+        _root.arenaDelay = 0;
+        _root.arenaCombo = 0;
+        _root.arenaBot = 0;
+        _root.arenaPoison = 0;
+        _root.arenaWeaken = 0;
+        _root.arenaBlind = 0;
+        _root.arenaSlow = 0;
+        _root.arenaStun = 0;
+        _root.arenaZombify = 0;
+        _root.arenaPotionBlock = 0;
+        _root.arenaSoap = 0;
+        _root.save.inventoryAttack[0] = 0;
+        _root.save.inventorySpeed[0] = 0;
+        _root.save.inventoryDefense[0] = 0;
+        _root.save.inventoryBonus[0] = "";
+        _root.save.inventoryAbility[0] = "";
+        _root.save.inventoryMoreBonus[0] = "";
+        _root.save.inventoryCrit[0] = 0;
+        _root.save.inventoryDexterity[0] = 0;
+        _root.save.inventoryHealth[0] = 0;
+        if (_root.save.arenaHardcore == true)
+        {
+            _root.fightStat2 = "You\'re currently playing on HARDCORE difficulty!";
+        }
+        else
+        {
+            _root.fightStat2 = "You\'re currently playing on CASUAL difficulty!";
+        }
+        checkStat();
+        checkStat();
+        _root.gCheck = true;
+        _root.gCheckDel = 0;
+    }
+
+    // Called every frame. 'delta' is the elapsed time since the previous frame.
+    public override void _Process(double delta)
+    {
+        if (_root.gCheck == true)
+        {
+            _root.gCheckDel += 1;
+            if (_root.gCheckDel > 2)
+            {
+                _root.gCheckDel = 0;
+                _root.gCheck = false;
+            }
+        }
+        if (_root.save.inventoryFrame[_root.save.arenaSubWeapon] >= 284 && _root.save.inventoryFrame[_root.save.arenaSubWeapon] <= 291)
+        {
+            if (_root.arenaStrike > 0 && _root.arenaStrike < 30)
+            {
+                if (_root.save.inventoryFrame[_root.save.arenaSubWeapon] == 284)
+                {
+                    v1 = 300;
+                    v2 = 0.4;
+                }
+                if (_root.save.inventoryFrame[_root.save.arenaSubWeapon] == 285)
+                {
+                    v1 = 200;
+                    v2 = 0.8;
+                }
+                if (_root.save.inventoryFrame[_root.save.arenaSubWeapon] == 286)
+                {
+                    v1 = 200;
+                    v2 = 1.2;
+                }
+                if (_root.save.inventoryFrame[_root.save.arenaSubWeapon] == 287)
+                {
+                    v1 = 300;
+                    v2 = 0.4;
+                }
+                if (_root.save.inventoryFrame[_root.save.arenaSubWeapon] == 288)
+                {
+                    v1 = 150;
+                    v2 = 0.4;
+                }
+                if (_root.save.inventoryFrame[_root.save.arenaSubWeapon] == 289)
+                {
+                    v1 = 300;
+                    v2 = 0.4;
+                }
+                if (_root.save.inventoryFrame[_root.save.arenaSubWeapon] == 290)
+                {
+                    v1 = 150;
+                    v2 = 0.8;
+                }
+                if (_root.save.inventoryFrame[_root.save.arenaSubWeapon] == 291)
+                {
+                    v1 = 200;
+                    v2 = 0.4;
+                }
+                _root.incDt();
+                stuffHolder.attachMovie("missile", "missile" + _root.summonCount, _root.antiLag + 2000, new { _x = 100 + _root.arenaStrike * 10, _y = 150, missilePower = v1, missileKnockBack = 0, missileQuickAttack = false });
+                _root.arenaStrike += 4 + random(2);
+            }
+        }
+        if (_root.save.inventorySpirit[_root.save.arenaWeapon] != true || _root.save.inventoryName[_root.save.arenaWeapon] == "CHAOS AURA" || _root.save.inventoryName[_root.save.arenaWeapon] == "Dark Ruler")
+        {
+            _root.spiritDouble = 0;
+            _root.spiritCrit = 0;
+            _root.spiritInsta = 0;
+            _root.spiritEnrage = 0;
+            _root.spiritBoost = 0;
+            _root.spiritInvincibility = 0;
+        }
+        if (_root.save.inventorySpirit[_root.save.arenaWeapon] == true || _root.save.inventoryName[_root.save.arenaWeapon] == "CHAOS AURA" || _root.save.inventoryName[_root.save.arenaWeapon] == "Dark Ruler")
+        {
+            _root.spiritBreak = 0;
+            _root.spiritUnleash = 0;
+        }
+        if (_root.arenaCombo > 99999)
+        {
+            _root.arenaCombo = 99999;
+        }
+        if (_root.save.arenaMaxCombo < _root.arenaCombo)
+        {
+            _root.save.arenaMaxCombo = _root.arenaCombo;
+        }
+        checkDelay += 1;
+        if (checkDelay >= 40)
+        {
+            checkDelay = 0;
+            checkStat();
+        }
+        if (enemy.enemyID == 0)
+        {
+            regenDelay += 40 / _root.fps;
+            regenDelay2 += 40 / _root.fps;
+            if (_root.arenaStun > 0)
+            {
+                if (_root.arenaStun > 4)
+                {
+                    _root.arenaStun = 4;
+                }
+                _root.arenaStun -= 1 / _root.fps;
+                if (_root.save.arenaRing == 4)
+                {
+                    _root.arenaStun -= 1 / _root.fps;
+                }
+                if (_root.arenaStun < 0)
+                {
+                    _root.arenaStun = 0;
+                }
+            }
+        }
+        else if (enemy.lifespan == 0 || _root.turnBased == false || _root.arenaDelay > -1 || _root.arenaStun > 0)
+        {
+            regenDelay += 1;
+            regenDelay2 += 1;
+            if (_root.save.arenaRuneDuration[1] > 0)
+            {
+                if (!isNaN(_root.hpRecover) && _root.hpRecover > 0 && _root.save.arenaHealth > 0 && !isNaN(_root.maxHealth))
+                {
+                    _root.save.arenaHealth += Math.floor(_root.hpRecover / 40);
+                    if (_root.save.arenaHealth > _root.maxHealth)
+                    {
+                        _root.save.arenaHealth = _root.maxHealth;
+                    }
+                }
+            }
+            if (_root.save.arenaRuneDuration[2] > 0)
+            {
+                if (!isNaN(_root.mpRecover) && _root.mpRecover > 0 && !isNaN(_root.maxMana))
+                {
+                    _root.save.arenaMana += Math.floor(_root.mpRecover / 40);
+                    if (_root.save.arenaMana > _root.maxMana)
+                    {
+                        _root.save.arenaMana = _root.maxMana;
+                    }
+                }
+            }
+            if (_root.arenaStun > 0)
+            {
+                if (_root.arenaStun > 4)
+                {
+                    _root.arenaStun = 4;
+                }
+                _root.arenaStun -= 0.025;
+                if (_root.save.arenaRing == 4)
+                {
+                    _root.arenaStun -= 0.025;
+                }
+                if (_root.arenaStun < 0)
+                {
+                    _root.arenaStun = 0;
+                }
+            }
+            if (_root.save.arenaRing == 1 || _root.save.arenaRing == 21)
+            {
+                _root.arenaPoison = 0;
+            }
+            if (_root.save.arenaRing == 3 || _root.save.arenaRing == 5 || _root.save.arenaRing == 7 || _root.save.arenaRing == 21)
+            {
+                _root.arenaWeaken = 0;
+            }
+            if (_root.save.arenaRing == 5 || _root.save.arenaRing == 9 || _root.save.arenaRing == 10 || _root.save.arenaRing == 21)
+            {
+                _root.arenaBlind = 0;
+            }
+            if (_root.save.arenaRing == 4 || _root.save.arenaRing == 21)
+            {
+                _root.arenaSlow = 0;
+            }
+            if (_root.save.arenaRing == 1 || _root.save.arenaRing == 2)
+            {
+                _root.arenaPotionBlock = 0;
+            }
+            if (_root.save.arenaRing == 1)
+            {
+                _root.arenaZombify = 0;
+            }
+        }
+        if (regenDelay >= 40)
+        {
+            regenDelay -= 40;
+            regen();
+        }
+        if (regenDelay2 >= 4)
+        {
+            regenDelay2 -= 4;
+            actualRegen();
+        }
+        if (_root.arenaDelay > 0)
+        {
+            if (_root.arenaSkillSpec == "Magnetic Stab")
+            {
+                if (enemy.curX > 110 && enemy.magImmune <= 0)
+                {
+                    if (enemy.curSpeed < 0)
+                    {
+                        enemy.curSpeed = 0;
+                    }
+                    enemy.curX -= _root.attackSpeed;
+                    if (enemy.curX < 110)
+                    {
+                        enemy.curX = 110;
+                    }
+                }
+            }
+            _root.arenaDelay -= _root.attackSpeed;
+            if (_root.arenaDelay <= 0)
+            {
+                _root.arenaDelay = 0;
+            }
+        }
+        else
+        {
+            _root.arenaDelay = -1;
+        }
+        if (_root.save.inventoryName[_root.save.arenaWeapon] == "CHAOS AURA" || _root.save.inventoryName[_root.save.arenaWeapon] == "Dark Ruler")
+        {
+            _root.arenaBot = 0;
+        }
+        if (_root.isMouseDown == true || Input.IsActionPressed(InputConstants.ARENAZ) || Input.IsActionPressed(InputConstants.ARENAX) || Input.IsActionPressed(InputConstants.ARENAC) || Input.IsActionPressed(InputConstants.ARENAV) || Input.IsActionPressed(InputConstants.ARENAB) || Input.IsActionPressed(InputConstants.ARENAA) || Input.IsActionPressed(InputConstants.ARENAS) || Input.IsActionPressed(InputConstants.ARENAD) || Input.IsActionPressed(InputConstants.ARENAF) || Input.IsActionPressed(InputConstants.ARENAQ) || Input.IsActionPressed(InputConstants.ARENAW))
+        //        if (_root.isMouseDown == true || Key.isDown(_root.saveGlobal.keyArenaZ) || Key.isDown(_root.saveGlobal.keyArenaX) || Key.isDown(_root.saveGlobal.keyArenaC) || Key.isDown(_root.saveGlobal.keyArenaV) || Key.isDown(_root.saveGlobal.keyArenaB) || Key.isDown(_root.saveGlobal.keyArenaA) || Key.isDown(_root.saveGlobal.keyArenaS) || Key.isDown(_root.saveGlobal.keyArenaD) || Key.isDown(_root.saveGlobal.keyArenaF) || Key.isDown(_root.saveGlobal.keyArenaQ) || Key.isDown(_root.saveGlobal.keyArenaW))
+        {
+            _root.arenaBot += 1;
+        }
+        else
+        {
+            _root.arenaBot = 0;
+        }
+        if (_root.save.arenaZone == 82 && _root.save.arenaEvent == 2)
+        {
+            if (isNaN(tmpHealth))
+            {
+                tmpHealth = _root.save.arenaHealth;
+            }
+            if (enemy.enemyID != 0)
+            {
+                if (_root.save.arenaHealth > tmpHealth)
+                {
+                    _root.save.arenaHealth = (double)tmpHealth;
+                }
+            }
+            tmpHealth = _root.save.arenaHealth;
+        }
+        if (_root.save.inventoryName[_root.save.arenaWeapon] == "CHAOS AURA")
+        {
+            _root.save.arenaMana = 0;
+            _root.save.arenaSpirit = 0;
+        }
+        else if (_root.save.inventorySpirit[_root.save.arenaWeapon] == true)
+        {
+            _root.save.arenaMana = 0;
+            _root.save.arenaFury = 0;
+        }
+        else
+        {
+            _root.save.arenaSpirit = 0;
+            _root.save.arenaFury = 0;
+        }
+        if (_root.save.arenaRage > 100)
+        {
+            _root.save.arenaRage = 100;
+        }
+        if (_root.save.arenaHealth > _root.maxHealth)
+        {
+            _root.save.arenaHealth = _root.maxHealth;
+        }
+        if (_root.save.arenaMana > _root.maxMana)
+        {
+            _root.save.arenaMana = _root.maxMana;
+        }
+        if (_root.save.arenaSpirit > _root.maxSpirit)
+        {
+            _root.save.arenaSpirit = _root.maxSpirit;
+        }
+        if (_root.save.arenaFury > 100)
+        {
+            _root.save.arenaFury = 100;
+        }
+        if (_root.save.arenaMana < 0)
+        {
+            _root.save.arenaMana = 0;
+        }
+        if (_root.save.arenaSpirit < 0)
+        {
+            _root.save.arenaSpirit = 0;
+        }
+        if (_root.save.arenaFury < 0)
+        {
+            _root.save.arenaFury = 0;
+        }
+        if (_root.save.arenaHealth <= 0)
+        {
+            if (_root.reviveCooldown <= 0 && _root.save.arenaSkill[64] > 0 && _root.save.arenaZone != 24)
+            {
+                _root.save.arenaHealth = Math.ceil(_root.maxHealth * _root.save.arenaSkill[64] / 50);
+                _root.reviveCooldown = 240 - _root.save.arenaSkill[64] * 4;
+                _root.arenaPoison = 0;
+                _root.arenaWeaken = 0;
+                _root.arenaBlind = 0;
+                _root.arenaSlow = 0;
+                _root.arenaStun = 0;
+                _root.arenaZombify = 0;
+                _root.arenaPotionBlock = 0;
+                _root.arenaCombo = 0;
+            }
+            else
+            {
+                _root.save.arenaHealth = _root.maxHealth;
+                if (_root.areaSafe != true)
+                {
+                    if (_root.save.arenaZone == 56)
+                    {
+                        _root.areaRevengeKill = 0;
+                        _root.dispNews(65, "Better luck next time!");
+                        _root.save.arenaZone = _root.save.arenaZoneOrig;
+                    }
+                    else if (_root.save.arenaZone == 52)
+                    {
+                        if (_root.save.inventoryName[_root.save.arenaPendant] != "Anti-Checkpoint Pendant")
+                        {
+                            _root.areaSpookyKill = Math.floor(_root.save.arenaSpookyToday / 200) * 200;
+                        }
+                        else
+                        {
+                            _root.areaSpookyKill = 0;
+                        }
+                    }
+                    else if (_root.save.arenaZone == 82)
+                    {
+                        _root.eventConsecKill = 0;
+                    }
+                    else if (_root.save.arenaZone == 68)
+                    {
+                        _root.areaTriangleKill = 0;
+                    }
+                    else if (Math.random() < _root.save.arenaSkill[61] * 0.02 + _root.abilNullifyPenalty * 0.01 || _root.save.arenaZone == 78)
+                    {
+                        _root.dispNews(65, "Death penalty nullified.");
+                        _root.save.arenaZone = 0;
+                    }
+                    else
+                    {
+                        _root.save.arenaExp -= Math.floor(_root.arenaReqExp / 5);
+                        if (_root.save.arenaExp < 0)
+                        {
+                            _root.save.arenaExp = 0;
+                        }
+                        _root.save.arenaRing = 0;
+                        _root.gCheck = true;
+                        _root.save.arenaRingOwned = new([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]);
+                        _root.dispNews(65, "A monster killed you and stole all of your Rings!");
+                        _root.save.arenaZone = 0;
+                    }
+                }
+                _root.arenaPoison = 0;
+                _root.arenaWeaken = 0;
+                _root.arenaBlind = 0;
+                _root.arenaSlow = 0;
+                _root.arenaStun = 0;
+                _root.arenaZombify = 0;
+                _root.arenaPotionBlock = 0;
+                _root.arenaCombo = 0;
+                _root.save.arenaDeath += 1;
+                enemy.enemyID = 0;
+                enemy.approach = 10;
+                enemy.approachCompensation = 0;
+                enemy.zombie = false;
+            }
+        }
+        if (isNaN(_root.save.arenaExp))
+        {
+            _root.save.arenaExp = 0;
+        }
+        if (isNaN(_root.save.arenaLevel) || _root.save.arenaLevel > 500)
+        {
+            _root.save.arenaLevel = 1;
+        }
+        if (_root.save.arenaExp >= _root.arenaReqExp)
+        {
+            _root.save.arenaExpTotal += _root.arenaReqExp;
+            _root.save.arenaExp -= _root.arenaReqExp;
+            if (_root.save.arenaLevel < 500)
+            {
+                _root.save.arenaLevel += 1;
+                _root.save.arenaSP += 20;
+                _root.dispNews(25, "Arena Rank UP! You are now Rank " + _root.save.arenaLevel + "!");
+                _root.fightStat2 = "Rank UP! You are now Rank " + _root.save.arenaLevel + "!";
+                _root.save.arenaMaxHealth += 250 + Math.floor(_root.save.arenaLevel * 5);
+                _root.save.arenaMaxMana += 100 + Math.floor(_root.save.arenaLevel * 2);
+                _root.save.arenaAttack += 25 + Math.floor(_root.save.arenaLevel * 0.5);
+                _root.save.arenaDefense += 25 + Math.floor(_root.save.arenaLevel * 0.5);
+                _root.save.arenaAccuracy += 10 + Math.floor(_root.save.arenaLevel * 0.2);
+                _root.save.arenaEvasion += 10 + Math.floor(_root.save.arenaLevel * 0.2);
+                _root.save.arenaPixel += 100 * _root.save.arenaLevel * _root.save.arenaLevel;
+                _root.save.arenaCraft += 10 * _root.save.arenaLevel * _root.save.arenaLevel;
+            }
+            else
+            {
+                _root.save.battlePoint += 4;
+                _root.save.arenaExpExcess += 1;
+                _root.save.arenaPixel += 25000000;
+                _root.save.arenaCraft += 2500000;
+            }
+            _root.save.battlePoint += 1;
+            _root.gainCareerEXP(3, _root.save.arenaLevel * 5, true);
+            checkStat();
+        }
+        if (_root.save.robaconExp >= _root.robaconReqExp && _root.save.robaconLevel < 500)
+        {
+            _root.save.robaconExpTotal += _root.robaconReqExp;
+            _root.save.robaconExp -= _root.robaconReqExp;
+            _root.save.robaconLevel += 1;
+            checkStat();
+            if (_root.save.vegetarianMode == true)
+            {
+                _root.dispNews(26, "Robroccoli Rank UP! Robroccoli is now Rank " + _root.save.robaconLevel + "!");
+                _root.fightStat2 = "Robroccoli Rank UP! Robroccoli is now Rank " + _root.save.robaconLevel + "!";
+            }
+            else
+            {
+                _root.dispNews(26, "Robacon Rank UP! Robacon is now Rank " + _root.save.robaconLevel + "!");
+                _root.fightStat2 = "Robacon Rank UP! Robacon is now Rank " + _root.save.robaconLevel + "!";
+            }
+        }
+        if (_root.antiLag > 400)
+        {
+            _root.antiLag = 0;
+        }
+        if (_root.damageNumCount > 1000000000)
+        {
+            _root.damageNumCount = 0;
+        }
+        if (_root.antiLag2 > 400)
+        {
+            _root.antiLag2 = 0;
+        }
+        if (_root.save.inventoryName[_root.save.arenaWeapon] == "Dark Ruler" && _root.save.arenaZone != 82)
+        {
+            _root.save.autoFight = false;
+            _root.maxMana = 100;
+            if (enemy.enemyID != 0)
+            {
+                if (_root.arenaPotionBlock <= 0)
+                {
+                    if (_root.save.arenaMana < 80 && _root.save.arenaPixel >= 500)
+                    {
+                        if (_root.save.arenaSkill[26] > 0)
+                        {
+                            _root.save.arenaPixel -= 100;
+                        }
+                        else
+                        {
+                            _root.save.arenaPixel -= 500;
+                        }
+                        _root.save.arenaMana += 1 * Math.ceil(_root.potionEfficiency / 100);
+                    }
+                    if (_root.save.arenaHealth < Math.floor(_root.maxHealth / 2) && _root.save.arenaPixel >= 10000 && (_root.save.arenaZone < 31 || _root.save.arenaZone > 43))
+                    {
+                        if (_root.save.arenaSkill[26] > 0)
+                        {
+                            _root.save.arenaPixel -= 2000;
+                        }
+                        else
+                        {
+                            _root.save.arenaPixel -= 10000;
+                        }
+                        _root.save.arenaHealth += Math.floor((500000 + _root.save.arenaSkill[21] * 100000) * _root.potionEfficiency / 100);
+                    }
+                }
+                if (_root.arenaDelay <= 0 && _root.arenaStun <= 0)
+                {
+                    if (_root.arenaZombify <= 0 && (_root.save.arenaZone < 31 || _root.save.arenaZone > 43))
+                    {
+                        if ((_root.save.arenaHealth < _root.maxHealth || _root.arenaPoison > 0 || _root.arenaWeaken > 0 || _root.arenaBlind > 0 || _root.arenaSlow > 0 || enemy.zombie == true && enemy.enemyID != 0) && _root.save.arenaMana >= 10)
+                        {
+                            _root.save.arenaMana -= 10;
+                            _root.save.arenaHealth = _root.maxHealth;
+                            _root.arenaPoison = 0;
+                            _root.arenaWeaken = 0;
+                            _root.arenaBlind = 0;
+                            _root.arenaSlow = 0;
+                            if (enemy.zombie == true && enemy.enemyID != 0)
+                            {
+                                var tempHealDamage = 750 + Math.floor(_root.totalCareerLevel * 250 / 2400);
+                                var damageMult = 1d;
+                                if (_root.save.permaBanPenalty[15] == 3)
+                                {
+                                    damageMult = 1.25;
+                                }
+                                else if (_root.save.permaBanPenalty[15] == 2)
+                                {
+                                    damageMult = 1.15;
+                                }
+                                else if (_root.save.permaBanPenalty[15] == 1)
+                                {
+                                    damageMult = 1.1;
+                                }
+                                dealDamage(Math.floor(tempHealDamage * damageMult), 0, "Heal");
+                                if (Math.random() < _root.doubleHit / 100)
+                                {
+                                    _root.house.arena.dealDamage(Math.floor(tempHealDamage * damageMult), 0, "Double Hit");
+                                }
+                            }
+                            if (_root.save.questType == "Use Skill")
+                            {
+                                if (_root.save.questSubtype == "Heal")
+                                {
+                                    _root.save.questCount += 1;
+                                }
+                            }
+                            _root.arenaDelay = 125;
+                            _root.arenaDelay2 = 125;
+                        }
+                    }
+                    if (_root.save.arenaMana >= 5 && (enemy.lifespan < 0.5 || enemy.defense >= 9999999999) && _root.arenaDelay <= 0)
+                    {
+                        _root.arenaDelay = 100;
+                        _root.arenaDelay2 = 49;
+                        _root.arenaSkillPower = 50 + Math.floor(_root.totalCareerLevel * 150 / 2400);
+                        var damageMult = 1d;
+                        if (_root.save.permaBanPenalty[15] == 3)
+                        {
+                            damageMult = 1.25;
+                        }
+                        else if (_root.save.permaBanPenalty[15] == 2)
+                        {
+                            damageMult = 1.15;
+                        }
+                        else if (_root.save.permaBanPenalty[15] == 1)
+                        {
+                            damageMult = 1.1;
+                        }
+                        _root.arenaSkillPower = Math.floor(_root.arenaSkillPower * damageMult);
+                        _root.arenaKnockBack = 0;
+                        _root.arenaQuickAttack = true;
+                        _root.save.arenaMana -= 5;
+                        if (_root.save.questType == "Use Skill")
+                        {
+                            if (_root.save.questSubtype == "Quick Attack")
+                            {
+                                _root.save.questCount += 1;
+                            }
+                        }
+                    }
+                    if (_root.save.arenaMana >= 20 && _root.arenaDelay <= 0)
+                    {
+                        _root.arenaDelay = 150;
+                        _root.arenaDelay2 = 74;
+                        _root.arenaSkillPower = 550 + Math.floor(_root.totalCareerLevel * 1050 / 2400);
+                        var damageMult = 1d;
+                        if (_root.save.permaBanPenalty[15] == 3)
+                        {
+                            damageMult = 1.25;
+                        }
+                        else if (_root.save.permaBanPenalty[15] == 2)
+                        {
+                            damageMult = 1.15;
+                        }
+                        else if (_root.save.permaBanPenalty[15] == 1)
+                        {
+                            damageMult = 1.1;
+                        }
+                        _root.arenaSkillPower = Math.floor(_root.arenaSkillPower * damageMult);
+                        _root.arenaKnockBack = 0;
+                        _root.save.arenaMana -= 20;
+                        if (_root.save.questType == "Use Skill")
+                        {
+                            if (_root.save.questSubtype == "Power Attack")
+                            {
+                                _root.save.questCount += 1;
+                            }
+                        }
+                    }
+                }
+            }
+            else
+            {
+                _root.save.arenaMana = 100;
+            }
+        }
+    }
 
     /// <summary>
     /// Example: showDamage("SILENCED",16777215,enemy._x + enemy._width / 2,40);
@@ -39,8 +873,8 @@ public partial class DefineSprite_6014 : AnimatedSprite2DFlash
     public void showDamage(string num, int col, double xLoc, double yLoc)
     {
         showDamageInternal(num, col, xLoc, yLoc);
+        var f = this._currentframe;
     }
-
     public void showDamage(double num, int col, double xLoc, double yLoc)
     {
         string numString = null;
@@ -50,7 +884,7 @@ public partial class DefineSprite_6014 : AnimatedSprite2DFlash
         }
         showDamageInternal(numString, col, xLoc, yLoc);
     }
-
+    // MATCH: DefineSprite_6014-frame_1-DoAction_2.as:showDamage()
     private void showDamageInternal(string num, int col, double xLoc, double yLoc)
     {
         if (_root.cursoridle < 300)
@@ -78,7 +912,8 @@ public partial class DefineSprite_6014 : AnimatedSprite2DFlash
         }
     }
 
-    void subFunction1()
+    // MATCH: DefineSprite_6014-frame_1-DoAction_2.as:checkStat()
+    public void subFunction1()
     {
         if (_root.save.arenaZone == 79 && _root.save.arenaBuffType != 13)
         {
@@ -886,6 +1721,7 @@ public partial class DefineSprite_6014 : AnimatedSprite2DFlash
         }
     }
 
+    // MATCH: DefineSprite_6014-frame_1-DoAction_2.as:travel()
     public void travel(double destination)
     {
         if (enemy.enemyID == 0)
@@ -921,6 +1757,7 @@ public partial class DefineSprite_6014 : AnimatedSprite2DFlash
     }
 
     #region checkstat
+    // MATCH: DefineSprite_6014-frame_1-DoAction_2.as:checkStat()
     public void checkStat()
     {
         if (_root.saveid == 24 && _root.save.arenaZone > 13)
@@ -2408,7 +3245,7 @@ public partial class DefineSprite_6014 : AnimatedSprite2DFlash
             _root.minMult = 97;
         }
         _root.maxDamage = Math.ceil((0.000007 * Math.pow(_root.save.arenaLevel, 0.5) * Math.pow(_root.save.level, 0.5) + 0.01) * _root.attackPower * _root.weaponAttack * (_root.ragePower / 100) * (1 + (double)_root["abilPwn" + enemy.element] * 0.01) + _root.attackPower);
-        if (_currentframe != 1)
+        if (this._currentframe != 1)
         {
             _root.maxDamage = Math.ceil((0.000007 * Math.pow(_root.save.arenaLevel, 0.5) * Math.pow(_root.save.level, 0.5) + 0.01) * _root.attackPower * _root.weaponAttack * (_root.ragePower / 100) * 1 + _root.attackPower);
         }
@@ -2611,7 +3448,7 @@ public partial class DefineSprite_6014 : AnimatedSprite2DFlash
             _root.criticalDamage = 1000;
         }
         _root.damageResist = Math.floor((7e-7 * Math.pow(_root.save.arenaLevel, 0.5) * Math.pow(_root.save.level, 0.5) + 0.002) * _root.defensePower * _root.weaponDefense * (1 + (double)_root["abilResist" + enemy.element] * 0.01) + _root.defensePower + _root.save.arenaMana * _root.save.arenaSkill[61] / 50);
-        if (_currentframe != 1)
+        if (this._currentframe != 1)
         {
             _root.damageResist = Math.floor((7e-7 * Math.pow(_root.save.arenaLevel, 0.5) * Math.pow(_root.save.level, 0.5) + 0.002) * _root.defensePower * _root.weaponDefense + _root.defensePower + _root.save.arenaMana * _root.save.arenaSkill[61] / 50);
         }
@@ -3135,7 +3972,7 @@ public partial class DefineSprite_6014 : AnimatedSprite2DFlash
     }
 
     #endregion
-
+    // MATCH: DefineSprite_6014-frame_1-DoAction_2.as:regen()
     public void regen()
     {
         _root.labCooldown -= 1;
@@ -3194,8 +4031,8 @@ public partial class DefineSprite_6014 : AnimatedSprite2DFlash
         var i = 1;
         while (i <= 3)
         {
-            
-            _root["allyCooldown" + i] -= 1;
+
+            _root["allyCooldown" + i] = (double)_root["allyCooldown" + i] - 1; //1;
             if ((double)_root["allyCooldown" + i] <= 0)
             {
                 var tempActive = (string)_root["allyActive" + i];
@@ -3769,4 +4606,1728 @@ public partial class DefineSprite_6014 : AnimatedSprite2DFlash
             cgtHP.gotoAndStop(1);
         }
     }
+
+    // MATCH: DefineSprite_6014-frame_1-DoAction_2.as:actualRegen()
+    public void actualRegen()
+    {
+        if (enemy.enemyID != 0)
+        {
+            if (_root.specSphere > 0)
+            {
+                dealDamage(200 + _root.save.arenaSkill[3] * 10, 0, "");
+            }
+            if (_root.specGlory > 0)
+            {
+                dealDamage(400 + _root.save.arenaSkill[3] * 20, 0, "");
+            }
+        }
+        if (_root.save.inventoryName[_root.save.arenaTrinket] == "Yellow Madness Gem")
+        {
+            if (Math.random() < 0.05)
+            {
+                var lootValueYMG = Math.floor(100000 * _root.arenaCoinMult * _root.save.boost / 10000 * (0.9 + Math.random() * 0.2));
+                _root.incDt2();
+                stuffHolder.attachMovie("newLoot1", "newLoot" + _root.summonCount, _root.antiLag2 + 500,new { x= 150 + Math.random() * 200,y= -50,lootValue= lootValueYMG});
+            }
+        }
+        if (_root.specGlory > 0)
+        {
+            if (Math.random() < 0.1)
+            {
+                _root.incDt2();
+                stuffHolder.attachMovie("newLoot10", "newLoot" + _root.summonCount, _root.antiLag2 + 500,new { x= 150 + Math.random() * 200,y= -50,lootValue= 5});
+            }
+            if (Math.random() < 0.05)
+            {
+                _root.incDt2();
+                stuffHolder.attachMovie("newLoot16", "newLoot" + _root.summonCount, _root.antiLag2 + 500,new { x= 150 + Math.random() * 200,y= -50,lootValue= 2});
+            }
+            if (Math.random() < 0.02)
+            {
+                _root.incDt2();
+                stuffHolder.attachMovie("newLoot11", "newLoot" + _root.summonCount, _root.antiLag2 + 500,new { x= 150 + Math.random() * 200,y= -50,lootValue= 1});
+            }
+            if (Math.random() < 0.005)
+            {
+                _root.incDt2();
+                stuffHolder.attachMovie("newLoot11", "newLoot" + _root.summonCount, _root.antiLag2 + 500,new { x= 150 + Math.random() * 200,y= -50,lootValue= 2});
+            }
+        }
+        if ((_root.save.arenaRuneDuration[1] <= 0 || enemy.enemyID == 0) && _root.save.arenaHealth > 0)
+        {
+            _root.save.arenaHealth += Math.floor(_root.hpRecover / 10);
+        }
+        if (_root.save.arenaRuneDuration[2] <= 0 || enemy.enemyID == 0)
+        {
+            _root.save.arenaMana += Math.floor(_root.mpRecover / 10);
+        }
+    }
+    // MATCH: DefineSprite_6014-frame_1-DoAction_2.as:dealDamage()
+    public void dealDamage(double skillPower, double knockBack, string special)
+    {
+        if (_root.specInfinity > 0)
+        {
+            _root.save.arenaMana = _root.maxMana;
+        }
+        if (_root.arenaBot > 48000)
+        {
+            _root.showPopup("Exhaustion", "You can no longer attack as you are exhausted. Release the attack key and take a short break.");
+        }
+        else if (_root.arenaBot > 24000)
+        {
+            _root.showPopup("Exhaustion", "Release the attack key and take a short break. Active skills will stop working in " + _root.withComma((48000 - _root.arenaBot) / 40) + " sec.");
+        }
+        if (_root.save.arenaZone == 24)
+        {
+            knockBack *= 0.1;
+        }
+        if (_root.save.arenaZone >= 31 && _root.save.arenaZone <= 42)
+        {
+            knockBack *= 0.1;
+        }
+        if (_root.save.arenaZone == 52)
+        {
+            knockBack *= 0.1;
+        }
+        if (_root.save.arenaZone == 56 && special != "Poison")
+        {
+            _root.areaRevengeRage += 1;
+            if (_root.areaRevengeRage >= 150)
+            {
+                takeDamage(99999999999, "Cannot Dodge");
+            }
+            _root.areaRevengeCalm = 0;
+        }
+        var hitChancePenalty = 0 + Math.floor((enemy.level - _root.save.level) / 100);
+        if (hitChancePenalty > 30)
+        {
+            hitChancePenalty = 30;
+        }
+        if (_root.save.arenaZone == 82 && (_root.save.inventoryName[_root.save.arenaWeapon] == "CHAOS AURA" || _root.save.inventoryName[_root.save.arenaWeapon] == "Dark Ruler"))
+        {
+            hitChancePenalty = 999;
+        }
+        if (_root.save.arenaZone == 82 && _root.save.arenaEvent == 3 && _root.setHighest >= 2)
+        {
+            hitChancePenalty = 999;
+            _root.fightStat2 = "You have 2+ items of the same set equipped!";
+        }
+        if (_root.save.arenaZone == 82 && _root.save.arenaEvent == 3 && _root.save.arenaWeapon != 0)
+        {
+            hitChancePenalty = 999;
+        }
+        if (enemy.level > _root.save.level && _root.save.level < 8999)
+        {
+            hitChancePenalty += 10;
+            if (_root.save.gDifficulty >= 3)
+            {
+                hitChancePenalty += 20;
+            }
+            else if (_root.save.gDifficulty >= 2)
+            {
+                hitChancePenalty += 10;
+            }
+        }
+        if (_root.worstMoon == true)
+        {
+            hitChancePenalty += 5;
+        }
+        var finalEvasion = enemy.evasion;
+        if (enemy.blind > 0)
+        {
+            finalEvasion = enemy.evasion * (100 - _root.blindPower) / 100;
+        }
+        if (Math.random() > hitChancePenalty / 100 && (Math.random() < _root.accuracy / finalEvasion - 0.1 || Math.random() < _root.accuracyPct / 100) || special == "Ignore Evasion")
+        {
+            enemy.crescendo += 1;
+            if (enemy.crescendo <= _root.save.arenaSkill[63])
+            {
+                enemy.crescendoMult *= 1.02;
+            }
+            var finalIgnoreDef = _root.ignoreDefense;
+            if (enemy.weaken > 0)
+            {
+                finalIgnoreDef = _root.ignoreDefense + (100 - _root.ignoreDefense) * _root.weakenPower / 100;
+            }
+            if (special == "Ignore Defense")
+            {
+                finalIgnoreDef = 100;
+            }
+            if (special == "Pierce" && enemy.defense < 99999999999)
+            {
+                finalIgnoreDef = 100;
+            }
+            var damageDealt = Math.ceil(((_root.minDamage + random(_root.maxDamage - _root.minDamage + 1)) * (skillPower / 100) - enemy.defense * (100 - finalIgnoreDef) / 100) * (_root.areaDamagePct / 100));
+            if (special == "Pierce" && damageDealt < 50)
+            {
+                damageDealt = 50;
+            }
+            if (enemy.crescendo == 1)
+            {
+                enemy.defense = Math.ceil(enemy.defense * (1 - _root.save.arenaSkill[63] * 0.005));
+                enemy.evasion = Math.ceil(enemy.evasion * (1 - _root.save.arenaSkill[63] * 0.005));
+            }
+            if (special == "Heal")
+            {
+                damageDealt = Math.ceil((_root.minDamage + random(_root.maxDamage - _root.minDamage + 1)) * (skillPower / 100) * (_root.areaDamagePct / 100));
+            }
+            if (special == "Invisible Ally - Ignore Defense")
+            {
+                damageDealt = Math.ceil((_root.minDamage + random(_root.maxDamage - _root.minDamage + 1)) * (skillPower / 100) * (_root.areaDamagePct / 100));
+                var allyDamageMult = 1 + (_root.enemyList[_root.save.arenaAlly].level - enemy.level) / 100;
+                if (allyDamageMult > 3)
+                {
+                    allyDamageMult = 3;
+                }
+                if (allyDamageMult < 0.5)
+                {
+                    allyDamageMult = 0.5;
+                }
+                damageDealt = Math.floor(damageDealt * allyDamageMult);
+            }
+            if (special == "Invisible Ally")
+            {
+                var allyDamageMult = 1 + (_root.enemyList[_root.save.arenaAlly].level - enemy.level) / 100;
+                if (allyDamageMult > 3)
+                {
+                    allyDamageMult = 3;
+                }
+                if (allyDamageMult < 0.5)
+                {
+                    allyDamageMult = 0.5;
+                }
+                damageDealt = Math.floor(damageDealt * allyDamageMult);
+            }
+            if (special == "Roundhouse Kick")
+            {
+                damageDealt = Math.ceil((_root.minDamage + random(_root.maxDamage - _root.minDamage + 1)) * (skillPower / 100) * (_root.areaDamagePct / 100));
+                rangedAttack._alpha = 100;
+                rangedAttack.gotoAndStop(10);
+            }
+            if (special == "Bacon")
+            {
+                rangedAttack._alpha = 100;
+                if (_root.save.vegetarianMode == true)
+                {
+                    rangedAttack.gotoAndStop(12);
+                }
+                else
+                {
+                    rangedAttack.gotoAndStop(11);
+                }
+            }
+            if (_root.save.arenaZone == 52)
+            {
+                damageDealt = Math.ceil(Math.pow(damageDealt, 0.8) * 40);
+                if (isNaN(damageDealt))
+                {
+                    damageDealt = 50;
+                }
+            }
+            if (_root.manaPower == true)
+            {
+                if (_root.save.inventoryName[_root.save.arenaWeapon] == "CHAOS AURA")
+                {
+                    damageDealt = Math.ceil(damageDealt * (2 + _root.save.arenaFury / 100));
+                    _root.save.arenaFury -= 1;
+                    if (_root.save.arenaFury <= 0)
+                    {
+                        _root.save.arenaFury = 0;
+                        _root.manaPower = false;
+                    }
+                }
+                else if (_root.save.inventorySpirit[_root.save.arenaWeapon] == true)
+                {
+                    if (_root.save.arenaSpirit >= _root.maxSpirit - 10)
+                    {
+                        spiritToConsume = _root.save.arenaSpirit + 10 - _root.maxSpirit;
+                        if (spiritToConsume < 0)
+                        {
+                            spiritToConsume = 0;
+                        }
+                        if (spiritToConsume > 10)
+                        {
+                            spiritToConsume = 10;
+                        }
+                    }
+                    else
+                    {
+                        spiritToConsume = 0;
+                    }
+                    _root.save.arenaSpirit -= spiritToConsume;
+                    damageDealt = Math.ceil(damageDealt * (1 + spiritToConsume / 10));
+                }
+                else
+                {
+                    var manaToConsume = Math.ceil(_root.save.arenaMana / 50);
+                    if (_root.save.arenaMana > 5000000)
+                    {
+                        manaToConsume = 100000 + Math.ceil((_root.save.arenaMana - 5000000) / 100);
+                    }
+                    if (_root.save.arenaMana > 10000000)
+                    {
+                        manaToConsume = 150000 + Math.ceil((_root.save.arenaMana - 10000000) / 200);
+                    }
+                    if (manaToConsume > _root.save.arenaMana)
+                    {
+                        manaToConsume = _root.save.arenaMana;
+                    }
+                    _root.save.arenaMana -= manaToConsume;
+                    if (_root.specInfinity > 0)
+                    {
+                        _root.save.arenaMana = _root.maxMana;
+                    }
+                    damageDealt = Math.ceil(damageDealt * (1 + manaToConsume / 50000));
+                }
+            }
+            var damagePenalty = 40 + (Math.pow(enemy.level, 1.12) / (_root.save.level + _root.save.arenaLevel * 10 + 999) - 1) * 50;
+            if (_root.save.gDifficulty >= 3 && _root.save.level < 8999)
+            {
+                damagePenalty += (8999 - _root.save.level) / 450;
+            }
+            if (damagePenalty < 0)
+            {
+                damagePenalty = 0;
+            }
+            if (enemy.level > _root.save.level && _root.save.level < 8999)
+            {
+                damagePenalty += 10;
+                if (_root.save.gDifficulty >= 3)
+                {
+                    damagePenalty += 20;
+                }
+                else if (_root.save.gDifficulty >= 2)
+                {
+                    damagePenalty += 10;
+                }
+            }
+            if (_root.worstMoon == true)
+            {
+                damagePenalty += 5;
+            }
+            if (enemy.boss == true)
+            {
+                damagePenalty += 20;
+            }
+            if (enemy.zombie == true && special != "Heal" && _root.save.arenaZone != 20)
+            {
+                damagePenalty += 70;
+            }
+            if (_root.save.gDifficulty >= 3 && _root.save.level < 8999 && damagePenalty > 95)
+            {
+                if (damagePenalty > 97.5)
+                {
+                    damagePenalty = 97.5;
+                }
+            }
+            else if (damagePenalty > 95)
+            {
+                damagePenalty = 95;
+            }
+            if (_root.apocalypse == true)
+            {
+                damagePenalty += (100 - damagePenalty) / 2;
+            }
+            if (enemy.enemyID == 331 && _root.save.level < 9000)
+            {
+                damagePenalty = 100;
+            }
+            if (enemy.ultra != true)
+            {
+                if (_root.save.inventoryName[_root.save.arenaHat] == "ULTRA HAT" || _root.save.inventoryName[_root.save.arenaShirt] == "ULTRA SHIRT" || _root.save.inventoryName[_root.save.arenaGloves] == "ULTRA GLOVES" || _root.save.inventoryName[_root.save.arenaPants] == "ULTRA PANTS" || _root.save.inventoryName[_root.save.arenaShoes] == "ULTRA SHOES")
+                {
+                    damagePenalty = 100;
+                }
+            }
+            if (_root.save.inventoryName[_root.save.arenaWeapon] == "Sword of Ascendant" && enemy.enemyID != 331)
+            {
+                damagePenalty = 100;
+            }
+            if (_root.save.inventoryName[_root.save.arenaWeapon] != "Sword of Ascendant" && enemy.enemyID == 331)
+            {
+                damagePenalty = 100;
+            }
+            damageDealt = Math.floor(damageDealt * (100 - damagePenalty) / 100);
+            if (enemy.name == "Secret Crystal" && _root.save.inventorySubtype[_root.save.arenaWeapon] == "Mining Tool" && damagePenalty < 100)
+            {
+                damageDealt = 2000;
+                if ((_root.challengeZone == _root.save.arenaZone) && (Convert.ToBoolean(_root.save.arenaZone) && _root.challengeDuration > 0))
+                {
+                    damageDealt = 1;
+                }
+            }
+            if (enemy.name == "Pirate Gem" && _root.save.inventorySubtype[_root.save.arenaWeapon] == "Mining Tool" && damagePenalty < 100)
+            {
+                damageDealt = 6;
+            }
+            if (_root.save.arenaZone == 21 && _root.save.inventorySubtype[_root.save.arenaWeapon] == "Mining Tool" && damagePenalty < 100)
+            {
+                damageDealt = 4;
+            }
+            if (_root.save.arenaZone >= 23 && _root.save.arenaZone <= 25 && damagePenalty < 100)
+            {
+                if (_root.save.inventoryName[_root.save.arenaWeapon] == "Special Wand")
+                {
+                    damageDealt = Math.ceil((Math.min(_root.save.level, 5000) / 10 + _root.save.arenaLevel + 500) * skillPower / 100);
+                    if (_root.arenaWeaken > 0)
+                    {
+                        damageDealt = Math.floor(damageDealt * 0.6);
+                    }
+                    if (_root.save.inventorySpirit[_root.save.arenaWeapon] == false)
+                    {
+                        damageDealt = Math.floor(damageDealt * 1.5);
+                    }
+                }
+                if (enemy.name == "DON\'T ATTACK!!!")
+                {
+                    damageDealt = 1;
+                }
+            }
+            if (enemy.boss == true)
+            {
+                damageDealt = Math.ceil(damageDealt * (1 + _root.bossDamage / 100));
+            }
+            else
+            {
+                damageDealt = Math.ceil(damageDealt * (1 + _root.nonBossDamage / 100));
+            }
+            damageDealt = Math.ceil(damageDealt * enemy.crescendoMult);
+            if (_root.turnBased == true)
+            {
+                damageDealt = Math.ceil(damageDealt * 0.99);
+            }
+            if ((enemy.enemyID == 0 || enemy.tankMode == true) && _root.save.arenaZone != 24 && (_root.save.arenaZone < 30 || _root.save.arenaZone > 43))
+            {
+                damageDealt = Math.ceil(damageDealt * 0.2);
+            }
+            if (_root.save.arenaZone == 20)
+            {
+                damageDealt += Math.floor(Math.min(Math.sqrt((_root.minDamage + random(_root.maxDamage - _root.minDamage)) / 1000), 100) * skillPower * 2 / 100);
+                if (_root.setCount[67] >= 3)
+                {
+                    damageDealt = Math.floor(damageDealt * 1.25);
+                }
+                if (_root.setCount[67] >= 2)
+                {
+                    damageDealt = Math.floor(damageDealt * 1.2);
+                }
+            }
+            if (_root.save.arenaZone == 47 && _root.setCount[32] >= 6)
+            {
+                damageDealt = Math.floor(damageDealt * 1.2);
+            }
+            if (_root.save.arenaZone == 54 && _root.setCount[72] >= 2)
+            {
+                damageDealt = Math.floor(damageDealt * 1.2);
+            }
+            if (_root.save.arenaZone == 78 && (_root.setCount[53] >= 6 || _root.setCount[54] >= 6))
+            {
+                damageDealt = Math.floor(damageDealt * 1.2);
+            }
+            if (_root.setCount[74] >= 7)
+            {
+                damageDealt = Math.floor(damageDealt * 1.2);
+            }
+            if (_root.save.arenaZone == 54 && _root.setCount[76] >= 2)
+            {
+                damageDealt = Math.floor(damageDealt * 1.5);
+            }
+            if (_root.save.arenaZone == 78 && _root.setCount[76] >= 2)
+            {
+                damageDealt = Math.floor(damageDealt * 1.5);
+            }
+            if (damageDealt < 1 || isNaN(damageDealt))
+            {
+                damageDealt = 1;
+            }
+            if (_root.save.arenaZone == 54)
+            {
+                if (_root.arenaChaosPhase == 2)
+                {
+                    damageDealt = 1;
+                }
+                if (_root.arenaChaosPhase == 5 || _root.arenaChaosPhase == 6)
+                {
+                    _root.save.arenaHealth = Math.ceil(_root.save.arenaHealth * 0.7);
+                }
+            }
+            if (hero.Xalpha == 30)
+            {
+                damageDealt = 0;
+            }
+            var critHit = false;
+            var coupBonus = 0d;
+            if (enemy.hp < enemy.maxhp)
+            {
+                if (enemy.poison > 0)
+                {
+                    coupBonus += _root.save.arenaSkill[38] * 0.002;
+                }
+                if (enemy.weaken > 0)
+                {
+                    coupBonus += _root.save.arenaSkill[38] * 0.002;
+                }
+                if (enemy.blind > 0)
+                {
+                    coupBonus += _root.save.arenaSkill[38] * 0.002;
+                }
+                if (enemy.stun > 0)
+                {
+                    coupBonus += _root.save.arenaSkill[38] * 0.002;
+                }
+                if (enemy.slow > 0)
+                {
+                    coupBonus += _root.save.arenaSkill[38] * 0.002;
+                }
+            }
+            damageDealt += Math.ceil(damageDealt * coupBonus);
+            damageDealt += Math.ceil(damageDealt * nextAttack);
+            if (_root.save.restTime > 0)
+            {
+                damageDealt = Math.floor(damageDealt * (1.1 + _root.save.restEfficiency[4] * 0.01));
+            }
+            if (special != "Poison" && special != "Reflect")
+            {
+                if (_root.save.arenaRing == 18)
+                {
+                    _root.arenaCombo += 1;
+                }
+                if (Math.random() < _root.abilExtraCombo / 100)
+                {
+                    _root.arenaCombo += 3;
+                }
+            }
+            if (_root.spiritCrit > 0)
+            {
+                _root.arenaCombo += 1;
+                damageDealt = Math.ceil(damageDealt * _root.criticalDamage / 40);
+                critHit = true;
+            }
+            else if (special == "Reflect" && _root.save.arenaRing == 8 || special == "Rapid Fire")
+            {
+                _root.arenaCombo += 1;
+                damageDealt = Math.ceil(damageDealt * _root.criticalDamage / 100);
+                critHit = true;
+            }
+            else if (enemy.enemyID != 0 && enemy.hp / enemy.maxhp <= _root.save.arenaSkill[38] * 0.01)
+            {
+                _root.arenaCombo += 1;
+                damageDealt = Math.ceil(damageDealt * _root.criticalDamage / 100);
+                critHit = true;
+            }
+            else if (_root.save.arenaZone == 81 && 100 - enemy.explodeCount / 36 <= _root.save.arenaSkill[38])
+            {
+                _root.arenaCombo += 1;
+                damageDealt = Math.ceil(damageDealt * _root.criticalDamage / 100);
+                critHit = true;
+            }
+            else if (special == "Bacon" && _root.save.robaconLevel >= 125 && _root.worstMoon != true)
+            {
+                _root.arenaCombo += 1;
+                damageDealt = Math.ceil(damageDealt * _root.criticalDamage / 100);
+                critHit = true;
+            }
+            else if (special == "Explosive" && _root.worstMoon != true)
+            {
+                _root.arenaCombo += 1;
+                damageDealt = Math.ceil(damageDealt * _root.criticalDamage / 100);
+                critHit = true;
+            }
+            else if (Math.random() * 100 < _root.criticalChance)
+            {
+                if (_root.worstMoon != true)
+                {
+                    _root.arenaCombo += 1;
+                }
+                damageDealt = Math.ceil(damageDealt * _root.criticalDamage / 100);
+                critHit = true;
+            }
+            _root.incDt();
+            if (enemy.immune == true)
+            {
+                damageDealt = 1;
+            }
+            if (_root.save.arenaZone == 78)
+            {
+                if (enemy.lifespan >= 300)
+                {
+                    damageDealt = Math.floor(damageDealt * 100);
+                }
+                else if (enemy.lifespan >= 180)
+                {
+                    damageDealt = Math.floor(damageDealt * 30);
+                }
+                else if (enemy.lifespan >= 90)
+                {
+                    damageDealt = Math.floor(damageDealt * 10);
+                }
+                else if (enemy.lifespan >= 30)
+                {
+                    damageDealt = Math.floor(damageDealt * 3);
+                }
+            }
+            else if (_root.save.arenaZone == 52 || _root.save.arenaZone == 68)
+            {
+                if (enemy.lifespan >= 100)
+                {
+                    damageDealt = Math.floor(damageDealt * 100);
+                }
+                else if (enemy.lifespan >= 30)
+                {
+                    damageDealt = Math.floor(damageDealt * 30);
+                }
+                else if (enemy.lifespan >= 10)
+                {
+                    damageDealt = Math.floor(damageDealt * 10);
+                }
+                else if (enemy.lifespan >= 3)
+                {
+                    damageDealt = Math.floor(damageDealt * 3);
+                }
+            }
+            if (_root.save.inventoryName[_root.save.arenaWeapon] == "Eric\'s Gun-Shovel" || _root.save.inventoryName[_root.save.arenaWeapon] == "Eric\'s Shovel")
+            {
+                if (damageDealt > 8888888888)
+                {
+                    damageDealt = 8888888888;
+                }
+                else if (damageDealt > 888888888)
+                {
+                    damageDealt = 888888888;
+                }
+                else if (damageDealt > 88888888)
+                {
+                    damageDealt = 88888888;
+                }
+                else if (damageDealt > 8888888)
+                {
+                    damageDealt = 8888888;
+                }
+                else if (damageDealt > 888888)
+                {
+                    damageDealt = 888888;
+                }
+                else if (damageDealt > 88888)
+                {
+                    damageDealt = 88888;
+                }
+                else if (damageDealt > 8888)
+                {
+                    damageDealt = 8888;
+                }
+                else if (damageDealt > 888)
+                {
+                    damageDealt = 888;
+                }
+                else if (damageDealt > 88)
+                {
+                    damageDealt = 88;
+                }
+                else if (damageDealt > 8)
+                {
+                    damageDealt = 8;
+                }
+            }
+            if (_root.save.arenaZone >= 23 && _root.save.arenaZone <= 25)
+            {
+                if (damageDealt > 999999)
+                {
+                    damageDealt = 999999;
+                }
+            }
+            if (enemy.enemyID == 440)
+            {
+                if (enemy.ultra == true)
+                {
+                    if (damageDealt > 5000000000)
+                    {
+                        damageDealt = 5000000000 + Math.ceil(Math.pow(damageDealt - 5000000000, 0.94));
+                    }
+                    if (damageDealt > 500000000 && enemy.lifespan < 30)
+                    {
+                        damageDealt = 500000000;
+                    }
+                }
+                else
+                {
+                    if (damageDealt > 1000000000)
+                    {
+                        damageDealt = 1000000000 + Math.ceil(Math.pow(damageDealt - 1000000000, 0.94));
+                    }
+                    if (_root.save.arenaHardcore == true && damageDealt > 250000000)
+                    {
+                        damageDealt = 250000000 + Math.ceil(Math.pow(damageDealt - 250000000, 0.97));
+                    }
+                    if (damageDealt > 100000000 && enemy.lifespan < 30)
+                    {
+                        damageDealt = 100000000;
+                    }
+                }
+            }
+            if (_root.challengeZone == _root.save.arenaZone && _root.challengeDuration > 0)
+            {
+                if (boss == true)
+                {
+                    damageSoftCap = Math.ceil(enemy.maxhp * 0.01 * Math.min(skillPower, 10000) / 2000);
+                }
+                else
+                {
+                    damageSoftCap = Math.ceil(enemy.maxhp * 0.05 * Math.min(skillPower, 10000) / 2000);
+                }
+                if (enemy.lifespan < 1)
+                {
+                    damageSoftCap = Math.ceil(damageSoftCap * 0.5);
+                }
+                damagePow = Math.max(0.9 - _root.challengeKill * 0.001, 0.7);
+                if (damageDealt > damageSoftCap)
+                {
+                    damageDealt = damageSoftCap + Math.ceil(Math.pow(damageDealt - damageSoftCap, damagePow));
+                }
+                if (damageDealt > damageSoftCap * 50)
+                {
+                    damageDealt = damageSoftCap * 50 + Math.ceil(Math.pow(damageDealt - damageSoftCap * 10, 0.5));
+                }
+            }
+            if (enemyImmune.fr == 3)
+            {
+                if (special == "Z" && enemyImmune.timeZ < 0)
+                {
+                    damageDealt = 0;
+                    if (enemyImmune.timeZ > -999999)
+                    {
+                        takeDamage(2 + random(2), "Cannot Dodge");
+                    }
+                }
+                if (special == "X" && enemyImmune.timeX < 0)
+                {
+                    damageDealt = 0;
+                    if (enemyImmune.timeX > -999999)
+                    {
+                        takeDamage(2 + random(2), "Cannot Dodge");
+                    }
+                }
+                if (special == "Quick Attack" && enemyImmune.timeX < 0)
+                {
+                    damageDealt = 0;
+                }
+                if (special == "Quick Attack 1" && enemyImmune.timeX < 0)
+                {
+                    damageDealt = 0;
+                }
+                if (special == "Quick Attack 2" && enemyImmune.timeX < 0)
+                {
+                    damageDealt = 0;
+                }
+                if (special == "Quick Attack 3" && enemyImmune.timeX < 0)
+                {
+                    damageDealt = 0;
+                }
+                if (special == "Quick Attack 4" && enemyImmune.timeX < 0)
+                {
+                    damageDealt = 0;
+                }
+                if (special == "C" && enemyImmune.timeC < 0)
+                {
+                    if (enemyImmune.timeC > -999999)
+                    {
+                        takeDamage(2 + random(2), "Cannot Dodge");
+                    }
+                    damageDealt = 0;
+                }
+            }
+            if (_root.save.arenaMaxDamage < damageDealt)
+            {
+                _root.save.arenaMaxDamage = damageDealt;
+            }
+            if (special == "Poison")
+            {
+                showDamage(damageDealt, 10092288, enemy._x + enemy._width / 2, 40);
+            }
+            else if (special == "Quick Attack")
+            {
+                if (critHit == true)
+                {
+                    showDamage(damageDealt, 14496512, enemy._x + enemy._width / 2, 80);
+                }
+                else
+                {
+                    showDamage(damageDealt, 14522624, enemy._x + enemy._width / 2, 80);
+                }
+            }
+            else if (special == "Quick Attack 2")
+            {
+                if (critHit == true)
+                {
+                    showDamage(damageDealt, 14496512, enemy._x + enemy._width / 2, 70);
+                }
+                else
+                {
+                    showDamage(damageDealt, 14522624, enemy._x + enemy._width / 2, 70);
+                }
+            }
+            else if (special == "Quick Attack 3")
+            {
+                if (critHit == true)
+                {
+                    showDamage(damageDealt, 14496512, enemy._x + enemy._width / 2, 60);
+                }
+                else
+                {
+                    showDamage(damageDealt, 14522624, enemy._x + enemy._width / 2, 60);
+                }
+            }
+            else if (special == "Quick Attack 4")
+            {
+                if (critHit == true)
+                {
+                    showDamage(damageDealt, 14496512, enemy._x + enemy._width / 2, 50);
+                }
+                else
+                {
+                    showDamage(damageDealt, 14522624, enemy._x + enemy._width / 2, 50);
+                }
+            }
+            else if (special == "Rapid Fire")
+            {
+                showDamage(damageDealt, 14496512, enemy._x + enemy._width / 2, 40);
+            }
+            else if (special == "Ultimate Attack")
+            {
+                _root.arenaCombo += 3;
+                if (critHit == true)
+                {
+                    showDamage(_root.withComma(damageDealt) + " x 4", 14496512, enemy._x + enemy._width / 2, 50);
+                }
+                else
+                {
+                    showDamage(_root.withComma(damageDealt) + " x 4", 14522624, enemy._x + enemy._width / 2, 50);
+                }
+                damageDealt *= 4;
+            }
+            else if (special == "Double Hit")
+            {
+                if (critHit == true)
+                {
+                    showDamage(damageDealt, 14496512, enemy._x + enemy._width / 2, 100);
+                }
+                else
+                {
+                    showDamage(damageDealt, 14522624, enemy._x + enemy._width / 2, 100);
+                }
+            }
+            else if (special == "Explosive")
+            {
+                showDamage(damageDealt, 16777215, enemy._x + enemy._width / 2, 40);
+            }
+            else if (critHit == true)
+            {
+                showDamage(damageDealt, 14496512, enemy._x + enemy._width / 2, 90);
+            }
+            else
+            {
+                showDamage(damageDealt, 14522624, enemy._x + enemy._width / 2, 90);
+            }
+            if (_root.autoSteal > 0 && !isNaN(_root.autoSteal) && damageDealt > 0 && !isNaN(damageDealt))
+            {
+                var damagePct = damageDealt / enemy.maxhp * 100;
+                if (damagePct > enemy.stealable)
+                {
+                    damagePct = enemy.stealable;
+                }
+                if (damagePct < 0)
+                {
+                    damagePct = 0;
+                }
+                if (isNaN(damagePct))
+                {
+                    damagePct = 0;
+                }
+                enemy.stealable -= damagePct;
+                _root.autoStealCoin += Math.ceil(damagePct * _root.autoSteal * enemy.coin * _root.save.boost / 1250000);
+                _root.save.arenaPixel += Math.ceil(damagePct * _root.autoSteal * enemy.pixel / 12500);
+            }
+            enemy.hp -= damageDealt;
+            if (_root.save.arenaZone == 54)
+            {
+                if (_root.arenaChaosPhase == 3 || _root.arenaChaosPhase == 6)
+                {
+                    enemy.hp += damageDealt * 3;
+                }
+            }
+            if (_root.save.arenaZone == 81)
+            {
+                enemy.hp += damageDealt;
+                _root.areaDamage += Math.floor(damageDealt / 90000000);
+                _root.areaDamageRemainder += damageDealt % 90000000;
+                if (_root.areaDamageRemainder >= 90000000)
+                {
+                    _root.areaDamageRemainder -= 90000000;
+                    _root.areaDamage += 1;
+                }
+            }
+            if (_root.save.arenaZone == 84)
+            {
+                enemy.hp += damageDealt;
+                _root.areaDamage += damageDealt;
+            }
+            var instantKillChance = _root.instantKill / 100;
+            if (enemy.boss == true)
+            {
+                instantKillChance = 0;
+            }
+            if (enemy.hp > enemy.maxhp * 0.5)
+            {
+                instantKillChance = 0;
+            }
+            if (Math.random() < instantKillChance || _root.spiritInsta > 0 || special == "Headshot")
+            {
+                if (_root.save.arenaZone != 52 && enemy.boss != true && enemy.ultra != true && enemy.hp <= enemy.maxhp * 0.99)
+                {
+                    enemy.hp = 0;
+                    showDamage("Instant Kill", 13421772, enemy._x + enemy._width / 2, 40);
+                }
+            }
+            if (_root.save.arenaZone == 20)
+            {
+                _root.raidDamage += damageDealt;
+            }
+            if (damageDealt > 0)
+            {
+                var toDrain = Math.ceil(Math.pow(damageDealt, 0.4) * _root.lifeDrain * 10);
+                var maxDrain = Math.floor(_root.maxHealth * _root.lifeDrain / 500);
+                if (toDrain > maxDrain)
+                {
+                    toDrain = maxDrain;
+                }
+                if (_root.save.arenaZone >= 30 && _root.save.arenaZone <= 43)
+                {
+                    toDrain = Math.floor(toDrain / 10);
+                }
+                if (_root.save.arenaHealth <= 0)
+                {
+                    toDrain = 0;
+                }
+                if (special != "Poison" && special != "Reflect")
+                {
+                    _root.save.arenaHealth += toDrain;
+                }
+                if (special == "Absorb")
+                {
+                    _root.save.arenaHealth += Math.floor(_root.maxHealth * Math.floor(_root.save.arenaSkill[3] * 1 + 10) / 100);
+                    _root.save.arenaMana += Math.floor(_root.maxMana * Math.floor(_root.save.arenaSkill[3] * 0.5 + 5) / 100);
+                }
+                if (special == "Threaten")
+                {
+                    enemy.stun = 3;
+                    if (enemy.threatCount < 1)
+                    {
+                        enemy.threatCount = 1;
+                        enemy.attack = Math.ceil(enemy.attack * (0.88 - _root.save.arenaSkill[3] * 0.006));
+                        enemy.rangeDamage = Math.ceil(enemy.rangeDamage * (0.88 - _root.save.arenaSkill[3] * 0.006));
+                    }
+                    else if (enemy.threatCount < 10)
+                    {
+                        enemy.threatCount += 1;
+                        enemy.attack = Math.ceil(enemy.attack * (0.98 - _root.save.arenaSkill[3] * 0.001));
+                        enemy.rangeDamage = Math.ceil(enemy.rangeDamage * (0.98 - _root.save.arenaSkill[3] * 0.001));
+                    }
+                }
+                if (special == "Hamstring")
+                {
+                    if (Math.random() < 0.05 + _root.save.arenaSkill[3] / 200 && enemy.slow <= -0.5)
+                    {
+                        enemy.slow = 1;
+                        showDamage("SLOW", 10092543, enemy._x + enemy._width / 2, 40);
+                    }
+                }
+                if (special == "Hyper Cannonball")
+                {
+                    enemy.stun = 4;
+                }
+                if (special == "Hyper EXPlosion")
+                {
+                    if (enemy.exp >= 100000)
+                    {
+                        enemy.exp += Math.floor(120000 + _root.save.arenaSkill[3] * 6000);
+                    }
+                    else
+                    {
+                        enemy.exp = Math.floor(enemy.exp * (2.2 + _root.save.arenaSkill[3] * 0.06));
+                    }
+                    enemy.stun = 3;
+                }
+                _root.save.arenaMana += Math.floor(_root.manaLeech * 25);
+                if (enemy.boss == true && Math.random() < _root.save.arenaSkill[37] * 0.01)
+                {
+                    _root.save.arenaSpirit += 3;
+                }
+            }
+            if (damageDealt > 0 && enemy.speed > 0)
+            {
+                if (enemy.boss == true)
+                {
+                    knockBack = Math.ceil(knockBack * 0.7);
+                }
+                if (knockBack > 0 && enemy.curSpeed > knockBack * -1)
+                {
+                    enemy.curSpeed = knockBack * -1;
+                }
+                if (special == "Magnetic")
+                {
+                    enemy.magImmune = 15;
+                    enemy.magnetCount += 1;
+                    var magEff = random(100) + 1;
+                    trace(magEff);
+                    if (magEff <= 70 || enemy.magnetCount > 10)
+                    {
+                        var lootValue = Math.floor((1000 + _root.arenaSkillSpecLevel * 100) * _root.arenaCoinMult * _root.save.boost / 10000 * (0.9 + Math.random() * 0.2));
+                        if (_root.save.permaBanPenalty[11] == 3)
+                        {
+                            lootValue = Math.floor(lootValue * 2);
+                        }
+                        else if (_root.save.permaBanPenalty[11] == 2)
+                        {
+                            lootValue = Math.floor(lootValue * 1.6);
+                        }
+                        else if (_root.save.permaBanPenalty[11] == 1)
+                        {
+                            lootValue = Math.floor(lootValue * 1.4);
+                        }
+                        _root.incDt2();
+                        stuffHolder.attachMovie("newLoot1", "newLoot" + _root.summonCount, _root.antiLag2 + 500,new { x= enemy._x + enemy._width / 2,y= 150,lootValue= lootValue});
+                    }
+                    else if (magEff <= 90)
+                    {
+                        double lootValue = 700;
+                        if (_root.save.permaBanPenalty[11] == 3)
+                        {
+                            lootValue = Math.floor(lootValue * 2);
+                        }
+                        else if (_root.save.permaBanPenalty[11] == 2)
+                        {
+                            lootValue = Math.floor(lootValue * 1.6);
+                        }
+                        else if (_root.save.permaBanPenalty[11] == 1)
+                        {
+                            lootValue = Math.floor(lootValue * 1.4);
+                        }
+                        _root.incDt2();
+                        stuffHolder.attachMovie("newLoot2", "newLoot" + _root.summonCount, _root.antiLag2 + 500,new { x= enemy._x + enemy._width / 2,y= 150,lootValue= lootValue});
+                    }
+                    else if (magEff <= 99 || _root.save.wcDropToday >= 25000 || Math.random() < 0.7)
+                    {
+                        double lootValue = 7;
+                        if (_root.save.permaBanPenalty[11] == 3)
+                        {
+                            lootValue = Math.floor(lootValue * 2);
+                        }
+                        else if (_root.save.permaBanPenalty[11] == 2)
+                        {
+                            lootValue = Math.floor(lootValue * 1.6);
+                        }
+                        else if (_root.save.permaBanPenalty[11] == 1)
+                        {
+                            lootValue = Math.floor(lootValue * 1.4);
+                        }
+                        _root.incDt2();
+                        stuffHolder.attachMovie("newLoot3", "newLoot" + _root.summonCount, _root.antiLag2 + 500,new { x= enemy._x + enemy._width / 2,y= 150,lootValue= lootValue});
+                    }
+                    else if (_root.save.wcDropToday < 25000)
+                    {
+                        _root.save.wcDropToday += 1;
+                        var lootValue = 1;
+                        _root.incDt2();
+                        stuffHolder.attachMovie("newLoot20", "newLoot" + _root.summonCount, _root.antiLag2 + 500,new { x= enemy._x + enemy._width / 2,y= 150,lootValue= lootValue});
+                    }
+                }
+            }
+            _root.arenaCombo += 1;
+            if (_root.save.inventorySpirit[_root.save.arenaWeapon] == true)
+            {
+                _root.save.arenaSpirit += 1;
+                if (_root.manaPower == true)
+                {
+                    if (_root.save.inventoryName[_root.save.arenaWeapon] == "Ultimate Weapon" || _root.save.inventoryName[_root.save.arenaWeapon] == "Reincarnation Weapon")
+                    {
+                        _root.save.arenaSpirit += 1;
+                    }
+                    else
+                    {
+                        _root.save.arenaSpirit += 4;
+                    }
+                }
+                if (_root.save.arenaRing == 11 && Math.random() < 0.5)
+                {
+                    _root.save.arenaSpirit += 1;
+                }
+            }
+            if (enemy.rampagePct != 0 || enemy.skill != "None" || enemy.skillLevel != 0 || enemy.rangeDamage != 0)
+            {
+                if (Math.random() < _root.silenceChance / 100 && enemy.boss != true && enemy.skillLevel >= 0)
+                {
+                    enemy.rampagePct = 0;
+                    enemy.explodeDamage = 1;
+                    enemy.skill = "None";
+                    enemy.skillLevel = -1;
+                    enemy.rangeDamage = 0;
+                    showDamage("SILENCED", 16777215, enemy._x + enemy._width / 2, 40);
+                }
+            }
+            nextAttack = 0;
+            if (_root.save.arenaRing == 19 && Math.random() < 0.05)
+            {
+                if (enemy.slow <= -0.5)
+                {
+                    enemy.slow = 1;
+                }
+            }
+            if (Math.random() < _root.poisonChance / 100)
+            {
+                if (enemy.poison <= -0.5)
+                {
+                    enemy.poison = _root.poisonDuration;
+                }
+                else if (enemy.poison > 0)
+                {
+                    nextAttack += _root.save.arenaSkill[39] * 0.005;
+                }
+            }
+            if (Math.random() < _root.weakenChance / 100)
+            {
+                if (enemy.weaken <= -0.5)
+                {
+                    enemy.weaken = _root.weakenDuration;
+                }
+                else if (enemy.weaken > 0)
+                {
+                    nextAttack += _root.save.arenaSkill[41] * 0.005;
+                }
+            }
+            if (Math.random() < _root.blindChance / 100)
+            {
+                if (enemy.blind <= -0.5)
+                {
+                    enemy.blind = _root.blindDuration;
+                }
+                else if (enemy.blind > 0)
+                {
+                    nextAttack += _root.save.arenaSkill[43] * 0.005;
+                }
+            }
+            if (Math.random() < _root.stunChance / 100 && enemy.stun <= -0.5 && special != "Explosive")
+            {
+                enemy.stun = _root.stunDuration;
+                if (_root.save.arenaSkill[45] > 0)
+                {
+                    dealDamage(_root.save.arenaSkill[45] * 20, 0, "Explosive");
+                }
+            }
+        }
+        else
+        {
+            if (_root.save.arenaZone == 50)
+            {
+                if (_root.save.arenaCorruptEvasion > 1000)
+                {
+                    _root.save.arenaCorruptEvasion -= 20;
+                }
+                else if (_root.save.arenaCorruptEvasion > 200)
+                {
+                    _root.save.arenaCorruptEvasion -= 10;
+                }
+                else if (_root.save.arenaCorruptEvasion > 50)
+                {
+                    _root.save.arenaCorruptEvasion -= 1;
+                }
+            }
+            showDamage("MISS!!", 10066329, enemy._x + enemy._width / 2, 80);
+        }
+    }
+    // MATCH: DefineSprite_6014-frame_1-DoAction_2.as:takeDamage()
+    public void takeDamage(double damageTemp, string special)
+    {
+        if (_root.save.arenaZone == 82 && _root.save.arenaEvent == 2)
+        {
+            if (isNaN(tmpHealth))
+            {
+                tmpHealth = _root.save.arenaHealth;
+            }
+            if (enemy.enemyID != 0)
+            {
+                if (_root.save.arenaHealth > tmpHealth)
+                {
+                    _root.save.arenaHealth = tmpHealth.Value;
+                }
+            }
+            tmpHealth = _root.save.arenaHealth;
+        }
+        if ((_root.save.arenaZone >= 62 && _root.save.arenaZone <= 67 || _root.save.arenaZone >= 86 && _root.save.arenaZone <= 91) && _root.areaFairyPerformance > 0)
+        {
+            _root.areaFairyPerformance -= 1;
+        }
+        var finalAccuracy = enemy.accuracy;
+        if (enemy.blind > 0)
+        {
+            finalAccuracy = enemy.accuracy * (100 - _root.blindPower) / 100;
+        }
+        var noDodgeChance = finalAccuracy / _root.evasion - 0.1;
+        if (noDodgeChance < 0.1)
+        {
+            noDodgeChance = 0.1;
+        }
+        if (hero.Xalpha == 30)
+        {
+            noDodgeChance = 0;
+        }
+        if (_root.save.arenaZone == 24 || _root.save.arenaZone == 38)
+        {
+            dodgeCombo = 0;
+        }
+        if (Math.random() < noDodgeChance && Math.random() > _root.evasionPct / 100 || dodgeCombo >= 10 || special == "Drown" || special == "Cannot Dodge" || special == "Apocalypse")
+        {
+            if (special != "Heal" && special != "Drown" && special != "Cannot Dodge" && special != "Apocalypse")
+            {
+                dodgeCombo = 0;
+            }
+            var tempDEF = _root.damageResist;
+            if (enemy.enemyID != 0)
+            {
+                tempDEF = Math.floor(tempDEF * (1 + (_root.save.level - enemy.level) / 6000));
+                if (enemy.level > _root.save.level && _root.save.level < 8999)
+                {
+                    if (_root.save.gDifficulty >= 3)
+                    {
+                        tempDEF = Math.floor(tempDEF * 0.6);
+                    }
+                    else
+                    {
+                        tempDEF = Math.floor(tempDEF * 0.8);
+                    }
+                }
+            }
+            if (tempDEF < 0)
+            {
+                tempDEF = 0;
+            }
+            if (tempDEF > Math.floor(_root.damageResist * 2))
+            {
+                tempDEF = Math.floor(_root.damageResist * 2);
+            }
+            var damageTaken = Math.ceil((damageTemp - tempDEF) * (100 - _root.damageResistPct) / 100);
+            if (enemy.weaken > 0)
+            {
+                damageTaken -= Math.floor(damageTemp * _root.weakenPower * (100 - _root.damageResistPct) / 10000);
+            }
+            if (special == "Heal")
+            {
+                damageTaken = Math.ceil(damageTemp * -1);
+            }
+            if (special == "Drown")
+            {
+                damageTaken = Math.ceil((damageTemp - _root.damageResist / 3) * (100 - _root.damageResistPct / 3) / 100);
+            }
+            if (special == "Magic")
+            {
+                if (damageTaken < 1)
+                {
+                    damageTaken = 1;
+                }
+                var plusDamage = Math.ceil(enemy.rangeDamage * 0.2 * (0.9 + Math.random() * 0.2) * (100 - _root.damageResistPct) / 100);
+                if (plusDamage > 10001024)
+                {
+                    plusDamage = Math.ceil(10000000 + Math.pow(plusDamage - 10000000, 0.9) * 2);
+                }
+                damageTaken += plusDamage;
+                damageTaken = Math.ceil(damageTaken * (1 - _root.magicResist / 100));
+            }
+            if (special == "Ignore Defense")
+            {
+                damageTaken = Math.ceil(damageTemp);
+            }
+            if (special == "Apocalypse")
+            {
+                damageTaken = Math.ceil(damageTemp);
+            }
+            if (_root.save.arenaZone == 56)
+            {
+                damageTaken = Math.ceil(damageTaken * (1 + _root.areaRevengeRage * 0.01));
+            }
+            if (_root.save.arenaZone == 53 || _root.save.arenaZone == 54)
+            {
+                if (_root.dungeonAntiCurse == true)
+                {
+                    damageTaken = Math.ceil(damageTaken * 0.3);
+                }
+            }
+            if (_root.turnBased == true)
+            {
+                damageTaken = Math.ceil(damageTaken * 1.01);
+            }
+            if (damageTaken < 1 && special != "Heal")
+            {
+                damageTaken = 1;
+            }
+            if (_root.save.arenaZone == 54)
+            {
+                if (_root.arenaChaosPhase == 4 || _root.arenaChaosPhase == 6)
+                {
+                    damageTaken = Math.ceil(damageTaken * 2);
+                    if (damageTaken < 666666 && damageTaken > 0)
+                    {
+                        damageTaken = 666666;
+                    }
+                }
+            }
+            if (_root.save.arenaHealth >= _root.maxHealth)
+            {
+                damageTaken = Math.ceil(damageTaken * (1 - _root.lifeDrain * 0.002));
+            }
+            if (_root.save.restTime > 0)
+            {
+                damageTaken = Math.ceil(damageTaken * (0.9 - _root.save.restEfficiency[5] * 0.01));
+            }
+            if (_root.save.arenaHealth < damageTaken && _root.save.arenaSkill[23] > 0 && enemy.tankMode != true)
+            {
+                if ((_root.reviveCooldown > 0 || _root.save.arenaSkill[64] <= 0) && _root.save.arenaZone != 24 && (_root.save.arenaZone < 30 || _root.save.arenaZone > 43))
+                {
+                    _root.save.arenaHealth = _root.maxHealth;
+                    enemy.tankMode = true;
+                }
+            }
+            if ((enemy.enemyID == 0 || enemy.tankMode == true) && _root.save.arenaZone != 24 && (_root.save.arenaZone < 30 || _root.save.arenaZone > 43))
+            {
+                damageTaken = Math.ceil(damageTaken * (1 - _root.save.arenaSkill[23] * 0.01));
+            }
+            if (_root.save.arenaZone == 24 && _root.save.inventorySpirit[_root.save.arenaWeapon] == true)
+            {
+                damageTaken = Math.ceil(damageTaken * 2.5);
+            }
+            _root.save.arenaHealth -= damageTaken;
+            if (_root.save.inventoryName[_root.save.arenaWeapon] == "CHAOS AURA" && special != "Apocalypse" && damageTaken > 0)
+            {
+                _root.save.arenaFury += Math.floor(Math.log(damageTaken));
+            }
+            if (_root.manaPower == true && special != "Ignore Defense" && special != "Apocalypse" && damageTaken > 0)
+            {
+                if (_root.save.inventoryName[_root.save.arenaWeapon] != "CHAOS AURA")
+                {
+                    if (_root.save.inventorySpirit[_root.save.arenaWeapon] == true)
+                    {
+                        if (_root.save.arenaSpirit >= Math.floor(damageTaken / 50000))
+                        {
+                            _root.save.arenaSpirit -= Math.floor(damageTaken / 50000);
+                        }
+                        else
+                        {
+                            var extraDamage = damageTaken - _root.save.arenaSpirit * 50000;
+                            damageTaken += extraDamage;
+                            _root.save.arenaHealth -= extraDamage;
+                            _root.save.arenaSpirit = 0;
+                        }
+                    }
+                    else if (_root.save.arenaMana >= damageTaken)
+                    {
+                        _root.save.arenaMana -= damageTaken;
+                    }
+                    else
+                    {
+                        var extraDamage = damageTaken - _root.save.arenaMana;
+                        damageTaken += extraDamage;
+                        _root.save.arenaHealth -= extraDamage;
+                        _root.save.arenaMana = 0;
+                    }
+                }
+            }
+            if (_root.save.arenaZone == 50)
+            {
+                if (_root.save.arenaCorruptAttack < 1000 && damageTaken == 1)
+                {
+                    _root.save.arenaCorruptAttack += 10;
+                }
+                else if (_root.save.arenaCorruptAttack < 1000 && damageTaken < _root.maxHealth * 0.04)
+                {
+                    _root.save.arenaCorruptAttack += 2;
+                }
+                else if (_root.save.arenaCorruptAttack < 2000 && damageTaken < _root.maxHealth * 0.1)
+                {
+                    _root.save.arenaCorruptAttack += 1;
+                }
+                else if (_root.save.arenaCorruptAttack > 200 && damageTaken > _root.maxHealth * 0.2)
+                {
+                    _root.save.arenaCorruptAttack -= 10;
+                }
+                else if (_root.save.arenaCorruptAttack > 50 && damageTaken > _root.maxHealth * 0.2)
+                {
+                    _root.save.arenaCorruptAttack -= 1;
+                }
+                if (_root.save.arenaCorruptAccuracy > 200)
+                {
+                    _root.save.arenaCorruptAccuracy -= 10;
+                }
+                else if (_root.save.arenaCorruptAccuracy > 50)
+                {
+                    _root.save.arenaCorruptAccuracy -= 1;
+                }
+            }
+            var damageColorX = 10027229;
+            if (damageTaken > 0 && special != "Apocalypse")
+            {
+                if (_root.save.arenaZone != 47)
+                {
+                    var damageMult = 1 + Math.pow(damageTaken, 0.2);
+                    var comboMult = 1 + _root.arenaCombo / 125;
+                    if (damageMult > 20 || isNaN(damageMult))
+                    {
+                        damageMult = 20;
+                    }
+                    if (comboMult > 5 || isNaN(comboMult))
+                    {
+                        comboMult = 5;
+                    }
+                    _root.save.arenaRage += Math.ceil(damageMult * comboMult);
+                    if (damageTaken >= 2)
+                    {
+                        _root.save.arenaRage += Math.ceil(_root.save.arenaSkill[65] * 0.5);
+                    }
+                }
+                else
+                {
+                    _root.save.arenaRage += 1;
+                }
+            }
+            if (special == "Magic")
+            {
+                var comboToLose = Math.ceil(_root.arenaCombo / 2);
+                if (comboToLose > 200)
+                {
+                    comboToLose = 200;
+                }
+                damageColorX = 12255453;
+                _root.arenaCombo -= comboToLose;
+                if (enemy.element == "Fire")
+                {
+                    fr = 3;
+                }
+                else if (enemy.element == "Ice")
+                {
+                    fr = 4;
+                }
+                else if (enemy.element == "Wind")
+                {
+                    fr = 5;
+                }
+                else if (enemy.element == "Earth")
+                {
+                    fr = 6;
+                }
+                else if (enemy.element == "Thunder")
+                {
+                    fr = 7;
+                }
+                else if (enemy.element == "Water")
+                {
+                    fr = 8;
+                }
+                else if (enemy.element == "Dark")
+                {
+                    fr = 1;
+                }
+                else if (enemy.element == "Light")
+                {
+                    fr = 2;
+                }
+                else
+                {
+                    fr = 9;
+                }
+                rangedAttack.gotoAndStop(fr);
+                rangedAttack._alpha = 100;
+            }
+            else if (special == "Drown")
+            {
+                var comboToLose = Math.ceil(_root.arenaCombo / 2);
+                if (comboToLose > 1)
+                {
+                    comboToLose = 1;
+                }
+                damageColorX = 10027229;
+                _root.arenaCombo -= comboToLose;
+            }
+            else if (special == "Heal")
+            {
+                damageColorX = 39423;
+            }
+            else if (special == "Explode")
+            {
+                var comboToLose = Math.ceil(_root.arenaCombo / 1.5);
+                if (comboToLose > 500)
+                {
+                    comboToLose = 500;
+                }
+                damageColorX = 10027229;
+                _root.arenaCombo -= comboToLose;
+                rangedAttack.gotoAndStop(3);
+                rangedAttack._alpha = 100;
+            }
+            else if (special != "Apocalypse")
+            {
+                if (_root.save.arenaRing == 18)
+                {
+                    _root.arenaCombo = Math.floor(_root.arenaCombo / 10);
+                }
+                else
+                {
+                    _root.arenaCombo = 0;
+                }
+            }
+            if (Math.random() > _root.negateEffect / 100 && damageTaken > 0 && special != "Apocalypse" && special != "Drown")
+            {
+                if ((enemy.skill == "Throw Soap" || enemy.skill == "Chaos" || enemy.skill == "ULTRA") && Math.random() < 0.05 && _root.arenaSoap <= 0)
+                {
+                    _root.arenaSoap = Math.ceil(enemy.skillLevel / 2);
+                    _root.dispNews(66, "The monster threw some SOAP at you!");
+                }
+                if ((enemy.skill == "Poison" || enemy.skill == "All" || enemy.skill == "Chaos" || enemy.skill == "ULTRA") && Math.random() < 0.05 && _root.arenaPoison <= 0)
+                {
+                    _root.arenaPoison = enemy.skillLevel;
+                    showDamage("Poison", 16750848, 62.5, 50);
+                }
+                if ((enemy.skill == "Weaken" || enemy.skill == "All" || enemy.skill == "ULTRA") && Math.random() < 0.05 && _root.arenaWeaken <= 0)
+                {
+                    _root.arenaWeaken = enemy.skillLevel;
+                    showDamage("Weaken", 16750848, 62.5, 50);
+                }
+                if ((enemy.skill == "Blind" || enemy.skill == "All" || enemy.skill == "Chaos" || enemy.skill == "ULTRA") && Math.random() < 0.05 && _root.arenaBlind <= 0)
+                {
+                    _root.arenaBlind = enemy.skillLevel;
+                    showDamage("Blind", 16750848, 62.5, 50);
+                }
+                if ((enemy.skill == "Slow" || enemy.skill == "All" || enemy.skill == "Doom" || enemy.skill == "Chaos" || enemy.skill == "ULTRA") && Math.random() < 0.05 && _root.arenaSlow <= 0)
+                {
+                    _root.arenaSlow = enemy.skillLevel;
+                    showDamage("Slow", 16750848, 62.5, 50);
+                }
+                if ((enemy.skill == "Stun" || enemy.skill == "All" || enemy.skill == "Doom" || enemy.skill == "Chaos" || enemy.skill == "ULTRA") && Math.random() < 0.05 && _root.arenaStun <= 0 && _root.arenaPotionBlock <= 0)
+                {
+                    _root.arenaStun = Math.ceil(enemy.skillLevel / 2);
+                    showDamage("Stun", 16750848, 62.5, 50);
+                }
+                if ((enemy.skill == "Potion Block" || enemy.skill == "All" || enemy.skill == "Doom" || enemy.skill == "Chaos" || enemy.skill == "ULTRA") && Math.random() < 0.05 && _root.arenaZombify <= 0 && _root.arenaStun <= 0 && _root.arenaPotionBlock <= 0)
+                {
+                    _root.arenaPotionBlock = enemy.skillLevel;
+                    showDamage("Potion Block", 16750848, 62.5, 50);
+                }
+                if ((enemy.skill == "Zombify" || enemy.skill == "All" || enemy.skill == "Doom" || enemy.skill == "Chaos" || enemy.skill == "ULTRA") && Math.random() < 0.05 && _root.arenaZombify <= 0 && _root.arenaPotionBlock <= 0)
+                {
+                    _root.arenaZombify = enemy.skillLevel;
+                    showDamage("Zombify", 16750848, 62.5, 50);
+                }
+                if ((enemy.skill == "Health Drain" || enemy.skill == "Doom" || enemy.skill == "Chaos" || enemy.skill == "ULTRA") && Math.random() < 0.1)
+                {
+                    var healthToDrain = Math.floor(Math.pow(damageTaken, 1.3) * enemy.skillLevel);
+                    if (_root.save.arenaZone == 47)
+                    {
+                        healthToDrain = Math.floor(healthToDrain * 0.15);
+                    }
+                    if (healthToDrain > enemy.maxhp - enemy.hp)
+                    {
+                        healthToDrain = enemy.maxhp - enemy.hp;
+                    }
+                    enemy.hp += healthToDrain;
+                    showDamage(healthToDrain, 39423, enemy._x + enemy._width / 2, 40);
+                }
+                if ((enemy.skill == "Mana Drain" || enemy.skill == "Doom" || enemy.skill == "Chaos" || enemy.skill == "ULTRA") && Math.random() < 0.1)
+                {
+                    var manaToDrain = Math.floor(damageTaken / 10 * enemy.skillLevel);
+                    if (manaToDrain > _root.save.arenaMana)
+                    {
+                        manaToDrain = _root.save.arenaMana;
+                    }
+                    if (manaToDrain > 0)
+                    {
+                        _root.save.arenaMana -= manaToDrain;
+                        showDamage("MP -" + _root.withComma(manaToDrain), 16750848, 62.5, 50);
+                    }
+                }
+                if ((enemy.skill == "Attack UP" || enemy.skill == "Stat UP" || enemy.skill == "Chaos" || enemy.skill == "ULTRA") && Math.random() < 0.07)
+                {
+                    if (_root.save.arenaZone == 78 && enemy.lifespan >= 30)
+                    {
+                        if (enemy.lifespan >= 300)
+                        {
+                            enemy.attack = Math.floor(enemy.attack * (100 + enemy.skillLevel * 100) / 100);
+                            enemy.rangeDamage = Math.floor(enemy.rangeDamage * (100 + enemy.skillLevel * 100) / 100);
+                            showDamage("Attack +" + enemy.skillLevel * 100 + "%", 16711680, enemy._x + enemy._width / 2, 40);
+                        }
+                        else if (enemy.lifespan >= 180)
+                        {
+                            enemy.attack = Math.floor(enemy.attack * (100 + enemy.skillLevel * 30) / 100);
+                            enemy.rangeDamage = Math.floor(enemy.rangeDamage * (100 + enemy.skillLevel * 30) / 100);
+                            showDamage("Attack +" + enemy.skillLevel * 30 + "%", 16711680, enemy._x + enemy._width / 2, 40);
+                        }
+                        else if (enemy.lifespan >= 90)
+                        {
+                            enemy.attack = Math.floor(enemy.attack * (100 + enemy.skillLevel * 10) / 100);
+                            enemy.rangeDamage = Math.floor(enemy.rangeDamage * (100 + enemy.skillLevel * 10) / 100);
+                            showDamage("Attack +" + enemy.skillLevel * 10 + "%", 16711680, enemy._x + enemy._width / 2, 40);
+                        }
+                        else
+                        {
+                            enemy.attack = Math.floor(enemy.attack * (100 + enemy.skillLevel * 3) / 100);
+                            enemy.rangeDamage = Math.floor(enemy.rangeDamage * (100 + enemy.skillLevel * 3) / 100);
+                            showDamage("Attack +" + enemy.skillLevel * 3 + "%", 16711680, enemy._x + enemy._width / 2, 40);
+                        }
+                    }
+                    else
+                    {
+                        enemy.attack = Math.floor(enemy.attack * (100 + enemy.skillLevel) / 100);
+                        enemy.rangeDamage = Math.floor(enemy.rangeDamage * (100 + enemy.skillLevel) / 100);
+                        showDamage("Attack +" + enemy.skillLevel + "%", 16711680, enemy._x + enemy._width / 2, 40);
+                    }
+                }
+                if ((enemy.skill == "Defense UP" || enemy.skill == "Stat UP" || enemy.skill == "Chaos" || enemy.skill == "ULTRA") && Math.random() < 0.07)
+                {
+                    if (_root.save.arenaZone == 78 && enemy.lifespan >= 30)
+                    {
+                        if (enemy.lifespan >= 300)
+                        {
+                            enemy.defense = Math.floor(enemy.defense * (100 + enemy.skillLevel * 100) / 100);
+                            showDamage("Defense +" + enemy.skillLevel * 100 + "%", 16711680, enemy._x + enemy._width / 2, 40);
+                        }
+                        else if (enemy.lifespan >= 180)
+                        {
+                            enemy.defense = Math.floor(enemy.defense * (100 + enemy.skillLevel * 30) / 100);
+                            showDamage("Defense +" + enemy.skillLevel * 30 + "%", 16711680, enemy._x + enemy._width / 2, 40);
+                        }
+                        else if (enemy.lifespan >= 90)
+                        {
+                            enemy.defense = Math.floor(enemy.defense * (100 + enemy.skillLevel * 10) / 100);
+                            showDamage("Defense +" + enemy.skillLevel * 10 + "%", 16711680, enemy._x + enemy._width / 2, 40);
+                        }
+                        else
+                        {
+                            enemy.defense = Math.floor(enemy.defense * (100 + enemy.skillLevel * 3) / 100);
+                            showDamage("Defense +" + enemy.skillLevel * 3 + "%", 16711680, enemy._x + enemy._width / 2, 40);
+                        }
+                    }
+                    else
+                    {
+                        enemy.defense = Math.floor(enemy.defense * (100 + enemy.skillLevel) / 100);
+                        showDamage("Defense +" + enemy.skillLevel + "%", 16711680, enemy._x + enemy._width / 2, 40);
+                    }
+                }
+                if ((enemy.skill == "Accuracy UP" || enemy.skill == "Stat UP" || enemy.skill == "Chaos" || enemy.skill == "ULTRA") && Math.random() < 0.08)
+                {
+                    if (_root.save.arenaZone == 78 && enemy.lifespan >= 30)
+                    {
+                        if (enemy.lifespan >= 300)
+                        {
+                            enemy.accuracy = Math.floor(enemy.accuracy * (100 + enemy.skillLevel * 100) / 100);
+                            showDamage("Accuracy +" + enemy.skillLevel * 100 + "%", 16711680, enemy._x + enemy._width / 2, 40);
+                        }
+                        else if (enemy.lifespan >= 180)
+                        {
+                            enemy.accuracy = Math.floor(enemy.accuracy * (100 + enemy.skillLevel * 30) / 100);
+                            showDamage("Accuracy +" + enemy.skillLevel * 30 + "%", 16711680, enemy._x + enemy._width / 2, 40);
+                        }
+                        else if (enemy.lifespan >= 90)
+                        {
+                            enemy.accuracy = Math.floor(enemy.accuracy * (100 + enemy.skillLevel * 10) / 100);
+                            showDamage("Accuracy +" + enemy.skillLevel * 10 + "%", 16711680, enemy._x + enemy._width / 2, 40);
+                        }
+                        else
+                        {
+                            enemy.accuracy = Math.floor(enemy.accuracy * (100 + enemy.skillLevel * 3) / 100);
+                            showDamage("Accuracy +" + enemy.skillLevel * 3 + "%", 16711680, enemy._x + enemy._width / 2, 40);
+                        }
+                    }
+                    else
+                    {
+                        enemy.accuracy = Math.floor(enemy.accuracy * (100 + enemy.skillLevel) / 100);
+                        showDamage("Accuracy +" + enemy.skillLevel + "%", 16711680, enemy._x + enemy._width / 2, 40);
+                    }
+                }
+                if ((enemy.skill == "Evasion UP" || enemy.skill == "Stat UP" || enemy.skill == "Chaos" || enemy.skill == "ULTRA") && Math.random() < 0.08)
+                {
+                    if (_root.save.arenaZone == 78 && enemy.lifespan >= 30)
+                    {
+                        if (enemy.lifespan >= 300)
+                        {
+                            enemy.evasion = Math.floor(enemy.evasion * (100 + enemy.skillLevel * 100) / 100);
+                            showDamage("Evasion +" + enemy.skillLevel * 100 + "%", 16711680, enemy._x + enemy._width / 2, 40);
+                        }
+                        else if (enemy.lifespan >= 180)
+                        {
+                            enemy.evasion = Math.floor(enemy.evasion * (100 + enemy.skillLevel * 30) / 100);
+                            showDamage("Evasion +" + enemy.skillLevel * 30 + "%", 16711680, enemy._x + enemy._width / 2, 40);
+                        }
+                        else if (enemy.lifespan >= 90)
+                        {
+                            enemy.evasion = Math.floor(enemy.evasion * (100 + enemy.skillLevel * 10) / 100);
+                            showDamage("Evasion +" + enemy.skillLevel * 10 + "%", 16711680, enemy._x + enemy._width / 2, 40);
+                        }
+                        else
+                        {
+                            enemy.evasion = Math.floor(enemy.evasion * (100 + enemy.skillLevel * 3) / 100);
+                            showDamage("Evasion +" + enemy.skillLevel * 3 + "%", 16711680, enemy._x + enemy._width / 2, 40);
+                        }
+                    }
+                    else
+                    {
+                        enemy.evasion = Math.floor(enemy.evasion * (100 + enemy.skillLevel) / 100);
+                        showDamage("Evasion +" + enemy.skillLevel + "%", 16711680, enemy._x + enemy._width / 2, 40);
+                    }
+                }
+            }
+            if (special == "Heal")
+            {
+                damageTaken = Math.ceil(damageTaken * -1);
+            }
+            if (_root.save.arenaRing == 16 && _root.save.arenaBuffType == 0 && Math.random() < 0.2)
+            {
+                _root.save.arenaBuffType = 7;
+                _root.save.arenaBuffDuration = 3;
+            }
+            showDamage(damageTaken, damageColorX, 62.5, 70);
+        }
+        else
+        {
+            if (_root.evasionPct < 100)
+            {
+                dodgeCombo += 1;
+            }
+            if (_root.save.arenaZone == 50)
+            {
+                if (_root.save.arenaCorruptAccuracy < 200)
+                {
+                    _root.save.arenaCorruptAccuracy += 10;
+                }
+                else if (_root.save.arenaCorruptAccuracy < 1000)
+                {
+                    _root.save.arenaCorruptAccuracy += 5;
+                }
+                else if (_root.save.arenaCorruptAccuracy < 2000)
+                {
+                    _root.save.arenaCorruptAccuracy += 1;
+                }
+            }
+            showDamage("MISS!!", 10066329, 62.5, 70);
+        }
+        if (_root.save.arenaZone == 82 && _root.save.arenaEvent == 2)
+        {
+            if (isNaN(tmpHealth))
+            {
+                tmpHealth = _root.save.arenaHealth;
+            }
+            if (enemy.enemyID != 0)
+            {
+                if (_root.save.arenaHealth > tmpHealth)
+                {
+                    _root.save.arenaHealth = (double)tmpHealth;
+                }
+            }
+            tmpHealth = _root.save.arenaHealth;
+        }
+    }
+
 }

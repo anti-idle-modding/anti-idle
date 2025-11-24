@@ -1,4 +1,4 @@
-[gd_scene load_steps=57 format=3 uid="uid://xp2ssc00cfow"]
+[gd_scene load_steps=76 format=3 uid="uid://xp2ssc00cfow"]
 
 [ext_resource type="Script" uid="uid://dpfd8gl4pfswf" path="res://src/BattleArena/6014/DefineSprite_6014.cs" id="1_1nud2"]
 [ext_resource type="Texture2D" uid="uid://d0ekivc6u6plm" path="res://src/BattleArena/6014/textures/instance11.png" id="1_9mlq7"]
@@ -23,26 +23,39 @@
 [ext_resource type="Texture2D" uid="uid://bj3jsoqakylcr" path="res://src/BattleArena/6014/textures/instance2523.png" id="37_3m97z"]
 [ext_resource type="Texture2D" uid="uid://bvd6alu7qqein" path="res://src/BattleArena/6014/textures/instance2525.png" id="38_vb0wo"]
 [ext_resource type="Texture2D" uid="uid://cjrn7ki7asqe5" path="res://src/BattleArena/6014/textures/instance2526.png" id="39_k10s2"]
+[ext_resource type="PackedScene" uid="uid://bovrs1xp856gw" path="res://src/BattleArena/6014/spec_disp.tscn" id="40_bobx2"]
 [ext_resource type="Texture2D" uid="uid://bsv2qvdaq2xdy" path="res://src/BattleArena/6014/textures/instance2528.png" id="40_rpe5u"]
 [ext_resource type="Texture2D" uid="uid://crq2nvwu1w0pb" path="res://src/BattleArena/6014/textures/instance2531.png" id="41_mut8v"]
 [ext_resource type="Script" uid="uid://jnbwn5xn8y2s" path="res://src/BattleArena/6014/StuffHolder.cs" id="41_v5i5n"]
 [ext_resource type="Texture2D" uid="uid://c3a4tdm67874k" path="res://src/BattleArena/6014/textures/instance2534.png" id="42_ncgzw"]
 [ext_resource type="Texture2D" uid="uid://bw87u0nlmswp1" path="res://src/BattleArena/6014/textures/instance2540.png" id="43_l0k6v"]
+[ext_resource type="Texture2D" uid="uid://bmsd7qqdopkxx" path="res://common_assets/sprites/DefineSprite_4868/1.png" id="43_tj6nw"]
+[ext_resource type="Texture2D" uid="uid://cb0oey04ln10q" path="res://common_assets/sprites/DefineSprite_4868/2.png" id="44_k3obc"]
 [ext_resource type="Texture2D" uid="uid://brc8m4tixp8u7" path="res://src/BattleArena/6014/textures/instance2541.png" id="44_l5fc8"]
 [ext_resource type="Texture2D" uid="uid://cu3skgl6py2pg" path="res://src/BattleArena/6014/textures/instance2547.png" id="45_qyhk7"]
+[ext_resource type="Texture2D" uid="uid://b76mnulckgigt" path="res://common_assets/sprites/DefineSprite_4868/3.png" id="45_unwi0"]
+[ext_resource type="Texture2D" uid="uid://cyxaynv43rvxf" path="res://common_assets/sprites/DefineSprite_4868/4.png" id="46_le1cf"]
 [ext_resource type="Texture2D" uid="uid://cf6vnlqa3ffkj" path="res://src/BattleArena/6014/textures/instance2550.png" id="46_qpz1x"]
+[ext_resource type="Texture2D" uid="uid://cbbc3ouk034fb" path="res://common_assets/sprites/DefineSprite_4868/5.png" id="47_cfrd7"]
 [ext_resource type="Texture2D" uid="uid://dnvmsbvrky1h0" path="res://src/BattleArena/6014/textures/instance2551.png" id="47_z5r1h"]
 [ext_resource type="Texture2D" uid="uid://b3wg64gxryt4l" path="res://src/BattleArena/6014/textures/instance2575.png" id="48_6ndpk"]
+[ext_resource type="Texture2D" uid="uid://cnnajirantxt6" path="res://common_assets/sprites/DefineSprite_4868/6.png" id="48_fi8wf"]
+[ext_resource type="Texture2D" uid="uid://dck45osuoj8v2" path="res://common_assets/sprites/DefineSprite_4868/7.png" id="49_bk3w7"]
 [ext_resource type="Texture2D" uid="uid://bwfjxntrgo3c4" path="res://src/BattleArena/6014/textures/instance2584.png" id="49_clw6h"]
+[ext_resource type="Texture2D" uid="uid://88nnwcohs0ew" path="res://common_assets/sprites/DefineSprite_4868/8.png" id="50_p5ww6"]
 [ext_resource type="Texture2D" uid="uid://ig74bev1sc0o" path="res://src/BattleArena/6014/textures/instance2585.png" id="50_t4vh8"]
 [ext_resource type="Texture2D" uid="uid://covypyrleqkgw" path="res://src/BattleArena/6014/textures/instance2587.png" id="51_8xw7j"]
+[ext_resource type="Texture2D" uid="uid://dn5a0ubnawwh0" path="res://common_assets/sprites/DefineSprite_4868/9.png" id="51_sm1rv"]
 [ext_resource type="PackedScene" uid="uid://fvglhn2lxjhj" path="res://src/BattleArena/6014/cgt_hp.tscn" id="51_v5i5n"]
 [ext_resource type="Texture2D" uid="uid://db6uafkubtx8g" path="res://src/BattleArena/6014/textures/instance2589.png" id="52_4kpgp"]
+[ext_resource type="Texture2D" uid="uid://cvuv2wudtsiu2" path="res://common_assets/sprites/DefineSprite_4868/10.png" id="52_6xvqi"]
+[ext_resource type="Texture2D" uid="uid://di64m72yk7w6e" path="res://common_assets/sprites/DefineSprite_4868/11.png" id="53_fxfn5"]
 [ext_resource type="Texture2D" uid="uid://cf7iec0beiiep" path="res://src/BattleArena/6014/textures/instance2591.png" id="53_jwec6"]
 [ext_resource type="Texture2D" uid="uid://cpib613t8kj3u" path="res://src/BattleArena/6014/textures/instance2594.png" id="54_8gqr7"]
+[ext_resource type="Texture2D" uid="uid://72pua34xvwkq" path="res://common_assets/sprites/DefineSprite_4868/12.png" id="54_qh3y3"]
+[ext_resource type="Script" uid="uid://dydqyu8307670" path="res://src/BattleArena/6014/RangedAttack.cs" id="55_tj6nw"]
 [ext_resource type="Texture2D" uid="uid://ce7fbhk2fj7us" path="res://src/BattleArena/6014/textures/instance2619.png" id="55_zhd59"]
 [ext_resource type="Texture2D" uid="uid://brh4tnrs38xxm" path="res://src/BattleArena/6014/textures/instance2643.png" id="56_nprav"]
-[ext_resource type="Texture2D" uid="uid://0m5acdixx1rp" path="res://src/BattleArena/6014/textures/instance2652.png" id="57_4zo3s"]
 [ext_resource type="Texture2D" uid="uid://c5uwk1mlj2wl3" path="res://src/BattleArena/6014/textures/instance2654.png" id="58_2td58"]
 [ext_resource type="Texture2D" uid="uid://5h2nuvfordvk" path="res://src/BattleArena/6014/textures/instance2655.png" id="59_5r9et"]
 [ext_resource type="Texture2D" uid="uid://cgn0yxkujnsxk" path="res://src/BattleArena/6014/textures/instance2656.png" id="60_x31oz"]
@@ -50,10 +63,75 @@
 [ext_resource type="Texture2D" uid="uid://cgxoa405vjp6y" path="res://src/BattleArena/6014/textures/instance2659.png" id="62_311tk"]
 [ext_resource type="Texture2D" uid="uid://bua3f2kdk1ebw" path="res://src/BattleArena/6014/textures/instance2660.png" id="63_4nhfs"]
 [ext_resource type="Texture2D" uid="uid://cthbxdhto7ynu" path="res://src/BattleArena/6014/textures/instance2665.png" id="64_g1qw2"]
+[ext_resource type="Texture2D" uid="uid://er8ugntuin8l" path="res://common_assets/sprites/DefineSprite_4941/1.png" id="65_cfrd7"]
+[ext_resource type="Script" uid="uid://dinjrntkxv32h" path="res://src/BattleArena/6014/EnemyImmune.cs" id="65_k3obc"]
 [ext_resource type="Texture2D" uid="uid://t8uaw0pk8llj" path="res://src/BattleArena/6014/textures/instance2668.png" id="65_l6kei"]
 [ext_resource type="Texture2D" uid="uid://dg3yp3icyqair" path="res://src/BattleArena/6014/textures/instance2671.png" id="66_3o76t"]
+[ext_resource type="Texture2D" uid="uid://dkletpkg026hy" path="res://common_assets/sprites/DefineSprite_4941/2.png" id="66_fi8wf"]
+[ext_resource type="Texture2D" uid="uid://lfgcfi864tdt" path="res://common_assets/sprites/DefineSprite_4941/3.png" id="67_bk3w7"]
 [ext_resource type="Texture2D" uid="uid://b560myovtxhor" path="res://src/BattleArena/6014/textures/instance2675.png" id="67_kpidv"]
 [ext_resource type="Texture2D" uid="uid://7c1qps5nl0ns" path="res://src/BattleArena/6014/textures/instance2680.png" id="68_iaz0i"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_01yb6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("43_tj6nw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("44_k3obc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("45_unwi0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("46_le1cf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("47_cfrd7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("48_fi8wf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("49_bk3w7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("50_p5ww6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("51_sm1rv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("52_6xvqi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("53_fxfn5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("54_qh3y3")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_p5ww6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("65_cfrd7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("66_fi8wf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("67_bk3w7")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="Animation" id="Animation_8pyie"]
 resource_name = "Séquence 3"
@@ -112,8 +190,15 @@ _data = {
 &"Séquence 3": SubResource("Animation_8pyie")
 }
 
-[node name="DefineSprite_6014" type="Node2D"]
+[node name="DefineSprite_6014" type="Node2D" node_paths=PackedStringArray("enemy", "cgtHP", "specDisp", "rangedAttack", "enemyImmune", "stuffHolder", "hero")]
 script = ExtResource("1_1nud2")
+enemy = NodePath("instance9/enemy")
+cgtHP = NodePath("instance9/cgtHP")
+specDisp = NodePath("instance9/specDisp")
+rangedAttack = NodePath("instance9/rangedAttack")
+enemyImmune = NodePath("instance9/enemyImmune")
+stuffHolder = NodePath("instance9/stuffHolder")
+hero = NodePath("instance9/hero")
 
 [node name="instance9" type="Node2D" parent="."]
 
@@ -607,12 +692,8 @@ texture = ExtResource("56_nprav")
 [node name="instance2650" type="Node2D" parent="instance9"]
 position = Vector2(495, 118)
 
-[node name="specDisp" type="Node2D" parent="instance9"]
+[node name="specDisp" parent="instance9" instance=ExtResource("40_bobx2")]
 position = Vector2(0, 120)
-
-[node name="instance2652" type="Sprite2D" parent="instance9/specDisp"]
-position = Vector2(-75, 140)
-texture = ExtResource("57_4zo3s")
 
 [node name="stuffHolder" type="Node2D" parent="instance9"]
 script = ExtResource("41_v5i5n")
@@ -629,7 +710,9 @@ position = Vector2(1, 0)
 position = Vector2(250, 100)
 texture = ExtResource("58_2td58")
 
-[node name="rangedAttack" type="Node2D" parent="instance9"]
+[node name="rangedAttack" type="AnimatedSprite2D" parent="instance9"]
+sprite_frames = SubResource("SpriteFrames_01yb6")
+script = ExtResource("55_tj6nw")
 
 [node name="instance2655" type="Sprite2D" parent="instance9/rangedAttack"]
 position = Vector2(250, 100)
@@ -700,8 +783,10 @@ texture = ExtResource("66_3o76t")
 [node name="instance2673" type="Node2D" parent="instance9"]
 position = Vector2(370, 120)
 
-[node name="enemyImmune" type="Node2D" parent="instance9"]
+[node name="enemyImmune" type="AnimatedSprite2D" parent="instance9"]
 position = Vector2(340, 25)
+sprite_frames = SubResource("SpriteFrames_p5ww6")
+script = ExtResource("65_k3obc")
 
 [node name="instance2674" type="Node2D" parent="instance9"]
 position = Vector2(0, 50)
