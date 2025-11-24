@@ -1,10 +1,13 @@
 using System;
 using AntiIdle.Common.Nodes;
+using AntiIdle.src.Common.Flash;
 using Godot;
 
-public partial class Enemy : FlashNode2D
+public partial class Enemy : AnimatedSprite2D
 {
 	public double enemyID { get; set; }
+	public double enemyid => enemyID;
+
 	public double approach { get; set; }
 	public double poison { get; set; }
 	public double weaken { get; set; }
@@ -15,9 +18,25 @@ public partial class Enemy : FlashNode2D
 	public double allyDownCount4 { get; set; }
 	public double stun { get; set; }
 	public double lifespan { get; set; }
+	public bool ultra { get; set; }
+	public double crescendo { get; set; }
+	public double crescendoMult { get; set; }
+	public bool tankMode { get; set; }
+	public double maxhp { get; set; }
+	public double slow { get; set; }
+	public double explodeCount { get; set; }
+	public bool immune { get; set; }
+	public double stealable { get; set; }
+	public double threatCount { get; set; }
+	public double curSpeed { get; set; }
+	public double magImmune { get; set; }
+	public double magnetCount { get; set; }
+	public double curX { get; set; }
+    public double approachCompensation { get; set; }
 
-	// copied from EnemyData.cs
-	public double level;
+
+    // copied from EnemyData.cs
+    public double level;
 	public double speed;
 	public double attack;
 	public double defense;

@@ -1,5 +1,6 @@
-[gd_scene load_steps=27 format=3 uid="uid://siwisfbbjice"]
+[gd_scene load_steps=28 format=3 uid="uid://siwisfbbjice"]
 
+[ext_resource type="Script" uid="uid://drtixggdtah7n" path="res://src/BattleArena/6014/Hero.cs" id="1_0mpyg"]
 [ext_resource type="Texture2D" uid="uid://dc37igh20e5hh" path="res://src/BattleArena/6014/textures/instance28.png" id="1_yxje1"]
 [ext_resource type="Texture2D" uid="uid://dtnkqvg8ksky8" path="res://src/BattleArena/6014/textures/instance31.png" id="2_0mpyg"]
 [ext_resource type="Texture2D" uid="uid://b24kdw8hnfun8" path="res://src/BattleArena/6014/textures/instance33.png" id="3_m2smu"]
@@ -28,10 +29,12 @@
 [ext_resource type="Texture2D" uid="uid://ce733ipq8kd1v" path="res://src/BattleArena/6014/textures/instance2504.png" id="26_j4du6"]
 
 [node name="hero" type="Node2D"]
+script = ExtResource("1_0mpyg")
 
 [node name="instance27" type="Node2D" parent="."]
 position = Vector2(10, -42)
-scale = Vector2(-0.5, 0.5)
+rotation = -3.1415927
+scale = Vector2(0.5, -0.5)
 
 [node name="instance28" type="Sprite2D" parent="instance27"]
 position = Vector2(1, 0)
@@ -62,7 +65,8 @@ texture = ExtResource("3_m2smu")
 
 [node name="instance34" type="Node2D" parent="."]
 position = Vector2(38, -7)
-scale = Vector2(-0.5, 0.5)
+rotation = -3.1415927
+scale = Vector2(0.5, -0.5)
 
 [node name="instance35" type="Sprite2D" parent="instance34"]
 texture = ExtResource("3_m2smu")
@@ -76,7 +80,8 @@ texture = ExtResource("4_ycoxf")
 
 [node name="instance38" type="Node2D" parent="."]
 position = Vector2(50, -25)
-scale = Vector2(-0.5, 0.5)
+rotation = -3.1415927
+scale = Vector2(0.5, -0.5)
 
 [node name="instance39" type="Sprite2D" parent="instance38"]
 texture = ExtResource("4_ycoxf")

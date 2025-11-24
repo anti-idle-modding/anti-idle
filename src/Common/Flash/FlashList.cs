@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 
@@ -9,7 +10,7 @@ public class FlashList<T> : Dictionary<int, T>
 {
     public FlashList() { }
 
-    public FlashList(List<T> values)
+    public FlashList(params Span<T> values)
     {
         var i = 0;
         foreach (var value in values)
@@ -18,6 +19,16 @@ public class FlashList<T> : Dictionary<int, T>
             i++;
         }
     }
+
+    //public FlashList(List<T> values)
+    //{
+    //    var i = 0;
+    //    foreach (var value in values)
+    //    {
+    //        this[i] = value;
+    //        i++;
+    //    }
+    //}
 
     public FlashList(List<T> values, Dictionary<int, T> extra)
     {

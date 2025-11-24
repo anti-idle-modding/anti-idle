@@ -151,6 +151,46 @@ public class Root
     public double spiritDouble { get; set; }
     public double spiritCrit { get; set; }
     public bool noSpec { get; set; }
+    public double specGlory { get; set; }
+    public double reviveCooldown { get; set; }
+
+    public double areaRevengeRage { get; set; }
+    public double areaRevengeCalm { get; set; }
+    public double arenaChaosPhase { get; set; }
+    public double areaDamage { get; set; }
+    public double areaDamageRemainder { get; set; }
+    public double raidDamage { get; set; }
+    public double arenaSkillSpecLevel { get; set; }
+    public double areaFairyPerformance { get; set; }
+    public bool dungeonAntiCurse { get; set; }
+    public double arenaStun { get; set; }
+    public bool meleeHit { get; set; }
+    public bool killedChaos { get; set; }
+    public double arenaStrike { get; set; }
+    public double specPolearmCD { get; set; }
+    public double specMine { get; set; }
+    /// <summary>
+    /// <see cref="EnemyData.allyActive1Z"/>
+    /// </summary>
+    public double allyCooldown1 { get; set; }
+    /// <summary>
+    /// <see cref="EnemyData.allyActive2Z"/>
+    /// </summary>
+    public double allyCooldown2 { get; set; }
+    /// <summary>
+    /// <see cref="EnemyData.allyActive3Z"/>
+    /// </summary>
+    public double allyCooldown3 { get; set; }
+    public double gCheckDel { get; set; }
+    public double arenaDelay { get; set; }
+    public string arenaSkillSpec { get; set; } = null!;
+    public double areaRevengeKill { get; set; }
+    public double eventConsecKill { get; set; }
+    public double areaTriangleKill { get; set; }
+    public double arenaDelay2 { get; set; }
+    public double arenaSkillPower { get; set; }
+    public double arenaKnockBack { get; set; }
+    public bool arenaQuickAttack { get; set; }
 
     // end sprite 6014
     public int breakoffset { get; set; }
@@ -2391,6 +2431,11 @@ public class Root
     }
 
     // MATCH: frame_3-DoAction.as:gainEXP()
+
+    public void gainEXP(double amount)
+    {
+        gainEXP(amount, double.NaN);
+    }
     public void gainEXP(double amount, double sauce)
     {
         if (isNaN(sauce))
