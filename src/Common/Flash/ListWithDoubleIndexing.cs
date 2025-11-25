@@ -12,7 +12,7 @@ namespace AntiIdle.src.Common.Flash
         [DisallowNull]
         public T this[double key]
         {
-            get => this[(int)key];
+            get => base[(int)key];
             set => base[(int)key] = value;
         }
     }

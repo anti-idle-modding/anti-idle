@@ -1,6 +1,6 @@
-using Godot;
 using System.Collections.Generic;
 using System.Reflection;
+using Godot;
 
 namespace AntiIdle.Common.Flash;
 
@@ -27,24 +27,18 @@ public static class Extension
         public float _X
         {
             get => source.Position.X;
-            set {
-                source.Position = source.Position with { X = value };
-            }
+            set { source.Position = source.Position with { X = value }; }
         }
         public float _Y
         {
             get => source.Position.Y;
-            set {
-                source.Position = source.Position with { Y = value };
-            }
+            set { source.Position = source.Position with { Y = value }; }
         }
 
         public float _alpha
         {
             get => source.Modulate.A;
-            set {
-                source.Modulate = source.Modulate with { A = value / 100 };
-            }
+            set { source.Modulate = source.Modulate with { A = value / 100 }; }
         }
     }
 
@@ -64,6 +58,7 @@ public static class Extension
         }
 
         public int _currentframe => source.Frame + 1;
+
         public void gotoAndStop(int frame)
         {
             source.Frame = frame - 1;
@@ -79,7 +74,4 @@ public static class Extension
     }
 }
 
-public static class AnimatedSprite2DExtensions
-{
-
-}
+public static class AnimatedSprite2DExtensions { }

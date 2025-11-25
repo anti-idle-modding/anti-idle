@@ -1,18 +1,19 @@
+using System;
+using System.Collections.Generic;
 using AntiIdle.Common;
+using AntiIdle.Common.Nodes;
 using AntiIdle.src.Common.Flash;
 using Godot;
 using Godot.Collections;
-using System;
-using System.Collections.Generic;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 using Math = AntiIdle.Common.Flash.Math;
 
 // MATCH: DefineSprite_6014-frame_1-DoAction_2.as
-public partial class DefineSprite_6014 : AnimatedSprite2D
+public partial class DefineSprite_6014 : SceneManager
 {
     [Export]
     public Enemy enemy { get; set; }
-    
+
     [Export]
     public CgtHp cgtHP { get; set; }
 
@@ -21,10 +22,22 @@ public partial class DefineSprite_6014 : AnimatedSprite2D
 
     [Export]
     public RangedAttack rangedAttack { get; set; }
+
     [Export]
     public EnemyImmune enemyImmune { get; set; }
 
+    [Export]
+    public FightStat2 fightStat2 { get; set; }
+
     public int fr { get; set; }
+
+    /// <summary>
+    /// TODO: Figure out how to manage _currentFrame for battle arena UIs
+    /// It isn't just a sprite image, it's a whole scene+scripts
+    /// hardcode to 1 for now
+    /// </summary>
+    ///
+    public int _currentframe { get; set; } = 1;
 
     public double runeMult { get; set; }
     public double spiritToConsume { get; set; }
@@ -39,14 +52,12 @@ public partial class DefineSprite_6014 : AnimatedSprite2D
     public double v1 { get; set; }
     public double v2 { get; set; }
 
-
     [Export]
     public StuffHolder stuffHolder { get; set; }
 
     [Export]
     public Hero hero { get; set; }
     public double? tmpHealth { get; private set; }
-
 
     // MATCH: DefineSprite_6014-frame_1-DoAction.as
     private void initPart1()
@@ -59,9 +70,15 @@ public partial class DefineSprite_6014 : AnimatedSprite2D
             {
                 if (_root.save.inventoryExist[z] == 1)
                 {
-                    if (_root.save.inventoryType[z] == "Weapon" || _root.save.inventoryType[z] == "Armor" || _root.save.inventoryType[z] == "Accessory")
+                    if (
+                        _root.save.inventoryType[z] == "Weapon"
+                        || _root.save.inventoryType[z] == "Armor"
+                        || _root.save.inventoryType[z] == "Accessory"
+                    )
                     {
-                        _root.save.inventorySet[z] = _root.checkArenaSet(_root.save.inventoryName[z]);
+                        _root.save.inventorySet[z] = _root.checkArenaSet(
+                            _root.save.inventoryName[z]
+                        );
                     }
                 }
                 z++;
@@ -75,10 +92,13 @@ public partial class DefineSprite_6014 : AnimatedSprite2D
             _root.save.arenaMedal = 0;
             _root.save.arenaPendant = 0;
             var nextAccSlot = 501;
-             z = 101;
+            z = 101;
             while (z <= 130)
             {
-                if (_root.save.inventorySubtype[z] == "Pendant" || _root.save.inventorySubtype[z] == "Medal")
+                if (
+                    _root.save.inventorySubtype[z] == "Pendant"
+                    || _root.save.inventorySubtype[z] == "Medal"
+                )
                 {
                     _root.save.inventoryType[z] = "Accessory";
                     _root.swapArenaItem(z, nextAccSlot);
@@ -89,7 +109,10 @@ public partial class DefineSprite_6014 : AnimatedSprite2D
             z = 301;
             while (z <= 330)
             {
-                if (_root.save.inventorySubtype[z] == "Pendant" || _root.save.inventorySubtype[z] == "Medal")
+                if (
+                    _root.save.inventorySubtype[z] == "Pendant"
+                    || _root.save.inventorySubtype[z] == "Medal"
+                )
                 {
                     _root.save.inventoryType[z] = "Accessory";
                 }
@@ -100,7 +123,10 @@ public partial class DefineSprite_6014 : AnimatedSprite2D
         while (z <= 600)
         {
             //if (isNaN(_root.save.inventoryUnob[z]) || _root.save.inventoryUnob[z] > 100)
-            if (_root.save.inventoryUnob.ContainsKey(z) == false || _root.save.inventoryUnob[z] > 100)
+            if (
+                _root.save.inventoryUnob.ContainsKey(z) == false
+                || _root.save.inventoryUnob[z] > 100
+            )
             {
                 _root.save.inventoryUnob[z] = 0;
             }
@@ -111,7 +137,27 @@ public partial class DefineSprite_6014 : AnimatedSprite2D
             var tempAttMonth = _root.save.curAttMedPend % 100;
             var tempAttYear = Math.floor(_root.save.curAttMedPend / 100);
             _root.save.curAttMedPend = 0;
-            _root.getArenaAccessory(40, "Medal", 64, 40, 8, 40, 40, 40, 40, 1, 0, 1, 0, 10, 706, "Pixel", "Damage", "Attack Power", 0, 6480000000,
+            _root.getArenaAccessory(
+                40,
+                "Medal",
+                64,
+                40,
+                8,
+                40,
+                40,
+                40,
+                40,
+                1,
+                0,
+                1,
+                0,
+                10,
+                706,
+                "Pixel",
+                "Damage",
+                "Attack Power",
+                0,
+                6480000000,
                 true,
                 true,
                 false,
@@ -119,8 +165,14 @@ public partial class DefineSprite_6014 : AnimatedSprite2D
                 // Note: this false needed to be added. Is this the only one that is missing params?
                 false,
                 16,
-                "Perfect Attendance", "Thank you for playing Anti-Idle every day in " + _root.getFullMonthName(tempAttMonth) + " " + tempAttYear + "!\n\nWhen this item is in your inventory, you will receive +10% Pixel, +10% MaxHP and +10% MaxMP! Stacks up to 2 times. Does not apply if the item is expired.", 
-                true);
+                "Perfect Attendance",
+                "Thank you for playing Anti-Idle every day in "
+                    + _root.getFullMonthName(tempAttMonth)
+                    + " "
+                    + tempAttYear
+                    + "!\n\nWhen this item is in your inventory, you will receive +10% Pixel, +10% MaxHP and +10% MaxMP! Stacks up to 2 times. Does not apply if the item is expired.",
+                true
+            );
         }
     }
 
@@ -239,7 +291,12 @@ public partial class DefineSprite_6014 : AnimatedSprite2D
         {
             _root.save.arenaZone = 1;
         }
-        if (_root.save.arenaZone == 83 || _root.save.arenaZone == 84 || _root.save.arenaZone == 93 || _root.save.arenaZone == 94)
+        if (
+            _root.save.arenaZone == 83
+            || _root.save.arenaZone == 84
+            || _root.save.arenaZone == 93
+            || _root.save.arenaZone == 94
+        )
         {
             _root.save.arenaZone = _root.save.arenaZoneOrig;
         }
@@ -293,7 +350,10 @@ public partial class DefineSprite_6014 : AnimatedSprite2D
                 _root.gCheck = false;
             }
         }
-        if (_root.save.inventoryFrame[_root.save.arenaSubWeapon] >= 284 && _root.save.inventoryFrame[_root.save.arenaSubWeapon] <= 291)
+        if (
+            _root.save.inventoryFrame[_root.save.arenaSubWeapon] >= 284
+            && _root.save.inventoryFrame[_root.save.arenaSubWeapon] <= 291
+        )
         {
             if (_root.arenaStrike > 0 && _root.arenaStrike < 30)
             {
@@ -338,11 +398,27 @@ public partial class DefineSprite_6014 : AnimatedSprite2D
                     v2 = 0.4;
                 }
                 _root.incDt();
-                stuffHolder.attachMovie("missile", "missile" + _root.summonCount, _root.antiLag + 2000, new { _x = 100 + _root.arenaStrike * 10, _y = 150, missilePower = v1, missileKnockBack = 0, missileQuickAttack = false });
+                stuffHolder.attachMovie(
+                    "missile",
+                    "missile" + _root.summonCount,
+                    _root.antiLag + 2000,
+                    new
+                    {
+                        _x = 100 + _root.arenaStrike * 10,
+                        _y = 150,
+                        missilePower = v1,
+                        missileKnockBack = 0,
+                        missileQuickAttack = false,
+                    }
+                );
                 _root.arenaStrike += 4 + random(2);
             }
         }
-        if (_root.save.inventorySpirit[_root.save.arenaWeapon] != true || _root.save.inventoryName[_root.save.arenaWeapon] == "CHAOS AURA" || _root.save.inventoryName[_root.save.arenaWeapon] == "Dark Ruler")
+        if (
+            _root.save.inventorySpirit[_root.save.arenaWeapon] != true
+            || _root.save.inventoryName[_root.save.arenaWeapon] == "CHAOS AURA"
+            || _root.save.inventoryName[_root.save.arenaWeapon] == "Dark Ruler"
+        )
         {
             _root.spiritDouble = 0;
             _root.spiritCrit = 0;
@@ -351,7 +427,11 @@ public partial class DefineSprite_6014 : AnimatedSprite2D
             _root.spiritBoost = 0;
             _root.spiritInvincibility = 0;
         }
-        if (_root.save.inventorySpirit[_root.save.arenaWeapon] == true || _root.save.inventoryName[_root.save.arenaWeapon] == "CHAOS AURA" || _root.save.inventoryName[_root.save.arenaWeapon] == "Dark Ruler")
+        if (
+            _root.save.inventorySpirit[_root.save.arenaWeapon] == true
+            || _root.save.inventoryName[_root.save.arenaWeapon] == "CHAOS AURA"
+            || _root.save.inventoryName[_root.save.arenaWeapon] == "Dark Ruler"
+        )
         {
             _root.spiritBreak = 0;
             _root.spiritUnleash = 0;
@@ -391,13 +471,23 @@ public partial class DefineSprite_6014 : AnimatedSprite2D
                 }
             }
         }
-        else if (enemy.lifespan == 0 || _root.turnBased == false || _root.arenaDelay > -1 || _root.arenaStun > 0)
+        else if (
+            enemy.lifespan == 0
+            || _root.turnBased == false
+            || _root.arenaDelay > -1
+            || _root.arenaStun > 0
+        )
         {
             regenDelay += 1;
             regenDelay2 += 1;
             if (_root.save.arenaRuneDuration[1] > 0)
             {
-                if (!isNaN(_root.hpRecover) && _root.hpRecover > 0 && _root.save.arenaHealth > 0 && !isNaN(_root.maxHealth))
+                if (
+                    !isNaN(_root.hpRecover)
+                    && _root.hpRecover > 0
+                    && _root.save.arenaHealth > 0
+                    && !isNaN(_root.maxHealth)
+                )
                 {
                     _root.save.arenaHealth += Math.floor(_root.hpRecover / 40);
                     if (_root.save.arenaHealth > _root.maxHealth)
@@ -437,11 +527,21 @@ public partial class DefineSprite_6014 : AnimatedSprite2D
             {
                 _root.arenaPoison = 0;
             }
-            if (_root.save.arenaRing == 3 || _root.save.arenaRing == 5 || _root.save.arenaRing == 7 || _root.save.arenaRing == 21)
+            if (
+                _root.save.arenaRing == 3
+                || _root.save.arenaRing == 5
+                || _root.save.arenaRing == 7
+                || _root.save.arenaRing == 21
+            )
             {
                 _root.arenaWeaken = 0;
             }
-            if (_root.save.arenaRing == 5 || _root.save.arenaRing == 9 || _root.save.arenaRing == 10 || _root.save.arenaRing == 21)
+            if (
+                _root.save.arenaRing == 5
+                || _root.save.arenaRing == 9
+                || _root.save.arenaRing == 10
+                || _root.save.arenaRing == 21
+            )
             {
                 _root.arenaBlind = 0;
             }
@@ -495,12 +595,27 @@ public partial class DefineSprite_6014 : AnimatedSprite2D
         {
             _root.arenaDelay = -1;
         }
-        if (_root.save.inventoryName[_root.save.arenaWeapon] == "CHAOS AURA" || _root.save.inventoryName[_root.save.arenaWeapon] == "Dark Ruler")
+        if (
+            _root.save.inventoryName[_root.save.arenaWeapon] == "CHAOS AURA"
+            || _root.save.inventoryName[_root.save.arenaWeapon] == "Dark Ruler"
+        )
         {
             _root.arenaBot = 0;
         }
-        if (_root.isMouseDown == true || Input.IsActionPressed(InputConstants.ARENAZ) || Input.IsActionPressed(InputConstants.ARENAX) || Input.IsActionPressed(InputConstants.ARENAC) || Input.IsActionPressed(InputConstants.ARENAV) || Input.IsActionPressed(InputConstants.ARENAB) || Input.IsActionPressed(InputConstants.ARENAA) || Input.IsActionPressed(InputConstants.ARENAS) || Input.IsActionPressed(InputConstants.ARENAD) || Input.IsActionPressed(InputConstants.ARENAF) || Input.IsActionPressed(InputConstants.ARENAQ) || Input.IsActionPressed(InputConstants.ARENAW))
-        //        if (_root.isMouseDown == true || Key.isDown(_root.saveGlobal.keyArenaZ) || Key.isDown(_root.saveGlobal.keyArenaX) || Key.isDown(_root.saveGlobal.keyArenaC) || Key.isDown(_root.saveGlobal.keyArenaV) || Key.isDown(_root.saveGlobal.keyArenaB) || Key.isDown(_root.saveGlobal.keyArenaA) || Key.isDown(_root.saveGlobal.keyArenaS) || Key.isDown(_root.saveGlobal.keyArenaD) || Key.isDown(_root.saveGlobal.keyArenaF) || Key.isDown(_root.saveGlobal.keyArenaQ) || Key.isDown(_root.saveGlobal.keyArenaW))
+        if (
+            _root.isMouseDown == true
+            || Input.IsActionPressed(InputConstants.ARENAZ)
+            || Input.IsActionPressed(InputConstants.ARENAX)
+            || Input.IsActionPressed(InputConstants.ARENAC)
+            || Input.IsActionPressed(InputConstants.ARENAV)
+            || Input.IsActionPressed(InputConstants.ARENAB)
+            || Input.IsActionPressed(InputConstants.ARENAA)
+            || Input.IsActionPressed(InputConstants.ARENAS)
+            || Input.IsActionPressed(InputConstants.ARENAD)
+            || Input.IsActionPressed(InputConstants.ARENAF)
+            || Input.IsActionPressed(InputConstants.ARENAQ)
+            || Input.IsActionPressed(InputConstants.ARENAW)
+        )
         {
             _root.arenaBot += 1;
         }
@@ -572,9 +687,15 @@ public partial class DefineSprite_6014 : AnimatedSprite2D
         }
         if (_root.save.arenaHealth <= 0)
         {
-            if (_root.reviveCooldown <= 0 && _root.save.arenaSkill[64] > 0 && _root.save.arenaZone != 24)
+            if (
+                _root.reviveCooldown <= 0
+                && _root.save.arenaSkill[64] > 0
+                && _root.save.arenaZone != 24
+            )
             {
-                _root.save.arenaHealth = Math.ceil(_root.maxHealth * _root.save.arenaSkill[64] / 50);
+                _root.save.arenaHealth = Math.ceil(
+                    _root.maxHealth * _root.save.arenaSkill[64] / 50
+                );
                 _root.reviveCooldown = 240 - _root.save.arenaSkill[64] * 4;
                 _root.arenaPoison = 0;
                 _root.arenaWeaken = 0;
@@ -598,9 +719,13 @@ public partial class DefineSprite_6014 : AnimatedSprite2D
                     }
                     else if (_root.save.arenaZone == 52)
                     {
-                        if (_root.save.inventoryName[_root.save.arenaPendant] != "Anti-Checkpoint Pendant")
+                        if (
+                            _root.save.inventoryName[_root.save.arenaPendant]
+                            != "Anti-Checkpoint Pendant"
+                        )
                         {
-                            _root.areaSpookyKill = Math.floor(_root.save.arenaSpookyToday / 200) * 200;
+                            _root.areaSpookyKill =
+                                Math.floor(_root.save.arenaSpookyToday / 200) * 200;
                         }
                         else
                         {
@@ -615,7 +740,11 @@ public partial class DefineSprite_6014 : AnimatedSprite2D
                     {
                         _root.areaTriangleKill = 0;
                     }
-                    else if (Math.random() < _root.save.arenaSkill[61] * 0.02 + _root.abilNullifyPenalty * 0.01 || _root.save.arenaZone == 78)
+                    else if (
+                        Math.random()
+                            < _root.save.arenaSkill[61] * 0.02 + _root.abilNullifyPenalty * 0.01
+                        || _root.save.arenaZone == 78
+                    )
                     {
                         _root.dispNews(65, "Death penalty nullified.");
                         _root.save.arenaZone = 0;
@@ -629,7 +758,31 @@ public partial class DefineSprite_6014 : AnimatedSprite2D
                         }
                         _root.save.arenaRing = 0;
                         _root.gCheck = true;
-                        _root.save.arenaRingOwned = new([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]);
+                        _root.save.arenaRingOwned = new([
+                            0,
+                            0,
+                            0,
+                            0,
+                            0,
+                            0,
+                            0,
+                            0,
+                            0,
+                            0,
+                            0,
+                            0,
+                            0,
+                            0,
+                            0,
+                            0,
+                            0,
+                            0,
+                            0,
+                            0,
+                            0,
+                            0,
+                            0,
+                        ]);
                         _root.dispNews(65, "A monster killed you and stole all of your Rings!");
                         _root.save.arenaZone = 0;
                     }
@@ -665,7 +818,10 @@ public partial class DefineSprite_6014 : AnimatedSprite2D
             {
                 _root.save.arenaLevel += 1;
                 _root.save.arenaSP += 20;
-                _root.dispNews(25, "Arena Rank UP! You are now Rank " + _root.save.arenaLevel + "!");
+                _root.dispNews(
+                    25,
+                    "Arena Rank UP! You are now Rank " + _root.save.arenaLevel + "!"
+                );
                 _root.fightStat2 = "Rank UP! You are now Rank " + _root.save.arenaLevel + "!";
                 _root.save.arenaMaxHealth += 250 + Math.floor(_root.save.arenaLevel * 5);
                 _root.save.arenaMaxMana += 100 + Math.floor(_root.save.arenaLevel * 2);
@@ -695,13 +851,21 @@ public partial class DefineSprite_6014 : AnimatedSprite2D
             checkStat();
             if (_root.save.vegetarianMode == true)
             {
-                _root.dispNews(26, "Robroccoli Rank UP! Robroccoli is now Rank " + _root.save.robaconLevel + "!");
-                _root.fightStat2 = "Robroccoli Rank UP! Robroccoli is now Rank " + _root.save.robaconLevel + "!";
+                _root.dispNews(
+                    26,
+                    "Robroccoli Rank UP! Robroccoli is now Rank " + _root.save.robaconLevel + "!"
+                );
+                _root.fightStat2 =
+                    "Robroccoli Rank UP! Robroccoli is now Rank " + _root.save.robaconLevel + "!";
             }
             else
             {
-                _root.dispNews(26, "Robacon Rank UP! Robacon is now Rank " + _root.save.robaconLevel + "!");
-                _root.fightStat2 = "Robacon Rank UP! Robacon is now Rank " + _root.save.robaconLevel + "!";
+                _root.dispNews(
+                    26,
+                    "Robacon Rank UP! Robacon is now Rank " + _root.save.robaconLevel + "!"
+                );
+                _root.fightStat2 =
+                    "Robacon Rank UP! Robacon is now Rank " + _root.save.robaconLevel + "!";
             }
         }
         if (_root.antiLag > 400)
@@ -716,7 +880,10 @@ public partial class DefineSprite_6014 : AnimatedSprite2D
         {
             _root.antiLag2 = 0;
         }
-        if (_root.save.inventoryName[_root.save.arenaWeapon] == "Dark Ruler" && _root.save.arenaZone != 82)
+        if (
+            _root.save.inventoryName[_root.save.arenaWeapon] == "Dark Ruler"
+            && _root.save.arenaZone != 82
+        )
         {
             _root.save.autoFight = false;
             _root.maxMana = 100;
@@ -736,7 +903,11 @@ public partial class DefineSprite_6014 : AnimatedSprite2D
                         }
                         _root.save.arenaMana += 1 * Math.ceil(_root.potionEfficiency / 100);
                     }
-                    if (_root.save.arenaHealth < Math.floor(_root.maxHealth / 2) && _root.save.arenaPixel >= 10000 && (_root.save.arenaZone < 31 || _root.save.arenaZone > 43))
+                    if (
+                        _root.save.arenaHealth < Math.floor(_root.maxHealth / 2)
+                        && _root.save.arenaPixel >= 10000
+                        && (_root.save.arenaZone < 31 || _root.save.arenaZone > 43)
+                    )
                     {
                         if (_root.save.arenaSkill[26] > 0)
                         {
@@ -746,14 +917,31 @@ public partial class DefineSprite_6014 : AnimatedSprite2D
                         {
                             _root.save.arenaPixel -= 10000;
                         }
-                        _root.save.arenaHealth += Math.floor((500000 + _root.save.arenaSkill[21] * 100000) * _root.potionEfficiency / 100);
+                        _root.save.arenaHealth += Math.floor(
+                            (500000 + _root.save.arenaSkill[21] * 100000)
+                                * _root.potionEfficiency
+                                / 100
+                        );
                     }
                 }
                 if (_root.arenaDelay <= 0 && _root.arenaStun <= 0)
                 {
-                    if (_root.arenaZombify <= 0 && (_root.save.arenaZone < 31 || _root.save.arenaZone > 43))
+                    if (
+                        _root.arenaZombify <= 0
+                        && (_root.save.arenaZone < 31 || _root.save.arenaZone > 43)
+                    )
                     {
-                        if ((_root.save.arenaHealth < _root.maxHealth || _root.arenaPoison > 0 || _root.arenaWeaken > 0 || _root.arenaBlind > 0 || _root.arenaSlow > 0 || enemy.zombie == true && enemy.enemyID != 0) && _root.save.arenaMana >= 10)
+                        if (
+                            (
+                                _root.save.arenaHealth < _root.maxHealth
+                                || _root.arenaPoison > 0
+                                || _root.arenaWeaken > 0
+                                || _root.arenaBlind > 0
+                                || _root.arenaSlow > 0
+                                || enemy.zombie == true && enemy.enemyID != 0
+                            )
+                            && _root.save.arenaMana >= 10
+                        )
                         {
                             _root.save.arenaMana -= 10;
                             _root.save.arenaHealth = _root.maxHealth;
@@ -763,7 +951,8 @@ public partial class DefineSprite_6014 : AnimatedSprite2D
                             _root.arenaSlow = 0;
                             if (enemy.zombie == true && enemy.enemyID != 0)
                             {
-                                var tempHealDamage = 750 + Math.floor(_root.totalCareerLevel * 250 / 2400);
+                                var tempHealDamage =
+                                    750 + Math.floor(_root.totalCareerLevel * 250 / 2400);
                                 var damageMult = 1d;
                                 if (_root.save.permaBanPenalty[15] == 3)
                                 {
@@ -780,7 +969,11 @@ public partial class DefineSprite_6014 : AnimatedSprite2D
                                 dealDamage(Math.floor(tempHealDamage * damageMult), 0, "Heal");
                                 if (Math.random() < _root.doubleHit / 100)
                                 {
-                                    _root.house.arena.dealDamage(Math.floor(tempHealDamage * damageMult), 0, "Double Hit");
+                                    _root.house.arena.dealDamage(
+                                        Math.floor(tempHealDamage * damageMult),
+                                        0,
+                                        "Double Hit"
+                                    );
                                 }
                             }
                             if (_root.save.questType == "Use Skill")
@@ -794,11 +987,16 @@ public partial class DefineSprite_6014 : AnimatedSprite2D
                             _root.arenaDelay2 = 125;
                         }
                     }
-                    if (_root.save.arenaMana >= 5 && (enemy.lifespan < 0.5 || enemy.defense >= 9999999999) && _root.arenaDelay <= 0)
+                    if (
+                        _root.save.arenaMana >= 5
+                        && (enemy.lifespan < 0.5 || enemy.defense >= 9999999999)
+                        && _root.arenaDelay <= 0
+                    )
                     {
                         _root.arenaDelay = 100;
                         _root.arenaDelay2 = 49;
-                        _root.arenaSkillPower = 50 + Math.floor(_root.totalCareerLevel * 150 / 2400);
+                        _root.arenaSkillPower =
+                            50 + Math.floor(_root.totalCareerLevel * 150 / 2400);
                         var damageMult = 1d;
                         if (_root.save.permaBanPenalty[15] == 3)
                         {
@@ -828,7 +1026,8 @@ public partial class DefineSprite_6014 : AnimatedSprite2D
                     {
                         _root.arenaDelay = 150;
                         _root.arenaDelay2 = 74;
-                        _root.arenaSkillPower = 550 + Math.floor(_root.totalCareerLevel * 1050 / 2400);
+                        _root.arenaSkillPower =
+                            550 + Math.floor(_root.totalCareerLevel * 1050 / 2400);
                         var damageMult = 1d;
                         if (_root.save.permaBanPenalty[15] == 3)
                         {
@@ -873,8 +1072,8 @@ public partial class DefineSprite_6014 : AnimatedSprite2D
     public void showDamage(string num, int col, double xLoc, double yLoc)
     {
         showDamageInternal(num, col, xLoc, yLoc);
-        var f = this._currentframe;
     }
+
     public void showDamage(double num, int col, double xLoc, double yLoc)
     {
         string numString = null;
@@ -884,6 +1083,7 @@ public partial class DefineSprite_6014 : AnimatedSprite2D
         }
         showDamageInternal(numString, col, xLoc, yLoc);
     }
+
     // MATCH: DefineSprite_6014-frame_1-DoAction_2.as:showDamage()
     private void showDamageInternal(string num, int col, double xLoc, double yLoc)
     {
@@ -1786,7 +1986,15 @@ public partial class DefineSprite_6014 : AnimatedSprite2D
             _root.apocalypse = true;
             _root.worstMoon = true;
         }
-        if (_root.save.arenaTurnBased == true && _root.save.autoFight == false && _root.save.inventoryName[_root.save.arenaWeapon] != "Dark Ruler" && _root.save.inventoryName[_root.save.arenaWeapon] != "CHAOS AURA" && _root.save.arenaZone != 24 && _root.save.arenaZone != 34 && _root.save.arenaZone != 35)
+        if (
+            _root.save.arenaTurnBased == true
+            && _root.save.autoFight == false
+            && _root.save.inventoryName[_root.save.arenaWeapon] != "Dark Ruler"
+            && _root.save.inventoryName[_root.save.arenaWeapon] != "CHAOS AURA"
+            && _root.save.arenaZone != 24
+            && _root.save.arenaZone != 34
+            && _root.save.arenaZone != 35
+        )
         {
             _root.turnBased = true;
         }
@@ -1809,32 +2017,72 @@ public partial class DefineSprite_6014 : AnimatedSprite2D
         {
             _root.lootMagnet = true;
         }
-        else if (_root.save.inventoryName[_root.save.arenaPendant] == "TERA PENDANT" && _root.save.inventoryName[_root.save.arenaEarring] == "TERA EARRINGS")
+        else if (
+            _root.save.inventoryName[_root.save.arenaPendant] == "TERA PENDANT"
+            && _root.save.inventoryName[_root.save.arenaEarring] == "TERA EARRINGS"
+        )
         {
             _root.lootMagnet = true;
         }
-        else if (_root.save.inventoryName[_root.save.arenaPendant] == "GIGA PENDANT" && _root.save.inventoryName[_root.save.arenaEarring] == "GIGA EARRINGS")
+        else if (
+            _root.save.inventoryName[_root.save.arenaPendant] == "GIGA PENDANT"
+            && _root.save.inventoryName[_root.save.arenaEarring] == "GIGA EARRINGS"
+        )
         {
             _root.lootMagnet = true;
         }
-        else if (_root.save.inventoryName[_root.save.arenaPendant] == "MEGA PENDANT" && _root.save.inventoryName[_root.save.arenaEarring] == "MEGA EARRINGS" && _root.save.inventoryName[_root.save.arenaGloves] == "MEGA WINGS")
+        else if (
+            _root.save.inventoryName[_root.save.arenaPendant] == "MEGA PENDANT"
+            && _root.save.inventoryName[_root.save.arenaEarring] == "MEGA EARRINGS"
+            && _root.save.inventoryName[_root.save.arenaGloves] == "MEGA WINGS"
+        )
         {
             _root.lootMagnet = true;
         }
-        else if (_root.save.inventoryName[_root.save.arenaTrinket] == "Gem of Constancy" && _root.save.inventoryLevel[_root.save.arenaTrinket] == 500)
+        else if (
+            _root.save.inventoryName[_root.save.arenaTrinket] == "Gem of Constancy"
+            && _root.save.inventoryLevel[_root.save.arenaTrinket] == 500
+        )
         {
             _root.lootMagnet = true;
         }
-        if (_root.save.inventoryName[_root.save.arenaWeapon] == "Ultimate Weapon" && _root.save.inventoryName[_root.save.arenaHat] == "Ultimate Hat" && _root.save.inventoryName[_root.save.arenaShirt] == "Ultimate Shirt" && _root.save.inventoryName[_root.save.arenaGloves] == "Ultimate Gloves" && _root.save.inventoryName[_root.save.arenaPants] == "Ultimate Pants" && _root.save.inventoryName[_root.save.arenaShoes] == "Ultimate Shoes" && _root.save.inventoryName[_root.save.arenaPendant] == "Ultimate Pendant" && _root.save.inventoryName[_root.save.arenaEarring] == "Ultimate Earrings" && (_root.save.inventoryName[_root.save.arenaTrinket] == "Ultimate Trinket" || _root.apocalypse == true))
+        if (
+            _root.save.inventoryName[_root.save.arenaWeapon] == "Ultimate Weapon"
+            && _root.save.inventoryName[_root.save.arenaHat] == "Ultimate Hat"
+            && _root.save.inventoryName[_root.save.arenaShirt] == "Ultimate Shirt"
+            && _root.save.inventoryName[_root.save.arenaGloves] == "Ultimate Gloves"
+            && _root.save.inventoryName[_root.save.arenaPants] == "Ultimate Pants"
+            && _root.save.inventoryName[_root.save.arenaShoes] == "Ultimate Shoes"
+            && _root.save.inventoryName[_root.save.arenaPendant] == "Ultimate Pendant"
+            && _root.save.inventoryName[_root.save.arenaEarring] == "Ultimate Earrings"
+            && (
+                _root.save.inventoryName[_root.save.arenaTrinket] == "Ultimate Trinket"
+                || _root.apocalypse == true
+            )
+        )
         {
             _root.lootMagnet = true;
-            _root.manaLeech = _root.save.banned + _root.save.bannedHard * 2 + _root.save.bannedImpossible * 4;
+            _root.manaLeech =
+                _root.save.banned + _root.save.bannedHard * 2 + _root.save.bannedImpossible * 4;
             if (_root.manaLeech > 3000)
             {
                 _root.manaLeech = 3000;
             }
         }
-        if (_root.save.inventoryName[_root.save.arenaWeapon] == "Reincarnation Weapon" && _root.save.inventoryName[_root.save.arenaHat] == "Reincarnation Hat" && _root.save.inventoryName[_root.save.arenaShirt] == "Reincarnation Shirt" && _root.save.inventoryName[_root.save.arenaGloves] == "Reincarnation Gloves" && _root.save.inventoryName[_root.save.arenaPants] == "Reincarnation Pants" && _root.save.inventoryName[_root.save.arenaShoes] == "Reincarnation Shoes" && _root.save.inventoryName[_root.save.arenaPendant] == "Reincarnation Pendant" && _root.save.inventoryName[_root.save.arenaEarring] == "Reincarnation Earrings" && (_root.save.inventoryName[_root.save.arenaTrinket] == "Reincarnation Trinket" || _root.apocalypse == true))
+        if (
+            _root.save.inventoryName[_root.save.arenaWeapon] == "Reincarnation Weapon"
+            && _root.save.inventoryName[_root.save.arenaHat] == "Reincarnation Hat"
+            && _root.save.inventoryName[_root.save.arenaShirt] == "Reincarnation Shirt"
+            && _root.save.inventoryName[_root.save.arenaGloves] == "Reincarnation Gloves"
+            && _root.save.inventoryName[_root.save.arenaPants] == "Reincarnation Pants"
+            && _root.save.inventoryName[_root.save.arenaShoes] == "Reincarnation Shoes"
+            && _root.save.inventoryName[_root.save.arenaPendant] == "Reincarnation Pendant"
+            && _root.save.inventoryName[_root.save.arenaEarring] == "Reincarnation Earrings"
+            && (
+                _root.save.inventoryName[_root.save.arenaTrinket] == "Reincarnation Trinket"
+                || _root.apocalypse == true
+            )
+        )
         {
             _root.lootMagnet = true;
             _root.autoExp = _root.save.bannedB;
@@ -1845,7 +2093,12 @@ public partial class DefineSprite_6014 : AnimatedSprite2D
             _root.monsterMagnet = true;
         }
         _root.robaconActive = false;
-        if (_root.save.inventoryType[400] == "Weapon" && _root.save.inventoryReqRank[400] <= _root.save.robaconLevel && _root.save.robaconBacon > 0 && _root.save.inventoryExpiry[400] >= _root.systemtimenow)
+        if (
+            _root.save.inventoryType[400] == "Weapon"
+            && _root.save.inventoryReqRank[400] <= _root.save.robaconLevel
+            && _root.save.robaconBacon > 0
+            && _root.save.inventoryExpiry[400] >= _root.systemtimenow
+        )
         {
             if (_root.save.arenaZone != 44 && _root.save.arenaZone != 47)
             {
@@ -1865,9 +2118,15 @@ public partial class DefineSprite_6014 : AnimatedSprite2D
             {
                 _root.save.arenaSubWeapon = 0;
             }
-            if (_root.save.inventoryFrame[_root.save.arenaSubWeapon] == 280 || _root.save.inventoryFrame[_root.save.arenaSubWeapon] == 281)
+            if (
+                _root.save.inventoryFrame[_root.save.arenaSubWeapon] == 280
+                || _root.save.inventoryFrame[_root.save.arenaSubWeapon] == 281
+            )
             {
-                if (_root.save.inventorySubtype[_root.save.arenaWeapon] != "Bow" && _root.save.inventorySubtype[_root.save.arenaWeapon] != "Crossbow")
+                if (
+                    _root.save.inventorySubtype[_root.save.arenaWeapon] != "Bow"
+                    && _root.save.inventorySubtype[_root.save.arenaWeapon] != "Crossbow"
+                )
                 {
                     _root.save.arenaSubWeapon = 0;
                 }
@@ -1886,36 +2145,57 @@ public partial class DefineSprite_6014 : AnimatedSprite2D
                     _root.save.arenaSubWeapon = 0;
                 }
             }
-            if (_root.save.inventoryFrame[_root.save.arenaSubWeapon] >= 284 && _root.save.inventoryFrame[_root.save.arenaSubWeapon] <= 291)
+            if (
+                _root.save.inventoryFrame[_root.save.arenaSubWeapon] >= 284
+                && _root.save.inventoryFrame[_root.save.arenaSubWeapon] <= 291
+            )
             {
-                if (_root.save.inventoryRange[_root.save.arenaWeapon] == true || _root.save.inventoryName[_root.save.arenaWeapon] == "Ultimate Weapon" || _root.save.inventoryName[_root.save.arenaWeapon] == "Reincarnation Weapon")
+                if (
+                    _root.save.inventoryRange[_root.save.arenaWeapon] == true
+                    || _root.save.inventoryName[_root.save.arenaWeapon] == "Ultimate Weapon"
+                    || _root.save.inventoryName[_root.save.arenaWeapon] == "Reincarnation Weapon"
+                )
                 {
                     _root.save.arenaSubWeapon = 0;
                 }
             }
-            if (_root.save.inventoryFrame[_root.save.arenaSubWeapon] >= 351 && _root.save.inventoryFrame[_root.save.arenaSubWeapon] <= 358)
+            if (
+                _root.save.inventoryFrame[_root.save.arenaSubWeapon] >= 351
+                && _root.save.inventoryFrame[_root.save.arenaSubWeapon] <= 358
+            )
             {
-                if (_root.save.inventorySubtype[_root.save.arenaWeapon] != "Wand" && _root.save.inventorySubtype[_root.save.arenaWeapon] != "Staff")
+                if (
+                    _root.save.inventorySubtype[_root.save.arenaWeapon] != "Wand"
+                    && _root.save.inventorySubtype[_root.save.arenaWeapon] != "Staff"
+                )
                 {
                     _root.save.arenaSubWeapon = 0;
                 }
             }
             _root.checkSetBonus();
         }
-        if (_root.save.inventoryExp[400] >= _root.save.inventoryExpTNL[400] && _root.save.inventoryLevel[400] < _root.save.inventoryMaxLevel[400])
+        if (
+            _root.save.inventoryExp[400] >= _root.save.inventoryExpTNL[400]
+            && _root.save.inventoryLevel[400] < _root.save.inventoryMaxLevel[400]
+        )
         {
             _root.save.inventoryExp[400] = 0;
             _root.save.inventoryLevel[400] += 1;
-            if (_root.save.inventoryName[400] == "Pirate Sword" && _root.save.inventoryLevel[400] == 300)
+            if (
+                _root.save.inventoryName[400] == "Pirate Sword"
+                && _root.save.inventoryLevel[400] == 300
+            )
             {
                 _root.save.inventorySpeed[400] += 3;
                 if (_root.save.vegetarianMode == true)
                 {
-                    _root.save.inventoryDesc[400] = "Congratulations! You have mastered the pirate language (for this particular sword, at least), and as a result, you can attack twice as fast with this Pirate Sword equipped!\n\nActually, you just let Robroccoli do the job for you, but the same still applies.";
+                    _root.save.inventoryDesc[400] =
+                        "Congratulations! You have mastered the pirate language (for this particular sword, at least), and as a result, you can attack twice as fast with this Pirate Sword equipped!\n\nActually, you just let Robroccoli do the job for you, but the same still applies.";
                 }
                 else
                 {
-                    _root.save.inventoryDesc[400] = "Congratulations! You have mastered the pirate language (for this particular sword, at least), and as a result, you can attack twice as fast with this Pirate Sword equipped!\n\nActually, you just let Robacon do the job for you, but the same still applies.";
+                    _root.save.inventoryDesc[400] =
+                        "Congratulations! You have mastered the pirate language (for this particular sword, at least), and as a result, you can attack twice as fast with this Pirate Sword equipped!\n\nActually, you just let Robacon do the job for you, but the same still applies.";
                 }
             }
             if (_root.save.inventoryAttack[400] > 0)
@@ -1969,16 +2249,32 @@ public partial class DefineSprite_6014 : AnimatedSprite2D
                     _root.save.inventoryBonusPow[400] += 10;
                 }
             }
-            _root.dispNews(62, "Item Level Up! [" + _root.save.inventoryName[400] + "] is now Level " + _root.save.inventoryLevel[400] + ".");
+            _root.dispNews(
+                62,
+                "Item Level Up! ["
+                    + _root.save.inventoryName[400]
+                    + "] is now Level "
+                    + _root.save.inventoryLevel[400]
+                    + "."
+            );
         }
-        if (_root.save.inventoryExp[_root.save.arenaWeapon] >= _root.save.inventoryExpTNL[_root.save.arenaWeapon] && _root.save.inventoryLevel[_root.save.arenaWeapon] < _root.save.inventoryMaxLevel[_root.save.arenaWeapon])
+        if (
+            _root.save.inventoryExp[_root.save.arenaWeapon]
+                >= _root.save.inventoryExpTNL[_root.save.arenaWeapon]
+            && _root.save.inventoryLevel[_root.save.arenaWeapon]
+                < _root.save.inventoryMaxLevel[_root.save.arenaWeapon]
+        )
         {
             _root.save.inventoryExp[_root.save.arenaWeapon] = 0;
             _root.save.inventoryLevel[_root.save.arenaWeapon] += 1;
-            if (_root.save.inventoryName[_root.save.arenaWeapon] == "Pirate Sword" && _root.save.inventoryLevel[_root.save.arenaWeapon] == 300)
+            if (
+                _root.save.inventoryName[_root.save.arenaWeapon] == "Pirate Sword"
+                && _root.save.inventoryLevel[_root.save.arenaWeapon] == 300
+            )
             {
                 _root.save.inventorySpeed[_root.save.arenaWeapon] += 3;
-                _root.save.inventoryDesc[_root.save.arenaWeapon] = "Congratulations! You have mastered the pirate language (for this particular sword, at least), and as a result, you can attack twice as fast with this Pirate Sword equipped!";
+                _root.save.inventoryDesc[_root.save.arenaWeapon] =
+                    "Congratulations! You have mastered the pirate language (for this particular sword, at least), and as a result, you can attack twice as fast with this Pirate Sword equipped!";
             }
             if (_root.save.inventoryAttack[_root.save.arenaWeapon] > 0)
             {
@@ -2031,9 +2327,21 @@ public partial class DefineSprite_6014 : AnimatedSprite2D
                     _root.save.inventoryBonusPow[_root.save.arenaWeapon] += 10;
                 }
             }
-            _root.dispNews(62, "Item Level Up! [" + _root.save.inventoryName[_root.save.arenaWeapon] + "] is now Level " + _root.save.inventoryLevel[_root.save.arenaWeapon] + ".");
+            _root.dispNews(
+                62,
+                "Item Level Up! ["
+                    + _root.save.inventoryName[_root.save.arenaWeapon]
+                    + "] is now Level "
+                    + _root.save.inventoryLevel[_root.save.arenaWeapon]
+                    + "."
+            );
         }
-        if (_root.save.inventoryExp[_root.save.arenaHat] >= _root.save.inventoryExpTNL[_root.save.arenaHat] && _root.save.inventoryLevel[_root.save.arenaHat] < _root.save.inventoryMaxLevel[_root.save.arenaHat])
+        if (
+            _root.save.inventoryExp[_root.save.arenaHat]
+                >= _root.save.inventoryExpTNL[_root.save.arenaHat]
+            && _root.save.inventoryLevel[_root.save.arenaHat]
+                < _root.save.inventoryMaxLevel[_root.save.arenaHat]
+        )
         {
             _root.save.inventoryExp[_root.save.arenaHat] = 0;
             _root.save.inventoryLevel[_root.save.arenaHat] += 1;
@@ -2060,9 +2368,21 @@ public partial class DefineSprite_6014 : AnimatedSprite2D
                 _root.save.inventoryCrit[_root.save.arenaHat] += 1;
                 _root.save.inventoryBonusPow[_root.save.arenaHat] += 10;
             }
-            _root.dispNews(62, "Item Level Up! [" + _root.save.inventoryName[_root.save.arenaHat] + "] is now Level " + _root.save.inventoryLevel[_root.save.arenaHat] + ".");
+            _root.dispNews(
+                62,
+                "Item Level Up! ["
+                    + _root.save.inventoryName[_root.save.arenaHat]
+                    + "] is now Level "
+                    + _root.save.inventoryLevel[_root.save.arenaHat]
+                    + "."
+            );
         }
-        if (_root.save.inventoryExp[_root.save.arenaShirt] >= _root.save.inventoryExpTNL[_root.save.arenaShirt] && _root.save.inventoryLevel[_root.save.arenaShirt] < _root.save.inventoryMaxLevel[_root.save.arenaShirt])
+        if (
+            _root.save.inventoryExp[_root.save.arenaShirt]
+                >= _root.save.inventoryExpTNL[_root.save.arenaShirt]
+            && _root.save.inventoryLevel[_root.save.arenaShirt]
+                < _root.save.inventoryMaxLevel[_root.save.arenaShirt]
+        )
         {
             _root.save.inventoryExp[_root.save.arenaShirt] = 0;
             _root.save.inventoryLevel[_root.save.arenaShirt] += 1;
@@ -2089,13 +2409,28 @@ public partial class DefineSprite_6014 : AnimatedSprite2D
                 _root.save.inventoryCrit[_root.save.arenaShirt] += 1;
                 _root.save.inventoryBonusPow[_root.save.arenaShirt] += 10;
             }
-            _root.dispNews(62, "Item Level Up! [" + _root.save.inventoryName[_root.save.arenaShirt] + "] is now Level " + _root.save.inventoryLevel[_root.save.arenaShirt] + ".");
+            _root.dispNews(
+                62,
+                "Item Level Up! ["
+                    + _root.save.inventoryName[_root.save.arenaShirt]
+                    + "] is now Level "
+                    + _root.save.inventoryLevel[_root.save.arenaShirt]
+                    + "."
+            );
         }
-        if (_root.save.inventoryExp[_root.save.arenaGloves] >= _root.save.inventoryExpTNL[_root.save.arenaGloves] && _root.save.inventoryLevel[_root.save.arenaGloves] < _root.save.inventoryMaxLevel[_root.save.arenaGloves])
+        if (
+            _root.save.inventoryExp[_root.save.arenaGloves]
+                >= _root.save.inventoryExpTNL[_root.save.arenaGloves]
+            && _root.save.inventoryLevel[_root.save.arenaGloves]
+                < _root.save.inventoryMaxLevel[_root.save.arenaGloves]
+        )
         {
             _root.save.inventoryExp[_root.save.arenaGloves] = 0;
             _root.save.inventoryLevel[_root.save.arenaGloves] += 1;
-            if (_root.save.inventoryFrame[_root.save.arenaGloves] >= 141 && _root.save.inventoryFrame[_root.save.arenaGloves] <= 145)
+            if (
+                _root.save.inventoryFrame[_root.save.arenaGloves] >= 141
+                && _root.save.inventoryFrame[_root.save.arenaGloves] <= 145
+            )
             {
                 _root.save.inventoryFrame[_root.save.arenaGloves] -= 1;
                 _root.save.inventorySpeed[_root.save.arenaGloves] += 2;
@@ -2103,7 +2438,9 @@ public partial class DefineSprite_6014 : AnimatedSprite2D
                 if (_root.save.inventoryFrame[_root.save.arenaGloves] == 140)
                 {
                     _root.save.inventoryName[_root.save.arenaGloves] = "Fairy Godmother Gloves";
-                    _root.save.inventorySet[_root.save.arenaGloves] = _root.checkArenaSet("Fairy Godmother Gloves");
+                    _root.save.inventorySet[_root.save.arenaGloves] = _root.checkArenaSet(
+                        "Fairy Godmother Gloves"
+                    );
                     _root.save.inventoryNoFuse[_root.save.arenaGloves] = false;
                     _root.save.inventoryEnhance[_root.save.arenaGloves] = -2;
                     _root.save.inventoryAttack[_root.save.arenaGloves] += 60;
@@ -2117,7 +2454,10 @@ public partial class DefineSprite_6014 : AnimatedSprite2D
                 _root.toCheck = true;
                 _root.gCheck = true;
             }
-            if (_root.save.inventoryFrame[_root.save.arenaGloves] >= 153 && _root.save.inventoryFrame[_root.save.arenaGloves] <= 154)
+            if (
+                _root.save.inventoryFrame[_root.save.arenaGloves] >= 153
+                && _root.save.inventoryFrame[_root.save.arenaGloves] <= 154
+            )
             {
                 _root.save.inventoryFrame[_root.save.arenaGloves] -= 1;
                 _root.save.inventoryAttack[_root.save.arenaGloves] += 50;
@@ -2125,7 +2465,9 @@ public partial class DefineSprite_6014 : AnimatedSprite2D
                 if (_root.save.inventoryFrame[_root.save.arenaGloves] == 152)
                 {
                     _root.save.inventoryName[_root.save.arenaGloves] = "CHAOS GLOVES";
-                    _root.save.inventorySet[_root.save.arenaGloves] = _root.checkArenaSet("CHAOS GLOVES");
+                    _root.save.inventorySet[_root.save.arenaGloves] = _root.checkArenaSet(
+                        "CHAOS GLOVES"
+                    );
                     _root.save.inventoryNoFuse[_root.save.arenaGloves] = false;
                     _root.save.inventoryEnhance[_root.save.arenaGloves] = 0;
                     _root.save.inventoryAttack[_root.save.arenaGloves] += 100;
@@ -2162,9 +2504,21 @@ public partial class DefineSprite_6014 : AnimatedSprite2D
                     _root.save.inventoryBonusPow[_root.save.arenaGloves] += 10;
                 }
             }
-            _root.dispNews(62, "Item Level Up! [" + _root.save.inventoryName[_root.save.arenaGloves] + "] is now Level " + _root.save.inventoryLevel[_root.save.arenaGloves] + ".");
+            _root.dispNews(
+                62,
+                "Item Level Up! ["
+                    + _root.save.inventoryName[_root.save.arenaGloves]
+                    + "] is now Level "
+                    + _root.save.inventoryLevel[_root.save.arenaGloves]
+                    + "."
+            );
         }
-        if (_root.save.inventoryExp[_root.save.arenaPants] >= _root.save.inventoryExpTNL[_root.save.arenaPants] && _root.save.inventoryLevel[_root.save.arenaPants] < _root.save.inventoryMaxLevel[_root.save.arenaPants])
+        if (
+            _root.save.inventoryExp[_root.save.arenaPants]
+                >= _root.save.inventoryExpTNL[_root.save.arenaPants]
+            && _root.save.inventoryLevel[_root.save.arenaPants]
+                < _root.save.inventoryMaxLevel[_root.save.arenaPants]
+        )
         {
             _root.save.inventoryExp[_root.save.arenaPants] = 0;
             _root.save.inventoryLevel[_root.save.arenaPants] += 1;
@@ -2191,9 +2545,21 @@ public partial class DefineSprite_6014 : AnimatedSprite2D
                 _root.save.inventoryCrit[_root.save.arenaPants] += 1;
                 _root.save.inventoryBonusPow[_root.save.arenaPants] += 10;
             }
-            _root.dispNews(62, "Item Level Up! [" + _root.save.inventoryName[_root.save.arenaPants] + "] is now Level " + _root.save.inventoryLevel[_root.save.arenaPants] + ".");
+            _root.dispNews(
+                62,
+                "Item Level Up! ["
+                    + _root.save.inventoryName[_root.save.arenaPants]
+                    + "] is now Level "
+                    + _root.save.inventoryLevel[_root.save.arenaPants]
+                    + "."
+            );
         }
-        if (_root.save.inventoryExp[_root.save.arenaShoes] >= _root.save.inventoryExpTNL[_root.save.arenaShoes] && _root.save.inventoryLevel[_root.save.arenaShoes] < _root.save.inventoryMaxLevel[_root.save.arenaShoes])
+        if (
+            _root.save.inventoryExp[_root.save.arenaShoes]
+                >= _root.save.inventoryExpTNL[_root.save.arenaShoes]
+            && _root.save.inventoryLevel[_root.save.arenaShoes]
+                < _root.save.inventoryMaxLevel[_root.save.arenaShoes]
+        )
         {
             _root.save.inventoryExp[_root.save.arenaShoes] = 0;
             _root.save.inventoryLevel[_root.save.arenaShoes] += 1;
@@ -2220,9 +2586,21 @@ public partial class DefineSprite_6014 : AnimatedSprite2D
                 _root.save.inventoryCrit[_root.save.arenaShoes] += 1;
                 _root.save.inventoryBonusPow[_root.save.arenaShoes] += 10;
             }
-            _root.dispNews(62, "Item Level Up! [" + _root.save.inventoryName[_root.save.arenaShoes] + "] is now Level " + _root.save.inventoryLevel[_root.save.arenaShoes] + ".");
+            _root.dispNews(
+                62,
+                "Item Level Up! ["
+                    + _root.save.inventoryName[_root.save.arenaShoes]
+                    + "] is now Level "
+                    + _root.save.inventoryLevel[_root.save.arenaShoes]
+                    + "."
+            );
         }
-        if (_root.save.inventoryExp[_root.save.arenaSkin] >= _root.save.inventoryExpTNL[_root.save.arenaSkin] && _root.save.inventoryLevel[_root.save.arenaSkin] < _root.save.inventoryMaxLevel[_root.save.arenaSkin])
+        if (
+            _root.save.inventoryExp[_root.save.arenaSkin]
+                >= _root.save.inventoryExpTNL[_root.save.arenaSkin]
+            && _root.save.inventoryLevel[_root.save.arenaSkin]
+                < _root.save.inventoryMaxLevel[_root.save.arenaSkin]
+        )
         {
             _root.save.inventoryExp[_root.save.arenaSkin] = 0;
             _root.save.inventoryLevel[_root.save.arenaSkin] += 1;
@@ -2249,13 +2627,26 @@ public partial class DefineSprite_6014 : AnimatedSprite2D
                 _root.save.inventoryCrit[_root.save.arenaSkin] += 1;
                 _root.save.inventoryBonusPow[_root.save.arenaSkin] += 10;
             }
-            _root.dispNews(62, "Item Level Up! [" + _root.save.inventoryName[_root.save.arenaSkin] + "] is now Level " + _root.save.inventoryLevel[_root.save.arenaSkin] + ".");
+            _root.dispNews(
+                62,
+                "Item Level Up! ["
+                    + _root.save.inventoryName[_root.save.arenaSkin]
+                    + "] is now Level "
+                    + _root.save.inventoryLevel[_root.save.arenaSkin]
+                    + "."
+            );
         }
-        if (_root.save.inventoryExp[_root.save.arenaMedal] >= _root.save.inventoryExpTNL[_root.save.arenaMedal] && _root.save.inventoryLevel[_root.save.arenaMedal] < _root.save.inventoryMaxLevel[_root.save.arenaMedal])
+        if (
+            _root.save.inventoryExp[_root.save.arenaMedal]
+                >= _root.save.inventoryExpTNL[_root.save.arenaMedal]
+            && _root.save.inventoryLevel[_root.save.arenaMedal]
+                < _root.save.inventoryMaxLevel[_root.save.arenaMedal]
+        )
         {
             _root.save.inventoryExp[_root.save.arenaMedal] = 0;
             _root.save.inventoryLevel[_root.save.arenaMedal] += 1;
-            _root.save.inventoryReqRank[_root.save.arenaMedal] = Math.round(_root.save.inventoryReqRank[_root.save.arenaMedal] / 10 + 1) * 10;
+            _root.save.inventoryReqRank[_root.save.arenaMedal] =
+                Math.round(_root.save.inventoryReqRank[_root.save.arenaMedal] / 10 + 1) * 10;
             if (_root.save.inventoryReqRank[_root.save.arenaMedal] > 500)
             {
                 _root.save.inventoryReqRank[_root.save.arenaMedal] = 500;
@@ -2264,9 +2655,21 @@ public partial class DefineSprite_6014 : AnimatedSprite2D
             _root.save.inventoryDexterity[_root.save.arenaMedal] += 5;
             _root.save.inventoryHealth[_root.save.arenaMedal] += 5;
             _root.save.inventoryBonusPow[_root.save.arenaMedal] += 150;
-            _root.dispNews(62, "Item Level Up! [" + _root.save.inventoryName[_root.save.arenaMedal] + "] is now Level " + _root.save.inventoryLevel[_root.save.arenaMedal] + ".");
+            _root.dispNews(
+                62,
+                "Item Level Up! ["
+                    + _root.save.inventoryName[_root.save.arenaMedal]
+                    + "] is now Level "
+                    + _root.save.inventoryLevel[_root.save.arenaMedal]
+                    + "."
+            );
         }
-        if (_root.save.inventoryExp[_root.save.arenaPendant] >= _root.save.inventoryExpTNL[_root.save.arenaPendant] && _root.save.inventoryLevel[_root.save.arenaPendant] < _root.save.inventoryMaxLevel[_root.save.arenaPendant])
+        if (
+            _root.save.inventoryExp[_root.save.arenaPendant]
+                >= _root.save.inventoryExpTNL[_root.save.arenaPendant]
+            && _root.save.inventoryLevel[_root.save.arenaPendant]
+                < _root.save.inventoryMaxLevel[_root.save.arenaPendant]
+        )
         {
             _root.save.inventoryExp[_root.save.arenaPendant] = 0;
             _root.save.inventoryLevel[_root.save.arenaPendant] += 1;
@@ -2298,9 +2701,21 @@ public partial class DefineSprite_6014 : AnimatedSprite2D
                 _root.save.inventorySpeed[_root.save.arenaPendant] += 1;
                 _root.save.inventoryBonusPow[_root.save.arenaPendant] += 40;
             }
-            _root.dispNews(62, "Item Level Up! [" + _root.save.inventoryName[_root.save.arenaPendant] + "] is now Level " + _root.save.inventoryLevel[_root.save.arenaPendant] + ".");
+            _root.dispNews(
+                62,
+                "Item Level Up! ["
+                    + _root.save.inventoryName[_root.save.arenaPendant]
+                    + "] is now Level "
+                    + _root.save.inventoryLevel[_root.save.arenaPendant]
+                    + "."
+            );
         }
-        if (_root.save.inventoryExp[_root.save.arenaEarring] >= _root.save.inventoryExpTNL[_root.save.arenaEarring] && _root.save.inventoryLevel[_root.save.arenaEarring] < _root.save.inventoryMaxLevel[_root.save.arenaEarring])
+        if (
+            _root.save.inventoryExp[_root.save.arenaEarring]
+                >= _root.save.inventoryExpTNL[_root.save.arenaEarring]
+            && _root.save.inventoryLevel[_root.save.arenaEarring]
+                < _root.save.inventoryMaxLevel[_root.save.arenaEarring]
+        )
         {
             _root.save.inventoryExp[_root.save.arenaEarring] = 0;
             _root.save.inventoryLevel[_root.save.arenaEarring] += 1;
@@ -2332,9 +2747,21 @@ public partial class DefineSprite_6014 : AnimatedSprite2D
                 _root.save.inventorySpeed[_root.save.arenaEarring] += 1;
                 _root.save.inventoryBonusPow[_root.save.arenaEarring] += 40;
             }
-            _root.dispNews(62, "Item Level Up! [" + _root.save.inventoryName[_root.save.arenaEarring] + "] is now Level " + _root.save.inventoryLevel[_root.save.arenaEarring] + ".");
+            _root.dispNews(
+                62,
+                "Item Level Up! ["
+                    + _root.save.inventoryName[_root.save.arenaEarring]
+                    + "] is now Level "
+                    + _root.save.inventoryLevel[_root.save.arenaEarring]
+                    + "."
+            );
         }
-        if (_root.save.inventoryExp[_root.save.arenaTrinket] >= _root.save.inventoryExpTNL[_root.save.arenaTrinket] && _root.save.inventoryLevel[_root.save.arenaTrinket] < _root.save.inventoryMaxLevel[_root.save.arenaTrinket])
+        if (
+            _root.save.inventoryExp[_root.save.arenaTrinket]
+                >= _root.save.inventoryExpTNL[_root.save.arenaTrinket]
+            && _root.save.inventoryLevel[_root.save.arenaTrinket]
+                < _root.save.inventoryMaxLevel[_root.save.arenaTrinket]
+        )
         {
             _root.save.inventoryExp[_root.save.arenaTrinket] = 0;
             _root.save.inventoryLevel[_root.save.arenaTrinket] += 1;
@@ -2377,7 +2804,14 @@ public partial class DefineSprite_6014 : AnimatedSprite2D
                     _root.save.inventoryUnob[_root.save.arenaTrinket] = 60;
                 }
             }
-            _root.dispNews(62, "Item Level Up! [" + _root.save.inventoryName[_root.save.arenaTrinket] + "] is now Level " + _root.save.inventoryLevel[_root.save.arenaTrinket] + ".");
+            _root.dispNews(
+                62,
+                "Item Level Up! ["
+                    + _root.save.inventoryName[_root.save.arenaTrinket]
+                    + "] is now Level "
+                    + _root.save.inventoryLevel[_root.save.arenaTrinket]
+                    + "."
+            );
         }
         if (_root.save.inventoryExpiry[_root.save.arenaHat] < _root.systemtimenow)
         {
@@ -2463,10 +2897,10 @@ public partial class DefineSprite_6014 : AnimatedSprite2D
             _root.gCheck = true;
             _root.dispNews(63, "Trinket expired!");
         }
-        var itemTier = new List<double>();
-        var itemBonus = new List<string>();
-        var itemAbility = new List<string>();
-        var itemMoreBonus = new List<string>();
+        var itemTier = new FlashList<double>();
+        var itemBonus = new FlashList<string>();
+        var itemAbility = new FlashList<string>();
+        var itemMoreBonus = new FlashList<string>();
         itemTier[1] = Math.ceil(_root.save.inventoryReqRank[_root.save.arenaWeapon] / 10);
         itemTier[2] = Math.ceil(_root.save.inventoryReqRank[_root.save.arenaHat] / 10);
         itemTier[3] = Math.ceil(_root.save.inventoryReqRank[_root.save.arenaShirt] / 10);
@@ -2943,7 +3377,8 @@ public partial class DefineSprite_6014 : AnimatedSprite2D
             _root.abilPwnLight += Math.floor(0.3 * _root.abilPwnLight);
             _root.abilPwnDark += Math.floor(0.3 * _root.abilPwnDark);
         }
-        _root.buffMultiplier = (100 + _root.abilBuffEffect + Math.floor(_root.save.arenaSkill[62] * 1)) / 100;
+        _root.buffMultiplier =
+            (100 + _root.abilBuffEffect + Math.floor(_root.save.arenaSkill[62] * 1)) / 100;
         if (_root.save.arenaLevel >= 1 && _root.save.arenaLevel < 12)
         {
             _root.arenaReqExp = _root.save.arenaLevel * 200;
@@ -2954,23 +3389,28 @@ public partial class DefineSprite_6014 : AnimatedSprite2D
         }
         else if (_root.save.arenaLevel >= 30 && _root.save.arenaLevel < 70)
         {
-            _root.arenaReqExp = Math.ceil(_root.save.arenaLevel * (_root.save.arenaLevel + 1) * 70) - 15000;
+            _root.arenaReqExp =
+                Math.ceil(_root.save.arenaLevel * (_root.save.arenaLevel + 1) * 70) - 15000;
         }
         else if (_root.save.arenaLevel >= 70 && _root.save.arenaLevel < 120)
         {
-            _root.arenaReqExp = Math.ceil(_root.save.arenaLevel * (_root.save.arenaLevel + 1) * 100) - 150000;
+            _root.arenaReqExp =
+                Math.ceil(_root.save.arenaLevel * (_root.save.arenaLevel + 1) * 100) - 150000;
         }
         else if (_root.save.arenaLevel >= 120 && _root.save.arenaLevel < 180)
         {
-            _root.arenaReqExp = Math.ceil(_root.save.arenaLevel * (_root.save.arenaLevel + 1) * 150) - 500000;
+            _root.arenaReqExp =
+                Math.ceil(_root.save.arenaLevel * (_root.save.arenaLevel + 1) * 150) - 500000;
         }
         else if (_root.save.arenaLevel >= 180 && _root.save.arenaLevel < 250)
         {
-            _root.arenaReqExp = Math.ceil(_root.save.arenaLevel * (_root.save.arenaLevel + 1) * 250) - 2500000;
+            _root.arenaReqExp =
+                Math.ceil(_root.save.arenaLevel * (_root.save.arenaLevel + 1) * 250) - 2500000;
         }
         else if (_root.save.arenaLevel >= 250 && _root.save.arenaLevel < 500)
         {
-            _root.arenaReqExp = Math.ceil(_root.save.arenaLevel * (_root.save.arenaLevel + 1) * 400) - 10000000;
+            _root.arenaReqExp =
+                Math.ceil(_root.save.arenaLevel * (_root.save.arenaLevel + 1) * 400) - 10000000;
         }
         else if (_root.save.arenaLevel >= 500)
         {
@@ -2982,33 +3422,41 @@ public partial class DefineSprite_6014 : AnimatedSprite2D
         }
         if (_root.save.robaconLevel >= 1 && _root.save.robaconLevel < 30)
         {
-            _root.robaconReqExp = Math.ceil(_root.save.robaconLevel * (_root.save.robaconLevel + 1) * 50);
+            _root.robaconReqExp = Math.ceil(
+                _root.save.robaconLevel * (_root.save.robaconLevel + 1) * 50
+            );
         }
         else if (_root.save.robaconLevel >= 30 && _root.save.robaconLevel < 70)
         {
-            _root.robaconReqExp = Math.ceil(_root.save.robaconLevel * (_root.save.robaconLevel + 1) * 70) - 15000;
+            _root.robaconReqExp =
+                Math.ceil(_root.save.robaconLevel * (_root.save.robaconLevel + 1) * 70) - 15000;
         }
         else if (_root.save.robaconLevel >= 70 && _root.save.robaconLevel < 120)
         {
-            _root.robaconReqExp = Math.ceil(_root.save.robaconLevel * (_root.save.robaconLevel + 1) * 100) - 150000;
+            _root.robaconReqExp =
+                Math.ceil(_root.save.robaconLevel * (_root.save.robaconLevel + 1) * 100) - 150000;
         }
         else if (_root.save.robaconLevel >= 120 && _root.save.robaconLevel < 180)
         {
-            _root.robaconReqExp = Math.ceil(_root.save.robaconLevel * (_root.save.robaconLevel + 1) * 150) - 500000;
+            _root.robaconReqExp =
+                Math.ceil(_root.save.robaconLevel * (_root.save.robaconLevel + 1) * 150) - 500000;
         }
         else if (_root.save.robaconLevel >= 180 && _root.save.robaconLevel < 250)
         {
-            _root.robaconReqExp = Math.ceil(_root.save.robaconLevel * (_root.save.robaconLevel + 1) * 250) - 2500000;
+            _root.robaconReqExp =
+                Math.ceil(_root.save.robaconLevel * (_root.save.robaconLevel + 1) * 250) - 2500000;
         }
         else if (_root.save.robaconLevel >= 250 && _root.save.robaconLevel < 500)
         {
-            _root.robaconReqExp = Math.ceil(_root.save.robaconLevel * (_root.save.robaconLevel + 1) * 400) - 10000000;
+            _root.robaconReqExp =
+                Math.ceil(_root.save.robaconLevel * (_root.save.robaconLevel + 1) * 400) - 10000000;
         }
         else if (_root.save.robaconLevel >= 500)
         {
             _root.robaconReqExp = 99999999;
         }
-        _root.rageDepletion = 100 - Math.floor(_root.save.arenaSkill[31] * 1.5 + _root.abilRageDepletion * 1);
+        _root.rageDepletion =
+            100 - Math.floor(_root.save.arenaSkill[31] * 1.5 + _root.abilRageDepletion * 1);
         if (_root.worstMoon == true)
         {
             _root.rageDepletion += 100;
@@ -3021,8 +3469,40 @@ public partial class DefineSprite_6014 : AnimatedSprite2D
         {
             _root.rageDepletion = -50;
         }
-        _root.maxHealth = Math.floor((_root.save.arenaMaxHealth + _root.abilIncHP) * (1 + _root.save.arenaSkill[22] * 0.03 + _root.save.arenaSkill[60] * 0.02 + _root.curCareerLevel[3] * 0.001 + (_root.save.inventoryHealth[_root.save.arenaHat] + _root.save.inventoryHealth[_root.save.arenaShirt] + _root.save.inventoryHealth[_root.save.arenaGloves] + _root.save.inventoryHealth[_root.save.arenaPants] + _root.save.inventoryHealth[_root.save.arenaShoes] + _root.save.inventoryHealth[_root.save.arenaSkin] + _root.save.inventoryHealth[_root.save.arenaMedal] + _root.save.inventoryHealth[_root.save.arenaPendant] + _root.save.inventoryHealth[_root.save.arenaEarring] + _root.save.inventoryHealth[_root.save.arenaTrinket]) * 0.01 + _root.abilHP * 0.01 + _root.allyHP * 0.01));
-        _root.maxMana = Math.floor((_root.save.arenaMaxMana + _root.abilIncMP) * (1 + _root.save.arenaSkill[25] * 0.05 + _root.curCareerLevel[3] * 0.001 + _root.abilMP * 0.01 + _root.allyMP * 0.01) * (1 + _root.spiritCount * -0.1));
+        _root.maxHealth = Math.floor(
+            (_root.save.arenaMaxHealth + _root.abilIncHP)
+                * (
+                    1
+                    + _root.save.arenaSkill[22] * 0.03
+                    + _root.save.arenaSkill[60] * 0.02
+                    + _root.curCareerLevel[3] * 0.001
+                    + (
+                        _root.save.inventoryHealth[_root.save.arenaHat]
+                        + _root.save.inventoryHealth[_root.save.arenaShirt]
+                        + _root.save.inventoryHealth[_root.save.arenaGloves]
+                        + _root.save.inventoryHealth[_root.save.arenaPants]
+                        + _root.save.inventoryHealth[_root.save.arenaShoes]
+                        + _root.save.inventoryHealth[_root.save.arenaSkin]
+                        + _root.save.inventoryHealth[_root.save.arenaMedal]
+                        + _root.save.inventoryHealth[_root.save.arenaPendant]
+                        + _root.save.inventoryHealth[_root.save.arenaEarring]
+                        + _root.save.inventoryHealth[_root.save.arenaTrinket]
+                    ) * 0.01
+                    + _root.abilHP * 0.01
+                    + _root.allyHP * 0.01
+                )
+        );
+        _root.maxMana = Math.floor(
+            (_root.save.arenaMaxMana + _root.abilIncMP)
+                * (
+                    1
+                    + _root.save.arenaSkill[25] * 0.05
+                    + _root.curCareerLevel[3] * 0.001
+                    + _root.abilMP * 0.01
+                    + _root.allyMP * 0.01
+                )
+                * (1 + _root.spiritCount * -0.1)
+        );
         if (_root.maxMana < 1)
         {
             _root.maxMana = 1;
@@ -3045,7 +3525,11 @@ public partial class DefineSprite_6014 : AnimatedSprite2D
         {
             _root.maxMana = 1;
         }
-        _root.maxSpirit = _root.spiritCount * 250 + _root.save.arenaSkill[25] * 20 + _root.save.arenaSkill[58] * 10 + _root.abilMaxSpirit;
+        _root.maxSpirit =
+            _root.spiritCount * 250
+            + _root.save.arenaSkill[25] * 20
+            + _root.save.arenaSkill[58] * 10
+            + _root.abilMaxSpirit;
         if (_root.manaPower == true)
         {
             _root.maxSpirit += 50;
@@ -3079,8 +3563,20 @@ public partial class DefineSprite_6014 : AnimatedSprite2D
         {
             _root.maxHealth = 100;
         }
-        _root.hpRecover = Math.floor((4000 + _root.maxHealth / 25) * (1 + _root.save.arenaSkill[21] * 0.5 + _root.abilHPRegen * 0.01 + _root.save.inventoryHealth[_root.save.arenaWeapon] * 0.25));
-        _root.mpRecover = Math.floor((400 + _root.maxMana / 250) * (1 + _root.save.arenaSkill[24] * 0.25 + _root.abilMPRegen * 0.01) * (1 + Math.min(_root.spiritCount, 10) * -0.1));
+        _root.hpRecover = Math.floor(
+            (4000 + _root.maxHealth / 25)
+                * (
+                    1
+                    + _root.save.arenaSkill[21] * 0.5
+                    + _root.abilHPRegen * 0.01
+                    + _root.save.inventoryHealth[_root.save.arenaWeapon] * 0.25
+                )
+        );
+        _root.mpRecover = Math.floor(
+            (400 + _root.maxMana / 250)
+                * (1 + _root.save.arenaSkill[24] * 0.25 + _root.abilMPRegen * 0.01)
+                * (1 + Math.min(_root.spiritCount, 10) * -0.1)
+        );
         if (_root.worstMoon == true)
         {
             _root.hpRecover = Math.floor(Math.pow(_root.hpRecover, 0.95));
@@ -3088,7 +3584,9 @@ public partial class DefineSprite_6014 : AnimatedSprite2D
         }
         if (_root.save.inventoryName[_root.save.arenaWeapon] == "Dark Ruler")
         {
-            _root.mpRecover = Math.floor(1 + _root.save.arenaSkill[24] * 0.4 + _root.abilMPRegen * 0.01);
+            _root.mpRecover = Math.floor(
+                1 + _root.save.arenaSkill[24] * 0.4 + _root.abilMPRegen * 0.01
+            );
         }
         if (_root.spiritHeal > 0)
         {
@@ -3106,7 +3604,17 @@ public partial class DefineSprite_6014 : AnimatedSprite2D
         }
         _root.hpRecover = Math.floor(_root.hpRecover / 10) * 10;
         _root.mpRecover = Math.floor(_root.mpRecover / 10) * 10;
-        _root.attackPower = Math.floor((_root.save.arenaAttack + _root.abilIncAttack) * (1 + _root.save.arenaSkill[9] * 0.01 + Math.ceil(_root.save.arenaSkill[12] / 2) * 0.01 + _root.curCareerLevel[3] * 0.001 + _root.abilAttack * 0.01 + _root.allyAttack * 0.01));
+        _root.attackPower = Math.floor(
+            (_root.save.arenaAttack + _root.abilIncAttack)
+                * (
+                    1
+                    + _root.save.arenaSkill[9] * 0.01
+                    + Math.ceil(_root.save.arenaSkill[12] / 2) * 0.01
+                    + _root.curCareerLevel[3] * 0.001
+                    + _root.abilAttack * 0.01
+                    + _root.allyAttack * 0.01
+                )
+        );
         var tempCombo = Math.floor(_root.arenaCombo / 10);
         if (_root.save.arenaRing == 18)
         {
@@ -3124,14 +3632,27 @@ public partial class DefineSprite_6014 : AnimatedSprite2D
             tempCombo = 0;
         }
         _root.attackPower = Math.floor(_root.attackPower * (100 + tempCombo * 1) / 100);
-        _root.defensePower = Math.floor((_root.save.arenaDefense + _root.abilIncDefense) * (1 + _root.save.arenaSkill[9] * 0.01 + _root.save.arenaSkill[11] * 0.01 + _root.save.arenaSkill[23] * 0.01 + _root.curCareerLevel[3] * 0.001 + _root.abilDefense * 0.01 + _root.allyDefense * 0.01));
+        _root.defensePower = Math.floor(
+            (_root.save.arenaDefense + _root.abilIncDefense)
+                * (
+                    1
+                    + _root.save.arenaSkill[9] * 0.01
+                    + _root.save.arenaSkill[11] * 0.01
+                    + _root.save.arenaSkill[23] * 0.01
+                    + _root.curCareerLevel[3] * 0.001
+                    + _root.abilDefense * 0.01
+                    + _root.allyDefense * 0.01
+                )
+        );
         if (_root.save.arenaBuffType == 4 && _root.arenaPotionBlock <= 0)
         {
             _root.attackPower = Math.floor(_root.attackPower * 0.01);
             _root.defensePower = Math.floor(_root.defensePower * 0.01);
         }
-        _root.ragePowerMult = 100 * (0.4 + _root.save.arenaSkill[32] * 0.02 + _root.abilRageAttack / 100);
-        _root.rageSpeedMult = 100 * (0 + _root.save.arenaSkill[33] * 0.03 + _root.abilRageSpeed / 100);
+        _root.ragePowerMult =
+            100 * (0.4 + _root.save.arenaSkill[32] * 0.02 + _root.abilRageAttack / 100);
+        _root.rageSpeedMult =
+            100 * (0 + _root.save.arenaSkill[33] * 0.03 + _root.abilRageSpeed / 100);
         if (_root.save.inventoryName[_root.save.arenaTrinket] == "Gem of Eternal Rage")
         {
             _root.ragePowerMult = Math.floor(_root.ragePowerMult * 1.2);
@@ -3142,7 +3663,11 @@ public partial class DefineSprite_6014 : AnimatedSprite2D
         }
         _root.ragePower = 100 + Math.round(_root.save.arenaRage) * _root.ragePowerMult / 100;
         _root.rageSpeed = 100 + Math.round(_root.save.arenaRage) * _root.rageSpeedMult / 100;
-        _root.ignoreDefense = _root.save.arenaSkill[20] + Math.floor(_root.save.arenaSkill[59] * 0.4) + _root.abilIgnoreDefense + _root.allyIgnoreDefense;
+        _root.ignoreDefense =
+            _root.save.arenaSkill[20]
+            + Math.floor(_root.save.arenaSkill[59] * 0.4)
+            + _root.abilIgnoreDefense
+            + _root.allyIgnoreDefense;
         if (_root.save.arenaZone == 52)
         {
             _root.ignoreDefense -= Math.floor(_root.areaSpookyKill / 100);
@@ -3167,22 +3692,47 @@ public partial class DefineSprite_6014 : AnimatedSprite2D
         {
             _root.ignoreDefense = 97;
         }
-        if (_root.arenaSoap > 0 && _root.save.inventoryName[_root.save.arenaWeapon] == "Censor Sword")
+        if (
+            _root.arenaSoap > 0
+            && _root.save.inventoryName[_root.save.arenaWeapon] == "Censor Sword"
+        )
         {
-            if (_root.save.inventoryName[_root.save.arenaHat] == "Censor Hat" && _root.save.inventoryName[_root.save.arenaShirt] == "Censor Shirt" && _root.save.inventoryName[_root.save.arenaGloves] == "Censor Gloves" && _root.save.inventoryName[_root.save.arenaPants] == "Censor Pants" && _root.save.inventoryName[_root.save.arenaShoes] == "Censor Shoes")
+            if (
+                _root.save.inventoryName[_root.save.arenaHat] == "Censor Hat"
+                && _root.save.inventoryName[_root.save.arenaShirt] == "Censor Shirt"
+                && _root.save.inventoryName[_root.save.arenaGloves] == "Censor Gloves"
+                && _root.save.inventoryName[_root.save.arenaPants] == "Censor Pants"
+                && _root.save.inventoryName[_root.save.arenaShoes] == "Censor Shoes"
+            )
             {
                 _root.ignoreDefense = 100;
             }
         }
-        if (_root.save.arenaZone == 14 && (_root.save.inventoryName[_root.save.arenaWeapon] == "Burned Rope" || _root.save.inventoryName[_root.save.arenaWeapon] == "[O] Burned Rope"))
+        if (
+            _root.save.arenaZone == 14
+            && (
+                _root.save.inventoryName[_root.save.arenaWeapon] == "Burned Rope"
+                || _root.save.inventoryName[_root.save.arenaWeapon] == "[O] Burned Rope"
+            )
+        )
         {
             _root.ignoreDefense = 100;
         }
-        if (_root.save.arenaZone >= 23 && _root.save.arenaZone <= 25 && (_root.save.inventoryName[_root.save.arenaWeapon] == "Special Wand" || _root.save.inventoryName[_root.save.arenaWeapon] == "[O] Special Wand"))
+        if (
+            _root.save.arenaZone >= 23
+            && _root.save.arenaZone <= 25
+            && (
+                _root.save.inventoryName[_root.save.arenaWeapon] == "Special Wand"
+                || _root.save.inventoryName[_root.save.arenaWeapon] == "[O] Special Wand"
+            )
+        )
         {
             _root.ignoreDefense = 100;
         }
-        if (enemy.name == "Secret Crystal" && _root.save.inventorySubtype[_root.save.arenaWeapon] == "Mining Tool")
+        if (
+            enemy.name == "Secret Crystal"
+            && _root.save.inventorySubtype[_root.save.arenaWeapon] == "Mining Tool"
+        )
         {
             _root.ignoreDefense = 100;
         }
@@ -3190,9 +3740,65 @@ public partial class DefineSprite_6014 : AnimatedSprite2D
         {
             _root.ignoreDefense = 100;
         }
-        _root.weaponDefense = _root.save.inventoryDefense[_root.save.arenaWeapon] + _root.save.inventoryDefense[_root.save.arenaHat] + _root.save.inventoryDefense[_root.save.arenaShirt] + _root.save.inventoryDefense[_root.save.arenaGloves] + _root.save.inventoryDefense[_root.save.arenaPants] + _root.save.inventoryDefense[_root.save.arenaShoes] + _root.save.inventoryDefense[_root.save.arenaSkin] + _root.save.inventoryDefense[_root.save.arenaMedal] + _root.save.inventoryDefense[_root.save.arenaPendant] + _root.save.inventoryDefense[_root.save.arenaEarring] + _root.save.inventoryDefense[_root.save.arenaTrinket] + _root.save.arenaSkill[11] * 30 + _root.allyEquipDefense + _root.abilIncEquipDefense;
-        _root.weaponAttack = _root.save.inventoryAttack[_root.save.arenaWeapon] + _root.save.inventoryAttack[_root.save.arenaHat] + _root.save.inventoryAttack[_root.save.arenaShirt] + _root.save.inventoryAttack[_root.save.arenaGloves] + _root.save.inventoryAttack[_root.save.arenaPants] + _root.save.inventoryAttack[_root.save.arenaShoes] + _root.save.inventoryAttack[_root.save.arenaSkin] + _root.save.inventoryAttack[_root.save.arenaMedal] + _root.save.inventoryAttack[_root.save.arenaPendant] + _root.save.inventoryAttack[_root.save.arenaEarring] + _root.save.inventoryAttack[_root.save.arenaTrinket] + _root.save.arenaSkill[12] * 10 + _root.save.arenaSkill[59] * 2 + _root.allyEquipAttack + _root.abilIncEquipAttack;
-        _root.attackSpeed = Math.floor((_root.save.inventorySpeed[_root.save.arenaWeapon] * (1 + (_root.save.inventorySpeed[_root.save.arenaHat] + _root.save.inventorySpeed[_root.save.arenaShirt] + _root.save.inventorySpeed[_root.save.arenaGloves] + _root.save.inventorySpeed[_root.save.arenaPants] + _root.save.inventorySpeed[_root.save.arenaShoes] + _root.save.inventorySpeed[_root.save.arenaSkin] + _root.save.inventorySpeed[_root.save.arenaMedal] + _root.save.inventorySpeed[_root.save.arenaPendant] + _root.save.inventorySpeed[_root.save.arenaEarring] + _root.save.inventorySpeed[_root.save.arenaTrinket]) * 0.05) + _root.allyAttackSpeedRaw) * (1 + 0.02 * _root.save.arenaSkill[16] + _root.abilAttackSpeed * 0.01 + _root.allyAttackSpeed * 0.01) * (_root.rageSpeed / 100));
+        _root.weaponDefense =
+            _root.save.inventoryDefense[_root.save.arenaWeapon]
+            + _root.save.inventoryDefense[_root.save.arenaHat]
+            + _root.save.inventoryDefense[_root.save.arenaShirt]
+            + _root.save.inventoryDefense[_root.save.arenaGloves]
+            + _root.save.inventoryDefense[_root.save.arenaPants]
+            + _root.save.inventoryDefense[_root.save.arenaShoes]
+            + _root.save.inventoryDefense[_root.save.arenaSkin]
+            + _root.save.inventoryDefense[_root.save.arenaMedal]
+            + _root.save.inventoryDefense[_root.save.arenaPendant]
+            + _root.save.inventoryDefense[_root.save.arenaEarring]
+            + _root.save.inventoryDefense[_root.save.arenaTrinket]
+            + _root.save.arenaSkill[11] * 30
+            + _root.allyEquipDefense
+            + _root.abilIncEquipDefense;
+        _root.weaponAttack =
+            _root.save.inventoryAttack[_root.save.arenaWeapon]
+            + _root.save.inventoryAttack[_root.save.arenaHat]
+            + _root.save.inventoryAttack[_root.save.arenaShirt]
+            + _root.save.inventoryAttack[_root.save.arenaGloves]
+            + _root.save.inventoryAttack[_root.save.arenaPants]
+            + _root.save.inventoryAttack[_root.save.arenaShoes]
+            + _root.save.inventoryAttack[_root.save.arenaSkin]
+            + _root.save.inventoryAttack[_root.save.arenaMedal]
+            + _root.save.inventoryAttack[_root.save.arenaPendant]
+            + _root.save.inventoryAttack[_root.save.arenaEarring]
+            + _root.save.inventoryAttack[_root.save.arenaTrinket]
+            + _root.save.arenaSkill[12] * 10
+            + _root.save.arenaSkill[59] * 2
+            + _root.allyEquipAttack
+            + _root.abilIncEquipAttack;
+        _root.attackSpeed = Math.floor(
+            (
+                _root.save.inventorySpeed[_root.save.arenaWeapon]
+                    * (
+                        1
+                        + (
+                            _root.save.inventorySpeed[_root.save.arenaHat]
+                            + _root.save.inventorySpeed[_root.save.arenaShirt]
+                            + _root.save.inventorySpeed[_root.save.arenaGloves]
+                            + _root.save.inventorySpeed[_root.save.arenaPants]
+                            + _root.save.inventorySpeed[_root.save.arenaShoes]
+                            + _root.save.inventorySpeed[_root.save.arenaSkin]
+                            + _root.save.inventorySpeed[_root.save.arenaMedal]
+                            + _root.save.inventorySpeed[_root.save.arenaPendant]
+                            + _root.save.inventorySpeed[_root.save.arenaEarring]
+                            + _root.save.inventorySpeed[_root.save.arenaTrinket]
+                        ) * 0.05
+                    )
+                + _root.allyAttackSpeedRaw
+            )
+                * (
+                    1
+                    + 0.02 * _root.save.arenaSkill[16]
+                    + _root.abilAttackSpeed * 0.01
+                    + _root.allyAttackSpeed * 0.01
+                )
+                * (_root.rageSpeed / 100)
+        );
         if (_root.save.arenaZone == 82 && _root.save.arenaEvent == 1 && _root.attackSpeed > 12)
         {
             _root.attackSpeed = 12;
@@ -3201,7 +3807,8 @@ public partial class DefineSprite_6014 : AnimatedSprite2D
         {
             _root.attackSpeed = 1;
         }
-        _root.doubleHit = Math.floor(_root.save.arenaSkill[55] * 1.5) + _root.abilDoubleHit + _root.allyDoubleHit;
+        _root.doubleHit =
+            Math.floor(_root.save.arenaSkill[55] * 1.5) + _root.abilDoubleHit + _root.allyDoubleHit;
         if (_root.save.arenaZone == 82 && _root.save.arenaEvent == 1)
         {
             _root.doubleHit = 0;
@@ -3244,10 +3851,32 @@ public partial class DefineSprite_6014 : AnimatedSprite2D
         {
             _root.minMult = 97;
         }
-        _root.maxDamage = Math.ceil((0.000007 * Math.pow(_root.save.arenaLevel, 0.5) * Math.pow(_root.save.level, 0.5) + 0.01) * _root.attackPower * _root.weaponAttack * (_root.ragePower / 100) * (1 + (double)_root["abilPwn" + enemy.element] * 0.01) + _root.attackPower);
+        _root.maxDamage = Math.ceil(
+            (
+                0.000007 * Math.pow(_root.save.arenaLevel, 0.5) * Math.pow(_root.save.level, 0.5)
+                + 0.01
+            )
+                * _root.attackPower
+                * _root.weaponAttack
+                * (_root.ragePower / 100)
+                * (1 + (double)_root["abilPwn" + enemy.element] * 0.01)
+                + _root.attackPower
+        );
         if (this._currentframe != 1)
         {
-            _root.maxDamage = Math.ceil((0.000007 * Math.pow(_root.save.arenaLevel, 0.5) * Math.pow(_root.save.level, 0.5) + 0.01) * _root.attackPower * _root.weaponAttack * (_root.ragePower / 100) * 1 + _root.attackPower);
+            _root.maxDamage = Math.ceil(
+                (
+                    0.000007
+                        * Math.pow(_root.save.arenaLevel, 0.5)
+                        * Math.pow(_root.save.level, 0.5)
+                    + 0.01
+                )
+                    * _root.attackPower
+                    * _root.weaponAttack
+                    * (_root.ragePower / 100)
+                    * 1
+                    + _root.attackPower
+            );
         }
         if (_root.save.level < 100)
         {
@@ -3272,7 +3901,9 @@ public partial class DefineSprite_6014 : AnimatedSprite2D
         }
         if (_root.save.arenaZone >= 23 && _root.save.arenaZone <= 25)
         {
-            _root.maxDamage = Math.ceil(Math.min(_root.save.level, 4000) / 4 + _root.save.arenaLevel + 1000);
+            _root.maxDamage = Math.ceil(
+                Math.min(_root.save.level, 4000) / 4 + _root.save.arenaLevel + 1000
+            );
             _root.minMult = 100;
         }
         if (_root.specInfinity > 0)
@@ -3280,7 +3911,18 @@ public partial class DefineSprite_6014 : AnimatedSprite2D
             _root.minMult = 100;
         }
         _root.minDamage = Math.ceil(_root.minMult * _root.maxDamage / 100);
-        _root.accuracy = Math.floor((_root.save.arenaAccuracy + _root.abilIncAccuracy) * (1 + _root.save.arenaSkill[14] * 0.01 + Math.floor(_root.save.arenaSkill[10] * 1.5) * 0.01 + _root.curCareerLevel[3] * 0.001 + _root.save.inventoryDexterity[_root.save.arenaWeapon] * 0.01 + _root.abilAccuracy * 0.01 + _root.allyAccuracy * 0.01));
+        _root.accuracy = Math.floor(
+            (_root.save.arenaAccuracy + _root.abilIncAccuracy)
+                * (
+                    1
+                    + _root.save.arenaSkill[14] * 0.01
+                    + Math.floor(_root.save.arenaSkill[10] * 1.5) * 0.01
+                    + _root.curCareerLevel[3] * 0.001
+                    + _root.save.inventoryDexterity[_root.save.arenaWeapon] * 0.01
+                    + _root.abilAccuracy * 0.01
+                    + _root.allyAccuracy * 0.01
+                )
+        );
         tempCombo = Math.floor(_root.arenaCombo / 10);
         if (_root.save.arenaRing == 18)
         {
@@ -3298,7 +3940,9 @@ public partial class DefineSprite_6014 : AnimatedSprite2D
             tempCombo = 0;
         }
         _root.accuracy = Math.floor(_root.accuracy * (1 + tempCombo * 0.02));
-        _root.accuracyPct = Math.floor(_root.save.arenaSkill[14] + _root.abilHitChance + _root.allyHitChance);
+        _root.accuracyPct = Math.floor(
+            _root.save.arenaSkill[14] + _root.abilHitChance + _root.allyHitChance
+        );
         if (_root.save.arenaZone == 52)
         {
             _root.accuracyPct -= Math.floor(_root.areaSpookyKill / 100);
@@ -3331,7 +3975,29 @@ public partial class DefineSprite_6014 : AnimatedSprite2D
         {
             _root.accuracyPct = 94;
         }
-        _root.evasion = Math.floor((_root.save.arenaEvasion + _root.abilIncEvasion) * (1 + _root.save.arenaSkill[13] * 0.01 + Math.floor(_root.save.arenaSkill[10] * 1.5) * 0.01 + (_root.save.inventoryDexterity[_root.save.arenaHat] + _root.save.inventoryDexterity[_root.save.arenaShirt] + _root.save.inventoryDexterity[_root.save.arenaGloves] + _root.save.inventoryDexterity[_root.save.arenaPants] + _root.save.inventoryDexterity[_root.save.arenaShoes] + _root.save.inventoryDexterity[_root.save.arenaSkin] + _root.save.inventoryDexterity[_root.save.arenaMedal] + _root.save.inventoryDexterity[_root.save.arenaPendant] + _root.save.inventoryDexterity[_root.save.arenaEarring] + _root.save.inventoryDexterity[_root.save.arenaTrinket]) * 0.01 + _root.curCareerLevel[3] * 0.001 + _root.abilEvasion * 0.01 + _root.allyEvasion * 0.01));
+        _root.evasion = Math.floor(
+            (_root.save.arenaEvasion + _root.abilIncEvasion)
+                * (
+                    1
+                    + _root.save.arenaSkill[13] * 0.01
+                    + Math.floor(_root.save.arenaSkill[10] * 1.5) * 0.01
+                    + (
+                        _root.save.inventoryDexterity[_root.save.arenaHat]
+                        + _root.save.inventoryDexterity[_root.save.arenaShirt]
+                        + _root.save.inventoryDexterity[_root.save.arenaGloves]
+                        + _root.save.inventoryDexterity[_root.save.arenaPants]
+                        + _root.save.inventoryDexterity[_root.save.arenaShoes]
+                        + _root.save.inventoryDexterity[_root.save.arenaSkin]
+                        + _root.save.inventoryDexterity[_root.save.arenaMedal]
+                        + _root.save.inventoryDexterity[_root.save.arenaPendant]
+                        + _root.save.inventoryDexterity[_root.save.arenaEarring]
+                        + _root.save.inventoryDexterity[_root.save.arenaTrinket]
+                    ) * 0.01
+                    + _root.curCareerLevel[3] * 0.001
+                    + _root.abilEvasion * 0.01
+                    + _root.allyEvasion * 0.01
+                )
+        );
         tempCombo = Math.floor(_root.arenaCombo / 10);
         if (_root.save.arenaRing == 18)
         {
@@ -3349,7 +4015,12 @@ public partial class DefineSprite_6014 : AnimatedSprite2D
             tempCombo = 0;
         }
         _root.evasion = Math.floor(_root.evasion * (1 + tempCombo * 0.02));
-        _root.evasionPct = Math.floor(_root.save.arenaSkill[13] * 1 + Math.floor(_root.save.arenaSkill[61] / 2) + _root.abilDodgeChance + _root.allyDodgeChance);
+        _root.evasionPct = Math.floor(
+            _root.save.arenaSkill[13] * 1
+                + Math.floor(_root.save.arenaSkill[61] / 2)
+                + _root.abilDodgeChance
+                + _root.allyDodgeChance
+        );
         if (_root.save.arenaZone == 52)
         {
             _root.evasionPct -= Math.floor(_root.areaSpookyKill / 100);
@@ -3405,8 +4076,30 @@ public partial class DefineSprite_6014 : AnimatedSprite2D
         {
             _root.evasionPct = 100;
         }
-        _root.criticalChance = Math.floor(_root.accuracy / 1000) + _root.save.inventoryCrit[_root.save.arenaWeapon] + _root.save.arenaSkill[19] + _root.abilCriticalChance + _root.allyCriticalChance;
-        _root.criticalDamage = 100 + (_root.save.inventoryCrit[_root.save.arenaHat] + _root.save.inventoryCrit[_root.save.arenaShirt] + _root.save.inventoryCrit[_root.save.arenaGloves] + _root.save.inventoryCrit[_root.save.arenaPants] + _root.save.inventoryCrit[_root.save.arenaShoes] + _root.save.inventoryCrit[_root.save.arenaSkin] + _root.save.inventoryCrit[_root.save.arenaMedal] + _root.save.inventoryCrit[_root.save.arenaPendant] + _root.save.inventoryCrit[_root.save.arenaEarring] + _root.save.inventoryCrit[_root.save.arenaTrinket]) + _root.save.arenaSkill[18] * 2 + _root.save.arenaSkill[20] * 1 + _root.abilCriticalDamage + _root.allyCriticalDamage;
+        _root.criticalChance =
+            Math.floor(_root.accuracy / 1000)
+            + _root.save.inventoryCrit[_root.save.arenaWeapon]
+            + _root.save.arenaSkill[19]
+            + _root.abilCriticalChance
+            + _root.allyCriticalChance;
+        _root.criticalDamage =
+            100
+            + (
+                _root.save.inventoryCrit[_root.save.arenaHat]
+                + _root.save.inventoryCrit[_root.save.arenaShirt]
+                + _root.save.inventoryCrit[_root.save.arenaGloves]
+                + _root.save.inventoryCrit[_root.save.arenaPants]
+                + _root.save.inventoryCrit[_root.save.arenaShoes]
+                + _root.save.inventoryCrit[_root.save.arenaSkin]
+                + _root.save.inventoryCrit[_root.save.arenaMedal]
+                + _root.save.inventoryCrit[_root.save.arenaPendant]
+                + _root.save.inventoryCrit[_root.save.arenaEarring]
+                + _root.save.inventoryCrit[_root.save.arenaTrinket]
+            )
+            + _root.save.arenaSkill[18] * 2
+            + _root.save.arenaSkill[20] * 1
+            + _root.abilCriticalDamage
+            + _root.allyCriticalDamage;
         tempCombo = Math.floor(_root.arenaCombo / 10);
         if (_root.save.arenaRing == 18)
         {
@@ -3447,10 +4140,26 @@ public partial class DefineSprite_6014 : AnimatedSprite2D
         {
             _root.criticalDamage = 1000;
         }
-        _root.damageResist = Math.floor((7e-7 * Math.pow(_root.save.arenaLevel, 0.5) * Math.pow(_root.save.level, 0.5) + 0.002) * _root.defensePower * _root.weaponDefense * (1 + (double)_root["abilResist" + enemy.element] * 0.01) + _root.defensePower + _root.save.arenaMana * _root.save.arenaSkill[61] / 50);
+        _root.damageResist = Math.floor(
+            (7e-7 * Math.pow(_root.save.arenaLevel, 0.5) * Math.pow(_root.save.level, 0.5) + 0.002)
+                * _root.defensePower
+                * _root.weaponDefense
+                * (1 + (double)_root["abilResist" + enemy.element] * 0.01)
+                + _root.defensePower
+                + _root.save.arenaMana * _root.save.arenaSkill[61] / 50
+        );
         if (this._currentframe != 1)
         {
-            _root.damageResist = Math.floor((7e-7 * Math.pow(_root.save.arenaLevel, 0.5) * Math.pow(_root.save.level, 0.5) + 0.002) * _root.defensePower * _root.weaponDefense + _root.defensePower + _root.save.arenaMana * _root.save.arenaSkill[61] / 50);
+            _root.damageResist = Math.floor(
+                (
+                    7e-7 * Math.pow(_root.save.arenaLevel, 0.5) * Math.pow(_root.save.level, 0.5)
+                    + 0.002
+                )
+                    * _root.defensePower
+                    * _root.weaponDefense
+                    + _root.defensePower
+                    + _root.save.arenaMana * _root.save.arenaSkill[61] / 50
+            );
         }
         tempCombo = Math.floor(_root.arenaCombo / 10);
         if (_root.save.arenaRing == 18)
@@ -3469,7 +4178,11 @@ public partial class DefineSprite_6014 : AnimatedSprite2D
             tempCombo = 0;
         }
         _root.damageResist = Math.floor(_root.damageResist * (1 + tempCombo * 0.02));
-        _root.damageResistPct = Math.floor(_root.weaponDefense / 200) + Math.floor(_root.save.arenaSkill[61] * 1) + _root.abilDamageTaken + _root.allyDamageTaken;
+        _root.damageResistPct =
+            Math.floor(_root.weaponDefense / 200)
+            + Math.floor(_root.save.arenaSkill[61] * 1)
+            + _root.abilDamageTaken
+            + _root.allyDamageTaken;
         if (_root.save.arenaZone == 52)
         {
             _root.damageResistPct -= Math.floor(_root.areaSpookyKill / 100);
@@ -3553,8 +4266,16 @@ public partial class DefineSprite_6014 : AnimatedSprite2D
         {
             _root.damageResist = 1999999999;
         }
-        _root.damageReflect = 50 + _root.attackSpeed * 2 + _root.save.arenaSkill[51] * 50 + _root.abilReflect + _root.allyReflect;
-        _root.magicReflect = Math.ceil(Math.min(_root.damageReflect, 5000) * (_root.save.arenaSkill[52] * 0.05 + _root.abilMagicReflect * 0.01));
+        _root.damageReflect =
+            50
+            + _root.attackSpeed * 2
+            + _root.save.arenaSkill[51] * 50
+            + _root.abilReflect
+            + _root.allyReflect;
+        _root.magicReflect = Math.ceil(
+            Math.min(_root.damageReflect, 5000)
+                * (_root.save.arenaSkill[52] * 0.05 + _root.abilMagicReflect * 0.01)
+        );
         _root.negateEffect = _root.abilNegateEffect + _root.allyNegateEffect;
         _root.bossDamage = _root.abilBossDamage + _root.allyBossDamage;
         _root.nonBossDamage = _root.abilNonBossDamage + _root.allyNonBossDamage;
@@ -3634,7 +4355,13 @@ public partial class DefineSprite_6014 : AnimatedSprite2D
         {
             _root.magicResist += 15;
             _root.negateEffect += 15;
-            if (_root.save.inventoryName[_root.save.arenaHat] == "Fairy Godmother Hat" && _root.save.inventoryName[_root.save.arenaShirt] == "Fairy Godmother Shirt" && _root.save.inventoryName[_root.save.arenaGloves] == "Fairy Godmother Gloves" && _root.save.inventoryName[_root.save.arenaPants] == "Fairy Godmother Pants" && _root.save.inventoryName[_root.save.arenaShoes] == "Fairy Godmother Shoes")
+            if (
+                _root.save.inventoryName[_root.save.arenaHat] == "Fairy Godmother Hat"
+                && _root.save.inventoryName[_root.save.arenaShirt] == "Fairy Godmother Shirt"
+                && _root.save.inventoryName[_root.save.arenaGloves] == "Fairy Godmother Gloves"
+                && _root.save.inventoryName[_root.save.arenaPants] == "Fairy Godmother Pants"
+                && _root.save.inventoryName[_root.save.arenaShoes] == "Fairy Godmother Shoes"
+            )
             {
                 _root.potionEfficiency += 500;
             }
@@ -3732,7 +4459,8 @@ public partial class DefineSprite_6014 : AnimatedSprite2D
         _root.poisonDuration = 5 + _root.save.arenaSkill[40] * 0.2 + _root.abilPoisonDuration;
         _root.poisonDamage = 500 + _root.save.arenaSkill[40] * 25 + _root.abilPoisonDamage;
         _root.weakenDuration = 5 + _root.save.arenaSkill[42] * 0.2 + _root.abilWeakenDuration;
-        _root.weakenPower = 30 + Math.ceil(_root.save.arenaSkill[42] * 0.5) + _root.abilWeakenEffect;
+        _root.weakenPower =
+            30 + Math.ceil(_root.save.arenaSkill[42] * 0.5) + _root.abilWeakenEffect;
         _root.blindDuration = 5 + _root.save.arenaSkill[44] * 0.2 + _root.abilBlindDuration;
         _root.blindPower = 30 + Math.ceil(_root.save.arenaSkill[44] * 0.5) + _root.abilBlindEffect;
         _root.stunDuration = 0.5;
@@ -3790,9 +4518,14 @@ public partial class DefineSprite_6014 : AnimatedSprite2D
         }
         _root.arenaRareRate = 100 + _root.save.arenaSkill[50] * 2 + _root.abilRareRate;
         _root.arenaEpicRate = 100 + _root.save.arenaSkill[50] * 2 + _root.abilEpicRate;
-        _root.arenaExpMult = 100 + Math.floor(_root.save.arenaSkill[34] * 1) + Math.floor(_root.abilExp) + _root.allyExp;
+        _root.arenaExpMult =
+            100
+            + Math.floor(_root.save.arenaSkill[34] * 1)
+            + Math.floor(_root.abilExp)
+            + _root.allyExp;
         _root.arenaCoinMult = 100 + _root.save.arenaSkill[35] * 1 + _root.abilCoin + _root.allyCoin;
-        _root.arenaPixelMult = 100 + _root.save.arenaSkill[35] * 1 + _root.abilPixel + _root.allyPixel;
+        _root.arenaPixelMult =
+            100 + _root.save.arenaSkill[35] * 1 + _root.abilPixel + _root.allyPixel;
         if (_root.save.careerLevel[3] >= 100)
         {
             _root.arenaExpMult += 10;
@@ -3827,7 +4560,12 @@ public partial class DefineSprite_6014 : AnimatedSprite2D
         _root.arenaExpMult += tempCombo;
         _root.arenaCoinMult += tempCombo;
         _root.arenaPixelMult += tempCombo;
-        _root.arenaDropRate = 100 + _root.save.arenaSkill[50] * 1 + _root.abilDropRate + _root.allyDropRate + _root.curCareerLevel[4];
+        _root.arenaDropRate =
+            100
+            + _root.save.arenaSkill[50] * 1
+            + _root.abilDropRate
+            + _root.allyDropRate
+            + _root.curCareerLevel[4];
         _root.spawnSpeed = 100 + _root.abilSpawnRate + _root.allySpawnRate;
         if (_root.challengeZone == _root.save.arenaZone && _root.challengeDuration > 0)
         {
@@ -3835,9 +4573,16 @@ public partial class DefineSprite_6014 : AnimatedSprite2D
             _root.arenaRareRate *= 2;
             _root.arenaEpicRate *= 2;
         }
-        if (_root.challengeZone == _root.save.arenaZone && _root.challengeDuration <= 0 && _root.challengeDuration > -60)
+        if (
+            _root.challengeZone == _root.save.arenaZone
+            && _root.challengeDuration <= 0
+            && _root.challengeDuration > -60
+        )
         {
-            _root.spawnSpeed += Math.min(_root.challengeKill, Math.floor(_root.challengeMaxDuration / 2));
+            _root.spawnSpeed += Math.min(
+                _root.challengeKill,
+                Math.floor(_root.challengeMaxDuration / 2)
+            );
         }
         if (_root.spiritInsta > 0)
         {
@@ -3864,11 +4609,19 @@ public partial class DefineSprite_6014 : AnimatedSprite2D
         i = 1;
         while (i <= 30)
         {
-            if (_root.save.inventoryFrame[i] >= 319 && _root.save.inventoryFrame[i] <= 328 && _root.save.inventoryExist[i] == 1)
+            if (
+                _root.save.inventoryFrame[i] >= 319
+                && _root.save.inventoryFrame[i] <= 328
+                && _root.save.inventoryExist[i] == 1
+            )
             {
                 _root.arenaDropRate += 1;
             }
-            if (_root.save.inventoryFrame[i] >= 360 && _root.save.inventoryFrame[i] <= 379 && _root.save.inventoryExist[i] == 1)
+            if (
+                _root.save.inventoryFrame[i] >= 360
+                && _root.save.inventoryFrame[i] <= 379
+                && _root.save.inventoryExist[i] == 1
+            )
             {
                 _root.arenaDropRate += 1;
             }
@@ -3880,23 +4633,43 @@ public partial class DefineSprite_6014 : AnimatedSprite2D
             var yy = _root.clock_year % 10;
             var mm = _root.clock_month;
             var dd = _root.clock_date;
-            if (_root.eventList[yy][mm][dd][i] == "Gain 1.5x EXP from The Corruption area in Battle Arena" && _root.save.arenaZone == 50)
+            if (
+                _root.eventList[yy][mm][dd][i]
+                    == "Gain 1.5x EXP from The Corruption area in Battle Arena"
+                && _root.save.arenaZone == 50
+            )
             {
                 _root.arenaExpMult = Math.floor(_root.arenaExpMult * 1.5);
             }
-            if (_root.eventList[yy][mm][dd][i] == "Gain 1.5x EXP from The Corruption area in Battle Arena" && _root.save.arenaZone == 59)
+            if (
+                _root.eventList[yy][mm][dd][i]
+                    == "Gain 1.5x EXP from The Corruption area in Battle Arena"
+                && _root.save.arenaZone == 59
+            )
             {
                 _root.arenaExpMult = Math.floor(_root.arenaExpMult * 1.5);
             }
-            if (_root.eventList[yy][mm][dd][i] == "Gain 1.5x EXP from Secret Dungeon area in Battle Arena" && _root.save.arenaZone == 53)
+            if (
+                _root.eventList[yy][mm][dd][i]
+                    == "Gain 1.5x EXP from Secret Dungeon area in Battle Arena"
+                && _root.save.arenaZone == 53
+            )
             {
                 _root.arenaExpMult = Math.floor(_root.arenaExpMult * 1.5);
             }
-            if (_root.eventList[yy][mm][dd][i] == "Gain 1.5x EXP from Secret Dungeon area in Battle Arena" && _root.save.arenaZone == 54)
+            if (
+                _root.eventList[yy][mm][dd][i]
+                    == "Gain 1.5x EXP from Secret Dungeon area in Battle Arena"
+                && _root.save.arenaZone == 54
+            )
             {
                 _root.arenaExpMult = Math.floor(_root.arenaExpMult * 1.5);
             }
-            if (_root.eventList[yy][mm][dd][i] == "Gain 1.5x EXP from Endless Dungeon area in Battle Arena" && _root.save.arenaZone == 78)
+            if (
+                _root.eventList[yy][mm][dd][i]
+                    == "Gain 1.5x EXP from Endless Dungeon area in Battle Arena"
+                && _root.save.arenaZone == 78
+            )
             {
                 _root.arenaExpMult = Math.floor(_root.arenaExpMult * 1.5);
             }
@@ -3960,7 +4733,12 @@ public partial class DefineSprite_6014 : AnimatedSprite2D
         {
             _root.arenaPixelMult = Math.floor(_root.arenaPixelMult * 2);
         }
-        if (_root.save.arenaZone == 20 || _root.save.arenaZone == 52 || _root.save.arenaZone == 56 || _root.save.arenaZone == 68)
+        if (
+            _root.save.arenaZone == 20
+            || _root.save.arenaZone == 52
+            || _root.save.arenaZone == 56
+            || _root.save.arenaZone == 68
+        )
         {
             _root.arenaDropRate = 0;
         }
@@ -3988,7 +4766,10 @@ public partial class DefineSprite_6014 : AnimatedSprite2D
             {
                 _root.fightStat = "Challenge Complete!";
             }
-            _root.fightStat2 = "Spawn Rate +" + Math.min(_root.challengeKill, Math.floor(_root.challengeMaxDuration / 2)) + "% for 60 seconds";
+            _root.fightStat2 =
+                "Spawn Rate +"
+                + Math.min(_root.challengeKill, Math.floor(_root.challengeMaxDuration / 2))
+                + "% for 60 seconds";
         }
         if (_root.challengeDuration == -60)
         {
@@ -3996,7 +4777,9 @@ public partial class DefineSprite_6014 : AnimatedSprite2D
         }
         if (_root.autoExp > 0)
         {
-            var etg = Math.floor(_root.autoExp * _root.save.boost * Math.pow(_root.save.level, 0.6) * 0.04);
+            var etg = Math.floor(
+                _root.autoExp * _root.save.boost * Math.pow(_root.save.level, 0.6) * 0.04
+            );
             if (etg > Math.ceil(_root.save.level * _root.save.level / 5))
             {
                 etg = Math.ceil(_root.save.level * _root.save.level / 5);
@@ -4005,7 +4788,9 @@ public partial class DefineSprite_6014 : AnimatedSprite2D
         }
         if (_root.save.bannedB > 0)
         {
-            var etg2 = Math.floor((_root.autoExp * 3 + _root.save.bannedB) * Math.sqrt(_root.save.arenaLevel) * 2);
+            var etg2 = Math.floor(
+                (_root.autoExp * 3 + _root.save.bannedB) * Math.sqrt(_root.save.arenaLevel) * 2
+            );
             if (_root.save.arenaLevel == 500)
             {
                 etg2 = Math.floor(etg2 * 0.25);
@@ -4031,7 +4816,6 @@ public partial class DefineSprite_6014 : AnimatedSprite2D
         var i = 1;
         while (i <= 3)
         {
-
             _root["allyCooldown" + i] = (double)_root["allyCooldown" + i] - 1; //1;
             if ((double)_root["allyCooldown" + i] <= 0)
             {
@@ -4118,7 +4902,12 @@ public partial class DefineSprite_6014 : AnimatedSprite2D
                     else if (tempActive == "Attack: Silence")
                     {
                         dealDamage(tempActiveX, 0, "Invisible Ally");
-                        if (Math.random() < tempActiveY / 100 && enemy.boss != true && enemy.ultra != true && enemy.skillLevel >= 0)
+                        if (
+                            Math.random() < tempActiveY / 100
+                            && enemy.boss != true
+                            && enemy.ultra != true
+                            && enemy.skillLevel >= 0
+                        )
                         {
                             enemy.rampagePct = 0;
                             enemy.explodeDamage = 1;
@@ -4174,12 +4963,20 @@ public partial class DefineSprite_6014 : AnimatedSprite2D
                         _root["allyCooldown" + i] = tempActiveZ;
                     }
                 }
-                if (tempActive == "HP Recovery" && _root.save.arenaZone != 24 && (_root.save.arenaZone < 30 || _root.save.arenaZone > 43))
+                if (
+                    tempActive == "HP Recovery"
+                    && _root.save.arenaZone != 24
+                    && (_root.save.arenaZone < 30 || _root.save.arenaZone > 43)
+                )
                 {
                     _root.save.arenaHealth += Math.floor(_root.maxHealth * tempActiveX / 100);
                     _root["allyCooldown" + i] = tempActiveZ;
                 }
-                else if (tempActive == "Heal" && _root.save.arenaZone != 24 && (_root.save.arenaZone < 30 || _root.save.arenaZone > 43))
+                else if (
+                    tempActive == "Heal"
+                    && _root.save.arenaZone != 24
+                    && (_root.save.arenaZone < 30 || _root.save.arenaZone > 43)
+                )
                 {
                     if (_root.arenaZombify <= 0)
                     {
@@ -4187,7 +4984,11 @@ public partial class DefineSprite_6014 : AnimatedSprite2D
                     }
                     if (enemy.zombie == true && enemy.enemyID != 0)
                     {
-                        _root.house.arena.dealDamage(tempActiveY, 0, "Invisible Ally - Ignore Defense");
+                        _root.house.arena.dealDamage(
+                            tempActiveY,
+                            0,
+                            "Invisible Ally - Ignore Defense"
+                        );
                     }
                     _root["allyCooldown" + i] = tempActiveZ;
                 }
@@ -4201,7 +5002,12 @@ public partial class DefineSprite_6014 : AnimatedSprite2D
                     _root.save.arenaSpirit += tempActiveX;
                     _root["allyCooldown" + i] = tempActiveZ;
                 }
-                else if (tempActive == "Buff Extension" && _root.save.arenaBuffType != 0 && _root.save.arenaBuffDuration > 0 && _root.save.arenaBuffDuration < 5999)
+                else if (
+                    tempActive == "Buff Extension"
+                    && _root.save.arenaBuffType != 0
+                    && _root.save.arenaBuffDuration > 0
+                    && _root.save.arenaBuffDuration < 5999
+                )
                 {
                     _root.save.arenaBuffDuration += tempActiveX;
                     if (_root.save.arenaBuffDuration > 5999)
@@ -4213,25 +5019,82 @@ public partial class DefineSprite_6014 : AnimatedSprite2D
                 else if (tempActive == "Produce Loot: Coin")
                 {
                     _root.incDt2();
-                    stuffHolder.attachMovie("newLoot1", "newLoot" + _root.summonCount, _root.antiLag2 + 500,new { x = 200 + Math.random() * 100,y = 150,lootValue = Math.floor(tempActiveX * _root.arenaCoinMult / 100 * _root.save.boost / 100 * (0.9 + Math.random() * 0.2))});
+                    stuffHolder.attachMovie(
+                        "newLoot1",
+                        "newLoot" + _root.summonCount,
+                        _root.antiLag2 + 500,
+                        new
+                        {
+                            x = 200 + Math.random() * 100,
+                            y = 150,
+                            lootValue = Math.floor(
+                                tempActiveX
+                                    * _root.arenaCoinMult
+                                    / 100
+                                    * _root.save.boost
+                                    / 100
+                                    * (0.9 + Math.random() * 0.2)
+                            ),
+                        }
+                    );
                     _root["allyCooldown" + i] = tempActiveZ;
                 }
                 else if (tempActive == "Produce Loot: Pixel")
                 {
                     _root.incDt2();
-                    stuffHolder.attachMovie("newLoot7", "newLoot" + _root.summonCount, _root.antiLag2 + 500,new { x = 200 + Math.random() * 100,y = 150,lootValue = Math.floor(tempActiveX * _root.arenaPixelMult / 100 * (0.9 + Math.random() * 0.2))});
+                    stuffHolder.attachMovie(
+                        "newLoot7",
+                        "newLoot" + _root.summonCount,
+                        _root.antiLag2 + 500,
+                        new
+                        {
+                            x = 200 + Math.random() * 100,
+                            y = 150,
+                            lootValue = Math.floor(
+                                tempActiveX
+                                    * _root.arenaPixelMult
+                                    / 100
+                                    * (0.9 + Math.random() * 0.2)
+                            ),
+                        }
+                    );
                     _root["allyCooldown" + i] = tempActiveZ;
                 }
                 else if (tempActive == "Produce Loot: Material")
                 {
                     _root.incDt2();
-                    stuffHolder.attachMovie("newLoot6", "newLoot" + _root.summonCount, _root.antiLag2 + 500,new { x = 200 + Math.random() * 100,y = 150,lootValue= Math.floor(tempActiveX * _root.arenaPixelMult / 100 * (0.9 + Math.random() * 0.2))});
+                    stuffHolder.attachMovie(
+                        "newLoot6",
+                        "newLoot" + _root.summonCount,
+                        _root.antiLag2 + 500,
+                        new
+                        {
+                            x = 200 + Math.random() * 100,
+                            y = 150,
+                            lootValue = Math.floor(
+                                tempActiveX
+                                    * _root.arenaPixelMult
+                                    / 100
+                                    * (0.9 + Math.random() * 0.2)
+                            ),
+                        }
+                    );
                     _root["allyCooldown" + i] = tempActiveZ;
                 }
                 else if (tempActive == "Produce Loot: Stat")
                 {
                     _root.incDt2();
-                    stuffHolder.attachMovie("newLoot4", "newLoot" + _root.summonCount, _root.antiLag2 + 500,new { x = 200 + Math.random() * 100,y = 150,lootValue = 1});
+                    stuffHolder.attachMovie(
+                        "newLoot4",
+                        "newLoot" + _root.summonCount,
+                        _root.antiLag2 + 500,
+                        new
+                        {
+                            x = 200 + Math.random() * 100,
+                            y = 150,
+                            lootValue = 1,
+                        }
+                    );
                     _root["allyCooldown" + i] = tempActiveZ;
                 }
                 else if (tempActive == "Produce Loot: Rare Item")
@@ -4239,27 +5102,77 @@ public partial class DefineSprite_6014 : AnimatedSprite2D
                     if (Math.random() < 0.02)
                     {
                         _root.incDt2();
-                        stuffHolder.attachMovie("newLoot16", "newLoot" + _root.summonCount, _root.antiLag2 + 500,new { x= 200 + Math.random() * 100,y= 150,lootValue= 1});
+                        stuffHolder.attachMovie(
+                            "newLoot16",
+                            "newLoot" + _root.summonCount,
+                            _root.antiLag2 + 500,
+                            new
+                            {
+                                x = 200 + Math.random() * 100,
+                                y = 150,
+                                lootValue = 1,
+                            }
+                        );
                     }
                     else if (Math.random() < 0.05)
                     {
                         _root.incDt2();
-                        stuffHolder.attachMovie("newLoot11", "newLoot" + _root.summonCount, _root.antiLag2 + 500,new { x = 200 + Math.random() * 100,y = 150,lootValue = 2});
+                        stuffHolder.attachMovie(
+                            "newLoot11",
+                            "newLoot" + _root.summonCount,
+                            _root.antiLag2 + 500,
+                            new
+                            {
+                                x = 200 + Math.random() * 100,
+                                y = 150,
+                                lootValue = 2,
+                            }
+                        );
                     }
                     else if (Math.random() < 0.1)
                     {
                         _root.incDt2();
-                        stuffHolder.attachMovie("newLoot11", "newLoot" + _root.summonCount, _root.antiLag2 + 500,new { x = 200 + Math.random() * 100,y = 150,lootValue = 1});
+                        stuffHolder.attachMovie(
+                            "newLoot11",
+                            "newLoot" + _root.summonCount,
+                            _root.antiLag2 + 500,
+                            new
+                            {
+                                x = 200 + Math.random() * 100,
+                                y = 150,
+                                lootValue = 1,
+                            }
+                        );
                     }
                     else if (Math.random() < 0.25)
                     {
                         _root.incDt2();
-                        stuffHolder.attachMovie("newLoot10", "newLoot" + _root.summonCount, _root.antiLag2 + 500,new { x= 200 + Math.random() * 100,y= 150,lootValue = 1 });
+                        stuffHolder.attachMovie(
+                            "newLoot10",
+                            "newLoot" + _root.summonCount,
+                            _root.antiLag2 + 500,
+                            new
+                            {
+                                x = 200 + Math.random() * 100,
+                                y = 150,
+                                lootValue = 1,
+                            }
+                        );
                     }
                     else
                     {
                         _root.incDt2();
-                        stuffHolder.attachMovie("newLoot3", "newLoot" + _root.summonCount, _root.antiLag2 + 500,new { x = 200 + Math.random() * 100,y = 150,lootValue = 20});
+                        stuffHolder.attachMovie(
+                            "newLoot3",
+                            "newLoot" + _root.summonCount,
+                            _root.antiLag2 + 500,
+                            new
+                            {
+                                x = 200 + Math.random() * 100,
+                                y = 150,
+                                lootValue = 20,
+                            }
+                        );
                     }
                     _root["allyCooldown" + i] = tempActiveZ;
                 }
@@ -4297,7 +5210,12 @@ public partial class DefineSprite_6014 : AnimatedSprite2D
             _root.save.arenaBuffDuration = 1;
             _root.save.arenaBuffType = 4;
         }
-        if (_root.save.inventoryName[_root.save.arenaTrinket] == "Auto Buff Gem" && _root.save.inventoryBonus[_root.save.arenaTrinket] != "Auto Buff - Random" && _root.save.inventoryBonus[_root.save.arenaTrinket] != "" && _root.save.arenaBuffType != 13)
+        if (
+            _root.save.inventoryName[_root.save.arenaTrinket] == "Auto Buff Gem"
+            && _root.save.inventoryBonus[_root.save.arenaTrinket] != "Auto Buff - Random"
+            && _root.save.inventoryBonus[_root.save.arenaTrinket] != ""
+            && _root.save.arenaBuffType != 13
+        )
         {
             _root.save.arenaBuffDuration = 1;
             _root.save.arenaBuffType = 0;
@@ -4345,7 +5263,10 @@ public partial class DefineSprite_6014 : AnimatedSprite2D
             _root.save.arenaSpirit = 0;
             _root.save.arenaFury = 0;
         }
-        if (_root.save.arenaSkill[49] < 1 && _root.save.inventoryName[_root.save.arenaWeapon] != "CHAOS AURA")
+        if (
+            _root.save.arenaSkill[49] < 1
+            && _root.save.inventoryName[_root.save.arenaWeapon] != "CHAOS AURA"
+        )
         {
             _root.manaPower = false;
         }
@@ -4375,7 +5296,14 @@ public partial class DefineSprite_6014 : AnimatedSprite2D
             {
                 if (_root.save.arenaZone != 59)
                 {
-                    takeDamage(Math.ceil((_root.save.arenaOxygenPenalty - 30) * (_root.save.arenaOxygenPenalty - 20) / 5), "Drown");
+                    takeDamage(
+                        Math.ceil(
+                            (_root.save.arenaOxygenPenalty - 30)
+                                * (_root.save.arenaOxygenPenalty - 20)
+                                / 5
+                        ),
+                        "Drown"
+                    );
                 }
                 else
                 {
@@ -4530,13 +5458,17 @@ public partial class DefineSprite_6014 : AnimatedSprite2D
                         if (_root.save.arenaCrystal1 >= 500)
                         {
                             _root.save.arenaCrystal1 -= 500;
-                            _root.save.arenaRuneDuration[i] += Math.floor((600 + _root.save.arenaRuneLevel[i] * 6) * runeMult);
+                            _root.save.arenaRuneDuration[i] += Math.floor(
+                                (600 + _root.save.arenaRuneLevel[i] * 6) * runeMult
+                            );
                         }
                     }
                     else if (_root.save.arenaCrystal2 >= 500)
                     {
                         _root.save.arenaCrystal2 -= 500;
-                        _root.save.arenaRuneDuration[i] += Math.floor((600 + _root.save.arenaRuneLevel[i] * 6) * runeMult);
+                        _root.save.arenaRuneDuration[i] += Math.floor(
+                            (600 + _root.save.arenaRuneLevel[i] * 6) * runeMult
+                        );
                     }
                 }
                 i++;
@@ -4594,7 +5526,18 @@ public partial class DefineSprite_6014 : AnimatedSprite2D
         {
             _root.reviveCooldown = 240 - _root.save.arenaSkill[64] * 4;
         }
-        if (_root.save.arenaZone == 7 || _root.save.arenaZone == 24 || _root.save.arenaZone == 52 || _root.save.arenaZone == 54 || _root.save.arenaZone == 56 || _root.save.arenaZone == 59 || _root.save.arenaZone == 61 || _root.save.arenaZone == 68 || _root.save.arenaZone == 78 || _root.save.arenaZone == 82)
+        if (
+            _root.save.arenaZone == 7
+            || _root.save.arenaZone == 24
+            || _root.save.arenaZone == 52
+            || _root.save.arenaZone == 54
+            || _root.save.arenaZone == 56
+            || _root.save.arenaZone == 59
+            || _root.save.arenaZone == 61
+            || _root.save.arenaZone == 68
+            || _root.save.arenaZone == 78
+            || _root.save.arenaZone == 82
+        )
         {
             if (cgtHP._currentframe != 2)
             {
@@ -4625,9 +5568,25 @@ public partial class DefineSprite_6014 : AnimatedSprite2D
         {
             if (Math.random() < 0.05)
             {
-                var lootValueYMG = Math.floor(100000 * _root.arenaCoinMult * _root.save.boost / 10000 * (0.9 + Math.random() * 0.2));
+                var lootValueYMG = Math.floor(
+                    100000
+                        * _root.arenaCoinMult
+                        * _root.save.boost
+                        / 10000
+                        * (0.9 + Math.random() * 0.2)
+                );
                 _root.incDt2();
-                stuffHolder.attachMovie("newLoot1", "newLoot" + _root.summonCount, _root.antiLag2 + 500,new { x= 150 + Math.random() * 200,y= -50,lootValue= lootValueYMG});
+                stuffHolder.attachMovie(
+                    "newLoot1",
+                    "newLoot" + _root.summonCount,
+                    _root.antiLag2 + 500,
+                    new
+                    {
+                        x = 150 + Math.random() * 200,
+                        y = -50,
+                        lootValue = lootValueYMG,
+                    }
+                );
             }
         }
         if (_root.specGlory > 0)
@@ -4635,25 +5594,68 @@ public partial class DefineSprite_6014 : AnimatedSprite2D
             if (Math.random() < 0.1)
             {
                 _root.incDt2();
-                stuffHolder.attachMovie("newLoot10", "newLoot" + _root.summonCount, _root.antiLag2 + 500,new { x= 150 + Math.random() * 200,y= -50,lootValue= 5});
+                stuffHolder.attachMovie(
+                    "newLoot10",
+                    "newLoot" + _root.summonCount,
+                    _root.antiLag2 + 500,
+                    new
+                    {
+                        x = 150 + Math.random() * 200,
+                        y = -50,
+                        lootValue = 5,
+                    }
+                );
             }
             if (Math.random() < 0.05)
             {
                 _root.incDt2();
-                stuffHolder.attachMovie("newLoot16", "newLoot" + _root.summonCount, _root.antiLag2 + 500,new { x= 150 + Math.random() * 200,y= -50,lootValue= 2});
+                stuffHolder.attachMovie(
+                    "newLoot16",
+                    "newLoot" + _root.summonCount,
+                    _root.antiLag2 + 500,
+                    new
+                    {
+                        x = 150 + Math.random() * 200,
+                        y = -50,
+                        lootValue = 2,
+                    }
+                );
             }
             if (Math.random() < 0.02)
             {
                 _root.incDt2();
-                stuffHolder.attachMovie("newLoot11", "newLoot" + _root.summonCount, _root.antiLag2 + 500,new { x= 150 + Math.random() * 200,y= -50,lootValue= 1});
+                stuffHolder.attachMovie(
+                    "newLoot11",
+                    "newLoot" + _root.summonCount,
+                    _root.antiLag2 + 500,
+                    new
+                    {
+                        x = 150 + Math.random() * 200,
+                        y = -50,
+                        lootValue = 1,
+                    }
+                );
             }
             if (Math.random() < 0.005)
             {
                 _root.incDt2();
-                stuffHolder.attachMovie("newLoot11", "newLoot" + _root.summonCount, _root.antiLag2 + 500,new { x= 150 + Math.random() * 200,y= -50,lootValue= 2});
+                stuffHolder.attachMovie(
+                    "newLoot11",
+                    "newLoot" + _root.summonCount,
+                    _root.antiLag2 + 500,
+                    new
+                    {
+                        x = 150 + Math.random() * 200,
+                        y = -50,
+                        lootValue = 2,
+                    }
+                );
             }
         }
-        if ((_root.save.arenaRuneDuration[1] <= 0 || enemy.enemyID == 0) && _root.save.arenaHealth > 0)
+        if (
+            (_root.save.arenaRuneDuration[1] <= 0 || enemy.enemyID == 0)
+            && _root.save.arenaHealth > 0
+        )
         {
             _root.save.arenaHealth += Math.floor(_root.hpRecover / 10);
         }
@@ -4662,6 +5664,7 @@ public partial class DefineSprite_6014 : AnimatedSprite2D
             _root.save.arenaMana += Math.floor(_root.mpRecover / 10);
         }
     }
+
     // MATCH: DefineSprite_6014-frame_1-DoAction_2.as:dealDamage()
     public void dealDamage(double skillPower, double knockBack, string special)
     {
@@ -4671,11 +5674,19 @@ public partial class DefineSprite_6014 : AnimatedSprite2D
         }
         if (_root.arenaBot > 48000)
         {
-            _root.showPopup("Exhaustion", "You can no longer attack as you are exhausted. Release the attack key and take a short break.");
+            _root.showPopup(
+                "Exhaustion",
+                "You can no longer attack as you are exhausted. Release the attack key and take a short break."
+            );
         }
         else if (_root.arenaBot > 24000)
         {
-            _root.showPopup("Exhaustion", "Release the attack key and take a short break. Active skills will stop working in " + _root.withComma((48000 - _root.arenaBot) / 40) + " sec.");
+            _root.showPopup(
+                "Exhaustion",
+                "Release the attack key and take a short break. Active skills will stop working in "
+                    + _root.withComma((48000 - _root.arenaBot) / 40)
+                    + " sec."
+            );
         }
         if (_root.save.arenaZone == 24)
         {
@@ -4703,7 +5714,13 @@ public partial class DefineSprite_6014 : AnimatedSprite2D
         {
             hitChancePenalty = 30;
         }
-        if (_root.save.arenaZone == 82 && (_root.save.inventoryName[_root.save.arenaWeapon] == "CHAOS AURA" || _root.save.inventoryName[_root.save.arenaWeapon] == "Dark Ruler"))
+        if (
+            _root.save.arenaZone == 82
+            && (
+                _root.save.inventoryName[_root.save.arenaWeapon] == "CHAOS AURA"
+                || _root.save.inventoryName[_root.save.arenaWeapon] == "Dark Ruler"
+            )
+        )
         {
             hitChancePenalty = 999;
         }
@@ -4737,7 +5754,14 @@ public partial class DefineSprite_6014 : AnimatedSprite2D
         {
             finalEvasion = enemy.evasion * (100 - _root.blindPower) / 100;
         }
-        if (Math.random() > hitChancePenalty / 100 && (Math.random() < _root.accuracy / finalEvasion - 0.1 || Math.random() < _root.accuracyPct / 100) || special == "Ignore Evasion")
+        if (
+            Math.random() > hitChancePenalty / 100
+                && (
+                    Math.random() < _root.accuracy / finalEvasion - 0.1
+                    || Math.random() < _root.accuracyPct / 100
+                )
+            || special == "Ignore Evasion"
+        )
         {
             enemy.crescendo += 1;
             if (enemy.crescendo <= _root.save.arenaSkill[63])
@@ -4747,7 +5771,8 @@ public partial class DefineSprite_6014 : AnimatedSprite2D
             var finalIgnoreDef = _root.ignoreDefense;
             if (enemy.weaken > 0)
             {
-                finalIgnoreDef = _root.ignoreDefense + (100 - _root.ignoreDefense) * _root.weakenPower / 100;
+                finalIgnoreDef =
+                    _root.ignoreDefense + (100 - _root.ignoreDefense) * _root.weakenPower / 100;
             }
             if (special == "Ignore Defense")
             {
@@ -4757,7 +5782,13 @@ public partial class DefineSprite_6014 : AnimatedSprite2D
             {
                 finalIgnoreDef = 100;
             }
-            var damageDealt = Math.ceil(((_root.minDamage + random(_root.maxDamage - _root.minDamage + 1)) * (skillPower / 100) - enemy.defense * (100 - finalIgnoreDef) / 100) * (_root.areaDamagePct / 100));
+            var damageDealt = Math.ceil(
+                (
+                    (_root.minDamage + random(_root.maxDamage - _root.minDamage + 1))
+                        * (skillPower / 100)
+                    - enemy.defense * (100 - finalIgnoreDef) / 100
+                ) * (_root.areaDamagePct / 100)
+            );
             if (special == "Pierce" && damageDealt < 50)
             {
                 damageDealt = 50;
@@ -4769,12 +5800,21 @@ public partial class DefineSprite_6014 : AnimatedSprite2D
             }
             if (special == "Heal")
             {
-                damageDealt = Math.ceil((_root.minDamage + random(_root.maxDamage - _root.minDamage + 1)) * (skillPower / 100) * (_root.areaDamagePct / 100));
+                damageDealt = Math.ceil(
+                    (_root.minDamage + random(_root.maxDamage - _root.minDamage + 1))
+                        * (skillPower / 100)
+                        * (_root.areaDamagePct / 100)
+                );
             }
             if (special == "Invisible Ally - Ignore Defense")
             {
-                damageDealt = Math.ceil((_root.minDamage + random(_root.maxDamage - _root.minDamage + 1)) * (skillPower / 100) * (_root.areaDamagePct / 100));
-                var allyDamageMult = 1 + (_root.enemyList[_root.save.arenaAlly].level - enemy.level) / 100;
+                damageDealt = Math.ceil(
+                    (_root.minDamage + random(_root.maxDamage - _root.minDamage + 1))
+                        * (skillPower / 100)
+                        * (_root.areaDamagePct / 100)
+                );
+                var allyDamageMult =
+                    1 + (_root.enemyList[_root.save.arenaAlly].level - enemy.level) / 100;
                 if (allyDamageMult > 3)
                 {
                     allyDamageMult = 3;
@@ -4787,7 +5827,8 @@ public partial class DefineSprite_6014 : AnimatedSprite2D
             }
             if (special == "Invisible Ally")
             {
-                var allyDamageMult = 1 + (_root.enemyList[_root.save.arenaAlly].level - enemy.level) / 100;
+                var allyDamageMult =
+                    1 + (_root.enemyList[_root.save.arenaAlly].level - enemy.level) / 100;
                 if (allyDamageMult > 3)
                 {
                     allyDamageMult = 3;
@@ -4800,7 +5841,11 @@ public partial class DefineSprite_6014 : AnimatedSprite2D
             }
             if (special == "Roundhouse Kick")
             {
-                damageDealt = Math.ceil((_root.minDamage + random(_root.maxDamage - _root.minDamage + 1)) * (skillPower / 100) * (_root.areaDamagePct / 100));
+                damageDealt = Math.ceil(
+                    (_root.minDamage + random(_root.maxDamage - _root.minDamage + 1))
+                        * (skillPower / 100)
+                        * (_root.areaDamagePct / 100)
+                );
                 rangedAttack._alpha = 100;
                 rangedAttack.gotoAndStop(10);
             }
@@ -4880,7 +5925,13 @@ public partial class DefineSprite_6014 : AnimatedSprite2D
                     damageDealt = Math.ceil(damageDealt * (1 + manaToConsume / 50000));
                 }
             }
-            var damagePenalty = 40 + (Math.pow(enemy.level, 1.12) / (_root.save.level + _root.save.arenaLevel * 10 + 999) - 1) * 50;
+            var damagePenalty =
+                40
+                + (
+                    Math.pow(enemy.level, 1.12)
+                        / (_root.save.level + _root.save.arenaLevel * 10 + 999)
+                    - 1
+                ) * 50;
             if (_root.save.gDifficulty >= 3 && _root.save.level < 8999)
             {
                 damagePenalty += (8999 - _root.save.level) / 450;
@@ -4934,33 +5985,60 @@ public partial class DefineSprite_6014 : AnimatedSprite2D
             }
             if (enemy.ultra != true)
             {
-                if (_root.save.inventoryName[_root.save.arenaHat] == "ULTRA HAT" || _root.save.inventoryName[_root.save.arenaShirt] == "ULTRA SHIRT" || _root.save.inventoryName[_root.save.arenaGloves] == "ULTRA GLOVES" || _root.save.inventoryName[_root.save.arenaPants] == "ULTRA PANTS" || _root.save.inventoryName[_root.save.arenaShoes] == "ULTRA SHOES")
+                if (
+                    _root.save.inventoryName[_root.save.arenaHat] == "ULTRA HAT"
+                    || _root.save.inventoryName[_root.save.arenaShirt] == "ULTRA SHIRT"
+                    || _root.save.inventoryName[_root.save.arenaGloves] == "ULTRA GLOVES"
+                    || _root.save.inventoryName[_root.save.arenaPants] == "ULTRA PANTS"
+                    || _root.save.inventoryName[_root.save.arenaShoes] == "ULTRA SHOES"
+                )
                 {
                     damagePenalty = 100;
                 }
             }
-            if (_root.save.inventoryName[_root.save.arenaWeapon] == "Sword of Ascendant" && enemy.enemyID != 331)
+            if (
+                _root.save.inventoryName[_root.save.arenaWeapon] == "Sword of Ascendant"
+                && enemy.enemyID != 331
+            )
             {
                 damagePenalty = 100;
             }
-            if (_root.save.inventoryName[_root.save.arenaWeapon] != "Sword of Ascendant" && enemy.enemyID == 331)
+            if (
+                _root.save.inventoryName[_root.save.arenaWeapon] != "Sword of Ascendant"
+                && enemy.enemyID == 331
+            )
             {
                 damagePenalty = 100;
             }
             damageDealt = Math.floor(damageDealt * (100 - damagePenalty) / 100);
-            if (enemy.name == "Secret Crystal" && _root.save.inventorySubtype[_root.save.arenaWeapon] == "Mining Tool" && damagePenalty < 100)
+            if (
+                enemy.name == "Secret Crystal"
+                && _root.save.inventorySubtype[_root.save.arenaWeapon] == "Mining Tool"
+                && damagePenalty < 100
+            )
             {
                 damageDealt = 2000;
-                if ((_root.challengeZone == _root.save.arenaZone) && (Convert.ToBoolean(_root.save.arenaZone) && _root.challengeDuration > 0))
+                if (
+                    (_root.challengeZone == _root.save.arenaZone)
+                    && (Convert.ToBoolean(_root.save.arenaZone) && _root.challengeDuration > 0)
+                )
                 {
                     damageDealt = 1;
                 }
             }
-            if (enemy.name == "Pirate Gem" && _root.save.inventorySubtype[_root.save.arenaWeapon] == "Mining Tool" && damagePenalty < 100)
+            if (
+                enemy.name == "Pirate Gem"
+                && _root.save.inventorySubtype[_root.save.arenaWeapon] == "Mining Tool"
+                && damagePenalty < 100
+            )
             {
                 damageDealt = 6;
             }
-            if (_root.save.arenaZone == 21 && _root.save.inventorySubtype[_root.save.arenaWeapon] == "Mining Tool" && damagePenalty < 100)
+            if (
+                _root.save.arenaZone == 21
+                && _root.save.inventorySubtype[_root.save.arenaWeapon] == "Mining Tool"
+                && damagePenalty < 100
+            )
             {
                 damageDealt = 4;
             }
@@ -4968,7 +6046,11 @@ public partial class DefineSprite_6014 : AnimatedSprite2D
             {
                 if (_root.save.inventoryName[_root.save.arenaWeapon] == "Special Wand")
                 {
-                    damageDealt = Math.ceil((Math.min(_root.save.level, 5000) / 10 + _root.save.arenaLevel + 500) * skillPower / 100);
+                    damageDealt = Math.ceil(
+                        (Math.min(_root.save.level, 5000) / 10 + _root.save.arenaLevel + 500)
+                            * skillPower
+                            / 100
+                    );
                     if (_root.arenaWeaken > 0)
                     {
                         damageDealt = Math.floor(damageDealt * 0.6);
@@ -4996,13 +6078,27 @@ public partial class DefineSprite_6014 : AnimatedSprite2D
             {
                 damageDealt = Math.ceil(damageDealt * 0.99);
             }
-            if ((enemy.enemyID == 0 || enemy.tankMode == true) && _root.save.arenaZone != 24 && (_root.save.arenaZone < 30 || _root.save.arenaZone > 43))
+            if (
+                (enemy.enemyID == 0 || enemy.tankMode == true)
+                && _root.save.arenaZone != 24
+                && (_root.save.arenaZone < 30 || _root.save.arenaZone > 43)
+            )
             {
                 damageDealt = Math.ceil(damageDealt * 0.2);
             }
             if (_root.save.arenaZone == 20)
             {
-                damageDealt += Math.floor(Math.min(Math.sqrt((_root.minDamage + random(_root.maxDamage - _root.minDamage)) / 1000), 100) * skillPower * 2 / 100);
+                damageDealt += Math.floor(
+                    Math.min(
+                        Math.sqrt(
+                            (_root.minDamage + random(_root.maxDamage - _root.minDamage)) / 1000
+                        ),
+                        100
+                    )
+                        * skillPower
+                        * 2
+                        / 100
+                );
                 if (_root.setCount[67] >= 3)
                 {
                     damageDealt = Math.floor(damageDealt * 1.25);
@@ -5109,19 +6205,29 @@ public partial class DefineSprite_6014 : AnimatedSprite2D
                 damageDealt = Math.ceil(damageDealt * _root.criticalDamage / 100);
                 critHit = true;
             }
-            else if (enemy.enemyID != 0 && enemy.hp / enemy.maxhp <= _root.save.arenaSkill[38] * 0.01)
+            else if (
+                enemy.enemyID != 0
+                && enemy.hp / enemy.maxhp <= _root.save.arenaSkill[38] * 0.01
+            )
             {
                 _root.arenaCombo += 1;
                 damageDealt = Math.ceil(damageDealt * _root.criticalDamage / 100);
                 critHit = true;
             }
-            else if (_root.save.arenaZone == 81 && 100 - enemy.explodeCount / 36 <= _root.save.arenaSkill[38])
+            else if (
+                _root.save.arenaZone == 81
+                && 100 - enemy.explodeCount / 36 <= _root.save.arenaSkill[38]
+            )
             {
                 _root.arenaCombo += 1;
                 damageDealt = Math.ceil(damageDealt * _root.criticalDamage / 100);
                 critHit = true;
             }
-            else if (special == "Bacon" && _root.save.robaconLevel >= 125 && _root.worstMoon != true)
+            else if (
+                special == "Bacon"
+                && _root.save.robaconLevel >= 125
+                && _root.worstMoon != true
+            )
             {
                 _root.arenaCombo += 1;
                 damageDealt = Math.ceil(damageDealt * _root.criticalDamage / 100);
@@ -5185,7 +6291,10 @@ public partial class DefineSprite_6014 : AnimatedSprite2D
                     damageDealt = Math.floor(damageDealt * 3);
                 }
             }
-            if (_root.save.inventoryName[_root.save.arenaWeapon] == "Eric\'s Gun-Shovel" || _root.save.inventoryName[_root.save.arenaWeapon] == "Eric\'s Shovel")
+            if (
+                _root.save.inventoryName[_root.save.arenaWeapon] == "Eric\'s Gun-Shovel"
+                || _root.save.inventoryName[_root.save.arenaWeapon] == "Eric\'s Shovel"
+            )
             {
                 if (damageDealt > 8888888888)
                 {
@@ -5241,7 +6350,8 @@ public partial class DefineSprite_6014 : AnimatedSprite2D
                 {
                     if (damageDealt > 5000000000)
                     {
-                        damageDealt = 5000000000 + Math.ceil(Math.pow(damageDealt - 5000000000, 0.94));
+                        damageDealt =
+                            5000000000 + Math.ceil(Math.pow(damageDealt - 5000000000, 0.94));
                     }
                     if (damageDealt > 500000000 && enemy.lifespan < 30)
                     {
@@ -5252,11 +6362,13 @@ public partial class DefineSprite_6014 : AnimatedSprite2D
                 {
                     if (damageDealt > 1000000000)
                     {
-                        damageDealt = 1000000000 + Math.ceil(Math.pow(damageDealt - 1000000000, 0.94));
+                        damageDealt =
+                            1000000000 + Math.ceil(Math.pow(damageDealt - 1000000000, 0.94));
                     }
                     if (_root.save.arenaHardcore == true && damageDealt > 250000000)
                     {
-                        damageDealt = 250000000 + Math.ceil(Math.pow(damageDealt - 250000000, 0.97));
+                        damageDealt =
+                            250000000 + Math.ceil(Math.pow(damageDealt - 250000000, 0.97));
                     }
                     if (damageDealt > 100000000 && enemy.lifespan < 30)
                     {
@@ -5268,11 +6380,15 @@ public partial class DefineSprite_6014 : AnimatedSprite2D
             {
                 if (boss == true)
                 {
-                    damageSoftCap = Math.ceil(enemy.maxhp * 0.01 * Math.min(skillPower, 10000) / 2000);
+                    damageSoftCap = Math.ceil(
+                        enemy.maxhp * 0.01 * Math.min(skillPower, 10000) / 2000
+                    );
                 }
                 else
                 {
-                    damageSoftCap = Math.ceil(enemy.maxhp * 0.05 * Math.min(skillPower, 10000) / 2000);
+                    damageSoftCap = Math.ceil(
+                        enemy.maxhp * 0.05 * Math.min(skillPower, 10000) / 2000
+                    );
                 }
                 if (enemy.lifespan < 1)
                 {
@@ -5281,11 +6397,14 @@ public partial class DefineSprite_6014 : AnimatedSprite2D
                 damagePow = Math.max(0.9 - _root.challengeKill * 0.001, 0.7);
                 if (damageDealt > damageSoftCap)
                 {
-                    damageDealt = damageSoftCap + Math.ceil(Math.pow(damageDealt - damageSoftCap, damagePow));
+                    damageDealt =
+                        damageSoftCap + Math.ceil(Math.pow(damageDealt - damageSoftCap, damagePow));
                 }
                 if (damageDealt > damageSoftCap * 50)
                 {
-                    damageDealt = damageSoftCap * 50 + Math.ceil(Math.pow(damageDealt - damageSoftCap * 10, 0.5));
+                    damageDealt =
+                        damageSoftCap * 50
+                        + Math.ceil(Math.pow(damageDealt - damageSoftCap * 10, 0.5));
                 }
             }
             if (enemyImmune.fr == 3)
@@ -5396,11 +6515,21 @@ public partial class DefineSprite_6014 : AnimatedSprite2D
                 _root.arenaCombo += 3;
                 if (critHit == true)
                 {
-                    showDamage(_root.withComma(damageDealt) + " x 4", 14496512, enemy._x + enemy._width / 2, 50);
+                    showDamage(
+                        _root.withComma(damageDealt) + " x 4",
+                        14496512,
+                        enemy._x + enemy._width / 2,
+                        50
+                    );
                 }
                 else
                 {
-                    showDamage(_root.withComma(damageDealt) + " x 4", 14522624, enemy._x + enemy._width / 2, 50);
+                    showDamage(
+                        _root.withComma(damageDealt) + " x 4",
+                        14522624,
+                        enemy._x + enemy._width / 2,
+                        50
+                    );
                 }
                 damageDealt *= 4;
             }
@@ -5427,7 +6556,12 @@ public partial class DefineSprite_6014 : AnimatedSprite2D
             {
                 showDamage(damageDealt, 14522624, enemy._x + enemy._width / 2, 90);
             }
-            if (_root.autoSteal > 0 && !isNaN(_root.autoSteal) && damageDealt > 0 && !isNaN(damageDealt))
+            if (
+                _root.autoSteal > 0
+                && !isNaN(_root.autoSteal)
+                && damageDealt > 0
+                && !isNaN(damageDealt)
+            )
             {
                 var damagePct = damageDealt / enemy.maxhp * 100;
                 if (damagePct > enemy.stealable)
@@ -5443,8 +6577,12 @@ public partial class DefineSprite_6014 : AnimatedSprite2D
                     damagePct = 0;
                 }
                 enemy.stealable -= damagePct;
-                _root.autoStealCoin += Math.ceil(damagePct * _root.autoSteal * enemy.coin * _root.save.boost / 1250000);
-                _root.save.arenaPixel += Math.ceil(damagePct * _root.autoSteal * enemy.pixel / 12500);
+                _root.autoStealCoin += Math.ceil(
+                    damagePct * _root.autoSteal * enemy.coin * _root.save.boost / 1250000
+                );
+                _root.save.arenaPixel += Math.ceil(
+                    damagePct * _root.autoSteal * enemy.pixel / 12500
+                );
             }
             enemy.hp -= damageDealt;
             if (_root.save.arenaZone == 54)
@@ -5481,7 +6619,12 @@ public partial class DefineSprite_6014 : AnimatedSprite2D
             }
             if (Math.random() < instantKillChance || _root.spiritInsta > 0 || special == "Headshot")
             {
-                if (_root.save.arenaZone != 52 && enemy.boss != true && enemy.ultra != true && enemy.hp <= enemy.maxhp * 0.99)
+                if (
+                    _root.save.arenaZone != 52
+                    && enemy.boss != true
+                    && enemy.ultra != true
+                    && enemy.hp <= enemy.maxhp * 0.99
+                )
                 {
                     enemy.hp = 0;
                     showDamage("Instant Kill", 13421772, enemy._x + enemy._width / 2, 40);
@@ -5513,8 +6656,12 @@ public partial class DefineSprite_6014 : AnimatedSprite2D
                 }
                 if (special == "Absorb")
                 {
-                    _root.save.arenaHealth += Math.floor(_root.maxHealth * Math.floor(_root.save.arenaSkill[3] * 1 + 10) / 100);
-                    _root.save.arenaMana += Math.floor(_root.maxMana * Math.floor(_root.save.arenaSkill[3] * 0.5 + 5) / 100);
+                    _root.save.arenaHealth += Math.floor(
+                        _root.maxHealth * Math.floor(_root.save.arenaSkill[3] * 1 + 10) / 100
+                    );
+                    _root.save.arenaMana += Math.floor(
+                        _root.maxMana * Math.floor(_root.save.arenaSkill[3] * 0.5 + 5) / 100
+                    );
                 }
                 if (special == "Threaten")
                 {
@@ -5522,14 +6669,22 @@ public partial class DefineSprite_6014 : AnimatedSprite2D
                     if (enemy.threatCount < 1)
                     {
                         enemy.threatCount = 1;
-                        enemy.attack = Math.ceil(enemy.attack * (0.88 - _root.save.arenaSkill[3] * 0.006));
-                        enemy.rangeDamage = Math.ceil(enemy.rangeDamage * (0.88 - _root.save.arenaSkill[3] * 0.006));
+                        enemy.attack = Math.ceil(
+                            enemy.attack * (0.88 - _root.save.arenaSkill[3] * 0.006)
+                        );
+                        enemy.rangeDamage = Math.ceil(
+                            enemy.rangeDamage * (0.88 - _root.save.arenaSkill[3] * 0.006)
+                        );
                     }
                     else if (enemy.threatCount < 10)
                     {
                         enemy.threatCount += 1;
-                        enemy.attack = Math.ceil(enemy.attack * (0.98 - _root.save.arenaSkill[3] * 0.001));
-                        enemy.rangeDamage = Math.ceil(enemy.rangeDamage * (0.98 - _root.save.arenaSkill[3] * 0.001));
+                        enemy.attack = Math.ceil(
+                            enemy.attack * (0.98 - _root.save.arenaSkill[3] * 0.001)
+                        );
+                        enemy.rangeDamage = Math.ceil(
+                            enemy.rangeDamage * (0.98 - _root.save.arenaSkill[3] * 0.001)
+                        );
                     }
                 }
                 if (special == "Hamstring")
@@ -5580,7 +6735,13 @@ public partial class DefineSprite_6014 : AnimatedSprite2D
                     trace(magEff);
                     if (magEff <= 70 || enemy.magnetCount > 10)
                     {
-                        var lootValue = Math.floor((1000 + _root.arenaSkillSpecLevel * 100) * _root.arenaCoinMult * _root.save.boost / 10000 * (0.9 + Math.random() * 0.2));
+                        var lootValue = Math.floor(
+                            (1000 + _root.arenaSkillSpecLevel * 100)
+                                * _root.arenaCoinMult
+                                * _root.save.boost
+                                / 10000
+                                * (0.9 + Math.random() * 0.2)
+                        );
                         if (_root.save.permaBanPenalty[11] == 3)
                         {
                             lootValue = Math.floor(lootValue * 2);
@@ -5594,7 +6755,17 @@ public partial class DefineSprite_6014 : AnimatedSprite2D
                             lootValue = Math.floor(lootValue * 1.4);
                         }
                         _root.incDt2();
-                        stuffHolder.attachMovie("newLoot1", "newLoot" + _root.summonCount, _root.antiLag2 + 500,new { x= enemy._x + enemy._width / 2,y= 150,lootValue= lootValue});
+                        stuffHolder.attachMovie(
+                            "newLoot1",
+                            "newLoot" + _root.summonCount,
+                            _root.antiLag2 + 500,
+                            new
+                            {
+                                x = enemy._x + enemy._width / 2,
+                                y = 150,
+                                lootValue = lootValue,
+                            }
+                        );
                     }
                     else if (magEff <= 90)
                     {
@@ -5612,7 +6783,17 @@ public partial class DefineSprite_6014 : AnimatedSprite2D
                             lootValue = Math.floor(lootValue * 1.4);
                         }
                         _root.incDt2();
-                        stuffHolder.attachMovie("newLoot2", "newLoot" + _root.summonCount, _root.antiLag2 + 500,new { x= enemy._x + enemy._width / 2,y= 150,lootValue= lootValue});
+                        stuffHolder.attachMovie(
+                            "newLoot2",
+                            "newLoot" + _root.summonCount,
+                            _root.antiLag2 + 500,
+                            new
+                            {
+                                x = enemy._x + enemy._width / 2,
+                                y = 150,
+                                lootValue = lootValue,
+                            }
+                        );
                     }
                     else if (magEff <= 99 || _root.save.wcDropToday >= 25000 || Math.random() < 0.7)
                     {
@@ -5630,14 +6811,34 @@ public partial class DefineSprite_6014 : AnimatedSprite2D
                             lootValue = Math.floor(lootValue * 1.4);
                         }
                         _root.incDt2();
-                        stuffHolder.attachMovie("newLoot3", "newLoot" + _root.summonCount, _root.antiLag2 + 500,new { x= enemy._x + enemy._width / 2,y= 150,lootValue= lootValue});
+                        stuffHolder.attachMovie(
+                            "newLoot3",
+                            "newLoot" + _root.summonCount,
+                            _root.antiLag2 + 500,
+                            new
+                            {
+                                x = enemy._x + enemy._width / 2,
+                                y = 150,
+                                lootValue = lootValue,
+                            }
+                        );
                     }
                     else if (_root.save.wcDropToday < 25000)
                     {
                         _root.save.wcDropToday += 1;
                         var lootValue = 1;
                         _root.incDt2();
-                        stuffHolder.attachMovie("newLoot20", "newLoot" + _root.summonCount, _root.antiLag2 + 500,new { x= enemy._x + enemy._width / 2,y= 150,lootValue= lootValue});
+                        stuffHolder.attachMovie(
+                            "newLoot20",
+                            "newLoot" + _root.summonCount,
+                            _root.antiLag2 + 500,
+                            new
+                            {
+                                x = enemy._x + enemy._width / 2,
+                                y = 150,
+                                lootValue = lootValue,
+                            }
+                        );
                     }
                 }
             }
@@ -5647,7 +6848,11 @@ public partial class DefineSprite_6014 : AnimatedSprite2D
                 _root.save.arenaSpirit += 1;
                 if (_root.manaPower == true)
                 {
-                    if (_root.save.inventoryName[_root.save.arenaWeapon] == "Ultimate Weapon" || _root.save.inventoryName[_root.save.arenaWeapon] == "Reincarnation Weapon")
+                    if (
+                        _root.save.inventoryName[_root.save.arenaWeapon] == "Ultimate Weapon"
+                        || _root.save.inventoryName[_root.save.arenaWeapon]
+                            == "Reincarnation Weapon"
+                    )
                     {
                         _root.save.arenaSpirit += 1;
                     }
@@ -5661,9 +6866,18 @@ public partial class DefineSprite_6014 : AnimatedSprite2D
                     _root.save.arenaSpirit += 1;
                 }
             }
-            if (enemy.rampagePct != 0 || enemy.skill != "None" || enemy.skillLevel != 0 || enemy.rangeDamage != 0)
+            if (
+                enemy.rampagePct != 0
+                || enemy.skill != "None"
+                || enemy.skillLevel != 0
+                || enemy.rangeDamage != 0
+            )
             {
-                if (Math.random() < _root.silenceChance / 100 && enemy.boss != true && enemy.skillLevel >= 0)
+                if (
+                    Math.random() < _root.silenceChance / 100
+                    && enemy.boss != true
+                    && enemy.skillLevel >= 0
+                )
                 {
                     enemy.rampagePct = 0;
                     enemy.explodeDamage = 1;
@@ -5714,7 +6928,11 @@ public partial class DefineSprite_6014 : AnimatedSprite2D
                     nextAttack += _root.save.arenaSkill[43] * 0.005;
                 }
             }
-            if (Math.random() < _root.stunChance / 100 && enemy.stun <= -0.5 && special != "Explosive")
+            if (
+                Math.random() < _root.stunChance / 100
+                && enemy.stun <= -0.5
+                && special != "Explosive"
+            )
             {
                 enemy.stun = _root.stunDuration;
                 if (_root.save.arenaSkill[45] > 0)
@@ -5743,6 +6961,7 @@ public partial class DefineSprite_6014 : AnimatedSprite2D
             showDamage("MISS!!", 10066329, enemy._x + enemy._width / 2, 80);
         }
     }
+
     // MATCH: DefineSprite_6014-frame_1-DoAction_2.as:takeDamage()
     public void takeDamage(double damageTemp, string special)
     {
@@ -5761,7 +6980,13 @@ public partial class DefineSprite_6014 : AnimatedSprite2D
             }
             tmpHealth = _root.save.arenaHealth;
         }
-        if ((_root.save.arenaZone >= 62 && _root.save.arenaZone <= 67 || _root.save.arenaZone >= 86 && _root.save.arenaZone <= 91) && _root.areaFairyPerformance > 0)
+        if (
+            (
+                _root.save.arenaZone >= 62 && _root.save.arenaZone <= 67
+                || _root.save.arenaZone >= 86 && _root.save.arenaZone <= 91
+            )
+            && _root.areaFairyPerformance > 0
+        )
         {
             _root.areaFairyPerformance -= 1;
         }
@@ -5783,9 +7008,20 @@ public partial class DefineSprite_6014 : AnimatedSprite2D
         {
             dodgeCombo = 0;
         }
-        if (Math.random() < noDodgeChance && Math.random() > _root.evasionPct / 100 || dodgeCombo >= 10 || special == "Drown" || special == "Cannot Dodge" || special == "Apocalypse")
+        if (
+            Math.random() < noDodgeChance && Math.random() > _root.evasionPct / 100
+            || dodgeCombo >= 10
+            || special == "Drown"
+            || special == "Cannot Dodge"
+            || special == "Apocalypse"
+        )
         {
-            if (special != "Heal" && special != "Drown" && special != "Cannot Dodge" && special != "Apocalypse")
+            if (
+                special != "Heal"
+                && special != "Drown"
+                && special != "Cannot Dodge"
+                && special != "Apocalypse"
+            )
             {
                 dodgeCombo = 0;
             }
@@ -5813,10 +7049,14 @@ public partial class DefineSprite_6014 : AnimatedSprite2D
             {
                 tempDEF = Math.floor(_root.damageResist * 2);
             }
-            var damageTaken = Math.ceil((damageTemp - tempDEF) * (100 - _root.damageResistPct) / 100);
+            var damageTaken = Math.ceil(
+                (damageTemp - tempDEF) * (100 - _root.damageResistPct) / 100
+            );
             if (enemy.weaken > 0)
             {
-                damageTaken -= Math.floor(damageTemp * _root.weakenPower * (100 - _root.damageResistPct) / 10000);
+                damageTaken -= Math.floor(
+                    damageTemp * _root.weakenPower * (100 - _root.damageResistPct) / 10000
+                );
             }
             if (special == "Heal")
             {
@@ -5824,7 +7064,9 @@ public partial class DefineSprite_6014 : AnimatedSprite2D
             }
             if (special == "Drown")
             {
-                damageTaken = Math.ceil((damageTemp - _root.damageResist / 3) * (100 - _root.damageResistPct / 3) / 100);
+                damageTaken = Math.ceil(
+                    (damageTemp - _root.damageResist / 3) * (100 - _root.damageResistPct / 3) / 100
+                );
             }
             if (special == "Magic")
             {
@@ -5832,7 +7074,13 @@ public partial class DefineSprite_6014 : AnimatedSprite2D
                 {
                     damageTaken = 1;
                 }
-                var plusDamage = Math.ceil(enemy.rangeDamage * 0.2 * (0.9 + Math.random() * 0.2) * (100 - _root.damageResistPct) / 100);
+                var plusDamage = Math.ceil(
+                    enemy.rangeDamage
+                        * 0.2
+                        * (0.9 + Math.random() * 0.2)
+                        * (100 - _root.damageResistPct)
+                        / 100
+                );
                 if (plusDamage > 10001024)
                 {
                     plusDamage = Math.ceil(10000000 + Math.pow(plusDamage - 10000000, 0.9) * 2);
@@ -5886,28 +7134,52 @@ public partial class DefineSprite_6014 : AnimatedSprite2D
             {
                 damageTaken = Math.ceil(damageTaken * (0.9 - _root.save.restEfficiency[5] * 0.01));
             }
-            if (_root.save.arenaHealth < damageTaken && _root.save.arenaSkill[23] > 0 && enemy.tankMode != true)
+            if (
+                _root.save.arenaHealth < damageTaken
+                && _root.save.arenaSkill[23] > 0
+                && enemy.tankMode != true
+            )
             {
-                if ((_root.reviveCooldown > 0 || _root.save.arenaSkill[64] <= 0) && _root.save.arenaZone != 24 && (_root.save.arenaZone < 30 || _root.save.arenaZone > 43))
+                if (
+                    (_root.reviveCooldown > 0 || _root.save.arenaSkill[64] <= 0)
+                    && _root.save.arenaZone != 24
+                    && (_root.save.arenaZone < 30 || _root.save.arenaZone > 43)
+                )
                 {
                     _root.save.arenaHealth = _root.maxHealth;
                     enemy.tankMode = true;
                 }
             }
-            if ((enemy.enemyID == 0 || enemy.tankMode == true) && _root.save.arenaZone != 24 && (_root.save.arenaZone < 30 || _root.save.arenaZone > 43))
+            if (
+                (enemy.enemyID == 0 || enemy.tankMode == true)
+                && _root.save.arenaZone != 24
+                && (_root.save.arenaZone < 30 || _root.save.arenaZone > 43)
+            )
             {
                 damageTaken = Math.ceil(damageTaken * (1 - _root.save.arenaSkill[23] * 0.01));
             }
-            if (_root.save.arenaZone == 24 && _root.save.inventorySpirit[_root.save.arenaWeapon] == true)
+            if (
+                _root.save.arenaZone == 24
+                && _root.save.inventorySpirit[_root.save.arenaWeapon] == true
+            )
             {
                 damageTaken = Math.ceil(damageTaken * 2.5);
             }
             _root.save.arenaHealth -= damageTaken;
-            if (_root.save.inventoryName[_root.save.arenaWeapon] == "CHAOS AURA" && special != "Apocalypse" && damageTaken > 0)
+            if (
+                _root.save.inventoryName[_root.save.arenaWeapon] == "CHAOS AURA"
+                && special != "Apocalypse"
+                && damageTaken > 0
+            )
             {
                 _root.save.arenaFury += Math.floor(Math.log(damageTaken));
             }
-            if (_root.manaPower == true && special != "Ignore Defense" && special != "Apocalypse" && damageTaken > 0)
+            if (
+                _root.manaPower == true
+                && special != "Ignore Defense"
+                && special != "Apocalypse"
+                && damageTaken > 0
+            )
             {
                 if (_root.save.inventoryName[_root.save.arenaWeapon] != "CHAOS AURA")
                 {
@@ -5944,11 +7216,17 @@ public partial class DefineSprite_6014 : AnimatedSprite2D
                 {
                     _root.save.arenaCorruptAttack += 10;
                 }
-                else if (_root.save.arenaCorruptAttack < 1000 && damageTaken < _root.maxHealth * 0.04)
+                else if (
+                    _root.save.arenaCorruptAttack < 1000
+                    && damageTaken < _root.maxHealth * 0.04
+                )
                 {
                     _root.save.arenaCorruptAttack += 2;
                 }
-                else if (_root.save.arenaCorruptAttack < 2000 && damageTaken < _root.maxHealth * 0.1)
+                else if (
+                    _root.save.arenaCorruptAttack < 2000
+                    && damageTaken < _root.maxHealth * 0.1
+                )
                 {
                     _root.save.arenaCorruptAttack += 1;
                 }
@@ -6080,49 +7358,136 @@ public partial class DefineSprite_6014 : AnimatedSprite2D
                     _root.arenaCombo = 0;
                 }
             }
-            if (Math.random() > _root.negateEffect / 100 && damageTaken > 0 && special != "Apocalypse" && special != "Drown")
+            if (
+                Math.random() > _root.negateEffect / 100
+                && damageTaken > 0
+                && special != "Apocalypse"
+                && special != "Drown"
+            )
             {
-                if ((enemy.skill == "Throw Soap" || enemy.skill == "Chaos" || enemy.skill == "ULTRA") && Math.random() < 0.05 && _root.arenaSoap <= 0)
+                if (
+                    (
+                        enemy.skill == "Throw Soap"
+                        || enemy.skill == "Chaos"
+                        || enemy.skill == "ULTRA"
+                    )
+                    && Math.random() < 0.05
+                    && _root.arenaSoap <= 0
+                )
                 {
                     _root.arenaSoap = Math.ceil(enemy.skillLevel / 2);
                     _root.dispNews(66, "The monster threw some SOAP at you!");
                 }
-                if ((enemy.skill == "Poison" || enemy.skill == "All" || enemy.skill == "Chaos" || enemy.skill == "ULTRA") && Math.random() < 0.05 && _root.arenaPoison <= 0)
+                if (
+                    (
+                        enemy.skill == "Poison"
+                        || enemy.skill == "All"
+                        || enemy.skill == "Chaos"
+                        || enemy.skill == "ULTRA"
+                    )
+                    && Math.random() < 0.05
+                    && _root.arenaPoison <= 0
+                )
                 {
                     _root.arenaPoison = enemy.skillLevel;
                     showDamage("Poison", 16750848, 62.5, 50);
                 }
-                if ((enemy.skill == "Weaken" || enemy.skill == "All" || enemy.skill == "ULTRA") && Math.random() < 0.05 && _root.arenaWeaken <= 0)
+                if (
+                    (enemy.skill == "Weaken" || enemy.skill == "All" || enemy.skill == "ULTRA")
+                    && Math.random() < 0.05
+                    && _root.arenaWeaken <= 0
+                )
                 {
                     _root.arenaWeaken = enemy.skillLevel;
                     showDamage("Weaken", 16750848, 62.5, 50);
                 }
-                if ((enemy.skill == "Blind" || enemy.skill == "All" || enemy.skill == "Chaos" || enemy.skill == "ULTRA") && Math.random() < 0.05 && _root.arenaBlind <= 0)
+                if (
+                    (
+                        enemy.skill == "Blind"
+                        || enemy.skill == "All"
+                        || enemy.skill == "Chaos"
+                        || enemy.skill == "ULTRA"
+                    )
+                    && Math.random() < 0.05
+                    && _root.arenaBlind <= 0
+                )
                 {
                     _root.arenaBlind = enemy.skillLevel;
                     showDamage("Blind", 16750848, 62.5, 50);
                 }
-                if ((enemy.skill == "Slow" || enemy.skill == "All" || enemy.skill == "Doom" || enemy.skill == "Chaos" || enemy.skill == "ULTRA") && Math.random() < 0.05 && _root.arenaSlow <= 0)
+                if (
+                    (
+                        enemy.skill == "Slow"
+                        || enemy.skill == "All"
+                        || enemy.skill == "Doom"
+                        || enemy.skill == "Chaos"
+                        || enemy.skill == "ULTRA"
+                    )
+                    && Math.random() < 0.05
+                    && _root.arenaSlow <= 0
+                )
                 {
                     _root.arenaSlow = enemy.skillLevel;
                     showDamage("Slow", 16750848, 62.5, 50);
                 }
-                if ((enemy.skill == "Stun" || enemy.skill == "All" || enemy.skill == "Doom" || enemy.skill == "Chaos" || enemy.skill == "ULTRA") && Math.random() < 0.05 && _root.arenaStun <= 0 && _root.arenaPotionBlock <= 0)
+                if (
+                    (
+                        enemy.skill == "Stun"
+                        || enemy.skill == "All"
+                        || enemy.skill == "Doom"
+                        || enemy.skill == "Chaos"
+                        || enemy.skill == "ULTRA"
+                    )
+                    && Math.random() < 0.05
+                    && _root.arenaStun <= 0
+                    && _root.arenaPotionBlock <= 0
+                )
                 {
                     _root.arenaStun = Math.ceil(enemy.skillLevel / 2);
                     showDamage("Stun", 16750848, 62.5, 50);
                 }
-                if ((enemy.skill == "Potion Block" || enemy.skill == "All" || enemy.skill == "Doom" || enemy.skill == "Chaos" || enemy.skill == "ULTRA") && Math.random() < 0.05 && _root.arenaZombify <= 0 && _root.arenaStun <= 0 && _root.arenaPotionBlock <= 0)
+                if (
+                    (
+                        enemy.skill == "Potion Block"
+                        || enemy.skill == "All"
+                        || enemy.skill == "Doom"
+                        || enemy.skill == "Chaos"
+                        || enemy.skill == "ULTRA"
+                    )
+                    && Math.random() < 0.05
+                    && _root.arenaZombify <= 0
+                    && _root.arenaStun <= 0
+                    && _root.arenaPotionBlock <= 0
+                )
                 {
                     _root.arenaPotionBlock = enemy.skillLevel;
                     showDamage("Potion Block", 16750848, 62.5, 50);
                 }
-                if ((enemy.skill == "Zombify" || enemy.skill == "All" || enemy.skill == "Doom" || enemy.skill == "Chaos" || enemy.skill == "ULTRA") && Math.random() < 0.05 && _root.arenaZombify <= 0 && _root.arenaPotionBlock <= 0)
+                if (
+                    (
+                        enemy.skill == "Zombify"
+                        || enemy.skill == "All"
+                        || enemy.skill == "Doom"
+                        || enemy.skill == "Chaos"
+                        || enemy.skill == "ULTRA"
+                    )
+                    && Math.random() < 0.05
+                    && _root.arenaZombify <= 0
+                    && _root.arenaPotionBlock <= 0
+                )
                 {
                     _root.arenaZombify = enemy.skillLevel;
                     showDamage("Zombify", 16750848, 62.5, 50);
                 }
-                if ((enemy.skill == "Health Drain" || enemy.skill == "Doom" || enemy.skill == "Chaos" || enemy.skill == "ULTRA") && Math.random() < 0.1)
+                if (
+                    (
+                        enemy.skill == "Health Drain"
+                        || enemy.skill == "Doom"
+                        || enemy.skill == "Chaos"
+                        || enemy.skill == "ULTRA"
+                    )
+                    && Math.random() < 0.1
+                )
                 {
                     var healthToDrain = Math.floor(Math.pow(damageTaken, 1.3) * enemy.skillLevel);
                     if (_root.save.arenaZone == 47)
@@ -6136,7 +7501,15 @@ public partial class DefineSprite_6014 : AnimatedSprite2D
                     enemy.hp += healthToDrain;
                     showDamage(healthToDrain, 39423, enemy._x + enemy._width / 2, 40);
                 }
-                if ((enemy.skill == "Mana Drain" || enemy.skill == "Doom" || enemy.skill == "Chaos" || enemy.skill == "ULTRA") && Math.random() < 0.1)
+                if (
+                    (
+                        enemy.skill == "Mana Drain"
+                        || enemy.skill == "Doom"
+                        || enemy.skill == "Chaos"
+                        || enemy.skill == "ULTRA"
+                    )
+                    && Math.random() < 0.1
+                )
                 {
                     var manaToDrain = Math.floor(damageTaken / 10 * enemy.skillLevel);
                     if (manaToDrain > _root.save.arenaMana)
@@ -6149,133 +7522,309 @@ public partial class DefineSprite_6014 : AnimatedSprite2D
                         showDamage("MP -" + _root.withComma(manaToDrain), 16750848, 62.5, 50);
                     }
                 }
-                if ((enemy.skill == "Attack UP" || enemy.skill == "Stat UP" || enemy.skill == "Chaos" || enemy.skill == "ULTRA") && Math.random() < 0.07)
+                if (
+                    (
+                        enemy.skill == "Attack UP"
+                        || enemy.skill == "Stat UP"
+                        || enemy.skill == "Chaos"
+                        || enemy.skill == "ULTRA"
+                    )
+                    && Math.random() < 0.07
+                )
                 {
                     if (_root.save.arenaZone == 78 && enemy.lifespan >= 30)
                     {
                         if (enemy.lifespan >= 300)
                         {
-                            enemy.attack = Math.floor(enemy.attack * (100 + enemy.skillLevel * 100) / 100);
-                            enemy.rangeDamage = Math.floor(enemy.rangeDamage * (100 + enemy.skillLevel * 100) / 100);
-                            showDamage("Attack +" + enemy.skillLevel * 100 + "%", 16711680, enemy._x + enemy._width / 2, 40);
+                            enemy.attack = Math.floor(
+                                enemy.attack * (100 + enemy.skillLevel * 100) / 100
+                            );
+                            enemy.rangeDamage = Math.floor(
+                                enemy.rangeDamage * (100 + enemy.skillLevel * 100) / 100
+                            );
+                            showDamage(
+                                "Attack +" + enemy.skillLevel * 100 + "%",
+                                16711680,
+                                enemy._x + enemy._width / 2,
+                                40
+                            );
                         }
                         else if (enemy.lifespan >= 180)
                         {
-                            enemy.attack = Math.floor(enemy.attack * (100 + enemy.skillLevel * 30) / 100);
-                            enemy.rangeDamage = Math.floor(enemy.rangeDamage * (100 + enemy.skillLevel * 30) / 100);
-                            showDamage("Attack +" + enemy.skillLevel * 30 + "%", 16711680, enemy._x + enemy._width / 2, 40);
+                            enemy.attack = Math.floor(
+                                enemy.attack * (100 + enemy.skillLevel * 30) / 100
+                            );
+                            enemy.rangeDamage = Math.floor(
+                                enemy.rangeDamage * (100 + enemy.skillLevel * 30) / 100
+                            );
+                            showDamage(
+                                "Attack +" + enemy.skillLevel * 30 + "%",
+                                16711680,
+                                enemy._x + enemy._width / 2,
+                                40
+                            );
                         }
                         else if (enemy.lifespan >= 90)
                         {
-                            enemy.attack = Math.floor(enemy.attack * (100 + enemy.skillLevel * 10) / 100);
-                            enemy.rangeDamage = Math.floor(enemy.rangeDamage * (100 + enemy.skillLevel * 10) / 100);
-                            showDamage("Attack +" + enemy.skillLevel * 10 + "%", 16711680, enemy._x + enemy._width / 2, 40);
+                            enemy.attack = Math.floor(
+                                enemy.attack * (100 + enemy.skillLevel * 10) / 100
+                            );
+                            enemy.rangeDamage = Math.floor(
+                                enemy.rangeDamage * (100 + enemy.skillLevel * 10) / 100
+                            );
+                            showDamage(
+                                "Attack +" + enemy.skillLevel * 10 + "%",
+                                16711680,
+                                enemy._x + enemy._width / 2,
+                                40
+                            );
                         }
                         else
                         {
-                            enemy.attack = Math.floor(enemy.attack * (100 + enemy.skillLevel * 3) / 100);
-                            enemy.rangeDamage = Math.floor(enemy.rangeDamage * (100 + enemy.skillLevel * 3) / 100);
-                            showDamage("Attack +" + enemy.skillLevel * 3 + "%", 16711680, enemy._x + enemy._width / 2, 40);
+                            enemy.attack = Math.floor(
+                                enemy.attack * (100 + enemy.skillLevel * 3) / 100
+                            );
+                            enemy.rangeDamage = Math.floor(
+                                enemy.rangeDamage * (100 + enemy.skillLevel * 3) / 100
+                            );
+                            showDamage(
+                                "Attack +" + enemy.skillLevel * 3 + "%",
+                                16711680,
+                                enemy._x + enemy._width / 2,
+                                40
+                            );
                         }
                     }
                     else
                     {
                         enemy.attack = Math.floor(enemy.attack * (100 + enemy.skillLevel) / 100);
-                        enemy.rangeDamage = Math.floor(enemy.rangeDamage * (100 + enemy.skillLevel) / 100);
-                        showDamage("Attack +" + enemy.skillLevel + "%", 16711680, enemy._x + enemy._width / 2, 40);
+                        enemy.rangeDamage = Math.floor(
+                            enemy.rangeDamage * (100 + enemy.skillLevel) / 100
+                        );
+                        showDamage(
+                            "Attack +" + enemy.skillLevel + "%",
+                            16711680,
+                            enemy._x + enemy._width / 2,
+                            40
+                        );
                     }
                 }
-                if ((enemy.skill == "Defense UP" || enemy.skill == "Stat UP" || enemy.skill == "Chaos" || enemy.skill == "ULTRA") && Math.random() < 0.07)
+                if (
+                    (
+                        enemy.skill == "Defense UP"
+                        || enemy.skill == "Stat UP"
+                        || enemy.skill == "Chaos"
+                        || enemy.skill == "ULTRA"
+                    )
+                    && Math.random() < 0.07
+                )
                 {
                     if (_root.save.arenaZone == 78 && enemy.lifespan >= 30)
                     {
                         if (enemy.lifespan >= 300)
                         {
-                            enemy.defense = Math.floor(enemy.defense * (100 + enemy.skillLevel * 100) / 100);
-                            showDamage("Defense +" + enemy.skillLevel * 100 + "%", 16711680, enemy._x + enemy._width / 2, 40);
+                            enemy.defense = Math.floor(
+                                enemy.defense * (100 + enemy.skillLevel * 100) / 100
+                            );
+                            showDamage(
+                                "Defense +" + enemy.skillLevel * 100 + "%",
+                                16711680,
+                                enemy._x + enemy._width / 2,
+                                40
+                            );
                         }
                         else if (enemy.lifespan >= 180)
                         {
-                            enemy.defense = Math.floor(enemy.defense * (100 + enemy.skillLevel * 30) / 100);
-                            showDamage("Defense +" + enemy.skillLevel * 30 + "%", 16711680, enemy._x + enemy._width / 2, 40);
+                            enemy.defense = Math.floor(
+                                enemy.defense * (100 + enemy.skillLevel * 30) / 100
+                            );
+                            showDamage(
+                                "Defense +" + enemy.skillLevel * 30 + "%",
+                                16711680,
+                                enemy._x + enemy._width / 2,
+                                40
+                            );
                         }
                         else if (enemy.lifespan >= 90)
                         {
-                            enemy.defense = Math.floor(enemy.defense * (100 + enemy.skillLevel * 10) / 100);
-                            showDamage("Defense +" + enemy.skillLevel * 10 + "%", 16711680, enemy._x + enemy._width / 2, 40);
+                            enemy.defense = Math.floor(
+                                enemy.defense * (100 + enemy.skillLevel * 10) / 100
+                            );
+                            showDamage(
+                                "Defense +" + enemy.skillLevel * 10 + "%",
+                                16711680,
+                                enemy._x + enemy._width / 2,
+                                40
+                            );
                         }
                         else
                         {
-                            enemy.defense = Math.floor(enemy.defense * (100 + enemy.skillLevel * 3) / 100);
-                            showDamage("Defense +" + enemy.skillLevel * 3 + "%", 16711680, enemy._x + enemy._width / 2, 40);
+                            enemy.defense = Math.floor(
+                                enemy.defense * (100 + enemy.skillLevel * 3) / 100
+                            );
+                            showDamage(
+                                "Defense +" + enemy.skillLevel * 3 + "%",
+                                16711680,
+                                enemy._x + enemy._width / 2,
+                                40
+                            );
                         }
                     }
                     else
                     {
                         enemy.defense = Math.floor(enemy.defense * (100 + enemy.skillLevel) / 100);
-                        showDamage("Defense +" + enemy.skillLevel + "%", 16711680, enemy._x + enemy._width / 2, 40);
+                        showDamage(
+                            "Defense +" + enemy.skillLevel + "%",
+                            16711680,
+                            enemy._x + enemy._width / 2,
+                            40
+                        );
                     }
                 }
-                if ((enemy.skill == "Accuracy UP" || enemy.skill == "Stat UP" || enemy.skill == "Chaos" || enemy.skill == "ULTRA") && Math.random() < 0.08)
+                if (
+                    (
+                        enemy.skill == "Accuracy UP"
+                        || enemy.skill == "Stat UP"
+                        || enemy.skill == "Chaos"
+                        || enemy.skill == "ULTRA"
+                    )
+                    && Math.random() < 0.08
+                )
                 {
                     if (_root.save.arenaZone == 78 && enemy.lifespan >= 30)
                     {
                         if (enemy.lifespan >= 300)
                         {
-                            enemy.accuracy = Math.floor(enemy.accuracy * (100 + enemy.skillLevel * 100) / 100);
-                            showDamage("Accuracy +" + enemy.skillLevel * 100 + "%", 16711680, enemy._x + enemy._width / 2, 40);
+                            enemy.accuracy = Math.floor(
+                                enemy.accuracy * (100 + enemy.skillLevel * 100) / 100
+                            );
+                            showDamage(
+                                "Accuracy +" + enemy.skillLevel * 100 + "%",
+                                16711680,
+                                enemy._x + enemy._width / 2,
+                                40
+                            );
                         }
                         else if (enemy.lifespan >= 180)
                         {
-                            enemy.accuracy = Math.floor(enemy.accuracy * (100 + enemy.skillLevel * 30) / 100);
-                            showDamage("Accuracy +" + enemy.skillLevel * 30 + "%", 16711680, enemy._x + enemy._width / 2, 40);
+                            enemy.accuracy = Math.floor(
+                                enemy.accuracy * (100 + enemy.skillLevel * 30) / 100
+                            );
+                            showDamage(
+                                "Accuracy +" + enemy.skillLevel * 30 + "%",
+                                16711680,
+                                enemy._x + enemy._width / 2,
+                                40
+                            );
                         }
                         else if (enemy.lifespan >= 90)
                         {
-                            enemy.accuracy = Math.floor(enemy.accuracy * (100 + enemy.skillLevel * 10) / 100);
-                            showDamage("Accuracy +" + enemy.skillLevel * 10 + "%", 16711680, enemy._x + enemy._width / 2, 40);
+                            enemy.accuracy = Math.floor(
+                                enemy.accuracy * (100 + enemy.skillLevel * 10) / 100
+                            );
+                            showDamage(
+                                "Accuracy +" + enemy.skillLevel * 10 + "%",
+                                16711680,
+                                enemy._x + enemy._width / 2,
+                                40
+                            );
                         }
                         else
                         {
-                            enemy.accuracy = Math.floor(enemy.accuracy * (100 + enemy.skillLevel * 3) / 100);
-                            showDamage("Accuracy +" + enemy.skillLevel * 3 + "%", 16711680, enemy._x + enemy._width / 2, 40);
+                            enemy.accuracy = Math.floor(
+                                enemy.accuracy * (100 + enemy.skillLevel * 3) / 100
+                            );
+                            showDamage(
+                                "Accuracy +" + enemy.skillLevel * 3 + "%",
+                                16711680,
+                                enemy._x + enemy._width / 2,
+                                40
+                            );
                         }
                     }
                     else
                     {
-                        enemy.accuracy = Math.floor(enemy.accuracy * (100 + enemy.skillLevel) / 100);
-                        showDamage("Accuracy +" + enemy.skillLevel + "%", 16711680, enemy._x + enemy._width / 2, 40);
+                        enemy.accuracy = Math.floor(
+                            enemy.accuracy * (100 + enemy.skillLevel) / 100
+                        );
+                        showDamage(
+                            "Accuracy +" + enemy.skillLevel + "%",
+                            16711680,
+                            enemy._x + enemy._width / 2,
+                            40
+                        );
                     }
                 }
-                if ((enemy.skill == "Evasion UP" || enemy.skill == "Stat UP" || enemy.skill == "Chaos" || enemy.skill == "ULTRA") && Math.random() < 0.08)
+                if (
+                    (
+                        enemy.skill == "Evasion UP"
+                        || enemy.skill == "Stat UP"
+                        || enemy.skill == "Chaos"
+                        || enemy.skill == "ULTRA"
+                    )
+                    && Math.random() < 0.08
+                )
                 {
                     if (_root.save.arenaZone == 78 && enemy.lifespan >= 30)
                     {
                         if (enemy.lifespan >= 300)
                         {
-                            enemy.evasion = Math.floor(enemy.evasion * (100 + enemy.skillLevel * 100) / 100);
-                            showDamage("Evasion +" + enemy.skillLevel * 100 + "%", 16711680, enemy._x + enemy._width / 2, 40);
+                            enemy.evasion = Math.floor(
+                                enemy.evasion * (100 + enemy.skillLevel * 100) / 100
+                            );
+                            showDamage(
+                                "Evasion +" + enemy.skillLevel * 100 + "%",
+                                16711680,
+                                enemy._x + enemy._width / 2,
+                                40
+                            );
                         }
                         else if (enemy.lifespan >= 180)
                         {
-                            enemy.evasion = Math.floor(enemy.evasion * (100 + enemy.skillLevel * 30) / 100);
-                            showDamage("Evasion +" + enemy.skillLevel * 30 + "%", 16711680, enemy._x + enemy._width / 2, 40);
+                            enemy.evasion = Math.floor(
+                                enemy.evasion * (100 + enemy.skillLevel * 30) / 100
+                            );
+                            showDamage(
+                                "Evasion +" + enemy.skillLevel * 30 + "%",
+                                16711680,
+                                enemy._x + enemy._width / 2,
+                                40
+                            );
                         }
                         else if (enemy.lifespan >= 90)
                         {
-                            enemy.evasion = Math.floor(enemy.evasion * (100 + enemy.skillLevel * 10) / 100);
-                            showDamage("Evasion +" + enemy.skillLevel * 10 + "%", 16711680, enemy._x + enemy._width / 2, 40);
+                            enemy.evasion = Math.floor(
+                                enemy.evasion * (100 + enemy.skillLevel * 10) / 100
+                            );
+                            showDamage(
+                                "Evasion +" + enemy.skillLevel * 10 + "%",
+                                16711680,
+                                enemy._x + enemy._width / 2,
+                                40
+                            );
                         }
                         else
                         {
-                            enemy.evasion = Math.floor(enemy.evasion * (100 + enemy.skillLevel * 3) / 100);
-                            showDamage("Evasion +" + enemy.skillLevel * 3 + "%", 16711680, enemy._x + enemy._width / 2, 40);
+                            enemy.evasion = Math.floor(
+                                enemy.evasion * (100 + enemy.skillLevel * 3) / 100
+                            );
+                            showDamage(
+                                "Evasion +" + enemy.skillLevel * 3 + "%",
+                                16711680,
+                                enemy._x + enemy._width / 2,
+                                40
+                            );
                         }
                     }
                     else
                     {
                         enemy.evasion = Math.floor(enemy.evasion * (100 + enemy.skillLevel) / 100);
-                        showDamage("Evasion +" + enemy.skillLevel + "%", 16711680, enemy._x + enemy._width / 2, 40);
+                        showDamage(
+                            "Evasion +" + enemy.skillLevel + "%",
+                            16711680,
+                            enemy._x + enemy._width / 2,
+                            40
+                        );
                     }
                 }
             }
@@ -6329,5 +7878,4 @@ public partial class DefineSprite_6014 : AnimatedSprite2D
             tmpHealth = _root.save.arenaHealth;
         }
     }
-
 }
