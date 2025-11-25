@@ -8,7 +8,14 @@ public partial class FightStat2 : FlashColorRect
     string fightTextX;
 
     [Export]
-    public Label fightText2;
+    public Label fightText2 { get; set; }
+
+    [Export]
+    public string Text
+    {
+        get => fightText2.Text;
+        set => fightText2.Text = value;
+    }
 
     // MATCH: DefineSprite_6014-frame_1-PlaceObject2_4945_2982-CLIPACTIONRECORD onClipEvent(load).as
     public override void _EnterTree()

@@ -1,6 +1,8 @@
 using System;
 using System.Collections.Generic;
 using System.Globalization;
+using System.Linq;
+using System.Reflection;
 using AntiIdle.BattleArena.Crafting;
 using AntiIdle.BattleArena.Enemy;
 using AntiIdle.Common.Nodes;
@@ -52,6 +54,7 @@ public class Root
     public double areaDamagePct;
     public double areaEpicChance;
     public double areaEpicChance2;
+
     // sprite 6014
     public bool worstMoon { get; set; }
     public bool turnBased { get; set; }
@@ -169,14 +172,17 @@ public class Root
     public double arenaStrike { get; set; }
     public double specPolearmCD { get; set; }
     public double specMine { get; set; }
+
     /// <summary>
     /// <see cref="EnemyData.allyActive1Z"/>
     /// </summary>
     public double allyCooldown1 { get; set; }
+
     /// <summary>
     /// <see cref="EnemyData.allyActive2Z"/>
     /// </summary>
     public double allyCooldown2 { get; set; }
+
     /// <summary>
     /// <see cref="EnemyData.allyActive3Z"/>
     /// </summary>
@@ -2436,6 +2442,7 @@ public class Root
     {
         gainEXP(amount, double.NaN);
     }
+
     public void gainEXP(double amount, double sauce)
     {
         if (isNaN(sauce))
@@ -17484,16 +17491,47 @@ public class Root
 
     public object this[string key]
     {
-        get =>
-            GetType().GetField(key)?.GetValue(this) ?? throw new ArgumentException(
-                $"Property `{key}` not found"
-            );
+        get
+        {
+            var member = GetType()
+                .GetMember(
+                    key,
+                    MemberTypes.Field | MemberTypes.Property,
+                    BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic
+                )
+                .FirstOrDefault();
+
+            if (member is FieldInfo f)
+                return f.GetValue(this);
+
+            if (member is PropertyInfo p)
+                return p.GetValue(this);
+
+            throw new ArgumentException($"Field or property `{key}` not found");
+        }
         set
         {
-            var prop =
-                GetType().GetField(key)
-                ?? throw new ArgumentException($"Property `{key}` not found");
-            prop.SetValue(this, value);
+            var member = GetType()
+                .GetMember(
+                    key,
+                    MemberTypes.Field | MemberTypes.Property,
+                    BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic
+                )
+                .FirstOrDefault();
+
+            if (member is FieldInfo f)
+            {
+                f.SetValue(this, value);
+                return;
+            }
+
+            if (member is PropertyInfo p)
+            {
+                p.SetValue(this, value);
+                return;
+            }
+
+            throw new ArgumentException($"Field or property `{key}` not found");
         }
     }
 }

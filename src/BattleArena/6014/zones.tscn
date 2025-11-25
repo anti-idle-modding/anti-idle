@@ -1,0 +1,60 @@
+[gd_scene load_steps=8 format=3 uid="uid://bio8gvow2fvux"]
+
+[ext_resource type="Script" uid="uid://ctr03sng5356q" path="res://src/BattleArena/Zones/YeOldePub/YeOldePub.cs" id="1_avxiv"]
+[ext_resource type="Texture2D" uid="uid://d0ekivc6u6plm" path="res://src/BattleArena/6014/textures/instance11.png" id="1_qxhvn"]
+[ext_resource type="Texture2D" uid="uid://bj854ptqxgoq4" path="res://src/BattleArena/6014/textures/instance13.png" id="2_fwojm"]
+[ext_resource type="Texture2D" uid="uid://34adbxpxcve1" path="res://src/BattleArena/6014/textures/instance17.png" id="3_wlhx2"]
+[ext_resource type="Texture2D" uid="uid://b2bsk2ic6xllc" path="res://src/BattleArena/6014/textures/instance20.png" id="4_vi6hu"]
+[ext_resource type="Texture2D" uid="uid://c0mh2amemjdy1" path="res://src/BattleArena/6014/textures/instance21.png" id="5_4tkhs"]
+[ext_resource type="Texture2D" uid="uid://sg2vypt5s1rx" path="res://src/BattleArena/6014/textures/instance23.png" id="6_y4864"]
+
+[node name="YeOldePub" type="Node2D"]
+script = ExtResource("1_avxiv")
+
+[node name="instance11" type="Sprite2D" parent="."]
+position = Vector2(250, 100)
+scale = Vector2(5.0023804, 5.0060883)
+texture = ExtResource("1_qxhvn")
+
+[node name="instance12" type="Node2D" parent="."]
+position = Vector2(480, 180)
+rotation = -3.1415927
+scale = Vector2(0.5, 0.5)
+
+[node name="instance13" type="Sprite2D" parent="instance12"]
+texture = ExtResource("2_fwojm")
+
+[node name="instance14" type="Node2D" parent="."]
+position = Vector2(480, 140)
+rotation = -3.1415927
+scale = Vector2(0.5, 0.5)
+
+[node name="instance15" type="Sprite2D" parent="instance14"]
+texture = ExtResource("2_fwojm")
+
+[node name="instance16" type="Node2D" parent="."]
+position = Vector2(225, 65)
+
+[node name="instance17" type="Sprite2D" parent="instance16"]
+position = Vector2(27, 30)
+texture = ExtResource("3_wlhx2")
+
+[node name="instance19" type="Node2D" parent="."]
+position = Vector2(150, 20)
+scale = Vector2(0.9, 2.5)
+
+[node name="instance20" type="Sprite2D" parent="instance19"]
+position = Vector2(25, 10)
+texture = ExtResource("4_vi6hu")
+
+[node name="instance21" type="Sprite2D" parent="instance19"]
+position = Vector2(25, 10)
+scale = Vector2(1.25, 0.5)
+texture = ExtResource("5_4tkhs")
+
+[node name="instance22" type="Node2D" parent="."]
+position = Vector2(385, 65)
+
+[node name="instance23" type="Sprite2D" parent="instance22"]
+position = Vector2(27, 30)
+texture = ExtResource("6_y4864")

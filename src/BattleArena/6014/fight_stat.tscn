@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://dhwdx4uomtlcc"]
+
+[ext_resource type="Shader" uid="uid://dmxd6xiole0jk" path="res://src/BattleArena/Glow.gdshader" id="1_pes48"]
+[ext_resource type="Script" uid="uid://g6001gsj78td" path="res://src/BattleArena/Zones/FightStat2.cs" id="2_ni0d4"]
+[ext_resource type="FontFile" uid="uid://dy7fs8hl0h7wx" path="res://common_assets/fonts/150_PF Tempesta Seven Extended.ttf" id="3_8plvs"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_e4bf7"]
+render_priority = 0
+shader = ExtResource("1_pes48")
+shader_parameter/glow_power = 9.416
+shader_parameter/color = Color(1, 1, 1, 1)
+
+[node name="FightStat" type="ColorRect" node_paths=PackedStringArray("fightText2")]
+material = SubResource("ShaderMaterial_e4bf7")
+offset_top = 90.0
+offset_right = 500.0
+offset_bottom = 110.0
+color = Color(0, 0, 0, 0.898039)
+script = ExtResource("2_ni0d4")
+fightText2 = NodePath("fightText2")
+metadata/_custom_type_script = "uid://b51w8aatefpfa"
+
+[node name="fightText2" type="Label" parent="."]
+layout_mode = 0
+offset_top = 2.0
+offset_right = 500.0
+offset_bottom = 22.0
+theme_override_fonts/font = ExtResource("3_8plvs")
+theme_override_font_sizes/font_size = 10
+text = "fightText2"
+horizontal_alignment = 1

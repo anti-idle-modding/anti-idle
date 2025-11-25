@@ -5811,10 +5811,7 @@ public class Arena
     }
 
     // TODO: not implemented from DefineSprite_6014-frame_1-DoAction_2.as:dealDamage()
-    public void dealDamage(double skillPower, double knockBack, string special)
-    {
-
-    }
+    public void dealDamage(double skillPower, double knockBack, string special) { }
 }
 
 public class Arcade
