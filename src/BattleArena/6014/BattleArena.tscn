@@ -199,7 +199,7 @@ _data = {
 &"Séquence 3": SubResource("Animation_8pyie")
 }
 
-[node name="arena" type="Control" node_paths=PackedStringArray("enemy", "cgtHP", "specDisp", "rangedAttack", "enemyImmune", "fightStat2", "stuffHolder", "hero")]
+[node name="arena" type="Control" node_paths=PackedStringArray("enemy", "cgtHP", "specDisp", "rangedAttack", "enemyImmune", "fightStat2", "stuffHolder", "hero") groups=["arena"]]
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_ibofy")
