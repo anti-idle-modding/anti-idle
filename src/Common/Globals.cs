@@ -5796,19 +5796,10 @@ public class Save
 
 public class House
 {
-    public Arena arena = new();
     public Arcade mainArcade = new();
 
     // todo: How to translate _currentFrame into if a scene is loaded
     public int _currentframe = 7; // 7 = BattleArena
-}
-
-public class Arena
-{
-    public double showDamage(string index, double x, double y, double z)
-    {
-        return 0;
-    }
 }
 
 public class Arcade
