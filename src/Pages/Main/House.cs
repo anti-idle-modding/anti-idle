@@ -4,8 +4,10 @@ using Godot;
 
 public partial class House : SceneManager
 {
-    public override void _EnterTree()
-    {
-        Show("BattleArena");
-    }
+	public Arena arena => GetNode<Arena>("Movie");
+
+	public override void _EnterTree()
+	{
+		Show("BattleArena");
+	}
 }

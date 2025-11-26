@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://r8joswlt0chr"]
+
+[ext_resource type="Texture2D" uid="uid://13uis5fju6fn" path="res://common_assets/sprites/DefineSprite_1328_newLoot15/1.png" id="1_018gu"]
+[ext_resource type="Script" uid="uid://cuxia73mv1m7v" path="res://src/BattleArena/LootMechanics/NewLoot15.cs" id="2_018gu"]
+
+[node name="newLoot15" type="Sprite2D"]
+texture = ExtResource("1_018gu")
+script = ExtResource("2_018gu")

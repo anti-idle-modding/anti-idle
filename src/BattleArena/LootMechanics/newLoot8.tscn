@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://cbvgek2ip6j07"]
+
+[ext_resource type="Texture2D" uid="uid://3f3351fuoldd" path="res://common_assets/sprites/DefineSprite_1304_newLoot8/1.png" id="1_xjjgi"]
+[ext_resource type="Script" uid="uid://betopc0b7m0vf" path="res://src/BattleArena/LootMechanics/NewLoot8.cs" id="2_xjjgi"]
+
+[node name="newLoot8" type="Sprite2D"]
+texture = ExtResource("1_xjjgi")
+script = ExtResource("2_xjjgi")
