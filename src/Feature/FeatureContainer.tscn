@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://cxrubei8uw5is"]
 
 [ext_resource type="Script" uid="uid://l0uirrs42156" path="res://src/Pages/Main/House.cs" id="1_3rxla"]
-[ext_resource type="PackedScene" uid="uid://xp2ssc00cfow" path="res://src/BattleArena/6014/BattleArena.tscn" id="2_qbml2"]
+[ext_resource type="PackedScene" uid="uid://xp2ssc00cfow" path="res://src/BattleArena/BattleArena.tscn" id="2_qbml2"]
 [ext_resource type="PackedScene" uid="uid://c2noe6pd4tw2" path="res://src/Feature/FeatureMenu/FeatureMenu.tscn" id="3_qbml2"]
 
 [node name="FeatureContainer" type="Control"]

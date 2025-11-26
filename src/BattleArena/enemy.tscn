@@ -1,0 +1,50 @@
+[gd_scene load_steps=10 format=3 uid="uid://sekyxqoqy5br"]
+
+[ext_resource type="Texture2D" uid="uid://b01lknieoqa2g" path="res://src/BattleArena/textures/instance26.png" id="1_cruqt"]
+[ext_resource type="Texture2D" uid="uid://7j7uqmj5soxd" path="res://common_assets/sprites/DefineSprite_4660/1.png" id="1_laet3"]
+[ext_resource type="Texture2D" uid="uid://bu05vvh8hb2l" path="res://common_assets/sprites/DefineSprite_4660/2.png" id="2_r5n2k"]
+[ext_resource type="Texture2D" uid="uid://c3f7ifwi5qkew" path="res://common_assets/sprites/DefineSprite_4660/3.png" id="3_ig7ft"]
+[ext_resource type="Texture2D" uid="uid://wa4defom13d4" path="res://common_assets/sprites/DefineSprite_4660/4.png" id="4_ktqxw"]
+[ext_resource type="Texture2D" uid="uid://bu7gubles3slh" path="res://common_assets/sprites/DefineSprite_4660/5.png" id="5_iyuca"]
+[ext_resource type="Texture2D" uid="uid://chin0qwyanwej" path="res://common_assets/sprites/DefineSprite_4660/6.png" id="6_ab7yb"]
+[ext_resource type="Texture2D" uid="uid://c8387cbtgqi2u" path="res://common_assets/sprites/DefineSprite_4660/7.png" id="7_btg0w"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_y7o1f"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_laet3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_r5n2k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_ig7ft")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_ktqxw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_iyuca")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_ab7yb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_btg0w")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="enemy" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_y7o1f")
+
+[node name="enemyIn" type="Node2D" parent="."]
+scale = Vector2(0.31, 0.31)
+
+[node name="instance2520" type="Sprite2D" parent="enemyIn"]
+position = Vector2(40, -79)
+scale = Vector2(1.7778015, 6.3999634)
+texture = ExtResource("1_cruqt")
