@@ -743,6 +743,9 @@ public class Root
     public double allyActive3Z { get; set; }
     public double spiritCount { get; set; }
 
+    // end 6014
+    public int toCheckDel { get; internal set; }
+
     public double getBytesLoaded()
     {
         return 1;

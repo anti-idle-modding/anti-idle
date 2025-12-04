@@ -2,13 +2,14 @@ using System;
 using System.Collections.Generic;
 using AntiIdle.Common;
 using AntiIdle.Common.Nodes;
+using AntiIdle.src.BattleArena.Zones;
 using AntiIdle.src.Common.Flash;
 using Godot;
 using Godot.Collections;
 using Math = AntiIdle.Common.Flash.Math;
 
 // MATCH: DefineSprite_6014-frame_1-DoAction_2.as
-public partial class Arena : SceneData
+public partial class Arena : SceneManager
 {
     public const string newLoot1_sceneId = "uid://dwghg2ausa87o";
     public const string newLoot2_sceneId = "uid://dd5j0o7igg22k";
@@ -197,6 +198,11 @@ public partial class Arena : SceneData
                 true
             );
         }
+    }
+
+    public override void _EnterTree()
+    {
+        //LoadZonesNonRecursive("res://src/BattleArena/Zones");
     }
 
     // Called when the node enters the scene tree for the first time.

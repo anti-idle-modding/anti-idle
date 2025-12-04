@@ -1,8 +1,15 @@
 using System;
+using AntiIdle.src.BattleArena.Zones;
+using AntiIdle.src.Common;
 using Godot;
 
-public partial class YeOldePub : Node
+public partial class YeOldePub : Node, IFrame
 {
+    public static int FrameNumber => 1;
+
+    [Export]
+    public ZoneResource ZoneResource { get; set; } = null!;
+
     // MATCH: DefineSprite_3877-frame_1-DoAction.as
     public override void _EnterTree()
     {

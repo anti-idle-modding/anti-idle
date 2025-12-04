@@ -1,4 +1,4 @@
-[gd_scene load_steps=74 format=3 uid="uid://xp2ssc00cfow"]
+[gd_scene load_steps=84 format=3 uid="uid://xp2ssc00cfow"]
 
 [ext_resource type="Script" uid="uid://bg8t2j24pqrhg" path="res://src/BattleArena/Arena.cs" id="1_ibofy"]
 [ext_resource type="PackedScene" uid="uid://bio8gvow2fvux" path="res://src/BattleArena/Zones/zones.tscn" id="2_k3obc"]
@@ -12,10 +12,16 @@
 [ext_resource type="Texture2D" uid="uid://bgs8w45btslxt" path="res://src/BattleArena/textures/instance2492.png" id="26_75o2s"]
 [ext_resource type="Texture2D" uid="uid://bph5wqiqcnl8g" path="res://src/BattleArena/textures/instance2494.png" id="27_lz80u"]
 [ext_resource type="Texture2D" uid="uid://b4ybfuya8jowy" path="res://src/BattleArena/textures/instance2496.png" id="28_mgsea"]
+[ext_resource type="Shader" uid="uid://cuco41oj55ols" path="res://src/BattleArena/Zones/item_button.gdshader" id="29_n1oqb"]
 [ext_resource type="Texture2D" uid="uid://d4efcbv7biq2c" path="res://src/BattleArena/textures/instance2498.png" id="29_wgjvz"]
+[ext_resource type="FontFile" uid="uid://drswhraw5qm7g" path="res://common_assets/fonts/3184_PF Ronda Seven.ttf" id="30_fgacw"]
+[ext_resource type="StyleBox" uid="uid://dd81egi0r5042" path="res://src/BattleArena/new_style_box_flat.tres" id="30_k826h"]
 [ext_resource type="Texture2D" uid="uid://c0hw3bel350ul" path="res://src/BattleArena/textures/instance2502.png" id="31_4ljd6"]
+[ext_resource type="Texture2D" uid="uid://cygjp782tge8m" path="res://common_assets/sprites/DefineSprite_1602/1.png" id="31_ky521"]
+[ext_resource type="FontFile" uid="uid://mpx08bg3ig8m" path="res://common_assets/fonts/pf_ronda_seven_bold.ttf" id="32_ky521"]
 [ext_resource type="Texture2D" uid="uid://ckq10i5qv752x" path="res://src/BattleArena/textures/instance2506.png" id="33_7s9b0"]
 [ext_resource type="Texture2D" uid="uid://df7u08hc73mra" path="res://src/BattleArena/textures/instance2508.png" id="34_0t58p"]
+[ext_resource type="Texture2D" uid="uid://jqi2qewfd622" path="res://common_assets/sprites/DefineSprite_1602/2.png" id="34_412tp"]
 [ext_resource type="Texture2D" uid="uid://srg1qy0swhhl" path="res://src/BattleArena/textures/instance2509.png" id="35_tihj4"]
 [ext_resource type="Texture2D" uid="uid://c5l55vipo5ccw" path="res://src/BattleArena/textures/instance2522.png" id="36_ecugd"]
 [ext_resource type="Texture2D" uid="uid://bj3jsoqakylcr" path="res://src/BattleArena/textures/instance2523.png" id="37_3m97z"]
@@ -69,6 +75,25 @@
 [ext_resource type="Texture2D" uid="uid://b560myovtxhor" path="res://src/BattleArena/textures/instance2675.png" id="67_kpidv"]
 [ext_resource type="PackedScene" uid="uid://dhwdx4uomtlcc" path="res://src/BattleArena/fight_stat.tscn" id="68_8mfys"]
 [ext_resource type="Texture2D" uid="uid://7c1qps5nl0ns" path="res://src/BattleArena/textures/instance2680.png" id="68_iaz0i"]
+[ext_resource type="PackedScene" uid="uid://d6jsln14asru" path="res://src/BattleArena/popScreen.tscn" id="76_64vqs"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_64vqs"]
+line_spacing = -10.0
+paragraph_spacing = -4.0
+font = ExtResource("30_fgacw")
+font_size = 10
+font_color = Color(0, 0, 0, 1)
+shadow_size = 0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_412tp"]
+shader = ExtResource("29_n1oqb")
+shader_parameter/color_mult = Vector3(0.502, 0.502, 0.502)
+shader_parameter/alpha_mult = 1.0
+shader_parameter/color_offset = Vector3(0, 0.502, 0)
+shader_parameter/alpha_offset = 0.0
+
+[sub_resource type="Theme" id="Theme_moun2"]
+Panel/styles/panel = ExtResource("30_k826h")
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_unwi0"]
 animations = [{
@@ -219,7 +244,7 @@ anchors_preset = 0
 metadata/Frame = 1
 
 [node name="Zones" parent="Frame1" instance=ExtResource("2_k3obc")]
-metadata/Sprite = "3877"
+layout_mode = 0
 
 [node name="instance25" type="Node2D" parent="Frame1"]
 position = Vector2(490, 90)
@@ -420,18 +445,41 @@ position = Vector2(25, 10)
 scale = Vector2(1.25, 0.5)
 texture = ExtResource("5_kbr4s")
 
-[node name="instance2556" type="Node2D" parent="Frame1"]
-position = Vector2(360, 326)
+[node name="Label2" type="Label" parent="Frame1"]
+z_index = 2
+texture_filter = 2
+clip_contents = true
+layout_mode = 0
+offset_left = 360.0
+offset_top = 326.0
+offset_right = 390.0
+offset_bottom = 346.0
+theme_override_fonts/font = ExtResource("32_ky521")
+theme_override_font_sizes/font_size = 10
+text = "Item"
+label_settings = SubResource("LabelSettings_64vqs")
+horizontal_alignment = 1
+vertical_alignment = 1
+clip_text = true
+text_overrun_behavior = 1
+max_lines_visible = 1
+
+[node name="itemButton2" type="TextureButton" parent="Frame1"]
+z_index = 1
+material = SubResource("ShaderMaterial_412tp")
+custom_minimum_size = Vector2(30, 20)
+layout_mode = 0
+offset_left = 360.0
+offset_top = 326.0
+offset_right = 410.0
+offset_bottom = 346.0
 scale = Vector2(0.6, 1.01)
-
-[node name="instance2557" type="Sprite2D" parent="Frame1/instance2556"]
-position = Vector2(25, 10)
-texture = ExtResource("4_z9f1v")
-
-[node name="instance2558" type="Sprite2D" parent="Frame1/instance2556"]
-position = Vector2(25, 10)
-scale = Vector2(1.25, 0.5)
-texture = ExtResource("5_kbr4s")
+mouse_default_cursor_shape = 2
+theme = SubResource("Theme_moun2")
+texture_normal = ExtResource("31_ky521")
+texture_pressed = ExtResource("34_412tp")
+texture_hover = ExtResource("34_412tp")
+texture_focused = ExtResource("34_412tp")
 
 [node name="instance2560" type="Node2D" parent="Frame1"]
 position = Vector2(395, 326)
@@ -820,3 +868,6 @@ texture = ExtResource("7_xk98v")
 libraries = {
 &"": SubResource("AnimationLibrary_xp9ra")
 }
+
+[node name="popScreen" parent="." instance=ExtResource("76_64vqs")]
+layout_mode = 0

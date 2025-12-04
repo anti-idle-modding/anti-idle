@@ -1,0 +1,2195 @@
+[gd_scene load_steps=92 format=3]
+
+[ext_resource type="Texture2D" path="res://common_assets/sprites/DefineSprite_1602/1.png" id=1]
+[ext_resource type="Texture2D" path="res://common_assets/sprites/DefineSprite_3175/1.png" id=2]
+[ext_resource type="Texture2D" path="res://common_assets/sprites/DefineSprite_3877/1.png" id=3]
+[ext_resource type="Texture2D" path="res://common_assets/sprites/DefineSprite_3892/1.png" id=4]
+[ext_resource type="Texture2D" path="res://common_assets/sprites/DefineSprite_3985/1.png" id=5]
+[ext_resource type="Texture2D" path="res://common_assets/sprites/DefineSprite_4002/1.png" id=6]
+[ext_resource type="Texture2D" path="res://common_assets/sprites/DefineSprite_4660/1.png" id=7]
+[ext_resource type="Texture2D" path="res://common_assets/sprites/DefineSprite_4673/1.png" id=8]
+[ext_resource type="Texture2D" path="res://common_assets/sprites/DefineSprite_4702/1.png" id=9]
+[ext_resource type="Texture2D" path="res://common_assets/sprites/DefineSprite_4705/1.png" id=10]
+[ext_resource type="Texture2D" path="res://common_assets/sprites/DefineSprite_4708/1.png" id=11]
+[ext_resource type="Texture2D" path="res://common_assets/sprites/DefineSprite_4737/1.png" id=12]
+[ext_resource type="Texture2D" path="res://common_assets/sprites/DefineSprite_4741/1.png" id=13]
+[ext_resource type="Texture2D" path="res://common_assets/sprites/DefineSprite_4824/1.png" id=14]
+[ext_resource type="Texture2D" path="res://common_assets/sprites/DefineSprite_4837/1.png" id=15]
+[ext_resource type="Texture2D" path="res://common_assets/sprites/DefineSprite_4850/1.png" id=16]
+[ext_resource type="Texture2D" path="res://common_assets/sprites/DefineSprite_4851/1.png" id=17]
+[ext_resource type="Texture2D" path="res://common_assets/sprites/DefineSprite_4858/1.png" id=18]
+[ext_resource type="Texture2D" path="res://common_assets/sprites/DefineSprite_4868/1.png" id=19]
+[ext_resource type="Texture2D" path="res://common_assets/sprites/DefineSprite_4878/1.png" id=20]
+[ext_resource type="Texture2D" path="res://common_assets/sprites/DefineSprite_4883/1.png" id=21]
+[ext_resource type="Texture2D" path="res://common_assets/sprites/DefineSprite_4900/1.png" id=22]
+[ext_resource type="Texture2D" path="res://common_assets/sprites/DefineSprite_4903/1.png" id=23]
+[ext_resource type="Texture2D" path="res://common_assets/sprites/DefineSprite_4912/1.png" id=24]
+[ext_resource type="Texture2D" path="res://common_assets/sprites/DefineSprite_4919/1.png" id=25]
+[ext_resource type="Texture2D" path="res://common_assets/sprites/DefineSprite_4931/1.png" id=26]
+[ext_resource type="Texture2D" path="res://common_assets/sprites/DefineSprite_4941/1.png" id=27]
+[ext_resource type="Texture2D" path="res://common_assets/sprites/DefineSprite_4943/1.png" id=28]
+[ext_resource type="Texture2D" path="res://common_assets/sprites/DefineSprite_4945/1.png" id=29]
+[ext_resource type="Texture2D" path="res://common_assets/sprites/DefineSprite_5134/1.png" id=30]
+[ext_resource type="Texture2D" path="res://common_assets/sprites/DefineSprite_5389/1.png" id=31]
+[ext_resource type="Texture2D" path="res://common_assets/sprites/DefineSprite_5391/1.png" id=32]
+[ext_resource type="Texture2D" path="res://common_assets/sprites/DefineSprite_5405/1.png" id=33]
+[ext_resource type="Texture2D" path="res://common_assets/sprites/DefineSprite_5417/1.png" id=34]
+[ext_resource type="Texture2D" path="res://common_assets/sprites/DefineSprite_1445/1.png" id=35]
+[ext_resource type="Texture2D" path="res://common_assets/sprites/DefineSprite_5466/1.png" id=36]
+[ext_resource type="Texture2D" path="res://common_assets/sprites/DefineSprite_1602/1.png" id=37]
+[ext_resource type="Texture2D" path="res://common_assets/sprites/DefineSprite_3399/1.png" id=38]
+[ext_resource type="Texture2D" path="res://common_assets/sprites/DefineSprite_5467/1.png" id=39]
+[ext_resource type="Texture2D" path="res://common_assets/sprites/DefineSprite_5474/1.png" id=40]
+[ext_resource type="Texture2D" path="res://common_assets/sprites/DefineSprite_5524/1.png" id=41]
+[ext_resource type="Texture2D" path="res://common_assets/sprites/DefineSprite_5527/1.png" id=42]
+[ext_resource type="Texture2D" path="res://common_assets/sprites/DefineSprite_5533/1.png" id=43]
+[ext_resource type="Texture2D" path="res://common_assets/sprites/DefineSprite_5547/1.png" id=44]
+[ext_resource type="Texture2D" path="res://common_assets/sprites/DefineSprite_1445/1.png" id=45]
+[ext_resource type="Texture2D" path="res://common_assets/sprites/DefineSprite_1602/1.png" id=46]
+[ext_resource type="Texture2D" path="res://common_assets/sprites/DefineSprite_4995/1.png" id=47]
+[ext_resource type="Texture2D" path="res://common_assets/sprites/DefineSprite_5389/1.png" id=48]
+[ext_resource type="Texture2D" path="res://common_assets/sprites/DefineSprite_5568/1.png" id=49]
+[ext_resource type="Texture2D" path="res://common_assets/sprites/DefineSprite_5574/1.png" id=50]
+[ext_resource type="Texture2D" path="res://common_assets/sprites/DefineSprite_5026/1.png" id=51]
+[ext_resource type="Texture2D" path="res://common_assets/sprites/DefineSprite_5533/1.png" id=52]
+[ext_resource type="Texture2D" path="res://common_assets/sprites/DefineSprite_5579/1.png" id=53]
+[ext_resource type="Texture2D" path="res://common_assets/sprites/DefineSprite_5580/1.png" id=54]
+[ext_resource type="Texture2D" path="res://common_assets/sprites/DefineSprite_5649/1.png" id=55]
+[ext_resource type="Texture2D" path="res://common_assets/sprites/DefineSprite_4705/1.png" id=56]
+[ext_resource type="Texture2D" path="res://common_assets/sprites/DefineSprite_5533/1.png" id=57]
+[ext_resource type="Texture2D" path="res://common_assets/sprites/DefineSprite_1445/1.png" id=58]
+[ext_resource type="Texture2D" path="res://common_assets/sprites/DefineSprite_1602/1.png" id=59]
+[ext_resource type="Texture2D" path="res://common_assets/sprites/DefineSprite_4705/1.png" id=60]
+[ext_resource type="Texture2D" path="res://common_assets/sprites/DefineSprite_4708/1.png" id=61]
+[ext_resource type="Texture2D" path="res://common_assets/sprites/DefineSprite_5389/1.png" id=62]
+[ext_resource type="Texture2D" path="res://common_assets/sprites/DefineSprite_5738/1.png" id=63]
+[ext_resource type="Texture2D" path="res://common_assets/sprites/DefineSprite_1602/1.png" id=64]
+[ext_resource type="Texture2D" path="res://common_assets/sprites/DefineSprite_4705/1.png" id=65]
+[ext_resource type="Texture2D" path="res://common_assets/sprites/DefineSprite_4708/1.png" id=66]
+[ext_resource type="Texture2D" path="res://common_assets/sprites/DefineSprite_5389/1.png" id=67]
+[ext_resource type="Texture2D" path="res://common_assets/sprites/DefineSprite_5775/1.png" id=68]
+[ext_resource type="Texture2D" path="res://common_assets/sprites/DefineSprite_1602/1.png" id=69]
+[ext_resource type="Texture2D" path="res://common_assets/sprites/DefineSprite_5026/1.png" id=70]
+[ext_resource type="Texture2D" path="res://common_assets/sprites/DefineSprite_5533/1.png" id=71]
+[ext_resource type="Texture2D" path="res://common_assets/sprites/DefineSprite_5801/1.png" id=72]
+[ext_resource type="Texture2D" path="res://common_assets/sprites/DefineSprite_1602/1.png" id=73]
+[ext_resource type="Texture2D" path="res://common_assets/sprites/DefineSprite_2805/1.png" id=74]
+[ext_resource type="Texture2D" path="res://common_assets/sprites/DefineSprite_4708/1.png" id=75]
+[ext_resource type="Texture2D" path="res://common_assets/sprites/DefineSprite_4956/1.png" id=76]
+[ext_resource type="Texture2D" path="res://common_assets/sprites/DefineSprite_5861/1.png" id=77]
+[ext_resource type="Texture2D" path="res://common_assets/sprites/DefineSprite_5864/1.png" id=78]
+[ext_resource type="Texture2D" path="res://common_assets/sprites/DefineSprite_5869/1.png" id=79]
+[ext_resource type="Texture2D" path="res://common_assets/sprites/DefineSprite_5873/1.png" id=80]
+[ext_resource type="Texture2D" path="res://common_assets/sprites/DefineSprite_5879/1.png" id=81]
+[ext_resource type="Texture2D" path="res://common_assets/sprites/DefineSprite_1602/1.png" id=82]
+[ext_resource type="Texture2D" path="res://common_assets/sprites/DefineSprite_4979/1.png" id=83]
+[ext_resource type="Texture2D" path="res://common_assets/sprites/DefineSprite_3787/1.png" id=84]
+[ext_resource type="Texture2D" path="res://common_assets/sprites/DefineSprite_5648/1.png" id=85]
+[ext_resource type="Texture2D" path="res://common_assets/sprites/DefineSprite_6003/1.png" id=86]
+[ext_resource type="Texture2D" path="res://common_assets/sprites/DefineSprite_1602/1.png" id=87]
+[ext_resource type="Texture2D" path="res://common_assets/sprites/DefineSprite_4995/1.png" id=88]
+[ext_resource type="Texture2D" path="res://common_assets/sprites/DefineSprite_5389/1.png" id=89]
+[ext_resource type="Texture2D" path="res://common_assets/sprites/DefineSprite_6004/1.png" id=90]
+[ext_resource type="Texture2D" path="res://common_assets/sprites/DefineSprite_1602/1.png" id=91]
+
+[node name="Root" type="Node2D"]
+
+[node name="Frame_0000" type="Node2D" parent="."]
+[node name="Symbol_1602" type="TextureRect" parent="Frame_0000"]
+texture = ExtResource(1)
+stretch_mode = 0
+position = Vector2(465.0, 290.05)
+scale = Vector2(0.599990844726563, 1.0062255859375)
+rotation = 0.0
+z_index = 25
+metadata/Path = "DefineSprite_1602"
+metadata/Source = "Symbol 1602"
+metadata/TexKey = "1602_0"
+
+[node name="Symbol_1602_1" type="TextureRect" parent="Frame_0000"]
+texture = ExtResource(1)
+stretch_mode = 0
+position = Vector2(465.0, 325.3)
+scale = Vector2(0.599990844726563, 1.0062255859375)
+rotation = 0.0
+z_index = 29
+metadata/Path = "DefineSprite_1602"
+metadata/Source = "Symbol 1602"
+metadata/TexKey = "1602_0"
+
+[node name="Symbol_1602_2" type="TextureRect" parent="Frame_0000"]
+texture = ExtResource(1)
+stretch_mode = 0
+position = Vector2(430.0, 325.3)
+scale = Vector2(0.599990844726563, 1.0062255859375)
+rotation = 0.0
+z_index = 31
+metadata/Path = "DefineSprite_1602"
+metadata/Source = "Symbol 1602"
+metadata/TexKey = "1602_0"
+
+[node name="Symbol_1602_3" type="TextureRect" parent="Frame_0000"]
+texture = ExtResource(1)
+stretch_mode = 0
+position = Vector2(395.0, 325.3)
+scale = Vector2(0.599990844726563, 1.0062255859375)
+rotation = 0.0
+z_index = 33
+metadata/Path = "DefineSprite_1602"
+metadata/Source = "Symbol 1602"
+metadata/TexKey = "1602_0"
+
+[node name="Symbol_1602_4" type="TextureRect" parent="Frame_0000"]
+texture = ExtResource(1)
+stretch_mode = 0
+position = Vector2(360.0, 325.3)
+scale = Vector2(0.599990844726563, 1.0062255859375)
+rotation = 0.0
+z_index = 35
+metadata/Path = "DefineSprite_1602"
+metadata/Source = "Symbol 1602"
+metadata/TexKey = "1602_0"
+
+[node name="Symbol_1602_5" type="TextureRect" parent="Frame_0000"]
+texture = ExtResource(1)
+stretch_mode = 0
+position = Vector2(325.0, 325.3)
+scale = Vector2(0.599990844726563, 1.0062255859375)
+rotation = 0.0
+z_index = 37
+metadata/Path = "DefineSprite_1602"
+metadata/Source = "Symbol 1602"
+metadata/TexKey = "1602_0"
+
+[node name="Symbol_3175" type="TextureRect" parent="Frame_0000"]
+texture = ExtResource(2)
+stretch_mode = 0
+position = Vector2(300.0, 240.05)
+scale = Vector2(4.00006103515625, 5.50726318359375)
+rotation = 0.0
+z_index = 40
+metadata/Path = "DefineSprite_3175"
+metadata/Source = "Symbol 3175"
+metadata/TexKey = "3175_0"
+
+[node name="Symbol_3877" type="TextureRect" parent="Frame_0000"]
+texture = ExtResource(3)
+stretch_mode = 0
+position = Vector2(0.0, 0.0)
+scale = Vector2(1.0, 1.0)
+rotation = 0.0
+z_index = 185
+metadata/Path = "DefineSprite_3877"
+metadata/Source = "Symbol 3877"
+metadata/TexKey = "3877_0"
+
+[node name="Symbol_3892" type="TextureRect" parent="Frame_0000"]
+texture = ExtResource(4)
+stretch_mode = 0
+position = Vector2(490.0, 90.0)
+scale = Vector2(1.0, 1.0)
+rotation = 0.0
+z_index = 98
+metadata/Path = "DefineSprite_3892"
+metadata/Source = "Symbol 3892"
+metadata/TexKey = "3892_0"
+
+[node name="hero" type="TextureRect" parent="Frame_0000"]
+texture = ExtResource(5)
+stretch_mode = 0
+position = Vector2(35.0, 150.0)
+scale = Vector2(0.99981689453125, 1.00054931640625)
+rotation = 0.0
+z_index = 97
+metadata/Path = "DefineSprite_3985"
+metadata/Source = "Symbol 3985"
+metadata/TexKey = "3985_0"
+
+[node name="Symbol_4002" type="TextureRect" parent="Frame_0000"]
+texture = ExtResource(6)
+stretch_mode = 0
+position = Vector2(270.0, 155.0)
+scale = Vector2(1.0, 1.0)
+rotation = 0.0
+z_index = 43
+metadata/Path = "DefineSprite_4002"
+metadata/Source = "Symbol 4002"
+metadata/TexKey = "4002_0"
+
+[node name="enemy" type="TextureRect" parent="Frame_0000"]
+texture = ExtResource(7)
+stretch_mode = 0
+position = Vector2(320.0, 150.0)
+scale = Vector2(1.0, 1.0)
+rotation = 0.0
+z_index = 42
+metadata/Path = "DefineSprite_4660"
+metadata/Source = "Symbol 4660"
+metadata/TexKey = "4660_0"
+
+[node name="Symbol_4673" type="TextureRect" parent="Frame_0000"]
+texture = ExtResource(8)
+stretch_mode = 0
+position = Vector2(430.0, 325.3)
+scale = Vector2(0.599990844726563, 1.00132751464844)
+rotation = 0.0
+z_index = 27
+metadata/Path = "DefineSprite_4673"
+metadata/Source = "Symbol 4673"
+metadata/TexKey = "4673_0"
+
+[node name="Symbol_4702" type="TextureRect" parent="Frame_0000"]
+texture = ExtResource(9)
+stretch_mode = 0
+position = Vector2(0.0, 200.0)
+scale = Vector2(1.0, 1.0)
+rotation = 0.0
+z_index = 41
+metadata/Path = "DefineSprite_4702"
+metadata/Source = "Symbol 4702"
+metadata/TexKey = "4702_0"
+
+[node name="Symbol_4705" type="TextureRect" parent="Frame_0000"]
+texture = ExtResource(10)
+stretch_mode = 0
+position = Vector2(460.0, 260.05)
+scale = Vector2(0.999984741210938, 0.998199462890625)
+rotation = 0.0
+z_index = 39
+metadata/Path = "DefineSprite_4705"
+metadata/Source = "Symbol 4705"
+metadata/TexKey = "4705_0"
+
+[node name="Symbol_4708" type="TextureRect" parent="Frame_0000"]
+texture = ExtResource(11)
+stretch_mode = 0
+position = Vector2(460.0, 285.05)
+scale = Vector2(1.0, 1.00132751464844)
+rotation = 0.0
+z_index = 38
+metadata/Path = "DefineSprite_4708"
+metadata/Source = "Symbol 4708"
+metadata/TexKey = "4708_0"
+
+[node name="Symbol_4737" type="TextureRect" parent="Frame_0000"]
+texture = ExtResource(12)
+stretch_mode = 0
+position = Vector2(460.0, 310.1)
+scale = Vector2(1.00033569335938, 0.999191284179688)
+rotation = 0.0
+z_index = 26
+metadata/Path = "DefineSprite_4737"
+metadata/Source = "Symbol 4737"
+metadata/TexKey = "4737_0"
+
+[node name="Symbol_4741" type="TextureRect" parent="Frame_0000"]
+texture = ExtResource(13)
+stretch_mode = 0
+position = Vector2(306.0, 325.1)
+scale = Vector2(1.0, 1.0037841796875)
+rotation = 0.0
+z_index = 23
+metadata/Path = "DefineSprite_4741"
+metadata/Source = "Symbol 4741"
+metadata/TexKey = "4741_0"
+
+[node name="skillBar" type="TextureRect" parent="Frame_0000"]
+texture = ExtResource(14)
+stretch_mode = 0
+position = Vector2(0.0, 240.0)
+scale = Vector2(1.0, 1.0)
+rotation = 0.0
+z_index = 22
+metadata/Path = "DefineSprite_4824"
+metadata/Source = "Symbol 4824"
+metadata/TexKey = "4824_0"
+
+[node name="Symbol_4837" type="TextureRect" parent="Frame_0000"]
+texture = ExtResource(15)
+stretch_mode = 0
+position = Vector2(495.0, 117.9)
+scale = Vector2(1.0, 1.0)
+rotation = 0.0
+z_index = 21
+metadata/Path = "DefineSprite_4837"
+metadata/Source = "Symbol 4837"
+metadata/TexKey = "4837_0"
+
+[node name="specDisp" type="TextureRect" parent="Frame_0000"]
+texture = ExtResource(16)
+stretch_mode = 0
+position = Vector2(0.0, 120.0)
+scale = Vector2(1.0, 1.0)
+rotation = 0.0
+z_index = 20
+metadata/Path = "DefineSprite_4850"
+metadata/Source = "Symbol 4850"
+metadata/TexKey = "4850_0"
+
+[node name="stuffHolder" type="TextureRect" parent="Frame_0000"]
+texture = ExtResource(17)
+stretch_mode = 0
+position = Vector2(0.0, 0.0)
+scale = Vector2(1.0, 1.0)
+rotation = 0.0
+z_index = 19
+metadata/Path = "DefineSprite_4851"
+metadata/Source = "Symbol 4851"
+metadata/TexKey = "4851_0"
+
+[node name="wmDisp" type="TextureRect" parent="Frame_0000"]
+texture = ExtResource(18)
+stretch_mode = 0
+position = Vector2(0.05, 0.0)
+scale = Vector2(1.0, 1.0)
+rotation = 0.0
+z_index = 18
+metadata/Path = "DefineSprite_4858"
+metadata/Source = "Symbol 4858"
+metadata/TexKey = "4858_0"
+
+[node name="rangedAttack" type="TextureRect" parent="Frame_0000"]
+texture = ExtResource(19)
+stretch_mode = 0
+position = Vector2(0.0, 0.0)
+scale = Vector2(1.0, 1.0)
+rotation = 0.0
+z_index = 17
+metadata/Path = "DefineSprite_4868"
+metadata/Source = "Symbol 4868"
+metadata/TexKey = "4868_0"
+
+[node name="Symbol_4878" type="TextureRect" parent="Frame_0000"]
+texture = ExtResource(20)
+stretch_mode = 0
+position = Vector2(200.0, 10.0)
+scale = Vector2(1.0, 1.0)
+rotation = 0.0
+z_index = 15
+metadata/Path = "DefineSprite_4878"
+metadata/Source = "Symbol 4878"
+metadata/TexKey = "4878_0"
+
+[node name="Symbol_4883" type="TextureRect" parent="Frame_0000"]
+texture = ExtResource(21)
+stretch_mode = 0
+position = Vector2(0.0, 0.0)
+scale = Vector2(1.0, 1.0)
+rotation = 0.0
+z_index = 14
+metadata/Path = "DefineSprite_4883"
+metadata/Source = "Symbol 4883"
+metadata/TexKey = "4883_0"
+
+[node name="Symbol_4900" type="TextureRect" parent="Frame_0000"]
+texture = ExtResource(22)
+stretch_mode = 0
+position = Vector2(490.0, 240.0)
+scale = Vector2(1.0, 1.0)
+rotation = 0.0
+z_index = 13
+metadata/Path = "DefineSprite_4900"
+metadata/Source = "Symbol 4900"
+metadata/TexKey = "4900_0"
+
+[node name="Symbol_4903" type="TextureRect" parent="Frame_0000"]
+texture = ExtResource(23)
+stretch_mode = 0
+position = Vector2(5.0, 5.0)
+scale = Vector2(1.0, 1.0)
+rotation = 0.0
+z_index = 12
+metadata/Path = "DefineSprite_4903"
+metadata/Source = "Symbol 4903"
+metadata/TexKey = "4903_0"
+
+[node name="Symbol_4912" type="TextureRect" parent="Frame_0000"]
+texture = ExtResource(24)
+stretch_mode = 0
+position = Vector2(35.0, 5.0)
+scale = Vector2(1.0, 1.0)
+rotation = 0.0
+z_index = 11
+metadata/Path = "DefineSprite_4912"
+metadata/Source = "Symbol 4912"
+metadata/TexKey = "4912_0"
+
+[node name="cgtHP" type="TextureRect" parent="Frame_0000"]
+texture = ExtResource(25)
+stretch_mode = 0
+position = Vector2(0.0, 0.0)
+scale = Vector2(1.0, 1.0)
+rotation = 0.0
+z_index = 10
+metadata/Path = "DefineSprite_4919"
+metadata/Source = "Symbol 4919"
+metadata/TexKey = "4919_0"
+
+[node name="Symbol_4931" type="TextureRect" parent="Frame_0000"]
+texture = ExtResource(26)
+stretch_mode = 0
+position = Vector2(370.0, 120.0)
+scale = Vector2(1.0, 1.0)
+rotation = 0.0
+z_index = 9
+metadata/Path = "DefineSprite_4931"
+metadata/Source = "Symbol 4931"
+metadata/TexKey = "4931_0"
+
+[node name="enemyImmune" type="TextureRect" parent="Frame_0000"]
+texture = ExtResource(27)
+stretch_mode = 0
+position = Vector2(340.0, 25.0)
+scale = Vector2(1.00042724609375, 1.0)
+rotation = 0.0
+z_index = 8
+metadata/Path = "DefineSprite_4941"
+metadata/Source = "Symbol 4941"
+metadata/TexKey = "4941_0"
+
+[node name="Symbol_4943" type="TextureRect" parent="Frame_0000"]
+texture = ExtResource(28)
+stretch_mode = 0
+position = Vector2(0.0, 50.0)
+scale = Vector2(1.0, 1.00082397460938)
+rotation = 0.0
+z_index = 7
+metadata/Path = "DefineSprite_4943"
+metadata/Source = "Symbol 4943"
+metadata/TexKey = "4943_0"
+
+[node name="Symbol_4945" type="TextureRect" parent="Frame_0000"]
+texture = ExtResource(29)
+stretch_mode = 0
+position = Vector2(0.0, 90.05)
+scale = Vector2(1.0, 1.00082397460938)
+rotation = 0.0
+z_index = 6
+metadata/Path = "DefineSprite_4945"
+metadata/Source = "Symbol 4945"
+metadata/TexKey = "4945_0"
+
+[node name="kommanderDialog" type="TextureRect" parent="Frame_0000"]
+texture = ExtResource(30)
+stretch_mode = 0
+position = Vector2(0.0, 0.0)
+scale = Vector2(1.0, 1.0)
+rotation = 0.0
+z_index = 5
+metadata/Path = "DefineSprite_5134"
+metadata/Source = "Symbol 5134"
+metadata/TexKey = "5134_0"
+
+[node name="popScreen" type="TextureRect" parent="Frame_0000"]
+texture = ExtResource(31)
+stretch_mode = 0
+position = Vector2(100.0, 0.0)
+scale = Vector2(1.0, 1.00241088867188)
+rotation = 0.0
+z_index = 4
+metadata/Path = "DefineSprite_5389"
+metadata/Source = "Symbol 5389"
+metadata/TexKey = "5389_0"
+
+[node name="Symbol_5391" type="TextureRect" parent="Frame_0000"]
+texture = ExtResource(32)
+stretch_mode = 0
+position = Vector2(-100.0, 600.0)
+scale = Vector2(1.0, 1.0)
+rotation = 0.0
+z_index = 3
+metadata/Path = "DefineSprite_5391"
+metadata/Source = "Symbol 5391"
+metadata/TexKey = "5391_0"
+
+[node name="mapPopup" type="TextureRect" parent="Frame_0000"]
+texture = ExtResource(33)
+stretch_mode = 0
+position = Vector2(0.0, 0.0)
+scale = Vector2(1.0, 1.0)
+rotation = 0.0
+z_index = 2
+metadata/Path = "DefineSprite_5405"
+metadata/Source = "Symbol 5405"
+metadata/TexKey = "5405_0"
+
+[node name="Symbol_5417" type="TextureRect" parent="Frame_0000"]
+texture = ExtResource(34)
+stretch_mode = 0
+position = Vector2(465.0, 325.0)
+scale = Vector2(1.0, 1.0)
+rotation = 0.0
+z_index = 1
+metadata/Path = "DefineSprite_5417"
+metadata/Source = "Symbol 5417"
+metadata/TexKey = "5417_0"
+
+
+[node name="Frame_0001" type="Node2D" parent="."]
+[node name="Symbol_1445" type="TextureRect" parent="Frame_0001"]
+texture = ExtResource(35)
+stretch_mode = 0
+position = Vector2(0.0, 0.0)
+scale = Vector2(1.00010681152344, 1.0)
+rotation = 0.0
+z_index = 185
+metadata/Path = "DefineSprite_1445"
+metadata/Source = "Symbol 1445"
+metadata/TexKey = "1445_1"
+
+[node name="Symbol_5466" type="TextureRect" parent="Frame_0001"]
+texture = ExtResource(36)
+stretch_mode = 0
+position = Vector2(0.0, 0.0)
+scale = Vector2(1.0, 1.0010986328125)
+rotation = 0.0
+z_index = 184
+metadata/Path = "DefineSprite_5466"
+metadata/Source = "Symbol 5466"
+metadata/TexKey = "5466_1"
+
+
+[node name="Frame_0002" type="Node2D" parent="."]
+[node name="Symbol_1602" type="TextureRect" parent="Frame_0002"]
+texture = ExtResource(37)
+stretch_mode = 0
+position = Vector2(475.0, 205.0)
+scale = Vector2(0.400039672851563, 1.20001220703125)
+rotation = 0.0
+z_index = 46
+metadata/Path = "DefineSprite_1602"
+metadata/Source = "Symbol 1602"
+metadata/TexKey = "1602_2"
+
+[node name="Symbol_1602_1" type="TextureRect" parent="Frame_0002"]
+texture = ExtResource(37)
+stretch_mode = 0
+position = Vector2(0.0, 0.0)
+scale = Vector2(3.99998474121094, 1.0)
+rotation = 0.0
+z_index = 48
+metadata/Path = "DefineSprite_1602"
+metadata/Source = "Symbol 1602"
+metadata/TexKey = "1602_2"
+
+[node name="Symbol_1602_2" type="TextureRect" parent="Frame_0002"]
+texture = ExtResource(37)
+stretch_mode = 0
+position = Vector2(10.0, 320.0)
+scale = Vector2(5.00009155273438, 1.0)
+rotation = 0.0
+z_index = 52
+metadata/Path = "DefineSprite_1602"
+metadata/Source = "Symbol 1602"
+metadata/TexKey = "1602_2"
+
+[node name="Symbol_1602_3" type="TextureRect" parent="Frame_0002"]
+texture = ExtResource(37)
+stretch_mode = 0
+position = Vector2(10.0, 295.0)
+scale = Vector2(5.00009155273438, 1.0)
+rotation = 0.0
+z_index = 54
+metadata/Path = "DefineSprite_1602"
+metadata/Source = "Symbol 1602"
+metadata/TexKey = "1602_2"
+
+[node name="Symbol_3399" type="TextureRect" parent="Frame_0002"]
+texture = ExtResource(38)
+stretch_mode = 0
+position = Vector2(0.0, 0.0)
+scale = Vector2(5.00341796875, 5.00747680664063)
+rotation = 0.0
+z_index = 185
+metadata/Path = "DefineSprite_3399"
+metadata/Source = "Symbol 3399"
+metadata/TexKey = "3399_2"
+
+[node name="Symbol_5467" type="TextureRect" parent="Frame_0002"]
+texture = ExtResource(39)
+stretch_mode = 0
+position = Vector2(35.0, 150.0)
+scale = Vector2(0.99981689453125, 1.00054931640625)
+rotation = 0.0
+z_index = 184
+metadata/Path = "DefineSprite_5467"
+metadata/Source = "Symbol 5467"
+metadata/TexKey = "5467_2"
+
+[node name="Symbol_5474" type="TextureRect" parent="Frame_0002"]
+texture = ExtResource(40)
+stretch_mode = 0
+position = Vector2(210.0, 235.0)
+scale = Vector2(1.0, 1.0)
+rotation = 0.0
+z_index = 83
+metadata/Path = "DefineSprite_5474"
+metadata/Source = "Symbol 5474"
+metadata/TexKey = "5474_2"
+
+[node name="Symbol_5524" type="TextureRect" parent="Frame_0002"]
+texture = ExtResource(41)
+stretch_mode = 0
+position = Vector2(460.0, 205.0)
+scale = Vector2(1.0, 1.0)
+rotation = 0.0
+z_index = 56
+metadata/Path = "DefineSprite_5524"
+metadata/Source = "Symbol 5524"
+metadata/TexKey = "5524_2"
+
+[node name="Symbol_5524_1" type="TextureRect" parent="Frame_0002"]
+texture = ExtResource(41)
+stretch_mode = 0
+position = Vector2(445.0, 205.0)
+scale = Vector2(1.0, 1.0)
+rotation = 0.0
+z_index = 57
+metadata/Path = "DefineSprite_5524"
+metadata/Source = "Symbol 5524"
+metadata/TexKey = "5524_2"
+
+[node name="Symbol_5524_2" type="TextureRect" parent="Frame_0002"]
+texture = ExtResource(41)
+stretch_mode = 0
+position = Vector2(430.0, 205.0)
+scale = Vector2(1.0, 1.0)
+rotation = 0.0
+z_index = 58
+metadata/Path = "DefineSprite_5524"
+metadata/Source = "Symbol 5524"
+metadata/TexKey = "5524_2"
+
+[node name="Symbol_5524_3" type="TextureRect" parent="Frame_0002"]
+texture = ExtResource(41)
+stretch_mode = 0
+position = Vector2(415.0, 205.0)
+scale = Vector2(1.0, 1.0)
+rotation = 0.0
+z_index = 59
+metadata/Path = "DefineSprite_5524"
+metadata/Source = "Symbol 5524"
+metadata/TexKey = "5524_2"
+
+[node name="Symbol_5524_4" type="TextureRect" parent="Frame_0002"]
+texture = ExtResource(41)
+stretch_mode = 0
+position = Vector2(400.0, 205.0)
+scale = Vector2(1.0, 1.0)
+rotation = 0.0
+z_index = 60
+metadata/Path = "DefineSprite_5524"
+metadata/Source = "Symbol 5524"
+metadata/TexKey = "5524_2"
+
+[node name="Symbol_5524_5" type="TextureRect" parent="Frame_0002"]
+texture = ExtResource(41)
+stretch_mode = 0
+position = Vector2(385.0, 205.0)
+scale = Vector2(1.0, 1.0)
+rotation = 0.0
+z_index = 61
+metadata/Path = "DefineSprite_5524"
+metadata/Source = "Symbol 5524"
+metadata/TexKey = "5524_2"
+
+[node name="Symbol_5524_6" type="TextureRect" parent="Frame_0002"]
+texture = ExtResource(41)
+stretch_mode = 0
+position = Vector2(370.0, 205.0)
+scale = Vector2(1.0, 1.0)
+rotation = 0.0
+z_index = 62
+metadata/Path = "DefineSprite_5524"
+metadata/Source = "Symbol 5524"
+metadata/TexKey = "5524_2"
+
+[node name="Symbol_5524_7" type="TextureRect" parent="Frame_0002"]
+texture = ExtResource(41)
+stretch_mode = 0
+position = Vector2(355.0, 205.0)
+scale = Vector2(1.0, 1.0)
+rotation = 0.0
+z_index = 63
+metadata/Path = "DefineSprite_5524"
+metadata/Source = "Symbol 5524"
+metadata/TexKey = "5524_2"
+
+[node name="Symbol_5524_8" type="TextureRect" parent="Frame_0002"]
+texture = ExtResource(41)
+stretch_mode = 0
+position = Vector2(340.0, 205.0)
+scale = Vector2(1.0, 1.0)
+rotation = 0.0
+z_index = 64
+metadata/Path = "DefineSprite_5524"
+metadata/Source = "Symbol 5524"
+metadata/TexKey = "5524_2"
+
+[node name="Symbol_5524_9" type="TextureRect" parent="Frame_0002"]
+texture = ExtResource(41)
+stretch_mode = 0
+position = Vector2(325.0, 205.0)
+scale = Vector2(1.0, 1.0)
+rotation = 0.0
+z_index = 65
+metadata/Path = "DefineSprite_5524"
+metadata/Source = "Symbol 5524"
+metadata/TexKey = "5524_2"
+
+[node name="Symbol_5524_10" type="TextureRect" parent="Frame_0002"]
+texture = ExtResource(41)
+stretch_mode = 0
+position = Vector2(310.0, 205.0)
+scale = Vector2(1.0, 1.0)
+rotation = 0.0
+z_index = 66
+metadata/Path = "DefineSprite_5524"
+metadata/Source = "Symbol 5524"
+metadata/TexKey = "5524_2"
+
+[node name="Symbol_5524_11" type="TextureRect" parent="Frame_0002"]
+texture = ExtResource(41)
+stretch_mode = 0
+position = Vector2(295.0, 205.0)
+scale = Vector2(1.0, 1.0)
+rotation = 0.0
+z_index = 67
+metadata/Path = "DefineSprite_5524"
+metadata/Source = "Symbol 5524"
+metadata/TexKey = "5524_2"
+
+[node name="Symbol_5524_12" type="TextureRect" parent="Frame_0002"]
+texture = ExtResource(41)
+stretch_mode = 0
+position = Vector2(280.0, 205.0)
+scale = Vector2(1.0, 1.0)
+rotation = 0.0
+z_index = 68
+metadata/Path = "DefineSprite_5524"
+metadata/Source = "Symbol 5524"
+metadata/TexKey = "5524_2"
+
+[node name="Symbol_5524_13" type="TextureRect" parent="Frame_0002"]
+texture = ExtResource(41)
+stretch_mode = 0
+position = Vector2(265.0, 205.0)
+scale = Vector2(1.0, 1.0)
+rotation = 0.0
+z_index = 69
+metadata/Path = "DefineSprite_5524"
+metadata/Source = "Symbol 5524"
+metadata/TexKey = "5524_2"
+
+[node name="Symbol_5524_14" type="TextureRect" parent="Frame_0002"]
+texture = ExtResource(41)
+stretch_mode = 0
+position = Vector2(250.0, 205.0)
+scale = Vector2(1.0, 1.0)
+rotation = 0.0
+z_index = 70
+metadata/Path = "DefineSprite_5524"
+metadata/Source = "Symbol 5524"
+metadata/TexKey = "5524_2"
+
+[node name="Symbol_5524_15" type="TextureRect" parent="Frame_0002"]
+texture = ExtResource(41)
+stretch_mode = 0
+position = Vector2(235.0, 205.0)
+scale = Vector2(1.0, 1.0)
+rotation = 0.0
+z_index = 71
+metadata/Path = "DefineSprite_5524"
+metadata/Source = "Symbol 5524"
+metadata/TexKey = "5524_2"
+
+[node name="Symbol_5524_16" type="TextureRect" parent="Frame_0002"]
+texture = ExtResource(41)
+stretch_mode = 0
+position = Vector2(220.0, 205.0)
+scale = Vector2(1.0, 1.0)
+rotation = 0.0
+z_index = 72
+metadata/Path = "DefineSprite_5524"
+metadata/Source = "Symbol 5524"
+metadata/TexKey = "5524_2"
+
+[node name="Symbol_5524_17" type="TextureRect" parent="Frame_0002"]
+texture = ExtResource(41)
+stretch_mode = 0
+position = Vector2(205.0, 205.0)
+scale = Vector2(1.0, 1.0)
+rotation = 0.0
+z_index = 73
+metadata/Path = "DefineSprite_5524"
+metadata/Source = "Symbol 5524"
+metadata/TexKey = "5524_2"
+
+[node name="Symbol_5524_18" type="TextureRect" parent="Frame_0002"]
+texture = ExtResource(41)
+stretch_mode = 0
+position = Vector2(190.0, 205.0)
+scale = Vector2(1.0, 1.0)
+rotation = 0.0
+z_index = 74
+metadata/Path = "DefineSprite_5524"
+metadata/Source = "Symbol 5524"
+metadata/TexKey = "5524_2"
+
+[node name="Symbol_5524_19" type="TextureRect" parent="Frame_0002"]
+texture = ExtResource(41)
+stretch_mode = 0
+position = Vector2(175.0, 205.0)
+scale = Vector2(1.0, 1.0)
+rotation = 0.0
+z_index = 75
+metadata/Path = "DefineSprite_5524"
+metadata/Source = "Symbol 5524"
+metadata/TexKey = "5524_2"
+
+[node name="Symbol_5524_20" type="TextureRect" parent="Frame_0002"]
+texture = ExtResource(41)
+stretch_mode = 0
+position = Vector2(160.0, 205.0)
+scale = Vector2(1.0, 1.0)
+rotation = 0.0
+z_index = 76
+metadata/Path = "DefineSprite_5524"
+metadata/Source = "Symbol 5524"
+metadata/TexKey = "5524_2"
+
+[node name="Symbol_5524_21" type="TextureRect" parent="Frame_0002"]
+texture = ExtResource(41)
+stretch_mode = 0
+position = Vector2(145.0, 205.0)
+scale = Vector2(1.0, 1.0)
+rotation = 0.0
+z_index = 77
+metadata/Path = "DefineSprite_5524"
+metadata/Source = "Symbol 5524"
+metadata/TexKey = "5524_2"
+
+[node name="Symbol_5524_22" type="TextureRect" parent="Frame_0002"]
+texture = ExtResource(41)
+stretch_mode = 0
+position = Vector2(130.0, 205.0)
+scale = Vector2(1.0, 1.0)
+rotation = 0.0
+z_index = 78
+metadata/Path = "DefineSprite_5524"
+metadata/Source = "Symbol 5524"
+metadata/TexKey = "5524_2"
+
+[node name="Symbol_5524_23" type="TextureRect" parent="Frame_0002"]
+texture = ExtResource(41)
+stretch_mode = 0
+position = Vector2(115.0, 205.0)
+scale = Vector2(1.0, 1.0)
+rotation = 0.0
+z_index = 79
+metadata/Path = "DefineSprite_5524"
+metadata/Source = "Symbol 5524"
+metadata/TexKey = "5524_2"
+
+[node name="Symbol_5524_24" type="TextureRect" parent="Frame_0002"]
+texture = ExtResource(41)
+stretch_mode = 0
+position = Vector2(100.0, 205.0)
+scale = Vector2(1.0, 1.0)
+rotation = 0.0
+z_index = 80
+metadata/Path = "DefineSprite_5524"
+metadata/Source = "Symbol 5524"
+metadata/TexKey = "5524_2"
+
+[node name="Symbol_5527" type="TextureRect" parent="Frame_0002"]
+texture = ExtResource(42)
+stretch_mode = 0
+position = Vector2(209.95, 5.0)
+scale = Vector2(1.0, 1.0)
+rotation = 0.0
+z_index = 55
+metadata/Path = "DefineSprite_5527"
+metadata/Source = "Symbol 5527"
+metadata/TexKey = "5527_2"
+
+[node name="Symbol_5533" type="TextureRect" parent="Frame_0002"]
+texture = ExtResource(43)
+stretch_mode = 0
+position = Vector2(385.0, 285.0)
+scale = Vector2(1.0, 1.0)
+rotation = 0.0
+z_index = 50
+metadata/Path = "DefineSprite_5533"
+metadata/Source = "Symbol 5533"
+metadata/TexKey = "5533_2"
+
+[node name="shareDrawing" type="TextureRect" parent="Frame_0002"]
+texture = ExtResource(44)
+stretch_mode = 0
+position = Vector2(0.0, 0.05)
+scale = Vector2(1.0, 1.0)
+rotation = 0.0
+z_index = 44
+metadata/Path = "DefineSprite_5547"
+metadata/Source = "Symbol 5547"
+metadata/TexKey = "5547_2"
+
+
+[node name="Frame_0003" type="Node2D" parent="."]
+[node name="Symbol_1445" type="TextureRect" parent="Frame_0003"]
+texture = ExtResource(45)
+stretch_mode = 0
+position = Vector2(0.0, 0.0)
+scale = Vector2(1.00018310546875, 1.0)
+rotation = 0.0
+z_index = 185
+metadata/Path = "DefineSprite_1445"
+metadata/Source = "Symbol 1445"
+metadata/TexKey = "1445_3"
+
+[node name="Symbol_1602" type="TextureRect" parent="Frame_0003"]
+texture = ExtResource(46)
+stretch_mode = 0
+position = Vector2(0.0, 0.0)
+scale = Vector2(1.0, 1.00494384765625)
+rotation = 0.0
+z_index = 54
+metadata/Path = "DefineSprite_1602"
+metadata/Source = "Symbol 1602"
+metadata/TexKey = "1602_3"
+
+[node name="Symbol_1602_1" type="TextureRect" parent="Frame_0003"]
+texture = ExtResource(46)
+stretch_mode = 0
+position = Vector2(350.0, 315.0)
+scale = Vector2(2.60000610351563, 1.0)
+rotation = 0.0
+z_index = 177
+metadata/Path = "DefineSprite_1602"
+metadata/Source = "Symbol 1602"
+metadata/TexKey = "1602_3"
+
+[node name="Symbol_1602_2" type="TextureRect" parent="Frame_0003"]
+texture = ExtResource(46)
+stretch_mode = 0
+position = Vector2(350.0, 285.0)
+scale = Vector2(2.60000610351563, 1.0)
+rotation = 0.0
+z_index = 181
+metadata/Path = "DefineSprite_1602"
+metadata/Source = "Symbol 1602"
+metadata/TexKey = "1602_3"
+
+[node name="Symbol_1602_3" type="TextureRect" parent="Frame_0003"]
+texture = ExtResource(46)
+stretch_mode = 0
+position = Vector2(60.0, 290.0)
+scale = Vector2(2.60003662109375, 2.0)
+rotation = 0.0
+z_index = 184
+metadata/Path = "DefineSprite_1602"
+metadata/Source = "Symbol 1602"
+metadata/TexKey = "1602_3"
+
+[node name="Symbol_4995" type="TextureRect" parent="Frame_0003"]
+texture = ExtResource(47)
+stretch_mode = 0
+position = Vector2(20.0, 290.0)
+scale = Vector2(1.0, 1.0)
+rotation = 0.0
+z_index = 52
+metadata/Path = "DefineSprite_4995"
+metadata/Source = "Symbol 4995"
+metadata/TexKey = "4995_3"
+
+[node name="popScreen" type="TextureRect" parent="Frame_0003"]
+texture = ExtResource(48)
+stretch_mode = 0
+position = Vector2(50.0, 0.0)
+scale = Vector2(1.0, 1.00738525390625)
+rotation = 0.0
+z_index = 93
+metadata/Path = "DefineSprite_5389"
+metadata/Source = "Symbol 5389"
+metadata/TexKey = "5389_3"
+
+[node name="museum" type="TextureRect" parent="Frame_0003"]
+texture = ExtResource(49)
+stretch_mode = 0
+position = Vector2(60.0, 20.0)
+scale = Vector2(1.0, 1.0)
+rotation = 0.0
+z_index = 173
+metadata/Path = "DefineSprite_5568"
+metadata/Source = "Symbol 5568"
+metadata/TexKey = "5568_3"
+
+[node name="Symbol_5574" type="TextureRect" parent="Frame_0003"]
+texture = ExtResource(50)
+stretch_mode = 0
+position = Vector2(200.0, 290.0)
+scale = Vector2(1.0, 1.0)
+rotation = 0.0
+z_index = 95
+metadata/Path = "DefineSprite_5574"
+metadata/Source = "Symbol 5574"
+metadata/TexKey = "5574_3"
+
+
+[node name="Frame_0004" type="Node2D" parent="."]
+[node name="Symbol_5026" type="TextureRect" parent="Frame_0004"]
+texture = ExtResource(51)
+stretch_mode = 0
+position = Vector2(9.95, 325.45)
+scale = Vector2(1.00054931640625, 1.00614929199219)
+rotation = 0.0
+z_index = 172
+metadata/Path = "DefineSprite_5026"
+metadata/Source = "Symbol 5026"
+metadata/TexKey = "5026_4"
+
+[node name="Symbol_5533" type="TextureRect" parent="Frame_0004"]
+texture = ExtResource(52)
+stretch_mode = 0
+position = Vector2(385.0, 285.0)
+scale = Vector2(1.0, 1.0)
+rotation = 0.0
+z_index = 177
+metadata/Path = "DefineSprite_5533"
+metadata/Source = "Symbol 5533"
+metadata/TexKey = "5533_4"
+
+[node name="Symbol_5579" type="TextureRect" parent="Frame_0004"]
+texture = ExtResource(53)
+stretch_mode = 0
+position = Vector2(215.0, 147.5)
+scale = Vector2(1.0, 1.0)
+rotation = 0.0
+z_index = 169
+metadata/Path = "DefineSprite_5579"
+metadata/Source = "Symbol 5579"
+metadata/TexKey = "5579_4"
+
+[node name="Symbol_5580" type="TextureRect" parent="Frame_0004"]
+texture = ExtResource(54)
+stretch_mode = 0
+position = Vector2(285.0, 172.5)
+scale = Vector2(1.0, 1.0)
+rotation = 3.141592653589793
+z_index = 167
+metadata/Path = "DefineSprite_5580"
+metadata/Source = "Symbol 5580"
+metadata/TexKey = "5580_4"
+
+[node name="Symbol_5649" type="TextureRect" parent="Frame_0004"]
+texture = ExtResource(55)
+stretch_mode = 0
+position = Vector2(10.0, 40.0)
+scale = Vector2(1.0, 1.00247192382813)
+rotation = 0.0
+z_index = 160
+metadata/Path = "DefineSprite_5649"
+metadata/Source = "Symbol 5649"
+metadata/TexKey = "5649_4"
+
+
+[node name="Frame_0005" type="Node2D" parent="."]
+[node name="Symbol_4705" type="TextureRect" parent="Frame_0005"]
+texture = ExtResource(56)
+stretch_mode = 0
+position = Vector2(340.0, 345.0)
+scale = Vector2(1.0, 0.998092651367188)
+rotation = 0.0
+z_index = 181
+metadata/Path = "DefineSprite_4705"
+metadata/Source = "Symbol 4705"
+metadata/TexKey = "4705_5"
+
+[node name="Symbol_5533" type="TextureRect" parent="Frame_0005"]
+texture = ExtResource(57)
+stretch_mode = 0
+position = Vector2(200.0, 180.0)
+scale = Vector2(1.0, 1.0)
+rotation = 0.0
+z_index = 173
+metadata/Path = "DefineSprite_5533"
+metadata/Source = "Symbol 5533"
+metadata/TexKey = "5533_5"
+
+
+[node name="Frame_0006" type="Node2D" parent="."]
+[node name="Symbol_1445" type="TextureRect" parent="Frame_0006"]
+texture = ExtResource(58)
+stretch_mode = 0
+position = Vector2(0.0, 0.0)
+scale = Vector2(1.00018310546875, 1.0)
+rotation = 0.0
+z_index = 185
+metadata/Path = "DefineSprite_1445"
+metadata/Source = "Symbol 1445"
+metadata/TexKey = "1445_6"
+
+[node name="Symbol_1602" type="TextureRect" parent="Frame_0006"]
+texture = ExtResource(59)
+stretch_mode = 0
+position = Vector2(0.0, 0.1)
+scale = Vector2(1.0, 1.00247192382813)
+rotation = 0.0
+z_index = 92
+metadata/Path = "DefineSprite_1602"
+metadata/Source = "Symbol 1602"
+metadata/TexKey = "1602_6"
+
+[node name="Symbol_1602_1" type="TextureRect" parent="Frame_0006"]
+texture = ExtResource(59)
+stretch_mode = 0
+position = Vector2(50.0, 325.0)
+scale = Vector2(8.0, 1.0)
+rotation = 0.0
+z_index = 173
+metadata/Path = "DefineSprite_1602"
+metadata/Source = "Symbol 1602"
+metadata/TexKey = "1602_6"
+
+[node name="Symbol_4705" type="TextureRect" parent="Frame_0006"]
+texture = ExtResource(60)
+stretch_mode = 0
+position = Vector2(155.0, 315.0)
+scale = Vector2(0.999984741210938, 0.998779296875)
+rotation = 0.0
+z_index = 181
+metadata/Path = "DefineSprite_4705"
+metadata/Source = "Symbol 4705"
+metadata/TexKey = "4705_6"
+
+[node name="Symbol_4708" type="TextureRect" parent="Frame_0006"]
+texture = ExtResource(61)
+stretch_mode = 0
+position = Vector2(350.0, 315.0)
+scale = Vector2(1.0, 1.0)
+rotation = 0.0
+z_index = 177
+metadata/Path = "DefineSprite_4708"
+metadata/Source = "Symbol 4708"
+metadata/TexKey = "4708_6"
+
+[node name="popScreen" type="TextureRect" parent="Frame_0006"]
+texture = ExtResource(62)
+stretch_mode = 0
+position = Vector2(50.0, 0.1)
+scale = Vector2(1.0, 1.0048828125)
+rotation = 0.0
+z_index = 96
+metadata/Path = "DefineSprite_5389"
+metadata/Source = "Symbol 5389"
+metadata/TexKey = "5389_6"
+
+[node name="fullCraft" type="TextureRect" parent="Frame_0006"]
+texture = ExtResource(63)
+stretch_mode = 0
+position = Vector2(10.0, 50.0)
+scale = Vector2(1.0, 1.0)
+rotation = 0.0
+z_index = 169
+metadata/Path = "DefineSprite_5738"
+metadata/Source = "Symbol 5738"
+metadata/TexKey = "5738_6"
+
+
+[node name="Frame_0007" type="Node2D" parent="."]
+[node name="Symbol_1602" type="TextureRect" parent="Frame_0007"]
+texture = ExtResource(64)
+stretch_mode = 0
+position = Vector2(0.0, 0.0)
+scale = Vector2(1.0, 1.00494384765625)
+rotation = 0.0
+z_index = 92
+metadata/Path = "DefineSprite_1602"
+metadata/Source = "Symbol 1602"
+metadata/TexKey = "1602_7"
+
+[node name="Symbol_1602_1" type="TextureRect" parent="Frame_0007"]
+texture = ExtResource(64)
+stretch_mode = 0
+position = Vector2(290.0, 200.0)
+scale = Vector2(4.00003051757813, 1.0)
+rotation = 0.0
+z_index = 165
+metadata/Path = "DefineSprite_1602"
+metadata/Source = "Symbol 1602"
+metadata/TexKey = "1602_7"
+
+[node name="Symbol_1602_2" type="TextureRect" parent="Frame_0007"]
+texture = ExtResource(64)
+stretch_mode = 0
+position = Vector2(290.0, 170.0)
+scale = Vector2(4.00003051757813, 1.0)
+rotation = 0.0
+z_index = 169
+metadata/Path = "DefineSprite_1602"
+metadata/Source = "Symbol 1602"
+metadata/TexKey = "1602_7"
+
+[node name="Symbol_1602_3" type="TextureRect" parent="Frame_0007"]
+texture = ExtResource(64)
+stretch_mode = 0
+position = Vector2(290.0, 140.0)
+scale = Vector2(4.00003051757813, 1.0)
+rotation = 0.0
+z_index = 173
+metadata/Path = "DefineSprite_1602"
+metadata/Source = "Symbol 1602"
+metadata/TexKey = "1602_7"
+
+[node name="Symbol_4705" type="TextureRect" parent="Frame_0007"]
+texture = ExtResource(65)
+stretch_mode = 0
+position = Vector2(440.0, 100.0)
+scale = Vector2(0.999984741210938, 0.998779296875)
+rotation = 0.0
+z_index = 181
+metadata/Path = "DefineSprite_4705"
+metadata/Source = "Symbol 4705"
+metadata/TexKey = "4705_7"
+
+[node name="Symbol_4708" type="TextureRect" parent="Frame_0007"]
+texture = ExtResource(66)
+stretch_mode = 0
+position = Vector2(440.0, 130.0)
+scale = Vector2(1.0, 1.0)
+rotation = 0.0
+z_index = 184
+metadata/Path = "DefineSprite_4708"
+metadata/Source = "Symbol 4708"
+metadata/TexKey = "4708_7"
+
+[node name="popScreen" type="TextureRect" parent="Frame_0007"]
+texture = ExtResource(67)
+stretch_mode = 0
+position = Vector2(50.0, 0.0)
+scale = Vector2(1.0, 1.00738525390625)
+rotation = 0.0
+z_index = 96
+metadata/Path = "DefineSprite_5389"
+metadata/Source = "Symbol 5389"
+metadata/TexKey = "5389_7"
+
+[node name="Symbol_5775" type="TextureRect" parent="Frame_0007"]
+texture = ExtResource(68)
+stretch_mode = 0
+position = Vector2(0.0, -25.0)
+scale = Vector2(1.0, 1.0)
+rotation = 0.0
+z_index = 160
+metadata/Path = "DefineSprite_5775"
+metadata/Source = "Symbol 5775"
+metadata/TexKey = "5775_7"
+
+
+[node name="Frame_0008" type="Node2D" parent="."]
+[node name="Symbol_1602" type="TextureRect" parent="Frame_0008"]
+texture = ExtResource(69)
+stretch_mode = 0
+position = Vector2(50.0, 120.0)
+scale = Vector2(3.99919128417969, 1.00494384765625)
+rotation = 0.0
+z_index = 141
+metadata/Path = "DefineSprite_1602"
+metadata/Source = "Symbol 1602"
+metadata/TexKey = "1602_8"
+
+[node name="Symbol_1602_1" type="TextureRect" parent="Frame_0008"]
+texture = ExtResource(69)
+stretch_mode = 0
+position = Vector2(50.0, 30.0)
+scale = Vector2(3.99937438964844, 1.00494384765625)
+rotation = 0.0
+z_index = 146
+metadata/Path = "DefineSprite_1602"
+metadata/Source = "Symbol 1602"
+metadata/TexKey = "1602_8"
+
+[node name="Symbol_1602_2" type="TextureRect" parent="Frame_0008"]
+texture = ExtResource(69)
+stretch_mode = 0
+position = Vector2(50.0, 180.0)
+scale = Vector2(3.99900817871094, 1.00494384765625)
+rotation = 0.0
+z_index = 151
+metadata/Path = "DefineSprite_1602"
+metadata/Source = "Symbol 1602"
+metadata/TexKey = "1602_8"
+
+[node name="Symbol_1602_3" type="TextureRect" parent="Frame_0008"]
+texture = ExtResource(69)
+stretch_mode = 0
+position = Vector2(50.0, 60.0)
+scale = Vector2(3.99937438964844, 1.00494384765625)
+rotation = 0.0
+z_index = 156
+metadata/Path = "DefineSprite_1602"
+metadata/Source = "Symbol 1602"
+metadata/TexKey = "1602_8"
+
+[node name="Symbol_1602_4" type="TextureRect" parent="Frame_0008"]
+texture = ExtResource(69)
+stretch_mode = 0
+position = Vector2(50.0, 150.0)
+scale = Vector2(3.99821472167969, 1.00494384765625)
+rotation = 0.0
+z_index = 161
+metadata/Path = "DefineSprite_1602"
+metadata/Source = "Symbol 1602"
+metadata/TexKey = "1602_8"
+
+[node name="Symbol_1602_5" type="TextureRect" parent="Frame_0008"]
+texture = ExtResource(69)
+stretch_mode = 0
+position = Vector2(50.0, 90.0)
+scale = Vector2(3.99998474121094, 1.00494384765625)
+rotation = 0.0
+z_index = 166
+metadata/Path = "DefineSprite_1602"
+metadata/Source = "Symbol 1602"
+metadata/TexKey = "1602_8"
+
+[node name="Symbol_1602_6" type="TextureRect" parent="Frame_0008"]
+texture = ExtResource(69)
+stretch_mode = 0
+position = Vector2(50.0, 210.0)
+scale = Vector2(3.99954223632813, 1.00494384765625)
+rotation = 0.0
+z_index = 171
+metadata/Path = "DefineSprite_1602"
+metadata/Source = "Symbol 1602"
+metadata/TexKey = "1602_8"
+
+[node name="Symbol_1602_7" type="TextureRect" parent="Frame_0008"]
+texture = ExtResource(69)
+stretch_mode = 0
+position = Vector2(50.0, 240.0)
+scale = Vector2(3.99998474121094, 1.00494384765625)
+rotation = 0.0
+z_index = 176
+metadata/Path = "DefineSprite_1602"
+metadata/Source = "Symbol 1602"
+metadata/TexKey = "1602_8"
+
+[node name="Symbol_1602_8" type="TextureRect" parent="Frame_0008"]
+texture = ExtResource(69)
+stretch_mode = 0
+position = Vector2(50.0, 270.0)
+scale = Vector2(3.99998474121094, 1.00494384765625)
+rotation = 0.0
+z_index = 181
+metadata/Path = "DefineSprite_1602"
+metadata/Source = "Symbol 1602"
+metadata/TexKey = "1602_8"
+
+[node name="Symbol_1602_9" type="TextureRect" parent="Frame_0008"]
+texture = ExtResource(69)
+stretch_mode = 0
+position = Vector2(50.0, 310.0)
+scale = Vector2(8.0, 1.0)
+rotation = 0.0
+z_index = 184
+metadata/Path = "DefineSprite_1602"
+metadata/Source = "Symbol 1602"
+metadata/TexKey = "1602_8"
+
+
+[node name="Frame_0009" type="Node2D" parent="."]
+[node name="Symbol_5026" type="TextureRect" parent="Frame_0009"]
+texture = ExtResource(70)
+stretch_mode = 0
+position = Vector2(10.0, 325.0)
+scale = Vector2(1.00054931640625, 1.00614929199219)
+rotation = 0.0
+z_index = 102
+metadata/Path = "DefineSprite_5026"
+metadata/Source = "Symbol 5026"
+metadata/TexKey = "5026_9"
+
+[node name="Symbol_5533" type="TextureRect" parent="Frame_0009"]
+texture = ExtResource(71)
+stretch_mode = 0
+position = Vector2(385.0, 285.0)
+scale = Vector2(1.0, 1.0)
+rotation = 0.0
+z_index = 184
+metadata/Path = "DefineSprite_5533"
+metadata/Source = "Symbol 5533"
+metadata/TexKey = "5533_9"
+
+[node name="Symbol_5801" type="TextureRect" parent="Frame_0009"]
+texture = ExtResource(72)
+stretch_mode = 0
+position = Vector2(10.0, 290.0)
+scale = Vector2(0.999908447265625, 1.00247192382813)
+rotation = 0.0
+z_index = 104
+metadata/Path = "DefineSprite_5801"
+metadata/Source = "Symbol 5801"
+metadata/TexKey = "5801_9"
+
+[node name="Symbol_5801_1" type="TextureRect" parent="Frame_0009"]
+texture = ExtResource(72)
+stretch_mode = 0
+position = Vector2(230.0, 250.0)
+scale = Vector2(1.00009155273438, 1.00247192382813)
+rotation = 0.0
+z_index = 106
+metadata/Path = "DefineSprite_5801"
+metadata/Source = "Symbol 5801"
+metadata/TexKey = "5801_9"
+
+[node name="Symbol_5801_2" type="TextureRect" parent="Frame_0009"]
+texture = ExtResource(72)
+stretch_mode = 0
+position = Vector2(230.0, 230.0)
+scale = Vector2(0.999908447265625, 1.00247192382813)
+rotation = 0.0
+z_index = 108
+metadata/Path = "DefineSprite_5801"
+metadata/Source = "Symbol 5801"
+metadata/TexKey = "5801_9"
+
+[node name="Symbol_5801_3" type="TextureRect" parent="Frame_0009"]
+texture = ExtResource(72)
+stretch_mode = 0
+position = Vector2(10.0, 270.0)
+scale = Vector2(0.9996337890625, 1.00247192382813)
+rotation = 0.0
+z_index = 111
+metadata/Path = "DefineSprite_5801"
+metadata/Source = "Symbol 5801"
+metadata/TexKey = "5801_9"
+
+[node name="Symbol_5801_4" type="TextureRect" parent="Frame_0009"]
+texture = ExtResource(72)
+stretch_mode = 0
+position = Vector2(10.0, 250.0)
+scale = Vector2(0.99981689453125, 1.00247192382813)
+rotation = 0.0
+z_index = 114
+metadata/Path = "DefineSprite_5801"
+metadata/Source = "Symbol 5801"
+metadata/TexKey = "5801_9"
+
+[node name="Symbol_5801_5" type="TextureRect" parent="Frame_0009"]
+texture = ExtResource(72)
+stretch_mode = 0
+position = Vector2(10.0, 230.0)
+scale = Vector2(0.9996337890625, 1.00247192382813)
+rotation = 0.0
+z_index = 117
+metadata/Path = "DefineSprite_5801"
+metadata/Source = "Symbol 5801"
+metadata/TexKey = "5801_9"
+
+[node name="Symbol_5801_6" type="TextureRect" parent="Frame_0009"]
+texture = ExtResource(72)
+stretch_mode = 0
+position = Vector2(230.0, 210.0)
+scale = Vector2(0.999908447265625, 1.00247192382813)
+rotation = 0.0
+z_index = 121
+metadata/Path = "DefineSprite_5801"
+metadata/Source = "Symbol 5801"
+metadata/TexKey = "5801_9"
+
+[node name="Symbol_5801_7" type="TextureRect" parent="Frame_0009"]
+texture = ExtResource(72)
+stretch_mode = 0
+position = Vector2(230.0, 190.0)
+scale = Vector2(1.00009155273438, 1.00247192382813)
+rotation = 0.0
+z_index = 125
+metadata/Path = "DefineSprite_5801"
+metadata/Source = "Symbol 5801"
+metadata/TexKey = "5801_9"
+
+[node name="Symbol_5801_8" type="TextureRect" parent="Frame_0009"]
+texture = ExtResource(72)
+stretch_mode = 0
+position = Vector2(230.0, 170.0)
+scale = Vector2(0.999908447265625, 1.00247192382813)
+rotation = 0.0
+z_index = 129
+metadata/Path = "DefineSprite_5801"
+metadata/Source = "Symbol 5801"
+metadata/TexKey = "5801_9"
+
+[node name="Symbol_5801_9" type="TextureRect" parent="Frame_0009"]
+texture = ExtResource(72)
+stretch_mode = 0
+position = Vector2(230.0, 150.0)
+scale = Vector2(0.999908447265625, 1.00247192382813)
+rotation = 0.0
+z_index = 133
+metadata/Path = "DefineSprite_5801"
+metadata/Source = "Symbol 5801"
+metadata/TexKey = "5801_9"
+
+[node name="Symbol_5801_10" type="TextureRect" parent="Frame_0009"]
+texture = ExtResource(72)
+stretch_mode = 0
+position = Vector2(230.0, 130.0)
+scale = Vector2(1.00009155273438, 1.00247192382813)
+rotation = 0.0
+z_index = 137
+metadata/Path = "DefineSprite_5801"
+metadata/Source = "Symbol 5801"
+metadata/TexKey = "5801_9"
+
+[node name="Symbol_5801_11" type="TextureRect" parent="Frame_0009"]
+texture = ExtResource(72)
+stretch_mode = 0
+position = Vector2(230.0, 110.0)
+scale = Vector2(1.00009155273438, 1.00247192382813)
+rotation = 0.0
+z_index = 141
+metadata/Path = "DefineSprite_5801"
+metadata/Source = "Symbol 5801"
+metadata/TexKey = "5801_9"
+
+[node name="Symbol_5801_12" type="TextureRect" parent="Frame_0009"]
+texture = ExtResource(72)
+stretch_mode = 0
+position = Vector2(230.0, 90.0)
+scale = Vector2(1.00009155273438, 1.00247192382813)
+rotation = 0.0
+z_index = 145
+metadata/Path = "DefineSprite_5801"
+metadata/Source = "Symbol 5801"
+metadata/TexKey = "5801_9"
+
+[node name="Symbol_5801_13" type="TextureRect" parent="Frame_0009"]
+texture = ExtResource(72)
+stretch_mode = 0
+position = Vector2(230.0, 70.0)
+scale = Vector2(1.00027465820313, 1.00247192382813)
+rotation = 0.0
+z_index = 149
+metadata/Path = "DefineSprite_5801"
+metadata/Source = "Symbol 5801"
+metadata/TexKey = "5801_9"
+
+[node name="Symbol_5801_14" type="TextureRect" parent="Frame_0009"]
+texture = ExtResource(72)
+stretch_mode = 0
+position = Vector2(10.0, 210.0)
+scale = Vector2(0.9996337890625, 1.00247192382813)
+rotation = 0.0
+z_index = 153
+metadata/Path = "DefineSprite_5801"
+metadata/Source = "Symbol 5801"
+metadata/TexKey = "5801_9"
+
+[node name="Symbol_5801_15" type="TextureRect" parent="Frame_0009"]
+texture = ExtResource(72)
+stretch_mode = 0
+position = Vector2(10.0, 190.0)
+scale = Vector2(0.99981689453125, 1.00247192382813)
+rotation = 0.0
+z_index = 157
+metadata/Path = "DefineSprite_5801"
+metadata/Source = "Symbol 5801"
+metadata/TexKey = "5801_9"
+
+[node name="Symbol_5801_16" type="TextureRect" parent="Frame_0009"]
+texture = ExtResource(72)
+stretch_mode = 0
+position = Vector2(10.0, 170.0)
+scale = Vector2(0.9996337890625, 1.00247192382813)
+rotation = 0.0
+z_index = 161
+metadata/Path = "DefineSprite_5801"
+metadata/Source = "Symbol 5801"
+metadata/TexKey = "5801_9"
+
+[node name="Symbol_5801_17" type="TextureRect" parent="Frame_0009"]
+texture = ExtResource(72)
+stretch_mode = 0
+position = Vector2(10.0, 150.0)
+scale = Vector2(0.9996337890625, 1.00247192382813)
+rotation = 0.0
+z_index = 165
+metadata/Path = "DefineSprite_5801"
+metadata/Source = "Symbol 5801"
+metadata/TexKey = "5801_9"
+
+[node name="Symbol_5801_18" type="TextureRect" parent="Frame_0009"]
+texture = ExtResource(72)
+stretch_mode = 0
+position = Vector2(10.0, 130.0)
+scale = Vector2(0.99981689453125, 1.00247192382813)
+rotation = 0.0
+z_index = 169
+metadata/Path = "DefineSprite_5801"
+metadata/Source = "Symbol 5801"
+metadata/TexKey = "5801_9"
+
+[node name="Symbol_5801_19" type="TextureRect" parent="Frame_0009"]
+texture = ExtResource(72)
+stretch_mode = 0
+position = Vector2(10.0, 110.0)
+scale = Vector2(0.99981689453125, 1.00247192382813)
+rotation = 0.0
+z_index = 173
+metadata/Path = "DefineSprite_5801"
+metadata/Source = "Symbol 5801"
+metadata/TexKey = "5801_9"
+
+[node name="Symbol_5801_20" type="TextureRect" parent="Frame_0009"]
+texture = ExtResource(72)
+stretch_mode = 0
+position = Vector2(10.0, 90.0)
+scale = Vector2(0.99981689453125, 1.00247192382813)
+rotation = 0.0
+z_index = 177
+metadata/Path = "DefineSprite_5801"
+metadata/Source = "Symbol 5801"
+metadata/TexKey = "5801_9"
+
+[node name="Symbol_5801_21" type="TextureRect" parent="Frame_0009"]
+texture = ExtResource(72)
+stretch_mode = 0
+position = Vector2(10.0, 70.0)
+scale = Vector2(1.0, 1.00247192382813)
+rotation = 0.0
+z_index = 181
+metadata/Path = "DefineSprite_5801"
+metadata/Source = "Symbol 5801"
+metadata/TexKey = "5801_9"
+
+
+[node name="Frame_0010" type="Node2D" parent="."]
+[node name="Symbol_1602" type="TextureRect" parent="Frame_0010"]
+texture = ExtResource(73)
+stretch_mode = 0
+position = Vector2(410.0, 260.0)
+scale = Vector2(1.60000610351563, 1.0)
+rotation = 0.0
+z_index = 128
+metadata/Path = "DefineSprite_1602"
+metadata/Source = "Symbol 1602"
+metadata/TexKey = "1602_10"
+
+[node name="Symbol_1602_1" type="TextureRect" parent="Frame_0010"]
+texture = ExtResource(73)
+stretch_mode = 0
+position = Vector2(410.0, 205.0)
+scale = Vector2(1.60000610351563, 1.0)
+rotation = 0.0
+z_index = 143
+metadata/Path = "DefineSprite_1602"
+metadata/Source = "Symbol 1602"
+metadata/TexKey = "1602_10"
+
+[node name="Symbol_1602_2" type="TextureRect" parent="Frame_0010"]
+texture = ExtResource(73)
+stretch_mode = 0
+position = Vector2(410.0, 150.0)
+scale = Vector2(1.60000610351563, 1.0)
+rotation = 0.0
+z_index = 153
+metadata/Path = "DefineSprite_1602"
+metadata/Source = "Symbol 1602"
+metadata/TexKey = "1602_10"
+
+[node name="Symbol_1602_3" type="TextureRect" parent="Frame_0010"]
+texture = ExtResource(73)
+stretch_mode = 0
+position = Vector2(410.0, 95.0)
+scale = Vector2(1.60000610351563, 1.0)
+rotation = 0.0
+z_index = 163
+metadata/Path = "DefineSprite_1602"
+metadata/Source = "Symbol 1602"
+metadata/TexKey = "1602_10"
+
+[node name="Symbol_1602_4" type="TextureRect" parent="Frame_0010"]
+texture = ExtResource(73)
+stretch_mode = 0
+position = Vector2(410.0, 40.0)
+scale = Vector2(1.60000610351563, 1.0)
+rotation = 0.0
+z_index = 173
+metadata/Path = "DefineSprite_1602"
+metadata/Source = "Symbol 1602"
+metadata/TexKey = "1602_10"
+
+[node name="Symbol_2805" type="TextureRect" parent="Frame_0010"]
+texture = ExtResource(74)
+stretch_mode = 0
+position = Vector2(375.0, 290.1)
+scale = Vector2(0.199996948242188, 1.00250244140625)
+rotation = 0.0
+z_index = 135
+metadata/Path = "DefineSprite_2805"
+metadata/Source = "Symbol 2805"
+metadata/TexKey = "2805_10"
+
+[node name="Symbol_4708" type="TextureRect" parent="Frame_0010"]
+texture = ExtResource(75)
+stretch_mode = 0
+position = Vector2(220.0, 340.0)
+scale = Vector2(1.0, 1.0)
+rotation = 0.0
+z_index = 180
+metadata/Path = "DefineSprite_4708"
+metadata/Source = "Symbol 4708"
+metadata/TexKey = "4708_10"
+
+[node name="Symbol_4956" type="TextureRect" parent="Frame_0010"]
+texture = ExtResource(76)
+stretch_mode = 0
+position = Vector2(0.0, 0.0)
+scale = Vector2(1.0, 1.0)
+rotation = 0.0
+z_index = 132
+metadata/Path = "DefineSprite_4956"
+metadata/Source = "Symbol 4956"
+metadata/TexKey = "4956_10"
+
+[node name="Symbol_5861" type="TextureRect" parent="Frame_0010"]
+texture = ExtResource(77)
+stretch_mode = 0
+position = Vector2(10.0, 230.0)
+scale = Vector2(1.0, 1.0)
+rotation = 0.0
+z_index = 121
+metadata/Path = "DefineSprite_5861"
+metadata/Source = "Symbol 5861"
+metadata/TexKey = "5861_10"
+
+
+[node name="Frame_0011" type="Node2D" parent="."]
+[node name="Symbol_5864" type="TextureRect" parent="Frame_0011"]
+texture = ExtResource(78)
+stretch_mode = 0
+position = Vector2(0.0, 0.0)
+scale = Vector2(1.0, 1.0)
+rotation = 0.0
+z_index = 185
+metadata/Path = "DefineSprite_5864"
+metadata/Source = "Symbol 5864"
+metadata/TexKey = "5864_11"
+
+[node name="Symbol_5869" type="TextureRect" parent="Frame_0011"]
+texture = ExtResource(79)
+stretch_mode = 0
+position = Vector2(30.0, 70.0)
+scale = Vector2(1.000244140625, 1.00027465820313)
+rotation = 0.0
+z_index = 180
+metadata/Path = "DefineSprite_5869"
+metadata/Source = "Symbol 5869"
+metadata/TexKey = "5869_11"
+
+[node name="Symbol_5873" type="TextureRect" parent="Frame_0011"]
+texture = ExtResource(80)
+stretch_mode = 0
+position = Vector2(270.0, 70.0)
+scale = Vector2(1.000244140625, 1.00027465820313)
+rotation = 0.0
+z_index = 176
+metadata/Path = "DefineSprite_5873"
+metadata/Source = "Symbol 5873"
+metadata/TexKey = "5873_11"
+
+[node name="Symbol_5879" type="TextureRect" parent="Frame_0011"]
+texture = ExtResource(81)
+stretch_mode = 0
+position = Vector2(30.0, 285.0)
+scale = Vector2(1.0, 1.0)
+rotation = 0.0
+z_index = 171
+metadata/Path = "DefineSprite_5879"
+metadata/Source = "Symbol 5879"
+metadata/TexKey = "5879_11"
+
+
+[node name="Frame_0012" type="Node2D" parent="."]
+[node name="Symbol_1602" type="TextureRect" parent="Frame_0012"]
+texture = ExtResource(82)
+stretch_mode = 0
+position = Vector2(180.0, 275.1)
+scale = Vector2(0.399978637695313, 1.00616455078125)
+rotation = 3.141592653589793
+z_index = 113
+metadata/Path = "DefineSprite_1602"
+metadata/Source = "Symbol 1602"
+metadata/TexKey = "1602_12"
+
+[node name="Symbol_1602_1" type="TextureRect" parent="Frame_0012"]
+texture = ExtResource(82)
+stretch_mode = 0
+position = Vector2(410.0, 275.1)
+scale = Vector2(0.399978637695313, 1.00616455078125)
+rotation = 3.141592653589793
+z_index = 116
+metadata/Path = "DefineSprite_1602"
+metadata/Source = "Symbol 1602"
+metadata/TexKey = "1602_12"
+
+[node name="Symbol_1602_2" type="TextureRect" parent="Frame_0012"]
+texture = ExtResource(82)
+stretch_mode = 0
+position = Vector2(180.0, 255.1)
+scale = Vector2(0.399978637695313, 1.00616455078125)
+rotation = 3.141592653589793
+z_index = 122
+metadata/Path = "DefineSprite_1602"
+metadata/Source = "Symbol 1602"
+metadata/TexKey = "1602_12"
+
+[node name="Symbol_1602_3" type="TextureRect" parent="Frame_0012"]
+texture = ExtResource(82)
+stretch_mode = 0
+position = Vector2(410.0, 255.1)
+scale = Vector2(0.399978637695313, 1.00616455078125)
+rotation = 3.141592653589793
+z_index = 126
+metadata/Path = "DefineSprite_1602"
+metadata/Source = "Symbol 1602"
+metadata/TexKey = "1602_12"
+
+[node name="Symbol_1602_4" type="TextureRect" parent="Frame_0012"]
+texture = ExtResource(82)
+stretch_mode = 0
+position = Vector2(180.0, 205.1)
+scale = Vector2(0.399978637695313, 1.00616455078125)
+rotation = 3.141592653589793
+z_index = 132
+metadata/Path = "DefineSprite_1602"
+metadata/Source = "Symbol 1602"
+metadata/TexKey = "1602_12"
+
+[node name="Symbol_1602_5" type="TextureRect" parent="Frame_0012"]
+texture = ExtResource(82)
+stretch_mode = 0
+position = Vector2(410.0, 205.1)
+scale = Vector2(0.399978637695313, 1.00616455078125)
+rotation = 3.141592653589793
+z_index = 136
+metadata/Path = "DefineSprite_1602"
+metadata/Source = "Symbol 1602"
+metadata/TexKey = "1602_12"
+
+[node name="Symbol_1602_6" type="TextureRect" parent="Frame_0012"]
+texture = ExtResource(82)
+stretch_mode = 0
+position = Vector2(180.0, 185.1)
+scale = Vector2(0.399978637695313, 1.00616455078125)
+rotation = 3.141592653589793
+z_index = 142
+metadata/Path = "DefineSprite_1602"
+metadata/Source = "Symbol 1602"
+metadata/TexKey = "1602_12"
+
+[node name="Symbol_1602_7" type="TextureRect" parent="Frame_0012"]
+texture = ExtResource(82)
+stretch_mode = 0
+position = Vector2(410.0, 185.1)
+scale = Vector2(0.399978637695313, 1.00616455078125)
+rotation = 3.141592653589793
+z_index = 146
+metadata/Path = "DefineSprite_1602"
+metadata/Source = "Symbol 1602"
+metadata/TexKey = "1602_12"
+
+[node name="Symbol_1602_8" type="TextureRect" parent="Frame_0012"]
+texture = ExtResource(82)
+stretch_mode = 0
+position = Vector2(180.0, 165.1)
+scale = Vector2(0.399978637695313, 1.00616455078125)
+rotation = 3.141592653589793
+z_index = 153
+metadata/Path = "DefineSprite_1602"
+metadata/Source = "Symbol 1602"
+metadata/TexKey = "1602_12"
+
+[node name="Symbol_1602_9" type="TextureRect" parent="Frame_0012"]
+texture = ExtResource(82)
+stretch_mode = 0
+position = Vector2(410.0, 165.1)
+scale = Vector2(0.399978637695313, 1.00616455078125)
+rotation = 3.141592653589793
+z_index = 157
+metadata/Path = "DefineSprite_1602"
+metadata/Source = "Symbol 1602"
+metadata/TexKey = "1602_12"
+
+[node name="Symbol_1602_10" type="TextureRect" parent="Frame_0012"]
+texture = ExtResource(82)
+stretch_mode = 0
+position = Vector2(180.0, 115.1)
+scale = Vector2(0.399978637695313, 1.00616455078125)
+rotation = 3.141592653589793
+z_index = 163
+metadata/Path = "DefineSprite_1602"
+metadata/Source = "Symbol 1602"
+metadata/TexKey = "1602_12"
+
+[node name="Symbol_1602_11" type="TextureRect" parent="Frame_0012"]
+texture = ExtResource(82)
+stretch_mode = 0
+position = Vector2(410.0, 115.1)
+scale = Vector2(0.399978637695313, 1.00616455078125)
+rotation = 3.141592653589793
+z_index = 167
+metadata/Path = "DefineSprite_1602"
+metadata/Source = "Symbol 1602"
+metadata/TexKey = "1602_12"
+
+[node name="Symbol_1602_12" type="TextureRect" parent="Frame_0012"]
+texture = ExtResource(82)
+stretch_mode = 0
+position = Vector2(180.0, 95.1)
+scale = Vector2(0.399978637695313, 1.00616455078125)
+rotation = 3.141592653589793
+z_index = 174
+metadata/Path = "DefineSprite_1602"
+metadata/Source = "Symbol 1602"
+metadata/TexKey = "1602_12"
+
+[node name="Symbol_1602_13" type="TextureRect" parent="Frame_0012"]
+texture = ExtResource(82)
+stretch_mode = 0
+position = Vector2(410.0, 95.1)
+scale = Vector2(0.399978637695313, 1.00616455078125)
+rotation = 3.141592653589793
+z_index = 178
+metadata/Path = "DefineSprite_1602"
+metadata/Source = "Symbol 1602"
+metadata/TexKey = "1602_12"
+
+[node name="Symbol_4979" type="TextureRect" parent="Frame_0012"]
+texture = ExtResource(83)
+stretch_mode = 0
+position = Vector2(-210.0, 95.0)
+scale = Vector2(1.0, 1.0)
+rotation = 0.0
+z_index = 111
+metadata/Path = "DefineSprite_4979"
+metadata/Source = "Symbol 4979"
+metadata/TexKey = "4979_12"
+
+[node name="Symbol_4979_1" type="TextureRect" parent="Frame_0012"]
+texture = ExtResource(83)
+stretch_mode = 0
+position = Vector2(-210.0, 75.0)
+scale = Vector2(1.0, 1.0)
+rotation = 0.0
+z_index = 120
+metadata/Path = "DefineSprite_4979"
+metadata/Source = "Symbol 4979"
+metadata/TexKey = "4979_12"
+
+[node name="Symbol_4979_2" type="TextureRect" parent="Frame_0012"]
+texture = ExtResource(83)
+stretch_mode = 0
+position = Vector2(-210.0, 25.0)
+scale = Vector2(1.0, 1.0)
+rotation = 0.0
+z_index = 129
+metadata/Path = "DefineSprite_4979"
+metadata/Source = "Symbol 4979"
+metadata/TexKey = "4979_12"
+
+[node name="Symbol_4979_3" type="TextureRect" parent="Frame_0012"]
+texture = ExtResource(83)
+stretch_mode = 0
+position = Vector2(-210.0, 5.0)
+scale = Vector2(1.0, 1.0)
+rotation = 0.0
+z_index = 139
+metadata/Path = "DefineSprite_4979"
+metadata/Source = "Symbol 4979"
+metadata/TexKey = "4979_12"
+
+[node name="Symbol_4979_4" type="TextureRect" parent="Frame_0012"]
+texture = ExtResource(83)
+stretch_mode = 0
+position = Vector2(-210.0, -15.0)
+scale = Vector2(1.0, 1.0)
+rotation = 0.0
+z_index = 150
+metadata/Path = "DefineSprite_4979"
+metadata/Source = "Symbol 4979"
+metadata/TexKey = "4979_12"
+
+[node name="Symbol_4979_5" type="TextureRect" parent="Frame_0012"]
+texture = ExtResource(83)
+stretch_mode = 0
+position = Vector2(-210.0, -65.0)
+scale = Vector2(1.0, 1.0)
+rotation = 0.0
+z_index = 160
+metadata/Path = "DefineSprite_4979"
+metadata/Source = "Symbol 4979"
+metadata/TexKey = "4979_12"
+
+[node name="Symbol_4979_6" type="TextureRect" parent="Frame_0012"]
+texture = ExtResource(83)
+stretch_mode = 0
+position = Vector2(-210.0, -85.0)
+scale = Vector2(1.0, 1.0)
+rotation = 0.0
+z_index = 171
+metadata/Path = "DefineSprite_4979"
+metadata/Source = "Symbol 4979"
+metadata/TexKey = "4979_12"
+
+
+[node name="Frame_0013" type="Node2D" parent="."]
+[node name="Symbol_3787" type="TextureRect" parent="Frame_0013"]
+texture = ExtResource(84)
+stretch_mode = 0
+position = Vector2(-1000.2, 385.0)
+scale = Vector2(125.024978637695, 7.0)
+rotation = 0.0
+z_index = 185
+metadata/Path = "DefineSprite_3787"
+metadata/Source = "Symbol 3787"
+metadata/TexKey = "3787_13"
+
+[node name="bestiaryDetail" type="TextureRect" parent="Frame_0013"]
+texture = ExtResource(85)
+stretch_mode = 0
+position = Vector2(10.0, 35.0)
+scale = Vector2(1.0, 1.0)
+rotation = 0.0
+z_index = 90
+metadata/Path = "DefineSprite_5648"
+metadata/Source = "Symbol 5648"
+metadata/TexKey = "5648_13"
+
+[node name="Symbol_6003" type="TextureRect" parent="Frame_0013"]
+texture = ExtResource(86)
+stretch_mode = 0
+position = Vector2(10.0, 35.0)
+scale = Vector2(1.0, 1.0)
+rotation = 0.0
+z_index = 174
+metadata/Path = "DefineSprite_6003"
+metadata/Source = "Symbol 6003"
+metadata/TexKey = "6003_13"
+
+
+[node name="Frame_0014" type="Node2D" parent="."]
+[node name="Symbol_1602" type="TextureRect" parent="Frame_0014"]
+texture = ExtResource(87)
+stretch_mode = 0
+position = Vector2(0.0, 0.0)
+scale = Vector2(1.0, 1.00494384765625)
+rotation = 0.0
+z_index = 100
+metadata/Path = "DefineSprite_1602"
+metadata/Source = "Symbol 1602"
+metadata/TexKey = "1602_14"
+
+[node name="Symbol_1602_1" type="TextureRect" parent="Frame_0014"]
+texture = ExtResource(87)
+stretch_mode = 0
+position = Vector2(50.0, 284.9)
+scale = Vector2(8.00039672851563, 1.4998779296875)
+rotation = 0.0
+z_index = 173
+metadata/Path = "DefineSprite_1602"
+metadata/Source = "Symbol 1602"
+metadata/TexKey = "1602_14"
+
+[node name="Symbol_1602_2" type="TextureRect" parent="Frame_0014"]
+texture = ExtResource(87)
+stretch_mode = 0
+position = Vector2(50.0, 325.0)
+scale = Vector2(8.0, 1.0)
+rotation = 0.0
+z_index = 184
+metadata/Path = "DefineSprite_1602"
+metadata/Source = "Symbol 1602"
+metadata/TexKey = "1602_14"
+
+[node name="Symbol_4995" type="TextureRect" parent="Frame_0014"]
+texture = ExtResource(88)
+stretch_mode = 0
+position = Vector2(370.0, 200.0)
+scale = Vector2(2.0, 2.0)
+rotation = 0.0
+z_index = 169
+metadata/Path = "DefineSprite_4995"
+metadata/Source = "Symbol 4995"
+metadata/TexKey = "4995_14"
+
+[node name="Symbol_4995_1" type="TextureRect" parent="Frame_0014"]
+texture = ExtResource(88)
+stretch_mode = 0
+position = Vector2(200.0, 200.0)
+scale = Vector2(2.0, 2.0)
+rotation = 0.0
+z_index = 178
+metadata/Path = "DefineSprite_4995"
+metadata/Source = "Symbol 4995"
+metadata/TexKey = "4995_14"
+
+[node name="Symbol_4995_2" type="TextureRect" parent="Frame_0014"]
+texture = ExtResource(88)
+stretch_mode = 0
+position = Vector2(50.0, 200.0)
+scale = Vector2(1.99998474121094, 2.0)
+rotation = 0.0
+z_index = 180
+metadata/Path = "DefineSprite_4995"
+metadata/Source = "Symbol 4995"
+metadata/TexKey = "4995_14"
+
+[node name="popScreen" type="TextureRect" parent="Frame_0014"]
+texture = ExtResource(89)
+stretch_mode = 0
+position = Vector2(50.0, 0.0)
+scale = Vector2(1.0, 1.00738525390625)
+rotation = 0.0
+z_index = 166
+metadata/Path = "DefineSprite_5389"
+metadata/Source = "Symbol 5389"
+metadata/TexKey = "5389_14"
+
+[node name="Symbol_6004" type="TextureRect" parent="Frame_0014"]
+texture = ExtResource(90)
+stretch_mode = 0
+position = Vector2(0.0, 0.0)
+scale = Vector2(1.0, 1.0)
+rotation = 0.0
+z_index = 185
+metadata/Path = "DefineSprite_6004"
+metadata/Source = "Symbol 6004"
+metadata/TexKey = "6004_14"
+
+
+[node name="Frame_0015" type="Node2D" parent="."]
+[node name="Symbol_1602" type="TextureRect" parent="Frame_0015"]
+texture = ExtResource(91)
+stretch_mode = 0
+position = Vector2(360.0, 320.0)
+scale = Vector2(2.60000610351563, 1.0)
+rotation = 0.0
+z_index = 181
+metadata/Path = "DefineSprite_1602"
+metadata/Source = "Symbol 1602"
+metadata/TexKey = "1602_15"
+
+[node name="Symbol_1602_1" type="TextureRect" parent="Frame_0015"]
+texture = ExtResource(91)
+stretch_mode = 0
+position = Vector2(360.0, 290.0)
+scale = Vector2(2.60000610351563, 1.0)
+rotation = 0.0
+z_index = 184
+metadata/Path = "DefineSprite_1602"
+metadata/Source = "Symbol 1602"
+metadata/TexKey = "1602_15"
+

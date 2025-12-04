@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Reflection;
+using AntiIdle.Common.Nodes;
 using Godot;
 
 namespace AntiIdle.Common.Flash;
@@ -70,6 +71,56 @@ public static class Extension
         public static bool isDown(string input_map_key)
         {
             return Input.IsActionPressed(input_map_key);
+        }
+    }
+
+    extension(Node source)
+    {
+        public void gotoAndStop(int frame)
+        {
+            SceneManager mgr = FindSceneManager(source);
+
+            if (mgr != null)
+                mgr.gotoAndStop(frame);
+            else
+                GD.PrintErr($"No SceneManager found for node {source.Name}");
+        }
+
+        private static SceneManager FindSceneManager(Node node)
+        {
+            Node current = node;
+            while (current != null)
+            {
+                if (current is SceneManager sm)
+                    return sm;
+
+                current = current.GetParent();
+            }
+
+            return null;
+        }
+    }
+
+    extension(InputEvent @event)
+    {
+        /// <summary>
+        /// This ensures that holding the left mouse button, dragging off the ui element, and then releasing does not trigger a left click action.
+        /// </summary>
+        /// <returns></returns>
+        public bool IsLeftMouseButtonJustReleased()
+        {
+            if (@event is InputEventMouseButton mouseEvent)
+            {
+                if (
+                    mouseEvent.IsReleased()
+                    && !mouseEvent.IsCanceled()
+                    && mouseEvent.ButtonIndex == MouseButton.Left
+                )
+                {
+                    return true;
+                }
+            }
+            return false;
         }
     }
 }

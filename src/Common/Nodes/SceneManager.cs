@@ -13,7 +13,7 @@ public partial class SceneManager : Control
     /// The currently loaded scene.
     /// Only one scene can be active at a time.
     /// </summary>
-    SceneData current;
+    Node current;
 #pragma warning disable IDE1006 // Naming Styles
     public int? _currentFrame => (int?)current.GetMeta("Frame");
 #pragma warning restore IDE1006 // Naming Styles
@@ -24,7 +24,7 @@ public partial class SceneManager : Control
     /// A list of all scenes managed.
     /// </summary>
     [Export]
-    public Godot.Collections.Dictionary<string, PackedScene> scenes;
+    public Godot.Collections.Dictionary<string, PackedScene> scenes = [];
 
     /// <summary>
     /// An optional, default scene. If specified, the scene manager
@@ -32,6 +32,16 @@ public partial class SceneManager : Control
     /// </summary>
     [Export]
     public string defaultScene;
+
+    public void gotoAndStop(int frameNumber)
+    {
+        Show(frameNumber.ToString());
+    }
+
+    public void gotoAndStop(double frameNumber)
+    {
+        gotoAndStop((int)frameNumber);
+    }
 
     /// <summary>
     /// Shows one of this SceneManager's scenes.
@@ -45,20 +55,22 @@ public partial class SceneManager : Control
                 $"Tried to load scene {sceneName}, but no such scene was found. Currently managed scenes: {string.Join(", ", scenes)}"
             );
         }
+        Unload();
         // If a scene is loadable (contains some SceneData)
         // we can manage it.
         // A SceneData is a simple data wrapper describing the scene,
         // and giving it a name, for use with SceneManager methods.
-        if (packedScene.Instantiate() is SceneData sceneData)
+        current = packedScene.Instantiate();
+        if (current is SceneData sceneData)
         {
-            current = sceneData;
             sceneData.m = this;
-            AddChild(current);
         }
-        else
+        currentScene = sceneName;
+        if (int.TryParse(sceneName, out int frameNum))
         {
-            GD.PrintErr($"Failed to instanciate {sceneName}. Make sure it's a SceneData node.");
+            current.SetMeta("Frame", frameNum);
         }
+        AddChild(current);
     }
 
     /// <summary>

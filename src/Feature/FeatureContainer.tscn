@@ -44,16 +44,6 @@ scenes = Dictionary[String, PackedScene]({
 })
 metadata/_custom_type_script = "uid://c5ahmxs2w5th2"
 
-[node name="ReferenceRect" type="ReferenceRect" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-border_color = Color(0, 0, 0, 1)
-editor_only = false
-
 [node name="FeatureMenu" parent="." instance=ExtResource("3_qbml2")]
 layout_mode = 0
 offset_left = 400.0

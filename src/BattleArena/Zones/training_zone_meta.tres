@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="ZoneResource" load_steps=3 format=3 uid="uid://doflwcx3ragyv"]
+
+[ext_resource type="PackedScene" uid="uid://cravk71ndxfon" path="res://src/BattleArena/Zones/training_zone.tscn" id="1_g38yg"]
+[ext_resource type="Script" uid="uid://dn687xn4jx5l6" path="res://src/BattleArena/Zones/ZoneResource.cs" id="2_r8ai8"]
+
+[resource]
+script = ExtResource("2_r8ai8")
+FrameNumber = 2
+Zone = ExtResource("1_g38yg")
+metadata/_custom_type_script = "uid://dn687xn4jx5l6"

@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://d1vhda2oxa4k7"]
+[gd_scene load_steps=25 format=3 uid="uid://d1vhda2oxa4k7"]
 
 [ext_resource type="Script" uid="uid://cjp2pjpu1jl4x" path="res://src/Pages/Main/Main.cs" id="1_c6bj8"]
 [ext_resource type="Texture2D" uid="uid://bmlqbakhjy61h" path="res://src/Pages/Main/13.png" id="1_wl3yd"]
@@ -22,6 +22,7 @@
 [ext_resource type="PackedScene" uid="uid://bjasl780omou0" path="res://src/Pages/Main/components/Minis/mini_5.tscn" id="19_gkvr8"]
 [ext_resource type="Texture2D" uid="uid://bd8h3on5iqfph" path="res://common_assets/sprites/DefineSprite_8280/2.png" id="21_emsix"]
 [ext_resource type="Script" uid="uid://cl11uy65djgs2" path="res://src/Pages/Main/DailyBonusButton.cs" id="22_gkvr8"]
+[ext_resource type="PackedScene" uid="uid://d6jsln14asru" path="res://src/BattleArena/popScreen.tscn" id="23_t1lsm"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_ygkns"]
 
@@ -194,5 +195,12 @@ offset_right = 727.0
 offset_bottom = 258.0
 texture_normal = ExtResource("21_emsix")
 script = ExtResource("22_gkvr8")
+
+[node name="popScreen" parent="." instance=ExtResource("23_t1lsm")]
+layout_mode = 0
+offset_left = 144.0
+offset_top = 406.0
+offset_right = 144.0
+offset_bottom = 406.0
 
 [editable path="Mini1"]

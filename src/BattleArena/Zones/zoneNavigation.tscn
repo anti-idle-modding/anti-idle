@@ -1,0 +1,68 @@
+[gd_scene load_steps=5 format=3 uid="uid://d0ndebof28mhv"]
+
+[ext_resource type="PackedScene" uid="uid://ctvttjipnchvy" path="res://src/BattleArena/Zones/zoneArrow.tscn" id="1_d2sm0"]
+[ext_resource type="Script" uid="uid://c1pv0pjw24jqc" path="res://src/BattleArena/Zones/ZoneNavigation.cs" id="1_t74wv"]
+[ext_resource type="Shader" uid="uid://tasrk4sfuv08" path="res://src/BattleArena/Zones/zoneArrow.gdshader" id="2_t74wv"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vtxwn"]
+shader = ExtResource("2_t74wv")
+shader_parameter/radius = 0.0
+shader_parameter/amount = 0.25
+shader_parameter/outline_color = Vector3(1, 1, 0)
+shader_parameter/outline_thickness = 2.0
+
+[node name="ZoneNavigation" type="Control" node_paths=PackedStringArray("LeftZoneButton", "NextZoneButton", "DownZoneButton")]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_t74wv")
+LeftZoneButton = NodePath("leftArrow")
+NextZoneButton = NodePath("rightArrow")
+DownZoneButton = NodePath("practiceArrow")
+
+[node name="rightArrow" parent="." instance=ExtResource("1_d2sm0")]
+material = SubResource("ShaderMaterial_vtxwn")
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 480.0
+offset_top = 180.0
+offset_right = 548.0
+offset_bottom = 238.0
+grow_horizontal = 1
+grow_vertical = 1
+rotation = 3.1415927
+scale = Vector2(0.5, 0.5)
+pivot_offset = Vector2(12.5, 12)
+
+[node name="leftArrow" parent="." instance=ExtResource("1_d2sm0")]
+material = SubResource("ShaderMaterial_vtxwn")
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_top = 160.0
+offset_right = 68.0
+offset_bottom = 218.0
+scale = Vector2(0.5, 0.5)
+pivot_offset = Vector2(-38, -22)
+
+[node name="practiceArrow" parent="." instance=ExtResource("1_d2sm0")]
+modulate = Color(1, 0, 0, 1)
+material = SubResource("ShaderMaterial_vtxwn")
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 180.0
+offset_top = 178.0
+offset_right = 248.0
+offset_bottom = 236.0
+rotation = -1.5707964
+scale = Vector2(0.5, 0.5)

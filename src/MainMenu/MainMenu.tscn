@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://cre5l5kp4b0lu"]
+[gd_scene load_steps=34 format=3 uid="uid://cre5l5kp4b0lu"]
 
 [ext_resource type="Texture2D" uid="uid://b21mnu2f4lbk8" path="res://src/MainMenu/MenuBg.png" id="1_cttlv"]
 [ext_resource type="Script" uid="uid://2k0roc3i7bmg" path="res://src/MainMenu/MainMenu.cs" id="1_e1bcd"]
@@ -21,6 +21,7 @@
 [ext_resource type="PackedScene" uid="uid://drp2bbdfbpisl" path="res://src/MainMenu/Popup/BackupHelp.tscn" id="19_hgdfc"]
 [ext_resource type="PackedScene" uid="uid://bmp2m6xwbgqy5" path="res://src/MainMenu/Popup/Credits.tscn" id="20_nxksq"]
 [ext_resource type="PackedScene" uid="uid://dtb71bw3opbn0" path="res://src/MainMenu/Challenges/Challenges.tscn" id="21_hgdfc"]
+[ext_resource type="PackedScene" uid="uid://c07x7hiwyk7ih" path="res://src/BattleArena/inventorySlot.tscn" id="22_nxksq"]
 
 [sub_resource type="FontVariation" id="FontVariation_70h2t"]
 base_font = ExtResource("4_70h2t")
@@ -355,6 +356,103 @@ scenes = Dictionary[String, PackedScene]({
 "ChallengeMode": ExtResource("21_hgdfc")
 })
 metadata/_custom_type_script = "uid://c5ahmxs2w5th2"
+
+[node name="GridContainer" type="GridContainer" parent="."]
+z_index = 33
+layout_mode = 0
+theme_override_constants/h_separation = 0
+theme_override_constants/v_separation = 0
+columns = 6
+
+[node name="item1" parent="GridContainer" instance=ExtResource("22_nxksq")]
+layout_mode = 2
+
+[node name="item2" parent="GridContainer" instance=ExtResource("22_nxksq")]
+layout_mode = 2
+
+[node name="item3" parent="GridContainer" instance=ExtResource("22_nxksq")]
+layout_mode = 2
+
+[node name="item4" parent="GridContainer" instance=ExtResource("22_nxksq")]
+layout_mode = 2
+
+[node name="item5" parent="GridContainer" instance=ExtResource("22_nxksq")]
+layout_mode = 2
+
+[node name="item6" parent="GridContainer" instance=ExtResource("22_nxksq")]
+layout_mode = 2
+
+[node name="item7" parent="GridContainer" instance=ExtResource("22_nxksq")]
+layout_mode = 2
+
+[node name="item8" parent="GridContainer" instance=ExtResource("22_nxksq")]
+layout_mode = 2
+
+[node name="item9" parent="GridContainer" instance=ExtResource("22_nxksq")]
+layout_mode = 2
+
+[node name="item10" parent="GridContainer" instance=ExtResource("22_nxksq")]
+layout_mode = 2
+
+[node name="item11" parent="GridContainer" instance=ExtResource("22_nxksq")]
+layout_mode = 2
+
+[node name="item12" parent="GridContainer" instance=ExtResource("22_nxksq")]
+layout_mode = 2
+
+[node name="item13" parent="GridContainer" instance=ExtResource("22_nxksq")]
+layout_mode = 2
+
+[node name="item14" parent="GridContainer" instance=ExtResource("22_nxksq")]
+layout_mode = 2
+
+[node name="item15" parent="GridContainer" instance=ExtResource("22_nxksq")]
+layout_mode = 2
+
+[node name="item16" parent="GridContainer" instance=ExtResource("22_nxksq")]
+layout_mode = 2
+
+[node name="item17" parent="GridContainer" instance=ExtResource("22_nxksq")]
+layout_mode = 2
+
+[node name="item18" parent="GridContainer" instance=ExtResource("22_nxksq")]
+layout_mode = 2
+
+[node name="item19" parent="GridContainer" instance=ExtResource("22_nxksq")]
+layout_mode = 2
+
+[node name="item20" parent="GridContainer" instance=ExtResource("22_nxksq")]
+layout_mode = 2
+
+[node name="item21" parent="GridContainer" instance=ExtResource("22_nxksq")]
+layout_mode = 2
+
+[node name="item22" parent="GridContainer" instance=ExtResource("22_nxksq")]
+layout_mode = 2
+
+[node name="item23" parent="GridContainer" instance=ExtResource("22_nxksq")]
+layout_mode = 2
+
+[node name="item24" parent="GridContainer" instance=ExtResource("22_nxksq")]
+layout_mode = 2
+
+[node name="item25" parent="GridContainer" instance=ExtResource("22_nxksq")]
+layout_mode = 2
+
+[node name="item26" parent="GridContainer" instance=ExtResource("22_nxksq")]
+layout_mode = 2
+
+[node name="item27" parent="GridContainer" instance=ExtResource("22_nxksq")]
+layout_mode = 2
+
+[node name="item28" parent="GridContainer" instance=ExtResource("22_nxksq")]
+layout_mode = 2
+
+[node name="item29" parent="GridContainer" instance=ExtResource("22_nxksq")]
+layout_mode = 2
+
+[node name="item30" parent="GridContainer" instance=ExtResource("22_nxksq")]
+layout_mode = 2
 
 [editable path="Buttons/SaveFileContainer/SaveButton1"]
 [editable path="Buttons/SaveFileContainer/SaveButton2"]

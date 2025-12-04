@@ -21,8 +21,13 @@ run/vsync/vsync_mode=1
 window/size/viewport_width=650
 window/size/viewport_height=650
 window/energy_saving/keep_screen_on=false
-window/stretch/mode="canvas_items"
+window/stretch/mode="viewport"
 display_server/driver.linuxbsd="wayland"
+window/dynamic_fonts/use_oversampling=true
+window/quality/use_taa=false
+window/quality/screen_space_aa=0
+window/quality/msaa_3d=0
+window/quality/msaa_2d=0
 
 [dotnet]
 
@@ -38,6 +43,7 @@ arena=""
 
 [gui]
 
+timers/tooltip_delay_sec=0.0
 theme/default_font_multichannel_signed_distance_field=true
 theme/default_font_generate_mipmaps=true
 
@@ -131,6 +137,9 @@ ArenaW={
 
 [rendering]
 
-textures/canvas_textures/default_texture_filter=2
+renderer/rendering_method="gl_compatibility"
+anti_aliasing/quality/msaa_2d=3
+anti_aliasing/quality/msaa_3d=3
 textures/decals/filter=1
 textures/light_projectors/filter=1
+2d/snap/snap_2d_transforms_to_pixel=true

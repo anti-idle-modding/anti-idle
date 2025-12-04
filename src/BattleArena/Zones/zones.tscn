@@ -1,60 +1,93 @@
-[gd_scene load_steps=8 format=3 uid="uid://bio8gvow2fvux"]
+[gd_scene load_steps=7 format=3 uid="uid://bio8gvow2fvux"]
 
-[ext_resource type="Script" uid="uid://ctr03sng5356q" path="res://src/BattleArena/Zones/YeOldePub/YeOldePub.cs" id="1_avxiv"]
-[ext_resource type="Texture2D" uid="uid://d0ekivc6u6plm" path="res://src/BattleArena/textures/instance11.png" id="1_qxhvn"]
-[ext_resource type="Texture2D" uid="uid://bj854ptqxgoq4" path="res://src/BattleArena/textures/instance13.png" id="2_fwojm"]
-[ext_resource type="Texture2D" uid="uid://34adbxpxcve1" path="res://src/BattleArena/textures/instance17.png" id="3_wlhx2"]
-[ext_resource type="Texture2D" uid="uid://b2bsk2ic6xllc" path="res://src/BattleArena/textures/instance20.png" id="4_vi6hu"]
-[ext_resource type="Texture2D" uid="uid://c0mh2amemjdy1" path="res://src/BattleArena/textures/instance21.png" id="5_4tkhs"]
-[ext_resource type="Texture2D" uid="uid://sg2vypt5s1rx" path="res://src/BattleArena/textures/instance23.png" id="6_y4864"]
+[ext_resource type="Script" uid="uid://daihyuf0tss1i" path="res://src/BattleArena/Zones/Zones.cs" id="1_8b733"]
+[ext_resource type="Resource" uid="uid://dq67idr4by2qn" path="res://src/BattleArena/Zones/ye_olde_pub_meta.tres" id="2_2qfc7"]
+[ext_resource type="Resource" uid="uid://doflwcx3ragyv" path="res://src/BattleArena/Zones/training_zone_meta.tres" id="3_3pxip"]
 
-[node name="YeOldePub" type="Node2D"]
-script = ExtResource("1_avxiv")
+[sub_resource type="Animation" id="Animation_t1kyr"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("YeOldePub:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TrainingZone:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
-[node name="instance11" type="Sprite2D" parent="."]
-position = Vector2(250, 100)
-scale = Vector2(5.0023804, 5.0060883)
-texture = ExtResource("1_qxhvn")
+[sub_resource type="Animation" id="Animation_mx2fc"]
+resource_name = "default"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("YeOldePub:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.13333334),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TrainingZone:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.33333334),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
-[node name="instance12" type="Node2D" parent="."]
-position = Vector2(480, 180)
-rotation = -3.1415927
-scale = Vector2(0.5, 0.5)
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_r8xk5"]
+_data = {
+&"RESET": SubResource("Animation_t1kyr"),
+&"default": SubResource("Animation_mx2fc")
+}
 
-[node name="instance13" type="Sprite2D" parent="instance12"]
-texture = ExtResource("2_fwojm")
+[node name="Zones" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_8b733")
+YeOldePubMeta = ExtResource("2_2qfc7")
+TrainingZoneMeta = ExtResource("3_3pxip")
+metadata/_custom_type_script = "uid://c5ahmxs2w5th2"
+metadata/Sprite = "3877"
 
-[node name="instance14" type="Node2D" parent="."]
-position = Vector2(480, 140)
-rotation = -3.1415927
-scale = Vector2(0.5, 0.5)
+[node name="YeOldePub" parent="." instance_placeholder="res://src/BattleArena/Zones/ye_olde_pub.tscn"]
+unique_name_in_owner = true
 
-[node name="instance15" type="Sprite2D" parent="instance14"]
-texture = ExtResource("2_fwojm")
+[node name="TrainingZone" parent="." instance_placeholder="res://src/BattleArena/Zones/training_zone.tscn"]
+unique_name_in_owner = true
+visible = true
 
-[node name="instance16" type="Node2D" parent="."]
-position = Vector2(225, 65)
-
-[node name="instance17" type="Sprite2D" parent="instance16"]
-position = Vector2(27, 30)
-texture = ExtResource("3_wlhx2")
-
-[node name="instance19" type="Node2D" parent="."]
-position = Vector2(150, 20)
-scale = Vector2(0.9, 2.5)
-
-[node name="instance20" type="Sprite2D" parent="instance19"]
-position = Vector2(25, 10)
-texture = ExtResource("4_vi6hu")
-
-[node name="instance21" type="Sprite2D" parent="instance19"]
-position = Vector2(25, 10)
-scale = Vector2(1.25, 0.5)
-texture = ExtResource("5_4tkhs")
-
-[node name="instance22" type="Node2D" parent="."]
-position = Vector2(385, 65)
-
-[node name="instance23" type="Sprite2D" parent="instance22"]
-position = Vector2(27, 30)
-texture = ExtResource("6_y4864")
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+active = false
+libraries = {
+&"": SubResource("AnimationLibrary_r8xk5")
+}
+autoplay = "default"
+playback_auto_capture = false
+speed_scale = 0.0

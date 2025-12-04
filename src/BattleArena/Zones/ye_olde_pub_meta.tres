@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="ZoneResource" load_steps=3 format=3 uid="uid://dq67idr4by2qn"]
+
+[ext_resource type="PackedScene" uid="uid://cm0w4yjday13j" path="res://src/BattleArena/Zones/ye_olde_pub.tscn" id="1_yocrh"]
+[ext_resource type="Script" uid="uid://dn687xn4jx5l6" path="res://src/BattleArena/Zones/ZoneResource.cs" id="2_vb1j2"]
+
+[resource]
+script = ExtResource("2_vb1j2")
+FrameNumber = 1
+Zone = ExtResource("1_yocrh")
+metadata/_custom_type_script = "uid://dn687xn4jx5l6"
