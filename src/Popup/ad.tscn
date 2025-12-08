@@ -1,0 +1,29 @@
+[gd_scene load_steps=6 format=3 uid="uid://blx7hv0dogyf4"]
+
+[ext_resource type="Script" uid="uid://boaexmkmk3bds" path="res://src/Popup/Ad.cs" id="1_jdhrd"]
+[ext_resource type="PackedScene" uid="uid://dj83ygamwf08t" path="res://src/Popup/info_popup_bg_red.tscn" id="2_fp31c"]
+[ext_resource type="PackedScene" uid="uid://0471sybahus2" path="res://src/Popup/popup_info_blue.tscn" id="3_fp31c"]
+[ext_resource type="Script" uid="uid://f2q0x7gnypdi" path="res://src/Popup/TooltipRed.cs" id="3_gsbw2"]
+[ext_resource type="Script" uid="uid://dlgjqu34e2liw" path="res://src/Popup/TooltipBlueUsage.cs" id="5_f5jmh"]
+
+[node name="ad" type="HBoxContainer" node_paths=PackedStringArray("infoPopupRed", "infoPopupBlue")]
+offset_left = -191.0
+offset_right = 137.0
+offset_bottom = 17.0
+size_flags_horizontal = 2
+size_flags_vertical = 2
+theme_override_constants/separation = 1
+script = ExtResource("1_jdhrd")
+TooltipRedPackedScene = ExtResource("2_fp31c")
+PopupInfoBluePackedScene = ExtResource("3_fp31c")
+infoPopupRed = NodePath("ToolTipRed")
+infoPopupBlue = NodePath("TooltipBlue")
+
+[node name="ToolTipRed" parent="." instance=ExtResource("2_fp31c")]
+texture_filter = 0
+layout_mode = 2
+script = ExtResource("3_gsbw2")
+
+[node name="TooltipBlue" parent="." instance=ExtResource("3_fp31c")]
+layout_mode = 2
+script = ExtResource("5_f5jmh")

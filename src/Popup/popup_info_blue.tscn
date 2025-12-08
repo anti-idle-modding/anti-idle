@@ -1,0 +1,38 @@
+[gd_scene load_steps=5 format=3 uid="uid://0471sybahus2"]
+
+[ext_resource type="StyleBox" uid="uid://0yk8egxc5jcb" path="res://src/Popup/popup_info_bg_blue.tres" id="1_otv48"]
+[ext_resource type="Script" uid="uid://evna2ay6wym2" path="res://src/Popup/PopupInfoBlue.cs" id="2_mebyp"]
+[ext_resource type="FontFile" uid="uid://undd4htvlr06" path="res://common_assets/fonts/PF Tempesta Seven_893.ttf" id="3_gbrth"]
+[ext_resource type="FontFile" uid="uid://qs8fgfyxuiho" path="res://common_assets/fonts/PF Tempesta Seven Bold_131.ttf" id="4_86ana"]
+
+[node name="PopupTooltipBlue" type="PanelContainer" node_paths=PackedStringArray("TextBox")]
+custom_minimum_size = Vector2(190, 26)
+offset_right = 190.0
+offset_bottom = 14.0
+size_flags_vertical = 0
+theme_override_styles/panel = ExtResource("1_otv48")
+script = ExtResource("2_mebyp")
+TextBox = NodePath("description")
+
+[node name="description" type="RichTextLabel" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_constants/line_separation = 3
+theme_override_constants/shadow_outline_size = 0
+theme_override_constants/outline_size = 0
+theme_override_constants/text_highlight_h_padding = 0
+theme_override_constants/text_highlight_v_padding = 0
+theme_override_fonts/normal_font = ExtResource("3_gbrth")
+theme_override_fonts/bold_font = ExtResource("4_86ana")
+theme_override_font_sizes/normal_font_size = 8
+theme_override_font_sizes/bold_font_size = 8
+theme_override_font_sizes/bold_italics_font_size = 8
+theme_override_font_sizes/italics_font_size = 8
+theme_override_font_sizes/mono_font_size = 8
+bbcode_enabled = true
+text = "Blah"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+horizontal_alignment = 1

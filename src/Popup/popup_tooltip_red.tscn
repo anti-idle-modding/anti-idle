@@ -1,0 +1,25 @@
+[gd_scene load_steps=2 format=3 uid="uid://b1tm4mlfm1kvm"]
+
+[ext_resource type="StyleBox" uid="uid://cu7p00nuxrco0" path="res://src/Popup/popup_info_bg_red.tres" id="1_i1rb7"]
+
+[node name="PopupTooltipRed" type="PanelContainer"]
+texture_filter = 1
+custom_minimum_size = Vector2(24, 8)
+offset_right = 24.0
+offset_bottom = 8.0
+size_flags_horizontal = 2
+size_flags_vertical = 2
+theme_override_styles/panel = ExtResource("1_i1rb7")
+
+[node name="description" type="RichTextLabel" parent="."]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 10
+theme_override_font_sizes/bold_font_size = 10
+theme_override_font_sizes/bold_italics_font_size = 10
+theme_override_font_sizes/italics_font_size = 10
+theme_override_font_sizes/mono_font_size = 10
+bbcode_enabled = true
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+horizontal_alignment = 1
