@@ -79,6 +79,8 @@ public partial class BottomStats : Control
     {
         if (@event is InputEventMouseButton mouseEvent)
         {
+            _root._xmouse = mouseEvent.Position.X;
+            _root._ymouse = mouseEvent.Position.Y;
             if (mouseEvent.ButtonIndex == MouseButton.Left)
             {
                 if (mouseEvent.Pressed)

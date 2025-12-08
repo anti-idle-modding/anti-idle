@@ -4,11 +4,17 @@ namespace AntiIdle.Common.Nodes;
 
 public partial class BackButton : FlashButton
 {
+    public override void _Ready()
+    {
+        MouseEntered += onMouseEntered;
+        MouseExited += OnMouseExited;
+    }
+
     // MATCH: frame_13-PlaceObject2_1602_3742-CLIPACTIONRECORD on(dragOver,rollOver).as
     private void onMouseEntered()
     {
         _root.actiondescription =
-            "<b><font color=\'#FFFF00\'>Back to Menu</font></b>\nGo back to the main menu.";
+            "[b][color=#FFFF00]Back to Menu[/color][/b]\nGo back to the main menu.";
     }
 
     // MATCH: frame_13-PlaceObject2_1602_3742-CLIPACTIONRECORD on(rollOut,dragOut).as

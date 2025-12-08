@@ -16,6 +16,11 @@ config/features=PackedStringArray("4.5", "C#", "Forward Plus")
 config/icon="res://icon.svg"
 run/vsync/vsync_mode=1
 
+[autoload]
+
+InfoPopup="*res://src/Popup/info_popup.tscn"
+MouseListener="*res://src/MouseListener.tscn"
+
 [display]
 
 window/size/viewport_width=650
@@ -131,6 +136,7 @@ ArenaW={
 
 [rendering]
 
-textures/canvas_textures/default_texture_filter=2
+anti_aliasing/quality/msaa_2d=1
 textures/decals/filter=1
 textures/light_projectors/filter=1
+2d/snap/snap_2d_vertices_to_pixel=true

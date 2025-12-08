@@ -1,0 +1,34 @@
+[gd_scene load_steps=5 format=3 uid="uid://dj83ygamwf08t"]
+
+[ext_resource type="StyleBox" uid="uid://cu7p00nuxrco0" path="res://src/Popup/popup_info_bg_red.tres" id="1_0c0k8"]
+[ext_resource type="Script" uid="uid://cd8e7q338o5gg" path="res://src/Popup/InfoPopupBgRed.cs" id="2_mpbs0"]
+[ext_resource type="FontFile" uid="uid://dnrub80i462m7" path="res://common_assets/fonts/3185_PF Ronda Seven.ttf" id="3_w6uv5"]
+
+[sub_resource type="FontVariation" id="FontVariation_awpc2"]
+base_font = ExtResource("3_w6uv5")
+
+[node name="ToolTipRed" type="PanelContainer"]
+texture_filter = 1
+custom_minimum_size = Vector2(190, 8)
+offset_right = 25.0
+offset_bottom = 40.0
+size_flags_horizontal = 3
+size_flags_vertical = 0
+theme_override_styles/panel = ExtResource("1_0c0k8")
+script = ExtResource("2_mpbs0")
+
+[node name="description" type="RichTextLabel" parent="."]
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("3_w6uv5")
+theme_override_fonts/bold_font = SubResource("FontVariation_awpc2")
+theme_override_font_sizes/normal_font_size = 10
+theme_override_font_sizes/bold_font_size = 10
+theme_override_font_sizes/bold_italics_font_size = 10
+theme_override_font_sizes/italics_font_size = 10
+theme_override_font_sizes/mono_font_size = 10
+bbcode_enabled = true
+text = "Blah"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+horizontal_alignment = 1

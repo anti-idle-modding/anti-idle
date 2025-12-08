@@ -336,6 +336,8 @@ public class Root
     public int fps = 40;
     public double fpsnoround { get; set; }
     public bool isMouseDown { get; set; }
+    public float _xmouse { get; set; }
+    public float _ymouse { get; set; }
 
     // TODO: make this load from save (aka do the SharedObject functions)
     public GlobalSetting globalSetting = new();
@@ -583,7 +585,8 @@ public class Root
     public double achViewType = 2;
     public double achViewPage = 1;
     public string achMode = "All";
-    public string actiondescription = "";
+    public string actiondescription { get; set; } = "";
+    public string actiondescription2 { get; set; } = "";
 
     // battle arena 6014
     public double abilIncEquipAttack { get; set; }

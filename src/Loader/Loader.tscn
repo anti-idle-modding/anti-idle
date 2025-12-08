@@ -7,6 +7,7 @@
 [ext_resource type="Script" uid="uid://ddqctysdkgjny" path="res://src/Loader/LoadingBar.cs" id="5_cd1m6"]
 
 [node name="Loader" type="Node2D"]
+visible = false
 script = ExtResource("1_2blfs")
 
 [node name="Bg" type="ColorRect" parent="."]
