@@ -5,6 +5,7 @@ using OneOf.Types;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 using Math = AntiIdle.Common.Flash.Math;
 
+// MATCH: DefineSprite_10348-frame_1-DoAction.as
 public partial class InfoPopup : Control
 {
     public float adX { get; set; }
@@ -48,6 +49,7 @@ public partial class InfoPopup : Control
         }
     }
 
+    // MATCH: DefineSprite_10348-frame_1-DoAction.as:checkMouse()
     public void checkMouse()
     {
         tX = (float)Math.round(_root._xmouse);
@@ -66,6 +68,7 @@ public partial class InfoPopup : Control
         }
     }
 
+    // MATCH: DefineSprite_10348-frame_1-DoAction.as:checkDesc()
     public void checkDesc()
     {
         if (_root.actiondescription2 == "")
