@@ -51,31 +51,26 @@ public partial class Ad : HBoxContainer
     public void gotoAndStop(int frame)
     {
         _currentframe = frame;
-        infoPopupBlue?.QueueFree();
-        infoPopupRed?.QueueFree();
-        //return;
         if (frame == 1)
         {
-            infoPopupRed = TooltipRedPackedScene.Instantiate<TooltipRed>();
-            infoPopupBlue = PopupInfoBluePackedScene.Instantiate<PopupInfoBlue>();
-            AddChild(infoPopupBlue);
-            AddChild(infoPopupRed);
-            //infoPopupRed.Visible = true;
-            //infoPopupRed.ProcessMode = ProcessModeEnum.Inherit;
-            //infoPopupBlue.Visible = true;
-            //infoPopupBlue.ProcessMode = ProcessModeEnum.Inherit;
-        }
-        if (frame == 2)
-        {
-            infoPopupBlue = PopupInfoBluePackedScene.Instantiate<PopupInfoBlue>();
-            infoPopupBlue.ZIndex = 999;
+            infoPopupRed.Visible = true;
+            infoPopupRed.ProcessMode = ProcessModeEnum.Inherit;
             infoPopupBlue.Visible = true;
-            AddChild(infoPopupBlue);
+            infoPopupBlue.ProcessMode = ProcessModeEnum.Inherit;
         }
-        if (frame == 3)
+        else if (frame == 2)
         {
-            infoPopupBlue = null;
-            infoPopupRed = null;
+            infoPopupBlue.Visible = true;
+            infoPopupBlue.ProcessMode = ProcessModeEnum.Inherit;
+            infoPopupRed.Visible = false;
+            infoPopupRed.ProcessMode = ProcessModeEnum.Disabled;
+        }
+        else if (frame == 3)
+        {
+            infoPopupRed.Visible = false;
+            infoPopupRed.ProcessMode = ProcessModeEnum.Disabled;
+            infoPopupBlue.Visible = false;
+            infoPopupBlue.ProcessMode = ProcessModeEnum.Disabled;
         }
     }
 }
