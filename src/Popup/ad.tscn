@@ -21,9 +21,11 @@ infoPopupBlue = NodePath("TooltipBlue")
 
 [node name="ToolTipRed" parent="." instance=ExtResource("2_fp31c")]
 texture_filter = 0
+custom_minimum_size = Vector2(190, 20)
 layout_mode = 2
 script = ExtResource("3_gsbw2")
 
 [node name="TooltipBlue" parent="." instance=ExtResource("3_fp31c")]
+custom_minimum_size = Vector2(190, 20)
 layout_mode = 2
 script = ExtResource("5_f5jmh")

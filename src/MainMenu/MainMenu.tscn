@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://cre5l5kp4b0lu"]
+[gd_scene load_steps=33 format=3 uid="uid://cre5l5kp4b0lu"]
 
 [ext_resource type="Texture2D" uid="uid://b21mnu2f4lbk8" path="res://src/MainMenu/MenuBg.png" id="1_cttlv"]
 [ext_resource type="Script" uid="uid://2k0roc3i7bmg" path="res://src/MainMenu/MainMenu.cs" id="1_e1bcd"]
@@ -21,7 +21,6 @@
 [ext_resource type="PackedScene" uid="uid://drp2bbdfbpisl" path="res://src/MainMenu/Popup/BackupHelp.tscn" id="19_hgdfc"]
 [ext_resource type="PackedScene" uid="uid://bmp2m6xwbgqy5" path="res://src/MainMenu/Popup/Credits.tscn" id="20_nxksq"]
 [ext_resource type="PackedScene" uid="uid://dtb71bw3opbn0" path="res://src/MainMenu/Challenges/Challenges.tscn" id="21_hgdfc"]
-[ext_resource type="PackedScene" uid="uid://0471sybahus2" path="res://src/Popup/popup_info_blue.tscn" id="22_nxksq"]
 
 [sub_resource type="FontVariation" id="FontVariation_70h2t"]
 base_font = ExtResource("4_70h2t")
@@ -356,13 +355,6 @@ scenes = Dictionary[String, PackedScene]({
 "ChallengeMode": ExtResource("21_hgdfc")
 })
 metadata/_custom_type_script = "uid://c5ahmxs2w5th2"
-
-[node name="PopupTooltipBlue" parent="." instance=ExtResource("22_nxksq")]
-layout_mode = 0
-offset_left = 17.0
-offset_top = 64.0
-offset_right = 154.0
-offset_bottom = 90.0
 
 [editable path="Buttons/SaveFileContainer/SaveButton1"]
 [editable path="Buttons/SaveFileContainer/SaveButton2"]
