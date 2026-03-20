@@ -15698,7 +15698,6 @@ public class Root
     // MATCH: frame_11-DoAction.as:selectSavefile()
     public void selectSavefile(double sid)
     {
-        GD.Print(sid);
         if (sid <= 4)
         {
             _root.saveid = sid;
@@ -16823,7 +16822,6 @@ public class Root
         var titleColor = c(
             (uint)(_root.save.titlered * 65536 + _root.save.titlegreen * 256 + _root.save.titleblue)
         );
-        GD.Print(_root.topBar.titleText);
         if (_root.topBar.titleText.LabelSettings.FontColor != titleColor)
         {
             _root.topBar.nameText.LabelSettings.FontColor = titleColor;
