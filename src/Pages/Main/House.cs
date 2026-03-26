@@ -8,6 +8,6 @@ public partial class House : SceneManager
 
     public override void _EnterTree()
     {
-        Show("BattleArena");
+        Show("ButtonMachine");
     }
 }

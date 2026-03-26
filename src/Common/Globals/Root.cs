@@ -41,6 +41,10 @@ public class Root
     public Mini5 mini5 = null!;
     public DailyBonusButton dailyBonusButton { get; set; } = null!;
 
+    // Button
+    public double buttonLife;
+    public double buttonScore;
+
     public double updateFightStatB;
     public string fightStat = null!;
     public string fightStat2 = null!;

@@ -1,0 +1,69 @@
+[gd_scene format=3 uid="uid://bh0mxmvn7arjl"]
+
+[ext_resource type="Script" uid="uid://bl3rpgkqknbk7" path="res://src/Common/Nodes/SceneData.cs" id="1_djjqy"]
+[ext_resource type="FontFile" uid="uid://3dxbxmcgb55k" path="res://common_assets/fonts/pf_tempesta_seven/pf_tempesta_seven_bold.ttf" id="2_nxog8"]
+[ext_resource type="FontFile" uid="uid://bheu13kn5uvy1" path="res://common_assets/fonts/pf_tempesta_seven/pf_tempesta_seven.ttf" id="3_a01rp"]
+[ext_resource type="Script" uid="uid://dnebbd7gbgsfl" path="res://src/ButtonMachine/RepairButton.cs" id="4_npp6d"]
+
+[node name="ButtonMachine" type="Control" unique_id=1582866049]
+layout_mode = 3
+anchors_preset = 0
+mouse_filter = 2
+script = ExtResource("1_djjqy")
+metadata/_custom_type_script = "uid://bl3rpgkqknbk7"
+
+[node name="Background" type="ColorRect" parent="." unique_id=1367919680]
+layout_mode = 0
+offset_right = 500.0
+offset_bottom = 350.0
+size_flags_vertical = 3
+color = Color(0.2, 0.2, 0.2, 1)
+
+[node name="Title" type="Label" parent="." unique_id=755305926]
+layout_mode = 0
+offset_top = 11.0
+offset_right = 500.0
+offset_bottom = 44.0
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0.4, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 0
+theme_override_constants/shadow_outline_size = 5
+theme_override_fonts/font = ExtResource("2_nxog8")
+theme_override_font_sizes/font_size = 20
+text = "Button Machine"
+horizontal_alignment = 1
+
+[node name="Description" type="Label" parent="." unique_id=1366563886]
+layout_mode = 0
+offset_top = 41.0
+offset_right = 500.0
+offset_bottom = 74.0
+theme_override_colors/font_color = Color(0.6, 0.6, 0.6, 1)
+theme_override_constants/line_spacing = 2
+theme_override_fonts/font = ExtResource("3_a01rp")
+theme_override_font_sizes/font_size = 8
+text = "- a.k.a a badly designed button that was stolen directly from a crappy game
+in the Latest Games section."
+horizontal_alignment = 1
+
+[node name="Button" type="Button" parent="." unique_id=1982849177 node_paths=PackedStringArray("repairText")]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 320.0
+offset_right = 155.0
+offset_bottom = 345.0
+mouse_default_cursor_shape = 2
+theme_override_fonts/font = ExtResource("3_a01rp")
+theme_override_font_sizes/font_size = 10
+text = "Repair"
+script = ExtResource("4_npp6d")
+repairText = NodePath("../repairText")
+
+[node name="repairText" type="Label" parent="." unique_id=1036886820]
+layout_mode = 0
+offset_left = 163.0
+offset_top = 321.0
+offset_right = 203.0
+offset_bottom = 344.0
+text = "-2,000,000"
