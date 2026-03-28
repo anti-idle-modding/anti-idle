@@ -4,6 +4,8 @@
 [ext_resource type="PackedScene" uid="uid://xp2ssc00cfow" path="res://src/BattleArena/BattleArena.tscn" id="2_qbml2"]
 [ext_resource type="PackedScene" uid="uid://bh0mxmvn7arjl" path="res://src/ButtonMachine/ButtonMachine.tscn" id="3_f448l"]
 [ext_resource type="PackedScene" uid="uid://c2noe6pd4tw2" path="res://src/Feature/FeatureMenu/FeatureMenu.tscn" id="3_qbml2"]
+[ext_resource type="PackedScene" uid="uid://bfv4a2w06mv1x" path="res://src/Fishing/Fishing.tscn" id="4_foj2i"]
+[ext_resource type="Script" uid="uid://86kb8f5bpoay" path="res://src/Feature/Switcher.cs" id="5_bq58a"]
 
 [node name="FeatureContainer" type="Control" unique_id=1607928116]
 custom_minimum_size = Vector2(500, 350)
@@ -19,27 +21,6 @@ offset_bottom = -3.19
 size_flags_horizontal = 0
 size_flags_vertical = 0
 
-[node name="SubViewportContainer" type="SubViewportContainer" parent="." unique_id=388606701]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="SubViewport" type="SubViewport" parent="SubViewportContainer" unique_id=690027931]
-handle_input_locally = false
-size = Vector2i(500, 350)
-render_target_update_mode = 4
-
-[node name="House" type="Control" parent="SubViewportContainer/SubViewport" unique_id=52135336]
-physics_interpolation_mode = 0
-layout_mode = 3
-anchors_preset = 0
-script = ExtResource("1_3rxla")
-scenes = Dictionary[String, PackedScene]({
-"BattleArena": ExtResource("2_qbml2"),
-"ButtonMachine": ExtResource("3_f448l")
-})
-metadata/_custom_type_script = "uid://c5ahmxs2w5th2"
-
 [node name="ReferenceRect" type="ReferenceRect" parent="." unique_id=1034626901]
 layout_mode = 1
 anchors_preset = 15
@@ -51,8 +32,52 @@ mouse_filter = 2
 border_color = Color(0, 0, 0, 1)
 editor_only = false
 
+[node name="House" type="Control" parent="ReferenceRect" unique_id=52135336]
+physics_interpolation_mode = 0
+anchors_preset = 0
+script = ExtResource("1_3rxla")
+scenes = Dictionary[String, PackedScene]({
+"BattleArena": ExtResource("2_qbml2"),
+"ButtonMachine": ExtResource("3_f448l"),
+"Fishing": ExtResource("4_foj2i")
+})
+metadata/_custom_type_script = "uid://c5ahmxs2w5th2"
+
 [node name="FeatureMenu" parent="." unique_id=1644650280 instance=ExtResource("3_qbml2")]
 layout_mode = 0
 offset_left = 400.0
 offset_right = 500.0
 offset_bottom = 25.0
+
+[node name="Button2" type="Button" parent="." unique_id=807597842 node_paths=PackedStringArray("house")]
+layout_mode = 0
+offset_left = 1.0
+offset_top = -32.9
+offset_right = 133.0
+offset_bottom = -1.9000015
+text = "battle arena"
+script = ExtResource("5_bq58a")
+house = NodePath("../ReferenceRect/House")
+scene = "BattleArena"
+
+[node name="Button" type="Button" parent="." unique_id=1303065664 node_paths=PackedStringArray("house")]
+layout_mode = 0
+offset_left = 134.0
+offset_top = -32.9
+offset_right = 266.0
+offset_bottom = -1.9000015
+text = "button machine"
+script = ExtResource("5_bq58a")
+house = NodePath("../ReferenceRect/House")
+scene = "ButtonMachine"
+
+[node name="Button3" type="Button" parent="." unique_id=17375925 node_paths=PackedStringArray("house")]
+layout_mode = 0
+offset_left = 268.0
+offset_top = -31.900002
+offset_right = 400.0
+offset_bottom = -0.9000015
+text = "fishing"
+script = ExtResource("5_bq58a")
+house = NodePath("../ReferenceRect/House")
+scene = "Fishing"

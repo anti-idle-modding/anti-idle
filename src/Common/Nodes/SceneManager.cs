@@ -13,7 +13,7 @@ public partial class SceneManager : Control
     /// The currently loaded scene.
     /// Only one scene can be active at a time.
     /// </summary>
-    SceneData current;
+    private SceneData current;
 #pragma warning disable IDE1006 // Naming Styles
     public int? _currentFrame => (int?)current.GetMeta("Frame");
 #pragma warning restore IDE1006 // Naming Styles
@@ -40,17 +40,16 @@ public partial class SceneManager : Control
     public void Show(string sceneName)
     {
         if (!scenes.TryGetValue(sceneName, out var packedScene))
-        {
             GD.PrintErr(
                 $"Tried to load scene {sceneName}, but no such scene was found. Currently managed scenes: {string.Join(", ", scenes)}"
             );
-        }
         // If a scene is loadable (contains some SceneData)
         // we can manage it.
         // A SceneData is a simple data wrapper describing the scene,
         // and giving it a name, for use with SceneManager methods.
         if (packedScene.Instantiate() is SceneData sceneData)
         {
+            Unload();
             current = sceneData;
             sceneData.m = this;
             AddChild(current);
@@ -67,9 +66,7 @@ public partial class SceneManager : Control
     public void Unload()
     {
         if (current == null)
-        {
             return;
-        }
         current.QueueFree();
         current = null;
     }
@@ -77,8 +74,6 @@ public partial class SceneManager : Control
     public override void _EnterTree()
     {
         if (defaultScene != null)
-        {
             Show(defaultScene);
-        }
     }
 }

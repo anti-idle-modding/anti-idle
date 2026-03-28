@@ -1,0 +1,92 @@
+[gd_scene format=3 uid="uid://bn8iag0lr321d"]
+
+[ext_resource type="FontFile" uid="uid://ctv7i5w3nqvcj" path="res://common_assets/fonts/I Hate Comic Sans Bold.ttf" id="1_b68uh"]
+
+[node name="FishingBar" type="Node2D" unique_id=197309817]
+
+[node name="Miss" type="Polygon2D" parent="." unique_id=863983120]
+visible = false
+color = Color(1, 0, 0, 0.5019608)
+polygon = PackedVector2Array(210, 0, 220, 20, 0, 20, 10, 0, 50.00537, 0)
+uv = PackedVector2Array(2.3333435, -34.666336, 25, 18.667, -202.33333, 23.333664, -167, -42.666336)
+
+[node name="Line2D" type="Line2D" parent="Miss" unique_id=147254500]
+visible = false
+points = PackedVector2Array(210, 0, 220, 20, 0, 20, 10, 0)
+closed = true
+width = 2.0
+default_color = Color(1, 0, 0, 1)
+joint_mode = 2
+antialiased = true
+
+[node name="Catch" type="Polygon2D" parent="." unique_id=1304005797]
+visible = false
+color = Color(0, 1, 0, 0.5019608)
+polygon = PackedVector2Array(210, 0, 220, 20, 0, 20, 10, 0, 50.00537, 0)
+uv = PackedVector2Array(2.3333435, -34.666336, 25, 18.667, -202.33333, 23.333664, -167, -42.666336)
+
+[node name="Line2D" type="Line2D" parent="Catch" unique_id=279327166]
+visible = false
+points = PackedVector2Array(210, 0, 220, 20, 0, 20, 10, 0)
+closed = true
+width = 2.0
+default_color = Color(0, 1, 0, 1)
+joint_mode = 2
+antialiased = true
+
+[node name="Perfect" type="Polygon2D" parent="." unique_id=1807336820]
+visible = false
+color = Color(1, 1, 0, 0.5019608)
+polygon = PackedVector2Array(210, 0, 220, 20, 0, 20, 10, 0, 50.00537, 0)
+uv = PackedVector2Array(2.3333435, -34.666336, 25, 18.667, -202.33333, 23.333664, -167, -42.666336)
+
+[node name="Line2D" type="Line2D" parent="Perfect" unique_id=1950998982]
+visible = false
+points = PackedVector2Array(210, 0, 220, 20, 0, 20, 10, 0)
+closed = true
+width = 2.0
+default_color = Color(1, 1, 0, 1)
+joint_mode = 2
+antialiased = true
+
+[node name="Label" type="Label" parent="Perfect" unique_id=1996373395]
+visible = false
+offset_left = 10.0
+offset_top = -27.0
+offset_right = 210.0
+offset_bottom = 2.0
+theme_override_colors/font_color = Color(1, 1, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 0, 0.5058824)
+theme_override_fonts/font = ExtResource("1_b68uh")
+theme_override_font_sizes/font_size = 25
+text = "25x"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Guardian" type="Polygon2D" parent="." unique_id=2017555228]
+color = Color(1, 0, 1, 0.5019608)
+polygon = PackedVector2Array(210, 0, 220, 20, 0, 20, 10, 0, 50.00537, 0)
+uv = PackedVector2Array(2.3333435, -34.666336, 25, 18.667, -202.33333, 23.333664, -167, -42.666336)
+
+[node name="Line2D" type="Line2D" parent="Guardian" unique_id=1665167350]
+points = PackedVector2Array(210, 0, 220, 20, 0, 20, 10, 0)
+closed = true
+width = 2.0
+default_color = Color(1, 0, 1, 1)
+joint_mode = 2
+antialiased = true
+
+[node name="Label" type="Label" parent="Guardian" unique_id=551414315]
+offset_left = 10.0
+offset_top = -27.0
+offset_right = 210.0
+offset_bottom = 2.0
+theme_override_colors/font_color = Color(1, 0, 1, 1)
+theme_override_colors/font_outline_color = Color(1, 0, 1, 0.5058824)
+theme_override_fonts/font = ExtResource("1_b68uh")
+theme_override_font_sizes/font_size = 25
+text = "25x"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true

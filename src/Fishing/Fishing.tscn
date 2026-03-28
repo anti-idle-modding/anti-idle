@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://bfv4a2w06mv1x"]
+
+[ext_resource type="Script" uid="uid://bl3rpgkqknbk7" path="res://src/Common/Nodes/SceneData.cs" id="1_5h1qx"]
+[ext_resource type="PackedScene" uid="uid://bn8iag0lr321d" path="res://src/Fishing/FishingBar.tscn" id="2_iadc3"]
+
+[node name="Fishing" type="Control" unique_id=605791556]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_5h1qx")
+metadata/_custom_type_script = "uid://bl3rpgkqknbk7"
+
+[node name="Label" type="Label" parent="." unique_id=1373204138]
+layout_mode = 0
+offset_right = 102.0
+offset_bottom = 30.0
+text = "fishinki"
+
+[node name="Container" type="Container" parent="." unique_id=84558672]
+layout_mode = 0
+offset_left = 50.0
+offset_top = 81.0
+offset_right = 90.0
+offset_bottom = 121.0
+
+[node name="FishingBar" parent="Container" unique_id=197309817 instance=ExtResource("2_iadc3")]
+position = Vector2(122, 100)
+
+[node name="RedBar" type="Polygon2D" parent="." unique_id=1591357168]
+position = Vector2(273, 300)
+color = Color(1, 0, 0, 0.5019608)
+polygon = PackedVector2Array(210, 0, 220, 20, 0, 20, 10, 0)
+uv = PackedVector2Array(2.3333435, -34.666336, 25, 18.667, -202.33333, 23.333664, -167, -42.666336)
+
+[node name="Line2D" type="Line2D" parent="RedBar" unique_id=475154092]
+points = PackedVector2Array(210, 0, 220, 20, 0, 20, 10, 0)
+closed = true
+width = 2.0
+default_color = Color(1, 0, 0, 1)
+joint_mode = 2
+antialiased = true
