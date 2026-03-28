@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://62irlqib6h3i"]
+
+[ext_resource type="Script" uid="uid://c42eye2kyfekh" path="res://src/Fishing/Pop/Perfect.cs" id="1_myjgx"]
+[ext_resource type="FontFile" uid="uid://ctv7i5w3nqvcj" path="res://common_assets/fonts/I Hate Comic Sans Bold.ttf" id="2_y8ubv"]
+
+[node name="Perfect" type="Control" unique_id=533282961 node_paths=PackedStringArray("streakDisp")]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_myjgx")
+streakDisp = NodePath("streakDisp")
+
+[node name="Perfect" type="Polygon2D" parent="." unique_id=409917880]
+color = Color(1, 1, 0, 0.5019608)
+polygon = PackedVector2Array(210, 0, 220, 20, 0, 20, 10, 0, 50.00537, 0)
+uv = PackedVector2Array(2.3333435, -34.666336, 25, 18.667, -202.33333, 23.333664, -167, -42.666336)
+
+[node name="Line2D" type="Line2D" parent="." unique_id=1868394041]
+points = PackedVector2Array(210, 0, 220, 20, 0, 20, 10, 0)
+closed = true
+width = 2.0
+default_color = Color(1, 1, 0, 1)
+joint_mode = 2
+antialiased = true
+
+[node name="streakDisp" type="Label" parent="." unique_id=1376003539]
+layout_mode = 0
+offset_left = 2.0
+offset_top = -27.0
+offset_right = 219.0
+offset_bottom = 2.0
+theme_override_colors/font_color = Color(1, 1, 0, 1)
+theme_override_fonts/font = ExtResource("2_y8ubv")
+theme_override_font_sizes/font_size = 25
+text = "25x"
+horizontal_alignment = 1

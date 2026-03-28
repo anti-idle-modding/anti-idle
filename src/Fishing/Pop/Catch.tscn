@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://curqlhvtkf8sr"]
+
+[ext_resource type="Script" uid="uid://cau33kn63c6uf" path="res://src/Fishing/Pop/Catch.cs" id="1_eq2rs"]
+
+[node name="Catch" type="Control" unique_id=2116951943]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_eq2rs")
+
+[node name="Catch" type="Polygon2D" parent="." unique_id=2021377548]
+color = Color(0, 1, 0, 0.5019608)
+polygon = PackedVector2Array(210, 0, 220, 20, 0, 20, 10, 0, 50.00537, 0)
+uv = PackedVector2Array(2.3333435, -34.666336, 25, 18.667, -202.33333, 23.333664, -167, -42.666336)
+
+[node name="Line2D" type="Line2D" parent="." unique_id=284179435]
+points = PackedVector2Array(210, 0, 220, 20, 0, 20, 10, 0)
+closed = true
+width = 2.0
+default_color = Color(0, 1, 0, 1)
+joint_mode = 2
+antialiased = true

@@ -45,6 +45,10 @@ public class Root
     public double buttonLife;
     public double buttonScore;
 
+    // Fishing
+    public double fishCurrent;
+    public double playerDist;
+
     public double updateFightStatB;
     public string fightStat = null!;
     public string fightStat2 = null!;

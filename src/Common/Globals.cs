@@ -35,6 +35,10 @@ public class Global
 public class Save
 {
     public bool tlttpSkin;
+
+    // Fishing
+    public double fishCurrent = 0;
+
     public double compatible = 4;
     public bool newbieSet3 = false;
     public double todayMMRX;
@@ -136,6 +140,7 @@ public class Save
     public double arenaEnhancerFragment = 0;
     public double arenaEvasion = 100;
     public double arenaEvent = 0;
+
     public FlashList<double> arenaEventKey = new([
         0,
         0,
@@ -159,6 +164,7 @@ public class Save
         0,
         0,
     ]);
+
     public FlashList<double> arenaEventPoint = new([
         0,
         0,
@@ -182,6 +188,7 @@ public class Save
         0,
         0,
     ]);
+
     public FlashList<bool> arenaEventReward = new();
     public double arenaExp = 0;
     public double arenaExpExcess = 0;
@@ -1144,6 +1151,7 @@ public class Save
     public double botExp = 0;
     public double botLevel = 1;
     public double botMaxTask = 0;
+
     public FlashList<double> botOp = new([
         0,
         0,
@@ -1167,10 +1175,12 @@ public class Save
         0,
         0,
     ]);
+
     public double botPill = 0;
     public double botPillCrafted = 0;
     public double botPillUsed = 0;
     public double botPoint = 1000;
+
     public FlashList<double> botTrain = new([
         0,
         0,
@@ -1194,6 +1204,7 @@ public class Save
         0,
         0,
     ]);
+
     public bool bouncyLoot = true;
     public double breakNewsMode = 1;
     public bool businessDisplay = false;
@@ -1215,6 +1226,7 @@ public class Save
     public double buttonPress = 0;
     public double buttonPressToday = 0;
     public double buttonPurple = 0;
+
     public FlashList<double> careerActive = new([
         0,
         0,
@@ -1234,6 +1246,7 @@ public class Save
         0,
         0,
     ]);
+
     public FlashList<double> careerBoost = new([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]);
     public FlashList<double> careerEXP = new([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]);
     public FlashList<double> careerLevel = new([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]);
@@ -1554,6 +1567,7 @@ public class Save
     ]);
 
     public double failproof = 0;
+
     public FlashList<double> fcgBuff = new([
         0,
         0,
@@ -1578,6 +1592,7 @@ public class Save
         0,
         0,
     ]);
+
     public double fcgCash = 1250;
     public FlashList<double> fcgChallenge5 = new([]);
     public double fcgCollection = 0;
@@ -1986,6 +2001,7 @@ public class Save
         0,
         0,
     ]);
+
     public double refund_relic = 0;
     public double fcgExp = 0;
     public double fcgExpTotal = 0;
@@ -2585,6 +2601,7 @@ public class Save
     public double fcgPack5 = 1;
     public double fcgPack5Cost = 0;
     public double fcgPlay = 0;
+
     public FlashList<bool> fcgPower = new([
         false,
         false,
@@ -2596,6 +2613,7 @@ public class Save
         false,
         false,
     ]);
+
     public bool fcgPowerActive = true;
     public bool fcgRandomDeck = false;
     public bool fcgReceiveChallenge = true;
@@ -3662,6 +3680,7 @@ public class Save
     public FlashList<double> lolDemand = new([0, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]);
     public FlashList<double> lolGems = new([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]);
     public double lolMaxProfit = 0;
+
     public FlashList<double> lolPrice = new([
         0,
         1500,
@@ -3675,6 +3694,7 @@ public class Save
         13500,
         15000,
     ]);
+
     public double lolProfit = 0;
     public FlashList<double> lolSpent = new([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]);
     public double longestQuit = 0;
@@ -3869,6 +3889,7 @@ public class Save
         0,
         0,
     ]);
+
     public double pokaystopCount = 0;
     public double powerUserTime = 0;
     public double printerCharge = 80;
@@ -5061,8 +5082,10 @@ public class Save
     public double questCount = 0;
     public double questCurrent = 1;
     public string questDescA = "Reach level";
+
     public string questDescB =
         "to unlock other quests. An alternative way is to forfeit this quest.";
+
     public double questDifficulty = 5;
     public string questFeature = "Main";
     public double questInstaToday = 0;

@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://bbkyd87wpyjmw"]
+
+[ext_resource type="Script" uid="uid://bl3rpgkqknbk7" path="res://src/Common/Nodes/SceneData.cs" id="1_12yx7"]
+
+[node name="Node2D" type="Control" unique_id=1904845475]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_12yx7")
+metadata/_custom_type_script = "uid://bl3rpgkqknbk7"

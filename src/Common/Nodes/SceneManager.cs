@@ -7,13 +7,14 @@ using Godot;
 namespace AntiIdle.Common.Nodes;
 
 [GlobalClass]
+[Tool]
 public partial class SceneManager : Control
 {
     /// <summary>
     /// The currently loaded scene.
     /// Only one scene can be active at a time.
     /// </summary>
-    private SceneData current;
+    private Node current;
 #pragma warning disable IDE1006 // Naming Styles
     public int? _currentFrame => (int?)current.GetMeta("Frame");
 #pragma warning restore IDE1006 // Naming Styles
@@ -31,7 +32,19 @@ public partial class SceneManager : Control
     /// will load this scene when it's dropped into the tree.
     /// </summary>
     [Export]
-    public string defaultScene;
+    public string defaultScene
+    {
+        get;
+        set
+        {
+            field = value;
+            if (Engine.IsEditorHint())
+            {
+                Unload();
+                Show(field);
+            }
+        }
+    }
 
     /// <summary>
     /// Shows one of this SceneManager's scenes.
@@ -40,24 +53,19 @@ public partial class SceneManager : Control
     public void Show(string sceneName)
     {
         if (!scenes.TryGetValue(sceneName, out var packedScene))
-            GD.PrintErr(
+        {
+            GD.PushWarning(
                 $"Tried to load scene {sceneName}, but no such scene was found. Currently managed scenes: {string.Join(", ", scenes)}"
             );
-        // If a scene is loadable (contains some SceneData)
-        // we can manage it.
-        // A SceneData is a simple data wrapper describing the scene,
-        // and giving it a name, for use with SceneManager methods.
-        if (packedScene.Instantiate() is SceneData sceneData)
-        {
-            Unload();
-            current = sceneData;
+            return;
+        }
+
+        var scene = packedScene.Instantiate();
+        if (scene is SceneData sceneData)
             sceneData.m = this;
-            AddChild(current);
-        }
-        else
-        {
-            GD.PrintErr($"Failed to instanciate {sceneName}. Make sure it's a SceneData node.");
-        }
+        Unload();
+        current = scene;
+        AddChild(current);
     }
 
     /// <summary>
@@ -73,7 +81,7 @@ public partial class SceneManager : Control
 
     public override void _EnterTree()
     {
-        if (defaultScene != null)
+        if (!Engine.IsEditorHint() && defaultScene != null)
             Show(defaultScene);
     }
 }
