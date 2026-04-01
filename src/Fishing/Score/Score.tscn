@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://y3srqcye43ru"]
+
+[ext_resource type="Script" uid="uid://dl2isxvr5mhg2" path="res://src/Fishing/Score/Score.cs" id="1_i8ghw"]
+
+[node name="Score" type="VBoxContainer" unique_id=1197336751 node_paths=PackedStringArray("todayText", "scoreText", "recordText", "skillText", "perfectText", "streakText")]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_i8ghw")
+todayText = NodePath("TodayText")
+scoreText = NodePath("ScoreText")
+recordText = NodePath("RecordText")
+skillText = NodePath("SkillText")
+perfectText = NodePath("PerfectText")
+streakText = NodePath("StreakText")
+
+[node name="TodayText" type="Label" parent="." unique_id=857431232]
+layout_mode = 2
+
+[node name="ScoreText" type="Label" parent="." unique_id=455514822]
+layout_mode = 2
+
+[node name="RecordText" type="Label" parent="." unique_id=1768117991]
+layout_mode = 2
+
+[node name="SkillText" type="Label" parent="." unique_id=2039797109]
+layout_mode = 2
+
+[node name="PerfectText" type="Label" parent="." unique_id=705873927]
+layout_mode = 2
+
+[node name="StreakText" type="Label" parent="." unique_id=703490720]
+layout_mode = 2

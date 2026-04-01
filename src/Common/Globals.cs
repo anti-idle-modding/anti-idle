@@ -5837,3 +5837,15 @@ public class PopContain
 {
     public void attachMovie(string name, string name2, double antilag, object o) { }
 }
+
+public static class Const
+{
+    /// <summary>
+    /// The old FPS Flash was running it. Needed for conversions sometimes.
+    /// Ideally should be phased out and the corresponding code refactored.
+    ///
+    /// Do not use this to replace _root.fps directly. (You might still need
+    /// this constant for calculations.)
+    /// </summary>
+    public static double OLD_FPS = 40;
+}

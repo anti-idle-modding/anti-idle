@@ -1,10 +1,12 @@
+using System;
+
 namespace AntiIdle.Common.Flash;
 
 public static class Math
 {
     public static double random()
     {
-        return 1;
+        return new Random().NextDouble();
     }
 
     public static double ceil(double number)

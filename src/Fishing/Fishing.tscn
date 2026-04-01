@@ -1,18 +1,32 @@
 [gd_scene format=3 uid="uid://bfv4a2w06mv1x"]
 
-[ext_resource type="Script" uid="uid://c8amnd8bqrhrd" path="res://src/Fishing/FishingScore.cs" id="1_iadc3"]
-[ext_resource type="PackedScene" uid="uid://bn8iag0lr321d" path="res://src/Fishing/FishingScore.tscn" id="2_iadc3"]
+[ext_resource type="Script" uid="uid://dsdos5ykii6t5" path="res://src/Fishing/Fishing.cs" id="1_iadc3"]
+[ext_resource type="PackedScene" uid="uid://4rawqu1hn03c" path="res://src/Fishing/Bar/FishingBar.tscn" id="2_iadc3"]
+[ext_resource type="PackedScene" uid="uid://y3srqcye43ru" path="res://src/Fishing/Score/Score.tscn" id="3_2ufwo"]
 
-[node name="Fishing" type="Control" unique_id=2114053251]
+[node name="Fishing" type="Control" unique_id=2114053251 node_paths=PackedStringArray("scoreDisp")]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("1_iadc3")
+scoreDisp = NodePath("Score")
 
-[node name="SceneData" parent="." unique_id=197491058 instance=ExtResource("2_iadc3")]
+[node name="FishingBar" parent="." unique_id=1603995083 instance=ExtResource("2_iadc3")]
 layout_mode = 0
-offset_left = 12.0
-offset_top = 3.0
-offset_right = 52.0
-offset_bottom = 43.0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 269.0
+offset_top = 317.0
+offset_right = 269.0
+offset_bottom = 317.0
+grow_horizontal = 1
+grow_vertical = 1
+
+[node name="Score" parent="." unique_id=1197336751 instance=ExtResource("3_2ufwo")]
+layout_mode = 1
+offset_left = 100.0
+offset_top = 34.0
+offset_right = 100.0
+offset_bottom = 152.0

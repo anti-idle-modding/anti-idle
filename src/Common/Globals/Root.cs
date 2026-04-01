@@ -12,6 +12,7 @@ using AntiIdle.Pages.Main;
 using AntiIdle.src.Common.Flash;
 using Godot;
 using Math = AntiIdle.Common.Flash.Math;
+
 #nullable enable
 
 namespace AntiIdle.Common.Globals;
@@ -19,7 +20,7 @@ namespace AntiIdle.Common.Globals;
 /// <summary>
 ///     The _root variable.
 ///     In AS2, this stores the root MovieClip, and it also has functions
-///     attached to it.
+///     atStached to it.
 /// </summary>
 [System.Diagnostics.CodeAnalysis.SuppressMessage(
     "Style",
@@ -48,6 +49,19 @@ public class Root
     // Fishing
     public double fishCurrent;
     public double playerDist;
+    public double fishDest;
+    public double fishCount;
+    public double fishElapsed;
+    public double playerLoc;
+    public double fishLoc;
+    public double fishSpeed;
+    public double fishCurrentExp;
+    public double fishCheerTime;
+    public double fishAExp;
+    public double fishFatigue;
+    public string fishSpec;
+    public string fishCate;
+    public string fishLev;
 
     public double updateFightStatB;
     public string fightStat = null!;
@@ -195,6 +209,7 @@ public class Root
     /// <see cref="EnemyData.allyActive3Z"/>
     /// </summary>
     public double allyCooldown3 { get; set; }
+
     public double gCheckDel { get; set; }
     public double arenaDelay { get; set; }
     public string arenaSkillSpec { get; set; } = null!;
@@ -1617,6 +1632,7 @@ public class Root
             {
                 ignoreNews = false;
             }
+
             // todo: the timecheck does not show, everything else does once Main is loaded
             // ignoreNews = false;
             if (ignoreNews == false)
@@ -1718,6 +1734,7 @@ public class Root
                         + _root.saveGlobal.breakG[type] * 256
                         + _root.saveGlobal.breakB[type];
                 }
+
                 _root.updateBreakNews = 1;
             }
         }
@@ -2712,18 +2729,19 @@ public class Root
             {
                 _root.mainSummonCount += 1;
                 _root.mainAntiLag += 1;
-                _root.popContain.attachMovie(
-                    "scorePopMain",
-                    "scorePopMain" + _root.mainSummonCount,
-                    _root.mainAntiLag,
-                    new
-                    {
-                        _x = 480,
-                        _y = 60,
-                        what = "+" + _root.withComma(Math.floor(amount * multiplier)),
-                        whatColor = 10092288,
-                    }
-                );
+                // TODO exp bar pop
+                // _root.popContain.attachMovie(
+                //     "scorePopMain",
+                //     "scorePopMain" + _root.mainSummonCount,
+                //     _root.mainAntiLag,
+                //     new
+                //     {
+                //         _x = 480,
+                //         _y = 60,
+                //         what = "+" + _root.withComma(Math.floor(amount * multiplier)),
+                //         whatColor = 10092288,
+                //     }
+                // );
             }
         }
     }
@@ -2954,18 +2972,18 @@ public class Root
             {
                 _root.mainSummonCount += 1;
                 _root.mainAntiLag += 1;
-                _root.popContain.attachMovie(
-                    "scorePopMain",
-                    "scorePopMain" + _root.mainSummonCount,
-                    _root.mainAntiLag,
-                    new
-                    {
-                        _x = 80,
-                        _y = 20,
-                        what = "+" + _root.withComma(Math.floor(amount * multiplier)),
-                        whatColor = 16776960,
-                    }
-                );
+                // _root.popContain.attachMovie(
+                //     "scorePopMain",
+                //     "scorePopMain" + _root.mainSummonCount,
+                //     _root.mainAntiLag,
+                //     new
+                //     {
+                //         _x = 80,
+                //         _y = 20,
+                //         what = "+" + _root.withComma(Math.floor(amount * multiplier)),
+                //         whatColor = 16776960,
+                //     }
+                // );
             }
         }
 
@@ -3137,18 +3155,18 @@ public class Root
             {
                 _root.mainSummonCount += 1;
                 _root.mainAntiLag += 1;
-                _root.popContain.attachMovie(
-                    "scorePopMain",
-                    "scorePopMain" + _root.mainSummonCount,
-                    _root.mainAntiLag,
-                    new
-                    {
-                        _x = 10,
-                        _y = 60,
-                        what = "+" + _root.withComma(Math.floor(amount * multiplier)),
-                        whatColor = 65280,
-                    }
-                );
+                // _root.popContain.attachMovie(
+                //     "scorePopMain",
+                //     "scorePopMain" + _root.mainSummonCount,
+                //     _root.mainAntiLag,
+                //     new
+                //     {
+                //         _x = 10,
+                //         _y = 60,
+                //         what = "+" + _root.withComma(Math.floor(amount * multiplier)),
+                //         whatColor = 65280,
+                //     }
+                // );
             }
         }
 
@@ -3221,18 +3239,18 @@ public class Root
             {
                 _root.mainSummonCount += 1;
                 _root.mainAntiLag += 1;
-                _root.popContain.attachMovie(
-                    "scorePopMain",
-                    "scorePopMain" + _root.mainSummonCount,
-                    _root.mainAntiLag,
-                    new
-                    {
-                        _x = 100,
-                        _y = 60,
-                        what = "+" + _root.withComma(Math.floor(amount * multiplier)),
-                        whatColor = 39423,
-                    }
-                );
+                // _root.popContain.attachMovie(
+                //     "scorePopMain",
+                //     "scorePopMain" + _root.mainSummonCount,
+                //     _root.mainAntiLag,
+                //     new
+                //     {
+                //         _x = 100,
+                //         _y = 60,
+                //         what = "+" + _root.withComma(Math.floor(amount * multiplier)),
+                //         whatColor = 39423,
+                //     }
+                // );
             }
         }
 
@@ -6339,7 +6357,7 @@ public class Root
                     {
                         var blah =
                             _root.save.fishLevel
-                            - (double)_root.fishArray[ftc + 1].fishLevel.GetValue();
+                            - Convert.ToDouble(_root.fishArray[ftc + 1].fishLevel);
                         if (blah > 0)
                         {
                             chance = 45 + Math.pow(blah, 0.7) * 3;
@@ -6394,13 +6412,13 @@ public class Root
                         {
                             blah =
                                 _root.save.fishLevel
-                                - (double)_root.fishArray[ftc + 21].fishLevel.GetValue();
+                                - Convert.ToDouble(_root.fishArray[ftc + 21].fishLevel);
                         }
                         else
                         {
                             blah =
                                 _root.save.fishLevel
-                                - (double)_root.fishArray[ftc + 1].fishLevel.GetValue();
+                                - Convert.ToDouble(_root.fishArray[ftc + 1].fishLevel);
                         }
 
                         if (blah > 0)
@@ -16001,26 +16019,32 @@ public class Root
         {
             _root.crystalKill = 0;
         }
+
         if (!isNaN(_root.save.arenaBestiary[435]))
         {
             _root.crystalKill += _root.save.arenaBestiary[435];
         }
+
         if (!isNaN(_root.save.arenaBestiaryExtra[322]))
         {
             _root.crystalKill -= _root.save.arenaBestiaryExtra[322];
         }
+
         if (!isNaN(_root.save.arenaBestiaryExtra[435]))
         {
             _root.crystalKill -= _root.save.arenaBestiaryExtra[435];
         }
+
         if (!isNaN(_root.save.arenaBestiaryExtra[240]))
         {
             _root.treasureHunterKill -= _root.save.arenaBestiaryExtra[240];
         }
+
         if (isNaN(_root.treasureHunterKill))
         {
             _root.treasureHunterKill = 0;
         }
+
         var i = 1;
         while (i <= 91)
         {
@@ -16049,18 +16073,22 @@ public class Root
             _root.save.totalExp = 0;
             _root.save.level = 1;
         }
+
         if (isNaN(_root.save.arenaExp))
         {
             _root.save.arenaExp = 0;
         }
+
         if (isNaN(_root.save.coin))
         {
             _root.save.coin = 0;
         }
+
         if (isNaN(_root.save.greenCoin))
         {
             _root.save.greenCoin = 0;
         }
+
         if (isNaN(_root.save.blueCoin))
         {
             _root.save.blueCoin = 0;
@@ -16109,6 +16137,7 @@ public class Root
                     }
                 }
             }
+
             if (_root.save.level == 9000)
             {
                 _root.requiredExp = 12000000000000 - _root.save.totalExp;
@@ -16183,6 +16212,7 @@ public class Root
                     }
                 }
             }
+
             if (_root.save.level == 9000)
             {
                 _root.requiredExp = 6000000000000 - _root.save.totalExp;
@@ -16281,6 +16311,7 @@ public class Root
                 }
             }
         }
+
         if (
             _root.save.level > 9002
             || _root.save.level == 9002 && _root.save.totalExp < 999000000000000
@@ -16291,6 +16322,7 @@ public class Root
             _root.save.totalExp = 0;
             _root.save.bestLevel = 1;
         }
+
         if (_root.save.level == 9002)
         {
             _root.save.currentExp = 0;
@@ -16316,6 +16348,7 @@ public class Root
                 );
                 _root.save.reforgingCoin %= 10000000000000;
             }
+
             if (_root.save.reforgingGreenCoin >= 10000000000)
             {
                 _root.save.reforgingOrb2 += Math.floor(_root.save.reforgingGreenCoin / 10000000000);
@@ -16324,6 +16357,7 @@ public class Root
                 );
                 _root.save.reforgingGreenCoin %= 10000000000;
             }
+
             if (_root.save.reforgingBlueCoin >= 10000000)
             {
                 _root.save.reforgingOrb3 += Math.floor(_root.save.reforgingBlueCoin / 10000000);
@@ -16332,6 +16366,7 @@ public class Root
                 );
                 _root.save.reforgingBlueCoin %= 10000000;
             }
+
             if (
                 (bool)_root.save["autoAscendEnabled" + _root.save.gDifficulty] == true
                 && _root.save.gOldAscension != true
@@ -16371,6 +16406,7 @@ public class Root
                             toAutoAscend = true;
                         }
                     }
+
                     if (toAutoAscend == true)
                     {
                         _root.save.ascStupidity = 0;
@@ -16382,6 +16418,7 @@ public class Root
                             _root.save.expSauceAsc[i] = 0;
                             i++;
                         }
+
                         if (_root.save.gDifficulty >= 2)
                         {
                             _root.save.bannedHard += 1;
@@ -16397,6 +16434,7 @@ public class Root
                                 );
                             }
                         }
+
                         if (_root.save.gDifficulty >= 3)
                         {
                             _root.save.bannedImpossible += 1;
@@ -16412,6 +16450,7 @@ public class Root
                                 );
                             }
                         }
+
                         _root.save.level = 8999;
                         if (_root.save.gDifficulty == 3)
                         {
@@ -16437,12 +16476,14 @@ public class Root
                             _root.save.remStupidity += 1;
                             _root.save.totalStupidity += 1;
                         }
+
                         _root.save.totalExp = _root.save.currentExp;
                         _root.save.expLag = 0;
                         if (_root.save.speedRunAscend > Math.floor(_root.save.ascendPlayTime / 60))
                         {
                             _root.save.speedRunAscend = Math.floor(_root.save.ascendPlayTime / 60);
                         }
+
                         _root.save.autoAscendCount1 += 1;
                         _root.save.banned += 1;
                         _root.save.permaStupidity += 1;
@@ -16456,18 +16497,22 @@ public class Root
                             {
                                 tmpCost *= ti - 9;
                             }
+
                             if (_root.save.remStupidity >= tmpCost)
                             {
                                 _root.save.remStupidity -= tmpCost;
                                 _root.save.ascStupidity += 1;
                             }
+
                             ti++;
                         }
+
                         _root.topBar.ascentText.Text = "+" + _root.save.banned;
                     }
                 }
             }
         }
+
         calcReqExp();
         var lfrt = 0d;
         var lfrYC = 0d;
@@ -16489,16 +16534,19 @@ public class Root
                 {
                     lfr -= 1;
                 }
+
                 _root.save.totalExp += _root.requiredExp;
                 _root.save.currentExp -= _root.requiredExp;
                 if (_root.save.level == 9000)
                 {
                     _root.save.currentExp = Math.floor(_root.save.currentExp / 2);
                 }
+
                 if (_root.save.level == 9001)
                 {
                     _root.save.currentExp = Math.floor(_root.save.currentExp / 10);
                 }
+
                 lfrYC += 200 * _root.save.level;
                 if (_root.save.level % 1000 == 0)
                 {
@@ -16512,6 +16560,7 @@ public class Root
                 {
                     lfrGC += 1 * _root.save.level;
                 }
+
                 if (_root.save.showBanner != false)
                 {
                     if (
@@ -16529,20 +16578,25 @@ public class Root
                             + "! Congratulations!";
                     }
                 }
+
                 if (_root.save.questType == "Level Up")
                 {
                     _root.save.questCount += 1;
                 }
+
                 calcReqExp();
             }
+
             lfr++;
         }
+
         if (lfrt > 0)
         {
             if (_root.save.bestLevel < _root.save.level)
             {
                 _root.save.bestLevel = _root.save.level;
             }
+
             if (_root.save.level == 8999)
             {
                 _root.save.yoEpicFail = 25465;
@@ -16601,10 +16655,12 @@ public class Root
                         _root.saveGlobal.challengePerfect[0] = true;
                     }
                 }
+
                 if (_root.save.speedRun9001 > Math.floor(_root.save.ascendPlayTime / 60))
                 {
                     _root.save.speedRun9001 = Math.floor(_root.save.ascendPlayTime / 60);
                 }
+
                 _root.gainBlueCoin(Math.min(Math.floor(_root.finalExp / 200000000), 100000));
                 if (_root.save.gOldAscension == true)
                 {
@@ -16640,17 +16696,21 @@ public class Root
                 {
                     _root.save.speedRun9002 = Math.floor(_root.save.ascendPlayTime / 60);
                 }
+
                 _root.save.count9002 += 1;
             }
+
             _root.gainCoin(lfrYC, 39);
             if (lfrGC > 0)
             {
                 _root.gainGreenCoinND(lfrGC);
             }
+
             if (lfrBC > 0)
             {
                 _root.gainBlueCoin(lfrBC);
             }
+
             _root.gainBoost(100 * lfrt, 1);
             _root.dispNews(
                 2,
@@ -16661,19 +16721,23 @@ public class Root
                 _root.topBar.levelStar.levelAnim._alpha = 100;
             }
         }
+
         _root.finalExp = _root.save.currentExp + _root.save.totalExp;
         if (isNaN(_root.finalExp))
         {
             _root.finalExp = 0;
         }
+
         if (_root.finalExp > 999999999999999)
         {
             _root.finalExp = 999999999999999;
         }
+
         if (_root.save.bestExp < _root.finalExp)
         {
             _root.save.bestExp = _root.finalExp;
         }
+
         if (_root.saveid == 23 && _root.save.level >= 3000)
         {
             _root.clearChallenge();
@@ -16714,8 +16778,10 @@ public class Root
                         readyTrees += 1;
                     }
                 }
+
                 i++;
             }
+
             mini1.miniGardenText.Text = readyTrees + " / " + plantedTrees;
             if (readyTrees > 0)
             {
@@ -16733,6 +16799,7 @@ public class Root
             {
                 mini1.miniGardenText.LabelSettings.FontColor = c(10066329);
             }
+
             if (readyTrees > 0)
             {
                 if (mini1._alpha != 100)
@@ -16753,6 +16820,7 @@ public class Root
         {
             mini1.gotoAndStop(2);
         }
+
         if (_root.save.featureSuperBattery == true)
         {
             mini2.gotoAndStop(1);
@@ -16761,6 +16829,7 @@ public class Root
         {
             mini2.gotoAndStop(2);
         }
+
         if (_root.save.featureEnergyToolbar == true)
         {
             mini3.gotoAndStop(1);
@@ -16772,12 +16841,14 @@ public class Root
             {
                 mini3._alpha = 30;
             }
+
             mini3.adventureText.Text = _root.save.awesomeEnergy.ToString();
         }
         else
         {
             mini3.gotoAndStop(2);
         }
+
         if (_root.save.doubleExpTime > 0)
         {
             mini4.gotoAndStop(2);
@@ -16787,6 +16858,7 @@ public class Root
         {
             mini4.gotoAndStop(1);
         }
+
         if (_root.save.doubleCoinTime > 0)
         {
             mini5.gotoAndStop(2);
@@ -16827,6 +16899,7 @@ public class Root
         {
             _root.topBar.titleText.Text = _root.save.userTitle;
         }
+
         var titleColor = c(
             (uint)(_root.save.titlered * 65536 + _root.save.titlegreen * 256 + _root.save.titleblue)
         );
@@ -16835,6 +16908,7 @@ public class Root
             _root.topBar.nameText.LabelSettings.FontColor = titleColor;
             _root.topBar.titleText.LabelSettings.FontColor = titleColor;
         }
+
         if (_root.saveid >= 10)
         {
             _root.dispAsc();
@@ -16853,6 +16927,7 @@ public class Root
             elapsed_days = "" + Math.floor(_root.save.challengeTime / 86400);
             remaining = _root.save.challengeTime - elapsed_days_int * 86400;
         }
+
         var elapsed_hours_int = Math.floor(remaining / 3600);
         elapsed_hours = "" + elapsed_hours_int;
         remaining -= elapsed_hours_int * 3600;
@@ -16866,14 +16941,17 @@ public class Root
         {
             elapsed_hours = "0" + elapsed_hours;
         }
+
         if (elapsed_minutes_int < 10)
         {
             elapsed_minutes = "0" + elapsed_minutes;
         }
+
         if (elapsed_seconds_int < 10)
         {
             elapsed_seconds = "0" + elapsed_seconds;
         }
+
         _root.topBar.ascentText.Text =
             elapsed_days + "d + " + elapsed_hours + ":" + elapsed_minutes + ":" + elapsed_seconds;
     }
@@ -16906,8 +16984,10 @@ public class Root
                 {
                     progSpeed += 30;
                 }
+
                 progSpeed += _root.curCareerLevel[1] * 0.6;
             }
+
             progSpeed *= 1 + Math.min(Math.floor(_root.save.totalStupidity / 50), 20) * 0.01;
             if (_root.save.permaBanPenalty[31] == 3)
             {
@@ -16921,10 +17001,12 @@ public class Root
             {
                 progSpeed *= 1.1;
             }
+
             if (_root.save.rewardClaim < 5)
             {
                 progSpeed *= 2.5;
             }
+
             if (_root.save.gDifficulty >= 3 && _root.save.level < 8999)
             {
                 progSpeed *= 0.8;
@@ -16933,6 +17015,7 @@ public class Root
             {
                 progSpeed *= 0.9;
             }
+
             _root.progPercent +=
                 0.02 * (_root.save.boost / 100) * (40 / _root.fps) * (progSpeed / 100);
             if (_root.save.rewardClaim < 5)
@@ -16973,6 +17056,7 @@ public class Root
             _root.save.achEarnTime[1165] = 99999999999;
             _root.save.achEarnTime[9035] = 99999999999;
         }
+
         var i = 1;
         while (i <= _root.totalachievements)
         {
@@ -16985,6 +17069,7 @@ public class Root
             {
                 achCurrent = (double)_root[_root.achList[i].need];
             }
+
             var achRequired = _root.achList[i].amnt;
             if (
                 !isNaN(achCurrent) && achCurrent >= achRequired && _root.achList[i].type == "Max"
@@ -17005,6 +17090,7 @@ public class Root
                         // _root.accomplishPop.rcText.text = "Progress Bar Reward: +" + _root.achList[i].redCoin / 100 + "%";
                         // _root.accomplishPop.countText.text = _root.save.maxAchievement + 1 + " / " + _root.totalachievements;
                     }
+
                     _root.dispNews(
                         3,
                         "Achievement earned! ["
@@ -17018,15 +17104,19 @@ public class Root
                     _root.newAchName = _root.achList[i].name;
                     _root.newAchRedCoin = _root.achList[i].redCoin;
                 }
+
                 _root.awards += 1;
                 if (_root.achList[i].secret == true)
                 {
                     _root.sawards += 1;
                 }
+
                 _root.achRedCoin += _root.achList[i].redCoin;
             }
+
             i++;
         }
+
         if (_root.save.maxAchievement < _root.awards)
         {
             _root.save.maxAchievement = _root.awards;
@@ -17041,22 +17131,26 @@ public class Root
         {
             ascendBonus = 500;
         }
+
         _root.boostMax = _root.save.boostMax + _root.save.boostZebra + ascendBonus;
         if (_root.saveid == 24)
         {
             _root.boostMax = 500;
         }
+
         _root.boostMin = 100;
         if (_root.boostMax < _root.boostMin + 1)
         {
             _root.boostMax = _root.boostMin + 1;
         }
+
         var antFreq = 0.3;
         var maxAnts = 50d;
         if (_root.save.boost > _root.boostMax * 2.5)
         {
             _root.save.boost = _root.boostMax * 2.5;
         }
+
         if (_root.save.boost > _root.boostMax * 1.5)
         {
             antFreq *=
@@ -17091,10 +17185,12 @@ public class Root
                     )
             );
         }
+
         if (_root.save.featureSpecialSprayer == true)
         {
             maxAnts = Math.floor(maxAnts * 0.95);
         }
+
         if (_root.save.permaBanPenalty[9] == 3)
         {
             maxAnts = Math.floor(maxAnts * 0.8);
@@ -17107,6 +17203,7 @@ public class Root
         {
             maxAnts = Math.floor(maxAnts * 0.92);
         }
+
         if (_root.save.permaBanPenalty[34] == 3)
         {
             antFreq *= 0.5;
@@ -17119,20 +17216,24 @@ public class Root
         {
             antFreq *= 0.8;
         }
+
         if (maxAnts > 60000)
         {
             maxAnts = 60000;
         }
+
         if (maxAnts < 0)
         {
             maxAnts = 0;
         }
+
         if (_root.save.boost <= _root.boostMin)
         {
             antFreq = 0;
             maxAnts = 0;
             _root.save.boost = _root.boostMin;
         }
+
         if (_root.save.ants < maxAnts && _root.sprayCooldown1 < 165 && _root.sprayCooldown2 < 540)
         {
             _root.save.ants += Math.ceil(Math.random() * maxAnts * antFreq / 100);
@@ -17141,10 +17242,12 @@ public class Root
         {
             _root.save.ants -= Math.ceil((_root.save.ants - maxAnts) / 2);
         }
+
         if (_root.save.boostFreeze > 3600)
         {
             _root.save.boostFreeze = 3600;
         }
+
         if (_root.save.boostFreeze > 0 && _root.save.ants > 0)
         {
             _root.save.boostFreeze -= 1;
@@ -17155,26 +17258,32 @@ public class Root
             {
                 _root.save.boost -= _root.save.ants / 600;
             }
+
             _root.save.boostProg = _root.save.boost;
             _root.save.boostExp = _root.save.boost;
             _root.save.boostCoin = _root.save.boost;
         }
+
         if (_root.save.boost > 500 && _root.saveid == 24)
         {
             _root.save.boost = 500;
         }
+
         if (_root.save.boostZebra > 300)
         {
             _root.save.boostZebra = 300;
         }
+
         if (_root.save.refundCooldown > 0)
         {
             _root.save.refundCooldown -= 1;
         }
+
         if (_root.save.restTime > 0)
         {
             _root.save.restTime -= 1;
         }
+
         if (_root.save.doubleExpTime > 0)
         {
             _root.save.doubleExpTime -= 1;
@@ -17183,6 +17292,7 @@ public class Root
                 _root.dispNews(129, "1.5x EXP is deactivated.");
             }
         }
+
         if (_root.save.doubleCoinTime > 0)
         {
             _root.save.doubleCoinTime -= 1;
@@ -17191,6 +17301,7 @@ public class Root
                 _root.dispNews(129, "1.5x Coin is deactivated.");
             }
         }
+
         if (_root.save.rewardBotTime > 0)
         {
             _root.save.rewardBotTime -= 1;
@@ -17199,6 +17310,7 @@ public class Root
                 _root.dispNews(129, "Idlebot is deactivated.");
             }
         }
+
         if (_root.save.autoHarvestTime > 0)
         {
             _root.save.autoHarvestTime -= 1;
@@ -17207,6 +17319,7 @@ public class Root
                 _root.dispNews(129, "Autoharvest is deactivated.");
             }
         }
+
         if (_root.save.eliteButtonTime > 0)
         {
             _root.save.eliteButtonTime -= 1;
@@ -17215,6 +17328,7 @@ public class Root
                 _root.dispNews(129, "Invincibility Stars is deactivated.");
             }
         }
+
         if (_root.save.batteryChargerTime > 0)
         {
             _root.save.batteryChargerTime -= 1;
@@ -17223,6 +17337,7 @@ public class Root
                 _root.dispNews(129, "Battery Charger is deactivated.");
             }
         }
+
         if (_root.save.stadiumProTime > 0)
         {
             _root.save.stadiumProTime -= 1;
@@ -17231,6 +17346,7 @@ public class Root
                 _root.dispNews(129, "Stadium Pro is deactivated.");
             }
         }
+
         if (_root.save.powerUserTime > 0)
         {
             _root.save.powerUserTime -= 1;
@@ -17239,6 +17355,7 @@ public class Root
                 _root.dispNews(129, "FCG Power User is deactivated.");
             }
         }
+
         if (_root.save.demandMasterTime > 0)
         {
             _root.save.demandMasterTime -= 1;
@@ -17247,6 +17364,7 @@ public class Root
                 _root.dispNews(129, "Demand Master is deactivated.");
             }
         }
+
         if (_root.save.quickAdventuresTime > 0)
         {
             _root.save.quickAdventuresTime -= 1;
@@ -17255,6 +17373,7 @@ public class Root
                 _root.dispNews(129, "Quick Adventures is deactivated.");
             }
         }
+
         if (_root.save.eliteFisherTime > 0)
         {
             _root.save.eliteFisherTime -= 1;
@@ -17263,6 +17382,7 @@ public class Root
                 _root.dispNews(129, "Elite Fisher is deactivated.");
             }
         }
+
         if (_root.save.noAntsTime > 0)
         {
             _root.save.noAntsTime -= 1;
@@ -17271,6 +17391,7 @@ public class Root
                 _root.dispNews(129, "Automatic Ant Spray is deactivated.");
             }
         }
+
         if (_root.save.doubleQuestTime > 0)
         {
             _root.save.doubleQuestTime -= 1;
@@ -17289,6 +17410,7 @@ public class Root
             _root.save.currentExp += Math.ceil(_root.save.expLag / 1.1);
             _root.save.expLag -= Math.ceil(_root.save.expLag / 1.1);
         }
+
         if (_root.save.coinLag > 0)
         {
             _root.save.coin += Math.ceil(_root.save.coinLag / 1.1);
@@ -17324,6 +17446,7 @@ public class Root
         {
             moneyToPrint = Math.round(moneyToPrint * 2.6);
         }
+
         _root.printPercent += printSpeed;
         if (_root.printPercent >= 100)
         {
@@ -17356,8 +17479,10 @@ public class Root
                     }
                 }
             }
+
             i++;
         }
+
         if (expireCount >= 3)
         {
             _root.dispNews(
@@ -17392,6 +17517,7 @@ public class Root
                 {
                     _root.save.lolDemand[i] = -100;
                 }
+
                 _root.save.lolPrice[i] += _root.save.lolDemand[i];
                 _root.save.lolDemand[i] += Math.round(
                     (Math.random() - Math.random()) * (2.5 + i / 4)
@@ -17412,6 +17538,7 @@ public class Root
                 {
                     _root.save.lolDemand[i] -= 1;
                 }
+
                 if (_root.save.lolPrice[i] < 450 * i)
                 {
                     _root.save.lolPrice[i] = 450 * i;
@@ -17420,6 +17547,7 @@ public class Root
                 {
                     _root.save.lolPrice[i] = 2550 * i;
                 }
+
                 if (_root.save.demandMasterTime > 0 && Math.random() < 0.35)
                 {
                     if (
@@ -17437,6 +17565,7 @@ public class Root
                         _root.save.lolDemand[i] -= 1;
                     }
                 }
+
                 if (_root.save.careerLevel[9] >= 100 && Math.random() < 0.1)
                 {
                     if (
@@ -17454,6 +17583,7 @@ public class Root
                         _root.save.lolDemand[i] -= 2;
                     }
                 }
+
                 if (Math.random() < 0.15)
                 {
                     if (_root.save.lolGems[i] >= Math.ceil(_root.save.lolCapacity / 2))
@@ -17465,6 +17595,7 @@ public class Root
                         _root.save.lolDemand[i] -= 1;
                     }
                 }
+
                 if (_root.save.lolDemand[i] > 30)
                 {
                     _root.save.lolDemand[i] -= Math.ceil(i / 2) + 1;
@@ -17473,6 +17604,7 @@ public class Root
                 {
                     _root.save.lolDemand[i] += Math.ceil(i / 2) + 1;
                 }
+
                 if (_root.save.lolDemand[i] > 40)
                 {
                     _root.save.lolDemand[i] -= i;
@@ -17481,6 +17613,7 @@ public class Root
                 {
                     _root.save.lolDemand[i] += i;
                 }
+
                 i++;
             }
         }

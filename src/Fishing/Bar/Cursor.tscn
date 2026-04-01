@@ -10,13 +10,11 @@ colors = PackedColorArray(0, 1, 1, 0, 0, 1, 1, 1, 0, 1, 1, 0)
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_p7pyc"]
 gradient = SubResource("Gradient_qc0uo")
 
-[node name="Cursor" type="Control" unique_id=542744426]
+[node name="Cursor" type="Control" unique_id=1572625744]
 layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 20.0
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=83369950]
 layout_mode = 0
