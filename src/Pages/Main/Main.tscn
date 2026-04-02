@@ -1,9 +1,8 @@
-[gd_scene load_steps=24 format=3 uid="uid://d1vhda2oxa4k7"]
+[gd_scene format=3 uid="uid://d1vhda2oxa4k7"]
 
 [ext_resource type="Script" uid="uid://cjp2pjpu1jl4x" path="res://src/Pages/Main/Main.cs" id="1_c6bj8"]
 [ext_resource type="Texture2D" uid="uid://bmlqbakhjy61h" path="res://src/Pages/Main/13.png" id="1_wl3yd"]
 [ext_resource type="PackedScene" uid="uid://b5t63v425oh65" path="res://src/Pages/Main/components/TopBar/TopBar.tscn" id="2_17737"]
-[ext_resource type="Texture2D" uid="uid://cvbil213hfbtf" path="res://common_assets/background_images/2.png" id="2_een1s"]
 [ext_resource type="PackedScene" uid="uid://bvbhmpf0s4yr7" path="res://src/Pages/Main/components/BottomBar.tscn" id="3_17737"]
 [ext_resource type="Texture2D" uid="uid://c5nkw08sfeeek" path="res://common_assets/logo.png" id="3_lors8"]
 [ext_resource type="PackedScene" uid="uid://ryuxuc6renuk" path="res://src/Pages/Main/components/ProgressBar.tscn" id="4_h61xd"]
@@ -25,7 +24,7 @@
 
 [sub_resource type="LabelSettings" id="LabelSettings_ygkns"]
 
-[node name="Main" type="Control" node_paths=PackedStringArray("_topBar", "mini1", "mini2", "mini3", "mini4", "mini5", "dailyBonusButton")]
+[node name="Main" type="Control" unique_id=283267124 node_paths=PackedStringArray("_topBar", "mini1", "mini2", "mini3", "mini4", "mini5", "dailyBonusButton")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -46,36 +45,36 @@ mini5 = NodePath("Mini5")
 dailyBonusButton = NodePath("dailyBonusButton")
 metadata/Frame = 13
 
-[node name="TextureRect" type="TextureRect" parent="."]
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1344699602]
 visible = false
 layout_mode = 0
 offset_right = 650.0
 offset_bottom = 650.0
 texture = ExtResource("1_wl3yd")
 
-[node name="Background" type="TextureRect" parent="."]
+[node name="Background" type="ColorRect" parent="." unique_id=1183055780]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-texture = ExtResource("2_een1s")
+offset_right = 650.0
+offset_bottom = 651.0
+color = Color(0.11764706, 0.09803922, 0.078431375, 1)
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=899075304]
 layout_mode = 0
 offset_right = 650.0
 offset_bottom = 619.0
 theme_override_constants/separation = 0
 
-[node name="TopBar" parent="VBoxContainer" instance=ExtResource("2_17737")]
+[node name="TopBar" parent="VBoxContainer" unique_id=1893687819 instance=ExtResource("2_17737")]
 layout_mode = 2
 
-[node name="Control" type="Control" parent="VBoxContainer"]
+[node name="Control" type="Control" parent="VBoxContainer" unique_id=1343262988]
 custom_minimum_size = Vector2(0, 548)
 layout_mode = 2
 
-[node name="FeatureContainer" parent="VBoxContainer/Control" instance=ExtResource("5_u31dg")]
+[node name="FeatureContainer" parent="VBoxContainer/Control" unique_id=357211760 instance=ExtResource("5_u31dg")]
 layout_mode = 1
 
-[node name="Logo" type="TextureRect" parent="VBoxContainer/Control"]
+[node name="Logo" type="TextureRect" parent="VBoxContainer/Control" unique_id=50320233]
 custom_minimum_size = Vector2(60, 60)
 layout_mode = 0
 offset_left = 510.0
@@ -86,28 +85,28 @@ texture = ExtResource("3_lors8")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="ProgressBar" parent="VBoxContainer/Control" instance=ExtResource("4_h61xd")]
+[node name="ProgressBar" parent="VBoxContainer/Control" unique_id=306956487 instance=ExtResource("4_h61xd")]
 layout_mode = 1
 offset_left = 527.0
 offset_top = 84.0
 offset_right = 527.3
 offset_bottom = 117.535
 
-[node name="RestModule" parent="VBoxContainer/Control" instance=ExtResource("5_5x7vr")]
+[node name="RestModule" parent="VBoxContainer/Control" unique_id=1444242052 instance=ExtResource("5_5x7vr")]
 layout_mode = 1
 offset_left = 528.0
 offset_top = 329.0
 offset_right = 529.95
 offset_bottom = 334.47
 
-[node name="BreakingNews" parent="VBoxContainer/Control" instance=ExtResource("6_khid0")]
+[node name="BreakingNews" parent="VBoxContainer/Control" unique_id=2003660989 instance=ExtResource("6_khid0")]
 layout_mode = 1
 offset_left = 9.0
 offset_top = 367.0
 offset_right = 8.84998
 offset_bottom = 381.865
 
-[node name="BoostModule" parent="VBoxContainer/Control" instance=ExtResource("7_fpxsb")]
+[node name="BoostModule" parent="VBoxContainer/Control" unique_id=1214711072 instance=ExtResource("7_fpxsb")]
 visible = false
 layout_mode = 0
 anchors_preset = 0
@@ -120,7 +119,7 @@ offset_bottom = 469.0
 grow_horizontal = 1
 grow_vertical = 1
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/Control"]
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/Control" unique_id=1956358253]
 layout_mode = 0
 offset_left = 5.0
 offset_top = 516.0
@@ -128,26 +127,26 @@ offset_right = 641.0
 offset_bottom = 536.0
 theme_override_constants/separation = 6
 
-[node name="AchievementsButton" parent="VBoxContainer/Control/HBoxContainer" instance=ExtResource("10_dr27a")]
+[node name="AchievementsButton" parent="VBoxContainer/Control/HBoxContainer" unique_id=601834263 instance=ExtResource("10_dr27a")]
 layout_mode = 2
 
-[node name="QuestsButton" parent="VBoxContainer/Control/HBoxContainer" instance=ExtResource("12_2ytk7")]
+[node name="QuestsButton" parent="VBoxContainer/Control/HBoxContainer" unique_id=492726882 instance=ExtResource("12_2ytk7")]
 layout_mode = 2
 
-[node name="EventsButton" parent="VBoxContainer/Control/HBoxContainer" instance=ExtResource("11_6udhx")]
+[node name="EventsButton" parent="VBoxContainer/Control/HBoxContainer" unique_id=902810392 instance=ExtResource("11_6udhx")]
 layout_mode = 2
 
-[node name="ShopButton" parent="VBoxContainer/Control/HBoxContainer" instance=ExtResource("13_e37wi")]
+[node name="ShopButton" parent="VBoxContainer/Control/HBoxContainer" unique_id=885274258 instance=ExtResource("13_e37wi")]
 layout_mode = 2
 
-[node name="ModalContainer" type="Control" parent="VBoxContainer"]
+[node name="ModalContainer" type="Control" parent="VBoxContainer" unique_id=1782351690]
 layout_mode = 2
 
-[node name="BottomBar" parent="VBoxContainer" instance=ExtResource("3_17737")]
+[node name="BottomBar" parent="VBoxContainer" unique_id=637547806 instance=ExtResource("3_17737")]
 z_index = 1
 layout_mode = 2
 
-[node name="Mini1" parent="." node_paths=PackedStringArray("miniGardenText") instance=ExtResource("15_k38fl")]
+[node name="Mini1" parent="." unique_id=1431484218 node_paths=PackedStringArray("miniGardenText") instance=ExtResource("15_k38fl")]
 layout_mode = 0
 offset_left = 14.0
 offset_top = 538.0
@@ -158,35 +157,35 @@ miniGardenText = NodePath("Label")
 [node name="Label" parent="Mini1" index="0"]
 label_settings = SubResource("LabelSettings_ygkns")
 
-[node name="Mini2" parent="." instance=ExtResource("16_ao74c")]
+[node name="Mini2" parent="." unique_id=866105154 instance=ExtResource("16_ao74c")]
 layout_mode = 0
 offset_left = 71.0
 offset_top = 546.0
 offset_right = 111.0
 offset_bottom = 586.0
 
-[node name="Mini3" parent="." instance=ExtResource("17_u31dg")]
+[node name="Mini3" parent="." unique_id=646274929 instance=ExtResource("17_u31dg")]
 layout_mode = 0
 offset_left = 115.0
 offset_top = 549.0
 offset_right = 155.0
 offset_bottom = 589.0
 
-[node name="Mini4" parent="." instance=ExtResource("18_ao74c")]
+[node name="Mini4" parent="." unique_id=1626169135 instance=ExtResource("18_ao74c")]
 layout_mode = 0
 offset_left = 172.0
 offset_top = 548.0
 offset_right = 218.0
 offset_bottom = 588.0
 
-[node name="Mini5" parent="." instance=ExtResource("19_gkvr8")]
+[node name="Mini5" parent="." unique_id=895463165 instance=ExtResource("19_gkvr8")]
 layout_mode = 0
 offset_left = 240.0
 offset_top = 543.0
 offset_right = 280.0
 offset_bottom = 583.0
 
-[node name="dailyBonusButton" type="TextureButton" parent="."]
+[node name="dailyBonusButton" type="TextureButton" parent="." unique_id=146039386]
 layout_mode = 1
 offset_left = 589.0
 offset_top = 190.0

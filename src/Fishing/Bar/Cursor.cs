@@ -1,4 +1,5 @@
 using System;
+using AntiIdle.Common;
 using Godot;
 
 public partial class Cursor : Control
@@ -19,7 +20,7 @@ public partial class Cursor : Control
     public override void _Process(double delta)
     {
         targetX = _root.fishDest - 10;
-        actualX += (targetX - actualX) / 2;
+        actualX += (targetX - actualX) / 2 * Const.Slowdown(delta);
         Position = Position with { X = (float)actualX };
         if (_root.save.fishRod == 4 || _root.save.fishStreak >= 250)
         {

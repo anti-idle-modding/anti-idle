@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://cre5l5kp4b0lu"]
+[gd_scene format=3 uid="uid://cre5l5kp4b0lu"]
 
 [ext_resource type="Texture2D" uid="uid://b21mnu2f4lbk8" path="res://src/MainMenu/MenuBg.png" id="1_cttlv"]
 [ext_resource type="Script" uid="uid://2k0roc3i7bmg" path="res://src/MainMenu/MainMenu.cs" id="1_e1bcd"]
@@ -129,7 +129,7 @@ _data = {
 &"hover": SubResource("Animation_e1bcd")
 }
 
-[node name="MainMenu" type="Control" node_paths=PackedStringArray("file0PlayTime", "file0Level", "file0Ascs", "file1PlayTime", "file1Level", "file1Ascs", "file2PlayTime", "file2Level", "file2Ascs", "file3PlayTime", "file3Level", "file3Ascs", "challengesDone")]
+[node name="MainMenu" type="Control" unique_id=1501607174 node_paths=PackedStringArray("file0PlayTime", "file0Level", "file0Ascs", "file1PlayTime", "file1Level", "file1Ascs", "file2PlayTime", "file2Level", "file2Ascs", "file3PlayTime", "file3Level", "file3Ascs", "challengesDone")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -153,17 +153,18 @@ challengesDone = NodePath("Buttons/SaveFileContainer/ChallengeButton/Normal/Chal
 _bottomStatsNode = ExtResource("2_hgdfc")
 metadata/frame = 11
 
-[node name="Bg" type="Sprite2D" parent="."]
+[node name="Bg" type="Sprite2D" parent="." unique_id=943042319]
+scale = Vector2(1.0015409, 1)
 texture = ExtResource("1_cttlv")
 centered = false
 
-[node name="Logo" type="Sprite2D" parent="."]
+[node name="Logo" type="Sprite2D" parent="." unique_id=2133065144]
 position = Vector2(216.684, 19)
 scale = Vector2(0.476364, 0.476364)
 texture = ExtResource("2_ipfen")
 centered = false
 
-[node name="Welcome" type="RichTextLabel" parent="."]
+[node name="Welcome" type="RichTextLabel" parent="." unique_id=158264204]
 layout_mode = 0
 offset_left = 26.0
 offset_top = 149.0
@@ -179,7 +180,7 @@ Gain some EXP, level up and unlock tons of features and minigames! Anti-Idle: Th
 What are you still waiting for? Press the big \"Awesome!\" button below there and join the awesomeness right away, with millions of other players![/color][/font_size]"
 horizontal_alignment = 1
 
-[node name="BackupText" type="RichTextLabel" parent="."]
+[node name="BackupText" type="RichTextLabel" parent="." unique_id=1041069993]
 layout_mode = 0
 offset_left = 26.0
 offset_top = 583.0
@@ -190,52 +191,52 @@ bbcode_enabled = true
 text = "[font_size=12][color=#999999]Your progress is automatically saved and is stored in your computer. Backup your savefile often!"
 horizontal_alignment = 1
 
-[node name="Buttons" type="Control" parent="."]
+[node name="Buttons" type="Control" parent="." unique_id=1716015717]
 anchors_preset = 0
 offset_left = 15.0
 offset_top = 380.0
 offset_right = 55.0
 offset_bottom = 420.0
 
-[node name="AwesomeRect" type="ColorRect" parent="Buttons"]
+[node name="AwesomeRect" type="ColorRect" parent="Buttons" unique_id=289237342]
 layout_mode = 0
 offset_right = 620.0
 offset_bottom = 60.0
 color = Color(0.588235, 0.588235, 0.196078, 1)
 
-[node name="SaveFileContainer" type="HBoxContainer" parent="Buttons"]
+[node name="SaveFileContainer" type="HBoxContainer" parent="Buttons" unique_id=262668651]
 layout_mode = 0
 offset_top = 66.0
 offset_right = 620.0
 offset_bottom = 146.0
 theme_override_constants/separation = 5
 
-[node name="SaveButton1" parent="Buttons/SaveFileContainer" instance=ExtResource("5_uy7kt")]
+[node name="SaveButton1" parent="Buttons/SaveFileContainer" unique_id=1722185161 instance=ExtResource("5_uy7kt")]
 layout_mode = 2
 script = ExtResource("5_22hij")
 
-[node name="SaveButton2" parent="Buttons/SaveFileContainer" instance=ExtResource("5_uy7kt")]
+[node name="SaveButton2" parent="Buttons/SaveFileContainer" unique_id=365179539 instance=ExtResource("5_uy7kt")]
 layout_mode = 2
 script = ExtResource("6_22hij")
 
 [node name="FileText" parent="Buttons/SaveFileContainer/SaveButton2/MarginContainer/VBoxContainer" index="0"]
 text = "< File 1 >"
 
-[node name="SaveButton3" parent="Buttons/SaveFileContainer" instance=ExtResource("5_uy7kt")]
+[node name="SaveButton3" parent="Buttons/SaveFileContainer" unique_id=1341212401 instance=ExtResource("5_uy7kt")]
 layout_mode = 2
 script = ExtResource("7_aeosc")
 
 [node name="FileText" parent="Buttons/SaveFileContainer/SaveButton3/MarginContainer/VBoxContainer" index="0"]
 text = "< File 2 >"
 
-[node name="SaveButton4" parent="Buttons/SaveFileContainer" instance=ExtResource("5_uy7kt")]
+[node name="SaveButton4" parent="Buttons/SaveFileContainer" unique_id=162859609 instance=ExtResource("5_uy7kt")]
 layout_mode = 2
 script = ExtResource("10_6scwk")
 
 [node name="FileText" parent="Buttons/SaveFileContainer/SaveButton4/MarginContainer/VBoxContainer" index="0"]
 text = "< File 3 >"
 
-[node name="ChallengeButton" parent="Buttons/SaveFileContainer" instance=ExtResource("11_6scwk")]
+[node name="ChallengeButton" parent="Buttons/SaveFileContainer" unique_id=474275897 instance=ExtResource("11_6scwk")]
 layout_mode = 2
 script = ExtResource("11_nxksq")
 
@@ -269,7 +270,7 @@ offset_top = 45.0
 offset_right = 95.0
 offset_bottom = 72.0
 
-[node name="SmallButtonContainer" type="HBoxContainer" parent="Buttons"]
+[node name="SmallButtonContainer" type="HBoxContainer" parent="Buttons" unique_id=1456251647]
 layout_mode = 0
 offset_left = 176.0
 offset_top = 173.0
@@ -277,21 +278,21 @@ offset_right = 446.0
 offset_bottom = 191.0
 theme_override_constants/separation = 30
 
-[node name="BackupHelpButton" parent="Buttons/SmallButtonContainer" node_paths=PackedStringArray("popup") instance=ExtResource("13_k4wgw")]
+[node name="BackupHelpButton" parent="Buttons/SmallButtonContainer" unique_id=1329473659 node_paths=PackedStringArray("popup") instance=ExtResource("13_k4wgw")]
 custom_minimum_size = Vector2(120, 0)
 layout_mode = 2
 text = "Backup Help"
 script = ExtResource("14_k4wgw")
 popup = NodePath("../../../Popup")
 
-[node name="CreditsButton" parent="Buttons/SmallButtonContainer" node_paths=PackedStringArray("popup") instance=ExtResource("13_k4wgw")]
+[node name="CreditsButton" parent="Buttons/SmallButtonContainer" unique_id=1954341342 node_paths=PackedStringArray("popup") instance=ExtResource("13_k4wgw")]
 custom_minimum_size = Vector2(120, 0)
 layout_mode = 2
 text = "Credits"
 script = ExtResource("14_nxksq")
 popup = NodePath("../../../Popup")
 
-[node name="Text" type="Label" parent="Buttons"]
+[node name="Text" type="Label" parent="Buttons" unique_id=483835625]
 layout_mode = 0
 offset_left = 212.0
 offset_top = 1.0
@@ -302,7 +303,7 @@ theme_override_fonts/font = ExtResource("4_70h2t")
 theme_override_font_sizes/font_size = 40
 text = "Awesome!"
 
-[node name="AwesomeButton" type="Button" parent="."]
+[node name="AwesomeButton" type="Button" parent="." unique_id=2077716225]
 layout_mode = 0
 offset_left = 15.0
 offset_top = 380.0
@@ -322,14 +323,12 @@ text = "Awesome!"
 script = ExtResource("14_ypdof")
 metadata/_custom_type_script = "uid://cdoybrdveot3b"
 
-[node name="Alpha" type="AnimationPlayer" parent="AwesomeButton"]
+[node name="Alpha" type="AnimationPlayer" parent="AwesomeButton" unique_id=205028073]
 reset_on_save = false
-libraries = {
-&"": SubResource("AnimationLibrary_olvkn")
-}
-autoplay = "blink"
+libraries/ = SubResource("AnimationLibrary_olvkn")
+autoplay = &"blink"
 
-[node name="ColorRect" type="ColorRect" parent="AwesomeButton"]
+[node name="ColorRect" type="ColorRect" parent="AwesomeButton" unique_id=1172304805]
 z_index = 1
 layout_mode = 0
 offset_right = 620.0
@@ -339,7 +338,7 @@ color = Color(1, 1, 1, 0.501961)
 script = ExtResource("8_uy7kt")
 metadata/_custom_type_script = "uid://b51w8aatefpfa"
 
-[node name="Popup" type="Control" parent="."]
+[node name="Popup" type="Control" parent="." unique_id=1343296287]
 anchors_preset = 0
 script = ExtResource("19_4j8vg")
 scenes = Dictionary[String, PackedScene]({
@@ -348,7 +347,7 @@ scenes = Dictionary[String, PackedScene]({
 })
 metadata/_custom_type_script = "uid://c5ahmxs2w5th2"
 
-[node name="ChallengePopup" type="Control" parent="."]
+[node name="ChallengePopup" type="Control" parent="." unique_id=415554927]
 anchors_preset = 0
 script = ExtResource("19_4j8vg")
 scenes = Dictionary[String, PackedScene]({

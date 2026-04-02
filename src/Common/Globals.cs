@@ -5848,4 +5848,14 @@ public static class Const
     /// this constant for calculations.)
     /// </summary>
     public static double OLD_FPS = 40;
+
+    /// <summary>
+    /// How much to slowdown a given animation to match Flash frame rate.
+    /// If possible, try to remove this and include delta directly instead.
+    /// </summary>
+    /// <param name="delta"></param>
+    public static double Slowdown(double delta)
+    {
+        return delta * OLD_FPS;
+    }
 }
