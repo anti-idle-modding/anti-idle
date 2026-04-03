@@ -8,8 +8,11 @@ public partial class Perfect : Control
     public Label streakDisp;
 
     // MATCH: DefineSprite_7731-frame_3-DoAction.as
-    public override void _EnterTree()
+    public void OnVisibilityChanged()
     {
+        if (!Visible)
+            return;
+
         // MATCH: DefineSprite_7727-frame_1-DoAction.as
         streakDisp.Text = _root.save.fishStreak + "x";
 

@@ -26,6 +26,7 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_bottom = -64.25998
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
@@ -48,6 +49,7 @@ layout_mode = 0
 offset_left = 400.0
 offset_right = 500.0
 offset_bottom = 25.0
+scenes = null
 
 [node name="Button2" type="Button" parent="." unique_id=807597842 node_paths=PackedStringArray("house")]
 layout_mode = 0

@@ -41,6 +41,12 @@ project/assembly_name="AntiIdle"
 
 enabled=PackedStringArray()
 
+[file_customization]
+
+folder_colors={
+"res://src/Fishing/": "blue"
+}
+
 [global_group]
 
 arena=""

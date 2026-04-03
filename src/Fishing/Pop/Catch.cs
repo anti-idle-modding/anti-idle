@@ -5,8 +5,11 @@ namespace AntiIdle.Fishing.Pop;
 public partial class Catch : Control
 {
     // MATCH: DefineSprite_7731-frame_2-DoAction.as
-    public override void _EnterTree()
+    public void OnVisibilityChanged()
     {
+        if (!Visible)
+            return;
+
         if (_root.save.questType == "Result")
             if (_root.save.questSubtype == "Success")
                 _root.save.questCount += 1;

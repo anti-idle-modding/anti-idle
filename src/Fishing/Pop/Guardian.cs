@@ -4,8 +4,12 @@ namespace AntiIdle.Fishing.Pop;
 
 public partial class Guardian : Control
 {
-    public override void _EnterTree()
+    // MATCH: DefineSprite_7731-frame_4-DoAction.as
+    public void OnVisibilityChanged()
     {
+        if (!Visible)
+            return;
+
         if (_root.save.questType == "Result")
         {
             if (_root.save.questSubtype == "Perfect" || _root.save.questSubtype == "Success")

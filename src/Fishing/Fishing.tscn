@@ -1,8 +1,23 @@
 [gd_scene format=3 uid="uid://bfv4a2w06mv1x"]
 
 [ext_resource type="Script" uid="uid://dsdos5ykii6t5" path="res://src/Fishing/Fishing.cs" id="1_iadc3"]
-[ext_resource type="PackedScene" uid="uid://4rawqu1hn03c" path="res://src/Fishing/Bar/FishingBar.tscn" id="2_iadc3"]
+[ext_resource type="Script" uid="uid://cw60qgmerocpk" path="res://src/Fishing/Bar/Cursor.cs" id="2_h37ne"]
 [ext_resource type="PackedScene" uid="uid://y3srqcye43ru" path="res://src/Fishing/Score/Score.tscn" id="3_2ufwo"]
+[ext_resource type="Script" uid="uid://cjqp5fqalre3o" path="res://src/Fishing/Bar/EasyLine.cs" id="3_7mtdg"]
+[ext_resource type="Script" uid="uid://doxsgiw5j6wnn" path="res://src/Fishing/Bar/CatchLine.cs" id="4_m0v2q"]
+[ext_resource type="Script" uid="uid://yxj1iv58nqmd" path="res://src/Fishing/Bar/Triangle.cs" id="5_kse4m"]
+[ext_resource type="Script" uid="uid://c8amnd8bqrhrd" path="res://src/Fishing/Pop/ScorePop.cs" id="6_8ldo3"]
+[ext_resource type="PackedScene" uid="uid://curqlhvtkf8sr" path="res://src/Fishing/Pop/Catch.tscn" id="7_8ldo3"]
+[ext_resource type="PackedScene" uid="uid://cwpie3lr1ylqg" path="res://src/Fishing/Pop/Guardian.tscn" id="8_huh6y"]
+[ext_resource type="PackedScene" uid="uid://62irlqib6h3i" path="res://src/Fishing/Pop/Perfect.tscn" id="9_ikc4f"]
+[ext_resource type="PackedScene" uid="uid://dj6mqlmb3gpy1" path="res://src/Fishing/Pop/Miss.tscn" id="10_x1ywk"]
+
+[sub_resource type="Gradient" id="Gradient_qc0uo"]
+offsets = PackedFloat32Array(0.00039154268, 0.5, 1)
+colors = PackedColorArray(0, 1, 1, 0, 0, 1, 1, 1, 0, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_p7pyc"]
+gradient = SubResource("Gradient_qc0uo")
 
 [node name="Fishing" type="Control" unique_id=2114053251 node_paths=PackedStringArray("scoreDisp")]
 layout_mode = 3
@@ -12,17 +27,114 @@ offset_bottom = 40.0
 script = ExtResource("1_iadc3")
 scoreDisp = NodePath("Score")
 
-[node name="FishingBar" parent="." unique_id=1603995083 instance=ExtResource("2_iadc3")]
+[node name="ReferenceRect" type="ReferenceRect" parent="." unique_id=1498575754]
 layout_mode = 0
+offset_right = 500.0
+offset_bottom = 350.0
+border_color = Color(0, 0, 0, 1)
+metadata/_edit_lock_ = true
+
+[node name="FishingBar" type="Control" parent="." unique_id=1603995083]
 anchors_preset = 0
-anchor_right = 0.0
-anchor_bottom = 0.0
 offset_left = 269.0
 offset_top = 317.0
 offset_right = 269.0
 offset_bottom = 317.0
-grow_horizontal = 1
-grow_vertical = 1
+
+[node name="Guardian" type="Polygon2D" parent="FishingBar" unique_id=939358729]
+color = Color(0, 1, 1, 0.3019608)
+polygon = PackedVector2Array(210, 0, 220, 20, 0, 20, 5.6710815, 8.657837, 10, 0, 50.00537, 0)
+uv = PackedVector2Array(2.3333435, -34.666336, 25, 18.667, -202.33333, 23.333664, -167, -42.666336)
+
+[node name="Line2D" type="Line2D" parent="FishingBar" unique_id=1774448965]
+points = PackedVector2Array(210, 0, 220, 20, 0, 20, 10, 0)
+closed = true
+width = 2.0
+default_color = Color(0, 0.8, 1, 1)
+joint_mode = 2
+antialiased = true
+
+[node name="Cursor" type="Control" parent="FishingBar" unique_id=1457969464 node_paths=PackedStringArray("fishTriangle")]
+anchors_preset = 0
+offset_left = 90.0
+offset_right = 130.0
+offset_bottom = 20.0
+script = ExtResource("2_h37ne")
+fishTriangle = NodePath("../Triangle")
+
+[node name="TextureRect" type="TextureRect" parent="FishingBar/Cursor" unique_id=83369950]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 20.0
+texture = SubResource("GradientTexture1D_p7pyc")
+expand_mode = 1
+
+[node name="EasyLine" type="Line2D" parent="FishingBar/Cursor" unique_id=1002041547]
+position = Vector2(20, 0)
+points = PackedVector2Array(0, 0, 0, 20)
+width = 2.0
+default_color = Color(1, 0, 0, 1)
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+script = ExtResource("3_7mtdg")
+
+[node name="CatchLine" type="Line2D" parent="FishingBar/Cursor" unique_id=410943077]
+position = Vector2(20, 0)
+points = PackedVector2Array(0, 0, 0, 20)
+width = 2.0
+default_color = Color(1, 0.8, 0, 1)
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+script = ExtResource("4_m0v2q")
+
+[node name="Triangle" type="Control" parent="FishingBar" unique_id=27932328 node_paths=PackedStringArray("scorePop")]
+layout_mode = 1
+anchor_right = 0.031000001
+anchor_bottom = 0.031000001
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("5_kse4m")
+scorePop = NodePath("../ScorePop")
+
+[node name="Polygon2D" type="Polygon2D" parent="FishingBar/Triangle" unique_id=377341541]
+color = Color(1, 0.49803922, 0, 0.3019608)
+antialiased = true
+polygon = PackedVector2Array(0, 20, 10, 0, 20, 20)
+
+[node name="Line2D" type="Line2D" parent="FishingBar/Triangle/Polygon2D" unique_id=1543742167]
+points = PackedVector2Array(10, 0, 20, 20, 0, 20)
+closed = true
+width = 1.0
+default_color = Color(1, 0.49803922, 0, 1)
+joint_mode = 2
+
+[node name="ScorePop" type="Control" parent="FishingBar" unique_id=940041337]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("6_8ldo3")
+metadata/_custom_type_script = "uid://c5ahmxs2w5th2"
+
+[node name="Catch" parent="FishingBar/ScorePop" unique_id=2116951943 instance=ExtResource("7_8ldo3")]
+visible = false
+layout_mode = 0
+
+[node name="Guardian" parent="FishingBar/ScorePop" unique_id=1582474306 instance=ExtResource("8_huh6y")]
+visible = false
+layout_mode = 0
+
+[node name="Perfect" parent="FishingBar/ScorePop" unique_id=533282961 instance=ExtResource("9_ikc4f")]
+visible = false
+layout_mode = 0
+
+[node name="Miss" parent="FishingBar/ScorePop" unique_id=1121633970 instance=ExtResource("10_x1ywk")]
+visible = false
+layout_mode = 0
 
 [node name="Score" parent="." unique_id=1197336751 instance=ExtResource("3_2ufwo")]
 layout_mode = 1
@@ -30,3 +142,7 @@ offset_left = 100.0
 offset_top = 34.0
 offset_right = 100.0
 offset_bottom = 152.0
+
+[connection signal="visibility_changed" from="FishingBar/ScorePop/Catch" to="FishingBar/ScorePop/Catch" method="OnVisibilityChanged"]
+[connection signal="visibility_changed" from="FishingBar/ScorePop/Guardian" to="FishingBar/ScorePop/Guardian" method="OnVisibilityChanged"]
+[connection signal="visibility_changed" from="FishingBar/ScorePop/Perfect" to="FishingBar/ScorePop/Perfect" method="OnVisibilityChanged"]

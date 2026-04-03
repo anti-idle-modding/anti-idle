@@ -7,6 +7,9 @@ namespace AntiIdle.Fishing.Bar;
 
 public partial class Triangle : Control
 {
+    [Export]
+    public ScorePop scorePop;
+
     private double tolerance;
     private double gcMult;
     private string tempName;
@@ -115,9 +118,7 @@ public partial class Triangle : Control
                     _root.save.fishExamLeft -= 1;
                 }
 
-                // TODO
-                // _parent.fishScore.gotoAndStop(2);
-                // _parent.fishScore._alpha = 100;
+                scorePop.Show(PopType.Catch);
                 _root.fishLoc = 0;
                 _root.fishSpeed = 0;
                 _root.save.fishScore += _root.fishCurrentExp * 50;
@@ -208,10 +209,7 @@ public partial class Triangle : Control
                 {
                     _root.save.fishExamLeft -= 1;
                 }
-
-                // TODO
-                // _parent.fishScore.gotoAndStop(1);
-                // _parent.fishScore._alpha = 100;
+                scorePop.Show(PopType.Miss);
                 _root.fishLoc = 0;
                 _root.fishSpeed = 0;
                 _root.save.fishExp += Math.ceil(_root.fishCurrentExp / 10);
@@ -292,15 +290,11 @@ public partial class Triangle : Control
             }
             if (tolerance == 1)
             {
-                // TODO
-                // _parent.fishScore.gotoAndStop(4);
-                // _parent.fishScore._alpha = 100;
+                scorePop.Show(PopType.Guardian);
             }
             else
             {
-                // TODO
-                // _parent.fishScore.gotoAndStop(3);
-                // _parent.fishScore._alpha = 100;
+                scorePop.Show(PopType.Perfect);
             }
             _root.fishLoc = 0;
             _root.fishSpeed = 0;
@@ -475,9 +469,7 @@ public partial class Triangle : Control
             {
                 _root.save.fishExamLeft -= 1;
             }
-            // TODO
-            // _parent.fishScore.gotoAndStop(2);
-            // _parent.fishScore._alpha = 100;
+            scorePop.Show(PopType.Catch);
             distPenalty = Math.floor(dist - distAllow);
             if (distPenalty > 7)
             {
@@ -599,8 +591,7 @@ public partial class Triangle : Control
             {
                 _root.save.fishExamLeft -= 1;
             }
-            // _parent.fishScore.gotoAndStop(1);
-            // _parent.fishScore._alpha = 100;
+            scorePop.Show(PopType.Miss);
             _root.fishLoc = 0;
             _root.fishSpeed = 0;
             _root.save.fishExp += Math.ceil(_root.fishCurrentExp / 10);
