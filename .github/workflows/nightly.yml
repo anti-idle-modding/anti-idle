@@ -20,7 +20,9 @@ jobs:
       uses: actions/checkout@v5
     - name: Set outputs
       id: vars
-      run: echo "sha_short=$(git rev-parse --short HEAD)" >> $GITHUB_OUTPUT
+      run: |
+        echo "sha_short=$(git rev-parse --short HEAD)" >> $GITHUB_OUTPUT
+        echo "date_fmt=$(date "+%Y%m%d-%H%M")" >> $GITHUB_OUTPUT
     - name: export game
       id: export
       # Use latest version (see releases for all versions)
@@ -37,9 +39,9 @@ jobs:
     - name: create release
       uses: ncipollo/release-action@v1.18.0
       with:
-        name: nightly-${{ steps.vars.outputs.sha_short }}
+        name: nightly-${{ steps.vars.outputs.date_fmt }}
         token: ${{ secrets.GITHUB_TOKEN }}
-        tag: nightly-${{ steps.vars.outputs.sha_short }}
+        tag: nightly-${{ steps.vars.outputs.date_fmt }}
         commit: ${{ github.sha }}
         generateReleaseNotes: true
         artifacts: ${{ steps.export.outputs.archive_directory }}/*
