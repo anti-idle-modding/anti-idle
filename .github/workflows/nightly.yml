@@ -37,7 +37,7 @@ jobs:
     - name: Compress
       run: |
         /usr/bin/7z a /home/runner/.local/share/godot/archives/windows-x64.zip /home/runner/.local/share/godot/builds/windows-x64/*
-        tar -I "zstd -T0 --ultra -22" -cf /home/runner/.local/share/godot/archives/linux-x64.tar.zst -C /home/runner/.local/share/godot/builds/linux-x64/ /home/runner/.local/share/godot/builds/linux-x64/*
+        tar -I "zstd -T0 --ultra -22" -cf /home/runner/.local/share/godot/archives/linux-x64.tar.zst -C /home/runner/.local/share/godot/builds/linux-x64/ .      
       # This release action has worked well for me. However, you can most likely use any release action of your choosing.
       # https://github.com/ncipollo/release-action
     - name: create release
