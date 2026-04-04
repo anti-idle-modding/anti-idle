@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://cin6024e2i0aa"]
+[gd_scene format=3 uid="uid://cin6024e2i0aa"]
 
 [ext_resource type="Script" uid="uid://qtwetfx4ayvo" path="res://src/Loader/Loader.cs" id="1_2blfs"]
 [ext_resource type="FontFile" uid="uid://qs8fgfyxuiho" path="res://common_assets/fonts/PF Tempesta Seven Bold_131.ttf" id="2_2voco"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://dsyoitvhm4f6b"]
+[gd_scene format=3 uid="uid://dsyoitvhm4f6b"]
 
 [ext_resource type="FontFile" uid="uid://bbyatyn4eg3yh" path="res://common_assets/fonts/131_dmgFont2_PF Tempesta Seven.ttf" id="1_e4hsj"]
 [ext_resource type="Texture2D" uid="uid://edsb60hfefu4" path="res://common_assets/sprites/DefineSprite_10159/4.png" id="1_ikni5"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://dafjthm2ksagh"]
+[gd_scene format=3 uid="uid://dafjthm2ksagh"]
 
 [ext_resource type="FontFile" uid="uid://bkce6w7pnorvp" path="res://common_assets/fonts/I hate Comic Sans.ttf" id="1_viomi"]
 [ext_resource type="FontFile" uid="uid://bkce6w7pnorvp" path="res://common_assets/fonts/I hate Comic Sans.ttf" id="2_o5pqi"]

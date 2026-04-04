@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://cewnbti5unski"]
+[gd_scene format=3 uid="uid://cewnbti5unski"]
 
 [ext_resource type="Texture2D" uid="uid://vj6fwqt8vtjn" path="res://common_assets/sprites/DefineSprite_170_newLoot5/1.png" id="1_letir"]
 [ext_resource type="Script" uid="uid://clpptsgp7mgd7" path="res://src/BattleArena/LootMechanics/NewLoot5.cs" id="2_tyibv"]

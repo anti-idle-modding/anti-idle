@@ -1,4 +1,4 @@
-[gd_scene load_steps=2 format=3 uid="uid://b1tm4mlfm1kvm"]
+[gd_scene format=3 uid="uid://b1tm4mlfm1kvm"]
 
 [ext_resource type="StyleBox" uid="uid://cu7p00nuxrco0" path="res://src/Popup/popup_info_bg_red.tres" id="1_i1rb7"]
 

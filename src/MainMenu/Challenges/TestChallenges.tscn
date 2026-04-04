@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://4b3m3on6fmkd"]
+[gd_scene format=3 uid="uid://4b3m3on6fmkd"]
 
 [ext_resource type="Texture2D" uid="uid://db0nposf61ipl" path="res://src/MainMenu/Challenges/image.png" id="1_6n51w"]
 [ext_resource type="PackedScene" uid="uid://dtb71bw3opbn0" path="res://src/MainMenu/Challenges/Challenges.tscn" id="2_6n51w"]

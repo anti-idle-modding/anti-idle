@@ -1,4 +1,4 @@
-[gd_scene load_steps=2 format=3 uid="uid://c3cit17ohijiq"]
+[gd_scene format=3 uid="uid://c3cit17ohijiq"]
 
 [ext_resource type="Script" uid="uid://di154d4spndko" path="res://src/Pages/MainLoader/StorageCheck.cs" id="1_jqs0l"]
 

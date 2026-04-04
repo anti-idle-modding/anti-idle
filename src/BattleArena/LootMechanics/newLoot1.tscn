@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://dwghg2ausa87o"]
+[gd_scene format=3 uid="uid://dwghg2ausa87o"]
 
 [ext_resource type="Texture2D" uid="uid://dk0317fhsvcen" path="res://common_assets/sprites/DefineSprite_155_newLoot1/1.png" id="1_4uiqy"]
 [ext_resource type="Script" uid="uid://b0gvds1ywc1xr" path="res://src/BattleArena/LootMechanics/NewLoot1.cs" id="1_ktis1"]

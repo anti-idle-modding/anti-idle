@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://bokeb6yxjprga"]
+[gd_scene format=3 uid="uid://bokeb6yxjprga"]
 
 [ext_resource type="Texture2D" uid="uid://b21mnu2f4lbk8" path="res://src/MainMenu/MenuBg.png" id="1_76s6h"]
 [ext_resource type="Texture2D" uid="uid://c5nkw08sfeeek" path="res://common_assets/logo.png" id="2_ml26j"]

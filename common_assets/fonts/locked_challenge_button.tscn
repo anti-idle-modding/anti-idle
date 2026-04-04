@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://nxgdfs1aqyy0"]
+[gd_scene format=3 uid="uid://nxgdfs1aqyy0"]
 
 [ext_resource type="Script" uid="uid://bc7lsjiqgv8lm" path="res://src/MainMenu/FileChallengeSelect.cs" id="1_d015q"]
 [ext_resource type="FontFile" uid="uid://dlp7fy0ywsxnl" path="res://common_assets/fonts/McLaren-Regular.ttf" id="2_kso22"]

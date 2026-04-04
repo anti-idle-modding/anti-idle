@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://wxmb2be8k4pe"]
+[gd_scene format=3 uid="uid://wxmb2be8k4pe"]
 
 [ext_resource type="FontFile" uid="uid://dlp7fy0ywsxnl" path="res://common_assets/fonts/McLaren-Regular.ttf" id="1_mof8f"]
 [ext_resource type="Script" uid="uid://bfc5o6txmvqe8" path="res://src/MainMenu/File0Select.cs" id="2_duxn6"]

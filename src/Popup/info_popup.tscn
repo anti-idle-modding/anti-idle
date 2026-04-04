@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://bwsw4cm1nvblr"]
+[gd_scene format=3 uid="uid://bwsw4cm1nvblr"]
 
 [ext_resource type="Script" uid="uid://bniunms0ef1wi" path="res://src/Popup/InfoPopup.cs" id="1_0qnql"]
 [ext_resource type="PackedScene" uid="uid://blx7hv0dogyf4" path="res://src/Popup/ad.tscn" id="2_0qnql"]

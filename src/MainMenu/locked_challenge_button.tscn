@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://1imyqiq7yx0m"]
+[gd_scene format=3 uid="uid://1imyqiq7yx0m"]
 
 [ext_resource type="Script" uid="uid://bc7lsjiqgv8lm" path="res://src/MainMenu/FileChallengeSelect.cs" id="1_d015q"]
 [ext_resource type="FontFile" uid="uid://bc8ccf2c7o73w" path="res://common_assets/fonts/1931_Maiandra GD.ttf" id="2_8f8xm"]

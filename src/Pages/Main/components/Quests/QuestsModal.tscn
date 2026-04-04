@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://0xqgrx5jhsge"]
+[gd_scene format=3 uid="uid://0xqgrx5jhsge"]
 
 [ext_resource type="Texture2D" uid="uid://byct7aur0tdcw" path="res://src/Pages/Main/components/Quests/rIjxSn9.png" id="1_n5kgb"]
 [ext_resource type="FontFile" uid="uid://xspan1itif3n" path="res://common_assets/fonts/1683_PF Tempesta Seven Extended.ttf" id="2_if8nu"]

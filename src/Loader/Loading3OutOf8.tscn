@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://bb37ornyy5ouc"]
+[gd_scene format=3 uid="uid://bb37ornyy5ouc"]
 
 [ext_resource type="Script" uid="uid://g60ikvjsigqx" path="res://src/Loader/Loading3OutOf8.cs" id="1_xqn2l"]
 [ext_resource type="FontFile" uid="uid://undd4htvlr06" path="res://common_assets/fonts/PF Tempesta Seven_893.ttf" id="2_xqn2l"]

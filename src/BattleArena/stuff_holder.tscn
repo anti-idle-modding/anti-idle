@@ -1,4 +1,4 @@
-[gd_scene load_steps=2 format=3 uid="uid://dc8028l4wobi5"]
+[gd_scene format=3 uid="uid://dc8028l4wobi5"]
 
 [ext_resource type="Texture2D" uid="uid://b01lknieoqa2g" path="res://src/BattleArena/textures/instance26.png" id="1_ok60w"]
 
