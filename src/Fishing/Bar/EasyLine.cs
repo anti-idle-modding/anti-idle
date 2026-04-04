@@ -5,7 +5,7 @@ using Math = AntiIdle.Common.Flash.Math;
 public partial class EasyLine : Line2D
 {
     // MATCH: DefineSprite_7718-frame_1-PlaceObject2_7717_2-CLIPACTIONRECORD onClipEvent(enterFrame).as
-    public override void _EnterTree()
+    public override void _Process(double delta)
     {
         var easyStreak = 3 + Math.floor(_root.save.fishLevel / 3);
         if (_root.save.fishRod == 4)

@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dsdos5ykii6t5" path="res://src/Fishing/Fishing.cs" id="1_iadc3"]
 [ext_resource type="Script" uid="uid://cw60qgmerocpk" path="res://src/Fishing/Bar/Cursor.cs" id="2_h37ne"]
+[ext_resource type="Texture2D" uid="uid://ch04ga4ol6xbo" path="res://src/Fishing/DayBg.svg" id="2_huh6y"]
 [ext_resource type="PackedScene" uid="uid://y3srqcye43ru" path="res://src/Fishing/Score/Score.tscn" id="3_2ufwo"]
 [ext_resource type="Script" uid="uid://cjqp5fqalre3o" path="res://src/Fishing/Bar/EasyLine.cs" id="3_7mtdg"]
 [ext_resource type="Script" uid="uid://doxsgiw5j6wnn" path="res://src/Fishing/Bar/CatchLine.cs" id="4_m0v2q"]
@@ -12,12 +13,20 @@
 [ext_resource type="PackedScene" uid="uid://62irlqib6h3i" path="res://src/Fishing/Pop/Perfect.tscn" id="9_ikc4f"]
 [ext_resource type="PackedScene" uid="uid://dj6mqlmb3gpy1" path="res://src/Fishing/Pop/Miss.tscn" id="10_x1ywk"]
 
-[sub_resource type="Gradient" id="Gradient_qc0uo"]
-offsets = PackedFloat32Array(0.00039154268, 0.5, 1)
-colors = PackedColorArray(0, 1, 1, 0, 0, 1, 1, 1, 0, 1, 1, 0)
+[sub_resource type="Gradient" id="Gradient_huh6y"]
+colors = PackedColorArray(0, 0, 0, 0.7019608, 0, 0, 0, 0.9019608)
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_p7pyc"]
-gradient = SubResource("Gradient_qc0uo")
+gradient = SubResource("Gradient_huh6y")
+
+[sub_resource type="Gradient" id="Gradient_ikc4f"]
+offsets = PackedFloat32Array(0, 0.98511904, 1)
+colors = PackedColorArray(0, 0, 0, 0.3, 0.13725491, 0.13725491, 0, 0.4, 0, 0, 0, 0.4)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_x1ywk"]
+gradient = SubResource("Gradient_ikc4f")
+fill_from = Vector2(0.6947497, 0)
+fill_to = Vector2(0.2942613, 1)
 
 [node name="Fishing" type="Control" unique_id=2114053251 node_paths=PackedStringArray("scoreDisp")]
 layout_mode = 3
@@ -33,6 +42,78 @@ offset_right = 500.0
 offset_bottom = 350.0
 border_color = Color(0, 0, 0, 1)
 metadata/_edit_lock_ = true
+
+[node name="DayBg" type="Sprite2D" parent="." unique_id=1928987296]
+texture = ExtResource("2_huh6y")
+centered = false
+
+[node name="DayNightCycle" type="Control" parent="." unique_id=1220443328]
+modulate = Color(1, 1, 1, 0.85)
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="0" type="TextureRect" parent="DayNightCycle" unique_id=2083368676]
+visible = false
+layout_mode = 0
+offset_right = 500.0
+offset_bottom = 350.0
+texture = SubResource("GradientTexture1D_p7pyc")
+
+[node name="1" type="TextureRect" parent="DayNightCycle" unique_id=809778009]
+visible = false
+layout_mode = 0
+offset_right = 500.0
+offset_bottom = 350.0
+texture = SubResource("GradientTexture2D_x1ywk")
+
+[node name="2" type="TextureRect" parent="DayNightCycle" unique_id=342571530]
+visible = false
+layout_mode = 0
+offset_right = 500.0
+offset_bottom = 350.0
+texture = SubResource("GradientTexture2D_x1ywk")
+
+[node name="3" type="TextureRect" parent="DayNightCycle" unique_id=654532704]
+visible = false
+layout_mode = 0
+offset_right = 500.0
+offset_bottom = 350.0
+texture = SubResource("GradientTexture2D_x1ywk")
+
+[node name="4" type="TextureRect" parent="DayNightCycle" unique_id=531467803]
+visible = false
+layout_mode = 0
+offset_right = 500.0
+offset_bottom = 350.0
+texture = SubResource("GradientTexture2D_x1ywk")
+
+[node name="5" type="TextureRect" parent="DayNightCycle" unique_id=651756915]
+visible = false
+layout_mode = 0
+offset_right = 500.0
+offset_bottom = 350.0
+texture = SubResource("GradientTexture2D_x1ywk")
+
+[node name="6" type="TextureRect" parent="DayNightCycle" unique_id=45147139]
+visible = false
+layout_mode = 0
+offset_right = 500.0
+offset_bottom = 350.0
+texture = SubResource("GradientTexture2D_x1ywk")
+
+[node name="7" type="TextureRect" parent="DayNightCycle" unique_id=1116858369]
+visible = false
+layout_mode = 0
+offset_right = 500.0
+offset_bottom = 350.0
+texture = SubResource("GradientTexture2D_x1ywk")
+
+[node name="8" type="TextureRect" parent="DayNightCycle" unique_id=1007598608]
+layout_mode = 0
+offset_right = 500.0
+offset_bottom = 350.0
+texture = SubResource("GradientTexture2D_x1ywk")
 
 [node name="FishingBar" type="Control" parent="." unique_id=1603995083]
 anchors_preset = 0
@@ -136,12 +217,29 @@ layout_mode = 0
 visible = false
 layout_mode = 0
 
+[node name="ColorRect" type="ColorRect" parent="." unique_id=420622591]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 48.0
+offset_right = 174.0
+offset_bottom = 250.0
+color = Color(0, 0, 0, 0.5411765)
+
 [node name="Score" parent="." unique_id=1197336751 instance=ExtResource("3_2ufwo")]
 layout_mode = 1
-offset_left = 100.0
-offset_top = 34.0
-offset_right = 100.0
-offset_bottom = 152.0
+offset_left = 123.0
+offset_top = 85.0
+offset_right = 123.0
+offset_bottom = 203.0
+
+[node name="Label" type="Label" parent="." unique_id=2111806740]
+layout_mode = 0
+offset_left = 13.0
+offset_top = 53.0
+offset_right = 64.0
+offset_bottom = 76.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+text = "SCORE"
 
 [connection signal="visibility_changed" from="FishingBar/ScorePop/Catch" to="FishingBar/ScorePop/Catch" method="OnVisibilityChanged"]
 [connection signal="visibility_changed" from="FishingBar/ScorePop/Guardian" to="FishingBar/ScorePop/Guardian" method="OnVisibilityChanged"]
