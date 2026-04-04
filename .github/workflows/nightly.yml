@@ -37,5 +37,7 @@ jobs:
       with:
         name: nightly-${{ github.sha }}
         token: ${{ secrets.GITHUB_TOKEN }}
+        tag: nightly-${{ github.sha }}
+        commit: ${{ github.sha }}
         generateReleaseNotes: true
         artifacts: ${{ steps.export.outputs.archive_directory }}/*
