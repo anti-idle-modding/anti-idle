@@ -14,7 +14,8 @@
 [ext_resource type="PackedScene" uid="uid://dj6mqlmb3gpy1" path="res://src/Fishing/Pop/Miss.tscn" id="10_x1ywk"]
 
 [sub_resource type="Gradient" id="Gradient_huh6y"]
-colors = PackedColorArray(0, 0, 0, 0.7019608, 0, 0, 0, 0.9019608)
+offsets = PackedFloat32Array(0, 0.5, 1)
+colors = PackedColorArray(0, 1, 1, 0, 0, 1, 1, 1, 0, 1, 1, 0)
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_p7pyc"]
 gradient = SubResource("Gradient_huh6y")
