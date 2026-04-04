@@ -14,6 +14,8 @@ jobs:
     # Job name, can be anything
     name: Export Game
     steps:
+    - name: Install system dependencies
+      run: sudo apt install -y zstd tar
       # Always include the checkout step so that 
       # your project is available for Godot to export
     - name: checkout
@@ -32,7 +34,10 @@ jobs:
         godot_executable_download_url: https://github.com/godotengine/godot/releases/download/4.6.2-stable/Godot_v4.6.2-stable_mono_linux_x86_64.zip
         godot_export_templates_download_url: https://github.com/godotengine/godot/releases/download/4.6.2-stable/Godot_v4.6.2-stable_mono_export_templates.tpz
         relative_project_path: ./
-
+    - name: Compress
+      run: |
+        /usr/bin/7z a /home/runner/.local/share/godot/archives/windows-x64.zip /home/runner/.local/share/godot/builds/windows-x64/*
+        tar -I "zstd -T0 --ultra -22" -cf /home/runner/.local/share/godot/archives/linux-x64.tar.zst /home/runner/.local/share/godot/builds/linux-x64/*
       # This release action has worked well for me. However, you can most likely use any release action of your choosing.
       # https://github.com/ncipollo/release-action
     - name: create release
