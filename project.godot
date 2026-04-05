@@ -39,7 +39,7 @@ project/assembly_name="AntiIdle"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/godotresourcecleaner/plugin.cfg")
+enabled=PackedStringArray()
 
 [file_customization]
 

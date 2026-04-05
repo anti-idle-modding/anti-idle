@@ -35,7 +35,10 @@ editor_only = false
 
 [node name="House" type="Control" parent="ReferenceRect" unique_id=52135336]
 physics_interpolation_mode = 0
+clip_contents = true
 anchors_preset = 0
+offset_right = 500.0
+offset_bottom = 414.1
 script = ExtResource("1_3rxla")
 scenes = Dictionary[String, PackedScene]({
 "BattleArena": ExtResource("2_qbml2"),
@@ -49,7 +52,7 @@ layout_mode = 0
 offset_left = 400.0
 offset_right = 500.0
 offset_bottom = 25.0
-scenes = null
+scenes = {}
 
 [node name="Button2" type="Button" parent="." unique_id=807597842 node_paths=PackedStringArray("house")]
 layout_mode = 0
