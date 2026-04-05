@@ -1,17 +1,203 @@
 [gd_scene format=3 uid="uid://bfv4a2w06mv1x"]
 
 [ext_resource type="Script" uid="uid://dsdos5ykii6t5" path="res://src/Fishing/Fishing.cs" id="1_iadc3"]
+[ext_resource type="Script" uid="uid://cvym5036up6n1" path="res://src/Fishing/FishingAssets.cs" id="2_76k8d"]
 [ext_resource type="Script" uid="uid://cw60qgmerocpk" path="res://src/Fishing/Bar/Cursor.cs" id="2_h37ne"]
 [ext_resource type="Texture2D" uid="uid://ch04ga4ol6xbo" path="res://src/Fishing/DayBg.svg" id="2_huh6y"]
-[ext_resource type="PackedScene" uid="uid://y3srqcye43ru" path="res://src/Fishing/Score/Score.tscn" id="3_2ufwo"]
 [ext_resource type="Script" uid="uid://cjqp5fqalre3o" path="res://src/Fishing/Bar/EasyLine.cs" id="3_7mtdg"]
+[ext_resource type="Script" uid="uid://ufrdcmtq4j2o" path="res://src/Fishing/Background.cs" id="3_cbp8y"]
+[ext_resource type="Script" uid="uid://bap4xqv05qki1" path="res://src/Fishing/DayNightCycle.cs" id="3_ikc4f"]
 [ext_resource type="Script" uid="uid://doxsgiw5j6wnn" path="res://src/Fishing/Bar/CatchLine.cs" id="4_m0v2q"]
 [ext_resource type="Script" uid="uid://yxj1iv58nqmd" path="res://src/Fishing/Bar/Triangle.cs" id="5_kse4m"]
+[ext_resource type="Texture2D" uid="uid://b2rmmqjar2f3" path="res://src/Fishing/CursedBg.svg" id="5_lcspj"]
+[ext_resource type="Texture2D" uid="uid://cggnamlfsr07m" path="res://src/Fishing/ExamBg.svg" id="6_4rgnw"]
 [ext_resource type="Script" uid="uid://c8amnd8bqrhrd" path="res://src/Fishing/Pop/ScorePop.cs" id="6_8ldo3"]
-[ext_resource type="PackedScene" uid="uid://curqlhvtkf8sr" path="res://src/Fishing/Pop/Catch.tscn" id="7_8ldo3"]
-[ext_resource type="PackedScene" uid="uid://cwpie3lr1ylqg" path="res://src/Fishing/Pop/Guardian.tscn" id="8_huh6y"]
-[ext_resource type="PackedScene" uid="uid://62irlqib6h3i" path="res://src/Fishing/Pop/Perfect.tscn" id="9_ikc4f"]
-[ext_resource type="PackedScene" uid="uid://dj6mqlmb3gpy1" path="res://src/Fishing/Pop/Miss.tscn" id="10_x1ywk"]
+[ext_resource type="Script" uid="uid://cau33kn63c6uf" path="res://src/Fishing/Pop/Catch.cs" id="9_es6ya"]
+[ext_resource type="Script" uid="uid://b26rgj7sbmy7d" path="res://src/Fishing/Pop/Guardian.cs" id="10_76k8d"]
+[ext_resource type="FontFile" uid="uid://ctv7i5w3nqvcj" path="res://common_assets/fonts/I Hate Comic Sans Bold.ttf" id="11_1jbhb"]
+[ext_resource type="Script" uid="uid://c42eye2kyfekh" path="res://src/Fishing/Pop/Perfect.cs" id="12_disgp"]
+[ext_resource type="Script" uid="uid://bl3rpgkqknbk7" path="res://src/Common/Nodes/SceneData.cs" id="13_pg0rw"]
+[ext_resource type="FontFile" uid="uid://c2ufmsayuh13g" path="res://common_assets/fonts/Bienvenu.ttf" id="14_cbp8y"]
+[ext_resource type="Script" uid="uid://dl2isxvr5mhg2" path="res://src/Fishing/Score/Score.cs" id="15_lcspj"]
+[ext_resource type="Texture2D" uid="uid://slm1wqrwal74" path="res://src/Fishing/Stickman1.svg" id="16_1jbhb"]
+
+[sub_resource type="Gradient" id="Gradient_x1ywk"]
+colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 0.90000004)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_huh6y"]
+gradient = SubResource("Gradient_x1ywk")
+fill_from = Vector2(0, 1)
+fill_to = Vector2(0, 0)
+
+[sub_resource type="Gradient" id="Gradient_ikc4f"]
+colors = PackedColorArray(0, 0, 0, 0.90000004, 0, 0, 0, 0.8)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_x1ywk"]
+gradient = SubResource("Gradient_ikc4f")
+fill_from = Vector2(0, 1)
+fill_to = Vector2(0, 0)
+
+[sub_resource type="Gradient" id="Gradient_es6ya"]
+colors = PackedColorArray(0, 0, 0, 0.8, 0, 0, 0, 0.70000005)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_76k8d"]
+gradient = SubResource("Gradient_es6ya")
+fill_from = Vector2(0, 1)
+fill_to = Vector2(0, 0)
+
+[sub_resource type="Gradient" id="Gradient_76k8d"]
+colors = PackedColorArray(0, 0, 0, 0.8, 0, 0, 0, 0.70000005)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_1jbhb"]
+gradient = SubResource("Gradient_76k8d")
+fill_from = Vector2(0, 1)
+fill_to = Vector2(0, 0)
+
+[sub_resource type="Gradient" id="Gradient_disgp"]
+colors = PackedColorArray(0, 0, 0, 0.70000005, 0, 0, 0, 0.6)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_pg0rw"]
+gradient = SubResource("Gradient_disgp")
+fill_from = Vector2(0, 1)
+fill_to = Vector2(0, 0)
+
+[sub_resource type="Gradient" id="Gradient_1jbhb"]
+offsets = PackedFloat32Array(0, 0.99821216)
+colors = PackedColorArray(0, 0, 0, 0.6, 0, 0, 0, 0.5)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_disgp"]
+gradient = SubResource("Gradient_1jbhb")
+fill_from = Vector2(0, 1)
+fill_to = Vector2(0, 0)
+
+[sub_resource type="Gradient" id="Gradient_pg0rw"]
+offsets = PackedFloat32Array(0, 0.99821216, 1)
+colors = PackedColorArray(0, 0, 0, 0.5, 0.2694199, 0.2694199, 0, 0.4, 0.14, 0.14, 0, 0.5019608)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_cbp8y"]
+gradient = SubResource("Gradient_pg0rw")
+fill_from = Vector2(0, 1)
+fill_to = Vector2(0, 0)
+
+[sub_resource type="Gradient" id="Gradient_cbp8y"]
+offsets = PackedFloat32Array(0, 0.99821216, 1)
+colors = PackedColorArray(0, 0, 0, 0.4, 0.2694199, 0.2694199, 0, 0.3, 0.14, 0.14, 0, 0.5019608)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_lcspj"]
+gradient = SubResource("Gradient_cbp8y")
+fill_from = Vector2(0, 1)
+fill_to = Vector2(0, 0)
+
+[sub_resource type="Gradient" id="Gradient_lcspj"]
+offsets = PackedFloat32Array(0, 0.9958284, 1)
+colors = PackedColorArray(0, 0, 0, 0.3, 0.4117647, 0.4117647, 0, 0.2, 0.41140202, 0.41140202, 0, 0.2)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_4rgnw"]
+gradient = SubResource("Gradient_lcspj")
+fill_from = Vector2(0, 1)
+fill_to = Vector2(0, 0)
+
+[sub_resource type="Gradient" id="Gradient_4rgnw"]
+offsets = PackedFloat32Array(0, 0.9958284, 1)
+colors = PackedColorArray(0, 0, 0, 0.2, 0.4117647, 0.4117647, 0, 0.2, 0.548779, 0.548779, 0, 0.2)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_bobpt"]
+gradient = SubResource("Gradient_4rgnw")
+fill_from = Vector2(0, 1)
+fill_to = Vector2(0, 0)
+
+[sub_resource type="Gradient" id="Gradient_bobpt"]
+offsets = PackedFloat32Array(0, 0.9958284, 1)
+colors = PackedColorArray(0, 0, 0, 0.1, 0.6862745, 0.6862745, 0, 0.2, 0.548779, 0.548779, 0, 0.2)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_4ek1a"]
+gradient = SubResource("Gradient_bobpt")
+fill_from = Vector2(0, 1)
+fill_to = Vector2(0, 0)
+
+[sub_resource type="Gradient" id="Gradient_4ek1a"]
+colors = PackedColorArray(0, 0, 0, 0.1, 0.8235294, 0.8235294, 0, 0.2)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_p008j"]
+gradient = SubResource("Gradient_4ek1a")
+fill_from = Vector2(0, 1)
+fill_to = Vector2(0, 0)
+
+[sub_resource type="Gradient" id="Gradient_p008j"]
+colors = PackedColorArray(0, 0, 0, 0.1, 1, 1, 0, 0.2)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_f5sso"]
+gradient = SubResource("Gradient_p008j")
+fill_from = Vector2(0, 1)
+fill_to = Vector2(0, 0)
+
+[sub_resource type="Gradient" id="Gradient_f5sso"]
+colors = PackedColorArray(0, 0, 0, 0.1, 1, 1, 0, 0.2)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_21rdb"]
+gradient = SubResource("Gradient_f5sso")
+fill_from = Vector2(0.3894994, 1)
+fill_to = Vector2(0.6800977, 0)
+
+[sub_resource type="Gradient" id="Gradient_21rdb"]
+colors = PackedColorArray(0, 0, 0, 0.1, 1, 1, 0, 0.2)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_44pc7"]
+gradient = SubResource("Gradient_21rdb")
+fill_from = Vector2(0.22588523, 1)
+fill_to = Vector2(0.8144078, 0)
+
+[sub_resource type="Gradient" id="Gradient_8dcsa"]
+offsets = PackedFloat32Array(0, 0.9994041)
+colors = PackedColorArray(0, 0, 0, 0.1, 1, 0.54901963, 0, 0.2)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_8p87k"]
+gradient = SubResource("Gradient_8dcsa")
+fill_from = Vector2(0.1013431, 1)
+fill_to = Vector2(0.9218559, 0)
+
+[sub_resource type="Gradient" id="Gradient_44pc7"]
+offsets = PackedFloat32Array(0, 0.9994041)
+colors = PackedColorArray(0, 0, 0, 0.4, 1, 0.11764706, 0, 0.2)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_8dcsa"]
+gradient = SubResource("Gradient_44pc7")
+fill_from = Vector2(0.07448108, 1)
+fill_to = Vector2(0.94627595, 0)
+
+[sub_resource type="Gradient" id="Gradient_8p87k"]
+offsets = PackedFloat32Array(0, 0.9994041)
+colors = PackedColorArray(0, 0, 0, 0.5, 0.54901963, 0, 0.54901963, 0.4)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_3gvsb"]
+gradient = SubResource("Gradient_8p87k")
+fill_from = Vector2(0.032967035, 1)
+fill_to = Vector2(0.9145299, 0)
+
+[sub_resource type="Gradient" id="Gradient_3gvsb"]
+offsets = PackedFloat32Array(0, 0.99821216)
+colors = PackedColorArray(0, 0, 0, 0.70000005, 0.15686275, 0.15686275, 0.15686275, 0.6)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_v6lxw"]
+gradient = SubResource("Gradient_3gvsb")
+fill_from = Vector2(0.26007327, 1)
+fill_to = Vector2(0.64835167, 0)
+
+[sub_resource type="Gradient" id="Gradient_v6lxw"]
+colors = PackedColorArray(0, 0, 0, 0.8, 0.15594886, 0.15594886, 0.15594886, 0.70000005)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_5dqqd"]
+gradient = SubResource("Gradient_v6lxw")
+fill_from = Vector2(0.26007327, 1)
+fill_to = Vector2(0.64835167, 0)
+
+[sub_resource type="Gradient" id="Gradient_5dqqd"]
+colors = PackedColorArray(0, 0, 0, 0.90000004, 0, 0, 0, 0.8)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_sd18a"]
+gradient = SubResource("Gradient_5dqqd")
+fill_from = Vector2(0.26007327, 1)
+fill_to = Vector2(0.64835167, 0)
 
 [sub_resource type="Gradient" id="Gradient_huh6y"]
 offsets = PackedFloat32Array(0, 0.5, 1)
@@ -20,14 +206,13 @@ colors = PackedColorArray(0, 1, 1, 0, 0, 1, 1, 1, 0, 1, 1, 0)
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_p7pyc"]
 gradient = SubResource("Gradient_huh6y")
 
-[sub_resource type="Gradient" id="Gradient_ikc4f"]
-offsets = PackedFloat32Array(0, 0.98511904, 1)
-colors = PackedColorArray(0, 0, 0, 0.3, 0.13725491, 0.13725491, 0, 0.4, 0, 0, 0, 0.4)
+[sub_resource type="FontVariation" id="FontVariation_4rgnw"]
+base_font = ExtResource("14_cbp8y")
 
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_x1ywk"]
-gradient = SubResource("Gradient_ikc4f")
-fill_from = Vector2(0.6947497, 0)
-fill_to = Vector2(0.2942613, 1)
+[sub_resource type="LabelSettings" id="LabelSettings_76k8d"]
+font = ExtResource("14_cbp8y")
+font_size = 10
+font_color = Color(0.6, 1, 0.2, 1)
 
 [node name="Fishing" type="Control" unique_id=2114053251 node_paths=PackedStringArray("scoreDisp")]
 layout_mode = 3
@@ -37,6 +222,10 @@ offset_bottom = 40.0
 script = ExtResource("1_iadc3")
 scoreDisp = NodePath("Score")
 
+[node name="AssetScript" type="Node" parent="." unique_id=929850392 node_paths=PackedStringArray("fishCountText")]
+script = ExtResource("2_76k8d")
+fishCountText = NodePath("../BucketCount/fishCountText")
+
 [node name="ReferenceRect" type="ReferenceRect" parent="." unique_id=1498575754]
 layout_mode = 0
 offset_right = 500.0
@@ -44,77 +233,230 @@ offset_bottom = 350.0
 border_color = Color(0, 0, 0, 1)
 metadata/_edit_lock_ = true
 
-[node name="DayBg" type="Sprite2D" parent="." unique_id=1928987296]
-texture = ExtResource("2_huh6y")
-centered = false
-
-[node name="DayNightCycle" type="Control" parent="." unique_id=1220443328]
-modulate = Color(1, 1, 1, 0.85)
+[node name="Background" type="Control" parent="." unique_id=451372903]
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+script = ExtResource("3_cbp8y")
+metadata/_edit_lock_ = true
+
+[node name="DayBg" type="Sprite2D" parent="Background" unique_id=1928987296]
+texture = ExtResource("2_huh6y")
+centered = false
+metadata/_edit_lock_ = true
+
+[node name="CursedBg" type="Sprite2D" parent="Background" unique_id=807117707]
+visible = false
+texture = ExtResource("5_lcspj")
+centered = false
+metadata/_edit_lock_ = true
+
+[node name="ExamBg" type="Sprite2D" parent="Background" unique_id=535149111]
+visible = false
+texture = ExtResource("6_4rgnw")
+centered = false
+metadata/_edit_lock_ = true
+
+[node name="DayNightCycle" type="Control" parent="." unique_id=1220443328]
+modulate = Color(1, 1, 1, 0.85)
+clip_contents = true
+anchors_preset = 0
+offset_right = 500.0
+offset_bottom = 350.0
+script = ExtResource("3_ikc4f")
+metadata/_edit_lock_ = true
 
 [node name="0" type="TextureRect" parent="DayNightCycle" unique_id=2083368676]
 visible = false
 layout_mode = 0
+offset_top = -89.0
 offset_right = 500.0
-offset_bottom = 350.0
-texture = SubResource("GradientTexture1D_p7pyc")
+offset_bottom = 427.0
+texture = SubResource("GradientTexture2D_huh6y")
 
-[node name="1" type="TextureRect" parent="DayNightCycle" unique_id=809778009]
+[node name="1" type="TextureRect" parent="DayNightCycle" unique_id=1557382108]
 visible = false
 layout_mode = 0
+offset_top = -63.0
 offset_right = 500.0
-offset_bottom = 350.0
+offset_bottom = 402.0
 texture = SubResource("GradientTexture2D_x1ywk")
 
-[node name="2" type="TextureRect" parent="DayNightCycle" unique_id=342571530]
+[node name="2" type="TextureRect" parent="DayNightCycle" unique_id=1458199370]
 visible = false
 layout_mode = 0
+offset_top = -63.0
 offset_right = 500.0
-offset_bottom = 350.0
-texture = SubResource("GradientTexture2D_x1ywk")
+offset_bottom = 402.0
+texture = SubResource("GradientTexture2D_76k8d")
 
-[node name="3" type="TextureRect" parent="DayNightCycle" unique_id=654532704]
+[node name="3" type="TextureRect" parent="DayNightCycle" unique_id=1736625660]
 visible = false
 layout_mode = 0
+offset_top = -63.0
 offset_right = 500.0
-offset_bottom = 350.0
-texture = SubResource("GradientTexture2D_x1ywk")
+offset_bottom = 402.0
+texture = SubResource("GradientTexture2D_1jbhb")
 
-[node name="4" type="TextureRect" parent="DayNightCycle" unique_id=531467803]
+[node name="4" type="TextureRect" parent="DayNightCycle" unique_id=1810026558]
 visible = false
 layout_mode = 0
+offset_top = -63.0
 offset_right = 500.0
-offset_bottom = 350.0
-texture = SubResource("GradientTexture2D_x1ywk")
+offset_bottom = 402.0
+texture = SubResource("GradientTexture2D_pg0rw")
 
-[node name="5" type="TextureRect" parent="DayNightCycle" unique_id=651756915]
+[node name="5" type="TextureRect" parent="DayNightCycle" unique_id=1977266452]
 visible = false
 layout_mode = 0
+offset_top = -63.0
 offset_right = 500.0
-offset_bottom = 350.0
-texture = SubResource("GradientTexture2D_x1ywk")
+offset_bottom = 402.0
+texture = SubResource("GradientTexture2D_disgp")
 
-[node name="6" type="TextureRect" parent="DayNightCycle" unique_id=45147139]
+[node name="6" type="TextureRect" parent="DayNightCycle" unique_id=1574175297]
 visible = false
 layout_mode = 0
+offset_top = -63.0
 offset_right = 500.0
-offset_bottom = 350.0
-texture = SubResource("GradientTexture2D_x1ywk")
+offset_bottom = 402.0
+texture = SubResource("GradientTexture2D_cbp8y")
 
-[node name="7" type="TextureRect" parent="DayNightCycle" unique_id=1116858369]
+[node name="7" type="TextureRect" parent="DayNightCycle" unique_id=1318513349]
 visible = false
 layout_mode = 0
+offset_top = -63.0
 offset_right = 500.0
-offset_bottom = 350.0
-texture = SubResource("GradientTexture2D_x1ywk")
+offset_bottom = 402.0
+texture = SubResource("GradientTexture2D_lcspj")
 
-[node name="8" type="TextureRect" parent="DayNightCycle" unique_id=1007598608]
+[node name="8" type="TextureRect" parent="DayNightCycle" unique_id=1940389665]
+visible = false
 layout_mode = 0
+offset_top = -63.0
 offset_right = 500.0
-offset_bottom = 350.0
-texture = SubResource("GradientTexture2D_x1ywk")
+offset_bottom = 402.0
+texture = SubResource("GradientTexture2D_4rgnw")
+
+[node name="9" type="TextureRect" parent="DayNightCycle" unique_id=1467786277]
+visible = false
+layout_mode = 0
+offset_top = -63.0
+offset_right = 500.0
+offset_bottom = 402.0
+texture = SubResource("GradientTexture2D_bobpt")
+
+[node name="10" type="TextureRect" parent="DayNightCycle" unique_id=523490818]
+visible = false
+layout_mode = 0
+offset_top = -63.0
+offset_right = 500.0
+offset_bottom = 402.0
+texture = SubResource("GradientTexture2D_4ek1a")
+
+[node name="11" type="TextureRect" parent="DayNightCycle" unique_id=1681148107]
+visible = false
+layout_mode = 0
+offset_top = -63.0
+offset_right = 500.0
+offset_bottom = 402.0
+texture = SubResource("GradientTexture2D_p008j")
+
+[node name="12" type="TextureRect" parent="DayNightCycle" unique_id=70794537]
+visible = false
+layout_mode = 0
+offset_top = -63.0
+offset_right = 500.0
+offset_bottom = 402.0
+texture = SubResource("GradientTexture2D_f5sso")
+
+[node name="13" type="TextureRect" parent="DayNightCycle" unique_id=962051364]
+visible = false
+layout_mode = 0
+offset_top = -71.0
+offset_right = 500.0
+offset_bottom = 394.0
+texture = SubResource("GradientTexture2D_21rdb")
+
+[node name="14" type="TextureRect" parent="DayNightCycle" unique_id=1191027985]
+visible = false
+layout_mode = 0
+offset_top = -71.0
+offset_right = 500.0
+offset_bottom = 394.0
+texture = SubResource("GradientTexture2D_44pc7")
+
+[node name="15" type="TextureRect" parent="DayNightCycle" unique_id=214694067]
+visible = false
+layout_mode = 0
+offset_top = -71.0
+offset_right = 500.0
+offset_bottom = 394.0
+texture = SubResource("GradientTexture2D_8p87k")
+
+[node name="16" type="TextureRect" parent="DayNightCycle" unique_id=35472345]
+visible = false
+layout_mode = 0
+offset_top = -71.0
+offset_right = 500.0
+offset_bottom = 394.0
+texture = SubResource("GradientTexture2D_8dcsa")
+
+[node name="17" type="TextureRect" parent="DayNightCycle" unique_id=285775279]
+visible = false
+layout_mode = 0
+offset_top = -71.0
+offset_right = 500.0
+offset_bottom = 394.0
+texture = SubResource("GradientTexture2D_8dcsa")
+
+[node name="18" type="TextureRect" parent="DayNightCycle" unique_id=1826980740]
+visible = false
+layout_mode = 0
+offset_top = -71.0
+offset_right = 500.0
+offset_bottom = 394.0
+texture = SubResource("GradientTexture2D_3gvsb")
+
+[node name="19" type="TextureRect" parent="DayNightCycle" unique_id=1872030216]
+visible = false
+layout_mode = 0
+offset_top = -71.0
+offset_right = 500.0
+offset_bottom = 394.0
+texture = SubResource("GradientTexture2D_v6lxw")
+
+[node name="20" type="TextureRect" parent="DayNightCycle" unique_id=1803203185]
+visible = false
+layout_mode = 0
+offset_top = -71.0
+offset_right = 500.0
+offset_bottom = 394.0
+texture = SubResource("GradientTexture2D_5dqqd")
+
+[node name="21" type="TextureRect" parent="DayNightCycle" unique_id=235767584]
+visible = false
+layout_mode = 0
+offset_top = -71.0
+offset_right = 500.0
+offset_bottom = 394.0
+texture = SubResource("GradientTexture2D_sd18a")
+
+[node name="22" type="TextureRect" parent="DayNightCycle" unique_id=1720245068]
+visible = false
+layout_mode = 0
+offset_top = -71.0
+offset_right = 500.0
+offset_bottom = 394.0
+texture = SubResource("GradientTexture2D_sd18a")
+
+[node name="23" type="TextureRect" parent="DayNightCycle" unique_id=653452105]
+visible = false
+layout_mode = 0
+offset_top = -89.0
+offset_right = 500.0
+offset_bottom = 427.0
+texture = SubResource("GradientTexture2D_huh6y")
 
 [node name="FishingBar" type="Control" parent="." unique_id=1603995083]
 anchors_preset = 0
@@ -202,45 +544,246 @@ grow_vertical = 2
 script = ExtResource("6_8ldo3")
 metadata/_custom_type_script = "uid://c5ahmxs2w5th2"
 
-[node name="Catch" parent="FishingBar/ScorePop" unique_id=2116951943 instance=ExtResource("7_8ldo3")]
+[node name="Catch" type="Control" parent="FishingBar/ScorePop" unique_id=2116951943]
 visible = false
-layout_mode = 0
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("9_es6ya")
 
-[node name="Guardian" parent="FishingBar/ScorePop" unique_id=1582474306 instance=ExtResource("8_huh6y")]
-visible = false
-layout_mode = 0
+[node name="Catch" type="Polygon2D" parent="FishingBar/ScorePop/Catch" unique_id=2021377548]
+color = Color(0, 1, 0, 0.5019608)
+polygon = PackedVector2Array(210, 0, 220, 20, 0, 20, 10, 0, 50.00537, 0)
+uv = PackedVector2Array(2.3333435, -34.666336, 25, 18.667, -202.33333, 23.333664, -167, -42.666336)
 
-[node name="Perfect" parent="FishingBar/ScorePop" unique_id=533282961 instance=ExtResource("9_ikc4f")]
-visible = false
-layout_mode = 0
+[node name="Line2D" type="Line2D" parent="FishingBar/ScorePop/Catch" unique_id=284179435]
+points = PackedVector2Array(210, 0, 220, 20, 0, 20, 10, 0)
+closed = true
+width = 2.0
+default_color = Color(0, 1, 0, 1)
+joint_mode = 2
+antialiased = true
 
-[node name="Miss" parent="FishingBar/ScorePop" unique_id=1121633970 instance=ExtResource("10_x1ywk")]
+[node name="Guardian" type="Control" parent="FishingBar/ScorePop" unique_id=1582474306]
 visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("10_76k8d")
+
+[node name="Guardian" type="Polygon2D" parent="FishingBar/ScorePop/Guardian" unique_id=1105638110]
+color = Color(1, 0, 1, 0.5019608)
+polygon = PackedVector2Array(210, 0, 220, 20, 0, 20, 10, 0, 50.00537, 0)
+uv = PackedVector2Array(2.3333435, -34.666336, 25, 18.667, -202.33333, 23.333664, -167, -42.666336)
+
+[node name="Line2D" type="Line2D" parent="FishingBar/ScorePop/Guardian" unique_id=164723748]
+points = PackedVector2Array(210, 0, 220, 20, 0, 20, 10, 0)
+closed = true
+width = 2.0
+default_color = Color(1, 0, 1, 1)
+joint_mode = 2
+antialiased = true
+
+[node name="streakDisp" type="Label" parent="FishingBar/ScorePop/Guardian" unique_id=1466848808]
 layout_mode = 0
+offset_left = 2.0
+offset_top = -27.0
+offset_right = 219.0
+offset_bottom = 2.0
+theme_override_colors/font_color = Color(1, 0, 1, 1)
+theme_override_fonts/font = ExtResource("11_1jbhb")
+theme_override_font_sizes/font_size = 25
+text = "25x"
+horizontal_alignment = 1
+
+[node name="Perfect" type="Control" parent="FishingBar/ScorePop" unique_id=533282961 node_paths=PackedStringArray("streakDisp")]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("12_disgp")
+streakDisp = NodePath("streakDisp")
+
+[node name="Perfect" type="Polygon2D" parent="FishingBar/ScorePop/Perfect" unique_id=409917880]
+color = Color(1, 1, 0, 0.5019608)
+polygon = PackedVector2Array(210, 0, 220, 20, 0, 20, 10, 0, 50.00537, 0)
+uv = PackedVector2Array(2.3333435, -34.666336, 25, 18.667, -202.33333, 23.333664, -167, -42.666336)
+
+[node name="Line2D" type="Line2D" parent="FishingBar/ScorePop/Perfect" unique_id=1868394041]
+points = PackedVector2Array(210, 0, 220, 20, 0, 20, 10, 0)
+closed = true
+width = 2.0
+default_color = Color(1, 1, 0, 1)
+joint_mode = 2
+antialiased = true
+
+[node name="streakDisp" type="Label" parent="FishingBar/ScorePop/Perfect" unique_id=1376003539]
+layout_mode = 0
+offset_left = 2.0
+offset_top = -27.0
+offset_right = 219.0
+offset_bottom = 2.0
+theme_override_colors/font_color = Color(1, 1, 0, 1)
+theme_override_fonts/font = ExtResource("11_1jbhb")
+theme_override_font_sizes/font_size = 25
+text = "25x"
+horizontal_alignment = 1
+
+[node name="Miss" type="Control" parent="FishingBar/ScorePop" unique_id=1121633970]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("13_pg0rw")
+metadata/_custom_type_script = "uid://bl3rpgkqknbk7"
+
+[node name="Miss" type="Polygon2D" parent="FishingBar/ScorePop/Miss" unique_id=1411244886]
+color = Color(1, 0, 0, 0.5019608)
+polygon = PackedVector2Array(210, 0, 220, 20, 0, 20, 10, 0, 50.00537, 0)
+uv = PackedVector2Array(2.3333435, -34.666336, 25, 18.667, -202.33333, 23.333664, -167, -42.666336)
+
+[node name="Line2D" type="Line2D" parent="FishingBar/ScorePop/Miss/Miss" unique_id=579381822]
+points = PackedVector2Array(210, 0, 220, 20, 0, 20, 10, 0)
+closed = true
+width = 2.0
+default_color = Color(1, 0, 0, 1)
+joint_mode = 2
+antialiased = true
+
+[node name="Bucket" type="Control" parent="." unique_id=1869397716]
+layout_mode = 1
+anchor_left = 2.125
+anchor_top = 3.065
+anchor_right = 2.125
+anchor_bottom = 3.065
+offset_left = 2.5999985
+offset_top = 20.09999
+offset_right = 45.600006
+offset_bottom = 83.09999
+
+[node name="Handle" type="Polygon2D" parent="Bucket" unique_id=1773246646]
+color = Color(1, 0, 0, 1)
+polygon = PackedVector2Array(10, 0, 32.5, 0, 37.5, 5, 37.5, 17.5, 32.5, 17.5, 32.5, 5, 10, 5, 10, 17.5, 5, 17.5, 5, 5)
+uv = PackedVector2Array(-225.71426, -43.714283, -168.57141, -43.142853, -149.14285, -24.85714, -149.71426, 19.14286, -166.2857, 23.714287, -168, -15.142853, -225.14284, -17.428566, -226.85713, 22, -251.99998, 22, -250.28569, -18)
+
+[node name="HandleLine" type="Line2D" parent="Bucket" unique_id=1399558631]
+points = PackedVector2Array(5, 18, 10, 18, 10, 5, 32, 5, 32, 18, 38, 18, 38, 5, 33, 0, 10, 0, 5, 5)
+closed = true
+width = 2.0
+default_color = Color(0.8, 0, 0, 1)
+joint_mode = 2
+
+[node name="Bucket" type="Polygon2D" parent="Bucket" unique_id=1210272367]
+color = Color(0.88235295, 0, 0, 1)
+polygon = PackedVector2Array(0, 17.5, 42.5, 17.5, 37.5, 62.5, 5, 62.5)
+
+[node name="BucketLine" type="Line2D" parent="Bucket" unique_id=1041927714]
+points = PackedVector2Array(0, 18, 43, 18, 38, 63, 5, 63)
+closed = true
+width = 2.0
+default_color = Color(0.8, 0, 0, 1)
+joint_mode = 2
+
+[node name="BucketCount" type="Control" parent="." unique_id=1655113126]
+anchors_preset = 0
+offset_left = 85.0
+offset_top = 212.0
+offset_right = 85.0
+offset_bottom = 212.0
+
+[node name="ColorRect" type="ColorRect" parent="BucketCount" unique_id=489602140]
+layout_mode = 0
+offset_right = 50.0
+offset_bottom = 10.0
+color = Color(0.2, 0.2, 0.2, 1)
+
+[node name="Line2D" type="Line2D" parent="BucketCount" unique_id=425941447]
+points = PackedVector2Array(0, 0, 50, 0, 50, 10, 0, 10)
+closed = true
+width = 2.0
+default_color = Color(0, 0, 0, 1)
+joint_mode = 2
+
+[node name="fishCountText" type="Label" parent="BucketCount" unique_id=1221189724]
+layout_mode = 0
+offset_top = -2.0
+offset_right = 50.0
+offset_bottom = 10.0
+theme_override_colors/font_color = Color(0.6, 1, 0.2, 1)
+theme_override_fonts/font = SubResource("FontVariation_4rgnw")
+theme_override_font_sizes/font_size = 10
+text = "1,337"
+label_settings = SubResource("LabelSettings_76k8d")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="FishingStickman" type="Control" parent="." unique_id=1655442674]
+anchors_preset = 0
+offset_left = 140.0
+offset_top = 137.0
+offset_right = 180.0
+offset_bottom = 177.0
+
+[node name="Stickman1" type="Sprite2D" parent="FishingStickman" unique_id=1212690414]
+texture = ExtResource("16_1jbhb")
+centered = false
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=420622591]
 layout_mode = 0
-offset_left = 7.0
-offset_top = 48.0
-offset_right = 174.0
-offset_bottom = 250.0
+offset_left = 327.0
+offset_top = 63.0
+offset_right = 494.0
+offset_bottom = 265.0
 color = Color(0, 0, 0, 0.5411765)
+metadata/_edit_group_ = true
 
-[node name="Score" parent="." unique_id=1197336751 instance=ExtResource("3_2ufwo")]
+[node name="Score" type="VBoxContainer" parent="." unique_id=1197336751 node_paths=PackedStringArray("todayText", "scoreText", "recordText", "skillText", "perfectText", "streakText")]
 layout_mode = 1
-offset_left = 123.0
-offset_top = 85.0
-offset_right = 123.0
-offset_bottom = 203.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 338.0
+offset_top = 100.0
+offset_right = 443.0
+offset_bottom = 218.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("15_lcspj")
+todayText = NodePath("TodayText")
+scoreText = NodePath("ScoreText")
+recordText = NodePath("RecordText")
+skillText = NodePath("SkillText")
+perfectText = NodePath("PerfectText")
+streakText = NodePath("StreakText")
+metadata/_edit_group_ = true
+
+[node name="TodayText" type="Label" parent="Score" unique_id=857431232]
+layout_mode = 2
+
+[node name="ScoreText" type="Label" parent="Score" unique_id=455514822]
+layout_mode = 2
+
+[node name="RecordText" type="Label" parent="Score" unique_id=1768117991]
+layout_mode = 2
+
+[node name="SkillText" type="Label" parent="Score" unique_id=2039797109]
+layout_mode = 2
+
+[node name="PerfectText" type="Label" parent="Score" unique_id=705873927]
+layout_mode = 2
+
+[node name="StreakText" type="Label" parent="Score" unique_id=703490720]
+layout_mode = 2
 
 [node name="Label" type="Label" parent="." unique_id=2111806740]
 layout_mode = 0
-offset_left = 13.0
-offset_top = 53.0
-offset_right = 64.0
-offset_bottom = 76.0
+offset_left = 333.0
+offset_top = 68.0
+offset_right = 384.0
+offset_bottom = 91.0
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 text = "SCORE"
+metadata/_edit_group_ = true
 
 [connection signal="visibility_changed" from="FishingBar/ScorePop/Catch" to="FishingBar/ScorePop/Catch" method="OnVisibilityChanged"]
 [connection signal="visibility_changed" from="FishingBar/ScorePop/Guardian" to="FishingBar/ScorePop/Guardian" method="OnVisibilityChanged"]
