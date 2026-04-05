@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://bfv4a2w06mv1x"]
 
 [ext_resource type="Script" uid="uid://dsdos5ykii6t5" path="res://src/Fishing/Fishing.cs" id="1_iadc3"]
-[ext_resource type="Script" uid="uid://cvym5036up6n1" path="res://src/Fishing/FishingAssets.cs" id="2_76k8d"]
 [ext_resource type="Script" uid="uid://cw60qgmerocpk" path="res://src/Fishing/Bar/Cursor.cs" id="2_h37ne"]
 [ext_resource type="Texture2D" uid="uid://ch04ga4ol6xbo" path="res://src/Fishing/DayBg.svg" id="2_huh6y"]
 [ext_resource type="Script" uid="uid://cjqp5fqalre3o" path="res://src/Fishing/Bar/EasyLine.cs" id="3_7mtdg"]
@@ -20,6 +19,15 @@
 [ext_resource type="FontFile" uid="uid://c2ufmsayuh13g" path="res://common_assets/fonts/Bienvenu.ttf" id="14_cbp8y"]
 [ext_resource type="Script" uid="uid://dl2isxvr5mhg2" path="res://src/Fishing/Score/Score.cs" id="15_lcspj"]
 [ext_resource type="Texture2D" uid="uid://slm1wqrwal74" path="res://src/Fishing/Stickman1.svg" id="16_1jbhb"]
+[ext_resource type="Script" uid="uid://bs50oosc1i4n2" path="res://src/Fishing/FishCountText.cs" id="18_cbp8y"]
+
+[sub_resource type="FontVariation" id="FontVariation_4rgnw"]
+base_font = ExtResource("14_cbp8y")
+
+[sub_resource type="LabelSettings" id="LabelSettings_76k8d"]
+font = ExtResource("14_cbp8y")
+font_size = 10
+font_color = Color(0.6, 1, 0.2, 1)
 
 [sub_resource type="Gradient" id="Gradient_x1ywk"]
 colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 0.90000004)
@@ -206,13 +214,14 @@ colors = PackedColorArray(0, 1, 1, 0, 0, 1, 1, 1, 0, 1, 1, 0)
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_p7pyc"]
 gradient = SubResource("Gradient_huh6y")
 
-[sub_resource type="FontVariation" id="FontVariation_4rgnw"]
-base_font = ExtResource("14_cbp8y")
+[sub_resource type="Gradient" id="Gradient_sd18a"]
+offsets = PackedFloat32Array(0.014214047, 0.33333334)
+colors = PackedColorArray(0, 0, 0, 0, 0, 0, 0, 1)
+metadata/_snap_enabled = true
+metadata/_snap_count = 3
 
-[sub_resource type="LabelSettings" id="LabelSettings_76k8d"]
-font = ExtResource("14_cbp8y")
-font_size = 10
-font_color = Color(0.6, 1, 0.2, 1)
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_og3bj"]
+gradient = SubResource("Gradient_sd18a")
 
 [node name="Fishing" type="Control" unique_id=2114053251 node_paths=PackedStringArray("scoreDisp")]
 layout_mode = 3
@@ -221,10 +230,6 @@ offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("1_iadc3")
 scoreDisp = NodePath("Score")
-
-[node name="AssetScript" type="Node" parent="." unique_id=929850392 node_paths=PackedStringArray("fishCountText")]
-script = ExtResource("2_76k8d")
-fishCountText = NodePath("../BucketCount/fishCountText")
 
 [node name="ReferenceRect" type="ReferenceRect" parent="." unique_id=1498575754]
 layout_mode = 0
@@ -256,6 +261,86 @@ visible = false
 texture = ExtResource("6_4rgnw")
 centered = false
 metadata/_edit_lock_ = true
+
+[node name="Bucket" type="Control" parent="." unique_id=1869397716]
+layout_mode = 1
+anchor_left = 2.125
+anchor_top = 3.065
+anchor_right = 2.125
+anchor_bottom = 3.065
+offset_left = 2.5999985
+offset_top = 20.09999
+offset_right = 45.600006
+offset_bottom = 83.09999
+
+[node name="Handle" type="Polygon2D" parent="Bucket" unique_id=1773246646]
+color = Color(1, 0, 0, 1)
+polygon = PackedVector2Array(10, 0, 32.5, 0, 37.5, 5, 37.5, 17.5, 32.5, 17.5, 32.5, 5, 10, 5, 10, 17.5, 5, 17.5, 5, 5)
+uv = PackedVector2Array(-225.71426, -43.714283, -168.57141, -43.142853, -149.14285, -24.85714, -149.71426, 19.14286, -166.2857, 23.714287, -168, -15.142853, -225.14284, -17.428566, -226.85713, 22, -251.99998, 22, -250.28569, -18)
+
+[node name="HandleLine" type="Line2D" parent="Bucket" unique_id=1399558631]
+points = PackedVector2Array(5, 18, 10, 18, 10, 5, 32, 5, 32, 18, 38, 18, 38, 5, 33, 0, 10, 0, 5, 5)
+closed = true
+width = 2.0
+default_color = Color(0.8, 0, 0, 1)
+joint_mode = 2
+
+[node name="Bucket" type="Polygon2D" parent="Bucket" unique_id=1210272367]
+color = Color(0.88235295, 0, 0, 1)
+polygon = PackedVector2Array(0, 17.5, 42.5, 17.5, 37.5, 62.5, 5, 62.5)
+
+[node name="BucketLine" type="Line2D" parent="Bucket" unique_id=1041927714]
+points = PackedVector2Array(0, 18, 43, 18, 38, 63, 5, 63)
+closed = true
+width = 2.0
+default_color = Color(0.8, 0, 0, 1)
+joint_mode = 2
+
+[node name="BucketCount" type="Control" parent="." unique_id=1655113126]
+anchors_preset = 0
+offset_left = 85.0
+offset_top = 212.0
+offset_right = 85.0
+offset_bottom = 212.0
+
+[node name="ColorRect" type="ColorRect" parent="BucketCount" unique_id=489602140]
+layout_mode = 0
+offset_right = 50.0
+offset_bottom = 10.0
+color = Color(0.2, 0.2, 0.2, 1)
+
+[node name="Line2D" type="Line2D" parent="BucketCount" unique_id=425941447]
+points = PackedVector2Array(0, 0, 50, 0, 50, 10, 0, 10)
+closed = true
+width = 2.0
+default_color = Color(0, 0, 0, 1)
+joint_mode = 2
+
+[node name="fishCountText" type="Label" parent="BucketCount" unique_id=1221189724]
+layout_mode = 0
+offset_top = -2.0
+offset_right = 50.0
+offset_bottom = 10.0
+theme_override_colors/font_color = Color(0.6, 1, 0.2, 1)
+theme_override_fonts/font = SubResource("FontVariation_4rgnw")
+theme_override_font_sizes/font_size = 10
+text = "1,337"
+label_settings = SubResource("LabelSettings_76k8d")
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("18_cbp8y")
+
+[node name="FishingStickman" type="Control" parent="." unique_id=1655442674]
+anchors_preset = 0
+offset_left = 140.0
+offset_top = 137.0
+offset_right = 180.0
+offset_bottom = 177.0
+
+[node name="Stickman1" type="Sprite2D" parent="FishingStickman" unique_id=1212690414]
+position = Vector2(1, 2)
+texture = ExtResource("16_1jbhb")
+centered = false
 
 [node name="DayNightCycle" type="Control" parent="." unique_id=1220443328]
 modulate = Color(1, 1, 1, 0.85)
@@ -650,140 +735,107 @@ default_color = Color(1, 0, 0, 1)
 joint_mode = 2
 antialiased = true
 
-[node name="Bucket" type="Control" parent="." unique_id=1869397716]
-layout_mode = 1
-anchor_left = 2.125
-anchor_top = 3.065
-anchor_right = 2.125
-anchor_bottom = 3.065
-offset_left = 2.5999985
-offset_top = 20.09999
-offset_right = 45.600006
-offset_bottom = 83.09999
-
-[node name="Handle" type="Polygon2D" parent="Bucket" unique_id=1773246646]
-color = Color(1, 0, 0, 1)
-polygon = PackedVector2Array(10, 0, 32.5, 0, 37.5, 5, 37.5, 17.5, 32.5, 17.5, 32.5, 5, 10, 5, 10, 17.5, 5, 17.5, 5, 5)
-uv = PackedVector2Array(-225.71426, -43.714283, -168.57141, -43.142853, -149.14285, -24.85714, -149.71426, 19.14286, -166.2857, 23.714287, -168, -15.142853, -225.14284, -17.428566, -226.85713, 22, -251.99998, 22, -250.28569, -18)
-
-[node name="HandleLine" type="Line2D" parent="Bucket" unique_id=1399558631]
-points = PackedVector2Array(5, 18, 10, 18, 10, 5, 32, 5, 32, 18, 38, 18, 38, 5, 33, 0, 10, 0, 5, 5)
-closed = true
-width = 2.0
-default_color = Color(0.8, 0, 0, 1)
-joint_mode = 2
-
-[node name="Bucket" type="Polygon2D" parent="Bucket" unique_id=1210272367]
-color = Color(0.88235295, 0, 0, 1)
-polygon = PackedVector2Array(0, 17.5, 42.5, 17.5, 37.5, 62.5, 5, 62.5)
-
-[node name="BucketLine" type="Line2D" parent="Bucket" unique_id=1041927714]
-points = PackedVector2Array(0, 18, 43, 18, 38, 63, 5, 63)
-closed = true
-width = 2.0
-default_color = Color(0.8, 0, 0, 1)
-joint_mode = 2
-
-[node name="BucketCount" type="Control" parent="." unique_id=1655113126]
+[node name="Score" type="Control" parent="." unique_id=1141356133 node_paths=PackedStringArray("todayText", "scoreText", "recordText")]
 anchors_preset = 0
-offset_left = 85.0
-offset_top = 212.0
-offset_right = 85.0
-offset_bottom = 212.0
-
-[node name="ColorRect" type="ColorRect" parent="BucketCount" unique_id=489602140]
-layout_mode = 0
-offset_right = 50.0
-offset_bottom = 10.0
-color = Color(0.2, 0.2, 0.2, 1)
-
-[node name="Line2D" type="Line2D" parent="BucketCount" unique_id=425941447]
-points = PackedVector2Array(0, 0, 50, 0, 50, 10, 0, 10)
-closed = true
-width = 2.0
-default_color = Color(0, 0, 0, 1)
-joint_mode = 2
-
-[node name="fishCountText" type="Label" parent="BucketCount" unique_id=1221189724]
-layout_mode = 0
-offset_top = -2.0
-offset_right = 50.0
-offset_bottom = 10.0
-theme_override_colors/font_color = Color(0.6, 1, 0.2, 1)
-theme_override_fonts/font = SubResource("FontVariation_4rgnw")
-theme_override_font_sizes/font_size = 10
-text = "1,337"
-label_settings = SubResource("LabelSettings_76k8d")
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="FishingStickman" type="Control" parent="." unique_id=1655442674]
-anchors_preset = 0
-offset_left = 140.0
-offset_top = 137.0
-offset_right = 180.0
-offset_bottom = 177.0
-
-[node name="Stickman1" type="Sprite2D" parent="FishingStickman" unique_id=1212690414]
-texture = ExtResource("16_1jbhb")
-centered = false
-
-[node name="ColorRect" type="ColorRect" parent="." unique_id=420622591]
-layout_mode = 0
-offset_left = 327.0
-offset_top = 63.0
-offset_right = 494.0
-offset_bottom = 265.0
-color = Color(0, 0, 0, 0.5411765)
-metadata/_edit_group_ = true
-
-[node name="Score" type="VBoxContainer" parent="." unique_id=1197336751 node_paths=PackedStringArray("todayText", "scoreText", "recordText", "skillText", "perfectText", "streakText")]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 338.0
-offset_top = 100.0
-offset_right = 443.0
-offset_bottom = 218.0
-grow_horizontal = 2
-grow_vertical = 2
+offset_left = 281.0
+offset_top = 119.0
+offset_right = 321.0
+offset_bottom = 159.0
 script = ExtResource("15_lcspj")
-todayText = NodePath("TodayText")
-scoreText = NodePath("ScoreText")
-recordText = NodePath("RecordText")
-skillText = NodePath("SkillText")
-perfectText = NodePath("PerfectText")
-streakText = NodePath("StreakText")
-metadata/_edit_group_ = true
+todayText = NodePath("todayText")
+scoreText = NodePath("scoreText")
+recordText = NodePath("recordText")
 
-[node name="TodayText" type="Label" parent="Score" unique_id=857431232]
-layout_mode = 2
-
-[node name="ScoreText" type="Label" parent="Score" unique_id=455514822]
-layout_mode = 2
-
-[node name="RecordText" type="Label" parent="Score" unique_id=1768117991]
-layout_mode = 2
-
-[node name="SkillText" type="Label" parent="Score" unique_id=2039797109]
-layout_mode = 2
-
-[node name="PerfectText" type="Label" parent="Score" unique_id=705873927]
-layout_mode = 2
-
-[node name="StreakText" type="Label" parent="Score" unique_id=703490720]
-layout_mode = 2
-
-[node name="Label" type="Label" parent="." unique_id=2111806740]
+[node name="Bg1" type="TextureRect" parent="Score" unique_id=894764335]
 layout_mode = 0
-offset_left = 333.0
-offset_top = 68.0
-offset_right = 384.0
-offset_bottom = 91.0
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-text = "SCORE"
-metadata/_edit_group_ = true
+offset_right = 210.0
+offset_bottom = 20.0
+texture = SubResource("GradientTexture1D_og3bj")
+expand_mode = 1
+
+[node name="Bg2" type="TextureRect" parent="Score" unique_id=1884374717]
+layout_mode = 0
+offset_top = 25.0
+offset_right = 210.0
+offset_bottom = 45.0
+texture = SubResource("GradientTexture1D_og3bj")
+expand_mode = 1
+
+[node name="Bg3" type="TextureRect" parent="Score" unique_id=1178828774]
+layout_mode = 0
+offset_top = 50.0
+offset_right = 210.0
+offset_bottom = 70.0
+texture = SubResource("GradientTexture1D_og3bj")
+expand_mode = 1
+
+[node name="Score" type="Label" parent="Score" unique_id=354164871]
+layout_mode = 0
+offset_left = 9.0
+offset_top = 2.0
+offset_right = 53.0
+offset_bottom = 25.0
+theme_override_colors/font_color = Color(1, 1, 0, 1)
+theme_override_fonts/font = ExtResource("14_cbp8y")
+theme_override_font_sizes/font_size = 15
+text = "Score"
+
+[node name="Score2" type="Label" parent="Score" unique_id=1052647785]
+layout_mode = 0
+offset_left = 9.0
+offset_top = 27.0
+offset_right = 53.0
+offset_bottom = 50.0
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_fonts/font = ExtResource("14_cbp8y")
+theme_override_font_sizes/font_size = 15
+text = "Today"
+
+[node name="Score3" type="Label" parent="Score" unique_id=563299239]
+layout_mode = 0
+offset_top = 52.0
+offset_right = 53.0
+offset_bottom = 75.0
+theme_override_colors/font_color = Color(0, 1, 0, 1)
+theme_override_fonts/font = ExtResource("14_cbp8y")
+theme_override_font_sizes/font_size = 15
+text = "Record"
+
+[node name="scoreText" type="Label" parent="Score" unique_id=1001842867]
+layout_mode = 0
+offset_left = 60.0
+offset_top = 1.0
+offset_right = 210.0
+offset_bottom = 24.0
+theme_override_colors/font_color = Color(1, 1, 0, 1)
+theme_override_fonts/font = ExtResource("14_cbp8y")
+theme_override_font_sizes/font_size = 15
+text = "0"
+horizontal_alignment = 2
+
+[node name="todayText" type="Label" parent="Score" unique_id=1524956899]
+layout_mode = 0
+offset_left = 60.0
+offset_top = 27.0
+offset_right = 210.0
+offset_bottom = 50.0
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_fonts/font = ExtResource("14_cbp8y")
+theme_override_font_sizes/font_size = 15
+text = "0"
+horizontal_alignment = 2
+
+[node name="recordText" type="Label" parent="Score" unique_id=744628322]
+layout_mode = 0
+offset_left = 60.0
+offset_top = 52.0
+offset_right = 210.0
+offset_bottom = 75.0
+theme_override_colors/font_color = Color(0, 1, 0, 1)
+theme_override_fonts/font = ExtResource("14_cbp8y")
+theme_override_font_sizes/font_size = 15
+text = "0"
+horizontal_alignment = 2
 
 [connection signal="visibility_changed" from="FishingBar/ScorePop/Catch" to="FishingBar/ScorePop/Catch" method="OnVisibilityChanged"]
 [connection signal="visibility_changed" from="FishingBar/ScorePop/Guardian" to="FishingBar/ScorePop/Guardian" method="OnVisibilityChanged"]

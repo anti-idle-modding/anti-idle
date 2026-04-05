@@ -24,7 +24,7 @@ public partial class Background : Control
         {
             Show("ExamBg");
         }
-        else if (true) //(_root.save.fishRod == 4)
+        else if (_root.save.fishRod == 4)
         {
             Show("CursedBg");
         }
