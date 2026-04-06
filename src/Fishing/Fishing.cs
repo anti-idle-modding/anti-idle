@@ -1,4 +1,5 @@
 using System;
+using AntiIdle.Common;
 using AntiIdle.Fishing;
 using Godot;
 using Math = AntiIdle.Common.Flash.Math;
@@ -32,7 +33,7 @@ public partial class Fishing : Control
     private double curTodayDisp;
     private double curRecordDisp;
 
-    private bool ready;
+    public bool ready;
     private double fishFreq;
     private double chaos1;
     private double chaos;
@@ -167,9 +168,11 @@ public partial class Fishing : Control
             curTodayDisp = _root.save.fishScoreToday;
         }
 
-        curScoreDisp += Math.ceil(_root.save.fishScore - curScoreDisp) / 5;
-        curTodayDisp += Math.ceil(_root.save.fishScoreToday - curTodayDisp) / 5;
-        curRecordDisp += Math.ceil(_root.save.fishScoreRecord - curRecordDisp) / 5;
+        curScoreDisp += Math.ceil(_root.save.fishScore - curScoreDisp) * Const.Slowdown(delta) / 5;
+        curTodayDisp +=
+            Math.ceil(_root.save.fishScoreToday - curTodayDisp) * Const.Slowdown(delta) / 5;
+        curRecordDisp +=
+            Math.ceil(_root.save.fishScoreRecord - curRecordDisp) * Const.Slowdown(delta) / 5;
         if (curScoreDisp > 999999999999)
         {
             curScoreDisp = 999999999999;

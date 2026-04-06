@@ -2,8 +2,18 @@ using System;
 using AntiIdle.Common;
 using Godot;
 
+namespace AntiIdle.Fishing;
+
 public partial class MasteryBar : Polygon2D
 {
+    [Export]
+    private Fishing fishing;
+
+    [Export]
+    private Label expText;
+
+    [Export]
+    private Label fatigueText;
     private double reqExp;
     private double targetScale;
 
@@ -45,33 +55,29 @@ public partial class MasteryBar : Polygon2D
                 _root.dispNews(120, "Your Fishing Skill is now " + _root.save.fishLevel + "!");
             }
         }
-        // TODO WTF?
-        //_parent.reqExp = reqExp;
+        //_parent.reqExp = reqExp; // unused?
         if (_root.save.fishExp >= reqExp && _root.save.fishLevel < 30)
         {
             _root.save.fishExp = reqExp;
-            // _parent.ready = true; // TODO
+            fishing.ready = true;
         }
         else
         {
-            // _parent.ready = false; // TODO
+            fishing.ready = false;
         }
         Scale = Scale with
         {
             X = (float)(Scale.X + (targetScale - Scale.X) * Const.Slowdown(delta) / 5),
         };
-        // TODO (?)
-        //_parent.expText.text = _root.withComma(_root.save.fishExp) + " / " + _root.withComma(reqExp);
+        expText.Text = _root.withComma(_root.save.fishExp) + " / " + _root.withComma(reqExp);
         if (_root.save.fishLevel >= 50)
         {
-            // TODO
-            //_parent.expText.text = _root.withComma(_root.save.fishExp);
+            expText.Text = _root.withComma(_root.save.fishExp);
         }
         if (_root.save.fishFatigue < 0)
         {
             _root.save.fishFatigue = 0;
         }
-        // TODO
-        //_parent.fatigueText.text = _root.withComma(_root.save.fishFatigue) + " / 5,000";
+        fatigueText.Text = _root.withComma(_root.save.fishFatigue) + " / 5,000";
     }
 }

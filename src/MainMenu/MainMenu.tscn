@@ -253,22 +253,25 @@ offset_right = 635.04
 offset_bottom = 526.0
 
 [node name="FileText1" parent="Buttons/SaveFileContainer/ChallengeButton/Normal" index="0"]
-offset_left = 0.0
-offset_top = 0.0
-offset_right = 91.0
-offset_bottom = 27.0
+offset_left = 15.0
+offset_top = 1.0
+offset_right = 106.0
+offset_bottom = 28.0
 
 [node name="FileText2" parent="Buttons/SaveFileContainer/ChallengeButton/Normal" index="1"]
-offset_left = 0.0
-offset_top = 19.0
-offset_right = 91.0
-offset_bottom = 46.0
+offset_left = 13.0
+offset_top = 21.0
+offset_right = 104.0
+offset_bottom = 48.0
 
 [node name="ChallengeValue" parent="Buttons/SaveFileContainer/ChallengeButton/Normal" index="2"]
-offset_left = 0.0
-offset_top = 45.0
-offset_right = 95.0
-offset_bottom = 72.0
+offset_left = 15.0
+offset_top = 62.0
+offset_right = 110.0
+offset_bottom = 89.0
+
+[node name="HoverEffect" parent="Buttons/SaveFileContainer/ChallengeButton" index="1"]
+visible = false
 
 [node name="SmallButtonContainer" type="HBoxContainer" parent="Buttons" unique_id=1456251647]
 layout_mode = 0

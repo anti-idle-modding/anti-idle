@@ -25,6 +25,9 @@
 [ext_resource type="Texture2D" uid="uid://slm1wqrwal74" path="res://src/Fishing/Stickman1.svg" id="16_1jbhb"]
 [ext_resource type="Script" uid="uid://bs50oosc1i4n2" path="res://src/Fishing/FishCountText.cs" id="18_cbp8y"]
 [ext_resource type="Script" uid="uid://fyhcv34kbvdn" path="res://src/Fishing/MasteryBar.cs" id="25_p008j"]
+[ext_resource type="Script" uid="uid://dp2hiotmaio0s" path="res://src/Fishing/FatigueBar.cs" id="26_f5sso"]
+[ext_resource type="Shader" uid="uid://dja6stqlhdyw5" path="res://src/Circle.gdshader" id="27_21rdb"]
+[ext_resource type="Script" uid="uid://bgyivi5eg7b6m" path="res://src/Fishing/Skill.cs" id="27_44pc7"]
 
 [sub_resource type="FontVariation" id="FontVariation_4rgnw"]
 base_font = ExtResource("14_cbp8y")
@@ -235,6 +238,28 @@ metadata/_snap_count = 3
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_og3bj"]
 gradient = SubResource("Gradient_sd18a")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_21rdb"]
+shader = ExtResource("27_21rdb")
+shader_parameter/circle_size = 0.50000002375
+shader_parameter/ratio_width = 1.0
+shader_parameter/ratio_height = 1.0
+
+[sub_resource type="Gradient" id="Gradient_bkh5n"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0.09803922, 0.19607843, 0.09803922, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_jngfh"]
+gradient = SubResource("Gradient_bkh5n")
+width = 50
+
+[sub_resource type="Gradient" id="Gradient_jngfh"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0.24313726, 0.63529414, 0.22352941, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_lkdo3"]
+gradient = SubResource("Gradient_jngfh")
+width = 50
 
 [node name="Fishing" type="Control" unique_id=2114053251 node_paths=PackedStringArray("scoreDisp")]
 layout_mode = 3
@@ -890,7 +915,7 @@ begin_cap_mode = 2
 end_cap_mode = 2
 script = ExtResource("4_m0v2q")
 
-[node name="Triangle" type="Control" parent="FishingBar" unique_id=27932328 node_paths=PackedStringArray("scorePop")]
+[node name="Triangle" type="Control" parent="FishingBar" unique_id=27932328 node_paths=PackedStringArray("scorePop", "fishing")]
 layout_mode = 1
 anchor_right = 0.031000001
 anchor_bottom = 0.031000001
@@ -898,6 +923,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("5_kse4m")
 scorePop = NodePath("../ScorePop")
+fishing = NodePath("../..")
 
 [node name="Polygon2D" type="Polygon2D" parent="FishingBar/Triangle" unique_id=377341541]
 color = Color(1, 0.49803922, 0, 0.3019608)
@@ -1131,8 +1157,9 @@ horizontal_alignment = 2
 
 [node name="Mastery" type="Control" parent="." unique_id=1242574692]
 anchors_preset = 0
+offset_top = 1.0
 offset_right = 40.0
-offset_bottom = 40.0
+offset_bottom = 41.0
 
 [node name="Mastery" type="Label" parent="Mastery" unique_id=1478074934]
 layout_mode = 0
@@ -1149,12 +1176,15 @@ theme_override_fonts/font = ExtResource("14_cbp8y")
 theme_override_font_sizes/font_size = 15
 text = "Mastery"
 
-[node name="MasteryBar" type="Polygon2D" parent="Mastery" unique_id=891622877]
+[node name="MasteryBar" type="Polygon2D" parent="Mastery" unique_id=891622877 node_paths=PackedStringArray("fishing", "expText", "fatigueText")]
 position = Vector2(130, 20)
-color = Color(0.08627451, 0.6117647, 0.10980392, 1)
+color = Color(0.086104214, 0.61138725, 0.11207495, 0.5)
 polygon = PackedVector2Array(0, 0, 200, 0, 200, 10, 0, 10, 0, 0)
 uv = PackedVector2Array(-267.4287, -36.85714, -81.143005, -40.28571, -84.57156, -8.85714, -269.71442, -0.2857132)
 script = ExtResource("25_p008j")
+fishing = NodePath("../..")
+expText = NodePath("../expText")
+fatigueText = NodePath("../../Fatigue/fatigueText")
 
 [node name="MasteryBarLine" type="Line2D" parent="Mastery" unique_id=1624439379]
 position = Vector2(130, 20)
@@ -1163,6 +1193,133 @@ closed = true
 width = 2.0
 default_color = Color(0, 1, 0, 1)
 joint_mode = 2
+
+[node name="expText" type="Label" parent="Mastery" unique_id=598395372]
+layout_mode = 0
+offset_left = 131.5
+offset_top = 16.0
+offset_right = 330.5
+offset_bottom = 39.0
+theme_override_colors/font_color = Color(0, 1, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0.4, 0, 0.7882353)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 0
+theme_override_constants/shadow_outline_size = 3
+theme_override_fonts/font = ExtResource("14_cbp8y")
+theme_override_font_sizes/font_size = 15
+text = "0 / 5,000"
+horizontal_alignment = 2
+
+[node name="Fatigue" type="Control" parent="." unique_id=1563951284]
+anchors_preset = 0
+offset_top = 21.0
+offset_right = 40.0
+offset_bottom = 61.0
+
+[node name="Fatigue" type="Label" parent="Fatigue" unique_id=1977801465]
+layout_mode = 0
+offset_left = 66.0
+offset_top = 15.0
+offset_right = 128.0
+offset_bottom = 38.0
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(1, 0, 0, 0.20392157)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 0
+theme_override_constants/shadow_outline_size = 7
+theme_override_fonts/font = ExtResource("14_cbp8y")
+theme_override_font_sizes/font_size = 15
+text = "Fatigue"
+
+[node name="FatigueBar" type="Polygon2D" parent="Fatigue" unique_id=647461911]
+position = Vector2(130, 20)
+color = Color(0.5882353, 0.105882354, 0.105882354, 0.5058824)
+polygon = PackedVector2Array(0, 0, 200, 0, 200, 10, 0, 10, 0, 0)
+uv = PackedVector2Array(-267.4287, -36.85714, -81.143005, -40.28571, -84.57156, -8.85714, -269.71442, -0.2857132)
+script = ExtResource("26_f5sso")
+
+[node name="MasteryBarLine" type="Line2D" parent="Fatigue" unique_id=1796379789]
+position = Vector2(130, 20)
+points = PackedVector2Array(0, 0, 200, 0, 200, 10, 9.34375, 10, 0, 10)
+closed = true
+width = 2.0
+default_color = Color(1, 0, 0, 1)
+joint_mode = 2
+
+[node name="fatigueText" type="Label" parent="Fatigue" unique_id=831326886]
+layout_mode = 0
+offset_left = 131.5
+offset_top = 16.0
+offset_right = 330.5
+offset_bottom = 39.0
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0.40018785, 0, 0, 0.78800005)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 0
+theme_override_constants/shadow_outline_size = 3
+theme_override_fonts/font = ExtResource("14_cbp8y")
+theme_override_font_sizes/font_size = 15
+text = "0 / 5,000"
+horizontal_alignment = 2
+
+[node name="Skill" type="Control" parent="." unique_id=2132425196 node_paths=PackedStringArray("fishLevelText")]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("27_44pc7")
+fishLevelText = NodePath("fishLevelText")
+
+[node name="TextureRect2" type="TextureRect" parent="Skill" unique_id=376501519]
+material = SubResource("ShaderMaterial_21rdb")
+layout_mode = 0
+offset_left = 7.0
+offset_top = 6.0
+offset_right = 61.0
+offset_bottom = 60.0
+texture = SubResource("GradientTexture1D_jngfh")
+metadata/_edit_group_ = true
+
+[node name="TextureRect" type="TextureRect" parent="Skill" unique_id=1136541478]
+material = SubResource("ShaderMaterial_21rdb")
+layout_mode = 0
+offset_left = 9.0
+offset_top = 8.0
+offset_right = 59.0
+offset_bottom = 58.0
+texture = SubResource("GradientTexture1D_lkdo3")
+metadata/_edit_group_ = true
+
+[node name="Skill" type="Label" parent="Skill" unique_id=1597879374]
+layout_mode = 0
+offset_left = -9.0
+offset_top = 4.0
+offset_right = 79.0
+offset_bottom = 27.0
+theme_override_colors/font_color = Color(0, 1, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0.4, 0, 0.7882353)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 0
+theme_override_constants/shadow_outline_size = 5
+theme_override_fonts/font = ExtResource("14_cbp8y")
+theme_override_font_sizes/font_size = 15
+text = "Skill"
+horizontal_alignment = 1
+
+[node name="fishLevelText" type="Label" parent="Skill" unique_id=189839196]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 19.0
+offset_right = 62.0
+offset_bottom = 47.0
+theme_override_colors/font_color = Color(0, 1, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0.4, 0, 0.7882353)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 0
+theme_override_constants/shadow_outline_size = 8
+theme_override_fonts/font = ExtResource("14_cbp8y")
+theme_override_font_sizes/font_size = 25
+text = "1"
+horizontal_alignment = 1
 
 [connection signal="visibility_changed" from="FishingStickman/Bob/1/Rod" to="FishingStickman/Bob/1/Rod" method="OnVisibilityChanged"]
 [connection signal="visibility_changed" from="FishingStickman/Bob/2/Rod" to="FishingStickman/Bob/2/Rod" method="OnVisibilityChanged"]

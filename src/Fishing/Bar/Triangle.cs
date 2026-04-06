@@ -10,6 +10,9 @@ public partial class Triangle : Control
     [Export]
     public ScorePop scorePop;
 
+    [Export]
+    public Fishing fishing;
+
     private double tolerance;
     private double gcMult;
     private string tempName;
@@ -140,8 +143,7 @@ public partial class Triangle : Control
                     i++;
                 }
 
-                // if (_parent._parent.ready != true) XXX
-                if (true)
+                if (fishing.ready != true)
                 {
                     _root.dispNews(
                         118,
@@ -213,8 +215,7 @@ public partial class Triangle : Control
                 _root.fishLoc = 0;
                 _root.fishSpeed = 0;
                 _root.save.fishExp += Math.ceil(_root.fishCurrentExp / 10);
-                // if (_parent._parent.ready != true)
-                if (true)
+                if (fishing.ready != true)
                 {
                     _root.dispNews(
                         118,
@@ -346,8 +347,7 @@ public partial class Triangle : Control
                 }
                 i++;
             }
-            // if (_parent._parent.ready != true)
-            if (true)
+            if (fishing.ready != true)
             {
                 _root.dispNews(
                     118,
@@ -495,8 +495,7 @@ public partial class Triangle : Control
                 }
                 i++;
             }
-            // if (_parent._parent.ready != true)
-            if (true)
+            if (fishing.ready != true)
             {
                 _root.dispNews(
                     118,
@@ -595,8 +594,7 @@ public partial class Triangle : Control
             _root.fishLoc = 0;
             _root.fishSpeed = 0;
             _root.save.fishExp += Math.ceil(_root.fishCurrentExp / 10);
-            // if (_parent._parent.ready != true)
-            if (true)
+            if (fishing.ready != true)
             {
                 _root.dispNews(
                     118,
