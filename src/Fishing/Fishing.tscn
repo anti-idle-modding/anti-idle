@@ -14,16 +14,22 @@
 [ext_resource type="Script" uid="uid://crx8l2cb6xxc2" path="res://src/Fishing/FishingStickman.cs" id="8_4ek1a"]
 [ext_resource type="Script" uid="uid://cau33kn63c6uf" path="res://src/Fishing/Pop/Catch.cs" id="9_es6ya"]
 [ext_resource type="Script" uid="uid://bguffpw21nsnm" path="res://src/Fishing/Rod.cs" id="9_lcspj"]
-[ext_resource type="Script" uid="uid://coqx66ponniet" path="res://src/Fishing/StickmanBob.cs" id="9_p008j"]
-[ext_resource type="Texture2D" uid="uid://mfyvg473luvh" path="res://src/Fishing/Stickman2.svg" id="10_4rgnw"]
+[ext_resource type="Script" uid="uid://coqx66ponniet" path="res://src/Fishing/Stickman/StickmanBob.cs" id="9_p008j"]
+[ext_resource type="Texture2D" uid="uid://mfyvg473luvh" path="res://src/Fishing/Stickman/Stickman2.svg" id="10_4rgnw"]
 [ext_resource type="Script" uid="uid://b26rgj7sbmy7d" path="res://src/Fishing/Pop/Guardian.cs" id="10_76k8d"]
 [ext_resource type="FontFile" uid="uid://ctv7i5w3nqvcj" path="res://common_assets/fonts/I Hate Comic Sans Bold.ttf" id="11_1jbhb"]
 [ext_resource type="Script" uid="uid://c42eye2kyfekh" path="res://src/Fishing/Pop/Perfect.cs" id="12_disgp"]
+[ext_resource type="FontFile" uid="uid://bkce6w7pnorvp" path="res://common_assets/fonts/I hate Comic Sans.ttf" id="13_3gvsb"]
 [ext_resource type="Script" uid="uid://bl3rpgkqknbk7" path="res://src/Common/Nodes/SceneData.cs" id="13_pg0rw"]
+[ext_resource type="Script" uid="uid://dva8jy0hsh1wt" path="res://src/Fishing/Hook.cs" id="13_v6lxw"]
 [ext_resource type="FontFile" uid="uid://c2ufmsayuh13g" path="res://common_assets/fonts/Bienvenu.ttf" id="14_cbp8y"]
+[ext_resource type="Texture2D" uid="uid://bnvtglqt62ug8" path="res://src/Fishing/Stickman/Catch1.svg" id="14_v6lxw"]
+[ext_resource type="Texture2D" uid="uid://bdycr885w6fh7" path="res://src/Fishing/Stickman/Catch2.svg" id="15_5dqqd"]
 [ext_resource type="Script" uid="uid://dl2isxvr5mhg2" path="res://src/Fishing/Score/Score.cs" id="15_lcspj"]
-[ext_resource type="Texture2D" uid="uid://slm1wqrwal74" path="res://src/Fishing/Stickman1.svg" id="16_1jbhb"]
+[ext_resource type="Texture2D" uid="uid://slm1wqrwal74" path="res://src/Fishing/Stickman/Stickman1.svg" id="16_1jbhb"]
+[ext_resource type="Texture2D" uid="uid://d3v3qbh0nm2qc" path="res://src/Fishing/Stickman/Catch3.svg" id="17_sd18a"]
 [ext_resource type="Script" uid="uid://bs50oosc1i4n2" path="res://src/Fishing/FishCountText.cs" id="18_cbp8y"]
+[ext_resource type="Texture2D" uid="uid://b5ignw0f87dms" path="res://src/Fishing/Stickman/Catch4.svg" id="18_og3bj"]
 [ext_resource type="Script" uid="uid://fyhcv34kbvdn" path="res://src/Fishing/MasteryBar.cs" id="25_p008j"]
 [ext_resource type="Script" uid="uid://dp2hiotmaio0s" path="res://src/Fishing/FatigueBar.cs" id="26_f5sso"]
 [ext_resource type="Shader" uid="uid://dja6stqlhdyw5" path="res://src/Circle.gdshader" id="27_21rdb"]
@@ -378,29 +384,29 @@ offset_right = 180.0
 offset_bottom = 177.0
 script = ExtResource("8_4ek1a")
 
-[node name="Bob" type="Control" parent="FishingStickman" unique_id=362925738]
+[node name="1" type="Control" parent="FishingStickman" unique_id=362925738]
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("9_p008j")
 
-[node name="1" type="Control" parent="FishingStickman/Bob" unique_id=1881351696]
+[node name="1" type="Control" parent="FishingStickman/1" unique_id=1881351696]
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="Stickman1" type="Sprite2D" parent="FishingStickman/Bob/1" unique_id=1212690414]
+[node name="Stickman1" type="Sprite2D" parent="FishingStickman/1/1" unique_id=1212690414]
 position = Vector2(1, 2)
 texture = ExtResource("16_1jbhb")
 centered = false
 
-[node name="Rod" type="Control" parent="FishingStickman/Bob/1" unique_id=1478034077]
+[node name="Rod" type="Control" parent="FishingStickman/1/1" unique_id=1478034077]
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("9_lcspj")
 
-[node name="1" type="Line2D" parent="FishingStickman/Bob/1/Rod" unique_id=1455838122]
+[node name="1" type="Line2D" parent="FishingStickman/1/1/Rod" unique_id=1455838122]
 position = Vector2(32.5, 33)
 points = PackedVector2Array(0, 5, 17, 0, 17, 80)
 width = 2.0
@@ -409,7 +415,7 @@ joint_mode = 2
 begin_cap_mode = 2
 end_cap_mode = 2
 
-[node name="2" type="Line2D" parent="FishingStickman/Bob/1/Rod" unique_id=1316136204]
+[node name="2" type="Line2D" parent="FishingStickman/1/1/Rod" unique_id=1316136204]
 visible = false
 position = Vector2(32.5, 33)
 points = PackedVector2Array(0, 5, 17, 0, 17, 80)
@@ -419,7 +425,7 @@ joint_mode = 2
 begin_cap_mode = 2
 end_cap_mode = 2
 
-[node name="3" type="Line2D" parent="FishingStickman/Bob/1/Rod" unique_id=1607472204]
+[node name="3" type="Line2D" parent="FishingStickman/1/1/Rod" unique_id=1607472204]
 visible = false
 position = Vector2(32.5, 33)
 points = PackedVector2Array(0, 5, 17, 0, 17, 80)
@@ -429,7 +435,7 @@ joint_mode = 2
 begin_cap_mode = 2
 end_cap_mode = 2
 
-[node name="4" type="Line2D" parent="FishingStickman/Bob/1/Rod" unique_id=344032721]
+[node name="4" type="Line2D" parent="FishingStickman/1/1/Rod" unique_id=344032721]
 visible = false
 position = Vector2(32.5, 33)
 points = PackedVector2Array(0, 5, 17, 0, 17, 80)
@@ -439,7 +445,7 @@ joint_mode = 2
 begin_cap_mode = 2
 end_cap_mode = 2
 
-[node name="5" type="Line2D" parent="FishingStickman/Bob/1/Rod" unique_id=864985935]
+[node name="5" type="Line2D" parent="FishingStickman/1/1/Rod" unique_id=864985935]
 visible = false
 position = Vector2(32.5, 33)
 points = PackedVector2Array(0, 5, 17, 0, 17, 80)
@@ -449,7 +455,7 @@ joint_mode = 2
 begin_cap_mode = 2
 end_cap_mode = 2
 
-[node name="6" type="Line2D" parent="FishingStickman/Bob/1/Rod" unique_id=1164040141]
+[node name="6" type="Line2D" parent="FishingStickman/1/1/Rod" unique_id=1164040141]
 visible = false
 position = Vector2(32.5, 33)
 points = PackedVector2Array(0, 5, 17, 0, 17, 80)
@@ -459,7 +465,7 @@ joint_mode = 2
 begin_cap_mode = 2
 end_cap_mode = 2
 
-[node name="7" type="Line2D" parent="FishingStickman/Bob/1/Rod" unique_id=1904244359]
+[node name="7" type="Line2D" parent="FishingStickman/1/1/Rod" unique_id=1904244359]
 visible = false
 position = Vector2(32.5, 33)
 points = PackedVector2Array(0, 5, 17, 0, 17, 80)
@@ -469,7 +475,7 @@ joint_mode = 2
 begin_cap_mode = 2
 end_cap_mode = 2
 
-[node name="8" type="Line2D" parent="FishingStickman/Bob/1/Rod" unique_id=1425623482]
+[node name="8" type="Line2D" parent="FishingStickman/1/1/Rod" unique_id=1425623482]
 visible = false
 position = Vector2(32.5, 33)
 points = PackedVector2Array(0, 5, 17, 0, 17, 80)
@@ -479,7 +485,7 @@ joint_mode = 2
 begin_cap_mode = 2
 end_cap_mode = 2
 
-[node name="9" type="Line2D" parent="FishingStickman/Bob/1/Rod" unique_id=1138264614]
+[node name="9" type="Line2D" parent="FishingStickman/1/1/Rod" unique_id=1138264614]
 visible = false
 clip_children = 1
 position = Vector2(32.5, 33)
@@ -490,28 +496,28 @@ joint_mode = 2
 begin_cap_mode = 2
 end_cap_mode = 2
 
-[node name="ColorRect2" type="ColorRect" parent="FishingStickman/Bob/1/Rod/9" unique_id=566422933]
+[node name="ColorRect2" type="ColorRect" parent="FishingStickman/1/1/Rod/9" unique_id=566422933]
 offset_left = 12.5
 offset_top = 78.0
 offset_right = 22.5
 offset_bottom = 82.0
 color = Color(1, 0, 0, 1)
 
-[node name="TextureRect" type="TextureRect" parent="FishingStickman/Bob/1/Rod/9" unique_id=1523101163]
+[node name="TextureRect" type="TextureRect" parent="FishingStickman/1/1/Rod/9" unique_id=1523101163]
 offset_left = -1.5
 offset_right = 18.5
 offset_bottom = 80.0
 texture = SubResource("GradientTexture2D_bkh5n")
 expand_mode = 1
 
-[node name="ColorRect" type="ColorRect" parent="FishingStickman/Bob/1/Rod/9" unique_id=76274931]
+[node name="ColorRect" type="ColorRect" parent="FishingStickman/1/1/Rod/9" unique_id=76274931]
 offset_left = 11.5
 offset_top = -3.0
 offset_right = 21.5
 offset_bottom = 1.0
 color = Color(1, 0, 0, 1)
 
-[node name="10" type="Line2D" parent="FishingStickman/Bob/1/Rod" unique_id=78306972]
+[node name="10" type="Line2D" parent="FishingStickman/1/1/Rod" unique_id=78306972]
 visible = false
 position = Vector2(32.5, 33)
 points = PackedVector2Array(0, 5, 17, 0, 17, 80)
@@ -521,24 +527,24 @@ joint_mode = 2
 begin_cap_mode = 2
 end_cap_mode = 2
 
-[node name="2" type="Control" parent="FishingStickman/Bob" unique_id=1074320688]
+[node name="2" type="Control" parent="FishingStickman/1" unique_id=1074320688]
 visible = false
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="Stickman2" type="Sprite2D" parent="FishingStickman/Bob/2" unique_id=1234959284]
+[node name="Stickman2" type="Sprite2D" parent="FishingStickman/1/2" unique_id=1234959284]
 position = Vector2(1, 2)
 texture = ExtResource("10_4rgnw")
 centered = false
 
-[node name="Rod" type="Control" parent="FishingStickman/Bob/2" unique_id=789636571]
+[node name="Rod" type="Control" parent="FishingStickman/1/2" unique_id=789636571]
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("9_lcspj")
 
-[node name="1" type="Line2D" parent="FishingStickman/Bob/2/Rod" unique_id=940903702]
+[node name="1" type="Line2D" parent="FishingStickman/1/2/Rod" unique_id=940903702]
 position = Vector2(32.5, 29)
 points = PackedVector2Array(0, 5, 17, 0, 17, 84)
 width = 2.0
@@ -547,7 +553,7 @@ joint_mode = 2
 begin_cap_mode = 2
 end_cap_mode = 2
 
-[node name="2" type="Line2D" parent="FishingStickman/Bob/2/Rod" unique_id=1742255813]
+[node name="2" type="Line2D" parent="FishingStickman/1/2/Rod" unique_id=1742255813]
 visible = false
 position = Vector2(32.5, 29)
 points = PackedVector2Array(0, 5, 17, 0, 17, 84)
@@ -557,7 +563,7 @@ joint_mode = 2
 begin_cap_mode = 2
 end_cap_mode = 2
 
-[node name="3" type="Line2D" parent="FishingStickman/Bob/2/Rod" unique_id=1670019699]
+[node name="3" type="Line2D" parent="FishingStickman/1/2/Rod" unique_id=1670019699]
 visible = false
 position = Vector2(32.5, 29)
 points = PackedVector2Array(0, 5, 17, 0, 17, 84)
@@ -567,7 +573,7 @@ joint_mode = 2
 begin_cap_mode = 2
 end_cap_mode = 2
 
-[node name="4" type="Line2D" parent="FishingStickman/Bob/2/Rod" unique_id=2133739941]
+[node name="4" type="Line2D" parent="FishingStickman/1/2/Rod" unique_id=2133739941]
 visible = false
 position = Vector2(32.5, 29)
 points = PackedVector2Array(0, 5, 17, 0, 17, 84)
@@ -577,7 +583,7 @@ joint_mode = 2
 begin_cap_mode = 2
 end_cap_mode = 2
 
-[node name="5" type="Line2D" parent="FishingStickman/Bob/2/Rod" unique_id=939056001]
+[node name="5" type="Line2D" parent="FishingStickman/1/2/Rod" unique_id=939056001]
 visible = false
 position = Vector2(32.5, 29)
 points = PackedVector2Array(0, 5, 17, 0, 17, 84)
@@ -587,7 +593,7 @@ joint_mode = 2
 begin_cap_mode = 2
 end_cap_mode = 2
 
-[node name="6" type="Line2D" parent="FishingStickman/Bob/2/Rod" unique_id=1034285139]
+[node name="6" type="Line2D" parent="FishingStickman/1/2/Rod" unique_id=1034285139]
 visible = false
 position = Vector2(32.5, 29)
 points = PackedVector2Array(0, 5, 17, 0, 17, 84)
@@ -597,7 +603,7 @@ joint_mode = 2
 begin_cap_mode = 2
 end_cap_mode = 2
 
-[node name="7" type="Line2D" parent="FishingStickman/Bob/2/Rod" unique_id=357142182]
+[node name="7" type="Line2D" parent="FishingStickman/1/2/Rod" unique_id=357142182]
 visible = false
 position = Vector2(32.5, 29)
 points = PackedVector2Array(0, 5, 17, 0, 17, 84)
@@ -607,7 +613,7 @@ joint_mode = 2
 begin_cap_mode = 2
 end_cap_mode = 2
 
-[node name="8" type="Line2D" parent="FishingStickman/Bob/2/Rod" unique_id=2125567581]
+[node name="8" type="Line2D" parent="FishingStickman/1/2/Rod" unique_id=2125567581]
 visible = false
 position = Vector2(32.5, 29)
 points = PackedVector2Array(0, 5, 17, 0, 17, 84)
@@ -617,7 +623,7 @@ joint_mode = 2
 begin_cap_mode = 2
 end_cap_mode = 2
 
-[node name="9" type="Line2D" parent="FishingStickman/Bob/2/Rod" unique_id=195888021]
+[node name="9" type="Line2D" parent="FishingStickman/1/2/Rod" unique_id=195888021]
 visible = false
 clip_children = 1
 position = Vector2(32.5, 29)
@@ -628,28 +634,28 @@ joint_mode = 2
 begin_cap_mode = 2
 end_cap_mode = 2
 
-[node name="ColorRect2" type="ColorRect" parent="FishingStickman/Bob/2/Rod/9" unique_id=1205176855]
+[node name="ColorRect2" type="ColorRect" parent="FishingStickman/1/2/Rod/9" unique_id=1205176855]
 offset_left = 11.5
 offset_top = 82.0
 offset_right = 21.5
 offset_bottom = 86.0
 color = Color(1, 0, 0, 1)
 
-[node name="TextureRect" type="TextureRect" parent="FishingStickman/Bob/2/Rod/9" unique_id=2087947086]
+[node name="TextureRect" type="TextureRect" parent="FishingStickman/1/2/Rod/9" unique_id=2087947086]
 offset_left = -1.5
 offset_right = 18.5
 offset_bottom = 84.0
 texture = SubResource("GradientTexture2D_bkh5n")
 expand_mode = 1
 
-[node name="ColorRect" type="ColorRect" parent="FishingStickman/Bob/2/Rod/9" unique_id=1500843382]
+[node name="ColorRect" type="ColorRect" parent="FishingStickman/1/2/Rod/9" unique_id=1500843382]
 offset_left = 11.5
 offset_top = -3.0
 offset_right = 21.5
 offset_bottom = 1.0
 color = Color(1, 0, 0, 1)
 
-[node name="10" type="Line2D" parent="FishingStickman/Bob/2/Rod" unique_id=873880465]
+[node name="10" type="Line2D" parent="FishingStickman/1/2/Rod" unique_id=873880465]
 visible = false
 position = Vector2(32.5, 29)
 points = PackedVector2Array(0, 5, 17, 0, 17, 84)
@@ -659,7 +665,588 @@ joint_mode = 2
 begin_cap_mode = 2
 end_cap_mode = 2
 
+[node name="2" type="Control" parent="FishingStickman" unique_id=577820275]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("13_v6lxw")
+
+[node name="1" type="Control" parent="FishingStickman/2" unique_id=1529377398]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="!" type="Label" parent="FishingStickman/2/1" unique_id=548795697]
+layout_mode = 0
+offset_left = -1.0
+offset_top = -22.0
+offset_right = 14.0
+offset_bottom = 8.0
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0.4, 0, 0, 0.7882353)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 0
+theme_override_constants/shadow_outline_size = 8
+theme_override_fonts/font = ExtResource("13_3gvsb")
+theme_override_font_sizes/font_size = 25
+text = "!"
+horizontal_alignment = 1
+
+[node name="Catch1" type="Sprite2D" parent="FishingStickman/2/1" unique_id=2118009156]
+position = Vector2(1, 2)
+texture = ExtResource("14_v6lxw")
+centered = false
+
+[node name="Rod" type="Control" parent="FishingStickman/2/1" unique_id=939688680]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("9_lcspj")
+
+[node name="1" type="Line2D" parent="FishingStickman/2/1/Rod" unique_id=1341293767]
+position = Vector2(32.5, 33)
+points = PackedVector2Array(0, 5, 17, 0, 17, 80)
+width = 2.0
+default_color = Color(0, 0, 0.4, 1)
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="2" type="Line2D" parent="FishingStickman/2/1/Rod" unique_id=979829246]
+visible = false
+position = Vector2(32.5, 33)
+points = PackedVector2Array(0, 5, 17, 0, 17, 80)
+width = 2.0
+default_color = Color(0, 0.6, 0, 1)
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="3" type="Line2D" parent="FishingStickman/2/1/Rod" unique_id=1870733996]
+visible = false
+position = Vector2(32.5, 33)
+points = PackedVector2Array(0, 5, 17, 0, 17, 80)
+width = 2.0
+default_color = Color(0.8, 0.8, 0, 1)
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="4" type="Line2D" parent="FishingStickman/2/1/Rod" unique_id=812569250]
+visible = false
+position = Vector2(32.5, 33)
+points = PackedVector2Array(0, 5, 17, 0, 17, 80)
+width = 2.0
+default_color = Color(0.4, 0, 0.4, 1)
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="5" type="Line2D" parent="FishingStickman/2/1/Rod" unique_id=467048456]
+visible = false
+position = Vector2(32.5, 33)
+points = PackedVector2Array(0, 5, 17, 0, 17, 80)
+width = 2.0
+default_color = Color(0.8, 0.4, 0, 1)
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="6" type="Line2D" parent="FishingStickman/2/1/Rod" unique_id=1055271691]
+visible = false
+position = Vector2(32.5, 33)
+points = PackedVector2Array(0, 5, 17, 0, 17, 80)
+width = 2.0
+default_color = Color(0, 0.6, 1, 1)
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="7" type="Line2D" parent="FishingStickman/2/1/Rod" unique_id=831482477]
+visible = false
+position = Vector2(32.5, 33)
+points = PackedVector2Array(0, 5, 17, 0, 17, 80)
+width = 2.0
+default_color = Color(0.8, 1, 1, 1)
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="8" type="Line2D" parent="FishingStickman/2/1/Rod" unique_id=723180579]
+visible = false
+position = Vector2(32.5, 33)
+points = PackedVector2Array(0, 5, 17, 0, 17, 80)
+width = 2.0
+default_color = Color(1, 0, 1, 1)
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="9" type="Line2D" parent="FishingStickman/2/1/Rod" unique_id=1602566493]
+visible = false
+clip_children = 1
+position = Vector2(32.5, 33)
+points = PackedVector2Array(0, 5, 17, 0, 17, 33.625847, 17, 80)
+width = 2.0
+texture_mode = 2
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="ColorRect2" type="ColorRect" parent="FishingStickman/2/1/Rod/9" unique_id=854921835]
+offset_left = 12.5
+offset_top = 78.0
+offset_right = 22.5
+offset_bottom = 82.0
+color = Color(1, 0, 0, 1)
+
+[node name="TextureRect" type="TextureRect" parent="FishingStickman/2/1/Rod/9" unique_id=2031826288]
+offset_left = -1.5
+offset_right = 18.5
+offset_bottom = 80.0
+texture = SubResource("GradientTexture2D_bkh5n")
+expand_mode = 1
+
+[node name="ColorRect" type="ColorRect" parent="FishingStickman/2/1/Rod/9" unique_id=561554959]
+offset_left = 11.5
+offset_top = -3.0
+offset_right = 21.5
+offset_bottom = 1.0
+color = Color(1, 0, 0, 1)
+
+[node name="10" type="Line2D" parent="FishingStickman/2/1/Rod" unique_id=1098759403]
+visible = false
+position = Vector2(32.5, 33)
+points = PackedVector2Array(0, 5, 17, 0, 17, 80)
+width = 2.0
+default_color = Color(0.6, 0.6, 0.6, 1)
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="2" type="Control" parent="FishingStickman/2" unique_id=953294311]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Catch2" type="Sprite2D" parent="FishingStickman/2/2" unique_id=2076948734]
+position = Vector2(1, 2)
+texture = ExtResource("15_5dqqd")
+centered = false
+
+[node name="Rod" type="Control" parent="FishingStickman/2/2" unique_id=1272298147]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("9_lcspj")
+
+[node name="1" type="Line2D" parent="FishingStickman/2/2/Rod" unique_id=122494105]
+position = Vector2(32.5, 29)
+points = PackedVector2Array(0, 5, 17, 0, 17, 84)
+width = 2.0
+default_color = Color(0, 0, 0.4, 1)
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="2" type="Line2D" parent="FishingStickman/2/2/Rod" unique_id=1314599169]
+visible = false
+position = Vector2(32.5, 29)
+points = PackedVector2Array(0, 5, 17, 0, 17, 84)
+width = 2.0
+default_color = Color(0, 0.6, 0, 1)
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="3" type="Line2D" parent="FishingStickman/2/2/Rod" unique_id=72608103]
+visible = false
+position = Vector2(32.5, 29)
+points = PackedVector2Array(0, 5, 17, 0, 17, 84)
+width = 2.0
+default_color = Color(0.8, 0.8, 0, 1)
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="4" type="Line2D" parent="FishingStickman/2/2/Rod" unique_id=1035711472]
+visible = false
+position = Vector2(32.5, 29)
+points = PackedVector2Array(0, 5, 17, 0, 17, 84)
+width = 2.0
+default_color = Color(0.4, 0, 0.4, 1)
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="5" type="Line2D" parent="FishingStickman/2/2/Rod" unique_id=922428154]
+visible = false
+position = Vector2(32.5, 29)
+points = PackedVector2Array(0, 5, 17, 0, 17, 84)
+width = 2.0
+default_color = Color(0.8, 0.4, 0, 1)
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="6" type="Line2D" parent="FishingStickman/2/2/Rod" unique_id=983088164]
+visible = false
+position = Vector2(32.5, 29)
+points = PackedVector2Array(0, 5, 17, 0, 17, 84)
+width = 2.0
+default_color = Color(0, 0.6, 1, 1)
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="7" type="Line2D" parent="FishingStickman/2/2/Rod" unique_id=660325993]
+visible = false
+position = Vector2(32.5, 29)
+points = PackedVector2Array(0, 5, 17, 0, 17, 84)
+width = 2.0
+default_color = Color(0.8, 1, 1, 1)
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="8" type="Line2D" parent="FishingStickman/2/2/Rod" unique_id=2101691760]
+visible = false
+position = Vector2(32.5, 29)
+points = PackedVector2Array(0, 5, 17, 0, 17, 84)
+width = 2.0
+default_color = Color(1, 0, 1, 1)
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="9" type="Line2D" parent="FishingStickman/2/2/Rod" unique_id=83659872]
+visible = false
+clip_children = 1
+position = Vector2(32.5, 29)
+points = PackedVector2Array(0, 5, 17, 0, 17, 33.625847, 17, 84)
+width = 2.0
+texture_mode = 2
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="ColorRect2" type="ColorRect" parent="FishingStickman/2/2/Rod/9" unique_id=1763287383]
+offset_left = 11.5
+offset_top = 82.0
+offset_right = 21.5
+offset_bottom = 86.0
+color = Color(1, 0, 0, 1)
+
+[node name="TextureRect" type="TextureRect" parent="FishingStickman/2/2/Rod/9" unique_id=566725929]
+offset_left = -1.5
+offset_right = 18.5
+offset_bottom = 84.0
+texture = SubResource("GradientTexture2D_bkh5n")
+expand_mode = 1
+
+[node name="ColorRect" type="ColorRect" parent="FishingStickman/2/2/Rod/9" unique_id=1848242094]
+offset_left = 11.5
+offset_top = -3.0
+offset_right = 21.5
+offset_bottom = 1.0
+color = Color(1, 0, 0, 1)
+
+[node name="10" type="Line2D" parent="FishingStickman/2/2/Rod" unique_id=1946524982]
+visible = false
+position = Vector2(32.5, 29)
+points = PackedVector2Array(0, 5, 17, 0, 17, 84)
+width = 2.0
+default_color = Color(0.6, 0.6, 0.6, 1)
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="3" type="Control" parent="FishingStickman/2" unique_id=2138914279]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Catch3" type="Sprite2D" parent="FishingStickman/2/3" unique_id=1796208491]
+position = Vector2(1, 2)
+texture = ExtResource("17_sd18a")
+centered = false
+
+[node name="Rod" type="Control" parent="FishingStickman/2/3" unique_id=307468844]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("9_lcspj")
+
+[node name="1" type="Line2D" parent="FishingStickman/2/3/Rod" unique_id=641349503]
+position = Vector2(32.5, 33)
+points = PackedVector2Array(0, 5, 17, 0, 17, 80)
+width = 2.0
+default_color = Color(0, 0, 0.4, 1)
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="2" type="Line2D" parent="FishingStickman/2/3/Rod" unique_id=2074562612]
+visible = false
+position = Vector2(32.5, 33)
+points = PackedVector2Array(0, 5, 17, 0, 17, 80)
+width = 2.0
+default_color = Color(0, 0.6, 0, 1)
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="3" type="Line2D" parent="FishingStickman/2/3/Rod" unique_id=1030466289]
+visible = false
+position = Vector2(32.5, 33)
+points = PackedVector2Array(0, 5, 17, 0, 17, 80)
+width = 2.0
+default_color = Color(0.8, 0.8, 0, 1)
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="4" type="Line2D" parent="FishingStickman/2/3/Rod" unique_id=1949665198]
+visible = false
+position = Vector2(32.5, 33)
+points = PackedVector2Array(0, 5, 17, 0, 17, 80)
+width = 2.0
+default_color = Color(0.4, 0, 0.4, 1)
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="5" type="Line2D" parent="FishingStickman/2/3/Rod" unique_id=1995904726]
+visible = false
+position = Vector2(32.5, 33)
+points = PackedVector2Array(0, 5, 17, 0, 17, 80)
+width = 2.0
+default_color = Color(0.8, 0.4, 0, 1)
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="6" type="Line2D" parent="FishingStickman/2/3/Rod" unique_id=920098404]
+visible = false
+position = Vector2(32.5, 33)
+points = PackedVector2Array(0, 5, 17, 0, 17, 80)
+width = 2.0
+default_color = Color(0, 0.6, 1, 1)
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="7" type="Line2D" parent="FishingStickman/2/3/Rod" unique_id=1722826010]
+visible = false
+position = Vector2(32.5, 33)
+points = PackedVector2Array(0, 5, 17, 0, 17, 80)
+width = 2.0
+default_color = Color(0.8, 1, 1, 1)
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="8" type="Line2D" parent="FishingStickman/2/3/Rod" unique_id=768648932]
+visible = false
+position = Vector2(32.5, 33)
+points = PackedVector2Array(0, 5, 17, 0, 17, 80)
+width = 2.0
+default_color = Color(1, 0, 1, 1)
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="9" type="Line2D" parent="FishingStickman/2/3/Rod" unique_id=6425052]
+visible = false
+clip_children = 1
+position = Vector2(32.5, 33)
+points = PackedVector2Array(0, 5, 17, 0, 17, 33.625847, 17, 80)
+width = 2.0
+texture_mode = 2
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="ColorRect2" type="ColorRect" parent="FishingStickman/2/3/Rod/9" unique_id=641849746]
+offset_left = 12.5
+offset_top = 78.0
+offset_right = 22.5
+offset_bottom = 82.0
+color = Color(1, 0, 0, 1)
+
+[node name="TextureRect" type="TextureRect" parent="FishingStickman/2/3/Rod/9" unique_id=1510536163]
+offset_left = -1.5
+offset_right = 18.5
+offset_bottom = 80.0
+texture = SubResource("GradientTexture2D_bkh5n")
+expand_mode = 1
+
+[node name="ColorRect" type="ColorRect" parent="FishingStickman/2/3/Rod/9" unique_id=748743395]
+offset_left = 11.5
+offset_top = -3.0
+offset_right = 21.5
+offset_bottom = 1.0
+color = Color(1, 0, 0, 1)
+
+[node name="10" type="Line2D" parent="FishingStickman/2/3/Rod" unique_id=1608283566]
+visible = false
+position = Vector2(32.5, 33)
+points = PackedVector2Array(0, 5, 17, 0, 17, 80)
+width = 2.0
+default_color = Color(0.6, 0.6, 0.6, 1)
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="4" type="Control" parent="FishingStickman/2" unique_id=1267824735]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Catch4" type="Sprite2D" parent="FishingStickman/2/4" unique_id=2113320499]
+position = Vector2(1, 2)
+scale = Vector2(1.005, 1.005)
+texture = ExtResource("18_og3bj")
+centered = false
+
+[node name="Rod" type="Control" parent="FishingStickman/2/4" unique_id=1067263833]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("9_lcspj")
+
+[node name="1" type="Line2D" parent="FishingStickman/2/4/Rod" unique_id=37687267]
+position = Vector2(32.5, 29)
+points = PackedVector2Array(0, 5, 17, 0, 17, 84)
+width = 2.0
+default_color = Color(0, 0, 0.4, 1)
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="2" type="Line2D" parent="FishingStickman/2/4/Rod" unique_id=1565466988]
+visible = false
+position = Vector2(32.5, 29)
+points = PackedVector2Array(0, 5, 17, 0, 17, 84)
+width = 2.0
+default_color = Color(0, 0.6, 0, 1)
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="3" type="Line2D" parent="FishingStickman/2/4/Rod" unique_id=1397567121]
+visible = false
+position = Vector2(32.5, 29)
+points = PackedVector2Array(0, 5, 17, 0, 17, 84)
+width = 2.0
+default_color = Color(0.8, 0.8, 0, 1)
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="4" type="Line2D" parent="FishingStickman/2/4/Rod" unique_id=1293672269]
+visible = false
+position = Vector2(32.5, 29)
+points = PackedVector2Array(0, 5, 17, 0, 17, 84)
+width = 2.0
+default_color = Color(0.4, 0, 0.4, 1)
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="5" type="Line2D" parent="FishingStickman/2/4/Rod" unique_id=1222378036]
+visible = false
+position = Vector2(32.5, 29)
+points = PackedVector2Array(0, 5, 17, 0, 17, 84)
+width = 2.0
+default_color = Color(0.8, 0.4, 0, 1)
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="6" type="Line2D" parent="FishingStickman/2/4/Rod" unique_id=2098487575]
+visible = false
+position = Vector2(32.5, 29)
+points = PackedVector2Array(0, 5, 17, 0, 17, 84)
+width = 2.0
+default_color = Color(0, 0.6, 1, 1)
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="7" type="Line2D" parent="FishingStickman/2/4/Rod" unique_id=892226316]
+visible = false
+position = Vector2(32.5, 29)
+points = PackedVector2Array(0, 5, 17, 0, 17, 84)
+width = 2.0
+default_color = Color(0.8, 1, 1, 1)
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="8" type="Line2D" parent="FishingStickman/2/4/Rod" unique_id=1807124623]
+visible = false
+position = Vector2(32.5, 29)
+points = PackedVector2Array(0, 5, 17, 0, 17, 84)
+width = 2.0
+default_color = Color(1, 0, 1, 1)
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="9" type="Line2D" parent="FishingStickman/2/4/Rod" unique_id=1147720261]
+visible = false
+clip_children = 1
+position = Vector2(32.5, 29)
+points = PackedVector2Array(0, 5, 17, 0, 17, 33.625847, 17, 84)
+width = 2.0
+texture_mode = 2
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="ColorRect2" type="ColorRect" parent="FishingStickman/2/4/Rod/9" unique_id=1933380639]
+offset_left = 11.5
+offset_top = 82.0
+offset_right = 21.5
+offset_bottom = 86.0
+color = Color(1, 0, 0, 1)
+
+[node name="TextureRect" type="TextureRect" parent="FishingStickman/2/4/Rod/9" unique_id=1999565684]
+offset_left = -1.5
+offset_right = 18.5
+offset_bottom = 84.0
+texture = SubResource("GradientTexture2D_bkh5n")
+expand_mode = 1
+
+[node name="ColorRect" type="ColorRect" parent="FishingStickman/2/4/Rod/9" unique_id=888702084]
+offset_left = 11.5
+offset_top = -3.0
+offset_right = 21.5
+offset_bottom = 1.0
+color = Color(1, 0, 0, 1)
+
+[node name="10" type="Line2D" parent="FishingStickman/2/4/Rod" unique_id=625699395]
+visible = false
+position = Vector2(32.5, 29)
+points = PackedVector2Array(0, 5, 17, 0, 17, 84)
+width = 2.0
+default_color = Color(0.6, 0.6, 0.6, 1)
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="3" type="Control" parent="FishingStickman" unique_id=1504609956]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
 [node name="DayNightCycle" type="Control" parent="." unique_id=1220443328]
+visible = false
 modulate = Color(1, 1, 1, 0.85)
 clip_contents = true
 anchors_preset = 0
@@ -1321,8 +1908,15 @@ theme_override_font_sizes/font_size = 25
 text = "1"
 horizontal_alignment = 1
 
-[connection signal="visibility_changed" from="FishingStickman/Bob/1/Rod" to="FishingStickman/Bob/1/Rod" method="OnVisibilityChanged"]
-[connection signal="visibility_changed" from="FishingStickman/Bob/2/Rod" to="FishingStickman/Bob/2/Rod" method="OnVisibilityChanged"]
+[connection signal="hidden" from="FishingStickman" to="." method="OnHidden"]
+[connection signal="hidden" from="FishingStickman/1" to="FishingStickman/1" method="OnHidden"]
+[connection signal="visibility_changed" from="FishingStickman/1/1/Rod" to="FishingStickman/1/1/Rod" method="OnVisibilityChanged"]
+[connection signal="visibility_changed" from="FishingStickman/1/2/Rod" to="FishingStickman/1/2/Rod" method="OnVisibilityChanged"]
+[connection signal="hidden" from="FishingStickman/2" to="FishingStickman/2" method="OnHidden"]
+[connection signal="visibility_changed" from="FishingStickman/2/1/Rod" to="FishingStickman/2/1/Rod" method="OnVisibilityChanged"]
+[connection signal="visibility_changed" from="FishingStickman/2/2/Rod" to="FishingStickman/2/2/Rod" method="OnVisibilityChanged"]
+[connection signal="visibility_changed" from="FishingStickman/2/3/Rod" to="FishingStickman/2/3/Rod" method="OnVisibilityChanged"]
+[connection signal="visibility_changed" from="FishingStickman/2/4/Rod" to="FishingStickman/2/4/Rod" method="OnVisibilityChanged"]
 [connection signal="visibility_changed" from="FishingBar/ScorePop/Catch" to="FishingBar/ScorePop/Catch" method="OnVisibilityChanged"]
 [connection signal="visibility_changed" from="FishingBar/ScorePop/Guardian" to="FishingBar/ScorePop/Guardian" method="OnVisibilityChanged"]
 [connection signal="visibility_changed" from="FishingBar/ScorePop/Perfect" to="FishingBar/ScorePop/Perfect" method="OnVisibilityChanged"]

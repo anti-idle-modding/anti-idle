@@ -1,13 +1,11 @@
 using System;
-using System.Text.RegularExpressions;
 using Godot;
 
-public partial class StickmanBob : Control
+public partial class Hook : Control
 {
     private Control node;
     private double timer = 0;
-
-    private double TICK = 0.5;
+    private double TICK = .075;
 
     void Show(string id)
     {
@@ -19,7 +17,7 @@ public partial class StickmanBob : Control
 
     public override void _Ready()
     {
-        node = GetNode<Control>("1");
+        Show("1");
     }
 
     public override void _Process(double delta)
@@ -32,7 +30,9 @@ public partial class StickmanBob : Control
                 Convert.ToInt32(node.Name) switch
                 {
                     1 => "2",
-                    2 => "1",
+                    2 => "3",
+                    3 => "4",
+                    4 => "3",
                     _ => throw new NotImplementedException(),
                 }
             );
