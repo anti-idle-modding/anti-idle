@@ -37,10 +37,6 @@ display_server/driver.linuxbsd="wayland"
 
 project/assembly_name="AntiIdle"
 
-[editor_plugins]
-
-enabled=PackedStringArray()
-
 [file_customization]
 
 folder_colors={
@@ -55,6 +51,15 @@ arena=""
 
 theme/default_font_multichannel_signed_distance_field=true
 theme/default_font_generate_mipmaps=true
+
+[importer_defaults]
+
+svg={
+"base_scale": 1.0,
+"color_map": {},
+"compress": true,
+"saturation": 1.0
+}
 
 [input]
 

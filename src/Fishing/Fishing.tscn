@@ -2,16 +2,16 @@
 
 [ext_resource type="Script" uid="uid://dsdos5ykii6t5" path="res://src/Fishing/Fishing.cs" id="1_iadc3"]
 [ext_resource type="Script" uid="uid://cw60qgmerocpk" path="res://src/Fishing/Bar/Cursor.cs" id="2_h37ne"]
-[ext_resource type="Texture2D" uid="uid://ch04ga4ol6xbo" path="res://src/Fishing/DayBg.svg" id="2_huh6y"]
+[ext_resource type="Texture2D" uid="uid://ch04ga4ol6xbo" path="res://src/Fishing/Bg/DayBg.svg" id="2_huh6y"]
 [ext_resource type="Script" uid="uid://cjqp5fqalre3o" path="res://src/Fishing/Bar/EasyLine.cs" id="3_7mtdg"]
 [ext_resource type="Script" uid="uid://ufrdcmtq4j2o" path="res://src/Fishing/Background.cs" id="3_cbp8y"]
 [ext_resource type="Script" uid="uid://bap4xqv05qki1" path="res://src/Fishing/DayNightCycle.cs" id="3_ikc4f"]
 [ext_resource type="Script" uid="uid://doxsgiw5j6wnn" path="res://src/Fishing/Bar/CatchLine.cs" id="4_m0v2q"]
 [ext_resource type="Script" uid="uid://yxj1iv58nqmd" path="res://src/Fishing/Bar/Triangle.cs" id="5_kse4m"]
-[ext_resource type="Texture2D" uid="uid://b2rmmqjar2f3" path="res://src/Fishing/CursedBg.svg" id="5_lcspj"]
-[ext_resource type="Texture2D" uid="uid://cggnamlfsr07m" path="res://src/Fishing/ExamBg.svg" id="6_4rgnw"]
+[ext_resource type="Texture2D" uid="uid://b2rmmqjar2f3" path="res://src/Fishing/Bg/CursedBg.svg" id="5_lcspj"]
+[ext_resource type="Texture2D" uid="uid://cggnamlfsr07m" path="res://src/Fishing/Bg/ExamBg.svg" id="6_4rgnw"]
 [ext_resource type="Script" uid="uid://c8amnd8bqrhrd" path="res://src/Fishing/Pop/ScorePop.cs" id="6_8ldo3"]
-[ext_resource type="Script" uid="uid://crx8l2cb6xxc2" path="res://src/Fishing/FishingStickman.cs" id="8_4ek1a"]
+[ext_resource type="Script" uid="uid://crx8l2cb6xxc2" path="res://src/Fishing/FishingStickman.cs" id="8_8nhas"]
 [ext_resource type="Script" uid="uid://cau33kn63c6uf" path="res://src/Fishing/Pop/Catch.cs" id="9_es6ya"]
 [ext_resource type="Script" uid="uid://bguffpw21nsnm" path="res://src/Fishing/Rod.cs" id="9_lcspj"]
 [ext_resource type="Texture2D" uid="uid://mfyvg473luvh" path="res://src/Fishing/Stickman/Stickman2.svg" id="10_4rgnw"]
@@ -27,12 +27,84 @@
 [ext_resource type="Texture2D" uid="uid://slm1wqrwal74" path="res://src/Fishing/Stickman/Stickman1.svg" id="16_1jbhb"]
 [ext_resource type="Texture2D" uid="uid://cswni1ikg607w" path="res://src/Fishing/Stickman/Yay.svg" id="17_5dqqd"]
 [ext_resource type="Texture2D" uid="uid://d3v3qbh0nm2qc" path="res://src/Fishing/Stickman/Catch3.svg" id="17_sd18a"]
+[ext_resource type="PackedScene" uid="uid://b1r77kl7iwve0" path="res://src/UI/GlowingStar/GlowingStar.tscn" id="18_bkh5n"]
 [ext_resource type="Script" uid="uid://bs50oosc1i4n2" path="res://src/Fishing/FishCountText.cs" id="18_cbp8y"]
+[ext_resource type="Script" uid="uid://druu62oyxek18" path="res://src/Fishing/Catch.cs" id="18_e1waf"]
 [ext_resource type="Texture2D" uid="uid://b5ignw0f87dms" path="res://src/Fishing/Stickman/Catch4.svg" id="18_og3bj"]
+[ext_resource type="Texture2D" uid="uid://ru4g6tajq126" path="res://src/Fishing/Catch/BronzeChest.svg" id="18_sd18a"]
+[ext_resource type="Texture2D" uid="uid://b4sjxae3drqff" path="res://src/Fishing/Catch/SilverChest.svg" id="19_og3bj"]
+[ext_resource type="Texture2D" uid="uid://cndsrhtjrl7dy" path="res://src/Fishing/Catch/GoldenChest.svg" id="20_jngfh"]
+[ext_resource type="Texture2D" uid="uid://bhyau24jd4sqs" path="res://src/Fishing/Catch/BronzeKey.svg" id="21_lkdo3"]
+[ext_resource type="Texture2D" uid="uid://ytutbkiyvcqh" path="res://src/Fishing/Catch/SilverKey.svg" id="22_ck38y"]
+[ext_resource type="Texture2D" uid="uid://beoswoeub280p" path="res://src/Fishing/Catch/GoldenKey.svg" id="23_rfqbk"]
+[ext_resource type="Texture2D" uid="uid://cc7x6tfmx5qc4" path="res://src/Fishing/Catch/GreenDrink.svg" id="24_mu072"]
 [ext_resource type="Script" uid="uid://fyhcv34kbvdn" path="res://src/Fishing/MasteryBar.cs" id="25_p008j"]
+[ext_resource type="Texture2D" uid="uid://dnr353gay01l1" path="res://src/Fishing/Catch/RedDrink.svg" id="25_v1xri"]
 [ext_resource type="Script" uid="uid://dp2hiotmaio0s" path="res://src/Fishing/FatigueBar.cs" id="26_f5sso"]
+[ext_resource type="Texture2D" uid="uid://duei5u3s13xl1" path="res://src/Fishing/Catch/PinkPetFood.svg" id="26_s6syh"]
 [ext_resource type="Shader" uid="uid://dja6stqlhdyw5" path="res://src/Circle.gdshader" id="27_21rdb"]
 [ext_resource type="Script" uid="uid://bgyivi5eg7b6m" path="res://src/Fishing/Skill.cs" id="27_44pc7"]
+[ext_resource type="Texture2D" uid="uid://dx00avhmvovhh" path="res://src/Fishing/Catch/YellowPetFood.svg" id="27_vaqyq"]
+[ext_resource type="Texture2D" uid="uid://bipim4meob42n" path="res://src/Fishing/Catch/Trash1.svg" id="28_rfqbk"]
+[ext_resource type="Texture2D" uid="uid://bo7qrek2hey76" path="res://src/Fishing/Catch/Trash2.svg" id="29_vaqyq"]
+[ext_resource type="Texture2D" uid="uid://cvey15s54molf" path="res://src/Fishing/Catch/Trash3.svg" id="30_nc50d"]
+[ext_resource type="Texture2D" uid="uid://d1ks05r6uxq8f" path="res://src/Fishing/Catch/Trash4.svg" id="31_8r2d5"]
+[ext_resource type="Texture2D" uid="uid://dprlx2ifao2h6" path="res://src/Fishing/Catch/Trash5.svg" id="32_bsdpp"]
+[ext_resource type="Texture2D" uid="uid://0jnsl4m6a3ay" path="res://src/Fishing/Catch/Trash6.svg" id="33_fwwlk"]
+[ext_resource type="Texture2D" uid="uid://cpghoq11duubn" path="res://src/Fishing/Catch/Trash7.svg" id="34_ts8qn"]
+[ext_resource type="Texture2D" uid="uid://cbtoof6wttj7" path="res://src/Fishing/Catch/Trash8.svg" id="35_gltji"]
+[ext_resource type="Texture2D" uid="uid://b536irr8ukrh1" path="res://src/Fishing/Catch/Trash9.svg" id="36_id813"]
+[ext_resource type="Texture2D" uid="uid://cgsdlocy1gfyb" path="res://src/Fishing/Catch/Trash10.svg" id="37_slwcw"]
+[ext_resource type="Texture2D" uid="uid://dr8mjvhr7hfie" path="res://src/Fishing/Catch/Trash11.svg" id="38_qy4dg"]
+[ext_resource type="Texture2D" uid="uid://cddv8wj6xfprl" path="res://src/Fishing/Catch/Trash12.svg" id="39_r1gri"]
+[ext_resource type="Texture2D" uid="uid://cuh0ewg2xa021" path="res://src/Fishing/Catch/Trash13.svg" id="39_sdghn"]
+[ext_resource type="Texture2D" uid="uid://djegjlhp2dcyb" path="res://src/Fishing/Catch/Trash14.svg" id="40_j8214"]
+[ext_resource type="Texture2D" uid="uid://dm0cc1lm6eoj6" path="res://src/Fishing/Catch/Trash15.svg" id="41_ge2tt"]
+[ext_resource type="Texture2D" uid="uid://dbpuq3erom34i" path="res://src/Fishing/Catch/Trash16.svg" id="42_qy4dg"]
+[ext_resource type="Texture2D" uid="uid://gk46poeidrha" path="res://src/Fishing/Catch/Trash17.svg" id="43_sdghn"]
+[ext_resource type="Texture2D" uid="uid://yh8t73m5wrjo" path="res://src/Fishing/Catch/Trash18.svg" id="44_j8214"]
+[ext_resource type="Texture2D" uid="uid://btjcho6r682uv" path="res://src/Fishing/Catch/Trash19.svg" id="45_ge2tt"]
+[ext_resource type="Texture2D" uid="uid://ctl6hg7wstuck" path="res://src/Fishing/Catch/Trash20.svg" id="46_wnatd"]
+[ext_resource type="Texture2D" uid="uid://b1go6qlhk071r" path="res://src/Fishing/Catch/Fish1.svg" id="48_f2ewy"]
+[ext_resource type="Texture2D" uid="uid://vq2sa2ty1he8" path="res://src/Fishing/Catch/Fish2.svg" id="49_54s4v"]
+[ext_resource type="Texture2D" uid="uid://dg6fu5mqw7oqo" path="res://src/Fishing/Catch/Fish3.svg" id="50_0x3rh"]
+[ext_resource type="Texture2D" uid="uid://bjk8sqgewiswb" path="res://src/Fishing/Catch/Fish4.svg" id="51_mumcj"]
+[ext_resource type="Texture2D" uid="uid://b5r2mo2nn2g07" path="res://src/Fishing/Catch/Fish5.svg" id="52_yt7qg"]
+[ext_resource type="Texture2D" uid="uid://b13ednx45bjwj" path="res://src/Fishing/Catch/Fish6.svg" id="53_dcyt8"]
+[ext_resource type="Texture2D" uid="uid://c6su58vfhv253" path="res://src/Fishing/Catch/Fish7.svg" id="54_gbgln"]
+[ext_resource type="Texture2D" uid="uid://bjfyq422quul7" path="res://src/Fishing/Catch/Fish8.svg" id="55_7vqnu"]
+[ext_resource type="Texture2D" uid="uid://c1npqrlbu0f5o" path="res://src/Fishing/Catch/Fish9.svg" id="56_d1qsu"]
+[ext_resource type="Texture2D" uid="uid://c1r25n6ywmss6" path="res://src/Fishing/Catch/Fish10.svg" id="57_veioo"]
+[ext_resource type="Texture2D" uid="uid://da8oh4cn6c0lc" path="res://src/Fishing/Catch/Fish11.svg" id="58_5q46a"]
+[ext_resource type="Shader" uid="uid://diwjjmvaociaa" path="res://src/UI/Glow.gdshader" id="59_l6atf"]
+[ext_resource type="Texture2D" uid="uid://c3l8r0rkpub0g" path="res://src/Fishing/Catch/Fish12.svg" id="60_6kecp"]
+[ext_resource type="Texture2D" uid="uid://dvbyrl18jonij" path="res://src/Fishing/Catch/Fish13.svg" id="61_yt7qg"]
+[ext_resource type="Texture2D" uid="uid://d33abrpd4sfja" path="res://src/Fishing/Catch/Fish14.svg" id="62_dcyt8"]
+[ext_resource type="Texture2D" uid="uid://bo8de1a0c34ch" path="res://src/Fishing/Catch/Fish15.svg" id="63_gbgln"]
+[ext_resource type="Texture2D" uid="uid://d3p2ax2p8vflf" path="res://src/Fishing/Catch/Fish16.svg" id="64_7vqnu"]
+[ext_resource type="Texture2D" uid="uid://brpnwb4y0hfxa" path="res://src/Fishing/Catch/Fish17.svg" id="65_d1qsu"]
+[ext_resource type="Texture2D" uid="uid://c6sbtt4og3hiw" path="res://src/Fishing/Catch/Fish18.svg" id="67_7vqnu"]
+[ext_resource type="Texture2D" uid="uid://bt2x2wdvnoc72" path="res://src/Fishing/Catch/AdventureRefill.svg" id="68_d1qsu"]
+[ext_resource type="FontFile" uid="uid://dy7fs8hl0h7wx" path="res://common_assets/fonts/150_PF Tempesta Seven Extended.ttf" id="69_veioo"]
+[ext_resource type="Texture2D" uid="uid://c0vxtad4mx8x8" path="res://src/Fishing/Catch/Fertilizer.svg" id="70_hh523"]
+[ext_resource type="Texture2D" uid="uid://sah2i28qmidi" path="res://src/Fishing/Catch/MegaFertilizer.svg" id="71_fmu62"]
+[ext_resource type="Texture2D" uid="uid://y8rmv3j7os0r" path="res://src/Fishing/Catch/CrateExplosion.svg" id="72_8nhas"]
+[ext_resource type="Texture2D" uid="uid://cj4is3ff3jedm" path="res://src/Fishing/Catch/CrateAwesome.svg" id="73_e1waf"]
+[ext_resource type="Texture2D" uid="uid://dh0lyoln4arp2" path="res://src/Fishing/Catch/CrateChaos.svg" id="74_kkq5y"]
+[ext_resource type="Texture2D" uid="uid://dv83pogvbje0e" path="res://src/Fishing/Catch/CrateLegendary.svg" id="75_qd3yd"]
+[ext_resource type="Texture2D" uid="uid://ojy8j4yagy6u" path="res://src/Fishing/Catch/WhiteCoin.svg" id="76_8ij75"]
+[ext_resource type="FontFile" uid="uid://bbyatyn4eg3yh" path="res://common_assets/fonts/131_dmgFont2_PF Tempesta Seven.ttf" id="77_1gtiw"]
+[ext_resource type="Texture2D" uid="uid://b5dufor7j23s4" path="res://src/Fishing/Catch/YellowBoost.svg" id="78_4lno6"]
+[ext_resource type="Texture2D" uid="uid://bn3dg7w6jx5nd" path="res://src/Fishing/Catch/PurpleBoost.svg" id="79_f5uk0"]
+[ext_resource type="Texture2D" uid="uid://cosmur84kwqj" path="res://src/Fishing/Catch/Fish19.svg" id="80_xt43y"]
+[ext_resource type="Texture2D" uid="uid://0f3vjgvyjjva" path="res://src/Fishing/Catch/Fish21.svg" id="81_fcdk6"]
+[ext_resource type="Texture2D" uid="uid://cf0bh0rkdeg22" path="res://src/Fishing/Catch/Fish22.svg" id="82_8etxh"]
+[ext_resource type="Texture2D" uid="uid://bnw46enaqs1qj" path="res://src/Fishing/Catch/Fish23.svg" id="83_ct2c0"]
+[ext_resource type="Texture2D" uid="uid://do1p8rolfptc8" path="res://src/Fishing/Catch/Fish24.svg" id="84_51xn5"]
+[ext_resource type="Texture2D" uid="uid://df1pbuqitp8vk" path="res://src/Fishing/Catch/Fish25.svg" id="85_8f75m"]
+[ext_resource type="Texture2D" uid="uid://mwa6ria1pp0l" path="res://src/Fishing/Catch/Fish26.svg" id="86_s3074"]
+[ext_resource type="Texture2D" uid="uid://bqo5o3sx56jvl" path="res://src/Fishing/Catch/Fish27.svg" id="87_wf613"]
+[ext_resource type="Texture2D" uid="uid://dhreetjj40vn3" path="res://src/Fishing/Catch/Fish28.svg" id="88_fmu62"]
 
 [sub_resource type="FontVariation" id="FontVariation_4rgnw"]
 base_font = ExtResource("14_cbp8y")
@@ -145,10 +217,10 @@ tracks/3/path = NodePath("4:visible")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0.15384616, 0.23076925),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0, 0.15384616, 0.23076925),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
-"values": [false, true]
+"values": [false, false, true]
 }
 tracks/4/type = "method"
 tracks/4/imported = false
@@ -160,7 +232,7 @@ tracks/4/keys = {
 "times": PackedFloat32Array(0.3),
 "transitions": PackedFloat32Array(1),
 "values": [{
-"args": [0.145, false, false],
+"args": [0.153, false, false],
 "method": &"seek"
 }]
 }
@@ -169,6 +241,117 @@ tracks/4/keys = {
 _data = {
 &"new_animation": SubResource("Animation_og3bj")
 }
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_veioo"]
+shader = ExtResource("59_l6atf")
+shader_parameter/original_alpha = 1.0
+shader_parameter/drop_shadow_color = Color(0, 0.7862274, 0.18034217, 1)
+shader_parameter/shadow_offset_x = 2.3290699924238822e-09
+shader_parameter/shadow_offset_y = 2.3290699924238822e-09
+shader_parameter/shadow_scale = Vector2(1, 1)
+shader_parameter/shadow_rotation = 0.0
+shader_parameter/rotation_pivot = Vector2(0.5, 0.5)
+shader_parameter/shadow_blur_strength = 20.0
+shader_parameter/shadow_blur_samples = 4
+shader_parameter/_blur_scale_factor = 1.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_35l6s"]
+shader = ExtResource("59_l6atf")
+shader_parameter/original_alpha = 1.0
+shader_parameter/drop_shadow_color = Color(0.34, 0, 0.2833334, 1)
+shader_parameter/shadow_offset_x = 2.3290699924238822e-09
+shader_parameter/shadow_offset_y = 2.3290699924238822e-09
+shader_parameter/shadow_scale = Vector2(1, 1)
+shader_parameter/shadow_rotation = 0.0
+shader_parameter/rotation_pivot = Vector2(0.5, 0.5)
+shader_parameter/shadow_blur_strength = 20.0
+shader_parameter/shadow_blur_samples = 4
+shader_parameter/_blur_scale_factor = 1.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_21rdb"]
+shader = ExtResource("27_21rdb")
+shader_parameter/circle_size = 0.50000002375
+shader_parameter/ratio_width = 1.0
+shader_parameter/ratio_height = 1.0
+
+[sub_resource type="Gradient" id="Gradient_5q46a"]
+offsets = PackedFloat32Array(0, 0.7226148)
+colors = PackedColorArray(1, 1, 0, 1, 0.78431374, 0.78431374, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_l6atf"]
+gradient = SubResource("Gradient_5q46a")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0, 0)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6kecp"]
+shader = ExtResource("59_l6atf")
+shader_parameter/original_alpha = 1.0
+shader_parameter/drop_shadow_color = Color(1, 1, 0, 1)
+shader_parameter/shadow_offset_x = 2.3290699924238822e-09
+shader_parameter/shadow_offset_y = 2.3290699924238822e-09
+shader_parameter/shadow_scale = Vector2(1, 1)
+shader_parameter/shadow_rotation = 0.0
+shader_parameter/rotation_pivot = Vector2(0.5, 0.5)
+shader_parameter/shadow_blur_strength = 20.0
+shader_parameter/shadow_blur_samples = 4
+shader_parameter/_blur_scale_factor = 1.0
+
+[sub_resource type="FontVariation" id="FontVariation_7vqnu"]
+base_font = ExtResource("69_veioo")
+spacing_top = -2
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5q46a"]
+shader = ExtResource("59_l6atf")
+shader_parameter/original_alpha = 1.0
+shader_parameter/drop_shadow_color = Color(1, 0.6, 0, 1)
+shader_parameter/shadow_offset_x = 0.00100000237656999
+shader_parameter/shadow_offset_y = 2.3290699924238822e-09
+shader_parameter/shadow_scale = Vector2(1, 1)
+shader_parameter/shadow_rotation = 0.0
+shader_parameter/rotation_pivot = Vector2(0.5, 0.5)
+shader_parameter/shadow_blur_strength = 20.00000095
+shader_parameter/shadow_blur_samples = 4
+shader_parameter/_blur_scale_factor = 1.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wpskc"]
+shader = ExtResource("59_l6atf")
+shader_parameter/original_alpha = 1.0
+shader_parameter/drop_shadow_color = Color(0.98039216, 0.98039216, 1, 1)
+shader_parameter/shadow_offset_x = 2.3290699924238822e-09
+shader_parameter/shadow_offset_y = 2.3290699924238822e-09
+shader_parameter/shadow_scale = Vector2(1, 1)
+shader_parameter/shadow_rotation = 0.0
+shader_parameter/rotation_pivot = Vector2(0.5, 0.5)
+shader_parameter/shadow_blur_strength = 20.0
+shader_parameter/shadow_blur_samples = 4
+shader_parameter/_blur_scale_factor = 1.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7sejy"]
+shader = ExtResource("59_l6atf")
+shader_parameter/original_alpha = 1.0
+shader_parameter/drop_shadow_color = Color(0.98039216, 0.30980393, 0.98039216, 1)
+shader_parameter/shadow_offset_x = 2.3290699924238822e-09
+shader_parameter/shadow_offset_y = 2.3290699924238822e-09
+shader_parameter/shadow_scale = Vector2(1, 1)
+shader_parameter/shadow_rotation = 0.0
+shader_parameter/rotation_pivot = Vector2(0.5, 0.5)
+shader_parameter/shadow_blur_strength = 20.0
+shader_parameter/shadow_blur_samples = 4
+shader_parameter/_blur_scale_factor = 1.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8nhas"]
+shader = ExtResource("59_l6atf")
+shader_parameter/original_alpha = 1.0
+shader_parameter/drop_shadow_color = Color(0, 0, 0, 1)
+shader_parameter/shadow_offset_x = 2.3290699924238822e-09
+shader_parameter/shadow_offset_y = 2.3290699924238822e-09
+shader_parameter/shadow_scale = Vector2(1, 1)
+shader_parameter/shadow_rotation = 0.0
+shader_parameter/rotation_pivot = Vector2(0.5, 0.5)
+shader_parameter/shadow_blur_strength = 20.0
+shader_parameter/shadow_blur_samples = 4
+shader_parameter/_blur_scale_factor = 1.0
 
 [sub_resource type="Gradient" id="Gradient_x1ywk"]
 colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 0.90000004)
@@ -364,12 +547,6 @@ metadata/_snap_count = 3
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_og3bj"]
 gradient = SubResource("Gradient_sd18a")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_21rdb"]
-shader = ExtResource("27_21rdb")
-shader_parameter/circle_size = 0.50000002375
-shader_parameter/ratio_width = 1.0
-shader_parameter/ratio_height = 1.0
-
 [sub_resource type="Gradient" id="Gradient_bkh5n"]
 offsets = PackedFloat32Array(0)
 colors = PackedColorArray(0.09803922, 0.19607843, 0.09803922, 1)
@@ -389,26 +566,26 @@ width = 50
 [node name="Fishing" type="Control" unique_id=2114053251 node_paths=PackedStringArray("scoreDisp")]
 layout_mode = 3
 anchors_preset = 0
+offset_top = 1.0
 offset_right = 40.0
-offset_bottom = 40.0
+offset_bottom = 41.0
 script = ExtResource("1_iadc3")
 scoreDisp = NodePath("Score")
 
 [node name="ReferenceRect" type="ReferenceRect" parent="." unique_id=1498575754]
-visible = false
 clip_contents = true
 layout_mode = 0
+offset_top = -1.0
 offset_right = 500.0
-offset_bottom = 350.0
+offset_bottom = 349.0
 border_color = Color(0, 0, 0, 1)
-metadata/_edit_lock_ = true
 
 [node name="Background" type="Control" parent="." unique_id=451372903]
 anchors_preset = 0
+offset_top = -1.0
 offset_right = 40.0
-offset_bottom = 40.0
+offset_bottom = 39.0
 script = ExtResource("3_cbp8y")
-metadata/_edit_lock_ = true
 
 [node name="DayBg" type="Sprite2D" parent="Background" unique_id=1928987296]
 texture = ExtResource("2_huh6y")
@@ -434,9 +611,9 @@ anchor_top = 3.065
 anchor_right = 2.125
 anchor_bottom = 3.065
 offset_left = 2.5999985
-offset_top = 20.09999
+offset_top = 19.09999
 offset_right = 45.600006
-offset_bottom = 83.09999
+offset_bottom = 82.09999
 metadata/_edit_group_ = true
 
 [node name="BucketCount" type="Control" parent="Bucket" unique_id=1655113126]
@@ -499,10 +676,10 @@ joint_mode = 2
 [node name="FishingStickman" type="Control" parent="." unique_id=1655442674]
 anchors_preset = 0
 offset_left = 140.0
-offset_top = 137.0
+offset_top = 136.0
 offset_right = 180.0
-offset_bottom = 177.0
-script = ExtResource("8_4ek1a")
+offset_bottom = 176.0
+script = ExtResource("8_8nhas")
 
 [node name="1" type="Control" parent="FishingStickman" unique_id=362925738]
 anchors_preset = 0
@@ -801,6 +978,7 @@ libraries/ = SubResource("AnimationLibrary_bkh5n")
 autoplay = &"new_animation"
 
 [node name="1" type="Control" parent="FishingStickman/2" unique_id=1529377398]
+visible = false
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
@@ -1097,7 +1275,6 @@ begin_cap_mode = 2
 end_cap_mode = 2
 
 [node name="3" type="Control" parent="FishingStickman/2" unique_id=2138914279]
-visible = false
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
@@ -1523,6 +1700,1535 @@ joint_mode = 2
 begin_cap_mode = 2
 end_cap_mode = 2
 
+[node name="Catch" type="Control" parent="FishingStickman/3" unique_id=1243411702]
+anchors_preset = 0
+offset_left = 31.0
+offset_top = 32.0
+offset_right = 71.0
+offset_bottom = 72.0
+script = ExtResource("18_e1waf")
+
+[node name="1" type="Control" parent="FishingStickman/3/Catch" unique_id=1677246513]
+visible = false
+anchors_preset = 0
+offset_left = 1.0
+offset_top = 1.0
+offset_right = 41.0
+offset_bottom = 41.0
+
+[node name="BronzeChest" type="Sprite2D" parent="FishingStickman/3/Catch/1" unique_id=885793054]
+texture = ExtResource("18_sd18a")
+
+[node name="GlowingStar" parent="FishingStickman/3/Catch/1" unique_id=865939481 instance=ExtResource("18_bkh5n")]
+layout_mode = 1
+anchors_preset = 0
+offset_top = -2.0
+offset_bottom = -2.0
+
+[node name="2" type="Control" parent="FishingStickman/3/Catch" unique_id=1899501179]
+visible = false
+anchors_preset = 0
+offset_left = 1.0
+offset_top = 1.0
+offset_right = 41.0
+offset_bottom = 41.0
+
+[node name="Item" type="Sprite2D" parent="FishingStickman/3/Catch/2" unique_id=57719063]
+texture = ExtResource("19_og3bj")
+
+[node name="GlowingStar" parent="FishingStickman/3/Catch/2" unique_id=1439748728 instance=ExtResource("18_bkh5n")]
+layout_mode = 1
+anchors_preset = 0
+offset_top = -2.0
+offset_bottom = -2.0
+
+[node name="3" type="Control" parent="FishingStickman/3/Catch" unique_id=1560072745]
+visible = false
+anchors_preset = 0
+offset_left = 1.0
+offset_top = 1.0
+offset_right = 41.0
+offset_bottom = 41.0
+
+[node name="Item" type="Sprite2D" parent="FishingStickman/3/Catch/3" unique_id=702866194]
+texture = ExtResource("20_jngfh")
+
+[node name="GlowingStar" parent="FishingStickman/3/Catch/3" unique_id=1713107595 instance=ExtResource("18_bkh5n")]
+layout_mode = 1
+anchors_preset = 0
+offset_top = -2.0
+offset_bottom = -2.0
+
+[node name="4" type="Control" parent="FishingStickman/3/Catch" unique_id=411751524]
+visible = false
+anchors_preset = 0
+offset_top = 1.0
+offset_right = 40.0
+offset_bottom = 41.0
+
+[node name="Item" type="Sprite2D" parent="FishingStickman/3/Catch/4" unique_id=1368139352]
+texture = ExtResource("21_lkdo3")
+
+[node name="GlowingStar" parent="FishingStickman/3/Catch/4" unique_id=1112990458 instance=ExtResource("18_bkh5n")]
+layout_mode = 1
+anchor_left = -0.17500001
+anchor_top = 0.025
+anchor_right = -0.17500001
+anchor_bottom = 0.025
+
+[node name="5" type="Control" parent="FishingStickman/3/Catch" unique_id=648116318]
+visible = false
+anchors_preset = 0
+offset_top = 1.0
+offset_right = 40.0
+offset_bottom = 41.0
+
+[node name="Item" type="Sprite2D" parent="FishingStickman/3/Catch/5" unique_id=1364185770]
+texture = ExtResource("22_ck38y")
+
+[node name="GlowingStar" parent="FishingStickman/3/Catch/5" unique_id=875149242 instance=ExtResource("18_bkh5n")]
+layout_mode = 1
+anchor_left = -0.17500001
+anchor_top = 0.025
+anchor_right = -0.17500001
+anchor_bottom = 0.025
+
+[node name="6" type="Control" parent="FishingStickman/3/Catch" unique_id=180393071]
+visible = false
+anchors_preset = 0
+offset_top = 1.0
+offset_right = 40.0
+offset_bottom = 41.0
+
+[node name="Item" type="Sprite2D" parent="FishingStickman/3/Catch/6" unique_id=75567901]
+texture = ExtResource("23_rfqbk")
+
+[node name="GlowingStar" parent="FishingStickman/3/Catch/6" unique_id=1710984781 instance=ExtResource("18_bkh5n")]
+layout_mode = 1
+anchor_left = -0.17500001
+anchor_top = 0.025
+anchor_right = -0.17500001
+anchor_bottom = 0.025
+
+[node name="7" type="Control" parent="FishingStickman/3/Catch" unique_id=1849461722]
+visible = false
+anchors_preset = 0
+offset_top = 1.0
+offset_right = 40.0
+offset_bottom = 41.0
+
+[node name="Item" type="Sprite2D" parent="FishingStickman/3/Catch/7" unique_id=1430555348]
+position = Vector2(1, 1)
+texture = ExtResource("24_mu072")
+
+[node name="GlowingStar" parent="FishingStickman/3/Catch/7" unique_id=1478297956 instance=ExtResource("18_bkh5n")]
+layout_mode = 1
+anchor_left = -0.17500001
+anchor_top = 0.025
+anchor_right = -0.17500001
+anchor_bottom = 0.025
+offset_left = 7.0
+offset_top = -3.0
+offset_right = 7.0
+offset_bottom = -3.0
+
+[node name="8" type="Control" parent="FishingStickman/3/Catch" unique_id=467942640]
+visible = false
+anchors_preset = 0
+offset_top = 1.0
+offset_right = 40.0
+offset_bottom = 41.0
+
+[node name="Item" type="Sprite2D" parent="FishingStickman/3/Catch/8" unique_id=479206071]
+position = Vector2(1, 1)
+texture = ExtResource("25_v1xri")
+
+[node name="GlowingStar" parent="FishingStickman/3/Catch/8" unique_id=1845341465 instance=ExtResource("18_bkh5n")]
+layout_mode = 1
+anchor_left = -0.17500001
+anchor_top = 0.025
+anchor_right = -0.17500001
+anchor_bottom = 0.025
+offset_left = 9.0
+offset_top = -3.0
+offset_right = 9.0
+offset_bottom = -3.0
+
+[node name="GlowingStar2" parent="FishingStickman/3/Catch/8" unique_id=1713707553 instance=ExtResource("18_bkh5n")]
+layout_mode = 1
+anchor_left = -0.17500001
+anchor_top = 0.025
+anchor_right = -0.17500001
+anchor_bottom = 0.025
+offset_left = 7.0
+offset_top = 5.0
+offset_right = 7.0
+offset_bottom = 5.0
+
+[node name="9" type="Control" parent="FishingStickman/3/Catch" unique_id=43232557]
+visible = false
+anchors_preset = 0
+offset_top = 1.0
+offset_right = 40.0
+offset_bottom = 41.0
+
+[node name="Item" type="Sprite2D" parent="FishingStickman/3/Catch/9" unique_id=1526240962]
+position = Vector2(2, 1)
+texture = ExtResource("26_s6syh")
+
+[node name="GlowingStar" parent="FishingStickman/3/Catch/9" unique_id=2127705813 instance=ExtResource("18_bkh5n")]
+layout_mode = 1
+anchor_left = -0.17500001
+anchor_top = 0.025
+anchor_right = -0.17500001
+anchor_bottom = 0.025
+offset_left = 10.0
+offset_top = -3.0
+offset_right = 10.0
+offset_bottom = -3.0
+
+[node name="10" type="Control" parent="FishingStickman/3/Catch" unique_id=33660537]
+visible = false
+anchors_preset = 0
+offset_top = 1.0
+offset_right = 40.0
+offset_bottom = 41.0
+
+[node name="Item" type="Sprite2D" parent="FishingStickman/3/Catch/10" unique_id=33987441]
+position = Vector2(2, 1)
+texture = ExtResource("27_vaqyq")
+
+[node name="GlowingStar" parent="FishingStickman/3/Catch/10" unique_id=1636717277 instance=ExtResource("18_bkh5n")]
+layout_mode = 1
+anchor_left = -0.17500001
+anchor_top = 0.025
+anchor_right = -0.17500001
+anchor_bottom = 0.025
+offset_left = 12.0
+offset_top = -7.0
+offset_right = 12.0
+offset_bottom = -7.0
+
+[node name="GlowingStar2" parent="FishingStickman/3/Catch/10" unique_id=328943532 instance=ExtResource("18_bkh5n")]
+layout_mode = 1
+anchor_left = -0.17500001
+anchor_top = 0.025
+anchor_right = -0.17500001
+anchor_bottom = 0.025
+offset_left = 3.0000005
+offset_top = 6.0
+offset_right = 3.0000005
+offset_bottom = 6.0
+
+[node name="11" type="Control" parent="FishingStickman/3/Catch" unique_id=276086216]
+visible = false
+anchors_preset = 0
+offset_top = 1.0
+offset_right = 40.0
+offset_bottom = 41.0
+
+[node name="Item" type="Sprite2D" parent="FishingStickman/3/Catch/11" unique_id=436081567]
+position = Vector2(2, 1)
+texture = ExtResource("28_rfqbk")
+
+[node name="12" type="Control" parent="FishingStickman/3/Catch" unique_id=1876599035]
+visible = false
+anchors_preset = 0
+offset_top = 1.0
+offset_right = 40.0
+offset_bottom = 41.0
+
+[node name="Item" type="Sprite2D" parent="FishingStickman/3/Catch/12" unique_id=581323025]
+position = Vector2(3, 0)
+texture = ExtResource("29_vaqyq")
+
+[node name="13" type="Control" parent="FishingStickman/3/Catch" unique_id=1611508874]
+visible = false
+anchors_preset = 0
+offset_top = 1.0
+offset_right = 40.0
+offset_bottom = 41.0
+
+[node name="Item" type="Sprite2D" parent="FishingStickman/3/Catch/13" unique_id=323877371]
+position = Vector2(1, -1)
+texture = ExtResource("30_nc50d")
+
+[node name="14" type="Control" parent="FishingStickman/3/Catch" unique_id=366398419]
+visible = false
+anchors_preset = 0
+offset_top = 1.0
+offset_right = 40.0
+offset_bottom = 41.0
+
+[node name="Item" type="Sprite2D" parent="FishingStickman/3/Catch/14" unique_id=934837566]
+position = Vector2(1, 0)
+texture = ExtResource("31_8r2d5")
+
+[node name="15" type="Control" parent="FishingStickman/3/Catch" unique_id=1006149486]
+visible = false
+anchors_preset = 0
+offset_top = 1.0
+offset_right = 40.0
+offset_bottom = 41.0
+
+[node name="Item" type="Sprite2D" parent="FishingStickman/3/Catch/15" unique_id=1655998908]
+position = Vector2(2, -1)
+texture = ExtResource("32_bsdpp")
+
+[node name="16" type="Control" parent="FishingStickman/3/Catch" unique_id=1174204263]
+visible = false
+anchors_preset = 0
+offset_top = 1.0
+offset_right = 40.0
+offset_bottom = 41.0
+
+[node name="Item" type="Sprite2D" parent="FishingStickman/3/Catch/16" unique_id=1298031404]
+position = Vector2(3, 0)
+texture = ExtResource("33_fwwlk")
+
+[node name="17" type="Control" parent="FishingStickman/3/Catch" unique_id=963273647]
+visible = false
+anchors_preset = 0
+offset_top = 1.0
+offset_right = 40.0
+offset_bottom = 41.0
+
+[node name="Item" type="Sprite2D" parent="FishingStickman/3/Catch/17" unique_id=272717356]
+position = Vector2(3, 0)
+texture = ExtResource("34_ts8qn")
+
+[node name="18" type="Control" parent="FishingStickman/3/Catch" unique_id=971363695]
+visible = false
+anchors_preset = 0
+offset_top = 1.0
+offset_right = 40.0
+offset_bottom = 41.0
+
+[node name="Item" type="Sprite2D" parent="FishingStickman/3/Catch/18" unique_id=807290624]
+position = Vector2(3, -3)
+texture = ExtResource("35_gltji")
+
+[node name="19" type="Control" parent="FishingStickman/3/Catch" unique_id=1666776629]
+visible = false
+anchors_preset = 0
+offset_top = 1.0
+offset_right = 40.0
+offset_bottom = 41.0
+
+[node name="Item" type="Sprite2D" parent="FishingStickman/3/Catch/19" unique_id=36487594]
+position = Vector2(1, 0)
+texture = ExtResource("36_id813")
+
+[node name="20" type="Control" parent="FishingStickman/3/Catch" unique_id=1470836021]
+visible = false
+anchors_preset = 0
+offset_top = 1.0
+offset_right = 40.0
+offset_bottom = 41.0
+
+[node name="Item" type="Sprite2D" parent="FishingStickman/3/Catch/20" unique_id=244721137]
+position = Vector2(1, 0)
+texture = ExtResource("37_slwcw")
+
+[node name="21" type="Control" parent="FishingStickman/3/Catch" unique_id=1266585274]
+visible = false
+anchors_preset = 0
+offset_top = 1.0
+offset_right = 40.0
+offset_bottom = 41.0
+
+[node name="Item" type="Sprite2D" parent="FishingStickman/3/Catch/21" unique_id=1617764775]
+position = Vector2(1, 0)
+texture = ExtResource("38_qy4dg")
+
+[node name="22" type="Control" parent="FishingStickman/3/Catch" unique_id=1042356599]
+visible = false
+anchors_preset = 0
+offset_top = 1.0
+offset_right = 40.0
+offset_bottom = 41.0
+
+[node name="Item" type="Sprite2D" parent="FishingStickman/3/Catch/22" unique_id=1875350615]
+position = Vector2(1, 1)
+texture = ExtResource("39_r1gri")
+
+[node name="23" type="Control" parent="FishingStickman/3/Catch" unique_id=153561702]
+visible = false
+anchors_preset = 0
+offset_top = 1.0
+offset_right = 40.0
+offset_bottom = 41.0
+
+[node name="Item" type="Sprite2D" parent="FishingStickman/3/Catch/23" unique_id=548679873]
+position = Vector2(1, 1)
+texture = ExtResource("39_sdghn")
+
+[node name="24" type="Control" parent="FishingStickman/3/Catch" unique_id=629882418]
+visible = false
+anchors_preset = 0
+offset_top = 1.0
+offset_right = 40.0
+offset_bottom = 41.0
+
+[node name="Item" type="Sprite2D" parent="FishingStickman/3/Catch/24" unique_id=1195414804]
+position = Vector2(1, 0)
+texture = ExtResource("40_j8214")
+
+[node name="GlowingStar" parent="FishingStickman/3/Catch/24" unique_id=2091142613 instance=ExtResource("18_bkh5n")]
+layout_mode = 0
+anchors_preset = 0
+offset_left = 1.0
+offset_right = 1.0
+
+[node name="25" type="Control" parent="FishingStickman/3/Catch" unique_id=1281264138]
+visible = false
+anchors_preset = 0
+offset_top = 1.0
+offset_right = 40.0
+offset_bottom = 41.0
+
+[node name="Item" type="Sprite2D" parent="FishingStickman/3/Catch/25" unique_id=820841298]
+position = Vector2(1, 0)
+texture = ExtResource("41_ge2tt")
+
+[node name="GlowingStar" parent="FishingStickman/3/Catch/25" unique_id=1743071207 instance=ExtResource("18_bkh5n")]
+layout_mode = 0
+anchors_preset = 0
+offset_left = 1.0
+offset_top = -1.0
+offset_right = 1.0
+offset_bottom = -1.0
+
+[node name="26" type="Control" parent="FishingStickman/3/Catch" unique_id=1749379858]
+visible = false
+anchors_preset = 0
+offset_top = 1.0
+offset_right = 40.0
+offset_bottom = 41.0
+
+[node name="Item" type="Sprite2D" parent="FishingStickman/3/Catch/26" unique_id=422188436]
+position = Vector2(1, 0)
+texture = ExtResource("42_qy4dg")
+
+[node name="GlowingStar" parent="FishingStickman/3/Catch/26" unique_id=64922130 instance=ExtResource("18_bkh5n")]
+layout_mode = 0
+anchors_preset = 0
+offset_left = 1.0
+offset_top = -1.0
+offset_right = 1.0
+offset_bottom = -1.0
+
+[node name="27" type="Control" parent="FishingStickman/3/Catch" unique_id=1844843370]
+visible = false
+anchors_preset = 0
+offset_top = 1.0
+offset_right = 40.0
+offset_bottom = 41.0
+
+[node name="Item" type="Sprite2D" parent="FishingStickman/3/Catch/27" unique_id=279636247]
+position = Vector2(1, 0)
+texture = ExtResource("43_sdghn")
+
+[node name="GlowingStar" parent="FishingStickman/3/Catch/27" unique_id=356797177 instance=ExtResource("18_bkh5n")]
+layout_mode = 0
+anchors_preset = 0
+offset_left = -4.0
+offset_top = -3.0
+offset_right = -4.0
+offset_bottom = -3.0
+
+[node name="GlowingStar2" parent="FishingStickman/3/Catch/27" unique_id=2078056749 instance=ExtResource("18_bkh5n")]
+layout_mode = 0
+anchors_preset = 0
+offset_left = 8.0
+offset_top = -5.0
+offset_right = 8.0
+offset_bottom = -5.0
+
+[node name="28" type="Control" parent="FishingStickman/3/Catch" unique_id=293958206]
+visible = false
+anchors_preset = 0
+offset_top = 1.0
+offset_right = 40.0
+offset_bottom = 41.0
+
+[node name="Item" type="Sprite2D" parent="FishingStickman/3/Catch/28" unique_id=74667815]
+position = Vector2(1, 0)
+texture = ExtResource("44_j8214")
+
+[node name="GlowingStar" parent="FishingStickman/3/Catch/28" unique_id=1597921330 instance=ExtResource("18_bkh5n")]
+layout_mode = 0
+anchors_preset = 0
+offset_left = -2.0
+offset_top = -3.0
+offset_right = -2.0
+offset_bottom = -3.0
+
+[node name="GlowingStar2" parent="FishingStickman/3/Catch/28" unique_id=679210924 instance=ExtResource("18_bkh5n")]
+layout_mode = 0
+anchors_preset = 0
+offset_left = 3.0
+offset_top = 3.0
+offset_right = 3.0
+offset_bottom = 3.0
+
+[node name="29" type="Control" parent="FishingStickman/3/Catch" unique_id=444954292]
+visible = false
+anchors_preset = 0
+offset_top = 1.0
+offset_right = 40.0
+offset_bottom = 41.0
+
+[node name="Item" type="Sprite2D" parent="FishingStickman/3/Catch/29" unique_id=1873094344]
+position = Vector2(1, 0)
+texture = ExtResource("45_ge2tt")
+
+[node name="GlowingStar" parent="FishingStickman/3/Catch/29" unique_id=69708812 instance=ExtResource("18_bkh5n")]
+layout_mode = 0
+anchors_preset = 0
+offset_left = 12.0
+offset_top = -3.0
+offset_right = 12.0
+offset_bottom = -3.0
+
+[node name="GlowingStar2" parent="FishingStickman/3/Catch/29" unique_id=1484260135 instance=ExtResource("18_bkh5n")]
+layout_mode = 0
+anchors_preset = 0
+offset_left = 7.0
+offset_top = 6.0
+offset_right = 7.0
+offset_bottom = 6.0
+
+[node name="GlowingStar3" parent="FishingStickman/3/Catch/29" unique_id=424463769 instance=ExtResource("18_bkh5n")]
+layout_mode = 0
+anchors_preset = 0
+offset_left = -10.0
+offset_top = 3.0
+offset_right = -10.0
+offset_bottom = 3.0
+
+[node name="30" type="Control" parent="FishingStickman/3/Catch" unique_id=552528518]
+visible = false
+anchors_preset = 0
+offset_top = 1.0
+offset_right = 40.0
+offset_bottom = 41.0
+
+[node name="Item" type="Sprite2D" parent="FishingStickman/3/Catch/30" unique_id=920783762]
+position = Vector2(0, 3)
+texture = ExtResource("46_wnatd")
+
+[node name="GlowingStar" parent="FishingStickman/3/Catch/30" unique_id=781396446 instance=ExtResource("18_bkh5n")]
+layout_mode = 0
+anchors_preset = 0
+offset_left = 7.0
+offset_top = -9.0
+offset_right = 7.0
+offset_bottom = -9.0
+
+[node name="GlowingStar2" parent="FishingStickman/3/Catch/30" unique_id=1785864341 instance=ExtResource("18_bkh5n")]
+layout_mode = 0
+anchors_preset = 0
+offset_left = 8.0
+offset_top = -1.0
+offset_right = 8.0
+offset_bottom = -1.0
+
+[node name="GlowingStar3" parent="FishingStickman/3/Catch/30" unique_id=2121825810 instance=ExtResource("18_bkh5n")]
+layout_mode = 0
+anchors_preset = 0
+offset_left = -6.0
+offset_top = -5.0
+offset_right = -6.0
+offset_bottom = -5.0
+
+[node name="31" type="Control" parent="FishingStickman/3/Catch" unique_id=2033918988]
+visible = false
+anchors_preset = 0
+offset_top = 1.0
+offset_right = 40.0
+offset_bottom = 41.0
+
+[node name="Item" type="Sprite2D" parent="FishingStickman/3/Catch/31" unique_id=647461317]
+position = Vector2(2, 0)
+texture = ExtResource("48_f2ewy")
+
+[node name="32" type="Control" parent="FishingStickman/3/Catch" unique_id=1468566013]
+visible = false
+anchors_preset = 0
+offset_top = 1.0
+offset_right = 40.0
+offset_bottom = 41.0
+
+[node name="Item" type="Sprite2D" parent="FishingStickman/3/Catch/32" unique_id=264859496]
+position = Vector2(-3, 0)
+texture = ExtResource("49_54s4v")
+
+[node name="33" type="Control" parent="FishingStickman/3/Catch" unique_id=2043242855]
+visible = false
+anchors_preset = 0
+offset_top = 1.0
+offset_right = 40.0
+offset_bottom = 41.0
+
+[node name="Item" type="Sprite2D" parent="FishingStickman/3/Catch/33" unique_id=682513562]
+position = Vector2(-3, 0)
+texture = ExtResource("50_0x3rh")
+
+[node name="34" type="Control" parent="FishingStickman/3/Catch" unique_id=2068109142]
+visible = false
+anchors_preset = 0
+offset_top = 1.0
+offset_right = 40.0
+offset_bottom = 41.0
+
+[node name="Item" type="Sprite2D" parent="FishingStickman/3/Catch/34" unique_id=1747526066]
+position = Vector2(-3, 0)
+texture = ExtResource("51_mumcj")
+
+[node name="35" type="Control" parent="FishingStickman/3/Catch" unique_id=2044546644]
+visible = false
+anchors_preset = 0
+offset_top = 1.0
+offset_right = 40.0
+offset_bottom = 41.0
+
+[node name="Item" type="Sprite2D" parent="FishingStickman/3/Catch/35" unique_id=585691480]
+position = Vector2(-3, 0)
+texture = ExtResource("52_yt7qg")
+
+[node name="36" type="Control" parent="FishingStickman/3/Catch" unique_id=1888695106]
+visible = false
+anchors_preset = 0
+offset_top = 1.0
+offset_right = 40.0
+offset_bottom = 41.0
+
+[node name="Item" type="Sprite2D" parent="FishingStickman/3/Catch/36" unique_id=450064967]
+position = Vector2(-3, 0)
+texture = ExtResource("53_dcyt8")
+
+[node name="37" type="Control" parent="FishingStickman/3/Catch" unique_id=1969613927]
+visible = false
+anchors_preset = 0
+offset_top = 1.0
+offset_right = 40.0
+offset_bottom = 41.0
+
+[node name="Item" type="Sprite2D" parent="FishingStickman/3/Catch/37" unique_id=82742473]
+position = Vector2(-3, 0)
+texture = ExtResource("54_gbgln")
+
+[node name="38" type="Control" parent="FishingStickman/3/Catch" unique_id=1403192273]
+visible = false
+anchors_preset = 0
+offset_top = 1.0
+offset_right = 40.0
+offset_bottom = 41.0
+
+[node name="Item" type="Sprite2D" parent="FishingStickman/3/Catch/38" unique_id=658275248]
+position = Vector2(3, 0)
+texture = ExtResource("55_7vqnu")
+
+[node name="39" type="Control" parent="FishingStickman/3/Catch" unique_id=1780162752]
+visible = false
+anchors_preset = 0
+offset_top = 1.0
+offset_right = 40.0
+offset_bottom = 41.0
+
+[node name="Item" type="Sprite2D" parent="FishingStickman/3/Catch/39" unique_id=732679877]
+position = Vector2(1, 0)
+texture = ExtResource("56_d1qsu")
+
+[node name="40" type="Control" parent="FishingStickman/3/Catch" unique_id=591506871]
+visible = false
+anchors_preset = 0
+offset_top = 1.0
+offset_right = 40.0
+offset_bottom = 41.0
+
+[node name="Item" type="Sprite2D" parent="FishingStickman/3/Catch/40" unique_id=754087781]
+position = Vector2(-2, 0)
+texture = ExtResource("57_veioo")
+
+[node name="41" type="Control" parent="FishingStickman/3/Catch" unique_id=1842972308]
+visible = false
+anchors_preset = 0
+offset_top = 1.0
+offset_right = 40.0
+offset_bottom = 41.0
+
+[node name="Item" type="Sprite2D" parent="FishingStickman/3/Catch/41" unique_id=1258689544]
+position = Vector2(-3, 0)
+texture = ExtResource("58_5q46a")
+
+[node name="42" type="Control" parent="FishingStickman/3/Catch" unique_id=602613965]
+visible = false
+anchors_preset = 0
+offset_top = 1.0
+offset_right = 40.0
+offset_bottom = 41.0
+
+[node name="CanvasGroup" type="CanvasGroup" parent="FishingStickman/3/Catch/42" unique_id=2017270687]
+material = SubResource("ShaderMaterial_veioo")
+fit_margin = 125.0
+
+[node name="Item" type="Sprite2D" parent="FishingStickman/3/Catch/42/CanvasGroup" unique_id=1825098383]
+modulate = Color(0, 1, 0.13333344, 1)
+position = Vector2(-3, 0)
+texture = ExtResource("60_6kecp")
+
+[node name="43" type="Control" parent="FishingStickman/3/Catch" unique_id=1067496046]
+visible = false
+anchors_preset = 0
+offset_top = 1.0
+offset_right = 40.0
+offset_bottom = 41.0
+
+[node name="CanvasGroup" type="CanvasGroup" parent="FishingStickman/3/Catch/43" unique_id=317772485]
+material = SubResource("ShaderMaterial_35l6s")
+fit_margin = 125.0
+
+[node name="Item" type="Sprite2D" parent="FishingStickman/3/Catch/43/CanvasGroup" unique_id=1474896763]
+modulate = Color(0.36150005, 0.28846553, 0.74939287, 1)
+position = Vector2(-3, 0)
+texture = ExtResource("60_6kecp")
+
+[node name="44" type="Control" parent="FishingStickman/3/Catch" unique_id=2069392696]
+visible = false
+anchors_preset = 0
+offset_top = 1.0
+offset_right = 40.0
+offset_bottom = 41.0
+
+[node name="Item" type="Sprite2D" parent="FishingStickman/3/Catch/44" unique_id=980035444]
+position = Vector2(-3, 0)
+texture = ExtResource("61_yt7qg")
+
+[node name="GlowingStar" parent="FishingStickman/3/Catch/44" unique_id=221515456 instance=ExtResource("18_bkh5n")]
+layout_mode = 1
+anchor_left = -0.17500001
+anchor_top = 0.025
+anchor_right = -0.17500001
+anchor_bottom = 0.025
+offset_left = 4.0000005
+offset_top = -1.0
+offset_right = 4.0000005
+offset_bottom = -1.0
+
+[node name="45" type="Control" parent="FishingStickman/3/Catch" unique_id=1689534143]
+visible = false
+anchors_preset = 0
+offset_top = 1.0
+offset_right = 40.0
+offset_bottom = 41.0
+
+[node name="Item" type="Sprite2D" parent="FishingStickman/3/Catch/45" unique_id=2099576829]
+position = Vector2(-3, 0)
+texture = ExtResource("62_dcyt8")
+
+[node name="GlowingStar" parent="FishingStickman/3/Catch/45" unique_id=2083226395 instance=ExtResource("18_bkh5n")]
+layout_mode = 1
+anchor_left = -0.17500001
+anchor_top = 0.025
+anchor_right = -0.17500001
+anchor_bottom = 0.025
+offset_left = 4.0000005
+offset_top = -1.0
+offset_right = 4.0000005
+offset_bottom = -1.0
+
+[node name="46" type="Control" parent="FishingStickman/3/Catch" unique_id=1615753438]
+visible = false
+anchors_preset = 0
+offset_top = 1.0
+offset_right = 40.0
+offset_bottom = 41.0
+
+[node name="Item" type="Sprite2D" parent="FishingStickman/3/Catch/46" unique_id=835454798]
+texture = ExtResource("63_gbgln")
+
+[node name="GlowingStar" parent="FishingStickman/3/Catch/46" unique_id=57801711 instance=ExtResource("18_bkh5n")]
+layout_mode = 1
+anchor_left = -0.17500001
+anchor_top = 0.025
+anchor_right = -0.17500001
+anchor_bottom = 0.025
+offset_left = 12.0
+offset_top = -1.0
+offset_right = 12.0
+offset_bottom = -1.0
+
+[node name="47" type="Control" parent="FishingStickman/3/Catch" unique_id=858640645]
+visible = false
+anchors_preset = 0
+offset_left = 1.0
+offset_top = 1.0
+offset_right = 41.0
+offset_bottom = 41.0
+
+[node name="Item" type="Sprite2D" parent="FishingStickman/3/Catch/47" unique_id=118515820]
+position = Vector2(2, 0)
+texture = ExtResource("64_7vqnu")
+
+[node name="GlowingStar" parent="FishingStickman/3/Catch/47" unique_id=720902446 instance=ExtResource("18_bkh5n")]
+layout_mode = 1
+anchor_left = -0.17500001
+anchor_top = 0.025
+anchor_right = -0.17500001
+anchor_bottom = 0.025
+offset_left = 5.0
+offset_top = -1.0
+offset_right = 5.0
+offset_bottom = -1.0
+
+[node name="48" type="Control" parent="FishingStickman/3/Catch" unique_id=1983628252]
+visible = false
+anchors_preset = 0
+offset_left = 1.0
+offset_top = 1.0
+offset_right = 41.0
+offset_bottom = 41.0
+
+[node name="Item" type="Sprite2D" parent="FishingStickman/3/Catch/48" unique_id=1348622083]
+position = Vector2(-4, -5)
+texture = ExtResource("65_d1qsu")
+
+[node name="GlowOrb" type="TextureRect" parent="FishingStickman/3/Catch/48/Item" unique_id=1189213785]
+material = SubResource("ShaderMaterial_21rdb")
+offset_left = -8.0
+offset_top = -12.0
+offset_right = -2.0
+offset_bottom = -6.0
+texture = SubResource("GradientTexture2D_l6atf")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="GlowingStar" parent="FishingStickman/3/Catch/48" unique_id=563360618 instance=ExtResource("18_bkh5n")]
+layout_mode = 1
+anchor_left = -0.17500001
+anchor_top = 0.025
+anchor_right = -0.17500001
+anchor_bottom = 0.025
+offset_left = 5.0
+offset_top = -1.0
+offset_right = 5.0
+offset_bottom = -1.0
+
+[node name="49" type="Control" parent="FishingStickman/3/Catch" unique_id=509948747]
+visible = false
+anchors_preset = 0
+offset_top = 1.0
+offset_right = 40.0
+offset_bottom = 41.0
+
+[node name="CanvasGroup" type="CanvasGroup" parent="FishingStickman/3/Catch/49" unique_id=1474557514]
+material = SubResource("ShaderMaterial_6kecp")
+fit_margin = 125.0
+
+[node name="Item" type="Sprite2D" parent="FishingStickman/3/Catch/49/CanvasGroup" unique_id=1953019742]
+position = Vector2(-3, 0)
+texture = ExtResource("60_6kecp")
+
+[node name="GlowingStar2" parent="FishingStickman/3/Catch/49" unique_id=2121935657 instance=ExtResource("18_bkh5n")]
+layout_mode = 1
+anchor_left = -0.17500001
+anchor_top = 0.025
+anchor_right = -0.17500001
+anchor_bottom = 0.025
+offset_left = 15.0
+offset_top = -1.0
+offset_right = 15.0
+offset_bottom = -1.0
+
+[node name="GlowingStar" parent="FishingStickman/3/Catch/49" unique_id=1114350523 instance=ExtResource("18_bkh5n")]
+layout_mode = 1
+anchor_left = -0.17500001
+anchor_top = 0.025
+anchor_right = -0.17500001
+anchor_bottom = 0.025
+offset_left = 2.0
+offset_top = -1.0
+offset_right = 2.0
+offset_bottom = -1.0
+
+[node name="50" type="Control" parent="FishingStickman/3/Catch" unique_id=253632077]
+visible = false
+anchors_preset = 0
+offset_top = 1.0
+offset_right = 40.0
+offset_bottom = 41.0
+
+[node name="Item" type="Sprite2D" parent="FishingStickman/3/Catch/50" unique_id=892965031]
+position = Vector2(-3, 0)
+texture = ExtResource("67_7vqnu")
+
+[node name="GlowingStar2" parent="FishingStickman/3/Catch/50" unique_id=1709336315 instance=ExtResource("18_bkh5n")]
+layout_mode = 1
+anchor_left = -0.17500001
+anchor_top = 0.025
+anchor_right = -0.17500001
+anchor_bottom = 0.025
+offset_left = 15.0
+offset_top = -1.0
+offset_right = 15.0
+offset_bottom = -1.0
+
+[node name="GlowingStar" parent="FishingStickman/3/Catch/50" unique_id=749330572 instance=ExtResource("18_bkh5n")]
+layout_mode = 1
+anchor_left = -0.17500001
+anchor_top = 0.025
+anchor_right = -0.17500001
+anchor_bottom = 0.025
+offset_left = 5.0
+offset_top = 2.0
+offset_right = 5.0
+offset_bottom = 2.0
+
+[node name="GlowingStar3" parent="FishingStickman/3/Catch/50" unique_id=955884228 instance=ExtResource("18_bkh5n")]
+layout_mode = 1
+anchor_left = -0.17500001
+anchor_top = 0.025
+anchor_right = -0.17500001
+anchor_bottom = 0.025
+offset_left = -2.9999995
+offset_top = -4.0
+offset_right = -2.9999995
+offset_bottom = -4.0
+
+[node name="51" type="Control" parent="FishingStickman/3/Catch" unique_id=430253309]
+visible = false
+anchors_preset = 0
+offset_top = 1.0
+offset_right = 40.0
+offset_bottom = 41.0
+
+[node name="Label" type="Label" parent="FishingStickman/3/Catch/51" unique_id=2091387717]
+layout_mode = 0
+offset_left = -1.0
+offset_top = -8.0
+offset_right = 39.0
+offset_bottom = 15.0
+theme_override_fonts/font = ExtResource("13_3gvsb")
+text = "?"
+
+[node name="52" type="Control" parent="FishingStickman/3/Catch" unique_id=526886831]
+visible = false
+anchors_preset = 0
+offset_top = 1.0
+offset_right = 40.0
+offset_bottom = 41.0
+
+[node name="AdventureRefill" type="Sprite2D" parent="FishingStickman/3/Catch/52" unique_id=1956777959]
+position = Vector2(1, 0)
+texture = ExtResource("68_d1qsu")
+
+[node name="Label" type="Label" parent="FishingStickman/3/Catch/52/AdventureRefill" unique_id=573585823]
+offset_left = -25.0
+offset_top = -17.0
+offset_right = 28.0
+offset_bottom = 18.0
+theme_override_colors/font_color = Color(1, 1, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 0.6, 0, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 0
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = SubResource("FontVariation_7vqnu")
+theme_override_font_sizes/font_size = 6
+text = "Energy
+Refill"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CanvasGroup" type="CanvasGroup" parent="FishingStickman/3/Catch/52/AdventureRefill" unique_id=1619841543]
+material = SubResource("ShaderMaterial_5q46a")
+
+[node name="53" type="Control" parent="FishingStickman/3/Catch" unique_id=1691941521]
+visible = false
+anchors_preset = 0
+offset_top = 1.0
+offset_right = 40.0
+offset_bottom = 41.0
+
+[node name="Item" type="Sprite2D" parent="FishingStickman/3/Catch/53" unique_id=1570875351]
+position = Vector2(7, -13)
+texture = ExtResource("70_hh523")
+
+[node name="54" type="Control" parent="FishingStickman/3/Catch" unique_id=1988862255]
+visible = false
+anchors_preset = 0
+offset_top = 1.0
+offset_right = 40.0
+offset_bottom = 41.0
+
+[node name="Item" type="Sprite2D" parent="FishingStickman/3/Catch/54" unique_id=1603981069]
+position = Vector2(11, -13)
+texture = ExtResource("71_fmu62")
+
+[node name="55" type="Control" parent="FishingStickman/3/Catch" unique_id=987296765]
+visible = false
+anchors_preset = 0
+offset_top = 1.0
+offset_right = 40.0
+offset_bottom = 41.0
+
+[node name="Item" type="Sprite2D" parent="FishingStickman/3/Catch/55" unique_id=508908667]
+position = Vector2(8, -2)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("72_8nhas")
+
+[node name="56" type="Control" parent="FishingStickman/3/Catch" unique_id=740092302]
+visible = false
+anchors_preset = 0
+offset_top = 1.0
+offset_right = 40.0
+offset_bottom = 41.0
+
+[node name="Item" type="Sprite2D" parent="FishingStickman/3/Catch/56" unique_id=1560199223]
+position = Vector2(8, -2)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("73_e1waf")
+
+[node name="57" type="Control" parent="FishingStickman/3/Catch" unique_id=1674956027]
+visible = false
+anchors_preset = 0
+offset_top = 1.0
+offset_right = 40.0
+offset_bottom = 41.0
+
+[node name="Item" type="Sprite2D" parent="FishingStickman/3/Catch/57" unique_id=1279141809]
+position = Vector2(8, -2)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("74_kkq5y")
+
+[node name="58" type="Control" parent="FishingStickman/3/Catch" unique_id=564554061]
+visible = false
+anchors_preset = 0
+offset_top = 1.0
+offset_right = 40.0
+offset_bottom = 41.0
+
+[node name="Item" type="Sprite2D" parent="FishingStickman/3/Catch/58" unique_id=388555500]
+position = Vector2(8, -2)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("75_qd3yd")
+
+[node name="59" type="Control" parent="FishingStickman/3/Catch" unique_id=633780803]
+visible = false
+anchors_preset = 0
+offset_top = 1.0
+offset_right = 40.0
+offset_bottom = 41.0
+
+[node name="Item" type="Sprite2D" parent="FishingStickman/3/Catch/59" unique_id=717203027]
+position = Vector2(1, 0)
+texture = ExtResource("76_8ij75")
+
+[node name="Label" type="Label" parent="FishingStickman/3/Catch/59/Item" unique_id=1612011431]
+offset_left = -12.0
+offset_top = -13.0
+offset_right = 14.0
+offset_bottom = 13.0
+theme_override_colors/font_color = Color(0.79607844, 0.79607844, 0.79607844, 1)
+theme_override_fonts/font = ExtResource("77_1gtiw")
+theme_override_font_sizes/font_size = 10
+text = "W"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="60" type="Control" parent="FishingStickman/3/Catch" unique_id=687986172]
+visible = false
+anchors_preset = 0
+offset_top = 1.0
+offset_right = 40.0
+offset_bottom = 41.0
+
+[node name="Item" type="Sprite2D" parent="FishingStickman/3/Catch/60" unique_id=418627121]
+position = Vector2(9, -1)
+texture = ExtResource("78_4lno6")
+
+[node name="61" type="Control" parent="FishingStickman/3/Catch" unique_id=98363764]
+visible = false
+anchors_preset = 0
+offset_top = 1.0
+offset_right = 40.0
+offset_bottom = 41.0
+
+[node name="Item" type="Sprite2D" parent="FishingStickman/3/Catch/61" unique_id=996059817]
+position = Vector2(9, -1)
+texture = ExtResource("79_f5uk0")
+
+[node name="71" type="Control" parent="FishingStickman/3/Catch" unique_id=834146688]
+visible = false
+anchors_preset = 0
+offset_top = 1.0
+offset_right = 40.0
+offset_bottom = 41.0
+
+[node name="CanvasGroup" type="CanvasGroup" parent="FishingStickman/3/Catch/71" unique_id=2138765204]
+material = SubResource("ShaderMaterial_wpskc")
+
+[node name="Item" type="Sprite2D" parent="FishingStickman/3/Catch/71/CanvasGroup" unique_id=187077964]
+position = Vector2(1, 0)
+texture = ExtResource("80_xt43y")
+
+[node name="GlowingStar2" parent="FishingStickman/3/Catch/71" unique_id=1334718397 instance=ExtResource("18_bkh5n")]
+layout_mode = 1
+anchor_left = -0.17500001
+anchor_top = 0.025
+anchor_right = -0.17500001
+anchor_bottom = 0.025
+offset_left = 15.0
+offset_top = -1.0
+offset_right = 15.0
+offset_bottom = -1.0
+
+[node name="GlowingStar" parent="FishingStickman/3/Catch/71" unique_id=1578332733 instance=ExtResource("18_bkh5n")]
+layout_mode = 1
+anchor_left = -0.17500001
+anchor_top = 0.025
+anchor_right = -0.17500001
+anchor_bottom = 0.025
+offset_left = 5.0
+offset_top = 2.0
+offset_right = 5.0
+offset_bottom = 2.0
+
+[node name="GlowingStar3" parent="FishingStickman/3/Catch/71" unique_id=1915372962 instance=ExtResource("18_bkh5n")]
+layout_mode = 1
+anchor_left = -0.17500001
+anchor_top = 0.025
+anchor_right = -0.17500001
+anchor_bottom = 0.025
+offset_left = -2.9999995
+offset_top = -4.0
+offset_right = -2.9999995
+offset_bottom = -4.0
+
+[node name="72" type="Control" parent="FishingStickman/3/Catch" unique_id=1552429782]
+visible = false
+anchors_preset = 0
+offset_top = 1.0
+offset_right = 40.0
+offset_bottom = 41.0
+
+[node name="CanvasGroup" type="CanvasGroup" parent="FishingStickman/3/Catch/72" unique_id=1500451998]
+material = SubResource("ShaderMaterial_wpskc")
+
+[node name="Item" type="Sprite2D" parent="FishingStickman/3/Catch/72/CanvasGroup" unique_id=262427227]
+position = Vector2(1, 0)
+texture = ExtResource("81_fcdk6")
+
+[node name="GlowingStar2" parent="FishingStickman/3/Catch/72" unique_id=1295012365 instance=ExtResource("18_bkh5n")]
+layout_mode = 1
+anchor_left = -0.17500001
+anchor_top = 0.025
+anchor_right = -0.17500001
+anchor_bottom = 0.025
+offset_left = 15.0
+offset_top = -1.0
+offset_right = 15.0
+offset_bottom = -1.0
+
+[node name="GlowingStar" parent="FishingStickman/3/Catch/72" unique_id=1717956174 instance=ExtResource("18_bkh5n")]
+layout_mode = 1
+anchor_left = -0.17500001
+anchor_top = 0.025
+anchor_right = -0.17500001
+anchor_bottom = 0.025
+offset_left = 5.0
+offset_top = 2.0
+offset_right = 5.0
+offset_bottom = 2.0
+
+[node name="GlowingStar3" parent="FishingStickman/3/Catch/72" unique_id=591606405 instance=ExtResource("18_bkh5n")]
+layout_mode = 1
+anchor_left = -0.17500001
+anchor_top = 0.025
+anchor_right = -0.17500001
+anchor_bottom = 0.025
+offset_left = -2.9999995
+offset_top = -4.0
+offset_right = -2.9999995
+offset_bottom = -4.0
+
+[node name="73" type="Control" parent="FishingStickman/3/Catch" unique_id=1855995364]
+visible = false
+anchors_preset = 0
+offset_top = 1.0
+offset_right = 40.0
+offset_bottom = 41.0
+
+[node name="CanvasGroup" type="CanvasGroup" parent="FishingStickman/3/Catch/73" unique_id=2143311263]
+material = SubResource("ShaderMaterial_wpskc")
+
+[node name="Item" type="Sprite2D" parent="FishingStickman/3/Catch/73/CanvasGroup" unique_id=101745068]
+position = Vector2(1, 0)
+texture = ExtResource("82_8etxh")
+
+[node name="GlowingStar2" parent="FishingStickman/3/Catch/73" unique_id=397965625 instance=ExtResource("18_bkh5n")]
+layout_mode = 1
+anchor_left = -0.17500001
+anchor_top = 0.025
+anchor_right = -0.17500001
+anchor_bottom = 0.025
+offset_left = 15.0
+offset_top = -1.0
+offset_right = 15.0
+offset_bottom = -1.0
+
+[node name="GlowingStar" parent="FishingStickman/3/Catch/73" unique_id=1685154905 instance=ExtResource("18_bkh5n")]
+layout_mode = 1
+anchor_left = -0.17500001
+anchor_top = 0.025
+anchor_right = -0.17500001
+anchor_bottom = 0.025
+offset_left = 5.0
+offset_top = 2.0
+offset_right = 5.0
+offset_bottom = 2.0
+
+[node name="GlowingStar3" parent="FishingStickman/3/Catch/73" unique_id=1014873060 instance=ExtResource("18_bkh5n")]
+layout_mode = 1
+anchor_left = -0.17500001
+anchor_top = 0.025
+anchor_right = -0.17500001
+anchor_bottom = 0.025
+offset_left = -2.9999995
+offset_top = -4.0
+offset_right = -2.9999995
+offset_bottom = -4.0
+
+[node name="74" type="Control" parent="FishingStickman/3/Catch" unique_id=1421009691]
+visible = false
+anchors_preset = 0
+offset_top = 1.0
+offset_right = 40.0
+offset_bottom = 41.0
+
+[node name="CanvasGroup" type="CanvasGroup" parent="FishingStickman/3/Catch/74" unique_id=1773589049]
+material = SubResource("ShaderMaterial_wpskc")
+
+[node name="Item" type="Sprite2D" parent="FishingStickman/3/Catch/74/CanvasGroup" unique_id=1553763891]
+position = Vector2(1, 0)
+texture = ExtResource("82_8etxh")
+
+[node name="GlowingStar2" parent="FishingStickman/3/Catch/74" unique_id=430364388 instance=ExtResource("18_bkh5n")]
+layout_mode = 1
+anchor_left = -0.17500001
+anchor_top = 0.025
+anchor_right = -0.17500001
+anchor_bottom = 0.025
+offset_left = 15.0
+offset_top = -1.0
+offset_right = 15.0
+offset_bottom = -1.0
+
+[node name="GlowingStar" parent="FishingStickman/3/Catch/74" unique_id=1980189654 instance=ExtResource("18_bkh5n")]
+layout_mode = 1
+anchor_left = -0.17500001
+anchor_top = 0.025
+anchor_right = -0.17500001
+anchor_bottom = 0.025
+offset_left = 5.0
+offset_top = 2.0
+offset_right = 5.0
+offset_bottom = 2.0
+
+[node name="GlowingStar3" parent="FishingStickman/3/Catch/74" unique_id=38813784 instance=ExtResource("18_bkh5n")]
+layout_mode = 1
+anchor_left = -0.17500001
+anchor_top = 0.025
+anchor_right = -0.17500001
+anchor_bottom = 0.025
+offset_left = -2.9999995
+offset_top = -4.0
+offset_right = -2.9999995
+offset_bottom = -4.0
+
+[node name="75" type="Control" parent="FishingStickman/3/Catch" unique_id=1870283885]
+visible = false
+anchors_preset = 0
+offset_top = 1.0
+offset_right = 40.0
+offset_bottom = 41.0
+
+[node name="CanvasGroup" type="CanvasGroup" parent="FishingStickman/3/Catch/75" unique_id=754646618]
+material = SubResource("ShaderMaterial_wpskc")
+
+[node name="Item" type="Sprite2D" parent="FishingStickman/3/Catch/75/CanvasGroup" unique_id=1452964544]
+position = Vector2(1, 0)
+texture = ExtResource("83_ct2c0")
+
+[node name="GlowingStar2" parent="FishingStickman/3/Catch/75" unique_id=1079596682 instance=ExtResource("18_bkh5n")]
+layout_mode = 1
+anchor_left = -0.17500001
+anchor_top = 0.025
+anchor_right = -0.17500001
+anchor_bottom = 0.025
+offset_left = 15.0
+offset_top = -1.0
+offset_right = 15.0
+offset_bottom = -1.0
+
+[node name="GlowingStar" parent="FishingStickman/3/Catch/75" unique_id=1269609241 instance=ExtResource("18_bkh5n")]
+layout_mode = 1
+anchor_left = -0.17500001
+anchor_top = 0.025
+anchor_right = -0.17500001
+anchor_bottom = 0.025
+offset_left = 5.0
+offset_top = 2.0
+offset_right = 5.0
+offset_bottom = 2.0
+
+[node name="GlowingStar3" parent="FishingStickman/3/Catch/75" unique_id=1489405183 instance=ExtResource("18_bkh5n")]
+layout_mode = 1
+anchor_left = -0.17500001
+anchor_top = 0.025
+anchor_right = -0.17500001
+anchor_bottom = 0.025
+offset_left = -2.9999995
+offset_top = -4.0
+offset_right = -2.9999995
+offset_bottom = -4.0
+
+[node name="76" type="Control" parent="FishingStickman/3/Catch" unique_id=372015443]
+visible = false
+anchors_preset = 0
+offset_top = 1.0
+offset_right = 40.0
+offset_bottom = 41.0
+
+[node name="CanvasGroup" type="CanvasGroup" parent="FishingStickman/3/Catch/76" unique_id=1049540582]
+material = SubResource("ShaderMaterial_wpskc")
+
+[node name="Item" type="Sprite2D" parent="FishingStickman/3/Catch/76/CanvasGroup" unique_id=1524631759]
+position = Vector2(1, 0)
+texture = ExtResource("84_51xn5")
+
+[node name="GlowingStar2" parent="FishingStickman/3/Catch/76" unique_id=695359101 instance=ExtResource("18_bkh5n")]
+layout_mode = 1
+anchor_left = -0.17500001
+anchor_top = 0.025
+anchor_right = -0.17500001
+anchor_bottom = 0.025
+offset_left = 15.0
+offset_top = -1.0
+offset_right = 15.0
+offset_bottom = -1.0
+
+[node name="GlowingStar" parent="FishingStickman/3/Catch/76" unique_id=2005324989 instance=ExtResource("18_bkh5n")]
+layout_mode = 1
+anchor_left = -0.17500001
+anchor_top = 0.025
+anchor_right = -0.17500001
+anchor_bottom = 0.025
+offset_left = 5.0
+offset_top = 2.0
+offset_right = 5.0
+offset_bottom = 2.0
+
+[node name="GlowingStar3" parent="FishingStickman/3/Catch/76" unique_id=149000252 instance=ExtResource("18_bkh5n")]
+layout_mode = 1
+anchor_left = -0.17500001
+anchor_top = 0.025
+anchor_right = -0.17500001
+anchor_bottom = 0.025
+offset_left = -2.9999995
+offset_top = -4.0
+offset_right = -2.9999995
+offset_bottom = -4.0
+
+[node name="77" type="Control" parent="FishingStickman/3/Catch" unique_id=1302453162]
+visible = false
+anchors_preset = 0
+offset_top = 1.0
+offset_right = 40.0
+offset_bottom = 41.0
+
+[node name="CanvasGroup" type="CanvasGroup" parent="FishingStickman/3/Catch/77" unique_id=363507231]
+material = SubResource("ShaderMaterial_wpskc")
+
+[node name="Item" type="Sprite2D" parent="FishingStickman/3/Catch/77/CanvasGroup" unique_id=63620291]
+position = Vector2(1, 0)
+texture = ExtResource("85_8f75m")
+
+[node name="GlowingStar2" parent="FishingStickman/3/Catch/77" unique_id=606445784 instance=ExtResource("18_bkh5n")]
+layout_mode = 1
+anchor_left = -0.17500001
+anchor_top = 0.025
+anchor_right = -0.17500001
+anchor_bottom = 0.025
+offset_left = 15.0
+offset_top = -1.0
+offset_right = 15.0
+offset_bottom = -1.0
+
+[node name="GlowingStar" parent="FishingStickman/3/Catch/77" unique_id=1002281333 instance=ExtResource("18_bkh5n")]
+layout_mode = 1
+anchor_left = -0.17500001
+anchor_top = 0.025
+anchor_right = -0.17500001
+anchor_bottom = 0.025
+offset_left = 5.0
+offset_top = 2.0
+offset_right = 5.0
+offset_bottom = 2.0
+
+[node name="GlowingStar3" parent="FishingStickman/3/Catch/77" unique_id=391929433 instance=ExtResource("18_bkh5n")]
+layout_mode = 1
+anchor_left = -0.17500001
+anchor_top = 0.025
+anchor_right = -0.17500001
+anchor_bottom = 0.025
+offset_left = -2.9999995
+offset_top = -4.0
+offset_right = -2.9999995
+offset_bottom = -4.0
+
+[node name="78" type="Control" parent="FishingStickman/3/Catch" unique_id=1801574774]
+visible = false
+anchors_preset = 0
+offset_top = 1.0
+offset_right = 40.0
+offset_bottom = 41.0
+
+[node name="CanvasGroup" type="CanvasGroup" parent="FishingStickman/3/Catch/78" unique_id=742649095]
+material = SubResource("ShaderMaterial_7sejy")
+
+[node name="Item" type="Sprite2D" parent="FishingStickman/3/Catch/78/CanvasGroup" unique_id=806304317]
+position = Vector2(1, 0)
+texture = ExtResource("86_s3074")
+
+[node name="GlowingStar2" parent="FishingStickman/3/Catch/78" unique_id=1536528236 instance=ExtResource("18_bkh5n")]
+layout_mode = 1
+anchor_left = -0.17500001
+anchor_top = 0.025
+anchor_right = -0.17500001
+anchor_bottom = 0.025
+offset_left = 15.0
+offset_top = -1.0
+offset_right = 15.0
+offset_bottom = -1.0
+
+[node name="GlowingStar" parent="FishingStickman/3/Catch/78" unique_id=1346042317 instance=ExtResource("18_bkh5n")]
+layout_mode = 1
+anchor_left = -0.17500001
+anchor_top = 0.025
+anchor_right = -0.17500001
+anchor_bottom = 0.025
+offset_left = 5.0
+offset_top = 2.0
+offset_right = 5.0
+offset_bottom = 2.0
+
+[node name="GlowingStar3" parent="FishingStickman/3/Catch/78" unique_id=43626809 instance=ExtResource("18_bkh5n")]
+layout_mode = 1
+anchor_left = -0.17500001
+anchor_top = 0.025
+anchor_right = -0.17500001
+anchor_bottom = 0.025
+offset_left = -2.9999995
+offset_top = -4.0
+offset_right = -2.9999995
+offset_bottom = -4.0
+
+[node name="79" type="Control" parent="FishingStickman/3/Catch" unique_id=676041054]
+visible = false
+anchors_preset = 0
+offset_top = 1.0
+offset_right = 40.0
+offset_bottom = 41.0
+
+[node name="CanvasGroup" type="CanvasGroup" parent="FishingStickman/3/Catch/79" unique_id=756448441]
+material = SubResource("ShaderMaterial_8nhas")
+
+[node name="Item" type="Sprite2D" parent="FishingStickman/3/Catch/79/CanvasGroup" unique_id=1893175353]
+position = Vector2(1, 0)
+texture = ExtResource("87_wf613")
+
+[node name="GlowingStar2" parent="FishingStickman/3/Catch/79" unique_id=1134195092 instance=ExtResource("18_bkh5n")]
+layout_mode = 1
+anchor_left = -0.17500001
+anchor_top = 0.025
+anchor_right = -0.17500001
+anchor_bottom = 0.025
+offset_left = 15.0
+offset_top = -1.0
+offset_right = 15.0
+offset_bottom = -1.0
+
+[node name="GlowingStar" parent="FishingStickman/3/Catch/79" unique_id=1627114345 instance=ExtResource("18_bkh5n")]
+layout_mode = 1
+anchor_left = -0.17500001
+anchor_top = 0.025
+anchor_right = -0.17500001
+anchor_bottom = 0.025
+offset_left = 5.0
+offset_top = 2.0
+offset_right = 5.0
+offset_bottom = 2.0
+
+[node name="GlowingStar3" parent="FishingStickman/3/Catch/79" unique_id=216717530 instance=ExtResource("18_bkh5n")]
+layout_mode = 1
+anchor_left = -0.17500001
+anchor_top = 0.025
+anchor_right = -0.17500001
+anchor_bottom = 0.025
+offset_left = -2.9999995
+offset_top = -4.0
+offset_right = -2.9999995
+offset_bottom = -4.0
+
+[node name="80" type="Control" parent="FishingStickman/3/Catch" unique_id=182321808]
+visible = false
+anchors_preset = 0
+offset_top = 1.0
+offset_right = 40.0
+offset_bottom = 41.0
+
+[node name="CanvasGroup" type="CanvasGroup" parent="FishingStickman/3/Catch/80" unique_id=843948150]
+material = SubResource("ShaderMaterial_8nhas")
+
+[node name="Item" type="Sprite2D" parent="FishingStickman/3/Catch/80/CanvasGroup" unique_id=1456851312]
+position = Vector2(1, 0)
+texture = ExtResource("88_fmu62")
+
+[node name="GlowingStar2" parent="FishingStickman/3/Catch/80" unique_id=306568122 instance=ExtResource("18_bkh5n")]
+layout_mode = 1
+anchor_left = -0.17500001
+anchor_top = 0.025
+anchor_right = -0.17500001
+anchor_bottom = 0.025
+offset_left = 15.0
+offset_top = -1.0
+offset_right = 15.0
+offset_bottom = -1.0
+
+[node name="GlowingStar" parent="FishingStickman/3/Catch/80" unique_id=251688120 instance=ExtResource("18_bkh5n")]
+layout_mode = 1
+anchor_left = -0.17500001
+anchor_top = 0.025
+anchor_right = -0.17500001
+anchor_bottom = 0.025
+offset_left = 5.0
+offset_top = 2.0
+offset_right = 5.0
+offset_bottom = 2.0
+
+[node name="GlowingStar3" parent="FishingStickman/3/Catch/80" unique_id=1145172782 instance=ExtResource("18_bkh5n")]
+layout_mode = 1
+anchor_left = -0.17500001
+anchor_top = 0.025
+anchor_right = -0.17500001
+anchor_bottom = 0.025
+offset_left = -2.9999995
+offset_top = -4.0
+offset_right = -2.9999995
+offset_bottom = -4.0
+
 [node name="DayNightCycle" type="Control" parent="." unique_id=1220443328]
 visible = false
 modulate = Color(1, 1, 1, 0.85)
@@ -1531,7 +3237,6 @@ anchors_preset = 0
 offset_right = 500.0
 offset_bottom = 350.0
 script = ExtResource("3_ikc4f")
-metadata/_edit_lock_ = true
 
 [node name="0" type="TextureRect" parent="DayNightCycle" unique_id=2083368676]
 visible = false
@@ -1728,9 +3433,9 @@ texture = SubResource("GradientTexture2D_huh6y")
 [node name="FishingBar" type="Control" parent="." unique_id=1603995083]
 anchors_preset = 0
 offset_left = 270.0
-offset_top = 316.0
+offset_top = 315.0
 offset_right = 270.0
-offset_bottom = 316.0
+offset_bottom = 315.0
 
 [node name="Guardian" type="Polygon2D" parent="FishingBar" unique_id=939358729]
 color = Color(0, 1, 1, 0.3019608)
@@ -1921,9 +3626,9 @@ antialiased = true
 [node name="Score" type="Control" parent="." unique_id=1141356133 node_paths=PackedStringArray("todayText", "scoreText", "recordText")]
 anchors_preset = 0
 offset_left = 281.0
-offset_top = 119.0
+offset_top = 118.0
 offset_right = 321.0
-offset_bottom = 159.0
+offset_bottom = 158.0
 script = ExtResource("15_lcspj")
 todayText = NodePath("todayText")
 scoreText = NodePath("scoreText")
@@ -2022,9 +3727,8 @@ horizontal_alignment = 2
 
 [node name="Mastery" type="Control" parent="." unique_id=1242574692]
 anchors_preset = 0
-offset_top = 1.0
 offset_right = 40.0
-offset_bottom = 41.0
+offset_bottom = 40.0
 
 [node name="Mastery" type="Label" parent="Mastery" unique_id=1478074934]
 layout_mode = 0
@@ -2077,9 +3781,9 @@ horizontal_alignment = 2
 
 [node name="Fatigue" type="Control" parent="." unique_id=1563951284]
 anchors_preset = 0
-offset_top = 21.0
+offset_top = 20.0
 offset_right = 40.0
-offset_bottom = 61.0
+offset_bottom = 60.0
 
 [node name="Fatigue" type="Label" parent="Fatigue" unique_id=1977801465]
 layout_mode = 0
@@ -2129,8 +3833,9 @@ horizontal_alignment = 2
 
 [node name="Skill" type="Control" parent="." unique_id=2132425196 node_paths=PackedStringArray("fishLevelText")]
 anchors_preset = 0
+offset_top = -1.0
 offset_right = 40.0
-offset_bottom = 40.0
+offset_bottom = 39.0
 script = ExtResource("27_44pc7")
 fishLevelText = NodePath("fishLevelText")
 
@@ -2193,6 +3898,7 @@ horizontal_alignment = 1
 [connection signal="visibility_changed" from="FishingStickman/2/3/Rod" to="FishingStickman/2/3/Rod" method="OnVisibilityChanged"]
 [connection signal="visibility_changed" from="FishingStickman/2/4/Rod" to="FishingStickman/2/4/Rod" method="OnVisibilityChanged"]
 [connection signal="visibility_changed" from="FishingStickman/3/Rod" to="FishingStickman/3/Rod" method="OnVisibilityChanged"]
+[connection signal="draw" from="FishingStickman/3/Catch" to="FishingStickman/3/Catch" method="OnDraw"]
 [connection signal="visibility_changed" from="FishingBar/ScorePop/Catch" to="FishingBar/ScorePop/Catch" method="OnVisibilityChanged"]
 [connection signal="visibility_changed" from="FishingBar/ScorePop/Guardian" to="FishingBar/ScorePop/Guardian" method="OnVisibilityChanged"]
 [connection signal="visibility_changed" from="FishingBar/ScorePop/Perfect" to="FishingBar/ScorePop/Perfect" method="OnVisibilityChanged"]

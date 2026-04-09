@@ -3,9 +3,86 @@
 [ext_resource type="Script" uid="uid://l0uirrs42156" path="res://src/Pages/Main/House.cs" id="1_3rxla"]
 [ext_resource type="PackedScene" uid="uid://xp2ssc00cfow" path="res://src/BattleArena/BattleArena.tscn" id="2_qbml2"]
 [ext_resource type="PackedScene" uid="uid://bh0mxmvn7arjl" path="res://src/ButtonMachine/ButtonMachine.tscn" id="3_f448l"]
-[ext_resource type="PackedScene" uid="uid://c2noe6pd4tw2" path="res://src/Feature/FeatureMenu/FeatureMenu.tscn" id="3_qbml2"]
 [ext_resource type="PackedScene" uid="uid://bfv4a2w06mv1x" path="res://src/Fishing/Fishing.tscn" id="4_foj2i"]
 [ext_resource type="Script" uid="uid://86kb8f5bpoay" path="res://src/Feature/Switcher.cs" id="5_bq58a"]
+[ext_resource type="Script" uid="uid://bwdykkshog0bi" path="res://src/Feature/FeatureMenu.cs" id="6_evfyr"]
+[ext_resource type="Texture2D" uid="uid://bpg0nblah2xki" path="res://src/MainMenu/1600.png" id="6_onxsk"]
+[ext_resource type="FontFile" uid="uid://dlp7fy0ywsxnl" path="res://common_assets/fonts/McLaren-Regular.ttf" id="8_ftdj4"]
+
+[sub_resource type="Gradient" id="Gradient_h7epk"]
+interpolation_mode = 1
+offsets = PackedFloat32Array(0, 0.25)
+colors = PackedColorArray(0.223529, 0.223529, 0.223529, 1, 0.184314, 0.184314, 0.184314, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_leeg0"]
+gradient = SubResource("Gradient_h7epk")
+fill_to = Vector2(0, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_we20k"]
+texture = SubResource("GradientTexture2D_leeg0")
+
+[sub_resource type="Gradient" id="Gradient_leeg0"]
+interpolation_mode = 1
+offsets = PackedFloat32Array(0, 0.25)
+colors = PackedColorArray(0.321569, 0.321569, 0.321569, 1, 0.282353, 0.282353, 0.27451, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_we20k"]
+gradient = SubResource("Gradient_leeg0")
+fill_to = Vector2(0, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_l2dqf"]
+texture = SubResource("GradientTexture2D_we20k")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ja4ly"]
+draw_center = false
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Gradient" id="Gradient_jcklw"]
+interpolation_mode = 1
+offsets = PackedFloat32Array(0, 0.25)
+colors = PackedColorArray(0.223529, 0.223529, 0.223529, 1, 0.184314, 0.184314, 0.184314, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_m63go"]
+gradient = SubResource("Gradient_jcklw")
+fill_to = Vector2(0, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mmoty"]
+texture = SubResource("GradientTexture2D_m63go")
+
+[sub_resource type="Gradient" id="Gradient_7qgdc"]
+interpolation_mode = 1
+offsets = PackedFloat32Array(0, 0.25)
+colors = PackedColorArray(0.321569, 0.321569, 0.321569, 1, 0.282353, 0.282353, 0.27451, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_yn5ip"]
+gradient = SubResource("Gradient_7qgdc")
+fill_to = Vector2(0, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_n5hwk"]
+texture = SubResource("GradientTexture2D_yn5ip")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1hjlj"]
+draw_center = false
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_h7epk"]
+diffuse_texture = ExtResource("6_onxsk")
+texture_filter = 1
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_leeg0"]
+load_path = "res://.godot/imported/1601.png-4a4d559720badfb73e7ded96e68b8bda.ctex"
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_we20k"]
+diffuse_texture = SubResource("CompressedTexture2D_leeg0")
+texture_filter = 1
 
 [node name="FeatureContainer" type="Control" unique_id=1607928116]
 custom_minimum_size = Vector2(500, 350)
@@ -14,10 +91,10 @@ anchor_left = 0.017
 anchor_top = 0.029
 anchor_right = 0.786
 anchor_bottom = 0.659
-offset_left = -1.05
+offset_left = -1.0500002
 offset_top = -7.95
-offset_right = -0.899994
-offset_bottom = -3.19
+offset_right = -0.8999939
+offset_bottom = -3.1900024
 size_flags_horizontal = 0
 size_flags_vertical = 0
 
@@ -47,42 +124,164 @@ scenes = Dictionary[String, PackedScene]({
 })
 metadata/_custom_type_script = "uid://c5ahmxs2w5th2"
 
-[node name="FeatureMenu" parent="." unique_id=1644650280 instance=ExtResource("3_qbml2")]
+[node name="FeatureMenu" type="Control" parent="ReferenceRect" unique_id=23541443 node_paths=PackedStringArray("area")]
+layout_mode = 1
+anchor_left = 0.8
+anchor_right = 1.0
+anchor_bottom = 0.061000004
+offset_bottom = -0.16986275
+script = ExtResource("6_evfyr")
+area = NodePath("..")
+
+[node name="Closed" type="Button" parent="ReferenceRect/FeatureMenu" unique_id=753775686]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 0
+mouse_default_cursor_shape = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("8_ftdj4")
+theme_override_font_sizes/font_size = 12
+theme_override_styles/normal = SubResource("StyleBoxTexture_we20k")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_we20k")
+theme_override_styles/hover = SubResource("StyleBoxTexture_l2dqf")
+text = "World"
+
+[node name="Outline" type="Panel" parent="ReferenceRect/FeatureMenu/Closed" unique_id=1749156372]
 layout_mode = 0
-offset_left = 400.0
-offset_right = 500.0
+offset_right = 100.0
 offset_bottom = 25.0
-scenes = {}
+mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBoxFlat_ja4ly")
 
-[node name="Button2" type="Button" parent="." unique_id=807597842 node_paths=PackedStringArray("house")]
-layout_mode = 0
-offset_left = 1.0
-offset_top = -32.9
-offset_right = 133.0
-offset_bottom = -1.9000015
-text = "battle arena"
-script = ExtResource("5_bq58a")
-house = NodePath("../ReferenceRect/House")
-scene = "BattleArena"
+[node name="Open" type="VBoxContainer" parent="ReferenceRect/FeatureMenu" unique_id=2027759967]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 2.913
+offset_top = 0.099998474
+offset_bottom = 0.012130737
+theme_override_constants/separation = -1
+metadata/_edit_group_ = true
 
-[node name="Button" type="Button" parent="." unique_id=1303065664 node_paths=PackedStringArray("house")]
-layout_mode = 0
-offset_left = 134.0
-offset_top = -32.9
-offset_right = 266.0
-offset_bottom = -1.9000015
-text = "button machine"
+[node name="World" type="Button" parent="ReferenceRect/FeatureMenu/Open" unique_id=704440269 node_paths=PackedStringArray("house")]
+custom_minimum_size = Vector2(100, 25)
+layout_mode = 2
+focus_mode = 0
+mouse_default_cursor_shape = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("8_ftdj4")
+theme_override_font_sizes/font_size = 12
+theme_override_styles/normal = SubResource("StyleBoxTexture_mmoty")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_mmoty")
+theme_override_styles/hover = SubResource("StyleBoxTexture_n5hwk")
+text = "Fishing"
 script = ExtResource("5_bq58a")
-house = NodePath("../ReferenceRect/House")
+house = NodePath("../../../House")
+scene = "Fishing"
+
+[node name="Outline" type="Panel" parent="ReferenceRect/FeatureMenu/Open/World" unique_id=764042594]
+layout_mode = 0
+offset_right = 100.0
+offset_bottom = 25.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_1hjlj")
+
+[node name="World2" type="Button" parent="ReferenceRect/FeatureMenu/Open" unique_id=933931991 node_paths=PackedStringArray("house")]
+custom_minimum_size = Vector2(100, 25)
+layout_mode = 2
+focus_mode = 0
+mouse_default_cursor_shape = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("8_ftdj4")
+theme_override_font_sizes/font_size = 12
+theme_override_styles/normal = SubResource("StyleBoxTexture_mmoty")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_mmoty")
+theme_override_styles/hover = SubResource("StyleBoxTexture_n5hwk")
+text = "Button"
+script = ExtResource("5_bq58a")
+house = NodePath("../../../House")
 scene = "ButtonMachine"
 
-[node name="Button3" type="Button" parent="." unique_id=17375925 node_paths=PackedStringArray("house")]
+[node name="Outline" type="Panel" parent="ReferenceRect/FeatureMenu/Open/World2" unique_id=2021679073]
 layout_mode = 0
-offset_left = 268.0
-offset_top = -31.900002
-offset_right = 400.0
-offset_bottom = -0.9000015
-text = "fishing"
+offset_right = 100.0
+offset_bottom = 25.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_1hjlj")
+
+[node name="World3" type="Button" parent="ReferenceRect/FeatureMenu/Open" unique_id=191596566 node_paths=PackedStringArray("house")]
+custom_minimum_size = Vector2(100, 25)
+layout_mode = 2
+focus_mode = 0
+mouse_default_cursor_shape = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("8_ftdj4")
+theme_override_font_sizes/font_size = 12
+theme_override_styles/normal = SubResource("StyleBoxTexture_mmoty")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_mmoty")
+theme_override_styles/hover = SubResource("StyleBoxTexture_n5hwk")
+text = "Battle Arena"
 script = ExtResource("5_bq58a")
-house = NodePath("../ReferenceRect/House")
-scene = "Fishing"
+house = NodePath("../../../House")
+scene = "BattleArena"
+
+[node name="Outline" type="Panel" parent="ReferenceRect/FeatureMenu/Open/World3" unique_id=64949182]
+layout_mode = 0
+offset_right = 100.0
+offset_bottom = 25.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_1hjlj")
+
+[node name="UpArrow" type="Control" parent="." unique_id=131035839]
+visible = false
+custom_minimum_size = Vector2(100, 25)
+anchors_preset = 0
+offset_left = 400.0
+offset_top = 0.099998474
+offset_right = 500.0
+offset_bottom = 25.099998
+mouse_filter = 1
+
+[node name="Button" type="TextureButton" parent="UpArrow" unique_id=1067519526]
+modulate = Color(1.506, 1.506, 1, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_default_cursor_shape = 2
+texture_normal = SubResource("CanvasTexture_h7epk")
+texture_pressed = SubResource("CanvasTexture_h7epk")
+texture_hover = SubResource("CanvasTexture_we20k")
+stretch_mode = 0
+
+[node name="Outline" type="Panel" parent="UpArrow" unique_id=1960501725]
+modulate = Color(1.5, 1.5, 1, 1)
+layout_mode = 0
+offset_right = 100.0
+offset_bottom = 25.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_1hjlj")
+
+[node name="Polygon2D" type="Polygon2D" parent="UpArrow" unique_id=621920781]
+clip_children = 2
+position = Vector2(34, 4)
+scale = Vector2(2, 1.25)
+polygon = PackedVector2Array(0, 12, 15, 12, 7.5, 0)
+uv = PackedVector2Array(0, 0, 17, 12, 32, 0)
+vertex_colors = PackedColorArray(1, 1, 0, 1, 1, 1, 0, 1, 1, 1, 0, 1)
+
+[node name="Line2D" type="Line2D" parent="UpArrow/Polygon2D" unique_id=136843591]
+points = PackedVector2Array(0, 12, 15, 12, 7.5, 0, 0, 12)
+width = 1.0
+default_color = Color(0, 0, 0, 1)
+
+[connection signal="mouse_entered" from="ReferenceRect/FeatureMenu/Closed" to="ReferenceRect/FeatureMenu" method="OnClosedMouseEntered"]
+[connection signal="mouse_exited" from="ReferenceRect/FeatureMenu/Closed" to="ReferenceRect/FeatureMenu" method="OnClosedMouseExited"]
+[connection signal="mouse_exited" from="ReferenceRect/FeatureMenu/Open" to="ReferenceRect/FeatureMenu" method="OnOpenMouseExited"]

@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://b1r77kl7iwve0"]
+
+[ext_resource type="Script" uid="uid://dslesbwkevsma" path="res://src/UI/GlowingStar/GlowingStar.cs" id="1_67r6l"]
+[ext_resource type="Shader" uid="uid://diwjjmvaociaa" path="res://src/UI/Glow.gdshader" id="2_fdrgn"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_70xrw"]
+shader = ExtResource("2_fdrgn")
+shader_parameter/original_alpha = 1.0
+shader_parameter/drop_shadow_color = Color(1, 1, 1, 1)
+shader_parameter/shadow_offset_x = 2.3290699924238822e-09
+shader_parameter/shadow_offset_y = 2.3290699924238822e-09
+shader_parameter/shadow_scale = Vector2(1, 1)
+shader_parameter/shadow_rotation = 0.0
+shader_parameter/rotation_pivot = Vector2(0.5, 0.5)
+shader_parameter/shadow_blur_strength = 1.0000000475
+shader_parameter/shadow_blur_samples = 4
+shader_parameter/_blur_scale_factor = 20.0
+
+[node name="GlowingStar" type="Control" unique_id=865939481]
+layout_mode = 3
+script = ExtResource("1_67r6l")
+
+[node name="CanvasGroup" type="CanvasGroup" parent="." unique_id=2021700221]
+material = SubResource("ShaderMaterial_70xrw")
+
+[node name="Polygon2D" type="Polygon2D" parent="CanvasGroup" unique_id=421793853]
+polygon = PackedVector2Array(0, -4, -1.05, -1.05, -4.2, -0.95, -1.7, 1.05, -2.6, 4.1, 0, 2.3, 2.6, 4.1, 1.7, 1.05, 4.2, -0.95, 1.05, -1.05)

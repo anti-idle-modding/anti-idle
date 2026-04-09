@@ -257,8 +257,8 @@ public partial class Fishing : Control
 
         if (
             _root.fishStatus == 1
-            && Math.random() < fishFreq / 40
-            && _root.fishCount < _root.save.fishCapacity /* && fishPop._currentframe == 1 && bonusPop._currentframe == 1 */
+            && (Math.random() / Const.Slowdown(delta)) < fishFreq / 40
+            && _root.fishCount < _root.save.fishCapacity /* && fishPop._currentframe == 1 && bonusPop._currentframe == 1 */ // TODO
         )
         {
             _root.fishStatus = 2;
