@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://8ohey26g64w3"]
+
+[ext_resource type="Shader" uid="uid://bfkqvpblx4gha" path="res://src/Shaders/FlashBlur.gdshader" id="1_8hpwc"]
+[ext_resource type="Texture2D" uid="uid://slm1wqrwal74" path="res://src/Fishing/Stickman/Stickman1.svg" id="1_jxk70"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_31axh"]
+shader = ExtResource("1_8hpwc")
+
+[node name="Control" type="Control" unique_id=70470803]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_lock_ = true
+
+[node name="Stickman1" type="Sprite2D" parent="." unique_id=1904754082]
+material = SubResource("ShaderMaterial_31axh")
+position = Vector2(122.00001, 34)
+scale = Vector2(4.241935, 4.8205132)
+texture = ExtResource("1_jxk70")
+centered = false
