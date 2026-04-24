@@ -105,6 +105,7 @@
 [ext_resource type="Texture2D" uid="uid://mwa6ria1pp0l" path="res://src/Fishing/Catch/Fish26.svg" id="86_s3074"]
 [ext_resource type="Texture2D" uid="uid://bqo5o3sx56jvl" path="res://src/Fishing/Catch/Fish27.svg" id="87_wf613"]
 [ext_resource type="Texture2D" uid="uid://dhreetjj40vn3" path="res://src/Fishing/Catch/Fish28.svg" id="88_fmu62"]
+[ext_resource type="Shader" uid="uid://bfkqvpblx4gha" path="res://src/Shaders/FlashBlur.gdshader" id="103_kkq5y"]
 
 [sub_resource type="FontVariation" id="FontVariation_4rgnw"]
 base_font = ExtResource("14_cbp8y")
@@ -163,12 +164,12 @@ _data = {
 &"new_animation": SubResource("Animation_sd18a")
 }
 
-[sub_resource type="Gradient" id="Gradient_og3bj"]
+[sub_resource type="Gradient" id="Gradient_qd3yd"]
 offsets = PackedFloat32Array(0, 0.16, 0.36, 0.5, 0.67, 0.83, 1)
 colors = PackedColorArray(1, 0, 0, 1, 1, 1, 0, 1, 0, 1, 0, 1, 0, 1, 1, 1, 0, 0, 1, 1, 1, 0, 1, 1, 1, 0, 0, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_bkh5n"]
-gradient = SubResource("Gradient_og3bj")
+gradient = SubResource("Gradient_qd3yd")
 fill_to = Vector2(0, 0.997558)
 
 [sub_resource type="Animation" id="Animation_og3bj"]
@@ -547,6 +548,17 @@ metadata/_snap_count = 3
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_og3bj"]
 gradient = SubResource("Gradient_sd18a")
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8ij75"]
+shader = ExtResource("103_kkq5y")
+shader_parameter/glow_color = Color(0, 0.4, 0, 1)
+shader_parameter/strength = 5.000000074506
+shader_parameter/blur_x = 5.0
+shader_parameter/blur_y = 5.0
+shader_parameter/passes = 2
+shader_parameter/inner_glow = false
+shader_parameter/knockout = false
+shader_parameter/composite_source = true
+
 [sub_resource type="Gradient" id="Gradient_bkh5n"]
 offsets = PackedFloat32Array(0)
 colors = PackedColorArray(0.09803922, 0.19607843, 0.09803922, 1)
@@ -562,6 +574,17 @@ colors = PackedColorArray(0.24313726, 0.63529414, 0.22352941, 1)
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_lkdo3"]
 gradient = SubResource("Gradient_jngfh")
 width = 50
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1gtiw"]
+shader = ExtResource("103_kkq5y")
+shader_parameter/glow_color = Color(0.078431375, 0.39215687, 0.078431375, 1)
+shader_parameter/strength = 10.000000149012
+shader_parameter/blur_x = 5.0
+shader_parameter/blur_y = 5.0
+shader_parameter/passes = 2
+shader_parameter/inner_glow = false
+shader_parameter/knockout = false
+shader_parameter/composite_source = true
 
 [node name="Fishing" type="Control" unique_id=2114053251 node_paths=PackedStringArray("scoreDisp")]
 layout_mode = 3
@@ -3730,14 +3753,17 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="Mastery" type="Label" parent="Mastery" unique_id=1478074934]
-layout_mode = 0
+[node name="CanvasGroup" type="CanvasGroup" parent="Mastery" unique_id=273696312]
+material = SubResource("ShaderMaterial_8ij75")
+fit_margin = 56.0
+clear_margin = 50.0
+
+[node name="Mastery" type="Label" parent="Mastery/CanvasGroup" unique_id=1478074934]
 offset_left = 66.0
 offset_top = 15.0
 offset_right = 128.0
 offset_bottom = 38.0
 theme_override_colors/font_color = Color(0, 1, 0, 1)
-theme_override_colors/font_shadow_color = Color(0, 1, 0, 0.20392157)
 theme_override_constants/shadow_offset_x = 0
 theme_override_constants/shadow_offset_y = 0
 theme_override_constants/shadow_outline_size = 7
@@ -3859,8 +3885,10 @@ offset_bottom = 58.0
 texture = SubResource("GradientTexture1D_lkdo3")
 metadata/_edit_group_ = true
 
-[node name="Skill" type="Label" parent="Skill" unique_id=1597879374]
-layout_mode = 0
+[node name="CanvasGroup" type="CanvasGroup" parent="Skill" unique_id=2048471200]
+material = SubResource("ShaderMaterial_1gtiw")
+
+[node name="Skill" type="Label" parent="Skill/CanvasGroup" unique_id=1597879374]
 offset_left = -9.0
 offset_top = 4.0
 offset_right = 79.0

@@ -1,10 +1,7 @@
 [gd_scene format=3 uid="uid://8ohey26g64w3"]
 
-[ext_resource type="Shader" uid="uid://bfkqvpblx4gha" path="res://src/Shaders/FlashBlur.gdshader" id="1_8hpwc"]
 [ext_resource type="Texture2D" uid="uid://slm1wqrwal74" path="res://src/Fishing/Stickman/Stickman1.svg" id="1_jxk70"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_31axh"]
-shader = ExtResource("1_8hpwc")
+[ext_resource type="FontFile" uid="uid://c2ufmsayuh13g" path="res://common_assets/fonts/Bienvenu.ttf" id="3_31axh"]
 
 [node name="Control" type="Control" unique_id=70470803]
 layout_mode = 3
@@ -15,9 +12,67 @@ grow_horizontal = 2
 grow_vertical = 2
 metadata/_edit_lock_ = true
 
-[node name="Stickman1" type="Sprite2D" parent="." unique_id=1904754082]
-material = SubResource("ShaderMaterial_31axh")
-position = Vector2(122.00001, 34)
-scale = Vector2(4.241935, 4.8205132)
+[node name="Mastery2" type="Label" parent="." unique_id=299756291]
+layout_mode = 0
+offset_left = 88.0
+offset_top = 261.0
+offset_right = 132.0
+offset_bottom = 278.0
+theme_override_colors/font_color = Color(0.19607843, 0.98039216, 0.19607843, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 0
+theme_override_constants/shadow_outline_size = 7
+theme_override_fonts/font = ExtResource("3_31axh")
+theme_override_font_sizes/font_size = 15
+text = "Skill"
+
+[node name="Mastery3" type="Label" parent="." unique_id=1531338029]
+layout_mode = 0
+offset_left = 120.0
+offset_top = 196.0
+offset_right = 266.0
+offset_bottom = 266.0
+theme_override_colors/font_color = Color(0.19607843, 0.98039216, 0.19607843, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 0
+theme_override_constants/shadow_outline_size = 7
+theme_override_fonts/font = ExtResource("3_31axh")
+theme_override_font_sizes/font_size = 50
+text = "Skill"
+
+[node name="CanvasGroup" type="CanvasGroup" parent="." unique_id=22486401]
+fit_margin = 20.0
+
+[node name="Mastery" type="Label" parent="CanvasGroup" unique_id=1702470862]
+offset_left = 100.0
+offset_top = 300.0
+offset_right = 144.0
+offset_bottom = 317.0
+theme_override_colors/font_color = Color(0.19607843, 0.98039216, 0.19607843, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 0
+theme_override_constants/shadow_outline_size = 7
+theme_override_fonts/font = ExtResource("3_31axh")
+theme_override_font_sizes/font_size = 15
+text = "Skill"
+
+[node name="Stickman1" type="Sprite2D" parent="CanvasGroup" unique_id=1904754082]
+position = Vector2(288.00003, 20)
+scale = Vector2(4.2419357, 4.2735043)
 texture = ExtResource("1_jxk70")
 centered = false
+
+[node name="Mastery" type="Label" parent="." unique_id=75249354]
+visible = false
+layout_mode = 0
+offset_left = 206.0
+offset_top = 125.0
+offset_right = 620.0
+offset_bottom = 235.0
+theme_override_colors/font_color = Color(0, 1, 0, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 0
+theme_override_constants/shadow_outline_size = 7
+theme_override_fonts/font = ExtResource("3_31axh")
+theme_override_font_sizes/font_size = 15
+text = "Mastery"

@@ -6,16 +6,15 @@
 [ext_resource type="FontFile" uid="uid://undd4htvlr06" path="res://common_assets/fonts/PF Tempesta Seven_893.ttf" id="3_0yiv2"]
 [ext_resource type="Script" uid="uid://ddqctysdkgjny" path="res://src/Loader/LoadingBar.cs" id="5_cd1m6"]
 
-[node name="Loader" type="Node2D"]
-visible = false
+[node name="Loader" type="Node2D" unique_id=332533189]
 script = ExtResource("1_2blfs")
 
-[node name="Bg" type="ColorRect" parent="."]
+[node name="Bg" type="ColorRect" parent="." unique_id=926403142]
 offset_right = 650.0
 offset_bottom = 650.0
 color = Color(0.2, 0.2, 0.2, 1)
 
-[node name="LoadingBox" type="Control" parent="."]
+[node name="LoadingBox" type="Control" parent="." unique_id=366493896]
 layout_mode = 3
 anchors_preset = 0
 offset_left = 175.0
@@ -24,25 +23,25 @@ offset_right = 475.0
 offset_bottom = 500.0
 script = ExtResource("2_jksyv")
 
-[node name="BgRects" type="Control" parent="LoadingBox"]
+[node name="BgRects" type="Control" parent="LoadingBox" unique_id=1566500377]
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="BgRect1" type="ColorRect" parent="LoadingBox/BgRects"]
+[node name="BgRect1" type="ColorRect" parent="LoadingBox/BgRects" unique_id=1774083256]
 layout_mode = 0
 offset_right = 300.0
 offset_bottom = 50.0
 color = Color(0.4, 0.4, 0.4, 1)
 
-[node name="BgRect2" type="ColorRect" parent="LoadingBox/BgRects"]
+[node name="BgRect2" type="ColorRect" parent="LoadingBox/BgRects" unique_id=1878580444]
 layout_mode = 0
 offset_top = 70.0
 offset_right = 300.0
 offset_bottom = 120.0
 color = Color(0.4, 0.4, 0.4, 1)
 
-[node name="randomMessage" type="RichTextLabel" parent="LoadingBox"]
+[node name="randomMessage" type="RichTextLabel" parent="LoadingBox" unique_id=209473679]
 layout_mode = 0
 offset_top = 73.0
 offset_right = 300.0
@@ -51,7 +50,7 @@ theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_fonts/normal_font = ExtResource("3_0yiv2")
 theme_override_font_sizes/normal_font_size = 10
 
-[node name="AntiIdleIsLoading" type="RichTextLabel" parent="LoadingBox"]
+[node name="AntiIdleIsLoading" type="RichTextLabel" parent="LoadingBox" unique_id=1195039805]
 layout_mode = 0
 offset_left = 3.0
 offset_top = 4.0
@@ -62,7 +61,7 @@ theme_override_fonts/normal_font = ExtResource("2_2voco")
 theme_override_font_sizes/normal_font_size = 10
 text = "Anti-Idle: The Game is loading..."
 
-[node name="LoadingBarBg" type="ColorRect" parent="LoadingBox"]
+[node name="LoadingBarBg" type="ColorRect" parent="LoadingBox" unique_id=351894794]
 layout_mode = 0
 offset_left = 25.0
 offset_top = 25.0
@@ -70,7 +69,7 @@ offset_right = 275.0
 offset_bottom = 40.0
 color = Color(0, 0.4, 0, 1)
 
-[node name="LoadingBar" type="ColorRect" parent="LoadingBox"]
+[node name="LoadingBar" type="ColorRect" parent="LoadingBox" unique_id=2107430123]
 layout_mode = 0
 offset_left = 25.0
 offset_top = 25.0
